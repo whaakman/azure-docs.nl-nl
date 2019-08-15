@@ -1,6 +1,6 @@
 ---
-title: Azure-beveiliging en naleving blauwdruk - webtoepassing IaaS met drie lagen voor UK-OFFICIAL
-description: Azure-beveiliging en naleving blauwdruk - webtoepassing IaaS met drie lagen voor UK-OFFICIAL
+title: Azure-blauwdruk voor beveiliging en naleving-IaaS-webtoepassing met drie lagen voor UK-officiële
+description: Azure-blauwdruk voor beveiliging en naleving-IaaS-webtoepassing met drie lagen voor UK-officiële
 services: security
 author: jomolesk
 ms.assetid: 9c32e836-0564-4906-9e15-f070d2707e63
@@ -8,231 +8,231 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609504"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946530"
 ---
-# <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-beveiliging en naleving blauwdruk - webtoepassing IaaS met drie lagen voor UK-OFFICIAL
+# <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-blauwdruk voor beveiliging en naleving-IaaS-webtoepassing met drie lagen voor UK-officiële
 
 ## <a name="overview"></a>Overzicht
 
- Dit artikel bevat richtlijnen en automation-scripts voor het leveren van een architectuur geschikt is voor het verwerken van veel werkbelastingen die zijn geclassificeerd als officiële in het Verenigd Koninkrijk webtoepassingen met drie lagen op basis van Microsoft Azure.
+ Dit artikel bevat richt lijnen en automatiserings scripts voor het leveren van een Microsoft Azure architectuur op basis van drie lagen die geschikt is voor het verwerken van veel werk belastingen die zijn geclassificeerd als officieel in het Verenigd Konink rijk.
 
- Met behulp van een infrastructuur als Code benadering, de set [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) sjablonen implementeren een omgeving die wordt uitgelijnd op het Verenigd Koninkrijk nationale Cyber beveiliging centrum (NCSC) 14 [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) en het Center for Internet Security (CIS) [kritieke beveiligingscontroles](https://www.cisecurity.org/critical-controls.cfm).
+ Met behulp van een infra structuur als code benadering kunt u met de set [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) -sjablonen een omgeving implementeren die wordt afgestemd op de NCSC-14- [Cloud BEVEILIGINGS principes](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) van [UK National Cyber Kritieke beveiligings controles](https://www.cisecurity.org/critical-controls.cfm).
 
- De NCSC raden aan hun Cloud Security Principles door klanten worden gebruikt om te evalueren van de eigenschappen voor de beveiliging van de service en voor meer informatie over de verdeling van de verantwoordelijkheid tussen de klant en de leverancier. Bevat informatie voor elk van deze principes om te begrijpen van de splitsing van verantwoordelijkheden.
+ De NCSC raden de beveiligings principes van de Cloud door klanten te gebruiken om de beveiligings eigenschappen van de service te evalueren en om inzicht te krijgen in de verantwoordelijkheid van de functie van de klant en de leverancier. We hebben informatie over elk van deze principes gegeven om u te helpen inzicht te krijgen in de splitsing van verantwoordelijkheden.
 
- Deze architectuur en de bijbehorende Azure Resource Manager-sjablonen worden ondersteund door de Microsoft-whitepaper [14 Cloud beveiligingsmaatregelen voor het Verenigd Koninkrijk in de cloud met behulp van Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Dit document catalogi hoe Azure-services zijn afgestemd op het Verenigd Koninkrijk NCSC 14 Cloud beveiligingsprincipes, waardoor u organisaties fast track hun mogelijkheden om te voldoen aan hun verplichtingen met behulp van cloud-gebaseerde services wereldwijd en in het Verenigd Koninkrijk op de Microsoft Azure cloud.
+ Deze architectuur en bijbehorende Azure Resource Manager sjablonen worden ondersteund door de micro soft-white paper- [beveiligings controles voor de 14-Cloud voor UK in de Cloud met behulp van Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). In dit document wordt uitgelegd hoe Azure-Services worden afgestemd op de UK NCSC 14-Cloud beveiligings principes, waardoor organisaties snel hun capaciteit kunnen volgen om te voldoen aan hun nalevings verplichtingen met behulp van wereld wijde Cloud Services en in het UK op het Microsoft Azure Cloud.
 
- Deze sjabloon implementeert de infrastructuur voor de werkbelasting. Toepassingscode en de ondersteunende bedrijfslaag en software van gegevens van de laag moeten worden geïnstalleerd en geconfigureerd. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/ukwebappblueprintrepo).
+ Met deze sjabloon wordt de infra structuur voor de werk belasting geïmplementeerd. Toepassings code en ondersteunende software voor bedrijfslaag en gegevenslaag moeten worden geïnstalleerd en geconfigureerd. Gedetailleerde implementatie-instructies zijn [hier](https://aka.ms/ukwebappblueprintrepo)beschikbaar.
 
- Als u niet een Azure-abonnement hebt en u kunt zich aanmelden, snel en eenvoudig - [aan de slag met Azure](https://azure.microsoft.com/get-started/).
+ Als u geen Azure-abonnement hebt, kunt u snel aan de [slag met Azure](https://azure.microsoft.com/get-started/).
 
-## <a name="architecture-diagram-and-components"></a>Diagram van architectuur en onderdelen
+## <a name="architecture-diagram-and-components"></a>Architectuur diagram en onderdelen
 
- De Azure-sjablonen bieden een toepassingsarchitectuur webtoepassingen met drie lagen in een Azure-cloud-omgeving die ondersteuning biedt voor UK-OFFICIAL werkbelastingen. De architectuur biedt een beveiligde hybride omgeving die uitgebreider is dan een on-premises netwerk met Azure zodat op basis van web-workloads veilig worden geopend door zakelijke gebruikers of via internet.
+ De Azure-sjablonen bieden een architectuur voor een webtoepassing met drie lagen in een Azure-cloud omgeving die ondersteuning biedt voor UK officiële workloads. De architectuur levert een beveiligde hybride omgeving die een on-premises netwerk uitbreidt naar Azure zodat op internet gebaseerde workloads veilig kunnen worden benaderd door zakelijke gebruikers of via internet.
 
-![IaaS-webtoepassing voor drie lagen voor UK-OFFICIAL verwijzing Architectuurdiagram](images/ukofficial-iaaswa-architecture.png?raw=true "IaaS-webtoepassing voor drie lagen voor UK-OFFICIAL Architectuurdiagram van verwijzing")
+![IaaS-webtoepassing met drie lagen voor het officiële referentie architectuur diagram van UK](images/ukofficial-iaaswa-architecture.png?raw=true "IaaS-webtoepassing met drie lagen voor het officiële referentie architectuur diagram van UK")
 
- Deze oplossing maakt gebruik van de volgende Azure-services. Details van de implementatiearchitectuur bevinden zich in de [architectuur](#deployment-architecture) sectie.
+ Deze oplossing maakt gebruik van de volgende Azure-Services. Details van de implementatie architectuur vindt u in de sectie [implementatie architectuur](#deployment-architecture) .
 
-(1) /16 virtueel netwerk - operationele VNet
-- (3) /24 subnetten - 3-laagse (Web, Biz, gegevens)
-- (1) /27 subnet - wordt toegevoegd
-- (1) /27 subnet - Gateway-Subnet
-- (1) /29 subnet - Subnet voor Application Gateway
-- Wordt standaard (door Azure geleverd) DNS
-- Ingeschakeld om het beheer van VNet-peering
-- Netwerkbeveiligingsgroep (NSG) voor het beheren van netwerkverkeer
+(1)/16 Virtual Network-operationeel VNet
+- (3)/24 subnetten-3-tier (Web, hoge en hoge, gegevens)
+- (1)/27 subnet-voegt
+- (1)/27 subnet-gateway subnet
+- (1)/29 subnet-Application Gateway subnet
+- Maakt gebruik van standaard-DNS (door Azure)
+- Peering is ingeschakeld voor beheer-VNet
+- Netwerk beveiligings groep (NSG) voor het beheren van de verkeers stroom
 
-(1) /24 virtueel netwerk - Management-VNet
-- (1) /27 subnet
-- Maakt gebruik van DNS voor (2) toegevoegd en (1) Azure DNS-vermeldingen
-- Ingeschakeld om operationele VNet-peering
-- Netwerkbeveiligingsgroep (NSG) voor het beheren van netwerkverkeer
+(1)/24 Virtual Network-beheer-VNet
+- (1)/27 subnet
+- Gebruik (2) voegt DNS en (1) Azure DNS vermeldingen toe
+- Peering ingeschakeld voor operationeel VNet
+- Netwerk beveiligings groep (NSG) voor het beheren van de verkeers stroom
 
-(1) application Gateway
-- WAF - ingeschakeld
-- Modus van de WAF - preventie
-- regel is ingesteld: OWASP 3.0
-- HTTP-Listener op poort 80
-- Connectiviteit/verkeer wordt geregeld via NSG
-- Openbare IP-adres-eindpunt gedefinieerd (Azure)
+(1) Application Gateway
+- WAF-ingeschakeld
+- WAF-modus-voor komen
+- Regelset: OWASP 3,0
+- HTTP-listener op poort 80
+- Connectiviteit/verkeer geregeld via NSG
+- Eind punt voor openbaar IP-adres gedefinieerd (Azure)
 
-(1) VPN - Route gebaseerde Site-2-Site IPSec VPN-tunnel
-- Openbare IP-adres-eindpunt gedefinieerd (Azure)
-- Connectiviteit/verkeer wordt geregeld via NSG
-- (1) gateway het lokale netwerk (on-premises eindpunt)
-- (1) azure-netwerkgateway (Azure-eindpunt)
+(1) VPN-op route gebaseerde, site-2-site IPSec VPN-tunnel
+- Eind punt voor openbaar IP-adres gedefinieerd (Azure)
+- Connectiviteit/verkeer geregeld via NSG
+- (1) lokale netwerk gateway (on-premises eind punt)
+- (1) Azure-netwerk gateway (Azure-eind punt)
 
-(9) virtuele Machines - alle virtuele machines worden geïmplementeerd met Azure IaaS-Antimalware DSC-instellingen
+(9) Virtual Machines: alle virtuele machines worden geïmplementeerd met de DSC-instellingen van Azure IaaS antimalware
 
-- (2) Active Directory Domain Services Domain Controllers (Windows Server 2012 R2)
-  - (2) DNS-Server-rollen - 1 per VM
-  - (2) de NIC is verbonden met de operationele VNet - 1 per VM
-  - Beide zijn toegevoegd aan het domein dat is gedefinieerd in de sjabloon-
-    - Domein gemaakt als onderdeel van de implementatie
-
-
-- (1) Jumpbox (bastionhost) Management VM
-  - 1 NIC op het beheer van VNet met openbare IP-adres
-    - NSG wordt gebruikt voor het beperken van verkeer (in/uit) naar specifieke bronnen
-  - Niet-domein
+- (2) Active Directory Domain Services domein controllers (Windows Server 2012 R2)
+  - (2) DNS-Server rollen-1 per VM
+  - (2) Nic's die zijn verbonden met operationeel VNet-1 per VM
+  - Beide zijn gekoppeld aan het domein dat in de sjabloon is gedefinieerd
+    - Het domein is gemaakt als onderdeel van de implementatie
 
 
-- (2) VM's web-laag
-  - (2) serverfuncties de IIS - 1 per VM
-  - (2) de NIC is verbonden met de operationele VNet - 1 per VM
-  - Niet-domein
+- (1) JumpBox (bastion host)-beheer-VM
+  - 1 NIC op het beheer-VNet met openbaar IP-adres
+    - NSG wordt gebruikt om het verkeer (in/uit) te beperken tot specifieke bronnen
+  - Geen lid van een domein
 
 
-- (2) biz laag virtuele machines
-  - (2) de NIC is verbonden met de operationele VNet - 1 per VM
-  - Niet-domein
+- (2) Vm's op weblaag
+  - (2) IIS-Server functies-1 per VM
+  - (2) Nic's die zijn verbonden met operationeel VNet-1 per VM
+  - Geen lid van een domein
 
 
-- (2) gegevens laag virtuele machines
-  - (2) de NIC is verbonden met de operationele VNet - 1 per VM
-  - Niet-domein
+- (2) Vm's met meerdere lagen
+  - (2) Nic's die zijn verbonden met operationeel VNet-1 per VM
+  - Geen lid van een domein
+
+
+- (2) Vm's voor de gegevenslaag
+  - (2) Nic's die zijn verbonden met operationeel VNet-1 per VM
+  - Geen lid van een domein
 
 Beschikbaarheidssets
-- (1) active Directory-domeincontroller VM ingesteld - 2 virtuele machines
-- (1) weblaag VM ingesteld - 2 virtuele machines
-- (1) VM biz laag ingesteld - 2 virtuele machines
-- (1) VM gegevens in laag ingesteld - 2 virtuele machines
+- (1) Active Directory-domein controller VM set-2 Vm's
+- (1) VM-set van de weblaag-2 Vm's
+- (1) VM-set van het hoogste niveau-2 Vm's
+- (1) VM-set van gegevenslaag-2 Vm's
 
-Load Balancer
-- (1) web laag Load Balancer
-- (1) biz laag Load Balancer
-- (1) gegevens laag Load Balancer
+Netwerktaakverdeler
+- (1) Load Balancer voor de weblaag
+- (1) Load Balancer van het hoogste niveau
+- (1) gegevenslaag Load Balancer
 
-Opslag
-- (14) het totaal Storage-Accounts
-  - Active Directory Domain Controller Availability Set
-    - (2) primaire lokaal redundante opslag (LRS)-accounts: 1 voor elke virtuele machine  
-    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de Beschikbaarheidsset wordt toegevoegd
-  - Virtuele machine Jumpbox
-    - (1) primaire lokaal redundante opslag (LRS)-account voor de Jumpbox-VM
-    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de Jumpbox-VM
-  - Web-laag virtuele machines
-    - (2) primaire lokaal redundante opslag (LRS)-accounts: 1 voor elke virtuele machine  
-    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de Web-laag-Beschikbaarheidsset
-  - Biz laag virtuele machines
-    - (2) primaire lokaal redundante opslag (LRS)-accounts: 1 voor elke virtuele machine  
-    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de Beschikbaarheidsset voor laag van Biz
-  - Gegevens laag virtuele machines
-    - (2) primaire lokaal redundante opslag (LRS)-accounts: 1 voor elke virtuele machine  
-    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de Beschikbaarheidsset voor laag van gegevens
+Storage
+- (14) totaal aantal opslag accounts
+  - Beschikbaarheidsset Active Directory-domein controller
+    - (2) primaire lokaal redundante opslag (LRS)-accounts-1 voor elke VM  
+    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de Beschikbaarheidsset toevoegen
+  - Beheer JumpBox VM
+    - (1) primair account voor lokaal redundante opslag (LRS) voor de JumpBox VM
+    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de JumpBox VM
+  - Vm's voor weblaag
+    - (2) primaire lokaal redundante opslag (LRS)-accounts-1 voor elke VM  
+    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de Beschikbaarheidsset voor de weblaag
+  - Vm's met meerdere lagen
+    - (2) primaire lokaal redundante opslag (LRS)-accounts-1 voor elke VM  
+    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de Beschikbaarheidsset met meerdere lagen
+  - Vm's van gegevenslaag
+    - (2) primaire lokaal redundante opslag (LRS)-accounts-1 voor elke VM  
+    - (1) diagnostische lokaal redundante opslag (LRS)-account voor de Beschikbaarheidsset voor de gegevenslaag
 
-### <a name="deployment-architecture"></a>Implementatie-architectuur:
+### <a name="deployment-architecture"></a>Implementatie architectuur:
 
-**On-Premises Network**: Een lokaal privénetwerk dat geïmplementeerd in een organisatie.
+**On-premises netwerk**: Een particulier lokaal netwerk dat is geïmplementeerd in een organisatie.
 
-**Productie VNet**: De productie [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (Virtueelnetwerk) als host fungeert voor de toepassing en andere operationele resources die worden uitgevoerd in Azure. Elk VNet bevat mogelijk meerdere subnetten die worden gebruikt voor het isoleren en beheren van netwerkverkeer.
+**Productie-VNet**: Het Production [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (Virtual Network) fungeert als host voor de toepassing en andere operationele resources die worden uitgevoerd in Azure. Elk VNet kan verschillende subnetten bevatten die worden gebruikt voor het isoleren en beheren van netwerk verkeer.
 
-**Web-laag**: Binnenkomende HTTP-aanvragen worden verwerkt. Antwoorden worden geretourneerd via deze laag.
+**Weblaag**: Verwerkt binnenkomende HTTP-aanvragen. Antwoorden worden via deze laag geretourneerd.
 
-**Bedrijfslaag**: Implementeert zakelijke processen en andere functionele logica voor het systeem.
+**Zakelijke laag**: Implementeert bedrijfs processen en andere functionele logica voor het systeem.
 
-**Database-laag**: Permanente gegevensopslag, met behulp van [SQL Server Always On Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx) voor hoge beschikbaarheid. Klanten kunnen gebruiken [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) als een alternatief PaaS.
+**Database laag**: Biedt permanente gegevens opslag, met behulp van SQL Server AlwaysOn- [beschikbaarheids groepen](https://msdn.microsoft.com/library/hh510230.aspx) voor hoge Beschik baarheid. Klanten kunnen [Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) als een Paas alternatief gebruiken.
 
-**Gateway**: De [VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) biedt connectiviteit tussen de routers in het on-premises netwerk en de productie-VNet.
+**Gateway**: De [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) biedt connectiviteit tussen de routers in het on-premises netwerk en het productie-VNet.
 
-**Internet-Gateway en openbare IP-adres**: Toepassingsservices voor gebruikers via het internet wordt aangegeven dat de internet-gateway. Verkeer toegang tot deze services is beveiligd met een [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) Layer 7-Routering en load balancing mogelijkheden met web application firewall (WAF) beveiliging bieden.
+**Internet gateway en openbaar IP-adres**: De Internet gateway stelt toepassings services beschikbaar voor gebruikers via internet. Verkeer dat toegang tot deze services krijgt, is beveiligd met een [Application Gateway](../../application-gateway/overview.md) met Layer 7-route ring en taakverdelings mogelijkheden met Web Application firewall-beveiliging (WAF).
 
-**Beheer van VNet**: Dit [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) bevat resources die beheer- en controlemogelijkheden voor de werkbelasting die in de productie VNet implementeren.
+**Beheer-VNet**: Dit [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) bevat bronnen voor het implementeren van beheer-en controle mogelijkheden voor de werk belastingen die worden uitgevoerd in het productie-VNet.
 
-**Jumpbox**: Ook wel een [bastionhost](https://en.wikipedia.org/wiki/Bastion_host), dit is een beveiligde virtuele machine op het netwerk die beheerders gebruiken voor verbinding met virtuele machines in de productie-VNet. De jumpbox heeft een netwerkbeveiligingsgroep die alleen extern verkeer vanaf openbare IP-adressen op een lijst met veilige adressen toelaat. Als u wilt toestaan dat verkeer van extern bureaublad (RDP), moet de oorzaak van het verkeer worden gedefinieerd in de NSG. Beheer van productieresources is via RDP met behulp van een beveiligde Jumpbox-VM.
+**JumpBox**: Dit wordt ook wel een [bastion-host](https://en.wikipedia.org/wiki/Bastion_host)genoemd. Dit is een beveiligde vm in het netwerk die beheerders gebruiken om verbinding te maken met virtuele machines in de productie-VNet. De jumpbox heeft een netwerkbeveiligingsgroep die alleen extern verkeer vanaf openbare IP-adressen op een lijst met veilige adressen toelaat. Als u RDP-verkeer (extern bureau blad) wilt toestaan, moet de bron van het verkeer worden gedefinieerd in de NSG. Beheer van productie resources is via RDP met behulp van een beveiligde JumpBox-VM.
 
-**Gebruiker gedefinieerde Routes**: [Gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) worden gebruikt voor het definiëren van de stroom van IP-verkeer binnen Azure VNets.
+Door de **gebruiker gedefinieerde routes**: Door de [gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) worden gebruikt voor het definiëren van de stroom van IP-verkeer binnen Azure VNets.
 
-**Netwerk gekoppelde VNETs**: De productie en het beheer van vnet's zijn verbonden via [VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
-Deze VNets worden nog steeds beheerd als afzonderlijke resources, maar worden weergegeven als een voor alle verbindingsdoeleinden voor deze virtuele machines. Deze netwerken communiceren met elkaar via privé-IP-adressen. VNet-peering zijn afhankelijk van de VNets in dezelfde Azure-regio.
+**Netwerkpeered VNETs**: De productie-en beheer VNets zijn verbonden met behulp van [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)-peering.
+Deze VNets worden nog steeds beheerd als afzonderlijke resources, maar weer gegeven als een voor alle connectiviteits doeleinden voor deze virtuele machines. Deze netwerken communiceren rechtstreeks met elkaar met behulp van privé-IP-adressen. VNet-peering is onderhevig aan de VNets die zich in dezelfde Azure-regio bevindt.
 
-**Netwerkbeveiligingsgroepen**: [Nsg's](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) bevatten Access Control Lists toestaan of weigeren van verkeer binnen een VNet. Nsg's kunnen worden gebruikt om verkeer een subnet of afzonderlijke virtuele machine te beveiligen.
+**Netwerk beveiligings groepen**: [Nsg's](../../virtual-network/virtual-network-vnet-plan-design-arm.md) bevatten Access Control-lijsten waarmee verkeer binnen een VNet wordt toegestaan of geweigerd. Nsg's kan worden gebruikt om verkeer op een subnet of een afzonderlijk VM-niveau te beveiligen.
 
-**Active Directory Domain Services (AD DS)** : Deze architectuur biedt een toegewezen [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) implementatie.
+**Active Directory Domain Services (AD DS)** : Deze architectuur biedt een speciale [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) -implementatie.
 
-**Logboekregistratie en controle**: [Azure-activiteitenlogboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) van schermopnamen worden bewerkingen uitgevoerd voor de resources in uw abonnement, zoals die de bewerking heeft gestart wanneer de bewerking is uitgevoerd, de status van de bewerking en de waarden van andere eigenschappen die u kunnen helpen bij onderzoek de de bewerking. Azure-activiteitenlogboek is een Azure-platform-service waarmee alle acties op een abonnement wordt vastgelegd. Logboeken kunnen worden gearchiveerd of geëxporteerd indien nodig.
+**Logboek registratie en controle**: [Azure-activiteiten logboek](../../azure-monitor/platform/activity-logs-overview.md) legt bewerkingen vast die zijn uitgevoerd op de resources in uw abonnement, zoals wie de bewerking heeft gestart, op het moment dat de bewerking is uitgevoerd, de status van de bewerking en de waarden van andere eigenschappen die u kunnen helpen bij het onderzoeken van de bewerking. Azure-activiteiten logboek is een Azure-platform service waarmee alle acties voor een abonnement worden vastgelegd. U kunt logboeken archiveren of exporteren, indien nodig.
 
-**Netwerk voor bewaking en waarschuwingen**: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) is een platformservice biedt netwerk pakketopname, stroomlogboeken, hulpprogramma's voor topologie en diagnostische gegevens voor netwerk-verkeer binnen uw vnet's.
+**Netwerk bewaking en waarschuwingen**: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) is een platform service voor het vastleggen van netwerk pakketten, het registreren van stromen, hulpprogram ma's voor topologie en diagnoses voor netwerk verkeer binnen uw VNets.
 
-## <a name="guidance-and-recommendations"></a>Richtlijnen en aanbevelingen
+## <a name="guidance-and-recommendations"></a>Richt lijnen en aanbevelingen
 
 ### <a name="business-continuity"></a>Bedrijfscontinuïteit
 
-**Hoge beschikbaarheid**: Server-workloads worden gegroepeerd in een [Beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) om te zorgen voor hoge beschikbaarheid van virtuele machines in Azure. Deze configuratie zorgt ervoor dat tijdens gepland of ongepland onderhoud ten minste één virtuele machine beschikbaar is en voldoet aan de 99,95% Azure SLA.
+**Hoge Beschik baarheid**: Server werkbelastingen worden gegroepeerd in [](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) een beschikbaarheidsset om te zorgen voor een hoge Beschik baarheid van virtuele machines in Azure. Deze configuratie zorgt ervoor dat tijdens een geplande of niet-geplande onderhouds gebeurtenis ten minste één virtuele machine beschikbaar is en voldoet aan de 99,95% Azure SLA.
 
-### <a name="logging-and-audit"></a>Logboekregistratie en controle
+### <a name="logging-and-audit"></a>Logboek registratie en controle
 
-**Bewaking**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) is de platformservice die één bron biedt voor het bewaken van het activiteitenlogboek, metrische gegevens en diagnostische logboeken van al uw Azure-resources. Azure Monitor kan worden geconfigureerd om te visualiseren, query's uitvoeren, routeren, archiveren en reageren op de metrische gegevens en logboeken van resources in Azure. Het verdient aanbeveling dat resources gebaseerd toegangsbeheer wordt gebruikt voor het beveiligen van de audittrail om ervoor te zorgen dat gebruikers de mogelijkheid om te wijzigen van de logboeken niet hebben.
+**Bewaking**: [Azure monitor](../../azure-monitor/overview.md) is de platform service die één bron biedt voor het bewaken van het activiteiten logboek, metrische gegevens en Diagnostische logboeken van al uw Azure-resources. Azure Monitor kan worden geconfigureerd om de metrische gegevens en logboeken die afkomstig zijn van resources in azure, te visualiseren, op te slaan, te routeren, te archiveren en te verwerken. Het is raadzaam om de Access Control op basis van resources wordt gebruikt om de audittrail te beveiligen om ervoor te zorgen dat gebruikers niet de mogelijkheid hebben om de logboeken te wijzigen.
 
-**Activiteitenlogboeken**: Configureer [Azure-activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) te bieden inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.
+**Activiteiten logboeken**: Configureer [Azure-activiteiten logboeken](../../azure-monitor/platform/activity-logs-overview.md) om inzicht te krijgen in de bewerkingen die zijn uitgevoerd op de resources in uw abonnement.
 
-**Diagnostische logboeken**: [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) zijn alle logboeken die door een resource. Deze logboeken kunnen Windows-gebeurtenislogboeken system, blob, tabel en wachtrijlogboeken bevatten.
+**Diagnostische logboeken**: [Diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md) zijn alle logboeken die door een bron worden gegenereerd. Deze logboeken kunnen Windows-gebeurtenis systeem logboeken, blob, tabel en wachtrij logboeken bevatten.
 
-**Firewall-logboeken**: Application Gateway biedt volledige diagnostische gegevens en Logboeken. Er zijn firewalllogboeken beschikbaar voor Application Gateway-resources waarvoor WAF is ingeschakeld.
+**Firewall logboeken**: Application Gateway biedt volledige diagnostische gegevens en toegangs logboeken. Er zijn firewalllogboeken beschikbaar voor Application Gateway-resources waarvoor WAF is ingeschakeld.
 
-**Logboek archiveren**: Gegevensopslag logboek kan worden geconfigureerd voor het schrijven naar een gecentraliseerd Azure storage-account voor archivering en een gedefinieerde periode. Logboeken kunnen worden verwerkt met behulp van Azure Monitor-Logboeken of door de SIEM-systemen van derden.
+**Archivering**van Logboeken: Logboek gegevens opslag kan worden geconfigureerd om te schrijven naar een gecentraliseerd Azure Storage-account voor archivering en een gedefinieerde Bewaar periode. Logboeken kunnen worden verwerkt met behulp van Azure Monitor-Logboeken of SIEM-systemen van derden.
 
 ### <a name="identity"></a>Identiteit
 
-**Active Directory Domain Services**: Deze architectuur biedt de implementatie van een Active Directory Domain Services in Azure. Zie de volgende artikelen voor specifieke aanbevelingen over het implementeren van Active Directory in Azure:
+**Active Directory Domain Services**: Deze architectuur levert een Active Directory Domain Services-implementatie in Azure. Zie de volgende artikelen voor specifieke aanbevelingen over het implementeren van Active Directory in Azure:
 
-[Active Directory Domain Services (AD DS) naar Azure uitbreiden](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain).
+[Active Directory Domain Services (AD DS) uitbreiden naar Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
-[Richtlijnen voor het implementeren van Windows Server Active Directory op Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
+[Richt lijnen voor het implementeren van Windows Server-Active Directory op Azure virtual machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory-integratie**: Als alternatief voor een specifieke AD DS-architectuur klanten beter gebruik van [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) integratie of [Active Directory in Azure die is gekoppeld aan een on-premises forest](https://docs.microsoft.com/azure/guidance/guidance-ra-identity).
+**Integratie van Active Directory**: Als alternatief voor een speciale AD DS-architectuur kunnen klanten [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) integratie of [Active Directory in azure gebruiken die zijn gekoppeld aan een on-premises forest](/azure/architecture/reference-architectures/identity.md).
 
 ### <a name="security"></a>Beveiliging
 
-**Beheer en beveiliging**: Deze blauwdruk kan beheerders verbinding maken met het beheer van VNet en Jumpbox met behulp van RDP van een vertrouwde bron. Het netwerkverkeer voor het beheer van VNet wordt beheerd met behulp van nsg's. Toegang tot poort 3389 is beperkt tot verkeer van een vertrouwde IP-adresbereik dat toegang heeft tot het subnet met daarin de Jumpbox.
+**Beheer beveiliging**: Met deze blauw druk kunnen beheerders verbinding maken met het beheer-VNet en JumpBox met behulp van RDP van een vertrouwde bron. Het netwerk verkeer voor het beheer-VNet wordt beheerd met behulp van Nsg's. Toegang tot poort 3389 is beperkt tot verkeer van een vertrouwd IP-bereik dat toegang kan krijgen tot het subnet met de JumpBox.
 
-Klanten kunnen ook kunt u overwegen een [beheermodel voor verbeterde beveiliging](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) voor het beveiligen van de omgeving bij het verbinden met het beheer van VNet en de Jumpbox. Is het nodig dat voor een betere beveiliging klanten gebruiken een [Privileged Access Workstation](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) en RDGateway-configuratie. Het gebruik van network virtual appliances en openbare en persoonlijke DMZ's bieden meer verbeteringen voor de beveiliging.
+Klanten kunnen ook overwegen een [verbeterd beveiligings beheer model](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) te gebruiken om de omgeving te beveiligen wanneer er verbinding wordt gemaakt met het beheer-VNet en JumpBox. Het is raadzaam dat voor verbeterde beveiligings klanten een [privileged Access-werk station](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) en RDGateway-configuratie worden gebruikt. Het gebruik van virtuele netwerk apparaten en open bare/persoonlijke Dmz's biedt verdere verbeteringen op het niveau van beveiliging.
 
-**Het netwerk beveiligen**: [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (nsg's) worden aanbevolen voor elk subnet voor een tweede beschermingsniveau tegen inkomend verkeer dat via een onjuist geconfigureerde of uitgeschakelde-gateway. Voorbeeld: [Resource Manager-sjabloon voor het implementeren van een NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Het netwerk beveiligen**: [Netwerk beveiligings groepen](../../virtual-network/virtual-network-vnet-plan-design-arm.md) (Nsg's) wordt aanbevolen voor elk subnet om een tweede beveiligings niveau te bieden voor inkomend verkeer dat een onjuist geconfigureerde of uitgeschakelde gateway omzeilt. Voor beeld: [Resource Manager-sjabloon voor het implementeren van een NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
-**Openbare eindpunten beveiligen**: Toepassingsservices voor gebruikers via het internet wordt aangegeven dat de internet-gateway. Verkeer toegang tot deze services is beveiligd met een [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), die voorziet in een Web Application Firewall en HTTPS-protocol.
+**Open bare eind punten beveiligen**: De Internet gateway stelt toepassings services beschikbaar voor gebruikers via internet. Verkeer dat toegang tot deze services krijgt, is beveiligd met een [Application Gateway](../../application-gateway/overview.md), dat een Web Application firewall en HTTPS-protocol beheer biedt.
 
-**IP-adresbereiken**: De IP-adresbereiken in de architectuur zijn voorgestelde bereiken. Klanten wordt aangeraden rekening houden met hun eigen omgeving en het gebruik van de juiste bereiken.
+**IP-bereiken**: De IP-bereiken in de architectuur zijn voorgestelde bereiken. Klanten wordt aangeraden hun eigen omgeving te overwegen en de juiste bereiken te gebruiken.
 
-**Hybride connectiviteit**: De op basis van cloudwerkbelastingen zijn verbonden met de on-premises datacentrum via IPSEC-VPN met behulp van de Azure VPN-Gateway. Klanten moeten ervoor zorgen dat ze een juiste VPN-Gateway gebruiken om te verbinden met Azure. Voorbeeld: [VPN-Gateway Resource Manager-sjabloon](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Klanten uitvoeren van grootschalige, bedrijfskritieke met big data-vereisten kunnen desgewenst kunt u overwegen een hybrid network architecture [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) privénetwerkverbinding met Microsoft-cloudservices.
+**Hybride connectiviteit**: De op de cloud gebaseerde workloads zijn verbonden met het on-premises Data Center via IPSEC VPN met behulp van de Azure-VPN Gateway. Klanten moeten ervoor zorgen dat ze een geschikte VPN Gateway gebruiken om verbinding te maken met Azure. Voor beeld- [VPN gateway Resource Manager-sjabloon](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Klanten die grootschalige, bedrijfskritische workloads met big data vereisten uitvoeren, willen wellicht een hybride netwerk architectuur overwegen met [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) voor de connectiviteit van particuliere netwerken met micro soft-Cloud Services.
 
-**Scheiding van taken**: Deze referentiearchitectuur worden gescheiden van de VNets voor bewerkingen voor gegevensbeheer en zakelijke activiteiten. Afzonderlijke VNets en subnetten toestaan van verkeer management, met inbegrip van verkeer inkomend en uitgaand verkeer beperkingen, met behulp van NSGs tussen netwerksegmenten te volgen [Microsoft cloud services en -netwerkbeveiliging](https://docs.microsoft.com/azure/best-practices-network-security) aanbevolen procedures.
+**Schei ding van de bezorgdheid**: Deze referentie architectuur scheidt de VNets voor beheer bewerkingen en bedrijfs bewerkingen. Met afzonderlijke VNets en subnetten is verkeer beheer mogelijk, met inbegrip van binnenkomend verkeer en uitwijkings beperkingen, met behulp van Nsg's tussen netwerk segmenten die volgen op de [micro soft-Cloud Services en](/azure/architecture/vdc/networking-virtual-datacenter.md) aanbevolen procedures voor netwerk beveiliging.
 
-**Resourcebeheer**: Azure-resources zoals VM's, VNets en load balancers worden beheerd door ze te groeperen in [Azure-resourcegroepen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Resource-toegangsbeheer op basis van rollen kunnen vervolgens worden toegewezen aan elke resourcegroep om toegang te beperken tot alleen geautoriseerde gebruikers.
+**Resource beheer**: Azure-resources, zoals Vm's, VNets en load balancers, worden beheerd door ze samen te groeperen in [Azure-resource groepen](../../azure-resource-manager/resource-group-overview.md). Op resources gebaseerde Access Control rollen kunnen vervolgens worden toegewezen aan elke resource groep om de toegang tot alleen gemachtigde gebruikers te beperken.
 
-**Toegang tot toegangsbeperkingen**: Gebruik [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) voor het beheren van de resources in uw toepassing met [aangepaste rollen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC kan worden gebruikt voor het beperken van de bewerkingen die DevOps op elke laag kan uitvoeren. Bij het verlenen van machtigingen, gebruiken de [principe van minimale bevoegdheden](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registreer alle beheergerelateerde bewerkingen en controleer regelmatig of eventuele configuratiewijzigingen inderdaad zo waren gepland.
+**Access Control beperkingen**: Op [rollen gebaseerde Access Control](../../role-based-access-control/role-assignments-portal.md) (RBAC) gebruiken voor het beheren van de resources in uw toepassing met behulp van [aangepaste rollen](../../role-based-access-control/custom-roles.md) RBAC kan worden gebruikt om de bewerkingen te beperken die DevOps op elke laag kan uitvoeren. Gebruik het [principe van minimale bevoegdheden](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)bij het verlenen van machtigingen. Registreer alle beheergerelateerde bewerkingen en controleer regelmatig of eventuele configuratiewijzigingen inderdaad zo waren gepland.
 
-**Toegang tot Internet**: Deze referentiearchitectuur maakt gebruik van [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) als de internetgerichte gateway en de load balancer. Sommige klanten kunnen ook overwegen om virtuele netwerkapparatuur van derden voor extra verificatielagen netwerken beveiliging als alternatief voor de [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Internet toegang**: Deze referentie architectuur maakt gebruik van [Azure-toepassing gateway](../../application-gateway/overview.md) als de Internet gateway en Load Balancer. Sommige klanten kunnen ook overwegen virtuele netwerk apparaten van derden te gebruiken voor extra netwerk beveiliging als alternatief voor de Azure-toepassing- [Gateway](../../application-gateway/overview.md).
 
-**Azure Security Center**: De [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) biedt een centraal overzicht van de beveiligingsstatus van resources in het abonnement en aanbevelingen gedaan om te voorkomen van verdachte resources. Het kan ook worden gebruikt om in te schakelen gedetailleerdere beleid. Beleid kan bijvoorbeeld worden toegepast op bepaalde resourcegroepen, waardoor de onderneming om aan te passen de houding risico. Het verdient aanbeveling dat klanten Azure Security Center in hun Azure-abonnement inschakelen.
+**Azure Security Center**: De [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) biedt een centraal overzicht van de beveiligings status van resources in het abonnement en biedt aanbevelingen voor het voor komen van gemanipuleerde resources. Het kan ook worden gebruikt om meer nauw keurigere beleids regels in te scha kelen. Zo kunnen beleids regels worden toegepast op specifieke resource groepen, zodat de onderneming de postuur kan aanpassen aan een risico. Het is raadzaam om Azure Security Center in te scha kelen in hun Azure-abonnement.
 
-## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Documentatie voor NCSC Cloud Security Principles naleving
+## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Nalevings documentatie voor NCSC Cloud Security Principles
 
-De kroon commerciële Service (een Bureau die geschikt is voor commerciële en aankopen activiteit verbeteren door de overheid) vernieuwd de classificatie van Microsoft binnen de regeling vallen enterprise cloudservices aan v6 G-Cloud, die betrekking hebben op het aanbod op het OFFICIAL-niveau. Details van Azure en G-Cloud kunnen u vinden in de [Azure Verenigd Koninkrijk G-Cloud security evaluatieoverzicht](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
+De kroon commerciële dienst (een instantie die de commerciële en aanschaffings activiteiten door de overheid verbetert), vernieuwt de classificatie van micro soft in-Scope Enter prise Cloud Services naar G-Cloud V6, waarbij alle aanbiedingen op het officiële niveau worden gedekt. Details van Azure en G-Cloud vindt u in het [overzicht van Azure UK G-Cloud Security Assessment](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-Deze blauwdruk overeenstemt met de 14 cloud security-principes die worden beschreven in de NCSC [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) om te zorgen voor een omgeving die ondersteuning biedt voor werkbelastingen die zijn geclassificeerd als UK-OFFICIAL.
+Deze blauw druk is afgestemd op de 14 beveiligings principes voor de cloud die zijn gedocumenteerd in de NCSC voor [Cloud beveiliging](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) om ervoor te zorgen dat een omgeving wordt ondersteund die werk belastingen ondersteunt die zijn geclassificeerd als UK-ambtenaar.
 
-De [klant verantwoordelijkheid Matrix](https://aka.ms/ukofficial-crm) (Excel-werkmap) geeft een lijst van alle 14 cloud security principles, en de matrix voor elk principe (of principe subdeel) aangeeft of de implementatie van het principe de verantwoordelijkheid van is Microsoft, de klant, of gedeeld tussen de twee.
+De [matrix van de klant verantwoordelijkheid](https://aka.ms/ukofficial-crm) (Excel-werkmap) bevat alle 14 beveiligings principes voor de Cloud en de matrix geeft voor elk principe (of principe subdeel) aan of de implementatie van het principe de verantwoordelijkheid is van micro soft, de klant of gedeeld tussen de twee.
 
-De [principe implementatie Matrix](https://aka.ms/ukofficial-iaaswa-pim) (Excel-werkmap) een lijst met alle 14 cloud security principles, en de matrix geeft, voor elk principe (of principe subdeel) die de verantwoordelijkheid van een klant in de klant wordt gebruikt De verantwoordelijkheden van Matrix (1) als de blauwdruk automation implementeert het principe en 2) een beschrijving van hoe de toepassing wordt uitgelijnd met de principal-vereisten.
+De [principle-implementatie matrix](https://aka.ms/ukofficial-iaaswa-pim) (Excel-werkmap) bevat alle 14 beveiligings principes voor de Cloud en de matrix geeft voor elk principe (of principe subdeel) aan dat de klant verantwoordelijk is in de matrix voor klant verantwoordelijkheden, 1) als de blauw druk automatisering implementeert het principe en 2) een beschrijving van de manier waarop de implementatie wordt uitgelijnd met de vereiste voor Schriften.
 
-De Cloud Security Alliance (CSA) gepubliceerd bovendien de Cloud Control Matrix ter ondersteuning van klanten in de evaluatie van cloudproviders en om te vragen die moeten worden beantwoord voordat u doorgaat naar de cloud services te identificeren. Antwoord, Microsoft Azure beantwoord de CSA Consensus evaluatie Initiative Questionnaire ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), waarin wordt beschreven hoe Microsoft de principes voor de voorgestelde adressen.
+Daarnaast publiceerde de Cloud Security Alliance (CSA) de Cloud beheer matrix ter ondersteuning van klanten in de evaluatie van cloud providers en om vragen te identificeren die moeten worden beantwoord voordat ze naar Cloud Services kunnen worden verplaatst. Als antwoord heeft Microsoft Azure de CSA consensus Assessment Initiative vragen lijst ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)) beantwoord, waarin wordt beschreven hoe micro soft de voorgestelde principes verhelpt.
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
-Er zijn twee methoden die implementatiegebruikers gebruiken mogelijk voor het implementeren van deze blauwdruk automatisering. De eerste methode maakt gebruik van een PowerShell-script dat de tweede methode maakt gebruik van de Azure-portal om de referentiearchitectuur te implementeren. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/ukofficial-iaaswa-repo).
+Er zijn twee methoden die gebruikers van de implementatie kunnen gebruiken voor het implementeren van deze Blue-Automation. De eerste methode maakt gebruik van een Power shell-script, terwijl de tweede methode gebruikmaakt van de Azure Portal voor het implementeren van de referentie architectuur. Gedetailleerde implementatie-instructies zijn [hier](https://aka.ms/ukofficial-iaaswa-repo)beschikbaar.
 
 ## <a name="disclaimer"></a>Vrijwaring
 
- - Dit document is uitsluitend ter informatie bedoeld. MICROSOFT BIEDT GEEN GARANTIES, EXPLICIETE, IMPLICIETE OF WETTELIJKE GARANTIE VOOR DE INFORMATIE IN DIT DOCUMENT. Dit document wordt geleverd ' as-is. " Informatie en meningen in dit document, inclusief URL's en andere websiteverwijzingen, kunnen zonder kennisgeving worden gewijzigd. Klanten die in dit document leest draagt het risico van het gebruik ervan.
- - Dit document biedt klanten met een enkel wettelijk recht op enig intellectueel in andere Microsoft-producten of oplossingen.
- - Klanten kunnen kopiëren en gebruiken van dit document voor interne referentiedoeleinden.
- - Bepaalde aanbevelingen in dit document kunnen leiden tot grotere hoeveelheden gegevens, netwerk- of gebruik van de compute-bronnen in Azure en de Azure-licentie of abonnement kosten van een klant kunnen verhogen.
- - Deze architectuur is bedoeld om te fungeren als een basis voor klanten om aan te passen op hun specifieke behoeften en mag niet worden gebruikt als-is in een productieomgeving.
- - Dit document is ontwikkeld als referentie en mag niet worden gebruikt voor het definiëren van alle middelen waarmee een klant kan voldoen aan specifieke nalevingsvereisten en voorschriften. Klanten moeten juridische ondersteuning van hun organisatie op goedgekeurde klantimplementaties gezocht.
+ - Dit document is alleen ter informatie bedoeld. MICRO SOFT BIEDT GEEN ENKELE GARANTIE, UITDRUKKELIJK, IMPLICIET OF WETTELIJK, MET BETREKKING TOT DE INFORMATIE IN DIT DOCUMENT. Dit document wordt in de as-is opgenomen. Informatie en weer gaven in dit document, inclusief URL'S en andere website verwijzingen, kunnen zonder kennisgeving worden gewijzigd. Klanten die dit document lezen, hebben het risico van het gebruik ervan.
+ - Dit document biedt klanten geen juridische rechten voor intellectueel eigendom in een micro soft-product of-oplossingen.
+ - Klanten kunnen dit document kopiëren en gebruiken voor interne referentie doeleinden.
+ - Bepaalde aanbevelingen in dit document kunnen leiden tot meer gegevens-, netwerk-of COMPUTE-resource gebruik in azure, en kunnen de kosten van de Azure-licentie of het abonnement van de klant verhogen.
+ - Deze architectuur is bedoeld om te fungeren als basis voor klanten om aan hun specifieke vereisten aan te passen en mag niet worden gebruikt in een productie omgeving.
+ - Dit document is ontwikkeld als referentie en mag niet worden gebruikt voor het definiëren van de manier waarop een klant kan voldoen aan specifieke nalevings vereisten en-voor Schriften. Klanten moeten juridische ondersteuning van hun organisatie zoeken op goedgekeurde klant implementaties.

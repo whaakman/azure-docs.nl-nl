@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: dd678fb784fa7587912f113a7c00bebca76efce8
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7bf9c338315f5013be815625b06d633567a801a0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857364"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912342"
 ---
 Er zijn enkele limieten voor het aantal metrische gegevens en gebeurtenissen per toepassing, dat wil zeggen, per instrumentatie sleutel. De limieten zijn afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/application-insights/) die u kiest.
 
@@ -23,7 +23,8 @@ Er zijn enkele limieten voor het aantal metrische gegevens en gebeurtenissen per
 | Beperken | 32.000 gebeurtenissen per seconde | De limiet wordt gemeten in een minuut.
 | Bewaartijd van gegevens | 90 dagen | Deze resource is voor [Search](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/app/analytics.md) en [Metrics Explorer](../articles/azure-monitor/app/metrics-explorer.md).
 | Bewaartijd van gedetailleerde resultaten van [beschikbaarheidstests met meerdere stappen](../articles/azure-monitor/app/availability-multistep.md) | 90 dagen | Deze resource biedt gedetailleerde resultaten van elke stap.
-| Maximale gebeurtenis grootte | 64,000 |
+| Maximale grootte van het telemetrie-item | 64 kB |
+| Maximum aantal telemetriegegevens per batch | 64 K |
 | Naamlengte voor de eigenschappen en meetgegevens | 150 | Zie [schema typen](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Lengte van de tekenreeks eigenschapswaarde | 8\.192  | Zie [schema typen](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Lengte van berichten voor tracering en uitzonderingen | 32.768  | Zie [schema typen](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).

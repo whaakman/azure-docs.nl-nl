@@ -2,19 +2,18 @@
 title: Offline - apparaten werkt Azure IoT Edge | Microsoft Docs
 description: Begrijp hoe IoT Edge-apparaten en -modules kunnen werken zonder internetverbinding gedurende langere tijd wordt opgelost, en hoe normale IoT-apparaten offline te werken op IoT Edge kunt inschakelen.
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 06/04/2019
+ms.date: 08/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4a46128d3b0e77ff7921e1f4875c318a95309769
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6d82b353f8b485b4441853b7ff8e70e7d69f4d6a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598601"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986974"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uitgebreide offline mogelijkheden voor IoT Edge apparaten, modules en onderliggende apparaten begrijpen
 
@@ -137,43 +136,71 @@ Deze instelling is een gewenste eigenschap van de IoT Edge hub, die wordt opgesl
 }
 ```
 
-### <a name="additional-offline-storage"></a>Extra offline opslag
+### <a name="host-storage-for-system-modules"></a>Host Storage voor systeem modules
 
-Berichten worden standaard opgeslagen in het container bestandssysteem van de IoT Edge hub. Als deze hoeveelheid opslag niet voldoende voor de behoeften van uw offline is, kunt u speciaal aan lokale opslag op het IoT Edge-apparaat. Maak een omgevings variabele voor de IoT Edge hub die verwijst naar een opslagmap in de container. Vervolgens gebruikt u de opties voor het maken die opslagmap binden aan een map op de hostcomputer. 
+Berichten en informatie over de status van de module worden standaard opgeslagen in het lokale container systeem van de IoT Edge hub. Voor een betere betrouw baarheid, met name wanneer u offline werkt, kunt u ook opslag op de host toewijzen IoT Edge apparaat.
 
-U kunt omgevings variabelen en de Create-opties voor de module IoT Edge hub configureren in het Azure Portal in de sectie **Geavanceerde runtime-instellingen configureren** . Of u kunt deze rechtstreeks in het manifest van de implementatie configureren. 
+Als u opslag wilt instellen op het hostsysteem, moet u omgevings variabelen maken voor de IoT Edge hub en IoT Edge agent die verwijst naar een opslagmap in de container. Vervolgens gebruikt u de opties voor het maken die opslagmap binden aan een map op de hostcomputer. 
+
+U kunt omgevings variabelen en de Create-opties voor de module IoT Edge hub configureren in het Azure Portal in de sectie **Geavanceerde runtime-instellingen configureren** . 
+
+1. Voor zowel IoT Edge hub als IoT Edge agent voegt u een omgevings variabele toe met de naam **storageFolder** die verwijst naar een map in de module.
+1. Voeg voor zowel IoT Edge hub als IoT Edge agent bindingen toe om een lokale map op de hostcomputer te verbinden met een map in de module. Bijvoorbeeld: 
+
+   ![Opties voor maken en omgevings variabelen voor lokale opslag toevoegen](./media/offline-capabilities/offline-storage.png)
+
+U kunt de lokale opslag ook rechtstreeks in het implementatie manifest configureren. Bijvoorbeeld: 
 
 ```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": {
-            "HostConfig": {
-                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
-                "PortBindings": {
-                    "8883/tcp": [{"HostPort":"8883"}],
-                    "443/tcp": [{"HostPort":"443"}],
-                    "5671/tcp": [{"HostPort":"5671"}]
+"systemModules": {
+    "edgeAgent": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
                 }
+            }
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
             }
         }
     },
-    "env": {
-        "storageFolder": {
-            "value": "<ModuleStoragePath>"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
+    "edgeHub": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
+            }
+        },
+        "status": "running",
+        "restartPolicy": "always"
+    }
 }
 ```
 
-Vervang `<HostStoragePath>` en `<ModuleStoragePath>` opslagpad pad; de host en de module moet met uw storage-host en de module een absoluut pad zijn. Bind de opslag paden host en module met de opties voor maken samen. Maak vervolgens een omgevings variabele die naar het opslagpad van de module verwijst.  
+Vervang `<HostStoragePath>` en`<ModuleStoragePath>` door de opslag locatie van uw host en module; beide waarden moeten een absoluut pad zijn. 
 
 Bijvoorbeeld `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` : de Directory- **/etc/iotedge/Storage** op uw hostsysteem wordt toegewezen aan de Directory **/iotedge/Storage/** op de container. Of een ander voor beeld voor Windows `"Binds":["C:\\temp:C:\\contemp"]` -systemen: de map **c:\\Temp** op uw hostsysteem wordt toegewezen aan de Directory **\\c: pretemp** op de container. 
 
-U kunt ook meer informatie over de opties voor het maken van docker- [documenten](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)vinden.
+Controleer op Linux-apparaten of het gebruikers profiel van de IoT Edge hub, UID 1000, lees-, schrijf-en uitvoer machtigingen heeft voor de map van het hostsysteem. Deze machtigingen zijn nodig zodat de IoT Edge hub berichten in de map kan opslaan en later kan ophalen. (De IoT Edge-agent fungeert als root, dus heeft geen aanvullende machtigingen nodig.) Er zijn verschillende manieren om mapmachtigingen te beheren op Linux-systemen, met `chown` inbegrip van het wijzigen van de `chmod` Directory-eigenaar en vervolgens voor het wijzigen van de machtigingen. Bijvoorbeeld:
+
+```bash
+sudo chown 1000 <HostStoragePath>
+sudo chmod 700 <HostStoragePath>
+```
+
+Meer informatie over de opties voor het maken van [docker-documenten](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)vindt u in.
 
 ## <a name="next-steps"></a>Volgende stappen
 

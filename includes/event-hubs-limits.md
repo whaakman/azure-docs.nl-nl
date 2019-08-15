@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 928b0bcfb32d1a319c811d00fc84a37f85702895
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c163e3cce862640d43f8696dca4eeef29f2ae12a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857362"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912344"
 ---
 De volgende tabel geeft een lijst van quota's en limieten die specifiek zijn voor [Azure Event hubs](https://azure.microsoft.com/services/event-hubs/). Zie [Event hubs prijzen](https://azure.microsoft.com/pricing/details/event-hubs/)voor meer informatie over Event hubs prijzen.
 
@@ -36,6 +36,8 @@ De volgende tabel geeft een lijst van quota's en limieten die specifiek zijn voo
 | Aantal consumenten groepen per Event Hub |Entiteit | - |1 |20 |
 | Aantal AMQP-verbindingen per naam ruimte |Naamruimte |Volgende aanvragen voor extra verbindingen worden geweigerd en er wordt een uitzonde ring ontvangen door de aanroepende code. |100 |5,000|
 | Maximale Bewaar periode van gebeurtenis gegevens |Entiteit | - |1 dag |1-7 dagen |
+|Naam ruimte Apache Kafka ingeschakeld|Naamruimte |Event Hubs-naam ruimte streamt toepassingen met het Kafka-Protocol |Nee | Ja |
+|Capture |Entiteit | Bij inschakeling worden micro batches op dezelfde stroom |Nee |Ja |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated quota's en limieten

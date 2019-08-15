@@ -1,6 +1,6 @@
 ---
-title: Aanroepen van REST-API voor Azure Storage-Services bewerkingen waaronder authentication | Microsoft Docs
-description: Aanroepen van REST-API voor Azure Storage-Services bewerkingen, met inbegrip van verificatie
+title: Azure Storage services aanroepen REST API bewerkingen, inclusief verificatie | Microsoft Docs
+description: Azure Storage services aanroepen REST API bewerkingen, inclusief verificatie
 services: storage
 author: tamram
 ms.service: storage
@@ -9,33 +9,33 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306662"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989943"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>De Azure Storage REST API gebruiken
 
-In dit artikel ziet u hoe u REST API's voor de Blob Storage-Service en hoe u verifieert de oproep naar de service. Het geschreven vanuit het oogpunt van een ontwikkelaar die weet niets over de REST en geen idee hoe u een REST-aanroep. We kijken naar de referentiedocumentatie voor een REST-aanroep en zien hoe u om te zetten in een werkelijke REST-aanroep: welke velden gaan waar? Nadat u bent gekomen over het instellen van een REST-aanroep, kunt u gebruikmaken van deze kennis om een van de andere opslag Service REST API's te gebruiken.
+In dit artikel wordt beschreven hoe u de Blob Storage service REST Api's gebruikt en hoe u de oproep naar de service kunt verifiëren. Het is geschreven vanuit het oogpunt van een ontwikkelaar die niets weet over REST en geen idee is hoe u een REST-oproep kunt doen. We kijken naar de referentie documentatie voor een REST-aanroep en zien hoe u deze kunt vertalen in een daad werkelijke REST-aanroep, welke velden gaan waar? Na het instellen van een REST-aanroep kunt u gebruikmaken van deze kennis voor gebruik van een van de andere Storage service REST-Api's.
 
 ## <a name="prerequisites"></a>Vereisten 
 
-De toepassing bevat de containers in blob-opslag voor een opslagaccount. Als u wilt uitproberen de code in dit artikel, moet u de volgende items: 
+De toepassing vermeldt de containers in Blob Storage voor een opslag account. Als u de code in dit artikel wilt uitproberen, hebt u de volgende items nodig: 
 
-* Installeer [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) met de volgende workload:
+* Installeer [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) met de volgende werk belasting:
     - Azure-ontwikkeling
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-* Een algemeen opslagaccount. Als u nog een storage-account hebt, raadpleegt u [een opslagaccount maken](storage-quickstart-create-account.md).
+* Een opslag account voor algemeen gebruik. Zie [een opslag account maken](storage-quickstart-create-account.md)als u nog geen opslag account hebt.
 
-* Het voorbeeld in dit artikel ziet hoe u de containers in een storage-account. Om uitvoer te bekijken, voeg enkele containers BLOB storage in het storage-account voordat u begint.
+* In het voor beeld in dit artikel ziet u hoe u de containers in een opslag account kunt weer geven. Als u de uitvoer wilt zien, voegt u enkele containers toe aan Blob Storage in het opslag account voordat u begint.
 
 ## <a name="download-the-sample-application"></a>De voorbeeldtoepassing downloaden
 
-De voorbeeldtoepassing is een in C# geschreven consoletoepassing.
+De voorbeeld toepassing is een console toepassing die is C#geschreven in.
 
 Gebruik [git](https://git-scm.com/) om een kopie van de toepassing naar uw ontwikkelomgeving te downloaden. 
 
@@ -43,73 +43,73 @@ Gebruik [git](https://git-scm.com/) om een kopie van de toepassing naar uw ontwi
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Open de Visual Studio-oplossing, zoekt u de map storage-dotnet-rest-api-with-auth, opent u het en dubbelklik op StorageRestApiAuth.sln. 
+Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond. Als u de Visual Studio-oplossing wilt openen, zoekt u naar de map Storage-DotNet-rest-API-with-auth, opent u deze en dubbelklikt u op StorageRestApiAuth. SLN. 
 
-## <a name="what-is-rest"></a>Wat is er REST?
+## <a name="what-is-rest"></a>Wat is REST?
 
-REST-middelen *representational state transfer*. Bekijk voor de definitie van een specifieke [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
+REST betekent een representatieve *overdracht van status*. Voor een specifieke definitie raadpleegt u [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
-In principe REST is voor een architectuur die u kunt gebruiken bij het aanroepen van API's of voor het doen van API's beschikbaar om te worden aangeroepen. Het is niet afhankelijk van wat op beide kanten gebeurt er en welke andere software wordt gebruikt bij het verzenden of ontvangen van de REST-aanroepen. U kunt een toepassing die wordt uitgevoerd op een Mac, Windows, Linux, een Android-telefoon of tablet, iPhone, iPod of website schrijven en dezelfde REST-API gebruiken voor al deze platforms. Gegevens kunnen worden doorgegeven in en/of uit wanneer de REST-API wordt aangeroepen. De REST-API niet van belang van het platform wordt genoemd – belangrijk is de informatie die wordt doorgegeven in de aanvraag en de gegevens die zijn opgegeven in het antwoord.
+In principe is REST een architectuur die u kunt gebruiken bij het aanroepen van Api's of het beschikbaar maken van Api's die kunnen worden aangeroepen. Het is onafhankelijk van wat er aan beide zijden gebeurt en wat andere software gebruikt bij het verzenden of ontvangen van de REST-aanroepen. U kunt een toepassing schrijven die wordt uitgevoerd op een Mac, Windows, Linux, een Android-telefoon of Tablet, iPhone, iPod of website, en dezelfde REST API voor al deze platformen gebruiken. Gegevens kunnen worden door gegeven in en/of uit wanneer de REST API wordt aangeroepen. De REST API is niet van toepassing op welk platform het wordt genoemd: wat belang rijk is, is de informatie die in de aanvraag is gegeven en de gegevens die in het antwoord worden verstrekt.
 
-Weten over het gebruik van REST is een nuttig kwalificatie. De Azure-productteam verzenden versies regelmatig nieuwe functies. In veel gevallen zijn de nieuwe functies toegankelijk via de REST-interface. Soms echter de functies nog niet hebt opgehaald via de **alle** van de storage-clientbibliotheken of de gebruikersinterface (zoals de Azure portal). Als u altijd wilt gebruik van het nieuwste en beste, leren werken met REST is vereist. Als u wilt schrijven van uw eigen bibliotheek om te communiceren met Azure Storage of u wilt toegang tot Azure Storage met een programmeertaal die geen een SDK of storage-clientbibliotheek, kunt u de REST-API.
+Weten hoe u REST kunt gebruiken is een handige vaardigheid. In het Azure-product team worden vaak nieuwe functies vrijgegeven. Vaak zijn de nieuwe functies toegankelijk via de REST-interface. Soms zijn de functies echter niet zichtbaar via **alle** opslag-client bibliotheken of de gebruikers interface (zoals de Azure Portal). Als u altijd de nieuwste en beste wilt gebruiken, is Learning REST een vereiste. Ook kunt u de REST API gebruiken als u uw eigen bibliotheek wilt schrijven om te communiceren met Azure Storage of als u toegang wilt hebben tot Azure Storage met een programmeer taal zonder SDK of Storage-client bibliotheek.
 
-## <a name="about-the-sample-application"></a>Over de voorbeeld-App
+## <a name="about-the-sample-application"></a>Over de voorbeeld toepassing
 
-De voorbeeld-App geeft een lijst van de containers in een storage-account. Als u inzicht in hoe de gegevens in de REST-API-documentatie overeenkomt met uw eigen code, zijn andere REST-aanroepen gemakkelijker te achterhalen. 
+In de voorbeeld toepassing worden de containers in een opslag account vermeld. Wanneer u begrijpt hoe de informatie in de REST API documentatie overeenkomt met uw eigen code, zijn andere REST-aanroepen eenvoudiger te vinden. 
 
-Als u naar kijkt de [REST API voor Blob Service](/rest/api/storageservices/Blob-Service-REST-API), ziet u de bewerkingen die u op blob-opslag uitvoeren kunt. De clientbibliotheken zijn dan geen wrappers rondom de REST API's – die het gemakkelijk voor u toegang tot opslag zonder rechtstreeks met behulp van de REST API's. Maar zoals eerder vermeld, soms wilt u de REST-API gebruiken in plaats van een storage-clientbibliotheek.
+Als u de REST API van de [BLOB-service](/rest/api/storageservices/Blob-Service-REST-API)bekijkt, ziet u alle bewerkingen die u kunt uitvoeren op Blob Storage. De opslag-client bibliotheken zijn wrappers rond de REST-Api's: ze maken het eenvoudig om toegang te krijgen tot opslag zonder de REST-Api's rechtstreeks te gebruiken. Maar zoals hierboven vermeld, wilt u soms het REST API gebruiken in plaats van een Storage-client bibliotheek.
 
-## <a name="rest-api-reference-list-containers-api"></a>Naslaginformatie over REST-API: Lijst met Containers-API
+## <a name="rest-api-reference-list-containers-api"></a>Referentie REST API: Lijst met containers-API
 
-Laten we kijken naar de pagina in de REST-API-naslaginformatie voor de [ListContainers](/rest/api/storageservices/List-Containers2) bewerking. Deze informatie helpt u inzicht in waar sommige velden afkomstig zijn uit in de aanvraag en respons.
+Laten we eens kijken naar de pagina in de REST API referentie voor de bewerking [ListContainers](/rest/api/storageservices/List-Containers2) . Deze informatie helpt u te begrijpen waar enkele van de velden uit komen in de aanvraag en het antwoord.
 
-**Verzoekmethode**: TOEVOEGEN. Deze bewerking wordt de HTTP-methode die u als een eigenschap van het request-object opgeeft. Andere waarden voor deze bewerking zijn HEAD, PUT en DELETE, afhankelijk van de API die u aanroept.
+**Aanvraag methode**: TOEVOEGEN. Dit woord is de HTTP-methode die u opgeeft als een eigenschap van het object Request. Andere waarden voor deze term zijn onder andere HEAD, PUT en DELETE, afhankelijk van de API die u aanroept.
 
-**Aanvraag-URI**: https://myaccount.blob.core.windows.net/?comp=list   Dit is gemaakt op basis van het eindpunt van blob storage-account `http://myaccount.blob.core.windows.net` en de brontekenreeks `/?comp=list`.
+**Aanvraag-URI**: https://myaccount.blob.core.windows.net/?comp=list Dit wordt gemaakt op basis van het eind punt `http://myaccount.blob.core.windows.net` van het BLOB- `/?comp=list` opslag account en de bron teken reeks.
 
-[URI-parameters](/rest/api/storageservices/List-Containers2#uri-parameters): Er zijn aanvullende queryparameters die u gebruiken kunt bij het aanroepen van ListContainers. Enkele van deze parameters zijn *time-out* voor de aanroep (in seconden) en *voorvoegsel*, die wordt gebruikt voor het filteren.
+[URI-para meters](/rest/api/storageservices/List-Containers2#uri-parameters): Er zijn aanvullende query parameters die u kunt gebruiken bij het aanroepen van ListContainers. Enkele van deze para meters zijn *time-out* voor de aanroep (in seconden) en het *voor voegsel*, dat wordt gebruikt voor het filteren.
 
-Een andere nuttige parameter *maxresults:* als er meer containers dan deze waarde beschikbaar zijn, de antwoordtekst bevat een *NextMarker* element dat geeft aan dat de volgende container om terug te keren op de volgende de aanvraag. Deze functie wilt gebruiken, bieden u de *NextMarker* waarde als de *markering* parameter in de wanneer u de volgende aanvraag-URI. Wanneer u deze functie gebruikt, is het vergelijkbaar met de resultaten worden er pagina's. 
+Een andere handige para meter is *maxresults:* als er meer containers beschikbaar zijn dan deze waarde, bevat de antwoord tekst een *NextMarker* -element dat aangeeft dat de volgende container moet worden geretourneerd bij de volgende aanvraag. Als u deze functie wilt gebruiken, geeft u de waarde *NextMarker* op als de *markerings* parameter in de URI wanneer u de volgende aanvraag maakt. Wanneer u deze functie gebruikt, is het vergelijkbaar met het pagineren van de resultaten. 
 
-Voor het gebruik van aanvullende parameters aan de resourcetekenreeks met de waarde, zoals in dit voorbeeld toevoegen:
+Als u aanvullende para meters wilt gebruiken, voegt u deze toe aan de resource teken reeks met de waarde, zoals in dit voor beeld:
 
 ```
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[Aanvraagheaders](/rest/api/storageservices/List-Containers2#request-headers) **:** Deze sectie vindt u de vereiste en optionele aanvraagheaders. Drie van de headers zijn vereist: een *autorisatie* kop *x-ms-datum* (bevat de UTC-tijd voor de aanvraag), en *x-ms-version* (geeft de versie van de REST API voor het gebruik). Inclusief *x-ms-client-request-id* in de headers is optioneel: u kunt de waarde voor dit veld instellen op Alles; ze worden geschreven naar de logboeken van storage analytics als logboekregistratie is ingeschakeld.
+[Aanvraag headers](/rest/api/storageservices/List-Containers2#request-headers) **:** In deze sectie vindt u de vereiste en optionele aanvraag headers. Er zijn drie kopteksten vereist: een *autorisatie* -header, *x-MS-date* (bevat de UTC-tijd voor de aanvraag) en *x-MS-version* (Hiermee geeft u de versie op van het rest API dat moet worden gebruikt). Inclusief *x-MS-Client-Request-id* in de headers is optioneel: u kunt de waarde voor dit veld instellen op alles. het wordt naar de logboeken voor opslag analyse geschreven wanneer logboek registratie is ingeschakeld.
 
-[Aanvraagtekst](/rest/api/storageservices/List-Containers2#request-body) **:** Er is geen aanvraagtekst voor ListContainers. Hoofdtekst van de aanvraag wordt gebruikt op al de PUT-bewerkingen tijdens het uploaden van blobs, evenals SetContainerAccessPolicy, zodat u kunt verzenden in een XML-lijst met opgeslagen toegangsbeleid om toe te passen. Opgeslagen toegangsbeleid worden besproken in het artikel [met behulp van Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+[Aanvraag tekst](/rest/api/storageservices/List-Containers2#request-body) **:** Er is geen aanvraag tekst voor ListContainers. De aanvraag tekst wordt gebruikt voor alle PUT-bewerkingen bij het uploaden van blobs, evenals SetContainerAccessPolicy, waarmee u in een XML-lijst met opgeslagen toegangs beleid kunt verzenden. Opgeslagen toegangs beleid wordt in het artikel besproken [met Shared Access signatures (SAS)](storage-sas-overview.md).
 
-[Antwoordstatuscode](/rest/api/storageservices/List-Containers2#status-code) **:** Geeft aan van alle statuscodes die u wilt weten. In dit voorbeeld wordt een HTTP-statuscode 200 ok. Bekijk voor een volledige lijst van HTTP-statuscodes [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Foutcodes die specifiek zijn voor de Storage REST-API's Zie [algemene REST-API-foutcodes](/rest/api/storageservices/common-rest-api-error-codes)
+[Status code van antwoord](/rest/api/storageservices/List-Containers2#status-code) **:** Geeft een overzicht van de status codes die u moet weten. In dit voor beeld is de HTTP-status code 200 OK. Bekijk de [definities van status](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)codes voor een volledige lijst met HTTP-status codes. Zie [algemene rest API fout codes](/rest/api/storageservices/common-rest-api-error-codes) voor meer informatie over de specifieke fout codes voor de opslag rest api's.
 
-[Antwoordheaders](/rest/api/storageservices/List-Containers2#response-headers) **:** Het gaat hierbij *inhoudstype*; *x-ms-request-id*, dit is de aanvraag-id die u hebt doorgegeven. *x-ms-version*, wat aangeeft dat de versie van de Blob-service die wordt gebruikt; en de *datum*, die is ingesteld op UTC en wordt aangegeven wanneer de aanvraag is gedaan.
+[Antwoord headers](/rest/api/storageservices/List-Containers2#response-headers) **:** Dit omvat het *inhouds type*. *x-MS-Request-id*, de aanvraag-id is die u hebt opgegeven in; *x-MS-version*, waarmee wordt aangegeven welke versie van de BLOB service gebruikt; en de *datum*, in UTC en geeft aan op welke tijd de aanvraag is gedaan.
 
-[Antwoordtekst](/rest/api/storageservices/List-Containers2#response-body): Dit veld is een XML-structuur waarmee de aangevraagde gegevens geleverd. In dit voorbeeld wordt is het antwoord een lijst met containers en de bijbehorende eigenschappen.
+[Antwoord tekst](/rest/api/storageservices/List-Containers2#response-body): Dit veld is een XML-structuur die de aangevraagde gegevens verschaft. In dit voor beeld is het antwoord een lijst met containers en de bijbehorende eigenschappen.
 
-## <a name="creating-the-rest-request"></a>Het maken van de REST-aanvraag
+## <a name="creating-the-rest-request"></a>De REST-aanvraag maken
 
-Een aantal opmerkingen bij de voordat u begint met – voor beveiliging bij het uitvoeren van de productie, en gebruik altijd HTTPS in plaats van HTTP-in. U moet voor deze oefening, HTTP gebruiken, zodat u de aanvraag- en -gegevens kunt bekijken. Als u de aanvraag- en informatie in de werkelijke REST-aanroepen, kunt u downloaden [Fiddler](https://www.telerik.com/fiddler) of een vergelijkbare toepassing. Zijn vastgelegd in de klasse in de Visual Studio-oplossing, het storage-accountnaam en de sleutel. De methode ListContainersAsyncREST geeft de naam van het opslagaccount en sleutel van het opslagaccount aan de methoden die worden gebruikt voor het maken van de verschillende onderdelen van de REST-aanvraag. In een werkelijke toepassing, het storage-accountnaam en de sleutel zou bevinden zich in een configuratiebestand, omgevingsvariabelen, of worden opgehaald uit een Azure Key Vault.
+Een aantal opmerkingen voordat u begint: voor beveiliging bij uitvoering in productie, moet altijd HTTPS worden gebruikt in plaats van HTTP. Voor de doel einden van deze oefening gebruikt u HTTP, zodat u de aanvraag-en antwoord gegevens kunt bekijken. Als u de aanvraag-en antwoord informatie wilt weer geven in de daad werkelijke REST-aanroepen, kunt u [Fiddler](https://www.telerik.com/fiddler) of een vergelijk bare toepassing downloaden. In de Visual Studio-oplossing zijn de naam en sleutel van het opslag account hardcoded in de-klasse. De methode ListContainersAsyncREST geeft de naam van het opslag account en de sleutel van het opslag account door aan de methoden die worden gebruikt voor het maken van de verschillende onderdelen van de REST-aanvraag. In een echte wereld toepassing zouden de naam en sleutel van het opslag account zich bevinden in een configuratie bestand, omgevings variabelen of worden opgehaald uit een Azure Key Vault.
 
-In ons voorbeeldproject is de code voor het maken van de autorisatie-header in een afzonderlijke klasse. Het idee is dat u kan de gehele klasse nemen en toe te aan uw eigen oplossing voegen en deze gebruikt 'as is." De autorisatie-header-code werkt voor de meeste REST API-aanroepen naar Azure Storage.
+In het voorbeeld project bevindt de code voor het maken van de autorisatie-header zich in een afzonderlijke klasse. Het is raadzaam om de hele klasse te maken en deze toe te voegen aan uw eigen oplossing en deze te gebruiken. De code van de autorisatie-header werkt voor de meeste REST API-aanroepen naar Azure Storage.
 
-Als u wilt maken van de aanvraag, dit een het HttpRequestMessage-object is, gaat u naar ListContainersAsyncREST in Program.cs. De stappen voor het bouwen van de aanvraag zijn: 
+Als u de aanvraag wilt bouwen, wat een HttpRequestMessage-object is, gaat u naar ListContainersAsyncREST in Program.cs. De stappen voor het maken van de aanvraag zijn: 
 
-* Maak de URI moet worden gebruikt voor het aanroepen van de service. 
-* Het HttpRequestMessage-object maken en instellen van de nettolading. De nettolading is null voor ListContainersAsyncREST omdat we alles in niet doorgegeven.
-* Voeg de aanvraagheaders voor x-ms-datum- en x-ms-version.
-* De autorisatie-header ophalen en toe te voegen.
+* Maak de URI die moet worden gebruikt voor het aanroepen van de service. 
+* Maak het HttpRequestMessage-object en stel de payload in. De nettolading is null voor ListContainersAsyncREST omdat er niets wordt door gegeven.
+* Voeg de aanvraag headers voor x-MS-date en x-MS-version toe.
+* Haal de autorisatie-header op en voeg deze toe.
 
-Sommige elementaire informatie die u nodig: 
+Enkele basis informatie die u nodig hebt: 
 
-*  Voor ListContainers, de **methode** is `GET`. Deze waarde is ingesteld bij het instantiëren van de aanvraag. 
-*  De **resource** is het query-gedeelte van de URI die welke API wordt aangeroepen, aangeeft zodat de waarde is `/?comp=list`. Zoals eerder hebt genoteerd, wordt de resource is op de referentiepagina voor documentatie waarin de informatie over de [ListContainers API](/rest/api/storageservices/List-Containers2).
-*  De URI is opgesteld door het maken van het eindpunt van Blob service voor dat opslagaccount en samenvoegen van de resource. De waarde voor **aanvraag-URI** eindigt wordt `http://contosorest.blob.core.windows.net/?comp=list`.
-*  Voor ListContainers, **requestBody** null is en er zijn geen extra **headers**.
+*  Voor ListContainers is `GET`de **methode** . Deze waarde wordt ingesteld bij het instantiëren van de aanvraag. 
+*  De **resource** is het query gedeelte van de URI dat aangeeft welke API wordt aangeroepen, dus de waarde is `/?comp=list`. Zoals eerder is vermeld, bevindt de resource zich op de pagina referentie documentatie waarop de informatie over de [ListContainers-API](/rest/api/storageservices/List-Containers2)wordt weer gegeven.
+*  De URI wordt gemaakt door het Blob service-eind punt voor dat opslag account te maken en de resource samen te voegen. De waarde voor de **aanvraag-URI** eindigt `http://contosorest.blob.core.windows.net/?comp=list`op.
+*  Voor ListContainers is **requestBody** Null en er zijn geen extra **headers**.
 
-Verschillende API's mogelijk andere parameters om door te geven, zoals *ifMatch*. Een voorbeeld van waar u ifMatch kunt gebruiken is bij het aanroepen van PutBlob. In dat geval kunt u ifMatch instellen op een eTag en wordt alleen de blob bijgewerkt als de eTag die u opgeeft overeenkomt met de huidige eTag voor de blob. Als iemand anders heeft de blob sinds het ophalen van de ETag die is bijgewerkt, kan de wijziging wordt niet worden overschreven. 
+Verschillende Api's hebben mogelijk andere para meters die moeten worden door gegeven, zoals *ifMatch*. Een voor beeld van waar u ifMatch zou kunnen gebruiken bij het aanroepen van PutBlob. In dat geval stelt u ifMatch in op een eTag en wordt alleen de BLOB bijgewerkt als de eTag die u opgeeft, overeenkomt met de huidige eTag op de blob. Als iemand anders de BLOB heeft bijgewerkt sinds het ophalen van de eTag, wordt de wijziging niet overschreven. 
 
-Stel eerst de `uri` en de `payload`. 
+Stel eerst de `uri` `payload`en in. 
 
 ```csharp
 // Construct the URI. This will look like this:
@@ -121,7 +121,7 @@ String uri = string.Format("http://{0}.blob.core.windows.net?comp=list", storage
 Byte[] requestPayload = null;
 ```
 
-Vervolgens exemplaar maken van de aanvraag, instellen van de methode op `GET` en het geven van de URI.
+Instantiër vervolgens de aanvraag, waarbij u de methode instelt `GET` op en de URI opgeeft.
 
 ```csharp 
 //Instantiate the request message with a null payload.
@@ -130,7 +130,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-Voeg de aanvraagheaders voor x-ms-datum- en x-ms-version. Deze locatie in de code is ook waar u alle aanvullende aanvraagheaders vereist voor de aanroep toevoegen. In dit voorbeeld zijn er geen extra kopteksten. Een voorbeeld van een API die wordt doorgegeven in extra kopteksten is SetContainerACL. Voor Blob-opslag, wordt een header met de naam "x-ms-blob-openbare-toegang" en de waarde voor het toegangsniveau toegevoegd.
+Voeg de aanvraag headers voor x-MS-date en x-MS-version toe. Deze plaats in de code is ook waar u aanvullende aanvraag headers toevoegt die vereist zijn voor de aanroep. In dit voor beeld zijn er geen aanvullende headers. Een voor beeld van een API die wordt door gegeven aan extra headers is SetContainerACL. Voor Blob Storage wordt een header met de naam ' x-MS-BLOB-Public-Access ' toegevoegd en de waarde voor het toegangs niveau.
 
 ```csharp
     // Add the request headers for x-ms-date and x-ms-version.
@@ -141,7 +141,7 @@ Voeg de aanvraagheaders voor x-ms-datum- en x-ms-version. Deze locatie in de cod
     //   the authorization header. 
 ```
 
-Roep de methode die wordt gemaakt van de autorisatie-header en toe te voegen aan de aanvraagheaders. Hier ziet u hoe u de autorisatie-header later in dit artikel maakt. Naam van de methode is GetAuthorizationHeader, die u in dit codefragment kunt zien:
+Roep de methode aan waarmee de autorisatie-header wordt gemaakt en voeg deze toe aan de aanvraag headers. Verderop in dit artikel ziet u hoe u de autorisatie-header maakt. De naam van de methode is GetAuthorizationHeader, die u in dit code fragment kunt zien:
 
 ```csharp
     // Get the authorization header and add it.
@@ -149,11 +149,11 @@ Roep de methode die wordt gemaakt van de autorisatie-header en toe te voegen aan
         storageAccountName, storageAccountKey, now, httpRequestMessage);
 ```
 
-Op dit moment `httpRequestMessage` bevat de REST de aanvraag is voltooid met de autorisatie-header. 
+Op dit punt wordt `httpRequestMessage` de rest-aanvraag met de autorisatie headers opgenomen. 
 
-## <a name="call-the-rest-api-with-the-request"></a>De REST-API met de aanvraag aanroepen
+## <a name="call-the-rest-api-with-the-request"></a>De REST API aanroepen met de aanvraag
 
-Nu dat u de aanvraag hebt, kunt u SendAsync voor het verzenden van de REST-aanvraag aanroepen. SendAsync de API wordt aangeroepen en wordt in het antwoord. Bekijk de reactie StatusCode (200 is OK), klikt u vervolgens het parseren van het antwoord. In dit geval krijgt u een XML-lijst met containers. We bekijken de code voor het aanroepen van de methode GetRESTRequest voor het maken van de aanvraag, de aanvraag hebt uitgevoerd en vervolgens het antwoord voor de lijst met containers te onderzoeken.
+Nu u de aanvraag hebt, kunt u SendAsync aanroepen om de REST-aanvraag te verzenden. SendAsync roept de API aan en ontvangt de reactie terug. Controleer de status code van het antwoord (200 is OK) en parser vervolgens de reactie. In dit geval krijgt u een XML-lijst met containers. Laten we eens kijken naar de code voor het aanroepen van de GetRESTRequest-methode om de aanvraag te maken, de aanvraag uit te voeren en het antwoord op de lijst met containers te onderzoeken.
 
 ```csharp 
     // Send the request.
@@ -175,15 +175,15 @@ Nu dat u de aanvraag hebt, kunt u SendAsync voor het verzenden van de REST-aanvr
 }
 ```
 
-Als u een netwerksniffer zoals [Fiddler](https://www.telerik.com/fiddler) bij het maken van de aanroep van SendAsync, ziet u de informatie van de aanvraag en reactie. Laten we eens. De naam van het opslagaccount is *contosorest*.
+Als u een netwerksniffer uitvoert, zoals [Fiddler](https://www.telerik.com/fiddler) bij het aanroepen van SendAsync, kunt u de aanvraag-en antwoord gegevens bekijken. Laten we een kijkje nemen. De naam van het opslag account is *contosorest*.
 
-**Aanvraag:**
+**Schot**
 
 ```
 GET /?comp=list HTTP/1.1
 ```
 
-**Aanvraagheaders:**
+**Aanvraag headers:**
 
 ```
 x-ms-date: Thu, 16 Nov 2017 23:34:04 GMT
@@ -193,7 +193,7 @@ Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
 ```
 
-**Status en antwoord-headers geretourneerd na de uitvoering:**
+**Status code en reactie headers die zijn geretourneerd na de uitvoering:**
 
 ```
 HTTP/1.1 200 OK
@@ -205,7 +205,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Hoofdtekst van antwoord (XML):** Voor ListContainers bevat deze een lijst van containers en de bijbehorende eigenschappen.
+**Tekst van antwoord (XML):** Voor ListContainers wordt hiermee de lijst met containers en de bijbehorende eigenschappen weer gegeven.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -262,25 +262,25 @@ Content-Length: 1511
 </EnumerationResults>
 ```
 
-Nu dat u hoe u de aanvraag te maken begrijpt, roept de service en parseren van de resultaten, zien we over het maken van de autorisatie-header. Het maken van deze header is ingewikkeld, maar het goede nieuws is dat zodra u de code werkt hebt, het werkt voor alle van de Storage-Service REST API's.
+Nu u begrijpt hoe u de aanvraag maakt, de service aanroept en de resultaten parseert, gaan we kijken hoe u de autorisatie-header maakt. Het maken van die header is gecompliceerd, maar het goede nieuws is dat wanneer u de code hebt gewerkt, werkt voor alle REST Api's van de Storage-service.
 
-## <a name="creating-the-authorization-header"></a>Het maken van de autorisatie-header
+## <a name="creating-the-authorization-header"></a>De autorisatie-header maken
 
 > [!TIP]
-> Azure Storage ondersteunt nu Azure Active Directory (Azure AD)-integratie voor blobs en wachtrijen. Azure AD biedt een veel eenvoudiger ervaring voor het verlenen van een aanvraag naar Azure Storage. Zie voor meer informatie over het gebruik van Azure AD te autoriseren REST-bewerkingen [verifiëren met Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Zie voor een overzicht van Azure AD-integratie met Azure Storage, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory](storage-auth-aad.md).
+> Azure Storage ondersteunt nu de integratie van Azure Active Directory (Azure AD) voor blobs en wacht rijen. Azure AD biedt een veel eenvoudiger ervaring voor het autoriseren van een aanvraag voor het Azure Storage. Zie [verifiëren met Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)voor meer informatie over het gebruik van Azure AD om rest-bewerkingen te autoriseren. Zie [toegang tot Azure Storage verifiëren met behulp van Azure Active Directory](storage-auth-aad.md)voor een overzicht van Azure AD-integratie met Azure Storage.
 
-Er is een artikel waarin wordt uitgelegd conceptueel gezien (geen code) uitvoeren [-verificatie voor de Azure Storage-Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
-Laten we precies distilleer dat artikel omlaag naar nodig is en de code weer te geven.
+Er is een artikel waarin conceptueel (geen code) wordt uitgelegd hoe [verificatie voor de Azure Storage services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services)moet worden uitgevoerd.
+We gaan dat artikel naar precies naar wens en de code weer geven.
 
-Gebruik eerst een gedeelde sleutelverificatie. De autorisatie-header-indeling ziet er als volgt:
+Gebruik eerst een verificatie met gedeelde sleutel. De indeling van de autorisatie-header ziet er als volgt uit:
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
 ```
 
-Het handtekeningveld is een Hash-based Message Authentication Code (HMAC) gemaakt op basis van de aanvraag en wordt berekend met behulp van de algoritme SHA256 en vervolgens gecodeerd met Base64-codering. Hebt u dat? (Er vastloopt, u dit nog niet hebt, zelfs op basis van het woord *gecanoniseerd* nog.)
+Het veld hand tekening is een op hash gebaseerde Message Authentication Code (HMAC) die is gemaakt op basis van de aanvraag en berekend met behulp van het SHA256-algoritme, en is gecodeerd met base64-code ring. Inderdaad? (Een ogen blik geduld, u hebt het woord nog niet gecanonieked gehoord.)
 
-Dit codefragment laat zien dat de indeling van de gedeelde sleutel handtekening-tekenreeks:
+Dit code fragment toont de indeling van de teken reeks voor de gedeelde sleutel hand tekening:
 
 ```csharp  
 StringToSign = VERB + "\n" +  
@@ -299,21 +299,21 @@ StringToSign = VERB + "\n" +
                CanonicalizedResource;  
 ```
 
-De meeste van deze velden worden zelden gebruikt. Voor Blob-opslag geeft u de bewerking, md5, lengte van de inhoud, Gecanoniseerd Headers en Gecanoniseerd Resource. U kunt de andere leeg laten (maar plaats in de `\n` zodat deze ze zijn leeg).
+De meeste van deze velden worden zelden gebruikt. Voor Blob-opslag geeft u VERB, MD5, lengte van inhoud, canonieke kopteksten en canonieke bron op. U kunt de andere leeg laten (maar in dat geval `\n` de waarde kent zodat deze leeg zijn).
 
-Wat zijn CanonicalizedHeaders en CanonicalizedResource? Goede vraag. Wat doet gecanoniseerd in feite gemiddelde? Microsoft Word niet, zelfs herkend als een woord. Hier volgt een uitleg [Wikipedia vertelt over standaardisatie](https://en.wikipedia.org/wiki/Canonicalization): *Standaardisatie (soms standardization of normalisering) is in computerwetenschappen, een proces voor het converteren van gegevens met meer dan een mogelijke weergave in een 'standaard', 'normale' of canonieke vorm.* In normale spreken, dit betekent dat de lijst met items (zoals kopteksten in het geval van Headers Gecanoniseerd) en deze naar een vereiste indeling te standaardiseren. In principe Microsoft besloten een indeling en u wilt vergelijken.
+Wat zijn CanonicalizedHeaders en CanonicalizedResource? Goede vraag. Wat heeft eigenlijk een canonieke betekenis? Micro soft Word herkent het niet eens als een woord. Hier vindt u [informatie over](https://en.wikipedia.org/wiki/Canonicalization)de standaardisatie van Wikipedia: *In computer wetenschappen is een standaardisatie (soms standaardisering of normalisatie) een proces voor het converteren van gegevens met meer dan één mogelijke representatie in een standaard-, normale of canonieke vorm.* Normaal gesp roken houdt dit in dat u de lijst met items (zoals kopteksten in het geval van canonieke kopteksten) kunt maken en deze in een vereiste indeling wilt standaardiseren. In principe heeft micro soft een indeling gekozen en moet deze overeenkomen.
 
-Laten we beginnen met deze twee canonieke velden, omdat ze zijn vereist voor het maken van de autorisatie-header.
+Laten we beginnen met deze twee canonieke velden, omdat deze zijn vereist voor het maken van de autorisatie-header.
 
 **Canonieke kopteksten**
 
-Voor het maken van deze waarde ophalen van de headers die beginnen met 'x - ms-' en deze sorteren, en ze te formatteren in een reeks `[key:value\n]` instanties, samengevoegd tot één tekenreeks. In dit voorbeeld er de canonieke headers als volgt: 
+Als u deze waarde wilt maken, haalt u de kopteksten op die beginnen met ' x-MS-' en sorteert u deze en `[key:value\n]` vervolgens maakt u deze op in een reeks instanties, samengevoegd tot één teken reeks. In dit voor beeld zien de canonieke kopteksten er als volgt uit: 
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
-Dit is de code die wordt gebruikt om te maken die uitvoer:
+Dit is de code die wordt gebruikt om die uitvoer te maken:
 
 ```csharp 
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
@@ -350,15 +350,15 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 }
 ```
 
-**Canonieke Resource**
+**Canoniek gemaakte resource**
 
-Dit deel van de handtekening-tekenreeks vertegenwoordigt de storage-account dat de aanvraag is gericht. Houd er rekening mee dat de aanvraag-URI is `<http://contosorest.blob.core.windows.net/?comp=list>`, met de naam van het werkelijke (`contosorest` in dit geval). In dit voorbeeld is dit het volgende geretourneerd:
+Dit deel van de teken reeks van de hand tekening vertegenwoordigt het opslag account waarop de aanvraag betrekking heeft. Houd er rekening mee dat de `<http://contosorest.blob.core.windows.net/?comp=list>`aanvraag-URI, met de daad`contosorest` werkelijke account naam (in dit geval). In dit voor beeld wordt dit geretourneerd:
 
 ```
 /contosorest/\ncomp:list
 ```
 
-Als u queryparameters hebt, wordt in dit voorbeeld ook deze parameters bevat. Hier volgt de code, die ook aanvullende queryparameters en query-parameters met meerdere waarden worden verwerkt. Houd er rekening mee dat u deze code werkt voor alle van de REST API's bouwt. U wilt opnemen van alle mogelijkheden, zelfs als de methode ListContainers niet al deze hoeft.
+Als u query parameters hebt, bevat dit voor beeld ook die para meters. Hier volgt de code, waarmee ook extra query parameters en query parameters met meerdere waarden worden verwerkt. Houd er rekening mee dat u deze code bouwt voor het werken met alle REST-Api's. U wilt alle mogelijkheden gebruiken, zelfs als de methode ListContainers niet alle nodig heeft.
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -380,7 +380,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
 }
 ```
 
-Nu de canonieke tekenreeksen zijn ingesteld, gaan we bekijken over het maken van de autorisatie-header zelf. U begint met het maken van een tekenreeks van de handtekening van het bericht in de indeling van StringToSign eerder in dit artikel worden weergegeven. Dit concept is het eenvoudiger om uit te leggen met behulp van opmerkingen in de code, hier is de laatste methode die wordt geretourneerd van de autorisatie-Header:
+Nu de canonieke teken reeksen zijn ingesteld, gaan we kijken hoe u de autorisatie-header zelf maakt. U begint met het maken van een teken reeks van de bericht handtekening in de indeling van de StringToSign die eerder in dit artikel wordt weer gegeven. In dit concept wordt uitgelegd hoe u opmerkingen in de code kunt gebruiken. hier is de laatste methode die de autorisatie-header retourneert:
 
 ```csharp
 internal static AuthenticationHeaderValue GetAuthorizationHeader(
@@ -414,33 +414,33 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 }
 ```
 
-Wanneer u deze code uitvoert, wordt de resulterende MessageSignature ziet eruit zoals in dit voorbeeld:
+Wanneer u deze code uitvoert, ziet de resulterende MessageSignature eruit als in dit voor beeld:
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
 ```
 
-Dit is de laatste waarde voor AuthorizationHeader:
+Dit is de uiteindelijke waarde voor AuthorizationHeader:
 
 ```
 SharedKey contosorest:Ms5sfwkA8nqTRw7Uury4MPHqM6Rj2nfgbYNvUKOa67w=
 ```
 
-De AuthorizationHeader is de laatste kop voordat u het antwoord in de aanvraagheaders is geplaatst.
+De AuthorizationHeader is de laatste header die in de aanvraag headers is geplaatst voordat het antwoord wordt gepost.
 
-Dat omvat alles wat die u weten voor het samenstellen van een klasse waarmee u een aanvraag moet voor het aanroepen van de Storage-Services REST API's kunt maken.
+Dit omvat alles wat u moet weten om een klasse samen te stellen waarmee u een aanvraag voor het aanroepen van de REST-Api's van Storage services kunt maken.
 
-## <a name="how-about-another-example"></a>Hoe zit een ander voorbeeld? 
+## <a name="how-about-another-example"></a>Hoe zit het met een ander voor beeld? 
 
-Laten we kijken hoe u de code voor het aanroepen van ListBlobs voor de container te wijzigen *container-1*. Deze code is bijna identiek aan de code voor het aanbieden van containers, de enige verschillen, wordt de URI en hoe het parseren van het antwoord. 
+Laten we eens kijken hoe u de code kunt wijzigen om ListBlobs aan te roepen voor container *container-1*. Deze code is bijna identiek aan de code voor het weer geven van containers, de enige verschillen zijn de URI en hoe u het antwoord parseert. 
 
-Als u kijkt naar de referentiedocumentatie voor [ListBlobs](/rest/api/storageservices/List-Blobs), vindt u dat de methode is *ophalen* en de RequestURI is:
+Als u de referentie documentatie voor [ListBlobs](/rest/api/storageservices/List-Blobs)bekijkt, ziet u dat de methode *Get* is en dat de RequestURI:
 
 ```
 https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 ```
 
-Wijzig de code die Hiermee stelt u de URI voor de API voor ListBlobs in ListContainersAsyncREST. De containernaam van de is **container-1**.
+Wijzig in ListContainersAsyncREST de code waarmee de URI wordt ingesteld op de API voor ListBlobs. De container naam is **container-1**.
 
 ```csharp
 String uri = 
@@ -449,7 +449,7 @@ String uri =
 
 ```
 
-Waar u het antwoord verwerkt Wijzig vervolgens de code om op te zoeken voor blobs in plaats van containers.
+Wanneer u vervolgens het antwoord afhandelt, wijzigt u de code om te zoeken naar blobs in plaats van containers.
 
 ```csharp
 foreach (XElement container in x.Element("Blobs").Elements("Blob"))
@@ -458,15 +458,15 @@ foreach (XElement container in x.Element("Blobs").Elements("Blob"))
 }
 ```
 
-Wanneer u dit voorbeeld uitvoert, krijgt u resultaten als volgt uit:
+Wanneer u dit voor beeld uitvoert, krijgt u de volgende resultaten:
 
-**Canonieke Headers:**
+**Canonieke kopteksten:**
 
 ```
 x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
-**Canonieke Resource:**
+**Canoniek gemaakte resource:**
 
 ```
 /contosorest/container-1\ncomp:list\nrestype:container
@@ -485,15 +485,15 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-De volgende waarden afkomstig zijn van [Fiddler](https://www.telerik.com/fiddler):
+De volgende waarden zijn afkomstig uit [Fiddler](https://www.telerik.com/fiddler):
 
-**Aanvraag:**
+**Schot**
 
 ```
 GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=list HTTP/1.1
 ```
 
-**Aanvraagheaders:**
+**Aanvraag headers:**
 
 ```
 x-ms-date: Fri, 17 Nov 2017 05:16:48 GMT
@@ -503,7 +503,7 @@ Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
 ```
 
-**Status en antwoord-headers geretourneerd na de uitvoering:**
+**Status code en reactie headers die zijn geretourneerd na de uitvoering:**
 
 ```
 HTTP/1.1 200 OK
@@ -515,7 +515,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Hoofdtekst van antwoord (XML):** Deze XML-antwoord bevat de lijst met blobs en de bijbehorende eigenschappen. 
+**Tekst van antwoord (XML):** Deze XML-respons toont de lijst met blobs en hun eigenschappen. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -564,10 +564,10 @@ Content-Length: 1135
 
 ## <a name="summary"></a>Samenvatting
 
-In dit artikel hebt u geleerd hoe u een aanvraag naar de blob storage REST-API. U kunt een lijst met containers of een lijst met blobs in een container ophalen met de aanvraag. Hebt u geleerd hoe u de autorisatie-handtekening voor de REST-API-aanroep maakt en het gebruik ervan in de REST-aanvraag. Ten slotte hebt u geleerd hoe u kunt het antwoord te controleren.
+In dit artikel hebt u geleerd hoe u een aanvraag kunt indienen voor de Blob Storage-REST API. Met de aanvraag kunt u een lijst met containers of een lijst met blobs in een container ophalen. U hebt geleerd hoe u de autorisatie handtekening maakt voor de REST API-aanroep en hoe u deze kunt gebruiken in de REST-aanvraag. Ten slotte hebt u geleerd hoe u het antwoord kunt onderzoeken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
-* [Bestandsservice REST-API](/rest/api/storageservices/file-service-rest-api)
-* [REST-API voor Queue-Service](/rest/api/storageservices/queue-service-rest-api)
+* [REST API BLOB-service](/rest/api/storageservices/blob-service-rest-api)
+* [Bestands service REST API](/rest/api/storageservices/file-service-rest-api)
+* [REST API Queue-service](/rest/api/storageservices/queue-service-rest-api)

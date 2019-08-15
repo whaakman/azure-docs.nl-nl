@@ -4,7 +4,7 @@ description: Conceptuele Naslag informatie en overzicht van de functie voor veri
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 12ad82b0dda628c3a8cef7712322500c7a33517c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515174"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953833"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 
@@ -119,29 +119,23 @@ App Service kunt voor client browsers automatisch alle niet-geverifieerde gebrui
 
 ## <a name="authorization-behavior"></a>Autorisatie gedrag
 
-In de [Azure Portal](https://portal.azure.com)kunt u app service autorisatie configureren met een aantal gedragingen.
+In de [Azure Portal](https://portal.azure.com)kunt u app service-autorisatie configureren met een aantal gedragingen wanneer een binnenkomende aanvraag niet is geverifieerd.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 In de volgende koppen worden de opties beschreven.
 
-### <a name="allow-all-requests-default"></a>Alle aanvragen toestaan (standaard)
+### <a name="allow-anonymous-requests-no-action"></a>Anonieme aanvragen toestaan (geen actie)
 
-Verificatie en autorisatie worden niet beheerd door App Service (uitgeschakeld). 
+Met deze optie wordt de autorisatie van niet-geverifieerde verkeer naar uw toepassings code uitgesteld. App Service worden voor geverifieerde aanvragen ook de verificatie gegevens in de HTTP-headers door gegeven. 
 
-Kies deze optie als u geen verificatie en autorisatie nodig hebt of als u uw eigen verificatie-en autorisatie code wilt schrijven.
+Deze optie biedt meer flexibiliteit bij het verwerken van anonieme aanvragen. U kunt bijvoorbeeld [meerdere aanmeldings providers](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aan uw gebruikers aanbieden. U moet echter code schrijven. 
 
 ### <a name="allow-only-authenticated-requests"></a>Alleen geverifieerde aanvragen toestaan
 
 De optie is **Aanmelden met \<provider >** . App service stuurt alle anonieme aanvragen door naar `/.auth/login/<provider>` de provider die u kiest. Als de anonieme aanvraag afkomstig is van een systeem eigen mobiele app, is het geretourneerde antwoord een `HTTP 401 Unauthorized`.
 
 Met deze optie hoeft u geen verificatie code in uw app te schrijven. Nauw keurige autorisatie, zoals Role-specifieke autorisatie, kan worden verwerkt door de claims van de gebruiker te controleren (Zie [gebruikers claims voor toegang](app-service-authentication-how-to.md#access-user-claims)).
-
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Alle aanvragen toestaan, maar geverifieerde aanvragen valideren
-
-Met deze optie worden **anonieme aanvragen toegestaan**. Met deze optie worden verificatie en autorisatie in App Service ingeschakeld, maar worden autorisatie beslissingen uitgesteld voor uw toepassings code. App Service worden voor geverifieerde aanvragen ook de verificatie gegevens in de HTTP-headers door gegeven. 
-
-Deze optie biedt meer flexibiliteit bij het verwerken van anonieme aanvragen. U kunt bijvoorbeeld [meerdere aanmeldings providers](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aan uw gebruikers aanbieden. U moet echter code schrijven. 
 
 ## <a name="more-resources"></a>Meer bronnen
 

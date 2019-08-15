@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 836a17051aee4e6a9ac3089f60da30673783e408
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a80f99bc37d3a92a794a78f1f47ce32fbaae75a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875966"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989176"
 ---
 # <a name="azure-monitor-overview"></a>Overzicht van Azure Monitor
 
@@ -146,3 +146,4 @@ Meer informatie over:
 * [Metrieken en logboeken](platform/data-platform.md) voor de gegevens die worden verzameld door Azure monitor.
 * [Gegevens bronnen](platform/data-sources.md) voor het verzenden van telemetrie van de verschillende onderdelen van de toepassing.
 * [Query's vastleggen](log-query/log-query-overview.md) voor het analyseren van verzamelde gegevens.
+* [Aanbevolen procedures](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) voor het bewaken van Cloud toepassingen en-services.

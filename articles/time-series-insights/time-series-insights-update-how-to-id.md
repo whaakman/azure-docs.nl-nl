@@ -1,6 +1,6 @@
 ---
 title: Aanbevolen procedures voor het kiezen van een Time Series-ID in Azure Time Series Insights-Preview | Microsoft Docs
-description: Informatie over aanbevolen procedures als u ervoor een Time Series-ID in Azure Time Series Insights Preview kiest.
+description: Bekijk aanbevolen procedures wanneer u een tijd reeks-ID kiest in Azure Time Series Insights preview.
 author: ashannon7
 ms.author: dpalled
 ms.workload: big-data
@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: af540267e4afc1b248b66b1c6f4989b832c38b58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237583"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947202"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Aanbevolen procedures voor het kiezen van een Time Series-ID
 
@@ -48,7 +48,7 @@ De volgende scenario's beschreven meer dan één sleuteleigenschap selecteren al
 * Bijvoorbeeld, een vloot uniek wordt geïdentificeerd door de eigenschap *deviceId* en een andere waarbij de eigenschap uniek is *objectId*. Geen van beide vloot bevat de unieke eigenschap van de andere vloot. In dit voorbeeld zou u twee sleutels, de apparaat-id en de object-id selecteren als unieke sleutels.
 * We accepteren null-waarden en het ontbreken van de aanwezigheid van een eigenschap in de nettolading telt als een `null` waarde. Dit is ook de juiste methode voor het afhandelen van verzenden van gegevens naar bronnen van twee verschillende gebeurtenissen waarin de gegevens in de bron van elke gebeurtenis een unieke Time Series-ID heeft.
 
-### <a name="scenario-two"></a>Scenario 2
+### <a name="scenario-two"></a>Scenario twee
 
 * U moet meerdere eigenschappen die moeten uniek zijn binnen de dezelfde vloot van activa. 
 * Stel dat bijvoorbeeld, u bent een fabrikant slimme gebouwen en sensoren in elke ruimte implementeren. In elke ruimte, hebt u doorgaans de dezelfde waarden voor *sensorId*, zoals *sensor1*, *sensor2*, en *sensor3*.

@@ -2,19 +2,18 @@
 title: Problemen oplossen Azure Data Factory | Microsoft Docs
 description: Meer informatie over het oplossen van problemen met externe controle activiteiten in Azure Data Factory.
 services: data-factory
-author: abnarain
-manager: craigg
+author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 6/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c76242c176ba4f4c9ffc0d6934f6b645743d77f4
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 1995ce2a91bfbc115f80c99687cc84b52ef614ec
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234588"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950099"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Problemen met Azure Data Factory oplossen
 
@@ -65,7 +64,7 @@ De volgende tabel is van toepassing op U-SQL.
 
 
 
-## <a name="custom"></a>Aangepast telefoonnummer
+## <a name="custom"></a>Aanpassen
 
 De volgende tabel is van toepassing op Azure Batch.
 
@@ -87,9 +86,9 @@ De volgende tabel is van toepassing op Spark-, Hive-, MapReduce-, Pig-en Hadoop-
 
 | Fout code | Foutbericht                                                | Description                                                  | Aanbeveling                           |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2300,   2310 | Het verzenden van een Hadoop-taak is mislukt. Fout: De externe naam kan niet worden omgezet. <br/><br/>Het cluster is niet gevonden. | De door gegeven URI van het cluster is ongeldig.                              | Zorg ervoor dat het cluster niet is verwijderd en dat de gegeven URI juist is. Wanneer u de URI in een browser opent, ziet u de Ambari-gebruikers interface. Als het cluster zich in een virtueel netwerk bevindt, moet de URI de persoonlijke URI zijn. Als u het bestand wilt openen, gebruikt u een virtuele machine die deel uitmaakt van hetzelfde virtuele netwerk. Zie [Direct Connect to Apache Hadoop Services](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services)(Engelstalig) voor meer informatie. |
+| 2300,   2310 | Het verzenden van een Hadoop-taak is mislukt. Fout: Kan de externe naam niet omzetten. <br/><br/>Het cluster is niet gevonden. | De door gegeven URI van het cluster is ongeldig.                              | Zorg ervoor dat het cluster niet is verwijderd en dat de gegeven URI juist is. Wanneer u de URI in een browser opent, ziet u de Ambari-gebruikers interface. Als het cluster zich in een virtueel netwerk bevindt, moet de URI de persoonlijke URI zijn. Als u het bestand wilt openen, gebruikt u een virtuele machine die deel uitmaakt van hetzelfde virtuele netwerk. Zie [Direct Connect to Apache Hadoop Services](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services)(Engelstalig) voor meer informatie. |
 | 2300         | Het verzenden van een Hadoop-taak is mislukt. Taak:..., cluster:.../. Fout: Een taak is geannuleerd. | Er is een time-out opgetreden voor de taak verzending.                         | Het probleem kan algemeen HDInsight-connectiviteit of een netwerk verbinding zijn. Controleer eerst of de gebruikers interface van HDInsight Ambari beschikbaar is vanuit elke browser. Controleer of uw referenties nog geldig zijn. Als u gebruikmaakt van zelf-hostende Integrated Runtime (IR), moet u ervoor zorgen dat u dit doet vanaf de virtuele machine of computer waarop de zelf-hostende IR is geïnstalleerd. Probeer de taak vervolgens opnieuw uit Data Factory te verzenden. Als het nog steeds niet lukt, neemt u contact op met het Data Factory-team voor ondersteuning. |
-| 2300         | Gasten   De gebruikers naam of het wacht woord van Ambari is onjuist  <br/><br/>Gasten   De gebruikers beheerder is vergrendeld in Ambari.   <br/><br/>403-verboden: Toegang wordt geweigerd. | De referenties voor HDInsight zijn onjuist of verlopen. | Corrigeer de referenties en implementeer de gekoppelde service opnieuw. Controleer eerst of de referenties werken op HDInsight door de cluster-URI in een browser te openen en u aan te melden. Als de referenties niet werken, kunt u ze opnieuw instellen op de Azure Portal. |
+| 2300         | Gasten   De gebruikers naam of het wacht woord van Ambari is onjuist  <br/><br/>Gasten   De gebruikers beheerder is vergrendeld in Ambari.   <br/><br/>403-verboden: Toegang geweigerd | De referenties voor HDInsight zijn onjuist of verlopen. | Corrigeer de referenties en implementeer de gekoppelde service opnieuw. Controleer eerst of de referenties werken op HDInsight door de cluster-URI in een browser te openen en u aan te melden. Als de referenties niet werken, kunt u ze opnieuw instellen op de Azure Portal. |
 | 2300,   2310 | 502 - De webserver heeft een ongeldig antwoord ontvangen terwijl deze fungeerde als gateway of proxyserver.       <br/>Ongeldige gateway. | Deze fout is van HDInsight.                               | Deze fout is afkomstig uit het HDInsight-cluster. Zie Ambari-fout in [UI 502](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [502 fouten bij het maken van verbinding met Spark Thrift server](https://hdinsight.github.io/spark/spark-thriftserver-errors.html), [502-fouten bij het verbinden met Spark Thrift server en het](https://hdinsight.github.io/spark/spark-thriftserver-errors.html) [oplossen van problemen met ongeldige gateway fouten in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502)voor meer informatie. |
 | 2300         | Het verzenden van een Hadoop-taak is mislukt. Taak:..., cluster:... Fout: {\"error\":\"kan de aanvraag voor het verzenden van de taak niet verwerken omdat de Templeton-service bezig is met te veel verzend taak aanvragen. Wacht enige tijd voordat u de bewerking opnieuw probeert uit te voeren. Raadpleeg het bestand config Templeton. parallellism. job. Submit om gelijktijdige aanvragen te configureren.  <br/><br/>Het verzenden van een Hadoop-taak is mislukt. Taak 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`.   Fout: {\"error\":\"java. io. IOException: org. apache. Hadoop. garens. exceptions. YarnException: Kan application_1561147195099_3730 niet verzenden naar GARENs: org. apache. Hadoop. Security. AccessControlException: De wachtrij root. joblauncher heeft al 500 toepassingen, kan de toepassing niet verzenden: application_1561147195099_3730 \ | Op hetzelfde moment worden er te veel taken verzonden naar HDInsight. | Overweeg het aantal gelijktijdige taken dat naar HDInsight moet worden verzonden te beperken. Raadpleeg Data Factory gelijktijdige activiteit als de taken worden verzonden door dezelfde activiteit. Wijzig de triggers zodat de gelijktijdige pijplijn uitvoeringen in de loop van de tijd worden verdeeld. Raadpleeg de HDInsight-documentatie om `templeton.parallellism.job.submit` de fout te corrigeren. |
 | 2303,   2347 | Hadoop-taak is mislukt met afsluit code 5. Zie 'wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr' voor meer informatie.  <br/><br/>Het uitvoeren van de Hive is mislukt met fout code ' UserErrorHiveOdbcCommandExecutionFailure '.   Zie 'wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out' voor meer informatie. | De taak is verzonden naar HDInsight en is mislukt op HDInsight. | De taak is verzonden naar HDInsight. Het cluster is mislukt. Open de taak en de logboeken in de gebruikers interface van HDInsight Ambari of open het bestand uit de opslag als het fout bericht wordt voorgesteld. Het bestand bevat de fout Details. |
@@ -109,7 +108,7 @@ De volgende tabel is van toepassing op Spark-, Hive-, MapReduce-, Pig-en Hadoop-
 | 2108         | Verboden 403.                                                | De vereiste machtigingen ontbreken.                                 | Controleer de gebruikers machtigingen voor de toegang tot de resource. Gebruik Fiddler of postman om de functionaliteit van de URL te controleren.  |
 | 2108         | Ongeldige aanvraag 400.                                              | Ongeldige HTTP-aanvraag.                                         | Controleer de URL, het werk woord en de hoofd tekst van de aanvraag. Gebruik Fiddler of postman om de aanvraag te valideren.  |
 | 2108         | Niet gevonden 404.                                                | De resource is niet gevonden.                                       | Gebruik Fiddler of postman om de aanvraag te valideren.  |
-| 2108         | De service is niet beschikbaar.                                          | De service is niet beschikbaar.                                       | Gebruik Fiddler of postman om de aanvraag te valideren.  |
+| 2108         | Service is niet beschikbaar.                                          | De service is niet beschikbaar.                                       | Gebruik Fiddler of postman om de aanvraag te valideren.  |
 | 2108         | Het media type wordt niet ondersteund.                                       | Het inhouds type komt niet overeen met de hoofd tekst van de webactiviteit.           | Geef het inhouds type op dat overeenkomt met de indeling van de nettolading. Gebruik Fiddler of postman om de aanvraag te valideren. |
 | 2108         | De bron waarnaar u op zoek bent, is verwijderd, de naam ervan is gewijzigd of is tijdelijk niet beschikbaar. | De resource is niet beschikbaar.                                | Gebruik Fiddler of postman om het eind punt te controleren. |
 | 2108         | De pagina die u zoekt, kan niet worden weer gegeven omdat er een ongeldige methode (HTTP-term) wordt gebruikt. | Er is een onjuiste methode voor webactiviteiten opgegeven in de aanvraag.   | Gebruik Fiddler of postman om het eind punt te controleren. |
@@ -131,7 +130,7 @@ Fiddler gebruiken om een HTTP-sessie van de bewaakte webtoepassing te maken:
 
 1. Een aanvraag maken: 
 
-   a. Selecteer het  tabblad Composer.
+   a. Selecteer het tabblad Composer.
 
    b. Stel de HTTP-methode en URL in.
 

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1fc5e83c2c46a7da2a4b56879a2d596405fd8bee
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8038b7bd60ac771c798a1a8645022b0bf9e142a9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718312"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934853"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 Vragen? Bekijk de veelgestelde vragen hieronder voor meer informatie.
@@ -137,12 +137,12 @@ Geldige onderdrukkings regels:
 
 #### <a name="what-are-recommended-secrets-management-guidelines"></a>Wat zijn aanbevolen geheimen beheer richtlijnen? 
 Hoewel het mogelijk is om op tijd vastgelegde geheime geheimen te detecteren en de Risico's te verhelpen, is het zelfs nog beter als u een geheimen zou kunnen voor komen dat een geheim wordt ingecheckt. In dit opzicht heeft micro soft CredScan-code analyse uitgebracht als onderdeel van de [micro soft DevLabse-extensie](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) voor Visual Studio. In de vroege preview biedt ontwikkel aars een inline-ervaring voor het detecteren van potentiële geheimen in hun code, waardoor ze de mogelijkheid hebben om deze problemen in realtime op te lossen. Raadpleeg [deze](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/) blog voor meer informatie over het veilig beheren van geheimen in de Cloud. Hieronder vindt u enkele extra bronnen om u te helpen bij het beheren van geheimen en op een veilige manier toegang tot gevoelige gegevens in uw toepassingen: 
- - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
- - [Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
+ - [Azure Key Vault](../../key-vault/index.yml)
+ - [Azure Active Directory](../../sql-database/sql-database-aad-authentication.md)
  - [Azure AD-Managed Service Identity](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Managed Service Identity (MSI) voor Azure-resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
- - [Azure Managed Service Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
- - [AppAuthentication-bibliotheek](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication)
+ - [Managed Service Identity (MSI) voor Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Azure Managed Service Identity](../../app-service/overview-managed-identity.md)
+ - [AppAuthentication-bibliotheek](../../key-vault/service-to-service-authentication.md)
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>Kan ik mijn eigen aangepaste zoekers schrijven?
 

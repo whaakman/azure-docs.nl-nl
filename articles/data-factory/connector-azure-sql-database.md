@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 905d208dccf54ac34e3f832d4d0c5b98a6121757
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 2b4d636737dbd75829c9555e340f79c3c867910d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827506"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967562"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Gegevens kopiëren van of naar Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Azure Data Factory die u gebruikt:"]
@@ -262,18 +262,18 @@ Voor een volledige lijst met secties en eigenschappen die beschikbaar zijn voor 
 
 ### <a name="azure-sql-database-as-the-source"></a>Azure SQL Database als bron
 
-Als u gegevens wilt kopiëren uit Azure SQL Database, stelt u de eigenschap **type** in de bron van de Kopieer activiteit in op **SqlSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u gegevens wilt kopiëren uit Azure SQL Database, worden de volgende eigenschappen ondersteund in de sectie **bron** van de Kopieer activiteit:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap **type** van de bron van de Kopieer activiteit moet zijn ingesteld op **SqlSource**. | Ja |
+| type | De eigenschap **type** van de bron van de Kopieer activiteit moet zijn ingesteld op **AzureSqlSource**. Het type SqlSource wordt nog steeds ondersteund voor compatibiliteit met eerdere versies. | Ja |
 | sqlReaderQuery | Deze eigenschap maakt gebruik van de aangepaste SQL-query om gegevens te lezen. Een voorbeeld is `select * from MyTable`. | Nee |
 | sqlReaderStoredProcedureName | De naam van de opgeslagen procedure die gegevens uit de brontabel leest. De laatste SQL-instructie moet een SELECT-instructie in de opgeslagen procedure. | Nee |
 | storedProcedureParameters | Parameters voor de opgeslagen procedure.<br/>Toegestane waarden zijn de naam of waarde-paren. De namen en het hoofdletter gebruik van para meters moeten overeenkomen met de namen en de behuizing van de opgeslagen procedure parameters. | Nee |
 
 **Punten om te noteren:**
 
-- Als **sqlReaderQuery** is opgegeven voor **SqlSource**, voert de Kopieer activiteit deze query uit op basis van de Azure SQL database bron om de gegevens op te halen. U kunt ook een opgeslagen procedure opgeven door **sqlReaderStoredProcedureName** en **storedProcedureParameters** op te geven als voor de opgeslagen procedure para meters worden gebruikt.
+- Als **sqlReaderQuery** is opgegeven voor **AzureSqlSource**, voert de Kopieer activiteit deze query uit op basis van de Azure SQL database bron om de gegevens op te halen. U kunt ook een opgeslagen procedure opgeven door **sqlReaderStoredProcedureName** en **storedProcedureParameters** op te geven als voor de opgeslagen procedure para meters worden gebruikt.
 - Als u **sqlReaderQuery** of **sqlReaderStoredProcedureName**niet opgeeft, worden de kolommen die zijn gedefinieerd in de sectie ' Structure ' van de JSON van de gegevensset gebruikt voor het maken van een query. De query `select column1, column2 from mytable` wordt uitgevoerd op basis van Azure SQL database. Als de definitie van de gegevensset niet de structuur ' Structure ' bevat, worden alle kolommen geselecteerd in de tabel.
 
 #### <a name="sql-query-example"></a>Voorbeeld van de SQL-query
@@ -297,7 +297,7 @@ Als u gegevens wilt kopiëren uit Azure SQL Database, stelt u de eigenschap **ty
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AzureSqlSource",
                 "sqlReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -329,7 +329,7 @@ Als u gegevens wilt kopiëren uit Azure SQL Database, stelt u de eigenschap **ty
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AzureSqlSource",
                 "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
                 "storedProcedureParameters": {
                     "stringData": { "value": "str3" },
@@ -368,11 +368,11 @@ GO
 > [!TIP]
 > Meer informatie over het ondersteunde schrijf gedrag, configuraties en aanbevolen procedures voor het [laden van gegevens in Azure SQL database](#best-practice-for-loading-data-into-azure-sql-database).
 
-Als u gegevens wilt kopiëren naar Azure SQL Database, stelt u de eigenschap **type** in de Sink van de Kopieer activiteit in op **SqlSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
+Als u gegevens wilt kopiëren naar Azure SQL Database, worden de volgende eigenschappen ondersteund in het gedeelte **sink** van Kopieer activiteit:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap **type** van de Sink voor kopieer activiteiten moet worden ingesteld op **SqlSink**. | Ja |
+| type | De eigenschap **type** van de Sink voor kopieer activiteiten moet worden ingesteld op **AzureSqlSink**. Het type SqlSink wordt nog steeds ondersteund voor compatibiliteit met eerdere versies. | Ja |
 | writeBatchSize | Het aantal rijen dat *per batch*in de SQL-tabel moet worden ingevoegd.<br/> De toegestane waarde is **geheel getal** (aantal rijen). Standaard bepaalt Azure Data Factory dynamisch de juiste Batch grootte op basis van de Rijgrootte. | Nee |
 | writeBatchTimeout | De wacht tijd waarna de batch INSERT-bewerking moet worden voltooid voordat er een time-out optreedt.<br/> De toegestane waarde is **timespan**. Een voor beeld is ' 00:30:00 ' (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query op voor het uitvoeren van de Kopieer activiteit voordat u gegevens naar Azure SQL Database schrijft. Het wordt slechts één keer per Kopieer bewerking aangeroepen. Gebruik deze eigenschap voor het opschonen van de vooraf geladen gegevens. | Nee |
@@ -405,7 +405,7 @@ Als u gegevens wilt kopiëren naar Azure SQL Database, stelt u de eigenschap **t
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
+                "type": "AzureSqlSink",
                 "writeBatchSize": 100000
             }
         }
@@ -439,7 +439,7 @@ Meer informatie over [het aanroepen van een opgeslagen procedure vanuit een SQL-
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
+                "type": "AzureSqlSink",
                 "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
                 "storedProcedureTableTypeParameterName": "MyTable",
                 "sqlWriterTableType": "MyTableType",
@@ -553,7 +553,7 @@ In het volgende voor beeld ziet u hoe u een opgeslagen procedure gebruikt om een
 
     ```json
     "sink": {
-        "type": "SqlSink",
+        "type": "AzureSqlSink",
         "SqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
         "SqlWriterTableType": "MarketingType",

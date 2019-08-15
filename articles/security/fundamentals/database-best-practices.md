@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: dd703420f6a02dba589d8e5ace20cbd1e384adfb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 72b15d77baedae318d4503f2d481b08202730459
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727440"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927991"
 ---
 # <a name="azure-database-security-best-practices"></a>Best practices voor Azure-databasebeveiliging
 In dit artikel worden aanbevolen procedures voor database beveiliging beschreven.
@@ -28,7 +28,7 @@ In dit artikel worden aanbevolen procedures voor database beveiliging beschreven
 De aanbevolen procedures zijn gebaseerd op een advies van de mening en ze werken met de huidige mogelijkheden en functie sets van het Azure-platform. Meningen en technologieën veranderen in de loop van de tijd en dit artikel wordt regel matig bijgewerkt om deze wijzigingen weer te geven.
 
 ## <a name="secure-databases"></a>Beveiligde data bases
-Beveiliging is een belangrijkste reden voor het beheren van data bases en is altijd een prioriteit voor [Azure SQL database](https://docs.microsoft.com/azure/sql-database/). Uw data bases kunnen nauw keurig worden beveiligd om te voldoen aan de meeste regelgevende of beveiligings vereisten, waaronder HIPAA, ISO 27001/27002 en PCI DSS niveau 1. Een actuele lijst met beveiligings nalevings certificeringen is beschikbaar op de website van het [micro soft vertrouwens centrum](https://azure.microsoft.com/support/trust-center/services/). U kunt er ook voor kiezen om uw data bases in specifieke Azure-data centers te plaatsen op basis van wettelijke vereisten.
+Beveiliging is een belangrijkste reden voor het beheren van data bases en is altijd een prioriteit voor [Azure SQL database](../../sql-database/index.yml). Uw data bases kunnen nauw keurig worden beveiligd om te voldoen aan de meeste regelgevende of beveiligings vereisten, waaronder HIPAA, ISO 27001/27002 en PCI DSS niveau 1. Een actuele lijst met beveiligings nalevings certificeringen is beschikbaar op de website van het [micro soft vertrouwens centrum](https://azure.microsoft.com/support/trust-center/services/). U kunt er ook voor kiezen om uw data bases in specifieke Azure-data centers te plaatsen op basis van wettelijke vereisten.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Firewall regels gebruiken om database toegang te beperken
 Microsoft Azure SQL Database biedt een relationele database service voor Azure en andere toepassingen op internet. SQL Database beheert de toegang met de volgende opties om toegang te krijgen tot beveiliging:

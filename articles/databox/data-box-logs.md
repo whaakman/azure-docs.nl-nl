@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 309dc8e1fd15ae4088ed6ee87bdbb8aa4d636951
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848578"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934198"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Tracering en logboek registratie voor uw Azure Data Box en Azure Data Box Heavy
 
@@ -197,7 +197,7 @@ De stuk lijst-of manifest bestanden worden ook gekopieerd naar het Azure-opslag 
 
 Tijdens het uploaden van gegevens naar Azure wordt een Kopieer logboek gemaakt.
 
-### <a name="copylog"></a>Copylog
+### <a name="copy-log"></a>Logboek kopiëren
 
 Voor elke order die wordt verwerkt, maakt de Data Box-Service een kopie logboek in het gekoppelde opslag account. Het Kopieer logboek bevat het totale aantal bestanden dat is geüpload en het aantal bestanden dat tijdens het kopiëren van de gegevens is mislukt van Data Box naar uw Azure Storage-account.
 
@@ -252,6 +252,8 @@ Hier volgt een voor beeld van een Kopieer logboek waarin de upload is voltooid m
 ### <a name="upload-completed-with-warnings"></a>Het uploaden is voltooid met waarschuwingen
 
 Upload naar Azure is voltooid met waarschuwingen als uw gegevens container/BLOB/bestands namen bevatten die niet voldoen aan Azure-naamgevings conventies en de namen zijn gewijzigd om de gegevens naar Azure te uploaden.
+
+![Pad naar de Blade overzicht van het kopiëren van het logboek wanneer deze is voltooid met waarschuwingen](media/data-box-logs/copy-log-path-3.png)
 
 Hier volgt een voor beeld van een Kopieer logboek waarbij de naam van de containers die niet voldoen aan de Azure-naamgevings conventies werd gewijzigd tijdens het uploaden van gegevens naar Azure.
 

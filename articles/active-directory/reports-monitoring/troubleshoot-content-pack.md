@@ -1,9 +1,9 @@
 ---
-title: Het oplossen van Azure Active Directory-activiteitenlogboek registreert inhoudspakketfouten | Microsoft Docs
-description: Biedt u een lijst met foutberichten van het inhoudspakket van Azure Active Directory-activiteit en werk deze kunt oplossen.
+title: Problemen met Azure Active Directory activiteiten logboeken voor het oplossen van conflicten | Microsoft Docs
+description: Voorziet u van een lijst met fout berichten van het inhouds pakket voor de Azure Active Directory-activiteit en de stappen om deze op te lossen.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -14,63 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 06/07/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54a0a5b5306414eb50a1928ec8a1854f56055681
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807520"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987899"
 ---
-# <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Het oplossen van Azure Active Directory-activiteitenlogboek registreert inhoudspakketfouten 
+# <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Problemen met Azure Active Directory activiteiten logboeken van inhouds pakketten oplossen 
 
 |  |
 |--|
 |Op dit moment maakt het inhoudspakket voor Microsoft Azure AD Power BI gebruik van de Azure AD Graph-API's om gegevens op te halen uit uw Azure AD-tenant. Hierdoor ziet u mogelijk enkele verschillen tussen de gegevens die beschikbaar zijn in het inhoudspakket en de gegevens die worden opgehaald met de [Microsoft Graph-API's voor rapportage](concept-reporting-api.md). |
 |  |
 
-Als u werkt met het Power BI-inhoudspakket voor Azure Active Directory (Azure AD), is het mogelijk dat u in de volgende fouten uitvoert: 
+Wanneer u werkt met het Power BI-inhouds pakket voor Azure Active Directory (Azure AD), is het mogelijk dat u de volgende fouten uitvoert: 
 
 - [Vernieuwen is mislukt](troubleshoot-content-pack.md#refresh-failed) 
-- [Gegevensbronreferenties bijwerken is mislukt](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [Het importeren van gegevens is te lang duurt](#data-import-is-too-slow) 
+- [Kan de referenties van de gegevens bron niet bijwerken](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
+- [Het importeren van gegevens duurt te lang](#data-import-is-too-slow) 
 
-In dit artikel vindt u informatie over de mogelijke oorzaken en over het oplossen van deze fouten.
+In dit artikel vindt u informatie over de mogelijke oorzaken en het oplossen van deze fouten.
  
 ## <a name="refresh-failed"></a>Vernieuwen is mislukt 
  
-**Hoe deze fout is opgehaald**: Stuur een e-mail met Power BI of mislukte status in de geschiedenis vernieuwen. 
+**Hoe deze fout wordt opgehaald**: E-mail van de Power BI-of mislukte status in de geschiedenis vernieuwen. 
 
 
-| Oorzaak | Voor het oplossen van |
+| Oorzaak | Oplossen |
 | ---   | ---        |
-| Fout bij fouten kunnen worden veroorzaakt wanneer de referenties van de gebruikers die verbinding maken met het inhoudspakket is opnieuw ingesteld, maar niet bijgewerkt in de instellingen van het inhoudspakket vernieuwen. | In Power BI, zoek de gegevensset die overeenkomt met het dashboard activiteitenlogboeken van Azure AD (**Azure Active Directory-activiteitenlogboek registreert**), kies planning vernieuwen en voer vervolgens uw Azure AD-referenties. |
-| Vernieuwen kan mislukken door grote gegevenssets. | Het Azure AD-inhoudspakket met Power BI kan op dit moment alleen kleine gegevenssets (minder dan 500,00 rijen) ondersteunen vanwege bepaalde beperkingen voor de time-outs in Power BI-Service. Als er beperkingsfouten optreden of als het vernieuwen is mislukt vanwege een time-outproblemen, is dit mogelijk doordat u probeert een grote gegevensset ophalen. Verklein de periode in de query en probeer het opnieuw.|
+| Fout bij het vernieuwen van fouten kan worden veroorzaakt wanneer de referenties van de gebruikers die verbinding maken met het inhouds pakket, opnieuw zijn ingesteld, maar niet zijn bijgewerkt in de verbindings instellingen van het inhouds pakket. | Ga in Power BI naar de gegevensset die overeenkomt met het dash board van Azure AD-activiteiten Logboeken (**Azure Active Directory activiteiten logboeken**), kies planning vernieuwen en voer uw Azure AD-referenties in. |
+| Het vernieuwen kan mislukken vanwege grote gegevens sets. | Het Azure AD-inhouds pakket met Power BI kan momenteel alleen kleine gegevens sets (minder dan 500, 00 rijen) ondersteunen vanwege enkele beperkingen in de Power BI-service. Als u vertragings fouten ondervindt of als het vernieuwen mislukt als gevolg van time-outproblemen, kan dit ertoe leiden dat u een grote gegevensset probeert op te halen. Verklein de tijds periode in de query en probeer het opnieuw.|
  
  
-## <a name="failed-to-update-data-source-credentials"></a>Gegevensbronreferenties bijwerken is mislukt 
+## <a name="failed-to-update-data-source-credentials"></a>Kan de referenties van de gegevens bron niet bijwerken 
  
-**Hoe deze fout is opgehaald**: In Power BI, wanneer u verbinding met het inhoudspakket van Azure AD-activiteit Logboeken maakt. 
+**Hoe deze fout wordt opgehaald**: Wanneer u in Power BI verbinding maakt met het inhouds pakket van Azure AD-activiteiten Logboeken. 
 
-| Oorzaak | Voor het oplossen van |
+| Oorzaak | Oplossen |
 | ---   | ---        |
-| Gebruiker die de verbinding is niet een globale beheerder of beveiligingslezer of een beveiligingsbeheerder. | Gebruik een account dat een globale beheerder of beveiligingslezer of een beveiligingsbeheerder voor toegang tot de inhoudspakketten. |
-| Uw tenant is niet een Premium-tenant of beschikt niet over ten minste één gebruiker met Premium-licentie bestand. | [Een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+| De gebruiker die verbinding maakt, is geen globale beheerder of beveiligings lezer of beveiligings beheerder. | Gebruik een account dat een globale beheerder of beveiligings lezer is, of een beveiligings beheerder voor toegang tot de inhouds pakketten. |
+| Uw Tenant is geen Premium-Tenant of heeft niet ten minste één gebruiker met een Premium-licentie bestand. | [Een ondersteunings ticket indienen](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
 
 
-## <a name="data-import-is-too-slow"></a>Het importeren van gegevens is te langzaam verlopen 
+## <a name="data-import-is-too-slow"></a>Het importeren van gegevens is te langzaam 
  
-**Hoe deze fout is opgehaald**: In Power BI, nadat u verbinding maken met uw inhoudspakket het importeren van gegevens wordt gestart op uw dashboard voorbereiden voor Azure AD-activiteit Logboeken. U ziet het bericht: **Gegevens importeren...**  zonder eventuele verdere wordt uitgevoerd.  
+**Hoe deze fout wordt opgehaald**: In Power BI, nadat u uw inhouds pakket hebt verbonden, wordt het gegevens import proces gestart om uw dash board voor te bereiden op Azure AD-activiteiten Logboeken. U ziet het bericht: **Gegevens importeren...** zonder verdere voortgang.  
 
-| Oorzaak | Voor het oplossen van |
+| Oorzaak | Oplossen |
 | ---   | ---        |
-| Afhankelijk van de grootte van uw tenant, kan deze stap tussen een paar minuten duren tot 30 minuten. | Als het bericht wordt niet gewijzigd in het dashboard worden weergegeven binnen een uur [een ondersteuningsticket](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+| Afhankelijk van de grootte van uw Tenant kan deze stap enkele minuten tot 30 minuten duren. | Als het bericht niet wordt gewijzigd zodat het dash board binnen een uur wordt weer gegeven, moet u [een ondersteunings ticket indienen](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Installeren van Power BI-inhoudspakket voor Azure AD-rapporten](quickstart-install-power-bi-content-pack.md).
-* [Gebruik Power BI content pack voor Azure AD-rapporten om uw gegevens te visualiseren](howto-power-bi-content-pack.md)
+* [Installeer Power bi inhouds pakket voor Azure AD-rapporten](quickstart-install-power-bi-content-pack.md).
+* [Gebruik Power BI inhouds pakket voor Azure AD-rapporten om uw gegevens te visualiseren](howto-power-bi-content-pack.md)
 * [Ondersteuning voor Azure Active Directory verkrijgen](../fundamentals/active-directory-troubleshooting-support-howto.md)

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 524d0854e8691428738cee321e394f572ea80112
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689177"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954613"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele Azure-machine
 
@@ -231,7 +231,7 @@ Als u problemen ondervindt tijdens het herstellen van bestanden van de virtuele 
 | Op de computer waarop het exe-programma wordt uitgevoerd: De nieuwe volumes worden niet ontkoppeld nadat u op de knop ontkoppelen hebt geklikt | De iSCSI-initiator op de computer reageert niet/het vernieuwen van de verbinding met het doel en het onderhouden van de cache. |  Nadat uop ontkoppelen hebt geklikt, wacht u een paar minuten. Als de nieuwe volumes niet worden ontkoppeld, bladert u door alle volumes. Door alle volumes te bladeren, zorgt u ervoor dat de initiator de verbinding vernieuwt. het volume wordt ontkoppeld met een fout bericht dat de schijf niet beschikbaar is.|
 | Exe-uitvoer: Het script wordt uitgevoerd, maar nieuwe volumes gekoppeld wordt niet weer gegeven in de script uitvoer |    Dit is een tijdelijke fout    | De volumes zouden al zijn gekoppeld. Open Explorer om te bladeren. Als u dezelfde computer gebruikt voor het uitvoeren van scripts elke keer, overweeg dan om de computer opnieuw op te starten en de lijst moet worden weer gegeven in de volgende exe-uitvoeringen. |
 | Specifiek voor Linux: Kan de gewenste volumes niet weer geven | Het besturings systeem van de computer waarop het script wordt uitgevoerd, herkent het onderliggende bestands systeem van de beveiligde virtuele machine mogelijk niet | Controleer of het herstel punt vastloopt en consistent is. Als het bestand consistent is, voert u het script uit op een andere computer waarvan het besturings systeem het bestands systeem van de beveiligde VM herkent |
-| Windows-specifiek: Kan de gewenste volumes niet weer geven | De schijven zijn mogelijk gekoppeld, maar de volumes zijn niet geconfigureerd | Zoek in het scherm schijf beheer de extra schijven die zijn gerelateerd aan het herstel punt. Als een of meer van deze schijven offline zijn, probeert u deze online door met de rechter muisknop op de schijf te klikken en vervolgens op ' online ' te klikken.|
+| Windows-specifiek: Kan de gewenste volumes niet weer geven | De schijven zijn mogelijk gekoppeld, maar de volumes zijn niet geconfigureerd | Zoek in het scherm schijf beheer de extra schijven die zijn gerelateerd aan het herstel punt. Als een van deze schijven de status offline heeft, kunt u deze online zetten door met de rechter muisknop op de schijf te klikken en op ' online ' te klikken.|
 
 ## <a name="security"></a>Beveiliging
 
@@ -257,7 +257,7 @@ Het gegenereerde script is ondertekend met het officiële micro soft-certificaat
 
 Alleen beheerders kunnen het script uitvoeren en het uitvoeren in de modus met verhoogde bevoegdheden. Het script voert alleen een vooraf gegenereerde reeks stappen uit en accepteert geen invoer vanuit een externe bron.
 
-Als u het script wilt uitvoeren, moet er een wacht woord zijn dat alleen wordt weer gegeven voor de geautoriseerde gebruiker op het moment van de generatie van het script in de Azure Portal of Power shell/CLI. Dit is om ervoor te zorgen dat de geautoriseerde gebruiker die het script downloadt ook verantwoordelijk is voor het uitvoeren van het script.
+Om het script uit te voeren, vereist een wacht woord dat alleen wordt weer gegeven voor de geautoriseerde gebruiker op het moment van de generatie van het script in de Azure Portal of Power shell/CLI. Dit is om ervoor te zorgen dat de geautoriseerde gebruiker die het script downloadt ook verantwoordelijk is voor het uitvoeren van het script.
 
 #### <a name="browse-files-and-folders"></a>Zoeken in bestanden en mappen
 

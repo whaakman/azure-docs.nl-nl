@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 07/05/2019
-ms.openlocfilehash: 33c844374d6d2b8e64cde6c7c9633e54a292d95f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 515e971214244cdd14955cc269a5f005cb93734f
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567289"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967925"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tijd zones in Azure SQL Database beheerde instantie
 
@@ -83,10 +83,7 @@ U kunt een back-upbestand herstellen of gegevens importeren naar een beheerd exe
 
 ### <a name="point-in-time-restore"></a>Terugzetten naar eerder tijdstip
 
-<del>Wanneer u een herstel naar een bepaald tijdstip uitvoert, wordt de tijd om te herstellen, geïnterpreteerd als UTC-tijd. Deze instelling vermijdt Verwar ring door zomer tijd en de mogelijke wijzigingen.<del>
-
- >[!WARNING]
-  > Het huidige gedrag is niet in overeenstemming met de instructie hierboven en de tijd om te herstellen naar wordt geïnterpreteerd als de tijd zone van het beheerde exemplaar van de bron waarvoor automatische database back-ups worden gemaakt. Er wordt aan gewerkt om dit gedrag te corrigeren om het gegeven punt in de tijd te interpreteren als UTC-tijd. Zie [bekende problemen](sql-database-managed-instance-timezone.md#known-issues) voor meer informatie.
+Wanneer u een herstel naar een bepaald tijdstip uitvoert, wordt de tijd om te herstellen, geïnterpreteerd als UTC-tijd. Op deze manier worden wille keurige ambiguïteiten veroorzaakt door zomer tijd en zijn de mogelijke wijzigingen worden vermeden.
 
 ### <a name="auto-failover-groups"></a>Automatische failover-groepen
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 079a0721e77174215c7256eecbe9bc522256f0b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881481"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966465"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
@@ -33,11 +33,13 @@ U kunt gegevens uit een Oracle-data base kopiëren naar elk ondersteund Sink-geg
 Deze Oracle-connector ondersteunt met name:
 
 - De volgende versies van een Oracle-Data Base:
-  - Oracle 12c R1 (12,1)
-  - Oracle 11g R1, R2 (11,1, 11,2)
-  - Oracle 10g R1, R2 (10,1, 10,2)
-  - Oracle 9i R1, R2 (9.0.1, 9,2)
-  - Oracle 8i R3 (8.1.7)
+    - Oracle 18c R1 (18,1) en hoger
+    - Oracle 12c R1 (12,1) en hoger
+    - Oracle 11g R1 (11,1) en hoger
+    - Oracle 10g R1 (10,1) en hoger
+    - Oracle 9i R2 (9,2) en hoger
+    - Oracle 8i R3 (8.1.7) en hoger
+    - Oracle Database Cloud Exadata-service
 - Kopiëren van gegevens met behulp van basis-of OID-verificaties.
 - Parallelle kopieën van een Oracle-bron. Zie de sectie [parallelle kopie van Oracle](#parallel-copy-from-oracle) voor meer informatie.
 
@@ -46,7 +48,9 @@ Deze Oracle-connector ondersteunt met name:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u gegevens wilt kopiëren van en naar een Oracle-data base die niet openbaar toegankelijk is, moet u een [zelf-hostende Integration runtime](create-self-hosted-integration-runtime.md)instellen. Integration runtime biedt een ingebouwd Oracle-stuur programma. Daarom hoeft u niet hand matig een stuur programma te installeren wanneer u gegevens kopieert van en naar Oracle.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+
+Integration runtime biedt een ingebouwd Oracle-stuur programma. Daarom hoeft u niet hand matig een stuur programma te installeren wanneer u gegevens kopieert van en naar Oracle.
 
 ## <a name="get-started"></a>Aan de slag
 
@@ -62,7 +66,7 @@ De gekoppelde Oracle-Service ondersteunt de volgende eigenschappen:
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **Oracle**. | Ja |
 | connectionString | Hiermee geeft u de gegevens op die nodig zijn om verbinding te maken met het Oracle Database-exemplaar. <br/>Markeer dit veld als een `SecureString` om het veilig op te slaan in Data Factory. U kunt ook een wacht woord in azure Key Vault plaatsen en de `password` configuratie uit de Connection String halen. Raadpleeg de volgende voor beelden en [Sla referenties op in azure Key Vault](store-credentials-in-key-vault.md) met meer informatie. <br><br>**Ondersteund verbindings type**: U kunt de **Oracle-sid** of de **Oracle-Service naam** gebruiken om uw data base te identificeren:<br>-Als u SID gebruikt:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Als u de service naam gebruikt:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
-| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt zelf-hostende Integration runtime of Azure Integration runtime (als uw gegevens archief openbaar toegankelijk is) gebruiken. Als deze eigenschap niet is opgegeven, maakt gebruik van de standaard Azure Integration runtime. |Nee |
+| connectVia | De [integratieruntime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Meer informatie vindt u in de sectie [vereisten](#prerequisites) . Indien niet opgegeven, wordt de standaard Azure Integration Runtime wordt gebruikt. |Nee |
 
 >[!TIP]
 >Als er een fout bericht wordt weer geven, ' ORA-01025: De UPI-para meter valt buiten het bereik, en uw Oracle-versie `WireProtocolMode=1` is 8i, Voeg aan uw connection string toe. Probeer het opnieuw.
@@ -191,11 +195,10 @@ Als u gegevens wilt kopiëren van en naar Oracle, stelt u de eigenschap type van
 
 In deze sectie vindt u een lijst met eigenschappen die worden ondersteund door de Oracle-bron en Sink. Voor een volledige lijst met secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, Zie [pijp lijnen](concepts-pipelines-activities.md). 
 
-### <a name="oracle-as-a-source-type"></a>Oracle als bron type
+### <a name="oracle-as-source"></a>Oracle als bron
 
-> [!TIP]
->
-> Zie [parallelle kopie van Oracle](#parallel-copy-from-oracle)om gegevens van Oracle efficiënt te laden door gebruik te maken van gegevens partities.
+>[!TIP]
+>Zie [parallelle kopie van Oracle](#parallel-copy-from-oracle)om gegevens van Oracle efficiënt te laden door gebruik te maken van gegevens partities.
 
 Als u gegevens van Oracle wilt kopiëren, stelt u het bron type in de `OracleSource`Kopieer activiteit in op. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie.
 
@@ -242,7 +245,7 @@ Als u gegevens van Oracle wilt kopiëren, stelt u het bron type in de `OracleSou
 ]
 ```
 
-### <a name="oracle-as-a-sink-type"></a>Oracle als een Sink-type
+### <a name="oracle-as-sink"></a>Oracle als Sink
 
 Als u gegevens wilt kopiëren naar Oracle, stelt u het sink-type in `OracleSink`de Kopieer activiteit in op. De volgende eigenschappen worden ondersteund in het gedeelte **sink** van de Kopieer activiteit.
 
@@ -339,10 +342,10 @@ Wanneer u gegevens van en naar Oracle kopieert, zijn de volgende toewijzingen va
 | Oracle-gegevens type | Data Factory tussentijdse gegevenstype |
 |:--- |:--- |
 | BFILE |Byte[] |
-| BLOBCACHE |Byte[]<br/>(alleen ondersteund op Oracle 10g en hoger) |
+| BLOB |Byte[]<br/>(alleen ondersteund op Oracle 10g en hoger) |
 | CHAR |Tekenreeks |
-| CLOB |Tekenreeks |
-| DATE |Datetime |
+| CLOB |String |
+| DATE |DateTime |
 | FLOAT |Decimal, String (als precisie > 28) |
 | INTEGER |Decimal, String (als precisie > 28) |
 | OMVANG |Tekenreeks |
@@ -352,12 +355,12 @@ Wanneer u gegevens van en naar Oracle kopieert, zijn de volgende toewijzingen va
 | NUMBER |Decimal, String (als precisie > 28) |
 | NVARCHAR2 |Tekenreeks |
 | RAW |Byte[] |
-| ROWID |Reeks |
-| TIMESTAMP |Datetime |
+| ROWID |Tekenreeks |
+| TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |Tekenreeks |
 | TIMESTAMP WITH TIME ZONE |Tekenreeks |
 | UNSIGNED INTEGER |Number |
-| VARCHAR2 |Reeks |
+| VARCHAR2 |Tekenreeks |
 | XML |Tekenreeks |
 
 > [!NOTE]

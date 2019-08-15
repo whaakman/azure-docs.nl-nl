@@ -1,9 +1,9 @@
 ---
-title: Over het integreren van Azure Active Directory-logboeken met ArcSight met behulp van Azure Monitor | Microsoft Docs
+title: Azure Active Directory-logboeken integreren met ArcSight met behulp van Azure Monitor | Microsoft Docs
 description: Meer informatie over het integreren van Azure Active Directory-logboeken met ArcSight met behulp van Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: b37bef0d-982e-4e28-86b2-6c61ca524ae1
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/19/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e4f0f81c5f135e885fe06d4fb4fa67514e8781b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437019"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988148"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Logboeken van Azure Active Directory integreren met ArcSight met behulp van Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Active Directory-logboeken integreren met ArcSight met behulp van Azure Monitor
 
-[Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) is een beveiliging en -gebeurtenissen (SIEM) beheeroplossing waarmee u kunt detecteren en direct reageren op bedreigingen in uw platform. Nu kunt u logboeken van Azure Active Directory (Azure AD) doorsturen naar ArcSight met behulp van Azure Monitor met behulp van de connector ArcSight voor Azure AD. Deze functie kunt u voor het bewaken van uw tenant voor inbreuk op de beveiliging met behulp van ArcSight.  
+[Micro focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) is een Siem-oplossing (Security Information and Event Management) waarmee u beveiligings dreigingen in uw platform kunt detecteren en erop kan reageren. U kunt Azure Active Directory-Logboeken (Azure AD) nu routeren naar ArcSight met behulp van Azure Monitor met behulp van de ArcSight-connector voor Azure AD. Met deze functie kunt u uw Tenant controleren op beveiligings problemen met behulp van ArcSight.  
 
-In dit artikel leert u hoe u logboeken van Azure AD omleidt naar ArcSight met behulp van Azure Monitor. 
+In dit artikel leert u hoe u Azure AD-Logboeken kunt door sturen naar ArcSight met behulp van Azure Monitor. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 U hebt het volgende nodig om deze functie te gebruiken:
-* Een Azure event hub met Azure AD-activiteit zich aanmeldt. Meer informatie over het [uw activiteitenlogboeken streamen naar een event hub streamen](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
-* Een geconfigureerde exemplaar van ArcSight Syslog-NG-Daemon SmartConnector (SmartConnector) of ArcSight Load Balancer. Als de gebeurtenissen worden verzonden naar ArcSight Load Balancer, worden ze als gevolg daarvan naar de SmartConnector verzonden door de Load Balancer.
+* Een Azure-Event Hub die Azure AD-activiteiten Logboeken bevat. Meer informatie over het streamen van [uw activiteiten logboeken naar een event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+* Een geconfigureerd exemplaar van ArcSight syslog NG aardgas SmartConnector (SmartConnector) of ArcSight Load Balancer. Als de gebeurtenissen worden verzonden naar ArcSight Load Balancer, worden deze daarom naar de SmartConnector verzonden door de Load Balancer.
 
-Downloaden en open de [configuratiehandleiding voor ArcSight SmartConnector voor Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Deze handleiding bevat de stappen die u wilt installeren en configureren van de ArcSight SmartConnector voor Azure Monitor. 
+Down load en open de [configuratie handleiding voor ArcSight SmartConnector voor Azure monitor event hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Deze hand leiding bevat de stappen die u moet installeren en configureren van de ArcSight SmartConnector voor Azure Monitor. 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>Azure AD-logboeken integreren met ArcSight
 
-1. Voer eerst de stappen in de **vereisten** sectie van de configuratiehandleiding. Deze sectie bevat de volgende stappen uit:
-    * Gebruikersmachtigingen instellen in Azure, om ervoor te zorgen dat er een gebruiker met de **eigenaar** rol die u wilt implementeren en configureren van de connector.
-    * Poorten openen op de server met Syslog NG-Daemon SmartConnector, zodat het toegankelijk vanaf Azure is. 
-    * De implementatie wordt uitgevoerd van een Windows PowerShell-script, daarom moet u PowerShell scripts uit te voeren op de computer waar u naar het implementeren van de connector wilt inschakelen.
+1. Voer eerst de stappen uit in de sectie **vereisten** van de configuratie handleiding. Deze sectie bevat de volgende stappen:
+    * Stel de gebruikers machtigingen in Azure in om ervoor te zorgen dat er een gebruiker is met de rol van **eigenaar** voor het implementeren en configureren van de connector.
+    * Open poorten op de server met syslog NG daemon SmartConnector, zodat deze toegankelijk is vanuit Azure. 
+    * De implementatie voert een Windows Power shell-script uit. Daarom moet u Power shell inschakelen om scripts uit te voeren op de computer waarop u de connector wilt implementeren.
 
-2. Volg de stappen in de **-Connector implementeren** sectie van de configuratiehandleiding voor de implementatie van de connector. In deze sectie helpt u bij het downloaden en uitpakken van de connector, eigenschappen voor de toepassing configureren en uitvoeren van het script voor implementatie van de uitgepakte map. 
+2. Volg de stappen in het gedeelte **de connector implementeren** van de configuratie handleiding voor het implementeren van de connector. In deze sectie vindt u instructies voor het downloaden en uitpakken van de connector, het configureren van toepassings eigenschappen en het uitvoeren van het implementatie script uit de uitgepakte map. 
 
-3. Gebruik de stappen in de **controleren van de implementatie in Azure** om te controleren of de connector is ingesteld en naar behoren werkt. Controleer het volgende:
+3. Volg de stappen in de **implementatie in azure controleren** om ervoor te zorgen dat de connector correct is ingesteld en werkt. Controleer het volgende:
     * De vereiste Azure-functies worden gemaakt in uw Azure-abonnement.
-    * De Azure AD-logboeken worden gestreamd naar de juiste bestemming. 
-    * De instellingen van uw implementatie zijn opgeslagen in de toepassingsinstellingen in Azure functie-Apps. 
-    * Een nieuwe resourcegroep voor ArcSight wordt gemaakt in Azure, met een Azure AD-toepassing voor de connector ArcSight en storage-accounts met de gekoppelde bestanden in CEF-indeling.
+    * De Azure AD-logboeken worden naar de juiste bestemming gestreamd. 
+    * De toepassings instellingen van uw implementatie worden opgeslagen in de toepassings instellingen in azure function-apps. 
+    * Er wordt een nieuwe resource groep voor ArcSight gemaakt in azure, met een Azure AD-toepassing voor de ArcSight-connector en opslag accounts met de toegewezen bestanden in CEF-indeling.
 
-4. Ten slotte voltooid na de implementatie de stappen in de **na de implementatieconfiguraties** van de handleiding. In deze sectie wordt uitgelegd hoe u aanvullende configuratie uitvoeren als u van een App Service-Plan om te voorkomen dat de functie-apps niet-actieve na een time-outperiode gebruikmaakt, streaming van diagnostische logboeken van de event hub configureren en bijwerken van de SysLog-NG-Daemon Te koppelen aan de zojuist gemaakte opslagaccount SmartConnector keystore-certificaat.
+4. Voltooi ten slotte de stappen na de implementatie in de configuratie handleiding **na de implementatie** . In deze sectie wordt uitgelegd hoe u aanvullende configuratie kunt uitvoeren als u een App Service plan bent om te voor komen dat de functie-apps na een time-outperiode inactief worden, streaming van Diagnostische logboeken vanuit de Event Hub te configureren en de SysLog NG-daemon bij te werken SmartConnector om het te koppelen aan het zojuist gemaakte opslag account.
 
-5. De handleiding wordt ook uitgelegd over het aanpassen van de eigenschappen van de connector in Azure en hoe u bijwerkt en verwijdert de connector. Er is ook een sectie voor verbeterde prestaties, met inbegrip van een upgrade naar een [Azure verbruiksabonnement](https://azure.microsoft.com/pricing/details/functions) en het configureren van een ArcSight Load Balancer als de gebeurtenisbelasting groter is dan wat een enkel Syslog-NG-Daemon SmartConnector kan de ingang.
+5. De configuratie handleiding legt ook uit hoe u de connector eigenschappen in azure kunt aanpassen en hoe u de connector kunt bijwerken en verwijderen. Er is ook een sectie over prestatie verbeteringen, waaronder het upgraden naar een [Azure-verbruiks plan](https://azure.microsoft.com/pricing/details/functions) en het configureren van een ArcSight Load Balancer als de gebeurtenis belasting groter is dan een enkele syslog-daemon-SmartConnector kunnen verwerken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Configuratiehandleiding voor ArcSight SmartConnector voor Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Configuratie handleiding voor ArcSight SmartConnector voor Azure Monitor Event hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

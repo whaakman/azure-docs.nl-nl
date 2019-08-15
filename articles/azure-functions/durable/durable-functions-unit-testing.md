@@ -1,41 +1,38 @@
 ---
-title: Azure Duurzame functies Eenheidstesten
-description: Leer hoe u aan eenheid testen duurzame functies.
-services: functions
-author: kadimitr
-manager: jeconnoc
-keywords: ''
+title: Testen van Azure Durable Functions-eenheid
+description: Meer informatie over het testen van de eenheids Durable Functions.
+author: ggailey777
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: kadimitr
-ms.openlocfilehash: 69cf91f1448e36353f83de7a271abb3b53858bb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: glenga
+ms.openlocfilehash: 0080365853e7a9c74d3ba0e5efb06ce5a3af2a21
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648462"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967101"
 ---
-# <a name="durable-functions-unit-testing"></a>Duurzame functies Eenheidstesten
+# <a name="durable-functions-unit-testing"></a>Testen van Durable Functions eenheid
 
-Testen eenheid is een belangrijk onderdeel van moderne softwareontwikkelingsprocedures. Eenheidstests zakelijke logica gedrag controleren en beveiligen van de introductie van ongemerkt belangrijke wijzigingen in de toekomst. Duurzame functies kunnen eenvoudig toeneemt in complexiteit, zodat de introductie tot eenheidstests helpt om te voorkomen dat belangrijke wijzigingen. De volgende secties wordt uitgelegd hoe u aan eenheid test de drie functietypen - Orchestration-client, -Orchestrator en -activiteit functies.
+Eenheids tests is een belang rijk onderdeel van moderne software ontwikkelings procedures. Eenheids tests verifiëren het gedrag van bedrijfs logica en beveiligen tegen het introduceren van onopgemerkte wijzigingen in de toekomst. Durable Functions kan gemakkelijk groeien in complexiteit zodat er door het introduceren van de eenheids tests geen wijzigingen kunnen worden opgesplitst. In de volgende secties wordt uitgelegd hoe u de drie functie typen-Orchestration-client, Orchestrator en activiteit functies test eenheid testen.
 
 ## <a name="prerequisites"></a>Vereisten
 
-De voorbeelden in dit artikel is kennis nodig van de volgende concepten en frameworks:
+Voor de voor beelden in dit artikel is kennis van de volgende concepten en frameworks vereist:
 
 * Moduletests uitvoeren
 
 * Durable Functions
 
-* [xUnit](https://xunit.github.io/) -testen-framework
+* [xUnit](https://xunit.github.io/) -test framework
 
-* [moq](https://github.com/moq/moq4) -framework simuleren
+* [MOQ](https://github.com/moq/moq4) : Framework model
 
-## <a name="base-classes-for-mocking"></a>Basisklassen voor het simuleren
+## <a name="base-classes-for-mocking"></a>Basis klassen voor het aftrekken
 
-Nabootsend wordt ondersteund via drie abstracte klassen in duurzame functies:
+De deprototypen wordt ondersteund via drie abstracte klassen in Durable Functions:
 
 * [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)
 
@@ -43,29 +40,29 @@ Nabootsend wordt ondersteund via drie abstracte klassen in duurzame functies:
 
 * [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html)
 
-Deze klassen zijn basisklassen voor [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html), [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html), en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) die de Orchestration-Client definiëren , Orchestrator en methoden van de activiteit. De mocks wordt verwacht gedrag voor de basisklasse methoden instellen zodat de eenheidstest kunt controleren of de bedrijfslogica. Er is een werkstroom in twee stappen voor het testen van de bedrijfslogica in de Orchestration-Client en de Orchestrator-eenheid:
+Deze klassen zijn basis klassen voor [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html), [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) die de Orchestration-client, Orchestrator en activiteiten methoden definiëren. Met de-modellen wordt het verwachte gedrag voor basis klassen methoden ingesteld, zodat de eenheids test de bedrijfs logica kan controleren. Er is een werk stroom met twee stappen voor het testen van de bedrijfs logica in de Orchestration-client en Orchestrator:
 
-1. Gebruik de basisklassen in plaats van de concrete implementatie bij het definiëren van de Orchestration-Client en de Orchestrator-handtekeningen.
-2. In de eenheidstests model van het gedrag van de basisklassen en controleer of de bedrijfslogica.
+1. Gebruik de basis klassen in plaats van de concrete implementatie bij het definiëren van de hand tekeningen van de Orchestration-client en Orchestrator.
+2. In de eenheids tests wordt het gedrag van de basis klassen gesimuleerd en wordt de bedrijfs logica gecontroleerd.
 
-Meer informatie vinden in de volgende alinea's voor het testen van functies die gebruikmaken van de orchestration-client-binding en de orchestrator activeren binding.
+Meer informatie vindt u in de volgende alinea's voor het testen van functies die gebruikmaken van de Orchestration-client binding en de Orchestrator-trigger binding.
 
-## <a name="unit-testing-trigger-functions"></a>Triggerfuncties voor test-eenheid
+## <a name="unit-testing-trigger-functions"></a>Activerings functies voor eenheids tests
 
-In deze sectie wordt de test jednotky de logica van de volgende HTTP-trigger-functie voor het starten van nieuwe indelingen valideren.
+In deze sectie valideert de eenheids test de logica van de volgende HTTP-activerings functie voor het starten van nieuwe integraties.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-De taak van de testen eenheid is om te controleren of de waarde van de `Retry-After` koptekst opgegeven in de nettolading van de reactie. Zodat de eenheidstest gesimuleerde aantal een worden [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) methoden voor het voorspelbare gedrag.
+De eenheids test taak wordt uitgevoerd om de waarde van de `Retry-After` header te controleren die is opgenomen in de nettolading van de reactie. De eenheids test zal dus een aantal [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) -methoden betrekken om voorspelbaar gedrag te garanderen.
 
-Eerst een nagebootste van de basisklasse is vereist, [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). De nagebootste mag een nieuwe klasse die [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). Echter met behulp van een antwoordnabootsing framework zoals [moq](https://github.com/moq/moq4) vereenvoudigt het proces:
+Eerst is een model van de basis klasse vereist, [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). De Modeler kan een nieuwe klasse zijn die [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)implementeert. Het gebruik van een model raamwerk zoals [MOQ](https://github.com/moq/moq4) vereenvoudigt echter het proces:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
     var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
 ```
 
-Vervolgens `StartNewAsync` methode is simulatie om terug te keren een bekende exemplaar-ID.
+Vervolgens `StartNewAsync` wordt de methode gebruikt om een bekende exemplaar-id te retour neren.
 
 ```csharp
     // Mock StartNewAsync method
@@ -74,7 +71,7 @@ Vervolgens `StartNewAsync` methode is simulatie om terug te keren een bekende ex
         ReturnsAsync(instanceId);
 ```
 
-Volgende `CreateCheckStatusResponse` gesimuleerd altijd terug is een lege HTTP 200-respons.
+De `CreateCheckStatusResponse` volgende is gesimuleerd om altijd een leeg http 200-antwoord te retour neren.
 
 ```csharp
     // Mock CreateCheckStatusResponse method
@@ -91,15 +88,15 @@ Volgende `CreateCheckStatusResponse` gesimuleerd altijd terug is een lege HTTP 2
         });
 ```
 
-`TraceWriter` simulatie is ook mogelijk:
+`ILogger`wordt ook gemodeleerd:
 
 ```csharp
-    // Mock TraceWriter
-    var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
+    // Mock ILogger
+    var loggerMock = new Mock<ILogger>();
 
 ```  
 
-Nu de `Run` methode wordt aangeroepen vanuit de unit-test:
+De `Run` methode wordt nu aangeroepen vanuit de eenheids test:
 
 ```csharp
     // Call Orchestration trigger function
@@ -111,10 +108,10 @@ Nu de `Run` methode wordt aangeroepen vanuit de unit-test:
         },
         durableOrchestrationClientBaseMock.Object,
         functionName,
-        traceWriterMock.Object);
+        loggerMock.Object);
  ```
 
- De laatste stap is om te vergelijken van de uitvoer met de verwachte waarde:
+ De laatste stap bestaat uit het vergelijken van de uitvoer met de verwachte waarde:
 
 ```csharp
     // Validate that output is not null
@@ -124,25 +121,25 @@ Nu de `Run` methode wordt aangeroepen vanuit de unit-test:
     Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
 ```
 
-Nadat alle stappen worden gecombineerd, hebt het testen van eenheden de volgende code:
+Na het combi neren van alle stappen, heeft de eenheids test de volgende code:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HttpStartTests.cs)]
 
-## <a name="unit-testing-orchestrator-functions"></a>Eenheidstesten orchestrator-functies
+## <a name="unit-testing-orchestrator-functions"></a>Orchestrator-functies voor het testen van eenheden
 
-Orchestrator-functies zijn nog interessanter voor eenheidstesten omdat ze meestal veel meer bedrijfslogica hebben.
+Orchestrator-functies zijn nog interessanter voor het testen van de eenheid omdat ze meestal veel meer bedrijfs logica hebben.
 
-In deze sectie de eenheid tests valideert de uitvoer van de `E1_HelloSequence` Orchestrator-functie:
+In dit gedeelte wordt de uitvoer van de `E1_HelloSequence` Orchestrator-functie door de eenheids tests gevalideerd:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-De code van de test eenheid wordt gestart met het maken van een nagebootste:
+De code voor de eenheids test wordt gestart met het maken van een model:
 
 ```csharp
     var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
 ```
 
-Vervolgens wordt de activiteit methodeaanroepen worden simulatie:
+Vervolgens worden de aanroepen van de activiteit methode gesimuleerd:
 
 ```csharp
     durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
@@ -150,13 +147,13 @@ Vervolgens wordt de activiteit methodeaanroepen worden simulatie:
     durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
 ```
 
-Naast de eenheidstest worden gebeld `HelloSequence.Run` methode:
+De volgende methode wordt aangeroepen `HelloSequence.Run` door de eenheids test:
 
 ```csharp
     var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
 ```
 
-En ten slotte de uitvoer worden gevalideerd:
+En ten slotte wordt de uitvoer gevalideerd:
 
 ```csharp
     Assert.Equal(3, result.Count);
@@ -165,19 +162,19 @@ En ten slotte de uitvoer worden gevalideerd:
     Assert.Equal("Hello London!", result[2]);
 ```
 
-Nadat alle stappen worden gecombineerd, hebt het testen van eenheden de volgende code:
+Na het combi neren van alle stappen, heeft de eenheids test de volgende code:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceOrchestratorTests.cs)]
 
-## <a name="unit-testing-activity-functions"></a>Activiteitsfuncties voor test-eenheid
+## <a name="unit-testing-activity-functions"></a>Activiteiten functies voor eenheids tests
 
-Activiteitsfuncties kunnen worden getest op dezelfde manier als niet-duurzame functies eenheid.
+Activiteit functies kunnen als eenheid worden getest op dezelfde manier als niet-duurzame functies.
 
-In deze sectie de eenheidstest valideert het gedrag van de `E1_SayHello` activiteit functie:
+In deze sectie wordt met de eenheids test het gedrag van `E1_SayHello` de activiteit functie gevalideerd:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-En de eenheidstests controleert of de indeling van de uitvoer. De eenheidstests kunt de typen methodeparameters rechtstreeks of mock [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html) klasse:
+En de eenheids tests controleren de indeling van de uitvoer. De eenheids tests kunnen de parameter typen rechtstreeks of model [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html) -klasse gebruiken:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 
@@ -186,4 +183,4 @@ En de eenheidstests controleert of de indeling van de uitvoer. De eenheidstests 
 > [!div class="nextstepaction"]
 > [Meer informatie over xUnit](https://xunit.github.io/docs/getting-started-dotnet-core)
 > 
-> [Meer informatie over moq](https://github.com/Moq/moq4/wiki/Quickstart)
+> [Meer informatie over MOQ](https://github.com/Moq/moq4/wiki/Quickstart)

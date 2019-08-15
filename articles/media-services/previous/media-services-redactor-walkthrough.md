@@ -1,6 +1,6 @@
 ---
-title: Redigeer gezichten met Azure Media Analytics-scenario | Microsoft Docs
-description: Dit onderwerp bevat stapsgewijze instructies voor het uitvoeren van de werkstroom van een volledige onherkenbaar maken met behulp van Azure Media Services Explorer (AMSE) en Azure Media Redactor Visualizer (open-source hulpprogramma).
+title: Gezichten met Azure Media Analytics-Overzicht redigeren | Microsoft Docs
+description: In dit onderwerp vindt u stapsgewijze instructies voor het uitvoeren van een volledige redactie werk stroom met behulp van Azure Media Services Explorer (AMSE) en Azure Media Redactor Visualer (open source-hulp programma).
 services: media-services
 documentationcenter: ''
 author: Lichard
@@ -13,112 +13,113 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: rli; juliako;
-ms.openlocfilehash: 3e4844c3174e41ca7f6f5667a2777aba11f70f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: ril
+ms.reviewer: juliako
+ms.openlocfilehash: 3f40c69900b0d7f1c3bf446c1153e21dd7fd4d1b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60874952"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69014930"
 ---
-# <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redigeer gezichten met Azure Media Analytics-scenario
+# <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Gezichten met Azure Media Analytics-Overzicht redigeren
 
 ## <a name="overview"></a>Overzicht
 
-**Azure Media Redactor** is een [Azure Media Analytics](media-services-analytics-overview.md) Mediaprocessor (MP) biedt schaalbare gezichten onherkenbaar maken in de cloud. Gezichten onherkenbaar maken kunt u uw video om gezichten van geselecteerde personen onherkenbaar wijzigen. U wilt de gezichten onherkenbaar maken-service gebruikt in scenario's met openbare veiligheid en nieuwsmedia. Kunnen een paar minuten beeldmateriaal met meerdere gezichten uren redigeer handmatig duren, maar het proces van gezichten onherkenbaar maken moet met deze service slechts een paar eenvoudige stappen. Zie voor meer informatie, [dit](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure media Redactor** is een [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) dat schaal bare gezichts redactie in de Cloud biedt. Met gezichts redactie kunt u uw video aanpassen zodat u de gezichten van geselecteerde personen kunt vervagen. U kunt de gezichts redactie service gebruiken in de scenario's voor open bare veiligheid en nieuws media. Een paar minuten van beeld materiaal dat meerdere gezichten bevat, kan uren duren om hand matig te worden geredigeerd, maar bij deze service zijn slechts enkele eenvoudige stappen vereist voor het redactie proces van het gezicht. Zie [deze](https://azure.microsoft.com/blog/azure-media-redactor/) blog voor meer informatie.
 
-Voor meer informatie over **Azure Media Redactor**, Zie de [gezichten onherkenbaar maken overzicht](media-services-face-redaction.md) onderwerp.
+Zie het onderwerp Overzicht van gezichts [redactie](media-services-face-redaction.md) voor meer informatie over **Azure media Redactor**.
 
-Dit onderwerp bevat stapsgewijze instructies voor het uitvoeren van de werkstroom van een volledige onherkenbaar maken met behulp van Azure Media Services Explorer (AMSE) en Azure Media Redactor Visualizer (open-source hulpprogramma).
+In dit onderwerp vindt u stapsgewijze instructies voor het uitvoeren van een volledige redactie werk stroom met behulp van Azure Media Services Explorer (AMSE) en Azure Media Redactor Visualer (open source-hulp programma).
 
-Zie voor meer informatie, [dit](https://azure.microsoft.com/blog/redaction-preview-available-globally) blog.
+Zie [deze](https://azure.microsoft.com/blog/redaction-preview-available-globally) blog voor meer informatie.
 
-## <a name="azure-media-services-explorer-workflow"></a>Azure Media Services Explorer-werkstroom
+## <a name="azure-media-services-explorer-workflow"></a>Werk stroom van Azure Media Services Explorer
 
-De eenvoudigste manier om aan de slag met Redactor is met het AMSE-hulpprogramma voor open-source op GitHub. U kunt een eenvoudige werkstroom via uitvoeren **gecombineerd** modus als u geen toegang tot de json van de aantekening of het gezicht jpg-afbeeldingen.
+De eenvoudigste manier om aan de slag te gaan met Redactor is het gebruik van het open source AMSE-hulp programma op GitHub. U kunt een vereenvoudigde werk stroom uitvoeren via de **gecombineerde** modus als u geen toegang nodig hebt tot de JSON van de annotatie of het gezichts-jpg-afbeeldings bestand.
 
-### <a name="download-and-setup"></a>Downloaden en installeren
+### <a name="download-and-setup"></a>Downloaden en instellen
 
-1. Download het AMSE-hulpprogramma op [hier](https://github.com/Azure/Azure-Media-Services-Explorer).
-1. Meld u aan bij uw Media Services-account met behulp van de servicesleutel van uw.
+1. Down load [hier](https://github.com/Azure/Azure-Media-Services-Explorer)het AMSE-hulp programma.
+1. Meld u aan bij uw Media Services-account met behulp van uw service sleutel.
 
-    Voor het verkrijgen van de accountnaam en sleutelinformatie gaat u naar de [Azure Portal](https://portal.azure.com/) en selecteert u uw AMS-account. Selecteer instellingen > sleutels. In het venster Sleutels beheren worden de accountnaam en de primaire en secundaire sleutel weergegeven. Kopieer de waarden van de accountnaam en de primaire sleutel.
+    Voor het verkrijgen van de accountnaam en sleutelinformatie gaat u naar de [Azure Portal](https://portal.azure.com/) en selecteert u uw AMS-account. Selecteer vervolgens instellingen > sleutels. In het venster Sleutels beheren worden de accountnaam en de primaire en secundaire sleutel weergegeven. Kopieer de waarden van de accountnaam en de primaire sleutel.
 
 ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
-### <a name="first-pass--analyze-mode"></a>Eerst doorgeven: modus analyseren
+### <a name="first-pass--analyze-mode"></a>Eerste fase – analyse modus
 
-1. Uploaden van uw media-bestand via Asset –> uploaden, of via slepen en neerzetten. 
-1. Klik met de rechtermuisknop en verwerken van uw media-bestand met behulp van Media Analytics Azure Media Redactor –> –> analyseren modus. 
+1. Upload uw media bestand via Asset-> upload of via slepen en neerzetten. 
+1. Klik met de rechter muisknop en werk uw media bestand met Media Analytics – > Azure Media Redactor – > analyse modus. 
 
 
 ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
 
 ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
 
-De uitvoer bevat een json-bestand van aantekeningen met face locatiegegevens, evenals een jpg van elke gedetecteerde gezicht. 
+De uitvoer bevat een consistentie bestand met de locatie gegevens van het Opper vlak en een jpg van elk gedetecteerd gezicht. 
 
 ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-### <a name="second-pass--redact-mode"></a>Ten tweede doorgeven: redigeer modus
+### <a name="second-pass--redact-mode"></a>Tweede fase – redactie modus
 
-1. Uw oorspronkelijke videoasset uploaden naar de uitvoer van de eerste stap en ingesteld als een primaire asset. 
+1. Upload uw oorspronkelijke video-activum naar de uitvoer van de eerste fase en stel deze in als een primaire Asset. 
 
     ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. (Optioneel) Upload een bestand 'Dance_idlist.txt', waaronder een newline gescheiden lijst met de id's die u wilt redigeer. 
+2. Beschrijving Upload een bestand ' Dance_idlist. txt ' met daarin een lijst met door een nieuwe regel gescheiden waarden van de Id's die u wilt redigeren. 
 
     ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
-3. (Optioneel) Bewerk het bestand annotations.json zoals het verhogen van de grenzen van het selectiekader vak. 
-4. De uitvoerasset van de eerste stap Klik met de rechtermuisknop, selecteer de Redactor en uitvoeren met de **Redact** modus. 
+3. Beschrijving Breng wijzigingen aan in het bestand annotaties. json, zoals het verg Roten van de grenzen van het selectie kader. 
+4. Klik met de rechter muisknop op het uitvoer activum van de eerste stap, selecteer de Redactor en voer uit met de modus **redactie** . 
 
     ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
-5. Download of delen van de laatste geredigeerde uitvoerasset. 
+5. Down load of deel de laatste geredigeerde uitvoer activa. 
 
     ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Visualizer open source-hulpprogramma
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Hulp programma voor Azure Media Redactor visualiseren open source
 
-Een open-source [visualizer hulpprogramma](https://github.com/Microsoft/azure-media-redactor-visualizer) is ontworpen om u te helpen ontwikkelaars net begint met de notatie aantekeningen met parseren en het gebruik van de uitvoer.
+Een open source [visualer-hulp programma](https://github.com/Microsoft/azure-media-redactor-visualizer) is ontworpen om ontwikkel aars te helpen bij het starten van de aantekeningen-indeling met het parseren en gebruiken van de uitvoer.
 
-Nadat u de opslagplaats klonen om uit te voeren van het project, moet u voor het downloaden van FFMPEG uit hun [officiële site](https://ffmpeg.org/download.html).
+Nadat u de opslag plaats hebt gekloond, moet u FFMPEG van de [officiële site](https://ffmpeg.org/download.html)downloaden om het project uit te voeren.
 
-Als u een ontwikkelaar bij het parseren van de gegevens van de aantekening JSON, zoek naar binnen Models.MetaData voorbeeld-codevoorbeelden.
+Als u een ontwikkelaar bent die de gegevens van de JSON-aantekening probeert te parseren, kijkt u in modellen. meta gegevens voor voor beelden van voorbeeld code.
 
-### <a name="set-up-the-tool"></a>Het hulpprogramma instellen
+### <a name="set-up-the-tool"></a>Het hulp programma instellen
 
-1.  Download en bouw de volledige oplossing. 
+1.  Down load en bouw de volledige oplossing. 
 
     ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.  Downloaden van FFMPEG uit [hier](https://ffmpeg.org/download.html). Dit project is oorspronkelijk mee ontwikkeld met versie be1d324 (2016-10-04) met een statisch koppelen. 
-3.  Kopieer ffmpeg.exe en ffprobe.exe naar dezelfde uitvoermap als AzureMediaRedactor.exe. 
+2.  Down load FFMPEG van [hier](https://ffmpeg.org/download.html). Dit project is oorspronkelijk ontwikkeld met versie be1d324 (2016-10-04) met statische koppeling. 
+3.  Kopieer ffmpeg. exe en ffprobe. exe naar dezelfde uitvoermap als AzureMediaRedactor. exe. 
 
     ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
-4. Run AzureMediaRedactor.exe. 
+4. Voer AzureMediaRedactor. exe uit. 
 
-### <a name="use-the-tool"></a>Gebruik het hulpprogramma
+### <a name="use-the-tool"></a>Het hulp programma gebruiken
 
-1. Uw video in uw Azure Media Services-account met het Management Pack voor Redactor analyseren modus verwerken. 
-2. Download zowel het oorspronkelijke bestand in de video en de uitvoer van de redactie - taak te analyseren. 
-3. Uitvoeren van de toepassing visualizer en kiest u de bovenstaande bestanden. 
+1. Verwerk uw video in uw Azure Media Services-account met het MP Redactor in de analyse modus. 
+2. Down load zowel het oorspronkelijke video bestand als de uitvoer van de taak redactie-analyseren. 
+3. Voer de toepassing visualer uit en kies de bovenstaande bestanden. 
 
     ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
-4. Bekijk het bestand. Selecteer welke gezichten die u wilt vervagen via de zijbalk aan de rechterkant. 
+4. Bekijk een voor beeld van het bestand. Selecteer de gezichten die u wilt vervagen via de zijbalk aan de rechter kant. 
     
     ![Gezichten onherkenbaar maken](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  Het veld onder tekst wordt bijgewerkt met de face-id's. Maak een bestand met de naam "idlist.txt" met deze id als een newline gescheiden lijst. 
+5.  Het onderste tekst veld wordt bijgewerkt met de face-Id's. Maak een bestand met de naam ' idlist. txt ' met deze Id's als een lijst met door een nieuwe regel gescheiden waarden. 
 
     >[!NOTE]
-    > De idlist.txt moeten worden opgeslagen in ANSI. U kunt Kladblok gebruiken om op te slaan in ANSI.
+    > Idlist. txt moet worden opgeslagen in ANSI. U kunt Klad blok gebruiken om op te slaan in ANSI.
     
-6.  Upload dit bestand op de uitvoerasset uit stap 1. De oorspronkelijke video uploadt naar deze asset ook en ingesteld als primaire asset. 
-7.  Redactie-taak uitvoeren op deze asset met de modus 'Redact' de laatste geredigeerd video ophalen. 
+6.  Upload dit bestand uit stap 1 naar het uitvoer activum. Upload de oorspronkelijke video naar dit activum en stel deze in als primair activum. 
+7.  Een redactie taak uitvoeren op deze asset met de modus ' redigeren ' om de uiteindelijke, geredigeerde video te verkrijgen. 
 
 ## <a name="next-steps"></a>Volgende stappen 
 
@@ -128,8 +129,8 @@ Als u een ontwikkelaar bij het parseren van de gegevens van de aantekening JSON,
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Verwante koppelingen
-[Azure Media Services Analytics-overzicht](media-services-analytics-overview.md)
+[Overzicht van Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Azure Media Analytics-demo 's](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Demo's Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-[Aankondiging van gezichten onherkenbaar maken voor Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)
+[Aangekondigd gezichts redactie voor Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)

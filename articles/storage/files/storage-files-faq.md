@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: e14fcbd81a562b8d6451bb89a479c6675569403a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe893ae95b31b1b676a982a60166041a0ad964d
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854541"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015910"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen over Azure Files
 [Azure files](storage-files-introduction.md) biedt volledig beheerde bestands shares in de cloud die toegankelijk zijn via het industrie standaard [SMB-protocol (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestands shares gelijktijdig koppelen aan Cloud-of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestands shares op Windows Server-computers in de cache opslaan met behulp van Azure File Sync voor snelle toegang, waarbij de gegevens worden gebruikt.
@@ -68,7 +68,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
 
 * <a id="redundancy-options"></a>
   **Welke opties voor opslag redundantie worden ondersteund door Azure Files?**  
-    Momenteel ondersteunt Azure Files lokaal redundante opslag (LRS), zone redundante opslag (ZRS) en geografisch redundante opslag (GRS). We gaan in de toekomst gebruikmaken van geografisch redundante opslag met lees toegang (RA-GRS), maar we hebben op dit moment geen tijd lijnen om te delen.
+    Momenteel ondersteunt Azure Files lokaal redundante opslag (LRS), zone redundante opslag (ZRS), geografisch redundante opslag (GRS) en geo-zone-redundante opslag (GZRS) (preview). We gaan in de toekomst gebruikmaken van geografisch redundante opslag met lees toegang (RA-GRS), maar we hebben op dit moment geen tijd lijnen om te delen.
 
 * <a id="tier-options"></a>
   **Welke opslag lagen worden ondersteund in Azure Files?**  

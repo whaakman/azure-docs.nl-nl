@@ -1,9 +1,9 @@
 ---
-title: Zelfstudie Get-gegevens met behulp van de Reporting API van Azure AD met certificaten | Microsoft Docs
-description: In deze zelfstudie wordt uitgelegd hoe u de Azure AD rapportage-API gebruikt met certificaatreferenties om gegevens uit directory's zonder tussenkomst van de gebruiker.
+title: Zelf studie gegevens ophalen met behulp van de rapportage-API van Azure AD met certificaten | Microsoft Docs
+description: In deze zelf studie wordt uitgelegd hoe u de rapportage-API van Azure AD gebruikt met certificaat referenties om gegevens op te halen uit directory's zonder tussen komst van de gebruiker.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,46 +13,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e006111cce7f53ff87f1c6d60b2a5147da02e1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdab5bc4be366f778213127a307fb4fcf7cf38a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60284870"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989488"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Zelfstudie: Gegevens ophalen met de Azure Active Directory rapportage-API met certificaten
 
-De [Azure Active Directory (Azure AD) rapportage-API's](concept-reporting-api.md) bieden toegang tot de gegevens op programmeerniveau via een set op REST-gebaseerde API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen. Als u toegang wilt tot de Azure AD rapportage-API zonder tussenkomst van de gebruiker, moet u de toegang voor het gebruik van certificaten configureren.
+De [Azure Active Directory (Azure AD) rapportage-API's](concept-reporting-api.md) bieden toegang tot de gegevens op programmeerniveau via een set op REST-gebaseerde API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen. Als u toegang wilt krijgen tot de rapportage-API van Azure AD zonder tussen komst van de gebruiker, moet u uw toegang configureren voor het gebruik van certificaten.
 
-In deze zelfstudie leert u hoe u een testcertificaat gebruikt voor toegang tot de MS Graph-API voor rapportage. U kunt beter geen testcertificaten in een productieomgeving. 
+In deze zelf studie leert u hoe u een test certificaat kunt gebruiken om toegang te krijgen tot de MS-Graph API voor rapportage. Het gebruik van test certificaten in een productie omgeving wordt niet aanbevolen. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. Voor toegang tot aanmeldingsgegevens, zorg ervoor dat u hebt een Azure Active Directory-tenant met een licentie premium (P1/P2). Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden. Als er vóór de upgrade nog geen activiteitgegevens waren, duurt het na het upgraden naar een premium-licentie enkele dagen voordat er gegevens worden weergegeven in de rapporten. 
+1. Zorg ervoor dat u over een Azure Active Directory Tenant met een Premium-licentie (P1/P2) beschikt om toegang tot aanmeldings gegevens te krijgen. Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden. Als er vóór de upgrade nog geen activiteitgegevens waren, duurt het na het upgraden naar een premium-licentie enkele dagen voordat er gegevens worden weergegeven in de rapporten. 
 
-2. Maken of schakel over naar een gebruikersaccount in de **hoofdbeheerder**, **beveiligingsbeheerder**, **beveiligingslezer** of **rapporteren lezer** rol voor de tenant. 
+2. Maak of schakel over naar een gebruikers account in de rol **globale beheerder**, **beveiligings beheerder**, **beveiligings lezer** of **rapport lezer** voor de Tenant. 
 
-3. Voltooi de [vereisten voor toegang tot de Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+3. Voltooi de [vereisten voor toegang tot de API voor Azure Active Directory rapportage](howto-configure-prerequisites-for-reporting-api.md). 
 
-4. Download en installeer [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+4. Down load en Installeer [Azure AD Power shell v2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
 
 5. Install [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Deze module biedt verschillende cmdlets, waaronder:
-    - De ADAL-bibliotheken die nodig zijn voor verificatie
+    - De ADAL-bibliotheken die nodig zijn voor authenticatie
     - Toegangstokens van gebruiker, toepassingssleutels en certificaten met behulp van ADAL
     - Afhandeling van pagina's met zoekresultaten door Graph API
 
-6. Als dit de eerste keer is met de module voeren **installeren MSCloudIdUtilsModule**, anders importeren met behulp van de **Import-Module** Powershell-opdracht. Uw sessie moet lijken op dit scherm: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Als dit de eerste keer is dat u de module **install-MSCloudIdUtilsModule**uitvoert, kunt u deze ook importeren met de Power shell **-opdracht import-module** . Uw sessie moet er ongeveer als volgt uitzien: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Gebruik de **New-SelfSignedCertificate** Powershell-commandlet een testcertificaat maken.
+7. Gebruik de **New-SelfSignedCertificate** Power shell-commandlet om een test certificaat te maken.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-8. Gebruik de **Export-certificaat** commandlet exporteren naar een certificaatbestand.
+8. Gebruik de cmdlet **export-Certificate** om deze te exporteren naar een certificaat bestand.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
@@ -61,15 +61,15 @@ In deze zelfstudie leert u hoe u een testcertificaat gebruikt voor toegang tot d
 
 ## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Gegevens ophalen met de Azure Active Directory rapportage-API met certificaten
 
-1. Navigeer naar de [Azure-portal](https://portal.azure.com), selecteer **Azure Active Directory**en selecteer vervolgens **App-registraties** en kiest u uw toepassing in de lijst. 
+1. Ga naar de [Azure Portal](https://portal.azure.com), selecteer **Azure Active Directory**, selecteer **app-registraties** en kies uw toepassing in de lijst. 
 
-2. Selecteer **instellingen** > **sleutels** en selecteer **openbare sleutel uploaden**.
+2. Selecteer **instellingen** > **sleutels** en selecteer **open bare sleutel uploaden**.
 
-3. Selecteer het certificaatbestand in de vorige stap en selecteer **opslaan**. 
+3. Selecteer het certificaat bestand in de vorige stap en selecteer **Opslaan**. 
 
-4. Noteer de toepassings-ID en de vingerafdruk van het certificaat dat u zojuist hebt geregistreerd met uw toepassing. Als u wilt zoeken van de vingerafdruk, op de toepassingspagina van uw in de portal, gaat u naar **instellingen** en klikt u op **sleutels**. De vingerafdruk van het zich onder de **openbare sleutels** lijst.
+4. Noteer de toepassings-ID en de vinger afdruk van het certificaat dat u zojuist hebt geregistreerd bij uw toepassing. Ga naar **instellingen** en klik op **sleutels**om de vinger afdruk te vinden op de pagina toepassing in de portal. De vinger afdruk wordt weer geven in de lijst met **open bare sleutels** .
 
-5. Open het toepassingsmanifest in het manifest inline-editor en vervang de *keyCredentials* eigenschap met de nieuwe gegevens van een certificaat met het volgende schema. 
+5. Open het manifest van de toepassing in de inline manifest editor en Vervang de eigenschap PropertyName door uw nieuwe certificaat gegevens met behulp van het volgende schema. 
 
    ```
    "keyCredentials": [
@@ -83,24 +83,24 @@ In deze zelfstudie leert u hoe u een testcertificaat gebruikt voor toegang tot d
     ]
    ```
 
-6. Sla het manifest. 
+6. Sla het manifest op. 
   
-7. Nu kunt u een toegangstoken ophalen voor de MS Graph API met behulp van dit certificaat. Gebruik de **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet uit de MSCloudIdUtils PowerShell-module, doorgeven in de toepassings-ID en de vingerafdruk die u hebt verkregen in de vorige stap. 
+7. U kunt nu een toegangs token verkrijgen voor de MS-Graph API met behulp van dit certificaat. Gebruik de cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** van de MSCloudIdUtils Power shell-module, waarbij u de toepassings-id en de vinger afdruk doorgeeft die u hebt verkregen uit de vorige stap. 
 
    ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Het toegangstoken in uw Powershell-script gebruiken om te vragen van de Graph API. Gebruik de **Invoke-MSCloudIdMSGraphQuery** cmdlet uit de MSCloudIDUtils het eindpunt signins en directoryAudits inventariseren. Deze cmdlet met meerdere pagina's met zoekresultaten verwerkt, en stuurt deze resultaten naar de PowerShell-pijplijn.
+8. Gebruik het toegangs token in uw Power shell-script om de Graph API op te vragen. Gebruik de cmdlet **invoke-MSCloudIdMSGraphQuery** van de MSCloudIDUtils om het eind punt aanmeldingen en directoryAudits te inventariseren. Met deze cmdlet worden resultaten met meerdere pagina's verwerkt en worden deze resultaten verzonden naar de Power shell-pijp lijn.
 
-9. Query uitvoeren op het eindpunt directoryAudits om op te halen van de auditlogboeken. 
-   ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+9. Zoek het directoryAudits-eind punt op om de audit logboeken op te halen. 
+   ![Azure-portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Query uitvoeren op het eindpunt signins om op te halen van de logboeken van de aanmelding.
-    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
+10. Zoek het aanmeldingen-eind punt op om de aanmeld logboeken op te halen.
+    ![Azure-portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. Nu kunt u deze gegevens exporteren naar een CSV en opslaan in een SIEM-systeem. U kunt uw script ook verpakken in een geplande taak om periodiek gegevens van Azure AD op te halen uit uw tenant zonder dat u toepassingssleutels hoeft op te slaan in de broncode. 
+11. U kunt er nu voor kiezen om deze gegevens te exporteren naar een CSV en op te slaan in een SIEM-systeem. U kunt uw script ook verpakken in een geplande taak om periodiek gegevens van Azure AD op te halen uit uw tenant zonder dat u toepassingssleutels hoeft op te slaan in de broncode. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Een eerste indruk van de rapportage-API 's krijgen](concept-reporting-api.md)
-* [Controle van de API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Rapport van aanmeldingsactiviteiten API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Controle-API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [API-naslag informatie voor aanmeld activiteiten](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

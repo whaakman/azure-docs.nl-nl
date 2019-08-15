@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: d34c94ccca47d29afc4f3d83bec58db737be270c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840417"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934345"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Service-naar-service-verificatie voor het Azure Key Vault met behulp van .NET
 
@@ -270,21 +270,21 @@ Stel met behulp van Azure CLI het standaard abonnement in op één met het accou
 
 #### <a name="unauthorized-access-access-denied-forbidden-etc-error"></a>Onbevoegde toegang, toegang geweigerd, verboden, etc. fout
  
-De principal die wordt gebruikt, heeft geen toegang tot de bron waartoe deze toegang probeert te krijgen. Verleen uw gebruikers account of de App Service MSI ' Inzender ' toegang tot de gewenste resource, afhankelijk van of u het voor beeld uitvoert op uw lokale ontwikkel computer of in azure hebt geïmplementeerd op uw App Service. Sommige resources, zoals sleutel kluizen, hebben ook een eigen [toegangs beleid](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) dat u kunt gebruiken om toegang te verlenen aan principals (gebruikers, apps, groepen, enzovoort).
+De principal die wordt gebruikt, heeft geen toegang tot de bron waartoe deze toegang probeert te krijgen. Verleen uw gebruikers account of de App Service MSI ' Inzender ' toegang tot de gewenste resource, afhankelijk van of u het voor beeld uitvoert op uw lokale ontwikkel computer of in azure hebt geïmplementeerd op uw App Service. Sommige resources, zoals sleutel kluizen, hebben ook een eigen [toegangs beleid](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) dat u kunt gebruiken om toegang te verlenen aan principals (gebruikers, apps, groepen, enzovoort).
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Veelvoorkomende problemen bij de implementatie van Azure App Service
 
 #### <a name="managed-identity-is-not-setup-on-the-app-service"></a>De beheerde identiteit is niet ingesteld op de App Service
  
-Controleer of de omgevings variabelen MSI_ENDPOINT en MSI_SECRET bestaan met behulp van de [console voor fout opsporing van kudu](https://azure.microsoft.com/en-us/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Als deze omgevings variabelen niet bestaan, is de beheerde identiteit niet ingeschakeld op de App Service. 
+Controleer of de omgevings variabelen MSI_ENDPOINT en MSI_SECRET bestaan met behulp van de [console voor fout opsporing van kudu](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Als deze omgevings variabelen niet bestaan, is de beheerde identiteit niet ingeschakeld op de App Service. 
  
 ### <a name="common-issues-when-deployed-locally-with-iis"></a>Veelvoorkomende problemen bij het lokaal implementeren met IIS
 
 #### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>Kan geen tokens ophalen wanneer de app voor fout opsporing in IIS
 
 AppAuth wordt standaard uitgevoerd in een andere gebruikers context in IIS en heeft daarom geen toegang tot het gebruik van uw ontwikkelaars identiteit voor het ophalen van toegangs tokens. U kunt IIS zo configureren dat deze wordt uitgevoerd met uw gebruikers context, met de volgende twee stappen:
-- Configureer de groep van toepassingen voor de web-app die moet worden uitgevoerd als uw huidige gebruikers account. Meer informatie vindt u [hier](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
-- Stel ' setProfileEnvironment ' in op ' True '. Meer informatie vindt u [hier](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
+- Configureer de groep van toepassingen voor de web-app die moet worden uitgevoerd als uw huidige gebruikers account. Meer informatie vindt u [hier](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
+- Stel ' setProfileEnvironment ' in op ' True '. Meer informatie vindt u [hier](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
 
     - Ga naar%windir%\System32\inetsrv\config\applicationHost.config
     - Zoek naar ' setProfileEnvironment '. Als deze is ingesteld op ' false ', wijzigt u deze in ' True '. Als deze niet aanwezig is, voegt u deze als een kenmerk toe aan het processModel/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment-element () en stelt u deze in op ' True '.

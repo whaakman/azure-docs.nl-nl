@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: bacb677b8354c0b0e219ce7483a1446a96c28288
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855518"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950683"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Bekende problemen met Azure Data Lake Storage Gen2
 
@@ -100,7 +100,7 @@ De volgende tabel bevat alle andere functies en hulpprogram ma's die nog niet wo
 | **Blobfuse** |Nog niet ondersteund|
 | **Aangepaste domeinen** |Nog niet ondersteund|
 | **Bestands systeem Verkenner** | Beperkte ondersteuning |
-| **Registratie in diagnoselogboek** |Diagnostische logboeken worden alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. <br><br>Het inschakelen van Logboeken in het Azure Portal wordt momenteel niet ondersteund. Hier volgt een voor beeld van het inschakelen van de logboeken met behulp van Power shell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Zorg ervoor dat u `Blob` opgeeft als de waarde van `-ServiceType` de para meter zoals weer gegeven in dit voor beeld. 
+| **Registratie in diagnoselogboek** |Diagnostische logboeken worden alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. <br><br>Het inschakelen van Logboeken in het Azure Portal wordt momenteel niet ondersteund. Hier volgt een voor beeld van het inschakelen van de logboeken met behulp van Power shell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Zorg ervoor dat u `Blob` opgeeft als de waarde van `-ServiceType` de para meter zoals weer gegeven in dit voor beeld. 
 | **Onveranderbare opslag** |Nog niet ondersteund <br><br>Onveranderbare opslag biedt de mogelijkheid om gegevens op te slaan in een [worm (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) .|
 | **Lagen op object niveau** |De lagen cool en Archive worden alleen ondersteund als u zich registreert bij de [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md) preview. <br><br> Alle andere toegangs lagen worden nog niet ondersteund.|
 | **Ondersteuning voor Power shell en CLI** | Beperkte functionaliteit <br><br>Beheer bewerkingen, zoals het maken van een account, worden ondersteund. Gegevenslaag bewerkingen, zoals het uploaden en downloaden van bestanden, bevinden zich in de open bare preview als onderdeel van [toegang tot meerdere protocollen op Data Lake Storage](data-lake-storage-multi-protocol-access.md). Werken met mappen en toegangs beheer lijsten (Acl's) instellen wordt nog niet ondersteund. |

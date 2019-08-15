@@ -1,20 +1,22 @@
 ---
 title: Sneltoetsen voor Azure Data Catalog
-description: In dit artikel vindt u de sneltoetsen voor Azure Data Catalog.
+description: Dit artikel bevat een lijst met sneltoetsen die u in Azure Data Catalog kunt gebruiken.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 499067f33bddbede6510f61e2cb5da3fb33a5e7c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72d1ce0ded61b1143f99769319892981f3cd1c10
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736311"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014454"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Sneltoetsen voor Azure Data Catalog
+
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Sneltoetsen voor het hulp programma voor het registreren van Data Catalog gegevens bronnen
+
 ### <a name="general-keyboard-shortcuts"></a>Algemene sneltoetsen
 | Bewerking | Drukken |
 | --- | --- |

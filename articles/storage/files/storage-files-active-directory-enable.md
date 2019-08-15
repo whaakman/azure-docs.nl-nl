@@ -4,14 +4,14 @@ description: Meer informatie over het inschakelen van verificatie op basis van i
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 060c47cc25d04bccc253bcebf6479d660621f6d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2b5ebc9f35dd207e8e530b7d74acc5517125fbf4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855328"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935005"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Azure Active Directory Domain Services authenticatie via SMB voor Azure Files inschakelen
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -142,7 +142,16 @@ We hebben twee ingebouwde rollen voor Azure geïntroduceerd voor het verlenen va
 > [!IMPORTANT]
 > Volledige administratieve controle van een bestands share, inclusief de mogelijkheid om een rol toe te wijzen aan een identiteit, vereist het gebruik van de sleutel voor het opslag account. Beheer beheer wordt niet ondersteund met Azure AD-referenties.
 
-U kunt Azure PowerShell of Azure CLI gebruiken om de ingebouwde rollen toe te wijzen aan de Azure AD-identiteit van een gebruiker voor het verlenen van machtigingen op share niveau.
+U kunt de Azure Portal, Power shell of Azure CLI gebruiken om de ingebouwde rollen toe te wijzen aan de Azure AD-identiteit van een gebruiker voor het verlenen van machtigingen op share niveau.
+
+#### <a name="azure-portal"></a>Azure Portal
+Voer de volgende stappen uit om een RBAC-rol toe te wijzen aan een Azure AD-identiteit met behulp van de [Azure Portal](https://portal.azure.com):
+
+1. Ga in het Azure Portal naar uw bestands share of [Maak een bestands share in azure files](storage-how-to-create-file-share.md).
+2. Selecteer **toegangsbeheer (IAM)** .
+3. Selecteer **een roltoewijzing toevoegen**
+4. Selecteer in de Blade **roltoewijzing toevoegen** de geschikte ingebouwde rol (opslag BESTANDS gegevens SMB-share, opslag BESTANDS gegevens SMB delen Inzender) uit de lijst met **functies** . Houd de optie **toegang toewijzen aan** op de standaard instelling: **Gebruikers-, groeps-of Service-Principal van Azure AD**. Selecteer de Azure AD-doel-id op naam of e-mail adres.
+5. Selecteer **Opslaan** om de roltoewijzings bewerking te volt ooien.
 
 #### <a name="powershell"></a>PowerShell
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 23386139364a72b0275936cdc458c8cd2a5771c9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0e3f996ab2a42057198368759c75f10e911d5f54
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386854"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68936787"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Wordt BGP ondersteunt op alle Azure VPN-gateway SKU’s?
 Nee. BGP wordt ondersteund op Azure VPN-gateways **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** en **HighPerformance**. SKU **Basic** wordt NIET ondersteund.
@@ -39,6 +39,13 @@ U kunt deze ASN's niet opgeven voor uw on-premises VPN-apparaten wanneer u verbi
 Ja. De volgende ASN's zijn [gereserveerd door IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) en kunnen niet worden geconfigureerd voor uw Azure VPN-gateway:
 
 23456, 64496-64511, 65535-65551 en 429496729
+
+### <a name="what-private-asns-can-i-use"></a>Welke persoonlijke Asn's kan ik gebruiken?
+Het bruikbaarste bereik aan persoonlijke Asn's dat kan worden gebruikt, zijn:
+
+* 64512-65514, 65521-65534
+
+Deze Asn's zijn niet gereserveerd door IANA of Azure voor gebruik en kunnen daarom worden gebruikt voor het toewijzen van uw Azure-VPN Gateway.
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Kan ik hetzelfde ASN gebruiken voor on-premises VPN-netwerken en Azure VNets?
 Nee, u moet verschillende ASN’s toewijzen aan uw on-premises netwerken en uw Azure Vnets als u ze beide verbindt met BGP. Aan Azure VPN-gateways wordt standaard een ASN van 65515 toegewezen, onafhankelijk van of BGP is ingeschakeld voor verbinding tussen gebouwen. U kunt deze standaardwaarde onderdrukken door een andere ASN toe te wijzen bij het aanmaken van de VPN-gateway of door het ASN te wijzigen nadat de gateway is aangemaakt. U moet uw lokale ASN's toewijzen aan de bijbehorende on-premises netwerkgateways van Azure.

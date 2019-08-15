@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren van ODBC-bronnen met behulp van Azure Data Factory | Microsoft Docs
-description: Informatie over het kopiëren van gegevens uit OData-bronnen voor ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+description: Informatie over het kopiëren van gegevens van OData-bronnen naar ondersteunde Sink-gegevens archieven met behulp van een Kopieer activiteit in een Azure Data Factory-pijp lijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,56 +10,56 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ee0f4ccfcd75504be6bb636e7ee54a845a10280
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711455"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966925"
 ---
-# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Gegevens kopiëren van en naar ODBC-gegevensopslag met Azure Data Factory
-> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory-service die u gebruikt:"]
+# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Gegevens kopiëren van en naar ODBC-gegevens archieven met behulp van Azure Data Factory
+> [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
 > * [Versie 1:](v1/data-factory-odbc-connector.md)
 > * [Huidige versie](connector-odbc.md)
 
-In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van en naar een ODBC-gegevensopslag. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel wordt beschreven hoe u de Kopieer activiteit in Azure Data Factory kunt gebruiken om gegevens te kopiëren van en naar een ODBC-gegevens archief. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens kopiëren van ODBC-gegevensbron naar een ondersteunde sink-gegevensopslag of kopiëren van een ondersteund brongegevensarchief naar een ODBC-sink. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens van een ODBC-bron naar een ondersteunde Sink-gegevens opslag kopiëren of vanuit elk ondersteund bron gegevens archief naar een ODBC-Sink kopiëren. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Om precies deze ODBC-connector ondersteunt de kopiëren van gegevens van/naar **alle gegevensarchieven ODBC-compatibele** met behulp van **Basic** of **anoniem** verificatie.
+Met name deze ODBC-connector ondersteunt het kopiëren van gegevens van/naar **elk ODBC-compatibel gegevens archief** met behulp van **basis** -of **anonieme** verificatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van deze ODBC-connector, moet u naar:
+Als u deze ODBC-Connector wilt gebruiken, moet u het volgende doen:
 
-- Instellen van een zelfgehoste Cloudintegratieruntime. Zie [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
-- Installeer het ODBC-stuurprogramma voor de gegevensopslag op de machine Integration Runtime.
+- Stel een zelf-hostende Integration Runtime in. Zie [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
+- Installeer het ODBC-stuur programma voor het gegevens archief op de Integration Runtime computer.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met ODBC-connector.
+De volgende secties bevatten informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory entiteiten die specifiek zijn voor ODBC-Connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
-De volgende eigenschappen worden ondersteund voor ODBC-gekoppelde service:
+De volgende eigenschappen worden ondersteund voor ODBC-gekoppelde services:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Odbc** | Ja |
-| connectionString | De verbindingsreeks met uitzondering van het gedeelte van de referentie. U kunt de verbindingsreeks opgeven met een patroon zoals `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, of gebruik de systeem-DSN (gegevensbronnaam) u op de machine Integration Runtime met instellen `"DSN=<name of the DSN on IR machine>;"` (u moet nog steeds opgeven het gedeelte van de referentie in de gekoppelde service dienovereenkomstig).<br>Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md).| Ja |
-| authenticationType | Het type verificatie gebruikt voor verbinding met de ODBC-gegevensopslag.<br/>Toegestane waarden zijn: **Basic** en **anonieme**. | Ja |
-| userName | Geef de gebruikersnaam op als u basisverificatie gebruikt. | Nee |
+| connectionString | De connection string het referentie gedeelte niet uitsluiten. U kunt de Connection String met een patroon `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`opgeven, of de systeem-DSN (gegevens bron naam) gebruiken die u hebt ingesteld op de Integration runtime machine met `"DSN=<name of the DSN on IR machine>;"` (u moet nog steeds het referentie deel opgeven in de gekoppelde service).<br>Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md).| Ja |
+| authenticationType | Type verificatie dat wordt gebruikt om verbinding te maken met het ODBC-gegevens archief.<br/>Toegestane waarden zijn: **Basis** en **anoniem**. | Ja |
+| userName | Geef de gebruikers naam op als u basis verificatie gebruikt. | Nee |
 | password | Geeft het wachtwoord op voor het gebruikersaccount dat u hebt opgegeven voor de userName. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
-| credential | De access-referentie-gedeelte van de verbindingsreeks die is opgegeven in de indeling van de eigenschap / waarde-specifieke stuurprogramma's. Voorbeeld: `"RefreshToken=<secret refresh token>;"`. Dit veld markeert als een SecureString. | Nee |
-| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
+| credential | Het deel van de toegangs referentie van de connection string dat is opgegeven in de eigenschaps waarde-indeling van het stuur programma. Voorbeeld: `"RefreshToken=<secret refresh token>;"`. Dit veld markeren als SecureString. | Nee |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Een zelf-hostende Integration Runtime is vereist zoals vermeld in de [vereisten](#prerequisites). |Ja |
 
-**Voorbeeld 1: met behulp van basisverificatie**
+**Voor beeld 1: basis verificatie gebruiken**
 
 ```json
 {
@@ -86,7 +86,7 @@ De volgende eigenschappen worden ondersteund voor ODBC-gekoppelde service:
 }
 ```
 
-**Voorbeeld 2: anonieme verificatie gebruikt**
+**Voor beeld 2: anonieme verificatie gebruiken**
 
 ```json
 {
@@ -114,14 +114,14 @@ De volgende eigenschappen worden ondersteund voor ODBC-gekoppelde service:
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund voor ODBC-gegevensset.
+Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. In deze sectie vindt u een lijst met eigenschappen die door de ODBC-gegevensset worden ondersteund.
 
-Om gegevens te kopiëren van/naar compatibel is met ODBC-gegevensopslag, stel de eigenschap type van de gegevensset in **RelationalTable**. De volgende eigenschappen worden ondersteund:
+Als u gegevens wilt kopiëren van/naar een ODBC-compatibel gegevens archief, stelt u de eigenschap type van de gegevensset in op **RelationalTable**. De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **RelationalTable** | Ja |
-| tableName | Naam van de tabel in de ODBC-gegevensopslag. | Nee voor bron (als 'query' in de activiteitbron is opgegeven);<br/>Ja voor sink |
+| tableName | De naam van de tabel in het ODBC-gegevens archief. | Nee voor bron (als "query" in activiteits bron is opgegeven);<br/>Ja voor Sink |
 
 **Voorbeeld**
 
@@ -143,15 +143,15 @@ Om gegevens te kopiëren van/naar compatibel is met ODBC-gegevensopslag, stel de
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door de ODBC-gegevensbron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. In deze sectie vindt u een lijst met eigenschappen die door de ODBC-bron worden ondersteund.
 
 ### <a name="odbc-as-source"></a>ODBC als bron
 
-Om gegevens te kopiëren uit ODBC-compatibele data store, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u gegevens wilt kopiëren vanuit een ODBC-compatibel gegevens archief, stelt u het bron type in de Kopieer activiteit in op **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **source** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **RelationalSource** | Ja |
+| type | De eigenschap type van de bron van de Kopieer activiteit moet worden ingesteld op: **RelationalSource** | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Bijvoorbeeld: `"SELECT * FROM MyTable"`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
@@ -186,19 +186,19 @@ Om gegevens te kopiëren uit ODBC-compatibele data store, stelt u het brontype i
 ]
 ```
 
-### <a name="odbc-as-sink"></a>ODBC als sink
+### <a name="odbc-as-sink"></a>ODBC als Sink
 
-Om gegevens te kopiëren met ODBC compatibele data store, stelt u het sink-type in de kopieeractiviteit naar **OdbcSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
+Als u gegevens wilt kopiëren naar een ODBC-compatibel gegevens archief, stelt u het sink-type in de Kopieer activiteit in op **OdbcSink**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **sink** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op: **OdbcSink** | Ja |
-| writeBatchTimeout |Wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out.<br/>Toegestane waarden zijn: timespan. Voorbeeld: "00: 30:00 ' (30 minuten). |Nee |
-| writeBatchSize |Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt.<br/>Toegestane waarden zijn: geheel getal (aantal rijen). |Nee (standaard is 0 - automatisch gedetecteerd) |
-| preCopyScript |Geef een SQL-query voor de Kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in het gegevensarchief in elke uitvoering. U kunt deze eigenschap gebruiken voor het opschonen van de vooraf geladen gegevens. |Nee |
+| type | De eigenschap type van de Sink voor kopieer activiteiten moet worden ingesteld op: **OdbcSink** | Ja |
+| writeBatchTimeout |Wacht tijd voordat de batch INSERT-bewerking is voltooid voordat er een time-out optreedt.<br/>Toegestane waarden zijn: time span. Voorbeeld: "00:30:00" (30 minuten). |Nee |
+| writeBatchSize |Hiermee worden gegevens in de SQL-tabel ingevoegd wanneer de buffer grootte writeBatchSize bereikt.<br/>Toegestane waarden zijn: geheel getal (aantal rijen). |Nee (standaard is 0-automatisch gedetecteerd) |
+| preCopyScript |Geef een SQL-query voor de Kopieer activiteit op die moet worden uitgevoerd voordat u gegevens naar het gegevens archief in elke run schrijft. U kunt deze eigenschap gebruiken om de vooraf geladen gegevens op te schonen. |Nee |
 
 > [!NOTE]
-> Voor 'writeBatchSize', als deze niet ingesteld (automatische detectie), kopieeractiviteit eerst wordt gedetecteerd of het stuurprogramma biedt ondersteuning voor batchbewerkingen, en stel deze in op 10000 als dit het geval of ingesteld op 1 als dat niet het geval. Als u de andere waarde dan 0 expliciet instelt, worden de kopieeractiviteit zich houdt aan de waarde en mislukt tijdens runtime als het stuurprogramma biedt geen ondersteuning voor batchbewerkingen.
+> Als het ' writeBatchSize ' niet is ingesteld (automatisch gedetecteerd), detecteert de Kopieer activiteit eerst of het stuur programma batch bewerkingen ondersteunt, en stelt dit in 10000 op 1 als dit niet het geval is. Als u de waarde expliciet instelt op 0, wordt door de Kopieer activiteit de waarde nageleefd en mislukt de runtime als het stuur programma geen batch bewerkingen ondersteunt.
 
 **Voorbeeld:**
 
@@ -232,93 +232,19 @@ Om gegevens te kopiëren met ODBC compatibele data store, stelt u het sink-type 
 ]
 ```
 
-## <a name="ibm-informix-source"></a>IBM Informix-bron
-
-U kunt gegevens kopiëren uit IBM Informix-database met behulp van de algemene ODBC-connector.
-
-Instellen van een zelfgehoste Integration Runtime op een computer met toegang tot uw gegevensarchief. De Integration Runtime maakt gebruik van het ODBC-stuurprogramma voor Informix verbinding maken met het gegevensarchief. Installeer het stuurprogramma daarom als deze nog niet is geïnstalleerd op dezelfde computer. U kunt bijvoorbeeld stuurprogramma 'IBM INFORMIX ODBC-stuurprogramma (64-bits)'. Zie [vereisten](#prerequisites) sectie voor meer informatie.
-
-Voordat u de Informix-bron in een Data Factory-oplossing gebruikt, moet u controleren of de Integration Runtime verbinding kan maken met de gegevensopslag met behulp van instructies in [verbindingsproblemen oplossen](#troubleshoot-connectivity-issues) sectie.
-
-Maak een ODBC-gekoppelde service om een koppeling van een IBM Informix-gegevensarchief naar een Azure data factory zoals wordt weergegeven in het volgende voorbeeld:
-
-```json
-{
-    "name": "InformixLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<Informix connection string or DSN>"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Lees het artikel vanaf het begin voor een gedetailleerd overzicht van het gebruik van ODBC-gegevens worden opgeslagen als bron/sink-gegevensopslag in een kopieerbewerking.
-
-## <a name="microsoft-access-source"></a>Microsoft Access-bron
-
-U kunt gegevens kopiëren vanuit Microsoft Access-database met behulp van de algemene ODBC-connector.
-
-Instellen van een zelfgehoste Integration Runtime op een computer met toegang tot uw gegevensarchief. De Integration Runtime maakt gebruik van het ODBC-stuurprogramma voor Microsoft Access verbinding maken met het gegevensarchief. Installeer het stuurprogramma daarom als deze nog niet is geïnstalleerd op dezelfde computer. Zie [vereisten](#prerequisites) sectie voor meer informatie.
-
-Voordat u de Microsoft Access-bron in een Data Factory-oplossing gebruikt, moet u controleren of de Integration Runtime verbinding kan maken met de gegevensopslag met behulp van instructies in [verbindingsproblemen oplossen](#troubleshoot-connectivity-issues) sectie.
-
-Maak een ODBC-gekoppelde service om te koppelen van een Microsoft Access-database aan een Azure data factory, zoals wordt weergegeven in het volgende voorbeeld:
-
-```json
-{
-    "name": "MicrosoftAccessLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Lees het artikel vanaf het begin voor een gedetailleerd overzicht van het gebruik van ODBC-gegevens worden opgeslagen als bron/sink-gegevensopslag in een kopieerbewerking.
-
-## <a name="sap-hana-sink"></a>SAP HANA-sink
+## <a name="sap-hana-sink"></a>SAP HANA Sink
 
 >[!NOTE]
->Als u wilt kopiëren van gegevens van SAP HANA-gegevensarchief, verwijzen naar native [SAP HANA-connector](connector-sap-hana.md). Volg deze instructies om ODBC-connector te gebruiken om gegevens te kopiëren met SAP HANA. De gekoppelde services voor SAP HANA-connector en ODBC-connector met een ander type zijn Opmerking dus kan niet opnieuw worden gebruikt.
+>Als u gegevens wilt kopiëren uit SAP HANA gegevens archief, raadpleegt u de systeem eigen [SAP Hana-connector](connector-sap-hana.md). Als u gegevens wilt kopiëren naar SAP HANA, volgt u deze instructie voor het gebruik van ODBC-Connector. Houd er rekening mee dat de gekoppelde services voor SAP HANA connector en ODBC-Connector met een ander type dan niet opnieuw kunnen worden gebruikt.
 >
 
-U kunt gegevens kopiëren met SAP HANA-database met behulp van de algemene ODBC-connector.
+U kunt gegevens kopiëren naar SAP HANA-data base met behulp van de algemene ODBC-Connector.
 
-Instellen van een zelfgehoste Integration Runtime op een computer met toegang tot uw gegevensarchief. De Integration Runtime maakt gebruik van het ODBC-stuurprogramma voor SAP HANA verbinding maken met het gegevensarchief. Installeer het stuurprogramma daarom als deze nog niet is geïnstalleerd op dezelfde computer. Zie [vereisten](#prerequisites) sectie voor meer informatie.
+Stel een zelf-hostende Integration Runtime in op een computer met toegang tot uw gegevens archief. De Integration Runtime gebruikt het ODBC-stuur programma voor SAP HANA om verbinding te maken met het gegevens archief. Installeer daarom het stuur programma als dit nog niet op dezelfde computer is geïnstalleerd. Zie de sectie [vereisten](#prerequisites) voor meer informatie.
 
-Voordat u de SAP HANA-sink in een Data Factory-oplossing gebruikt, moet u controleren of de Integration Runtime verbinding kan maken met de gegevensopslag met behulp van instructies in [verbindingsproblemen oplossen](#troubleshoot-connectivity-issues) sectie.
+Voordat u de SAP HANA sink in een Data Factory oplossing gebruikt, controleert u of de Integration Runtime verbinding kan maken met het gegevens archief met behulp van instructies in het gedeelte [problemen met de verbinding oplossen](#troubleshoot-connectivity-issues) .
 
-Maak een ODBC-gekoppelde service om een koppeling van een SAP HANA-gegevensarchief naar een Azure data factory zoals wordt weergegeven in het volgende voorbeeld:
+Maak een gekoppelde ODBC-service om een SAP HANA gegevens archief te koppelen aan een Azure-data factory zoals wordt weer gegeven in het volgende voor beeld:
 
 ```json
 {
@@ -345,17 +271,17 @@ Maak een ODBC-gekoppelde service om een koppeling van een SAP HANA-gegevensarchi
 }
 ```
 
-Lees het artikel vanaf het begin voor een gedetailleerd overzicht van het gebruik van ODBC-gegevens worden opgeslagen als bron/sink-gegevensopslag in een kopieerbewerking.
+Lees het artikel van het begin voor een gedetailleerd overzicht van het gebruik van ODBC-gegevens archieven als bron/Sink-gegevens opslag in een Kopieer bewerking.
 
-## <a name="troubleshoot-connectivity-issues"></a>Verbindingsproblemen oplossen
+## <a name="troubleshoot-connectivity-issues"></a>Verbindings problemen oplossen
 
-Voor het oplossen van problemen met verbindingen, gebruikt u de **Diagnostics** tabblad van **Integration Runtime Configuration Manager**.
+Gebruik het tabblad **Diagnostische gegevens** van **Integration Runtime Configuration Manager**om verbindings problemen op te lossen.
 
 1. Start **Integration Runtime Configuration Manager**.
-2. Schakel over naar de **Diagnostics** tabblad.
-3. Selecteer onder de sectie 'Test Connection' de **type** opslaan van gegevens (gekoppelde service).
-4. Geef de **verbindingsreeks** die wordt gebruikt om verbinding maken met het gegevensarchief, kiest u de **verificatie** en voer **gebruikersnaam**, **wachtwoord**, en/of **referenties**.
-5. Klik op **verbinding testen** voor het testen van de verbinding met het gegevensarchief.
+2. Schakel over naar het tabblad **Diagnostische gegevens** .
+3. Selecteer in de sectie ' verbinding testen ' het **type** gegevens archief (gekoppelde service).
+4. Geef de **Connection String** op die wordt gebruikt om verbinding te maken met het gegevens archief, kies de **verificatie** en voer de **gebruikers naam**, het **wacht woord**en/of de **referenties**in.
+5. Klik op **verbinding testen** om de verbinding met het gegevens archief te testen.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md##supported-data-stores-and-formats).

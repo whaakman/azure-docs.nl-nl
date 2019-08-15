@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 554a77b65b1baab980d765c69a5bffaeacb483d9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855406"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016379"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Upgrade uw big data Analytics-oplossingen van Azure Data Lake Storage Gen1 naar Azure Data Lake Storage Gen2
 
@@ -82,7 +82,7 @@ Deze sectie wordt beschreven welke mogelijkheden voor het platform van Data Lake
 | |Geoptimaliseerde prestaties voor werkbelastingen voor parallelle analyse. Hoge doorvoer en IOPS. | Geoptimaliseerde prestaties voor werkbelastingen voor parallelle analyse. Hoge doorvoer en IOPS. | *Nu beschikbaar* |
 | Ondersteuning voor Virtual Network (VNet)  | [Virtual Network-integratie gebruiken](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [Service-eind punt gebruiken voor Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *Nu beschikbaar* |
 | Maximale grootte | Geen limieten voor grootte van accounts, bestanden of het aantal bestanden | Er zijn geen limieten voor grootte van accounts of aantal bestanden. De bestandsgrootte is beperkt tot 5TB. | *Nu beschikbaar*|
-| Geo-redundantie| Lokaal redundant (LRS) | Lokaal redundant (LRS) Zone redundant (ZRS) wereldwijd redundant (GRS) Read-access wereldwijd redundante (RA-GRS) Zie [hier](https://docs.microsoft.com/azure/storage/common/storage-redundancy) voor meer informatie| *Nu beschikbaar* |
+| Geo-redundantie| Lokaal redundant (LRS) | Lokaal redundante (LRS) zone redundante (ZRS) Geo-redundante (GRS)-Geo-redundante Lees toegang (RA-GRS) Zie [hier](https://docs.microsoft.com/azure/storage/common/storage-redundancy) voor meer informatie| *Nu beschikbaar* |
 | Regionale beschikbaarheid | Zie [hier](https://azure.microsoft.com/regions/) | Alle [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/)                                                                                                                                                                                                                                                                                                                                       | *Nu beschikbaar*                                                                                                                           |
 | Prijs                                       | Zie [prijzen](https://azure.microsoft.com/pricing/details/data-lake-store/)                                                                            | Zie [prijzen](https://azure.microsoft.com/pricing/details/storage/data-lake/)                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                           |
 | SLA voor beschikbaarheid                            | [Zie de SLA](https://azure.microsoft.com/support/legal/sla/data-lake-store/v1_0/)                                                                   | [Zie de SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_3/)                                                                                                                                                                                                                                                                                                                                                | *Nu beschikbaar*                                                                                                                           |

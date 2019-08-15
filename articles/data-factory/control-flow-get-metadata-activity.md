@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 320e92e45f319e394b5a38b3f1e8ef3f314920b8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827490"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966345"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activiteit van meta gegevens in Azure Data Factory ophalen
 
@@ -138,8 +138,8 @@ Eigenschap | Description | Vereist
 -------- | ----------- | --------
 fieldList | Een lijst met de typen meta gegevens die zijn vereist. Zie de sectie Details in [meta gegevens opties](#metadata-options) voor ondersteunde meta gegevens. | Ja 
 sets | De referentie gegevensset waarvan de meta gegevens activiteit moet worden opgehaald door de GetMetadata-activiteit. Zie de sectie [ondersteunde mogelijkheden](#supported-capabilities) op ondersteunde connectors en Raadpleeg het onderwerp over de syntaxis van de gegevensset voor informatie over de gegevens van een connector. | Ja
-formatSettings | Toep assen bij het gebruik van een indelings type gegevensset (Parquet, DelimitedText). | Nee
-storeSettings | Toep assen bij het gebruik van een indelings type gegevensset (Parquet, DelimitedText). | Nee
+formatSettings | Toep assen bij gebruik van gegevensset voor indelings type. | Nee
+storeSettings | Toep assen bij gebruik van gegevensset voor indelings type. | Nee
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 

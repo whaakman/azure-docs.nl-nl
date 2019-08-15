@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 154d71c9cbc109834a5854b46c3e6584dcefa7eb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817210"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968854"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Beleid: Voor gebruikers in uw Directory
 
@@ -35,7 +35,7 @@ Volg deze stappen als u uw beleid wilt gebruiken voor gebruikers in uw directory
 
 ### <a name="policy-for-users-not-in-your-directory"></a>Beleid: Voor gebruikers die niet in uw Directory voor komt
 
-Volg deze stappen als u uw beleid wilt gebruiken voor gebruikers die zich niet in uw map bevindt en dit toegangs pakket kunnen aanvragen. De **gebruikers die zich niet in uw directory** bevinden, verwijzen naar gebruikers in een andere Azure AD-adres lijst en zijn mogelijk nog niet in uw directory uitgenodigd.  Directory's moeten worden geconfigureerd om te worden toegestaan in de instellingen voor **samenwerkings beperkingen van organisatie relaties** .
+Volg deze stappen als u uw beleid wilt gebruiken voor gebruikers die zich niet in uw map bevindt en dit toegangs pakket kunnen aanvragen. De **gebruikers die zich niet in uw directory** bevinden, verwijzen naar gebruikers in een andere Azure AD-adres lijst en zijn mogelijk nog niet in uw directory uitgenodigd. Op dit moment kunt u alleen gebruikers toevoegen van organisaties die Azure AD hebben. Directory's moeten worden geconfigureerd om te worden toegestaan in de instellingen voor **samenwerkings beperkingen van organisatie relaties** .
 
 > [!NOTE]
 > Er wordt een externe gast gebruikers account voor een gebruiker gemaakt die nog niet in uw directory is waarvan de aanvraag is goedgekeurd of automatisch goedgekeurd. De gast wordt uitgenodigd, maar ontvangt geen uitnodigings-e-mail. In plaats daarvan ontvangen ze een e-mail bericht wanneer hun toegangs pakket toewijzing wordt bezorgd. Later, wanneer deze gast gebruiker geen toegangs pakket toewijzingen meer heeft, omdat de laatste toewijzing is verlopen of is geannuleerd, wordt het gast gebruikers account geblokkeerd om zich aan te melden en vervolgens te verwijderen. Als u wilt dat gast gebruikers voor onbepaalde tijd in uw Directory blijven, zelfs als ze geen toegangs pakket toewijzingen hebben, kunt u de instellingen voor uw rechten beheer configuratie wijzigen.

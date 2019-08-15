@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: b2ff6caa4c1b3626e4be1684976441be6ecbfe30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: anilmur
+ms.reviewer: juliako
+ms.openlocfilehash: 37969986b1d015ed08113da42a309eef42df569c
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61231400"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015510"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken met .NET
 > [!div class="op_single_selector"]
@@ -41,7 +42,7 @@ Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](m
 In de onderstaande stappen worden de taken beschreven voor het maken van algemene toepassingen voor het maken van livestreams.
 
 > [!NOTE]
-> De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
+> De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amshelp@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
 
 1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live-encoder dat een single-bitrate stream in een van de volgende protocollen kan uitvoeren: RTMP of Smooth Streaming. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](https://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
 
@@ -96,7 +97,7 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 * Een webcam en een coderingsprogramma dat een single bitrate livestream kan verzenden.
 
 ## <a name="considerations"></a>Overwegingen
-* De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@Microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
+* De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amshelp@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
 * Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). U moet dezelfde beleids-id gebruiken als u altijd dezelfde dagen/toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om gedurende een lange periode gehandhaafd te blijven (niet-upload-beleidsregels). Raadpleeg [dit artikel](media-services-dotnet-manage-entities.md#limit-access-policies) voor meer informatie.
 
 ## <a name="download-sample"></a>Voorbeeld downloaden

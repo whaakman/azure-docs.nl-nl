@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: db3f5aca0240c19f67d5d0775148d5eec76daa03
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3c4bdb3d46e4630257c2567cf2003ebede00b71e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726991"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934773"
 ---
 # <a name="azure-network-security"></a>Azure-netwerkbeveiliging
 
@@ -55,9 +55,9 @@ Microsoft Azure bevat een robuuste netwerk infrastructuur ter ondersteuning van 
 
 ![Azure-netwerken voor grote afbeeldingen](./media/network-security/azure-network-security-fig-1.png)
 
-Met de [Azure-netwerk infrastructuur](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) kunt u Azure-resources veilig met elkaar verbinden met virtuele netwerken (VNets). Een VNet is een weer gave van uw eigen netwerk in de Cloud. Een VNet is een logische isolatie van het Azure-Cloud netwerk dat specifiek is voor uw abonnement. U kunt VNets verbinding maken met uw on-premises netwerken.
+Met de [Azure-netwerk infrastructuur](../../virtual-machines/windows/infrastructure-example.md) kunt u Azure-resources veilig met elkaar verbinden met virtuele netwerken (VNets). Een VNet is een weer gave van uw eigen netwerk in de Cloud. Een VNet is een logische isolatie van het Azure-Cloud netwerk dat specifiek is voor uw abonnement. U kunt VNets verbinding maken met uw on-premises netwerken.
 
-Azure biedt ondersteuning voor speciale WAN-koppelings connectiviteit met uw on-premises netwerk en een Azure-Virtual Network met [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). De koppeling tussen Azure en uw site maakt gebruik van een speciale verbinding die niet via het open bare Internet gaat. Als uw Azure-toepassing wordt uitgevoerd in meerdere data centers, kunt u [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) gebruiken om aanvragen van gebruikers op intelligente wijze te routeren in verschillende exemplaren van de toepassing. U kunt ook verkeer routeren naar services die niet worden uitgevoerd in azure als ze toegankelijk zijn via internet.
+Azure biedt ondersteuning voor speciale WAN-koppelings connectiviteit met uw on-premises netwerk en een Azure-Virtual Network met [ExpressRoute](../../expressroute/expressroute-introduction.md). De koppeling tussen Azure en uw site maakt gebruik van een speciale verbinding die niet via het open bare Internet gaat. Als uw Azure-toepassing wordt uitgevoerd in meerdere data centers, kunt u [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) gebruiken om aanvragen van gebruikers op intelligente wijze te routeren in verschillende exemplaren van de toepassing. U kunt ook verkeer routeren naar services die niet worden uitgevoerd in azure als ze toegankelijk zijn via internet.
 
 ## <a name="enterprise-view-of-azure-networking-components"></a>Enter prise-weer gave van Azure-netwerk onderdelen
 Azure heeft veel netwerk onderdelen die relevant zijn voor netwerk beveiligings discussies. We beschrijven deze netwerk onderdelen en richten zich op de beveiligings problemen die eraan zijn gerelateerd.
@@ -77,11 +77,11 @@ In dit artikel komen de volgende mogelijkheden voor Azure-netwerk ondernemingen 
 
 ### <a name="basic-network-connectivity"></a>Basis netwerk connectiviteit
 
-Met de [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) -service kunt u op een veilige manier verbinding maken tussen Azure-resources en virtuele netwerken (VNet). Een VNet is een weer gave van uw eigen netwerk in de Cloud. Een VNet is een logische isolatie van de Azure-netwerk infrastructuur die is toegewezen aan uw abonnement. U kunt VNets ook verbinden met elkaar en met uw on-premises netwerken met behulp van site-naar-site-Vpn's en specifieke [WAN-koppelingen](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Met de [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) -service kunt u op een veilige manier verbinding maken tussen Azure-resources en virtuele netwerken (VNet). Een VNet is een weer gave van uw eigen netwerk in de Cloud. Een VNet is een logische isolatie van de Azure-netwerk infrastructuur die is toegewezen aan uw abonnement. U kunt VNets ook verbinden met elkaar en met uw on-premises netwerken met behulp van site-naar-site-Vpn's en specifieke [WAN-koppelingen](../../expressroute/expressroute-introduction.md).
 
 ![Basis netwerk connectiviteit](./media/network-security/azure-network-security-fig-2.png)
 
-Met de uitleg over het gebruik van Vm's voor het hosten van servers in azure, is de vraag hoe deze Vm's verbinding maken met een netwerk. Het antwoord is dat Vm's verbinding maken met een [Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Met de uitleg over het gebruik van Vm's voor het hosten van servers in azure, is de vraag hoe deze Vm's verbinding maken met een netwerk. Het antwoord is dat Vm's verbinding maken met een [Azure-Virtual Network](../../virtual-network/virtual-networks-overview.md).
 
 Virtuele netwerken van Azure zijn net als de virtuele netwerken die u on-premises gebruikt met uw eigen virtualisatieoplossingen, zoals micro soft Hyper-V of VMware.
 
@@ -89,7 +89,7 @@ Virtuele netwerken van Azure zijn net als de virtuele netwerken die u on-premise
 
 U kunt VNets met elkaar verbinden, waardoor resources die zijn verbonden met VNet met elkaar communiceren via VNets. U kunt een of beide van de volgende opties gebruiken om VNets met elkaar te verbinden:
 
-- **Peering** Hiermee kunnen resources die zijn verbonden met verschillende Azure-VNets binnen dezelfde Azure-locatie communiceren met elkaar. De band breedte en latentie over het VNet zijn hetzelfde als wanneer de resources zijn verbonden met hetzelfde VNet. Lees voor meer informatie over peering de [peering van virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering** Hiermee kunnen resources die zijn verbonden met verschillende Azure-VNets binnen dezelfde Azure-locatie communiceren met elkaar. De band breedte en latentie over het VNet zijn hetzelfde als wanneer de resources zijn verbonden met hetzelfde VNet. Lees voor meer informatie over peering de [peering van virtuele netwerken](../../virtual-network/virtual-network-peering-overview.md).
 
   ![Peering](./media/network-security/azure-network-security-fig-3.png)
 
@@ -120,7 +120,7 @@ Zoals u kunt zien, biedt Azure Virtual Network virtuele machines een verbinding 
 
 **Zonder**
 
-VNets zijn van elkaar [geïsoleerd](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) . U kunt afzonderlijke VNets maken voor ontwikkeling, testen en productie die gebruikmaken van dezelfde [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) -adres blokken. U kunt daarentegen meerdere VNets maken die gebruikmaken van verschillende CIDR-adres blokken en netwerken met elkaar verbinden. U kunt een VNet in meerdere subnetten segmenteren.
+VNets zijn van elkaar [geïsoleerd](../../virtual-network/virtual-networks-overview.md) . U kunt afzonderlijke VNets maken voor ontwikkeling, testen en productie die gebruikmaken van dezelfde [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) -adres blokken. U kunt daarentegen meerdere VNets maken die gebruikmaken van verschillende CIDR-adres blokken en netwerken met elkaar verbinden. U kunt een VNet in meerdere subnetten segmenteren.
 
 Azure biedt interne naam omzetting voor Vm's en [Cloud Services](https://azure.microsoft.com/services/cloud-services/) rolinstanties die zijn verbonden met een VNet. U kunt desgewenst een VNet configureren voor het gebruik van uw eigen DNS-servers, in plaats van de interne naam omzetting van Azure te gebruiken.
 
@@ -130,35 +130,35 @@ U kunt meerdere VNets implementeren binnen elk Azure- [abonnement](https://docs.
 
 -   Segmenteer het VNet in een of meer subnetten en wijs een deel van de VNet-adres ruimte toe aan elk subnet.
 
--   Gebruik door Azure opgegeven naam omzetting of geef uw eigen DNS-server op voor gebruik door resources die zijn verbonden met een VNet. Lees de [naam omzetting voor virtuele machines en Cloud Services](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)voor meer informatie over naam omzetting in VNets.
+-   Gebruik door Azure opgegeven naam omzetting of geef uw eigen DNS-server op voor gebruik door resources die zijn verbonden met een VNet. Lees de [naam omzetting voor virtuele machines en Cloud Services](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)voor meer informatie over naam omzetting in VNets.
 
 **Verbinding met internet**
 
-Alle [Azure virtual machines-exemplaren (VM)](https://docs.microsoft.com/azure/virtual-machines/windows/) en Cloud Services rolinstantie die zijn verbonden met een VNet hebben standaard toegang tot het internet. U kunt indien nodig ook binnenkomende toegang tot specifieke bronnen inschakelen. (VM) en Cloud Services rolinstantie die zijn verbonden met een VNet hebben standaard toegang tot het internet. U kunt indien nodig ook binnenkomende toegang tot specifieke bronnen inschakelen.
+Alle [Azure virtual machines-exemplaren (VM)](../../virtual-machines/windows/index.yml) en Cloud Services rolinstantie die zijn verbonden met een VNet hebben standaard toegang tot het internet. U kunt indien nodig ook binnenkomende toegang tot specifieke bronnen inschakelen. (VM) en Cloud Services rolinstantie die zijn verbonden met een VNet hebben standaard toegang tot het internet. U kunt indien nodig ook binnenkomende toegang tot specifieke bronnen inschakelen.
 
 Alle resources die zijn verbonden met een VNet, hebben standaard een uitgaande verbinding met het internet. Het privé IP-adres van de bron is een bron netwerk adres vertaald (SNAT) naar een openbaar IP-adres door de Azure-infra structuur. U kunt de standaard connectiviteit wijzigen door aangepaste route ring en verkeer filtering te implementeren. Lees de [uitleg over uitgaande verbindingen in azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections?toc=%2fazure%2fvirtual-network%2ftoc.json)voor meer informatie over uitgaande internet connectiviteit.
 
-Als u binnenkomende naar Azure-resources via internet wilt communiceren of als u uitgaand verkeer naar Internet wilt communiceren zonder SNAT, moet aan een resource een openbaar IP-adres worden toegewezen. Lees de [open bare IP-adressen](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)voor meer informatie over open bare IP-adressen.
+Als u binnenkomende naar Azure-resources via internet wilt communiceren of als u uitgaand verkeer naar Internet wilt communiceren zonder SNAT, moet aan een resource een openbaar IP-adres worden toegewezen. Lees de [open bare IP-adressen](../../virtual-network/virtual-network-public-ip-address.md)voor meer informatie over open bare IP-adressen.
 
 **Azure-bron connectiviteit**
 
-[Azure-resources](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) , zoals Cloud Services en vm's, kunnen worden verbonden met hetzelfde VNet. De bronnen kunnen met elkaar worden verbonden met behulp van privé-IP-adressen, zelfs als ze zich in verschillende subnetten. Azure biedt standaard routering tussen subnetten, VNets en on-premises netwerken, zodat u geen routes hoeft te configureren en te beheren.
+[Azure-resources](../../virtual-network/virtual-networks-overview.md) , zoals Cloud Services en vm's, kunnen worden verbonden met hetzelfde VNet. De bronnen kunnen met elkaar worden verbonden met behulp van privé-IP-adressen, zelfs als ze zich in verschillende subnetten. Azure biedt standaard routering tussen subnetten, VNets en on-premises netwerken, zodat u geen routes hoeft te configureren en te beheren.
 
-U kunt verschillende Azure-resources verbinden met een VNet, zoals Virtual Machines (VM), Cloud Services, App Service omgevingen en Virtual Machine Scale Sets. Vm's maken verbinding met een subnet binnen een VNet via een netwerk interface (NIC). Lees de [netwerk interfaces](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface)voor meer informatie over nic's.
+U kunt verschillende Azure-resources verbinden met een VNet, zoals Virtual Machines (VM), Cloud Services, App Service omgevingen en Virtual Machine Scale Sets. Vm's maken verbinding met een subnet binnen een VNet via een netwerk interface (NIC). Lees de [netwerk interfaces](../../virtual-network/virtual-network-network-interface.md)voor meer informatie over nic's.
 
 **VNet-connectiviteit**
 
-[VNets](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) kunnen met elkaar worden verbonden, waardoor resources die zijn verbonden met een VNet, kunnen communiceren met een wille keurige resource in een ander vnet.
+[VNets](../../virtual-network/virtual-networks-overview.md) kunnen met elkaar worden verbonden, waardoor resources die zijn verbonden met een VNet, kunnen communiceren met een wille keurige resource in een ander vnet.
 
 U kunt VNets met elkaar verbinden, waardoor resources die zijn verbonden met VNet met elkaar communiceren via VNets. U kunt een of beide van de volgende opties gebruiken om VNets met elkaar te verbinden:
 
-- **Peering** Hiermee kunnen resources die zijn verbonden met verschillende Azure-VNets binnen dezelfde Azure-locatie communiceren met elkaar. De band breedte en latentie in de VNets zijn hetzelfde als wanneer de resources zijn verbonden met dezelfde VNet.To meer informatie over peering, lees de peering van het [virtuele netwerk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering** Hiermee kunnen resources die zijn verbonden met verschillende Azure-VNets binnen dezelfde Azure-locatie communiceren met elkaar. De band breedte en latentie in de VNets zijn hetzelfde als wanneer de resources zijn verbonden met dezelfde VNet.To meer informatie over peering, lees de peering van het [virtuele netwerk](../../virtual-network/virtual-network-peering-overview.md).
 
 - **VNet-naar-VNet-verbinding:** Hiermee kunnen resources die zijn verbonden met verschillende Azure VNet binnen dezelfde of verschillende Azure-locaties worden aangesloten. In tegens telling tot peering is de band breedte beperkt tussen VNets, omdat verkeer moet stromen via een Azure-VPN Gateway. Voor meer informatie over het verbinden van VNets met een VNet-naar-VNet-verbinding. Lees de [een vnet-naar-VNet-verbinding configureren](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie.
 
 **On-premises connectiviteit**
 
-VNets kan worden verbonden met [on-premises](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) netwerken via particuliere netwerk verbindingen tussen uw netwerk en Azure, of via een site-naar-site-VPN-verbinding via internet.
+VNets kan worden verbonden met [on-premises](../../virtual-network/virtual-networks-overview.md) netwerken via particuliere netwerk verbindingen tussen uw netwerk en Azure, of via een site-naar-site-VPN-verbinding via internet.
 
 U kunt uw on-premises netwerk verbinden met een VNet met behulp van een combi natie van de volgende opties:
 
@@ -166,15 +166,15 @@ U kunt uw on-premises netwerk verbinden met een VNet met behulp van een combi na
 
 - **Site-to-site VPN:** Tot stand gebracht tussen uw VPN-apparaat en een Azure-VPN Gateway. Dit verbindings type zorgt ervoor dat elke on-premises resource die u toemachtigt toegang krijgt tot een VNet. De verbinding is een IPsec/IKE VPN die versleutelde communicatie via internet verzorgt tussen uw on-premises apparaat en de Azure VPN-gateway. De latentie voor een site-naar-site-verbinding is onvoorspelbaar omdat het verkeer het Internet passeert.
 
-- **Azure ExpressRoute:** Wordt tot stand gebracht tussen uw netwerk en Azure, via een ExpressRoute-partner. Deze verbinding is een privéverbinding. Verkeer gaat niet via internet. De latentie voor een ExpressRoute-verbinding is voorspelbaar omdat verkeer niet via internet verloopt. Lees de diagrammen van de [verbindings topologie](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)voor meer informatie over de vorige verbindings opties.
+- **Azure ExpressRoute:** Wordt tot stand gebracht tussen uw netwerk en Azure, via een ExpressRoute-partner. Deze verbinding is een privéverbinding. Verkeer gaat niet via internet. De latentie voor een ExpressRoute-verbinding is voorspelbaar omdat verkeer niet via internet verloopt. Lees de diagrammen van de [verbindings topologie](../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)voor meer informatie over de vorige verbindings opties.
 
 **Verkeer filteren**
 
-VM-en Cloud Services- [rolinstanties kunnen worden](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) gefilterd op inkomend en uitgaand door het bron-IP-adres en de poort, het doel-IP-adres en de poort en het protocol.
+VM-en Cloud Services- [](../../virtual-network/virtual-networks-overview.md) rolinstanties kunnen worden gefilterd op inkomend en uitgaand door het bron-IP-adres en de poort, het doel-IP-adres en de poort en het protocol.
 
 U kunt netwerkverkeer filteren tussen subnetten met behulp van een of beide van de volgende opties:
 
-- **Netwerk beveiligings groepen (NSG):** Elk NSG kan meerdere binnenkomende en uitgaande beveiligings regels bevatten waarmee u verkeer kunt filteren op bron-en doel-IP-adres, poort en protocol. U kunt een NSG Toep assen op elke NIC in een VM. U kunt ook een NSG Toep assen op het subnet een NIC of een andere Azure-resource, waarmee verbinding wordt gemaakt. Lees de [netwerk beveiligings groepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)voor meer informatie over nsg's.
+- **Netwerk beveiligings groepen (NSG):** Elk NSG kan meerdere binnenkomende en uitgaande beveiligings regels bevatten waarmee u verkeer kunt filteren op bron-en doel-IP-adres, poort en protocol. U kunt een NSG Toep assen op elke NIC in een VM. U kunt ook een NSG Toep assen op het subnet een NIC of een andere Azure-resource, waarmee verbinding wordt gemaakt. Lees de [netwerk beveiligings groepen](../../virtual-network/virtual-network-vnet-plan-design-arm.md)voor meer informatie over nsg's.
 
 - **Virtual Network apparaten:** Een virtueel netwerk apparaat is een VM met software die een netwerk functie uitvoert, zoals een firewall. Bekijk een lijst met beschik bare Nva's in azure Marketplace. Nva's zijn ook beschikbaar die WAN-optimalisatie en andere functies voor netwerk verkeer bieden. Nva's worden meestal gebruikt met door de gebruiker gedefinieerde of BGP-routes. U kunt ook een NVA gebruiken om verkeer tussen VNets te filteren.
 
@@ -184,7 +184,7 @@ U kunt eventueel de standaard routering van Azure negeren door uw eigen routes t
 
 Azure maakt route tabellen waarmee resources die zijn verbonden met een subnet in een VNet, standaard kunnen communiceren met elkaar. U kunt een of beide van de volgende opties implementeren om de standaardroutes die Azure maakt te onderdrukken:
 
-- **Door de gebruiker gedefinieerde routes:** U kunt aangepaste routetabellen maken met routes die bepalen waar verkeer naartoe wordt doorgestuurd voor elk subnet. Lees de door de [gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)voor meer informatie over door de gebruiker gedefinieerde routes.
+- **Door de gebruiker gedefinieerde routes:** U kunt aangepaste routetabellen maken met routes die bepalen waar verkeer naartoe wordt doorgestuurd voor elk subnet. Lees de door de [gebruiker gedefinieerde routes](../../virtual-network/virtual-networks-udr-overview.md)voor meer informatie over door de gebruiker gedefinieerde routes.
 
 - **BGP-routes:** Als u uw VNet verbindt met uw on-premises netwerk met behulp van een Azure VPN Gateway-of ExpressRoute-verbinding, kunt u BGP-routes door geven aan uw VNets.
 
@@ -201,12 +201,12 @@ U kunt uw on-premises netwerk verbinden met een VNet met behulp van een combi na
 
 #### <a name="internet-connectivity"></a>Internet verbinding
 
-Zoals de naam adviseert, zorgt Internet connectiviteit ervoor dat uw workloads toegankelijk zijn via internet, doordat u verschillende open bare eind punten beschikbaar maakt voor werk belastingen die in het virtuele netwerk wonen. Deze werk belastingen kunnen worden blootgesteld met [Internet gerichte Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview) of eenvoudigweg een openbaar IP-adres toewijzen aan de virtuele machine. Op deze manier is het mogelijk om alles op het Internet te bereiken waarmee de virtuele machine kan worden bereikt, op voor waarde dat een hardwarefirewall, [netwerk beveiligings groepen (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)en door de [gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) zich kunnen voordoen.
+Zoals de naam adviseert, zorgt Internet connectiviteit ervoor dat uw workloads toegankelijk zijn via internet, doordat u verschillende open bare eind punten beschikbaar maakt voor werk belastingen die in het virtuele netwerk wonen. Deze werk belastingen kunnen worden blootgesteld met [Internet gerichte Load Balancer](../../load-balancer/load-balancer-overview.md#publicloadbalancer) of eenvoudigweg een openbaar IP-adres toewijzen aan de virtuele machine. Op deze manier is het mogelijk om alles op het Internet te bereiken waarmee de virtuele machine kan worden bereikt, op voor waarde dat een hardwarefirewall, [netwerk beveiligings groepen (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md)en door de [gebruiker gedefinieerde routes](../../virtual-network/virtual-networks-udr-overview.md) zich kunnen voordoen.
 
 In dit scenario kunt u een toepassing weer geven die openbaar moet zijn voor Internet en er overal of vanaf specifieke locaties verbinding mee kunnen maken, afhankelijk van de configuratie van uw workloads.
 
 #### <a name="point-to-site-vpn-or-site-to-site-vpn"></a>Punt-naar-site-VPN of site-naar-site-VPN
-Deze twee vallen in dezelfde categorie. Beide moeten uw VNet een VPN Gateway hebben en u kunt verbinding maken met een VPN-client voor uw werk station als onderdeel van de [punt-naar-site-configuratie](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) of u kunt uw on-premises [VPN-apparaat](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) zo configureren dat een site-naar-site kan worden beëindigd VPN. Op deze manier kunnen on-premises apparaten verbinding maken met bronnen binnen het VNet.
+Deze twee vallen in dezelfde categorie. Beide moeten uw VNet een VPN Gateway hebben en u kunt verbinding maken met een VPN-client voor uw werk station als onderdeel van de [punt-naar-site-configuratie](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) of u kunt uw on-premises [VPN-apparaat](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) zo configureren dat een site-naar-site kan worden beëindigd VPN. Op deze manier kunnen on-premises apparaten verbinding maken met bronnen binnen het VNet.
 
 Met een punt-naar-site-configuratie (P2S) kunt u een beveiligde verbinding maken tussen een afzonderlijke clientcomputer en een virtueel netwerk. P2S is een VPN-verbinding via SSTP (Secure Socket Tunneling Protocol).
 
@@ -219,7 +219,7 @@ Voor P2S-verbindingen hebt u geen VPN-apparaat of een openbaar IP-adres nodig. U
 ![Site-to-Site VPN](./media/network-security/azure-network-security-fig-6.png)
 
 > [!Note]
-> Zie voor meer informatie over punt-naar-site-verbindingen de [punt-naar-site-VA v Q](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal).
+> Zie voor meer informatie over punt-naar-site-verbindingen de [punt-naar-site-VA v Q](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
 Een site-naar-site-VPN-gatewayverbinding wordt gebruikt om een on-premises netwerk via een IPsec-/IKE-VPN-tunnel (IKEv1 of IKEv2) te verbinden met een virtueel Azure-netwerk.
 
@@ -230,7 +230,7 @@ Site-naar-site-VPN is een betrouw bare, betrouw bare en opgezette technologie en
 Als u een uitzonderlijk niveau van beveiliging of prestaties voor uw cross-premises verbindingen nodig hebt, raden we u aan Azure ExpressRoute te gebruiken voor uw cross-premises-connectiviteit. ExpressRoute is een specifieke WAN-verbinding tussen uw on-premises locatie of een Exchange-hosting provider. Omdat dit een telecommunicatie-verbinding is, worden uw gegevens niet via internet gereisd en worden ze daarom niet blootgesteld aan de potentiële Risico's die inherent zijn aan Internet communicatie.
 
 > [!Note]
-> Zie over [VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)voor meer informatie over VPN-gateways.
+> Zie over [VPN-gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)voor meer informatie over VPN-gateways.
 
 #### <a name="dedicated-wan-link"></a>Toegewezen WAN-verbinding
 Met Microsoft Azure ExpressRoute kunt u uw on-premises netwerken uitbreiden naar Azure via een speciale persoonlijke verbinding die wordt vereenvoudigd door een connectiviteits provider.
@@ -240,9 +240,9 @@ ExpressRoute-verbindingen gaan niet via het openbare internet. Daardoor zijn Exp
 ![ Toegewezen WAN-verbinding](./media/network-security/azure-network-security-fig-7.png)
 
 > [!Note]
-> Zie [ExpressRoute Connectivity modellen](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) en [ExpressRoute Technical Overview](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)(Engelstalig) voor informatie over het verbinden van uw netwerk met micro soft met behulp van ExpressRoute.
+> Zie [ExpressRoute Connectivity modellen](../../vpn-gateway/vpn-gateway-about-vpngateways.md) en [ExpressRoute Technical Overview](../../expressroute/expressroute-introduction.md)(Engelstalig) voor informatie over het verbinden van uw netwerk met micro soft met behulp van ExpressRoute.
 
-Net als bij de site-naar-site VPN-opties kunt u met ExpressRoute ook verbinding maken met bronnen die niet noodzakelijkerwijs in één VNet zijn. Afhankelijk van de SKU kunt u bijvoorbeeld verbinding maken met 10 VNets. Als u de [Premium-invoeg toepassing](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)hebt, zijn er verbindingen met maxi maal 100 VNets mogelijk, afhankelijk van de band breedte. Als u meer wilt weten over de manier waarop deze typen verbindingen eruitzien, kunt u [verbindings topologie diagrammen](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)lezen.
+Net als bij de site-naar-site VPN-opties kunt u met ExpressRoute ook verbinding maken met bronnen die niet noodzakelijkerwijs in één VNet zijn. Afhankelijk van de SKU kunt u bijvoorbeeld verbinding maken met 10 VNets. Als u de [Premium-invoeg toepassing](../../expressroute/expressroute-faqs.md)hebt, zijn er verbindingen met maxi maal 100 VNets mogelijk, afhankelijk van de band breedte. Als u meer wilt weten over de manier waarop deze typen verbindingen eruitzien, kunt u [verbindings topologie diagrammen](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)lezen.
 
 ### <a name="security-controls"></a>Beveiligings controles
 Een Azure-Virtual Network biedt een veilig, logisch netwerk dat is geïsoleerd van andere virtuele netwerken en ondersteunt veel beveiligings controles die u gebruikt in uw on-premises netwerken. Klanten maken hun eigen structuur met behulp van: subnetten — ze gebruiken hun eigen privé IP-adres bereik, configureren route tabellen, netwerk beveiligings groepen, Toegangs beheer lijsten (Acl's), gateways en virtuele apparaten om hun werk belastingen in de Cloud uit te voeren.
@@ -309,11 +309,11 @@ Deze communicatiestroom is mogelijk omdat de IP-verkeersstromen in Azure wordt g
 
 -   Van het ene naar het andere VNet via een VPN-gateway.
 
--   Van een VNet naar een ander VNet via VNet-peering ([service ketening](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)).
+-   Van een VNet naar een ander VNet via VNet-peering ([service ketening](../../virtual-network/virtual-network-peering-overview.md)).
 
 -   Van een VNet naar uw on-premises netwerk via een VPN-gateway.
 
-Veel ondernemingen hebben strenge vereisten voor beveiliging en naleving waarvoor een on-premises inspectie van alle netwerk pakketten is vereist om specifieke beleids regels af te dwingen. Azure biedt een mechanisme met [](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) de naam geforceerde tunneling die verkeer van de virtuele machines naar de on-premises routeert door een aangepaste route of [Border Gateway Protocol BGP-](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) advertenties te maken via ExpressRoute of VPN.
+Veel ondernemingen hebben strenge vereisten voor beveiliging en naleving waarvoor een on-premises inspectie van alle netwerk pakketten is vereist om specifieke beleids regels af te dwingen. Azure biedt een mechanisme met [](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md) de naam geforceerde tunneling die verkeer van de virtuele machines naar de on-premises routeert door een aangepaste route of [Border Gateway Protocol BGP-](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) advertenties te maken via ExpressRoute of VPN.
 
 Geforceerde tunneling in Azure wordt geconfigureerd via het virtuele netwerk zelfgedefinieerde routes (UDR). Verkeer omleiden naar een on-premises site wordt uitgedrukt als een standaard-Route naar de Azure VPN-gateway.
 
@@ -369,7 +369,7 @@ Azure-netwerk beveiligings apparaten verbeteren VNet-beveiliging en netwerk func
 
 #### <a name="application-gateway"></a>Toepassingsgateway
 
-[Microsoft Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) is een speciaal virtueel apparaat dat een ADC (Application Delivery controller) als een service biedt.
+[Microsoft Azure Application Gateway](../../application-gateway/overview.md) is een speciaal virtueel apparaat dat een ADC (Application Delivery controller) als een service biedt.
 
  ![Application Gateway](./media/network-security/azure-network-security-fig-11.png)
 
@@ -384,13 +384,13 @@ Met Application Gateway kunt u de prestaties en beschik baarheid van webfarms op
 -   De mogelijkheid om meerdere websites achter één Application Gateway te hosten
 
 
-Er wordt ook een [Web Application firewall (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) als onderdeel van de toepassings gateway gegeven. Dit biedt beveiliging voor webtoepassingen van veelvoorkomende beveiligings problemen en aanvallen. Application Gateway kunnen worden geconfigureerd als een Internet gateway, alleen interne gateway, of een combi natie van beide.
+Er wordt ook een [Web Application firewall (WAF)](../../application-gateway/waf-overview.md) als onderdeel van de toepassings gateway gegeven. Dit biedt beveiliging voor webtoepassingen van veelvoorkomende beveiligings problemen en aanvallen. Application Gateway kunnen worden geconfigureerd als een Internet gateway, alleen interne gateway, of een combi natie van beide.
 
 Application Gateway WAF kan worden uitgevoerd in de detectie-of preventie modus. Een veelvoorkomende use-case is dat beheerders in de detectie modus worden uitgevoerd om verkeer voor schadelijke patronen te observeren. Als er mogelijke aanvallen worden gedetecteerd, blokkeert de preventie modus verdacht uitgaand binnenkomend verkeer.
 
  ![Application Gateway](./media/network-security/azure-network-security-fig-12.png)
 
-Daarnaast helpt Application Gateway WAF u bij het bewaken van webtoepassingen tegen aanvallen met behulp van een real-time WAF-logboek dat is geïntegreerd met [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) en [Azure Security Center](https://azure.microsoft.com/services/security-center/) voor het volgen van WAF-waarschuwingen en om eenvoudig trends te bewaken.
+Daarnaast helpt Application Gateway WAF u bij het bewaken van webtoepassingen tegen aanvallen met behulp van een real-time WAF-logboek dat is geïntegreerd met [Azure monitor](../../azure-monitor/overview.md) en [Azure Security Center](https://azure.microsoft.com/services/security-center/) voor het volgen van WAF-waarschuwingen en om eenvoudig trends te bewaken.
 
 Het logboek met JSON-indeling gaat rechtstreeks naar het opslag account van de klant. U hebt volledige controle over deze logboeken en u kunt uw eigen Bewaar beleid Toep assen.
 
@@ -402,7 +402,7 @@ Webtoepassingen zijn in toenemende mate doelwit van kwaad aardige aanvallen die 
 
  ![Azure Web Application firewall (WAF)](./media/network-security/azure-network-security-fig-13.png)
 
-Een gecentraliseerde [Web Application firewall (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) kan worden beveiligd tegen aanvallen op internet en vereenvoudigt het beveiligings beheer zonder dat er wijzigingen in de toepassing zijn vereist.
+Een gecentraliseerde [Web Application firewall (WAF)](../../application-gateway/waf-overview.md) kan worden beveiligd tegen aanvallen op internet en vereenvoudigt het beveiligings beheer zonder dat er wijzigingen in de toepassing zijn vereist.
 
 Een WAF-oplossing kan ook sneller reageren op een beveiligingsrisico door een patch voor een bekend beveiligingsprobleem toe te passen op een centrale locatie in plaats van elke afzonderlijke webtoepassing te beveiligen. Bestaande toepassingsgateways kunnen eenvoudig worden geconverteerd naar een toepassingsgateway met Web Application Firewall.
 
@@ -427,9 +427,9 @@ Biedt hoge Beschik baarheid en netwerk prestaties voor uw toepassingen. Het is e
 
 Azure Load Balancer kunnen worden geconfigureerd voor het volgende:
 
--   Taak verdeling van binnenkomend Internet verkeer naar virtuele machines. Deze configuratie wordt ook wel [Internet gerichte taak verdeling](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)genoemd.
+-   Taak verdeling van binnenkomend Internet verkeer naar virtuele machines. Deze configuratie wordt ook wel [Internet gerichte taak verdeling](../../load-balancer/load-balancer-overview.md#publicloadbalancer)genoemd.
 
--   Taak verdeling van verkeer tussen virtuele machines in een virtueel netwerk, tussen virtuele machines in Cloud Services of tussen lokale computers en virtuele machines in een cross-premises virtueel netwerk. Deze configuratie wordt ook wel [interne taak verdeling](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)genoemd.
+-   Taak verdeling van verkeer tussen virtuele machines in een virtueel netwerk, tussen virtuele machines in Cloud Services of tussen lokale computers en virtuele machines in een cross-premises virtueel netwerk. Deze configuratie wordt ook wel [interne taak verdeling](../../load-balancer/load-balancer-overview.md#internalloadbalancer)genoemd.
 
 -   Extern verkeer door sturen naar een specifieke virtuele machine.
 
@@ -443,15 +443,15 @@ Alle resources in de Cloud moeten een openbaar IP-adres hebben dat bereikbaar is
 
 Met Microsoft Azure Traffic Manager kunt u de distributie van gebruikers verkeer voor service-eind punten in verschillende data centers beheren. Service-eind punten die worden ondersteund door Traffic Manager zijn onder andere Azure-Vm's, Web Apps en Cloud Services. U kunt Traffic Manager ook gebruiken met externe eindpunten die niet van Azure zijn.
 
-Traffic Manager gebruikt de Domain Name System (DNS) om client aanvragen door te sturen naar het meest geschikte eind punt op basis van een [routerings methode voor verkeer](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) en de status van de eind punten. Traffic Manager biedt een reeks methoden voor het routeren van verkeer voor verschillende toepassings behoeften, [controle](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)van de eindpunt status en automatische failover. Traffic Manager is bestand tegen storingen, waaronder het uitvallen van een hele Azure-regio.
+Traffic Manager gebruikt de Domain Name System (DNS) om client aanvragen door te sturen naar het meest geschikte eind punt op basis van een [routerings methode voor verkeer](../../traffic-manager/traffic-manager-routing-methods.md) en de status van de eind punten. Traffic Manager biedt een reeks methoden voor het routeren van verkeer voor verschillende toepassings behoeften, [controle](../../traffic-manager/traffic-manager-monitoring.md)van de eindpunt status en automatische failover. Traffic Manager is bestand tegen storingen, waaronder het uitvallen van een hele Azure-regio.
 
 Met Azure Traffic Manager kunt u de distributie van verkeer over de eind punten van uw toepassing beheren. Een eindpunt is een internetgerichte service die binnen of buiten Azure wordt gehost.
 
 Traffic Manager biedt twee belang rijke voor delen:
 
--   Distributie van verkeer op basis van een van de verschillende [methoden voor het routeren van verkeer](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods).
+-   Distributie van verkeer op basis van een van de verschillende [methoden voor het routeren van verkeer](../../traffic-manager/traffic-manager-routing-methods.md).
 
--   [Voortdurende bewaking van de status van het eind punt](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) en automatische failover wanneer eind punten mislukken.
+-   [Voortdurende bewaking van de status van het eind punt](../../traffic-manager/traffic-manager-monitoring.md) en automatische failover wanneer eind punten mislukken.
 
 Wanneer een client verbinding probeert te maken met een service, moet de DNS-naam van de service eerst worden omgezet in een IP-adres. De client maakt vervolgens verbinding met dat IP-adres om toegang te krijgen tot de service. Traffic Manager DNS gebruikt om clients te leiden naar specifieke service-eind punten op basis van de regels van de methode voor het routeren van verkeer. Clients maken rechtstreeks verbinding met het geselecteerde eind punt. Traffic Manager is geen proxy of gateway. Het verkeer dat door de client en de service wordt door Traffic Manager wordt niet weer gegeven.
 
@@ -461,11 +461,11 @@ Azure-netwerk validatie is om ervoor te zorgen dat het Azure-netwerk werkt omdat
 
 Azure Operational Security heeft betrekking op de services, besturings elementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere assets in Microsoft Azure. Azure Operational Security is gebaseerd op een Framework met de kennis die is opgedaan via een aantal mogelijkheden die uniek zijn voor micro soft, waaronder micro soft Security Development Lifecycle (SDL), het micro soft Security Response Center-programma en dieper in op het landschap van de Cyber beveiliging bedreigingen.
 
--   [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+-   [Azure Security Center](../../security-center/security-center-intro.md)
 
--   [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
+-   [Azure Monitor](../../azure-monitor/overview.md)
 
--   [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+-   [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
 
 -   [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
@@ -498,7 +498,7 @@ Resource Manager biedt diverse voordelen:
 -   U kunt de facturering van uw organisatie verduidelijken door de kosten voor een groep met resources delen weer te geven.
 
 > [!Note]
-> Resource Manager biedt een nieuwe manier om uw oplossingen te implementeren en te beheren. Als u het eerdere implementatiemodel hebt gebruikt en meer te weten wilt komen over de wijzigingen, leest u [Resource Manager-implementatie en klassieke implementatie begrijpen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+> Resource Manager biedt een nieuwe manier om uw oplossingen te implementeren en te beheren. Als u het eerdere implementatiemodel hebt gebruikt en meer te weten wilt komen over de wijzigingen, leest u [Resource Manager-implementatie en klassieke implementatie begrijpen](../../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="azure-network-logging-and-monitoring"></a>Logboek registratie en controle van Azure-netwerken
 
@@ -512,7 +512,7 @@ Azure biedt veel hulpprogram ma's om netwerk beveiligings gebeurtenissen te bewa
 
 ### <a name="network-watcher"></a>Netwerk-watcher
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) op scenario's gebaseerde bewaking wordt met de functies in Network Watcher gegeven. Deze service omvat pakket opname, volgende hop, IP-stroom controleren, beveiligings groep weer geven, NSG stroom Logboeken. Bewaking op scenario niveau biedt een end-to-end weer gave van netwerk bronnen in tegens telling tot afzonderlijke netwerk bron bewaking.
+[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) op scenario's gebaseerde bewaking wordt met de functies in Network Watcher gegeven. Deze service omvat pakket opname, volgende hop, IP-stroom controleren, beveiligings groep weer geven, NSG stroom Logboeken. Bewaking op scenario niveau biedt een end-to-end weer gave van netwerk bronnen in tegens telling tot afzonderlijke netwerk bron bewaking.
 
  ![Network Watcher](./media/network-security/azure-network-security-fig-15.png)
 
@@ -522,7 +522,7 @@ Network Watcher heeft momenteel de volgende mogelijkheden:
 
 #### <a name="topology"></a>Topologie
 
-De [topologie](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) retourneert een grafiek met netwerk bronnen in een virtueel netwerk. In de grafiek ziet u de onderlinge verbinding tussen de bronnen die het end-to-end-netwerk connectiviteit vertegenwoordigen. In de portal retourneert topologie de resource-objecten op basis van het virtuele netwerk. De relaties worden weer gegeven op basis van lijnen tussen de resources buiten de Network Watcher regio, zelfs als deze niet in de resource groep worden getoond. De resources die in de portal weergave worden geretourneerd, zijn een subset van de netwerk onderdelen die in de grafiek worden weer gegeven. Als u de volledige lijst met netwerk bronnen wilt zien, kunt u [Power shell](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-powershell) of [rest](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-rest)gebruiken.
+De [topologie](../../network-watcher/view-network-topology.md) retourneert een grafiek met netwerk bronnen in een virtueel netwerk. In de grafiek ziet u de onderlinge verbinding tussen de bronnen die het end-to-end-netwerk connectiviteit vertegenwoordigen. In de portal retourneert topologie de resource-objecten op basis van het virtuele netwerk. De relaties worden weer gegeven op basis van lijnen tussen de resources buiten de Network Watcher regio, zelfs als deze niet in de resource groep worden getoond. De resources die in de portal weergave worden geretourneerd, zijn een subset van de netwerk onderdelen die in de grafiek worden weer gegeven. Als u de volledige lijst met netwerk bronnen wilt zien, kunt u [Power shell](../../network-watcher/view-network-topology.md) of [rest](../../network-watcher/view-network-topology.md)gebruiken.
 
 Als bronnen worden geretourneerd, wordt de verbinding tussen de resources gemodelleerd onder twee relaties.
 
@@ -532,49 +532,49 @@ Als bronnen worden geretourneerd, wordt de verbinding tussen de resources gemode
 
 #### <a name="variable-packet-capture"></a>Variabele pakketopname
 
-Met Network Watcher-functie voor het [vastleggen](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) van pakketten kunt u pakket opname sessies maken om het verkeer van en naar een virtuele machine bij te houden. Met pakket opname kunt u netwerk afwijkingen zowel reactief als in proactiviteit vaststellen. Andere gebruiken zijn onder andere het verzamelen van netwerk statistieken, het verkrijgen van informatie over inbreuken op het netwerk, het opsporen van fouten in client-server communicatie en nog veel meer.
+Met Network Watcher-functie voor het [vastleggen](../../network-watcher/network-watcher-packet-capture-overview.md) van pakketten kunt u pakket opname sessies maken om het verkeer van en naar een virtuele machine bij te houden. Met pakket opname kunt u netwerk afwijkingen zowel reactief als in proactiviteit vaststellen. Andere gebruiken zijn onder andere het verzamelen van netwerk statistieken, het verkrijgen van informatie over inbreuken op het netwerk, het opsporen van fouten in client-server communicatie en nog veel meer.
 
 Pakket opname is een extensie voor virtuele machines die extern wordt gestart via Network Watcher. Deze mogelijkheid vereenvoudigt de belasting van het hand matig uitvoeren van een pakket opname op de gewenste virtuele machine, waardoor kost bare tijd wordt bespaard. Pakket opname kan worden geactiveerd via de portal, Power shell, CLI of REST API. Een voor beeld van hoe pakket opname kan worden geactiveerd, is met waarschuwingen voor virtuele machines.
 
 #### <a name="ip-flow-verify"></a>IP-stroom controleren
 
-[IP-stromen controleren](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) controleert of een pakket wordt toegestaan of geweigerd op basis van 5-tuple-gegevens op een virtuele machine. Deze informatie bestaat uit de richting, het Protocol, het lokale IP, het externe IP-adres, de lokale poort en de externe poort. Als het pakket wordt geweigerd door een beveiligings groep, wordt de naam van de regel die het pakket heeft geweigerd, geretourneerd. Hoewel elke bron-of doel-IP kan worden gekozen, helpt beheerders met deze functie om snel problemen met de connectiviteit op te sporen vanuit of naar het internet en van of naar de on-premises omgeving.
+[IP-stromen controleren](../../network-watcher/network-watcher-ip-flow-verify-overview.md) controleert of een pakket wordt toegestaan of geweigerd op basis van 5-tuple-gegevens op een virtuele machine. Deze informatie bestaat uit de richting, het Protocol, het lokale IP, het externe IP-adres, de lokale poort en de externe poort. Als het pakket wordt geweigerd door een beveiligings groep, wordt de naam van de regel die het pakket heeft geweigerd, geretourneerd. Hoewel elke bron-of doel-IP kan worden gekozen, helpt beheerders met deze functie om snel problemen met de connectiviteit op te sporen vanuit of naar het internet en van of naar de on-premises omgeving.
 
 IP-stromen controleren is gericht op een netwerk interface van een virtuele machine. De verkeers stroom wordt vervolgens geverifieerd op basis van de geconfigureerde instellingen van of naar die netwerk interface. Deze mogelijkheid is handig om te controleren of een regel in een netwerk beveiligings groep binnenkomend of uitgaand verkeer naar of van een virtuele machine blokkeert.
 
 #### <a name="next-hop"></a>Volgende hop
 
-Bepaalt de [volgende hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) voor pakketten die worden gerouteerd in de Azure-netwerk infrastructuur, zodat u niet-geconfigureerde, door de gebruiker gedefinieerde routes kunt vaststellen. Verkeer van een virtuele machine wordt verzonden naar een bestemming op basis van de efficiënte routes die zijn gekoppeld aan een NIC. Met de volgende hop wordt het type van de volgende hop en het IP-adres van een pakket van een specifieke virtuele machine en NIC opgehaald. Dit helpt om te bepalen of het pakket wordt omgeleid naar de bestemming of dat het verkeer zwart wordt gegatd.
+Bepaalt de [volgende hop](../../network-watcher/network-watcher-next-hop-overview.md) voor pakketten die worden gerouteerd in de Azure-netwerk infrastructuur, zodat u niet-geconfigureerde, door de gebruiker gedefinieerde routes kunt vaststellen. Verkeer van een virtuele machine wordt verzonden naar een bestemming op basis van de efficiënte routes die zijn gekoppeld aan een NIC. Met de volgende hop wordt het type van de volgende hop en het IP-adres van een pakket van een specifieke virtuele machine en NIC opgehaald. Dit helpt om te bepalen of het pakket wordt omgeleid naar de bestemming of dat het verkeer zwart wordt gegatd.
 
 De volgende hop retourneert ook de route tabel die is gekoppeld aan de volgende hop. Bij het uitvoeren van een query op een volgende hop als de route wordt gedefinieerd als een door de gebruiker gedefinieerde route, wordt die route geretourneerd. Anders wordt ' systeem route ' door de volgende hop geretourneerd.
 
 #### <a name="security-group-view"></a>Weergave van de beveiligingsgroep
 
-Hiermee worden de effectief en toegepaste beveiligings regels opgehaald die worden toegepast op een virtuele machine. Netwerk beveiligings groepen zijn gekoppeld aan een subnetniveau of op een NIC-niveau. Wanneer deze is gekoppeld aan een subnetniveau, is dit van toepassing op alle VM-exemplaren in het subnet. De [weer gave netwerk beveiligings groep](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) retourneert alle geconfigureerde nsg's en regels die zijn gekoppeld aan een NIC-en subnetniveau voor een virtuele machine die inzicht biedt in de configuratie. Daarnaast worden de meest efficiënte beveiligings regels geretourneerd voor elk van de Nic's in een VM. Met de weer gave netwerk beveiligings groep kunt u een VM evalueren voor netwerk problemen, zoals open poorten. U kunt ook controleren of uw netwerk beveiligings groep werkt zoals verwacht op basis van een [vergelijking tussen de geconfigureerde en de effectief beveiligings regels](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
+Hiermee worden de effectief en toegepaste beveiligings regels opgehaald die worden toegepast op een virtuele machine. Netwerk beveiligings groepen zijn gekoppeld aan een subnetniveau of op een NIC-niveau. Wanneer deze is gekoppeld aan een subnetniveau, is dit van toepassing op alle VM-exemplaren in het subnet. De [weer gave netwerk beveiligings groep](../../network-watcher/network-watcher-security-group-view-overview.md) retourneert alle geconfigureerde nsg's en regels die zijn gekoppeld aan een NIC-en subnetniveau voor een virtuele machine die inzicht biedt in de configuratie. Daarnaast worden de meest efficiënte beveiligings regels geretourneerd voor elk van de Nic's in een VM. Met de weer gave netwerk beveiligings groep kunt u een VM evalueren voor netwerk problemen, zoals open poorten. U kunt ook controleren of uw netwerk beveiligings groep werkt zoals verwacht op basis van een [vergelijking tussen de geconfigureerde en de effectief beveiligings regels](../../network-watcher/network-watcher-nsg-auditing-powershell.md).
 
 #### <a name="nsg-flow-logging"></a>Logboek registratie voor NSG-stroom
 
  Met stroom logboeken voor netwerk beveiligings groepen kunt u Logboeken vastleggen die betrekking hebben op verkeer dat is toegestaan of geweigerd door de beveiligings regels in de groep. De stroom wordt gedefinieerd door een gegevens van vijf Tuples: bron-IP, doel-IP, bron poort, doel poort en protocol.
 
-[Stroom logboeken van netwerk beveiligings groepen](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) zijn een functie van Network Watcher waarmee u informatie kunt bekijken over binnenkomend en IP-verkeer via een netwerk beveiligings groep.
+[Stroom logboeken van netwerk beveiligings groepen](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) zijn een functie van Network Watcher waarmee u informatie kunt bekijken over binnenkomend en IP-verkeer via een netwerk beveiligings groep.
 
 #### <a name="virtual-network-gateway-and-connection-troubleshooting"></a>Probleem oplossing voor virtuele netwerk gateway en verbinding
 
-Network Watcher biedt veel mogelijkheden voor het koppelen van uw netwerk bronnen in Azure. Een van deze mogelijkheden is het oplossen van problemen met resources. Het [oplossen van resources](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) kan worden aangeroepen door Power shell, CLI of rest API. Als Network Watcher wordt aangeroepen, wordt de status van een Virtual Network gateway of een verbinding gecontroleerd en worden de bevindingen daarvan geretourneerd.
+Network Watcher biedt veel mogelijkheden voor het koppelen van uw netwerk bronnen in Azure. Een van deze mogelijkheden is het oplossen van problemen met resources. Het [oplossen van resources](../../network-watcher/network-watcher-troubleshoot-manage-rest.md) kan worden aangeroepen door Power shell, CLI of rest API. Als Network Watcher wordt aangeroepen, wordt de status van een Virtual Network gateway of een verbinding gecontroleerd en worden de bevindingen daarvan geretourneerd.
 
 In deze sectie vindt u informatie over de verschillende beheer taken die momenteel beschikbaar zijn voor het oplossen van problemen met resources.
 
--   [Problemen met een Virtual Network gateway oplossen](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [Problemen met een Virtual Network gateway oplossen](../../network-watcher/network-watcher-troubleshoot-manage-rest.md)
 
--   [Problemen met een verbinding oplossen](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [Problemen met een verbinding oplossen](../../network-watcher/network-watcher-troubleshoot-manage-rest.md)
 
 #### <a name="network-subscription-limits"></a>Limieten voor netwerk abonnementen
 
-De limieten voor [netwerk abonnementen](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) bieden u meer informatie over het gebruik van elk van de netwerk bronnen in een abonnement in een regio, vergeleken met het maximum aantal beschik bare resources.
+De limieten voor [netwerk abonnementen](../../network-watcher/network-watcher-monitoring-overview.md) bieden u meer informatie over het gebruik van elk van de netwerk bronnen in een abonnement in een regio, vergeleken met het maximum aantal beschik bare resources.
 
 #### <a name="configuring-diagnostics-log"></a>Diagnostische logboek configureren
 
-Network Watcher biedt een [](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) weer gave van Diagnostische logboeken. Deze weer gave bevat alle netwerk bronnen die ondersteuning bieden voor diagnostische logboek registratie. In deze weer gave kunt u netwerk bronnen gemakkelijk en snel en eenvoudig inschakelen en uitschakelen.
+Network Watcher biedt een [](../../network-watcher/network-watcher-monitoring-overview.md) weer gave van Diagnostische logboeken. Deze weer gave bevat alle netwerk bronnen die ondersteuning bieden voor diagnostische logboek registratie. In deze weer gave kunt u netwerk bronnen gemakkelijk en snel en eenvoudig inschakelen en uitschakelen.
 
 ### <a name="network-resource-level-monitoring"></a>Bewaking van netwerk resource niveau
 
@@ -585,7 +585,7 @@ De volgende functies zijn beschikbaar voor bewaking op resource niveau:
 Bewerkingen die worden uitgevoerd als onderdeel van de configuratie van netwerken, worden vastgelegd. Deze audit logboeken zijn essentieel om verschillende nalevingen te bepalen. Deze logboeken kunnen worden weer gegeven in de Azure Portal of worden opgehaald met micro soft-hulpprogram ma's, zoals Power BI of hulpprogram ma's van derden. Audit logboeken zijn beschikbaar via de portal, Power shell, CLI en rest-API.
 
 > [!Note]
-> Zie [bewerkingen controleren met Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)voor meer informatie over audit Logboeken.
+> Zie [bewerkingen controleren met Resource Manager](../../azure-resource-manager/resource-group-audit.md)voor meer informatie over audit Logboeken.
 Audit logboeken zijn beschikbaar voor bewerkingen die op alle netwerk bronnen worden uitgevoerd.
 
 
@@ -594,19 +594,19 @@ Audit logboeken zijn beschikbaar voor bewerkingen die op alle netwerk bronnen wo
 Metrische gegevens zijn prestatie metingen en tellers die gedurende een bepaalde periode zijn verzameld. Metrieken zijn momenteel beschikbaar voor Application Gateway. Metrische gegevens kunnen worden gebruikt om waarschuwingen te activeren op basis van de drempel waarde. Azure-toepassing gateway controleert standaard de status van alle resources in de back-end-groep en verwijdert automatisch alle bronnen die worden beschouwd als een slechte status van de groep. Application Gateway blijft de beschadigde instanties bewaken en voegt deze weer toe aan de gezonde back-end-pool zodra deze beschikbaar komen en reageren op status controles. Application Gateway verzendt de status tests met dezelfde poort die is gedefinieerd in de back-end-HTTP-instellingen. Deze configuratie zorgt ervoor dat de test wordt uitgevoerd op dezelfde poort die door klanten zou worden gebruikt om verbinding te maken met de back-end.
 
 > [!Note]
-> Zie [Application Gateway diagnostische gegevens](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview) om te zien hoe metrieken kunnen worden gebruikt om waarschuwingen te maken.
+> Zie [Application Gateway diagnostische gegevens](../../application-gateway/application-gateway-probe-overview.md) om te zien hoe metrieken kunnen worden gebruikt om waarschuwingen te maken.
 
 #### <a name="diagnostic-logs"></a>Diagnostische logboeken
 
-Periodieke en spontane gebeurtenissen worden gemaakt door netwerk bronnen en geregistreerde opslag accounts, verzonden naar een event hub of Azure Monitor Logboeken. Deze logboeken bieden inzicht in de status van een resource. Deze logboeken kunnen worden weer gegeven in hulpprogram ma's als Power BI en Azure Monitor-Logboeken. Ga naar [Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)-logboeken voor meer informatie over het weer geven van Diagnostische logboeken.
+Periodieke en spontane gebeurtenissen worden gemaakt door netwerk bronnen en geregistreerde opslag accounts, verzonden naar een event hub of Azure Monitor Logboeken. Deze logboeken bieden inzicht in de status van een resource. Deze logboeken kunnen worden weer gegeven in hulpprogram ma's als Power BI en Azure Monitor-Logboeken. Ga naar [Azure monitor](../../azure-monitor/insights/azure-networking-analytics.md)-logboeken voor meer informatie over het weer geven van Diagnostische logboeken.
 
-Diagnostische logboeken zijn beschikbaar voor [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [netwerk beveiligings groepen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), routes en [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Diagnostische logboeken zijn beschikbaar voor [Load Balancer](../../load-balancer/load-balancer-monitor-log.md), [netwerk beveiligings groepen](../../virtual-network/virtual-network-nsg-manage-log.md), routes en [Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
 Network Watcher biedt een weer gave van Diagnostische logboeken. Deze weer gave bevat alle netwerk bronnen die ondersteuning bieden voor diagnostische logboek registratie. In deze weer gave kunt u netwerk bronnen gemakkelijk en snel en eenvoudig inschakelen en uitschakelen.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor-logboeken
 
-[Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) -Logboeken is een service in azure die uw Cloud-en on-premises omgevingen bewaakt om hun Beschik baarheid en prestaties te behouden. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
+[Azure monitor](../../log-analytics/log-analytics-queries.md) -Logboeken is een service in azure die uw Cloud-en on-premises omgevingen bewaakt om hun Beschik baarheid en prestaties te behouden. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden.
 
 Azure Monitor-logboeken bieden de volgende oplossingen voor het bewaken van uw netwerken:
 
@@ -617,7 +617,7 @@ Azure Monitor-logboeken bieden de volgende oplossingen voor het bewaken van uw n
 -   Analyse van Azure-netwerk beveiligings groep
 
 #### <a name="network-performance-monitor-npm"></a>Netwerk prestatie meter (NPM)
-De oplossing voor het beheer van [Netwerkprestatiemeter](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor) is een netwerk bewakings oplossing waarmee de status, Beschik baarheid en de bereikbaar van netwerken worden bewaakt.
+De oplossing voor het beheer van [Netwerkprestatiemeter](../../azure-monitor/insights/network-performance-monitor.md) is een netwerk bewakings oplossing waarmee de status, Beschik baarheid en de bereikbaar van netwerken worden bewaakt.
 
 Het wordt gebruikt voor het bewaken van de connectiviteit tussen:
 
@@ -644,7 +644,7 @@ De volgende metrische gegevens worden ondersteund voor toepassings gateways:
 
 #### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Analyse van Azure-netwerk beveiligings groep in Azure Monitor-logboeken
 
-De volgende logboeken worden ondersteund voor [netwerk beveiligings groepen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
+De volgende logboeken worden ondersteund voor [netwerk beveiligings groepen](../../virtual-network/virtual-network-nsg-manage-log.md):
 
 - **NetworkSecurityGroupEvent:** Bevat vermeldingen waarvoor NSG-regels worden toegepast op Vm's en instantie rollen op basis van een MAC-adres. De status voor deze regels wordt elke 60 seconden verzameld.
 
@@ -653,7 +653,7 @@ De volgende logboeken worden ondersteund voor [netwerk beveiligings groepen](htt
 ## <a name="next-steps"></a>Volgende stappen
 Lees meer over beveiliging door enkele van onze diep gaande onderwerpen over beveiliging te lezen:
 
--   [Azure Monitor logboeken voor netwerk beveiligings groepen (Nsg's)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Azure Monitor logboeken voor netwerk beveiligings groepen (Nsg's)](../../virtual-network/virtual-network-nsg-manage-log.md)
 
 -   [Netwerk innovaties waarmee de Cloud wordt verstoord](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

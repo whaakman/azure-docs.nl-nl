@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 4ebc48f8bd35487275f797ffc8e2b5b4d8101a71
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: HT
+ms.openlocfilehash: 37bdcb48dcd37bf81aac8f5c2e1213d7f0deb327
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839782"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966438"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Gegevens kopiëren van een SFTP-server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
@@ -39,6 +39,10 @@ Deze SFTP-connector ondersteunt met name:
 - Bestanden kopiëren met behulp van **basis** -of **SshPublicKey** -verificatie.
 - Kopiëren van bestanden als-is of het parseren van bestanden met de [ondersteunde bestands indelingen en compressie](supported-file-formats-and-compression-codecs.md)-codecs.
 
+## <a name="prerequisites"></a>Vereisten
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -57,7 +61,7 @@ De volgende eigenschappen worden ondersteund voor met SFTP gekoppelde service:
 | skipHostKeyValidation | Geef op of de validatie van de host-sleutel moet worden overgeslagen.<br/>Toegestane waarden zijn: **True**, **False** (standaard).  | Nee |
 | hostKeyFingerprint | Geef de vinger afdruk van de host-sleutel op. | Ja als ' skipHostKeyValidation ' is ingesteld op false.  |
 | authenticationType | Geef het verificatie type op.<br/>Toegestane waarden zijn: **Basic**, **SshPublicKey**. Raadpleeg de sectie [basis verificatie](#using-basic-authentication) en [verificatie van open bare SSH-sleutel](#using-ssh-public-key-authentication) voor meer informatie over de eigenschappen en JSON-voor beelden. |Ja |
-| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt Azure Integration Runtime of zelfgehoste Cloudintegratieruntime gebruiken (als het gegevensarchief bevindt zich in een particulier netwerk). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Meer informatie vindt u in de sectie [vereisten](#prerequisites) . Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 ### <a name="using-basic-authentication"></a>Basis verificatie gebruiken
 

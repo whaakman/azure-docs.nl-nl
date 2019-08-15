@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 873f45a6cce85669581037c4c398a52b1ebd6d68
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840496"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966844"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Een Azure Machine Learning-model dat is geïmplementeerd als een webservice gebruiken
 
@@ -80,6 +80,7 @@ Azure Machine Learning biedt twee manieren om de toegang tot uw webservices te b
 |---|---|---|
 |Sleutel|Standaard uitgeschakeld| Standaard ingeschakeld|
 |Token| Niet beschikbaar| Standaard uitgeschakeld |
+
 #### <a name="authentication-with-keys"></a>Verificatie met sleutels
 
 Wanneer u verificatie voor een implementatie inschakelt, maakt u automatisch verificatie sleutels.
@@ -98,7 +99,6 @@ print(primary)
 
 > [!IMPORTANT]
 > Als u een sleutel opnieuw genereren wilt, gebruikt u [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
-
 
 #### <a name="authentication-with-tokens"></a>Verificatie met tokens
 
@@ -155,50 +155,17 @@ Bijvoorbeeld, het model in de [Train binnen notebook](https://github.com/Azure/M
             ]
         ]
 }
-``` 
+```
 
 De webservice kan meerdere sets met gegevens in één aanvraag accepteren. Retourneert een JSON-document met een matrix van antwoorden.
 
 ### <a name="binary-data"></a>Binaire gegevens
 
-Als uw model binaire gegevens, zoals een afbeelding accepteert, moet u wijzigen de `score.py` bestand dat wordt gebruikt voor uw implementatie om onbewerkte HTTP-aanvragen te accepteren. Hier volgt een voor beeld van `score.py` een waarmee binaire gegevens worden geaccepteerd:
+Zie [binaire gegevens](how-to-deploy-and-where.md#binary)voor meer informatie over het inschakelen van ondersteuning voor binaire gegevens in uw service.
 
-```python
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### <a name="cross-origin-resource-sharing-cors"></a>Cross-Origin-resource delen (CORS)
 
-
-def init():
-    print("This is init()")
-
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody
-        # and send to the model. Then return the response.
-
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> De `azureml.contrib` naam ruimte wordt regel matig gewijzigd, omdat we de service kunnen verbeteren. Als zodanig moeten alle in deze naam ruimte worden beschouwd als een preview en niet volledig worden ondersteund door micro soft.
->
-> Als u dit in uw lokale ontwikkel omgeving moet testen, kunt u de onderdelen in de `contrib` naam ruimte installeren met behulp van de volgende opdracht:
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+Zie [Cross-Origin-resource delen](how-to-deploy-and-where.md#cors)voor meer informatie over het inschakelen van CORS-ondersteuning in uw service.
 
 ## <a name="call-the-service-c"></a>De service aanroepen (C#)
 
@@ -528,3 +495,7 @@ Power BI ondersteunt het gebruik van Azure Machine Learning webservices om de ge
 Als u een webservice wilt genereren die wordt ondersteund voor gebruik in Power BI, moet het schema ondersteuning bieden voor de indeling die wordt vereist door Power BI. [Meer informatie over het maken van een door Power bi ondersteund schema](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
 Zodra de webservice is geïmplementeerd, kan deze worden verbruikt vanaf Power BI gegevens stromen. [Meer informatie over het gebruik van een Azure machine learning-webservice van Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## <a name="next-steps"></a>Volgende stappen
+
+Ga naar het [Azure Architecture Center](/azure/architecture/reference-architectures/ai/realtime-scoring-python)om een referentie architectuur voor realtime-scores van python-en diepe leer modellen te bekijken.

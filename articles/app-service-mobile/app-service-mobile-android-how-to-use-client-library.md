@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de Azure Mobile Apps SDK voor Android | Microsoft Docs
-description: Het gebruik van de Azure Mobile Apps SDK voor Android
+title: De Azure Mobile Apps SDK voor Android gebruiken | Microsoft Docs
+description: De Azure Mobile Apps SDK voor Android gebruiken
 services: app-service\mobile
 documentationcenter: android
 author: elamalani
@@ -14,50 +14,50 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67443547"
 ---
-# <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Het gebruik van de Azure Mobile Apps SDK voor Android
+# <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>De Azure Mobile Apps SDK voor Android gebruiken
 
 > [!NOTE]
-> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) vandaag nog.
+> Visual Studio App Center is investeren in nieuwe en geïntegreerde services die in de ontwikkeling van mobiele apps kunnen worden ontwikkeld. Ontwikkel aars kunnen services **bouwen**, **testen** en **distribueren** om een continue integratie-en leverings pijplijn in te stellen. Zodra de app is geïmplementeerd, kunnen ontwikkel aars de status en het gebruik van hun app bewaken met behulp van de **analyse** -en **diagnose** Services en gebruikers benaderen met behulp van de **Push** service. Ontwikkel aars kunnen ook gebruikmaken van **auth** voor het verifiëren van hun gebruikers en **gegevens** service om app-gegevens in de Cloud op te slaan en te synchroniseren. Bekijk [app Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) vandaag nog.
 >
 
-Deze handleiding wordt beschreven hoe u de Android SDK voor Mobile Apps-client gebruikt voor het implementeren van algemene scenario's, zoals:
+In deze hand leiding wordt uitgelegd hoe u de Android-client-SDK voor Mobile Apps kunt gebruiken voor het implementeren van algemene scenario's, zoals:
 
-* Opvragen van gegevens (invoegen, bijwerken en verwijderen).
-* -Verificatie.
-* Fouten afhandelen.
-* Aanpassing van de client.
+* Query's uitvoeren voor gegevens (invoegen, bijwerken en verwijderen).
+* Verificatie.
+* Het afhandelen van fouten.
+* De client aanpassen.
 
-Deze handleiding is gericht op de client-side Android SDK.  Zie voor meer informatie over de server-side SDK's voor Mobile Apps, [werken met .NET-backend SDK][10] or [How to use the Node.js backend SDK][11].
+Deze hand leiding is gericht op de client-side Android SDK.  Zie [werken met .net back-end-SDK][10] of [de node. js back-SDK gebruiken][11]voor meer informatie over de sdk's aan de server zijde voor Mobile apps.
 
-## <a name="reference-documentation"></a>Referentiedocumentatie voor
+## <a name="reference-documentation"></a>Referentiedocumentatie
 
-U vindt de [Javadocs API-verwijzing][12] voor de Android-client-bibliotheek op GitHub.
+U kunt de [JAVADOCS API-verwijzing][12] voor de Android-client bibliotheek vinden op github.
 
-## <a name="supported-platforms"></a>Ondersteunde Platforms
+## <a name="supported-platforms"></a>Ondersteunde platforms
 
-De Azure Mobile Apps SDK voor Android biedt ondersteuning voor API-niveaus 19 tot 24 uur per dag (KitKat via Nougat) voor telefoons en tablets vormfactoren.  Verificatie in het bijzonder maakt gebruik van een benadering van de algemene framework voor het verzamelen van referenties.  Werkstroom voor Server-verificatie werkt niet met een klein formulier factor apparaten zoals Watch.
+De Azure Mobile Apps SDK voor Android ondersteunt API-niveaus 19 tot 24 (KitKat tot en met Nougat) voor de vorm van factoren voor telefoon en Tablet.  Bij verificatie wordt met name gebruikgemaakt van een gemeen schappelijke webframework-benadering voor het verzamelen van referenties.  Server-flow-verificatie werkt niet met kleine vorm factor-apparaten, zoals Watches.
 
 ## <a name="setup-and-prerequisites"></a>Installatie en vereisten
 
-Voltooi de [Mobile Apps quickstart](app-service-mobile-android-get-started.md) zelfstudie.  Deze taak zorgt ervoor dat alle vereisten voor het ontwikkelen van Azure Mobile Apps is voldaan.  De Quick Start helpt u bij het configureren van uw account en maak uw eerste back-end van Mobile App.
+Voltooi de zelf studie over [Mobile apps Snelstartgids](app-service-mobile-android-get-started.md) .  Deze taak zorgt ervoor dat aan alle vereisten voor het ontwikkelen van Azure Mobile Apps is voldaan.  De Quick Start helpt u ook bij het configureren van uw account en het maken van uw eerste back-end voor mobiele apps.
 
-Als u besluit niet aan de Quick Start-zelfstudie hebt voltooid, moet u de volgende taken uitvoeren:
+Als u besluit om de Snelstartgids zelf studie niet te volt ooien, voert u de volgende taken uit:
 
-* [Maak een back-end van Mobile App][13] voor gebruik met uw Android-app.
-* In Android Studio [update de Gradle bouwen bestanden](#gradle-build).
-* [Inschakelen toestemming internet](#enable-internet).
+* [Maak een back-end voor een mobiele app][13] die u kunt gebruiken met uw Android-app.
+* Werk in Android Studio [de Gradle-build-bestanden](#gradle-build)bij.
+* [Internet machtiging inschakelen](#enable-internet).
 
-### <a name="gradle-build"></a>De Gradle-buildbestand bijwerken
+### <a name="gradle-build"></a>Het build-bestand van Gradle bijwerken
 
-Beide wijzigen **build.gradle** bestanden:
+Wijzig beide **Build. gradle** -bestanden:
 
-1. Deze code toevoegen aan de *Project* niveau **build.gradle** bestand:
+1. Voeg deze code toe aan het bestand **Build. gradle** van *project* level:
 
     ```gradle
     buildscript {
@@ -75,32 +75,32 @@ Beide wijzigen **build.gradle** bestanden:
     }
     ```
 
-2. Deze code toevoegen aan de *Module app* niveau **build.gradle** bestand in de *afhankelijkheden* tag:
+2. Voeg deze code toe aan het bestand *module App* level **Build. gradle** binnen de label *dependencies* :
 
     ```gradle
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    De meest recente versie is momenteel 3.4.0. De ondersteunde versies zijn vermeld [op bintray][14].
+    Momenteel is de nieuwste versie 3.4.0. De ondersteunde versies worden vermeld [op bintray][14].
 
-### <a name="enable-internet"></a>Internet-machtiging inschakelen
+### <a name="enable-internet"></a>Internet machtiging inschakelen
 
-Voor toegang tot Azure, moet uw app in de INTERNET-machtiging ingeschakeld hebben. Als deze nog niet ingeschakeld, voeg de volgende regel code naar uw **AndroidManifest.xml** bestand:
+Voor toegang tot Azure moet uw app de machtiging INTERNET hebben ingeschakeld. Als deze nog niet is ingeschakeld, voegt u de volgende regel code toe aan het bestand **AndroidManifest. XML** :
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-## <a name="create-a-client-connection"></a>Maak een clientverbinding
+## <a name="create-a-client-connection"></a>Een client verbinding maken
 
-Azure Mobile Apps biedt vier functies voor uw mobiele App:
+Azure Mobile Apps biedt vier functies voor uw mobiele toepassing:
 
-* Toegang tot gegevens en Offline synchronisatie met een Azure Mobile Apps-Service.
-* Aangepaste API's die zijn geschreven met de Azure Mobile Apps Server SDK aanroepen.
-* Verificatie met Azure App Service-verificatie en autorisatie.
-* Registratie bij Notification Hubs voor pushmeldingen.
+* Gegevens toegang en offline synchronisatie met een Azure Mobile Apps-service.
+* Aanroepen van aangepaste Api's die zijn geschreven met de Azure Mobile Apps Server SDK.
+* Verificatie met Azure App Service verificatie en autorisatie.
+* Registratie van push meldingen met Notification Hubs.
 
-Elk van deze functies eerst is vereist dat u maakt een `MobileServiceClient` object.  Slechts één `MobileServiceClient` object moet worden gemaakt in uw mobiele client (dat wil zeggen, er moet een Singleton-patroon).  Maakt een `MobileServiceClient` object:
+Voor elk van deze functies moet u eerst een `MobileServiceClient` -object maken.  Er moet `MobileServiceClient` slechts één object worden gemaakt binnen uw mobiele client (dat wil zeggen, het moet een singleton patroon zijn).  Een `MobileServiceClient` object maken:
 
 ```java
 MobileServiceClient mClient = new MobileServiceClient(
@@ -108,11 +108,11 @@ MobileServiceClient mClient = new MobileServiceClient(
     this);                  // Your application Context
 ```
 
-De `<MobileAppUrl>` is een tekenreeks of een URL-object dat naar uw mobiele back-end verwijst.  Als u van Azure App Service gebruikmaakt voor het hosten van uw mobiele back-end, klikt u vervolgens Zorg ervoor dat u de beveiligde `https://` versie van de URL.
+De `<MobileAppUrl>` is een teken reeks of een URL-object dat verwijst naar uw mobiele back-end.  Als u Azure app service gebruikt om uw mobiele back-end te hosten, moet u ervoor `https://` zorgen dat u de beveiligde versie van de URL gebruikt.
 
-De client is ook vereist voor toegang tot de activiteit of het Context - de `this` parameter in het voorbeeld.  De bouw MobileServiceClient moet gebeuren in de `onCreate()` methode van de activiteit waarnaar wordt verwezen in de `AndroidManifest.xml` bestand.
+De-client vereist ook toegang tot de activiteit of context- `this` de para meter in het voor beeld.  De mobileserviceclient te maken-constructie moet plaatsvinden in `onCreate()` de methode van de activiteit waarnaar in het `AndroidManifest.xml` bestand wordt verwezen.
 
-Als een best practice, moet u communicatie tussen de server in een eigen (singleton-patroon)-klasse abstract.  In dit geval moet u de activiteit in de constructor voor het configureren van de service op de juiste wijze doorgeven.  Bijvoorbeeld:
+Als best practice moet u een abstracte server communicatie in een eigen klasse (Singleton-patroon) aanbrengen.  In dit geval moet u de activiteit binnen de constructor door geven om de service op de juiste wijze te configureren.  Bijvoorbeeld:
 
 ```java
 package com.example.appname.services;
@@ -154,21 +154,21 @@ public class AzureServiceAdapter {
 }
 ```
 
-U kunt nu aanroepen `AzureServiceAdapter.Initialize(this);` in de `onCreate()` -methode van uw belangrijkste activiteit.  Een andere manier toegang tot het gebruik van de client hoeven `AzureServiceAdapter.getInstance();` verkrijgen van een verwijzing naar de service-adapter.
+U kunt nu bellen `AzureServiceAdapter.Initialize(this);` met de `onCreate()` methode van uw hoofd activiteit.  Alle andere methoden die toegang moeten hebben tot het client `AzureServiceAdapter.getInstance();` gebruik om een verwijzing naar de service adapter op te halen.
 
 ## <a name="data-operations"></a>Gegevensbewerkingen
 
-De kern van de Azure Mobile Apps SDK is voor toegang tot gegevens die zijn opgeslagen in SQL Azure op de back-end van de mobiele App.  U kunt toegang tot deze gegevens met behulp van sterk getypeerde klassen (bij voorkeur) of getypeerde query's (niet aanbevolen).  Het grootste deel van deze sectie behandelt met behulp van sterk getypeerde klassen.
+De kern van de Azure Mobile Apps SDK is het verlenen van toegang tot gegevens die zijn opgeslagen in SQL Azure op de back-end van de mobiele app.  U kunt deze gegevens openen met sterk getypeerde klassen (voor keur) of niet-getypte query's (niet aanbevolen).  Het meren deel van deze sectie behandelt het gebruik van sterk getypeerde klassen.
 
-### <a name="define-client-data-classes"></a>Definiëren van gegevensklassen client
+### <a name="define-client-data-classes"></a>Client gegevens klassen definiëren
 
-Voor toegang tot gegevens uit SQL Azure-tabellen, client gegevensklassen die overeenkomen met de tabellen in de mobiele App back-end te definiëren. Voorbeelden in dit onderwerp wordt ervan uitgegaan dat een tabel met de naam **MyDataTable**, heeft de volgende kolommen:
+Om toegang te krijgen tot gegevens uit SQL Azure tabellen, definieert u client gegevens klassen die overeenkomen met de tabellen in de back-end van de mobiele app. In de voor beelden in dit onderwerp wordt uitgegaan van een tabel met de naam **MyDataTable**, die de volgende kolommen bevat:
 
 * id
 * text
-* Voltooien
+* aangevuld
 
-Het bijbehorende getypte client-side-object zich bevindt in een bestand met de naam **MyDataTable.java**:
+Het overeenkomstige getypte client-side object bevindt zich in een bestand met de naam **MyDataTable. java**:
 
 ```java
 public class ToDoItem {
@@ -178,7 +178,7 @@ public class ToDoItem {
 }
 ```
 
-Methoden voor elk veld dat u toevoegt getter en setter toevoegen.  Als uw SQL Azure-tabel meer kolommen bevat, zou u de bijbehorende velden toevoegen aan deze klasse.  Bijvoorbeeld, als het DTO (data transfer object) was een kolom met gehele getallen prioriteit, en vervolgens kunt u dit veld, samen met de methoden getter en setter toevoegen:
+Getter-en setter-methoden toevoegen voor elk veld dat u toevoegt.  Als uw SQL Azure tabel meer kolommen bevat, voegt u de bijbehorende velden toe aan deze klasse.  Als de DTO (object voor gegevens overdracht) bijvoorbeeld een kolom met een gehele waarde bevat, kunt u dit veld toevoegen, samen met de getter-en setter methoden:
 
 ```java
 private Integer priority;
@@ -201,17 +201,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Zie voor meer informatie over het maken van aanvullende tabellen in uw back-end van Mobile Apps, [het: Een controller voor de tabel definieert][15] (.NET backend) or [Define Tables using a Dynamic Schema][16] (Node.js-back-end).
+Zie [How to: (Engelstalig) voor meer informatie over het maken van extra tabellen op uw Mobile apps back-end. Definieer een tabel controller][15] (.net-back-end) of [Definieer tabellen met behulp van een dynamisch schema][16] (node. js-back-end).
 
-Een Azure Mobile Apps-back-end-tabel definieert vijf speciale velden, vier die beschikbaar voor clients zijn:
+Een Azure Mobile Apps-back-end-tabel definieert vijf speciale velden, vier van die beschikbaar zijn voor clients:
 
-* `String id`: De unieke ID voor de record.  Als een best practice, Controleer de id de tekenreeksweergave van een [UUID][17] object.
-* `DateTimeOffset updatedAt`: De datum/tijd van de laatste update.  Het veld updatedAt is ingesteld door de server en nooit door uw clientcode moet worden ingesteld.
-* `DateTimeOffset createdAt`: De datum/tijd die het object is gemaakt.  Het veld createdAt is ingesteld door de server en nooit door uw clientcode moet worden ingesteld.
-* `byte[] version`: Normaal gesproken weergegeven als een tekenreeks, is de versie ook ingesteld door de server.
-* `boolean deleted`: Geeft aan dat de record is verwijderd, maar nog niet is verwijderd.  Gebruik geen `deleted` als een eigenschap in uw klasse.
+* `String id`: De wereld wijd unieke ID voor de record.  Als best practice, maakt u de id de teken reeks representatie van een [uuid][17] -object.
+* `DateTimeOffset updatedAt`: De datum/tijd van de laatste update.  Het veld updatedAt wordt ingesteld door de server en moet nooit worden ingesteld door de client code.
+* `DateTimeOffset createdAt`: De datum/tijd waarop het object is gemaakt.  Het veld createdAt wordt ingesteld door de server en moet nooit worden ingesteld door de client code.
+* `byte[] version`: Wordt normaal gesp roken weer gegeven als een teken reeks, de versie wordt ook ingesteld door de-server.
+* `boolean deleted`: Geeft aan dat de record is verwijderd, maar nog niet is leeg gemaakt.  Gebruik `deleted` niet als eigenschap in uw klasse.
 
-Het veld `id` is vereist.  De `updatedAt` veld en `version` veld worden gebruikt voor offline synchronisatie (voor incrementele synchronisatie en een conflict resolutie respectievelijk).  De `createdAt` veld is een veld en wordt niet gebruikt door de client.  De namen zijn 'in-the-wire' namen van de eigenschappen en zijn niet aanpasbaar.  U kunt echter een toewijzing maken tussen uw object en de namen van de 'in-the-wire' met behulp van de [gson][3] bibliotheek.  Bijvoorbeeld:
+Het veld `id` is vereist.  Het `updatedAt` veld en `version` veld worden gebruikt voor offline synchronisatie (voor respectievelijk incrementele synchronisatie en conflict oplossing).  Het `createdAt` veld is een referentie veld dat niet door de client wordt gebruikt.  De namen zijn ' in-the-Wire ' namen van de eigenschappen en zijn niet aanpasbaar.  U kunt echter een toewijzing maken tussen uw object en de namen van ' in-the-Wire ' met behulp van de [gson][3] -bibliotheek.  Bijvoorbeeld:
 
 ```java
 package com.example.zumoappname;
@@ -269,9 +269,9 @@ public class ToDoItem
 }
 ```
 
-### <a name="create-a-table-reference"></a>Maken van een tabelverwijzing
+### <a name="create-a-table-reference"></a>Een tabel verwijzing maken
 
-Voor toegang tot een tabel, maakt u eerst een [MobileServiceTable][8] object door het aanroepen van de **getTable** methode voor het [MobileServiceClient][9].  Deze methode heeft twee overloads:
+Als u toegang wilt krijgen tot een tabel, maakt u eerst een [MobileServiceTable][8] -object door de **GetTable** -methode aan te roepen in de [mobileserviceclient te maken][9].  Deze methode heeft twee Overloads:
 
 ```java
 public class MobileServiceClient {
@@ -280,30 +280,30 @@ public class MobileServiceClient {
 }
 ```
 
-In de volgende code **ook mClient** is een verwijzing naar uw MobileServiceClient-object.  De eerste overbelasting wordt gebruikt voor naam van de klasse en de naam van de tabel hetzelfde zijn, waarbij de in de Quick Start wordt gebruikt:
+In de volgende code is **mClient** een verwijzing naar uw mobileserviceclient te maken-object.  De eerste overbelasting wordt gebruikt, waarbij de naam van de klasse en de tabel naam hetzelfde zijn, en deze wordt gebruikt in de Quick Start:
 
 ```java
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 ```
 
-De tweede overbelasting wordt gebruikt wanneer de tabelnaam af van de naam van de klasse wijkt: de eerste parameter is de naam van de tabel.
+De tweede overbelasting wordt gebruikt wanneer de naam van de tabel verschilt van de naam van de klasse: de eerste para meter is de tabel naam.
 
 ```java
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 ```
 
-## <a name="query"></a>Query uitvoeren op een back-end-tabel
+## <a name="query"></a>Een query uitvoeren op een back-end-tabel
 
-Eerst moet u een tabelverwijzing.  Voer een query op de tabelverwijzing.  Een query is een combinatie van:
+U moet eerst een tabel verwijzing ophalen.  Voer vervolgens een query uit op de tabel verwijzing.  Een query is een combi natie van:
 
-* Een `.where()` [filtercomponent](#filtering).
-* Een `.orderBy()` [bestellen component](#sorting).
-* Een `.select()` [veld selectiecomponent](#selection).
-* Een `.skip()` en `.top()` voor [wisselbaar geheugen: resultaten](#paging).
+* Een `.where()` [filter component](#filtering).
+* Een `.orderBy()` [bestel component](#sorting).
+* Een `.select()` [veld selectie component](#selection).
+* A `.skip()` en`.top()` voor [gewisselde resultaten](#paging).
 
-De componenten moeten worden weergegeven in de voorgaande bewerkingsvolgorde.
+De componenten moeten in de voor gaande volg orde worden weer gegeven.
 
-### <a name="filter"></a> Filteren van resultaten
+### <a name="filter"></a>Resultaten filteren
 
 De algemene vorm van een query is:
 
@@ -314,11 +314,11 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-Het vorige voorbeeld retourneert alle resultaten (maximaal de maximale paginagrootte ingesteld door de server).  De `.execute()` methode voert u de query op de back-end.  De query wordt geconverteerd naar een [OData v3][19] query voor verzending naar de back-end van Mobile Apps.  Bij ontvangst zet de back-end van Mobile Apps de query in een SQL-instructie voordat deze wordt uitgevoerd op de SQL Azure-instantie.  Sinds de netwerkactiviteit duurt enige tijd, de `.execute()` methode retourneert een [ `ListenableFuture<E>` ][18].
+In het voor gaande voor beeld worden alle resultaten geretourneerd (tot de maximale pagina grootte die is ingesteld door de server).  De `.execute()` -methode voert de query uit op de back-end.  De query wordt geconverteerd naar een [OData v3][19] -query voordat deze naar de Mobile apps back-end wordt verzonden.  Bij ontvangst converteert de Mobile Apps back-end de query naar een SQL-instructie voordat deze wordt uitgevoerd op het SQL Azure exemplaar.  Omdat netwerk activiteiten enige tijd duren, retourneert `.execute()` de methode een [`ListenableFuture<E>`][18].
 
 ### <a name="filtering"></a>Geretourneerde gegevens filteren
 
-De uitvoering van de volgende query retourneert alle items uit de **ToDoItem** waar tabel **voltooid** gelijk is aan **false**.
+De volgende query-uitvoering retourneert alle items uit de **ToDoItem** -tabel waarbij **complete** gelijk is aan **False**.
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -328,11 +328,11 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-**mToDoTable** is de verwijzing naar de tabel van de mobiele service die we eerder hebben gemaakt.
+**mToDoTable** is de verwijzing naar de tabel met mobiele services die we eerder hebben gemaakt.
 
-Definieer een filter met de **waar** methodeaanroep in de tabelverwijzing. De **waar** methode wordt gevolgd door een **veld** methode gevolgd door een methode die Hiermee geeft u het logische-predicaat. Mogelijke predicaat methoden zijn onder meer **eq** (gelijk aan), **ne** (niet gelijk aan), **gt** (groter dan), **ge** (groter dan of gelijk aan), **lt** (minder dan,) **le** (kleiner dan of gelijk aan). Deze methoden kunnen u het aantal en de tekenreeks velden om specifieke waarden te vergelijken.
+Definieer een filter met behulp van de methode Call **where** voor de tabel verwijzing. De methode **where** wordt gevolgd door een **veld** methode gevolgd door een methode die het logische predicaat specificeert. Mogelijke predikaten-methoden zijn **EQ** (gelijk aan), **ne** (niet gelijk aan), **gt** (groter dan), **ge** (groter dan of gelijk aan), **lt** (kleiner dan), **Le** (kleiner dan of gelijk aan). Met deze methoden kunt u nummer-en teken reeks velden vergelijken met specifieke waarden.
 
-U kunt filteren op datums. De volgende methoden kunnen u de volledige datumveld of delen van de datum vergelijken: **jaar**, **maand**, **dag**, **uur**,  **minuut**, en **tweede**. Het volgende voorbeeld wordt een filter voor artikelen waarvan *vervaldatum* gelijk is aan 2013.
+U kunt filteren op datums. Met de volgende methoden kunt u het hele datum veld of delen van de datum vergelijken: **jaar**, **maand**, **dag**, **uur**, **minuut**en **seconde**. In het volgende voor beeld wordt een filter toegevoegd voor items waarvan de *verval datum* gelijk is aan 2013.
 
 ```java
 List<ToDoItem> results = MToDoTable
@@ -342,7 +342,7 @@ List<ToDoItem> results = MToDoTable
     .get();
 ```
 
-De volgende methoden ondersteuning voor complexe filters op tekenreeksvelden: **startsWith**, **endsWith**, **concat**, **subtekenreeks**, **indexOf**, **vervangen**, **toLower**, **toUpper**, **trim**, en **lengte** . Het volgende voorbeeld van de filters voor de tabel rijen waar de *tekst* kolom begint met "PRI0."
+De volgende methoden ondersteunen complexe filters voor teken reeks velden **: startsWith**, **endsWith**, **concat**, subtekenreeks, **indexOf**, **replace**, **toLower**, **toUpper**, **Trim**en **Length** . De volgende voorbeeld filters voor tabel rijen waarbij de *tekst* kolom begint met ' PRI0 '.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -352,7 +352,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-De volgende methoden voor de operator op numerieke velden worden ondersteund: **toevoegen**, **sub**, **mul**, **div**, **mod**, **floor**, **maximum**, en **afronden**. Het volgende voorbeeld van de filters voor de tabel rijen waar de **duur** een even getal is.
+De volgende operator methoden worden ondersteund voor numerieke velden: **add**, **Sub**, **mul**, **div**, **mod**, **Floor**, **plafond**en **Round**. De volgende voorbeeld filters voor tabel rijen waarbij de **duur** een even getal is.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -362,7 +362,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-U kunt predikaten met deze logische methoden combineren: **en**, **of** en **niet**. Het volgende voorbeeld combineert twee van de voorgaande voorbeelden.
+U kunt predikaten combi neren met deze logische methoden: **en**, **of** en **niet**. In het volgende voor beeld worden twee van de voor gaande voor beelden gecombineerd.
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -372,7 +372,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-Groep en geneste logische operators:
+Logische Opera tors groeperen en nesten:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -386,11 +386,11 @@ List<ToDoItem> results = mToDoTable
     .execute().get();
 ```
 
-Zie voor meer informatie en voorbeelden van filteren, [verkennen de rijkdom van het model van de query voor Android-client][20].
+Zie [de mogelijkheden van het Android-client query model verkennen][20]voor meer gedetailleerde informatie over de bespreking en voor beelden van het filteren.
 
 ### <a name="sorting"></a>Geretourneerde gegevens sorteren
 
-De volgende code retourneert alle items uit een tabel met **ToDoItems** door oplopend gesorteerd de *tekst* veld. *mToDoTable* is de verwijzing naar de back endtabel die u eerder hebt gemaakt:
+Met de volgende code worden alle items uit een tabel **ToDoItems** die oplopend zijn gesorteerd op basis van het *tekst* veld. *mToDoTable* is de verwijzing naar de back-end-tabel die u eerder hebt gemaakt:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -399,11 +399,11 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-De eerste parameter van de **orderBy** methode is een tekenreeks die gelijk is aan de naam van het veld waarop u wilt sorteren. De tweede parameter gebruikt de **QueryOrder** inventarisatie kunt u opgeven of oplopend of Aflopend sorteren.  Als u filtert met behulp van de ***waar*** methode, de ***waar*** methode moet worden aangeroepen voordat de ***orderBy*** methode.
+De eerste para meter van de methode **orderBy** is een teken reeks die gelijk is aan de naam van het veld waarop moet worden gesorteerd. De tweede para meter gebruikt de **QueryOrder** -inventarisatie om op te geven of Oplopend of aflopend moet worden gesorteerd.  Als u filtert met behulp van de methode ***where*** , moet de methode ***where*** worden aangeroepen vóór de ***orderBy*** -methode.
 
 ### <a name="selection"></a>Specifieke kolommen selecteren
 
-De volgende code laat zien hoe om te retourneren van alle items uit een tabel met **ToDoItems**, maar worden alleen de **voltooid** en **tekst** velden. **mToDoTable** is de verwijzing naar de back endtabel die we eerder hebben gemaakt.
+De volgende code laat zien hoe u alle items uit een tabel met **ToDoItems**retourneert, maar alleen de velden **volledig** en **tekst** worden weer gegeven. **mToDoTable** is de verwijzing naar de back-end-tabel die u eerder hebt gemaakt.
 
 ```java
 List<ToDoItemNarrow> result = mToDoTable
@@ -412,13 +412,13 @@ List<ToDoItemNarrow> result = mToDoTable
     .get();
 ```
 
-De parameters voor de select-functie zijn de tekenreeksnamen van de van de tabel kolommen die u wilt terugkeren.  De **Selecteer** methode moet volgen methoden, zoals **waar** en **orderBy**. Het kan worden gevolgd door wisselgeheugengebruik methoden, zoals **overslaan** en **boven**.
+De para meters voor de functie Select zijn de teken reeks namen van de kolommen van de tabel die u wilt retour neren.  De methode **Select** moet methoden volgen, zoals **waar** en **orderBy**. Het kan worden gevolgd door paginerings methoden zoals **Skip** en **Top**.
 
-### <a name="paging"></a>Als resultaat de gegevens op pagina 's
+### <a name="paging"></a>Gegevens in pagina's retour neren
 
-Gegevens zijn **altijd** geretourneerd op pagina's.  Het maximum aantal records dat wordt geretourneerd is door de server ingesteld.  Als de client meer records vraagt, retourneert de server het maximum aantal records.  De maximale grootte op de server is standaard 50 records.
+Gegevens worden **altijd** geretourneerd op pagina's.  Het maximum aantal records dat wordt geretourneerd, is ingesteld door de server.  Als de client meer records aanvraagt, retourneert de server het maximum aantal records.  De maximale pagina grootte op de server is standaard 50 records.
 
-Het eerste voorbeeld laat zien hoe de top vijf items selecteren uit een tabel. De query retourneert de items van een tabel van **ToDoItems**. **mToDoTable** is de verwijzing naar de back endtabel die u eerder hebt gemaakt:
+In het eerste voor beeld ziet u hoe u de vijf belangrijkste items uit een tabel selecteert. De query retourneert de items uit een tabel met **ToDoItems**. **mToDoTable** is de verwijzing naar de back-end-tabel die u eerder hebt gemaakt:
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -427,7 +427,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-Hier volgt een query die de eerste vijf items wordt overgeslagen en retourneert vervolgens de volgende vijf:
+Hier volgt een query voor het overstappen van de eerste vijf items en wordt vervolgens de volgende vijf weer gegeven:
 
 ```java
 List<ToDoItem> result = mToDoTable
@@ -436,7 +436,7 @@ List<ToDoItem> result = mToDoTable
     .get();
 ```
 
-Als u ophalen van alle records in een tabel wilt, moet u code om te herhalen op alle pagina's implementeert:
+Als u alle records in een tabel wilt ophalen, implementeert u code om alle pagina's te herhalen:
 
 ```java
 List<MyDataModel> results = new ArrayList<>();
@@ -453,14 +453,14 @@ do {
 } while (nResults > 0);
 ```
 
-Een aanvraag voor alle records met deze methode maakt een minimum van twee aanvragen naar de back-end van Mobile Apps.
+Een aanvraag voor alle records met behulp van deze methode maakt mini maal twee aanvragen voor de Mobile Apps back-end.
 
 > [!TIP]
-> Het formaat van de juiste keuze is een balans tussen geheugengebruik terwijl de aanvraag plaatsvindt, bandbreedtegebruik en vertragingen in het ontvangen van de gegevens volledig.  De standaardwaarde (50 records) is geschikt voor alle apparaten.  Als u werkt met uitsluitend op grotere geheugenapparaten, verhoogt u maximaal 500.  We hebben vastgesteld dat verhoging van de grootte van meer dan 500 records leidt tot onaanvaardbare vertragingen en problemen met grote geheugens.
+> Het kiezen van de juiste pagina grootte is een evenwicht tussen het geheugen gebruik terwijl de aanvraag plaatsvindt, het bandbreedte gebruik en de vertraging bij het volledig ontvangen van de gegevens.  De standaard (50 records) is geschikt voor alle apparaten.  Als u uitsluitend op grotere geheugen apparaten hebt gewerkt, verhoogt u Maxi maal 500.  We hebben vastgesteld dat het verg Roten van de pagina groter dan 500 records leiden tot onaanvaardbare vertragingen en grote geheugen problemen.
 
-### <a name="chaining"></a>Procedures: Methoden voor query's samenvoegen
+### <a name="chaining"></a>Procedures: Query methoden samen voegen
 
-De methoden die worden gebruikt in het back-end-tabellen kunnen worden samengevoegd. Querymethoden-koppeling, kunt u specifieke kolommen van gefilterde rijen gesorteerd en wisselbaar geheugen: selecteren. U kunt complexe logische filters maken.  Elke querymethode retourneert een Query-object. Aanroepen voor het einde van de reeks methoden en daadwerkelijk uitvoeren van de query, de **uitvoeren** methode. Bijvoorbeeld:
+De gebruikte methoden voor het uitvoeren van query's op back-end-tabellen kunnen worden samengevoegd. Met het koppelen van query methoden kunt u specifieke kolommen selecteren van gefilterde rijen die zijn gesorteerd en gewisseld. U kunt complexe logische filters maken.  Elke query methode retourneert een query-object. Roep de Execute-methode aan om de reeks methoden te beëindigen en de query werkelijk uit te voeren. Bijvoorbeeld:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -476,26 +476,26 @@ List<ToDoItem> results = mToDoTable
         .get();
 ```
 
-De querymethoden gekoppelde moeten als volgt worden gerangschikt:
+De geketende query methoden moeten als volgt worden gerangschikt:
 
-1. Filteren (**waar**) methoden.
-2. Sorteren (**orderBy**) methoden.
-3. Selectie (**Selecteer**) methoden.
-4. voor het wisselbestand (**overslaan** en **boven**) methoden.
+1. Methoden (**where**) filteren.
+2. Sorteer methoden (**orderBy**).
+3. Selectie methoden (**selecteren**).
+4. methoden voor paginering (**overs Laan** en **Top**).
 
-## <a name="binding"></a>Gegevens binden aan de gebruikersinterface
+## <a name="binding"></a>Gegevens binden aan de gebruikers interface
 
-Gegevensbinding bestaat uit drie onderdelen:
+Gegevens binding omvat drie onderdelen:
 
-* De gegevensbron
-* De indeling van het startscherm
-* De adapter die de twee gebundeld.
+* De gegevens bron
+* De scherm indeling
+* De adapter die de twee tegelijk verbindt.
 
-In ons voorbeeld van code, wordt de gegevens uit de mobiele Apps SQL Azure-tabel geretourneerd **ToDoItem** in een matrix. Deze activiteit wordt een algemeen patroon voor data-toepassingen.  Database-query's retourneren vaak een verzameling rijen die de client in een lijst of een matrix ophaalt. In dit voorbeeld is de matrix de gegevensbron.  De code wordt een schermindeling die definieert de weergave van de gegevens die wordt weergegeven op het apparaat.  Afhankelijk van de twee samen met een adapter, die in deze code een uitbreiding is van de **ArrayAdapter&lt;ToDoItem&gt;**  klasse.
+In onze voorbeeld code retour neren we de gegevens uit het Mobile Apps SQL Azure tabel **ToDoItem** in een matrix. Deze activiteit is een gemeen schappelijk patroon voor gegevens toepassingen.  Database query's retour neren vaak een verzameling rijen die de client in een lijst of matrix krijgt. In dit voor beeld is de matrix de gegevens bron.  De code geeft een scherm indeling aan waarmee de weer gave van de gegevens op het apparaat wordt gedefinieerd.  De twee zijn gekoppeld aan een adapter, die in deze code een uitbrei ding is van **de&lt;klasse&gt; ArrayAdapter ToDoItem** .
 
 #### <a name="layout"></a>De indeling definiëren
 
-De lay-out is gedefinieerd door enkele codefragmenten van XML-code. Een bestaande indeling wordt opgegeven, de volgende code geeft de **ListView** we wilt vullen met gegevens van onze server.
+De indeling wordt gedefinieerd door verschillende code fragmenten van XML-code. Op basis van een bestaande indeling vertegenwoordigt de volgende code de **List View** die we willen vullen met onze server gegevens.
 
 ```xml
     <ListView
@@ -506,7 +506,7 @@ De lay-out is gedefinieerd door enkele codefragmenten van XML-code. Een bestaand
     </ListView>
 ```
 
-In de vorige code de *listitem* kenmerk geeft de id van de indeling voor een afzonderlijke rij in de lijst. Deze code geeft een selectievakje in en de bijbehorende tekst en eenmaal voor elk item in de lijst wordt geïnstantieerd. Deze lay-out niet wordt weergegeven de **id** veld en een complexere indeling aanvullende velden in de weergave wilt opgeven. Deze code is in de **row_list_to_do.xml** bestand.
+In de voor gaande code bevat het kenmerk *lijst item* de id van de indeling voor een afzonderlijke rij in de lijst. Met deze code wordt een selectie vakje en de bijbehorende tekst opgegeven en wordt één keer voor elk item in de lijst een exemplaar gemaakt. In deze indeling wordt het veld **id** niet weer gegeven, en in een complexere indeling worden extra velden in de weer gave opgegeven. Deze code bevindt zich in het bestand **row_list_to_do. XML** .
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -523,14 +523,14 @@ In de vorige code de *listitem* kenmerk geeft de id van de indeling voor een afz
 ```
 
 #### <a name="adapter"></a>De adapter definiëren
-Omdat de gegevensbron van de weergave een matrix van is **ToDoItem**, we subklasse onze-adapter van een **ArrayAdapter&lt;ToDoItem&gt;**  klasse. Deze subcategorie produceert een weergave voor elke **ToDoItem** met behulp van de **row_list_to_do** lay-out.  In de code, definiëren we de volgende klasse die is een uitbreiding van de **ArrayAdapter&lt;E&gt;**  klasse:
+Omdat de gegevens bron van onze weer gave een matrix van **ToDoItem**is, raden we onze adapter aan via **een&lt;ArrayAdapter&gt; ToDoItem** -klasse. Deze subklasse produceert een weer gave voor elke **ToDoItem** met behulp van de **row_list_to_do** -indeling.  In onze code definiëren we de volgende klasse die een uitbrei ding is van **de&lt;ArrayAdapter&gt; E** -klasse:
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Onderdrukking van de adapters **getView** methode. Bijvoorbeeld:
+Overschrijf de methode **getView** van adapters. Bijvoorbeeld:
 
 ```java
     @Override
@@ -566,23 +566,23 @@ Onderdrukking van de adapters **getView** methode. Bijvoorbeeld:
     }
 ```
 
-We maken een exemplaar van deze klasse in onze activiteit als volgt:
+We maken als volgt een exemplaar van deze klasse in onze activiteit:
 
 ```java
     ToDoItemAdapter mAdapter;
     mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 ```
 
-De tweede parameter aan de constructor ToDoItemAdapter is een verwijzing naar de lay-out. We kunnen nu exemplaar maken van de **ListView** en toewijzen van de adapter op de **ListView**.
+De tweede para meter voor de ToDoItemAdapter-constructor is een verwijzing naar de indeling. We kunnen de **List View** nu instantiëren en de adapter toewijzen aan de **List View**.
 
 ```java
     ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
     listViewToDo.setAdapter(mAdapter);
 ```
 
-#### <a name="use-adapter"></a>Gebruik van de Adapter te binden aan de gebruikersinterface
+#### <a name="use-adapter"></a>De adapter gebruiken om verbinding te maken met de gebruikers interface
 
-U bent nu klaar voor gebruik van gegevensbinding. De volgende code laat zien hoe u items in de tabel ophalen en op de lokale adapter met de geretourneerde items.
+U bent nu klaar om gegevens binding te gebruiken. De volgende code laat zien hoe u items in de tabel kunt ophalen en de lokale adapter kunt vullen met de geretourneerde items.
 
 ```java
     public void showAll(View view) {
@@ -611,13 +611,13 @@ U bent nu klaar voor gebruik van gegevensbinding. De volgende code laat zien hoe
     }
 ```
 
-De adapter aanroepen telkens wanneer u wijzigt de **ToDoItem** tabel. Omdat wijzigingen worden uitgevoerd op basis van een door een andere record, kunt u een enkele rij in plaats van een verzameling verwerken. Wanneer u een item invoegt, roept de **toevoegen** methode op de adapter; wanneer te verwijderen, roept de **verwijderen** methode.
+Roep de adapter op elke keer dat u de **ToDoItem** -tabel wijzigt. Omdat wijzigingen worden uitgevoerd op record basis, verwerkt u één rij in plaats van een verzameling. Wanneer u een item invoegt, roept u de **add** -methode aan op de adapter. roep de **Remove** -methode aan bij het verwijderen.
 
-U vindt een compleet voorbeeld in de [Android Quick Start-Project][21].
+U kunt een volledig voor beeld vinden in het [Android Quick][21]start-project.
 
 ## <a name="inserting"></a>Gegevens invoegen in de back-end
 
-Een instantie van de *ToDoItem* klasse en de eigenschappen instellen.
+Exemplaar een instantie van de klasse *ToDoItem* en stel de eigenschappen in.
 
 ```java
 ToDoItem item = new ToDoItem();
@@ -625,7 +625,7 @@ item.text = "Test Program";
 item.complete = false;
 ```
 
-Gebruik vervolgens **insert()** een object in te voegen:
+Gebruik vervolgens **Insert ()** om een object in te voegen:
 
 ```java
 ToDoItem entity = mToDoTable
@@ -633,21 +633,21 @@ ToDoItem entity = mToDoTable
     .get();
 ```
 
-De geretourneerde entiteit komt overeen met de gegevens ingevoegd in de endtabel back-van de ID en andere waarden opgenomen (zoals de `createdAt`, `updatedAt`, en `version` velden) instellen op de back-end.
+De geretourneerde entiteit komt overeen met de gegevens die zijn ingevoegd in de back-endserver, inclusief de id en eventuele `createdAt`andere `updatedAt`waarden ( `version` zoals de velden, en) die op de back-end zijn ingesteld.
 
-Mobile Apps-tabellen moet een primaire-sleutelkolom met de naam **id**. Deze kolom moet een tekenreeks zijn. De standaardwaarde van de kolom-ID is een GUID.  U kunt andere unieke waarden, zoals e-mailadressen of gebruikersnamen opgeven. Als een tekenreeks-ID-waarde niet is opgegeven voor een record ingevoegd, wordt een nieuwe GUID gegenereerd door de back-end.
+Voor Mobile Apps tabellen is een primaire-sleutel kolom met de naam **id**vereist. Deze kolom moet een teken reeks zijn. De standaard waarde van de kolom ID is een GUID.  U kunt andere unieke waarden opgeven, zoals e-mail adressen of gebruikers namen. Wanneer een teken reeks-ID-waarde niet wordt gegeven voor een ingevoegde record, wordt door de back-end een nieuwe GUID gegenereerd.
 
-Tekenreeks-ID's bieden de volgende voordelen:
+Teken reeks-ID-waarden bieden de volgende voor delen:
 
-* Id's kunnen worden gegenereerd zonder een retour naar de database.
-* Records zijn gemakkelijker te samenvoegen uit andere tabellen of databases.
-* Id-waarden integratie betere met de logica van een toepassing.
+* Id's kunnen worden gegenereerd zonder dat er een retour naar de data base wordt gemaakt.
+* Records kunnen gemakkelijker worden samengevoegd vanuit verschillende tabellen of data bases.
+* ID-waarden zijn beter geïntegreerd met de logica van een toepassing.
 
-Tekenreeks-ID-waarden zijn **vereist** voor ondersteuning voor offlinesynchronisatie.  U kunt een Id niet wijzigen nadat deze is opgeslagen in de back enddatabase.
+Teken reeks-ID-waarden zijn **vereist** voor ondersteuning voor offline synchronisatie.  U kunt een id niet meer wijzigen nadat deze is opgeslagen in de back-end-data base.
 
-## <a name="updating"></a>Gegevens in een mobiele app bijwerken
+## <a name="updating"></a>Gegevens bijwerken in een mobiele app
 
-Voor het bijwerken van gegevens in een tabel, geeft u het nieuwe object aan de **update()** methode.
+Als u gegevens in een tabel wilt bijwerken, geeft u het nieuwe object door aan de methode **Update ()** .
 
 ```java
 mToDoTable
@@ -655,18 +655,18 @@ mToDoTable
     .get();
 ```
 
-In dit voorbeeld *item* is een verwijzing naar een rij in de *ToDoItem* het aantal wijzigingen aangebracht in deze heeft tabel.  De rij met dezelfde **id** wordt bijgewerkt.
+In dit voor beeld is *item* een verwijzing naar een rij in de tabel *ToDoItem* , waarvan enkele wijzigingen zijn aangebracht.  De rij met dezelfde **id** wordt bijgewerkt.
 
-## <a name="deleting"></a>Verwijderen van gegevens in een mobiele app
+## <a name="deleting"></a>Gegevens in een mobiele app verwijderen
 
-De volgende code toont hoe u gegevens uit een tabel verwijderen door het object op te geven.
+De volgende code laat zien hoe u gegevens uit een tabel verwijdert door het gegevens object op te geven.
 
 ```java
 mToDoTable
     .delete(item);
 ```
 
-U kunt ook een item verwijderen door op te geven de **id** veld van de rij te verwijderen.
+U kunt ook een item verwijderen door het veld **id** op te geven van de rij die u wilt verwijderen.
 
 ```java
 String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
@@ -674,9 +674,9 @@ mToDoTable
     .delete(myRowId);
 ```
 
-## <a name="lookup"></a>Een specifiek item door-Id opzoeken
+## <a name="lookup"></a>Een specifiek item opzoeken op basis van id
 
-Opzoeken van een item met een specifieke **id** veld met de **lookUp()** methode:
+Zoek een item met een specifiek **id-** veld met de methode **lookUp ()** :
 
 ```java
 ToDoItem result = mToDoTable
@@ -684,13 +684,13 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Procedures: Werken met niet-getypeerde gegevens
+## <a name="untyped"></a>Procedures: Werken met niet-getypte gegevens
 
-De niet-getypeerde programmeermodel hebt u exacte controle over de JSON-serialisatie.  Er zijn enkele algemene scenario's waarin u kunt desgewenst een niet-getypeerde programmeermodel gebruiken. Bijvoorbeeld, als uw back endtabel veel kolommen bevat en u hoeft alleen te verwijzen naar een subset van de kolommen.  De getypte model, moet u de kolommen die zijn gedefinieerd in de back-end van Mobile Apps in uw gegevensklasse definiëren.  De meeste van de API-aanroepen voor toegang tot gegevens zijn vergelijkbaar met de getypte programming aanroepen. Het belangrijkste verschil is dat in het model niet-getypeerde u methoden aanroepen op de **MobileServiceJsonTable** -object, in plaats van de **MobileServiceTable** object.
+Het niet-getypte programmeer model geeft u de controle over JSON-serialisatie.  Er zijn enkele algemene scenario's waarin u mogelijk een niet-getypt programmeer model wilt gebruiken. Als uw back-endserver bijvoorbeeld veel kolommen bevat, hoeft u alleen te verwijzen naar een subset van de kolommen.  Het getypte model vereist dat u alle kolommen definieert die zijn gedefinieerd in de Mobile Apps back-end in uw gegevens klasse.  De meeste API-aanroepen voor toegang tot gegevens zijn vergelijkbaar met de getypte programmerings aanroepen. Het belangrijkste verschil is dat u in het niet-getypte model methoden aanroept in het object **MobileServiceJsonTable** , in plaats van het **MobileServiceTable** -object.
 
-### <a name="json_instance"></a>Maak een instantie van een niet-getypeerde tabel
+### <a name="json_instance"></a>Een exemplaar van een niet-getypte tabel maken
 
-Net als bij de getypte model, u beginnen met het ophalen van een tabelverwijzing, maar in dit geval is het een **MobileServicesJsonTable** object. De verwijzing verkrijgen door het aanroepen van de **getTable** methode op een exemplaar van de client:
+Net als bij het getypte model begint u met het ophalen van een tabel verwijzing, maar in dit geval is het een **MobileServicesJsonTable** -object. De referentie verkrijgen door de **GetTable** -methode aan te roepen op een exemplaar van de client:
 
 ```java
 private MobileServiceJsonTable mJsonToDoTable;
@@ -698,10 +698,10 @@ private MobileServiceJsonTable mJsonToDoTable;
 mJsonToDoTable = mClient.getTable("ToDoItem");
 ```
 
-Nadat u hebt gemaakt dat een exemplaar van de **MobileServiceJsonTable**, is vrijwel dezelfde API beschikbaar als met de getypte programmeermodel. In sommige gevallen kan maken de methoden gebruik van een niet-getypeerde parameter in plaats van een type parameter.
+Wanneer u een instantie van de **MobileServiceJsonTable**hebt gemaakt, heeft deze vrijwel dezelfde API beschikbaar als bij het getypte programmeer model. In sommige gevallen maken de methoden gebruik van een para meter zonder type in plaats van een getypeerde para meter.
 
-### <a name="json_insert"></a>In een niet-getypeerde tabel invoegen
-De volgende code toont hoe u een insert doet. De eerste stap is het maken van een [JsonObject][1] , which is part of the [gson][3] bibliotheek.
+### <a name="json_insert"></a>Invoegen in een tabel die geen type is
+De volgende code laat zien hoe u een insert-actie kunt uitvoeren. De eerste stap bestaat uit het maken van een [JsonObject][1], die deel uitmaakt van de [gson][3] -bibliotheek.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -709,7 +709,7 @@ jsonItem.addProperty("text", "Wake up");
 jsonItem.addProperty("complete", false);
 ```
 
-Vervolgens gebruikt u **insert()** de niet-getypeerde object in de tabel invoegen.
+Gebruik **Insert ()** om het niet-getypte object in de tabel in te voegen.
 
 ```java
 JsonObject insertedItem = mJsonToDoTable
@@ -717,27 +717,27 @@ JsonObject insertedItem = mJsonToDoTable
     .get();
 ```
 
-Als u nodig hebt om op te halen van de ID van het object ingevoegd, gebruikt u de **getAsJsonPrimitive()** methode.
+Als u de ID van het ingevoegde object wilt ophalen, gebruikt u de methode **getAsJsonPrimitive ()** .
 
 ```java
 String id = insertedItem.getAsJsonPrimitive("id").getAsString();
 ```
-### <a name="json_delete"></a>Verwijderen uit een niet-getypeerde tabel
-De volgende code laat zien hoe u verwijderen van een instantie, in dit geval hetzelfde exemplaar van een **JsonObject** die is gemaakt in de voorafgaande *invoegen* voorbeeld. De code is hetzelfde als bij de ingevoerde aanvraag, maar de methode heeft een andere handtekening omdat deze verwijst naar een **JsonObject**.
+### <a name="json_delete"></a>Verwijderen uit een niet-getypte tabel
+De volgende code laat zien hoe u een exemplaar verwijdert, in dit geval hetzelfde exemplaar van een **JsonObject** dat is gemaakt in het voor gaande voor beeld. De code is hetzelfde als bij het getypte hoofdletter gebruik, maar de methode heeft een andere hand tekening, omdat deze verwijst naar een **JsonObject**.
 
 ```java
 mToDoTable
     .delete(insertedItem);
 ```
 
-U kunt ook een exemplaar rechtstreeks door met de bijbehorende id. verwijderen:
+U kunt een instantie ook rechtstreeks verwijderen met de ID:
 
 ```java
 mToDoTable.delete(ID);
 ```
 
-### <a name="json_get"></a>Retourneert alle rijen uit een niet-getypeerde tabel
-De volgende code toont hoe u kunt een hele tabel ophalen. Omdat u van een JSON-tabel gebruikmaakt, kunt u slechts enkele van de tabel kolommen selectief ophalen.
+### <a name="json_get"></a>Alle rijen van een niet-getypte tabel retour neren
+De volgende code laat zien hoe u een volledige tabel ophaalt. Omdat u een JSON-tabel gebruikt, kunt u selectief slechts een deel van de kolommen van de tabel ophalen.
 
 ```java
 public void showAllUntyped(View view) {
@@ -773,20 +773,20 @@ public void showAllUntyped(View view) {
 }
 ```
 
-De dezelfde set filteren, filteren en pagineren methoden die beschikbaar voor de getypte model zijn zijn beschikbaar voor de niet-getypeerde model.
+Dezelfde set filters, filters en paginerings methoden die beschikbaar zijn voor het getypte model, zijn beschikbaar voor het model untyped.
 
-## <a name="offline-sync"></a>Offlinesynchronisatie implementeren
+## <a name="offline-sync"></a>Offline synchronisatie implementeren
 
-Offline synchronisatie van gegevens van implementeert de Client-SDK van Azure Mobile Apps ook met behulp van een SQLite-database voor het opslaan van een kopie van de servergegevens lokaal.  Bewerkingen die worden uitgevoerd op een offline-tabel vereisen geen mobiele connectiviteit te werken.  Offline synchronisatie op hardwareniveau, bij de flexibiliteit en prestaties ten koste van de complexere logica voor conflictoplossing.  De Client-SDK van Azure Mobile Apps implementeert de volgende functies:
+De Azure Mobile Apps client SDK implementeert ook offline synchronisatie van gegevens met behulp van een SQLite-data base om een kopie van de server gegevens lokaal op te slaan.  Voor bewerkingen die zijn uitgevoerd op een offline tabel is geen mobiele verbinding vereist.  Hulp middelen voor offline synchronisatie in flexibiliteit en prestaties tegen de kosten van complexere logica voor conflict oplossing.  De Azure Mobile Apps client-SDK implementeert de volgende functies:
 
-* Incrementele synchronisatie: Alleen worden bijgewerkt en nieuwe records gedownload verbruik van bandbreedte en geheugen.
-* Optimistische gelijktijdigheid: Bewerkingen wordt aangenomen dat te voltooien.  Conflictoplossing is uitgesteld totdat de updates worden uitgevoerd op de server.
-* Conflictoplossing: De SDK detecteert wanneer een conflicterende wijziging is aangebracht op de server en hooks biedt voor de gebruiker waarschuwen.
-* Voorlopig verwijderen: Verwijderde records zijn gemarkeerd als verwijderd, zodat andere apparaten hun offline configuratiecache bij te werken.
+* Incrementele synchronisatie: Alleen bijgewerkte en nieuwe records worden gedownload, de band breedte en het geheugen verbruik worden bespaard.
+* Optimistische gelijktijdigheid: Er wordt verondersteld dat er bewerkingen worden uitgevoerd.  Conflict oplossing wordt uitgesteld totdat er updates worden uitgevoerd op de server.
+* Conflict oplossing: De SDK detecteert wanneer een conflicterende wijziging is doorgevoerd op de server en levert hooks om de gebruiker te waarschuwen.
+* Voorlopig verwijderen: Verwijderde records worden gemarkeerd als verwijderd, waardoor andere apparaten hun offline cache kunnen bijwerken.
 
 ### <a name="initialize-offline-sync"></a>Offline synchronisatie initialiseren
 
-Elke tabel offline moet worden gedefinieerd in de offline cache vóór gebruik.  Definitie van de tabel wordt gewoonlijk gedaan onmiddellijk na het maken van de client:
+Elke offline tabel moet vóór gebruik in de offline cache worden gedefinieerd.  Normaal gesp roken wordt de tabel definitie onmiddellijk na het maken van de-client uitgevoerd:
 
 ```java
 AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
@@ -829,19 +829,19 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 }
 ```
 
-### <a name="obtain-a-reference-to-the-offline-cache-table"></a>Een verwijzing naar de tabel Offline Cache ophalen
+### <a name="obtain-a-reference-to-the-offline-cache-table"></a>Een verwijzing naar de offline cache tabel ophalen
 
-Voor een online-tabel, gebruikt u `.getTable()`.  Voor een offline-tabel, gebruikt u `.getSyncTable()`:
+Voor een online tabel gebruikt `.getTable()`u.  Voor een offline tabel gebruikt u `.getSyncTable()`:
 
 ```java
 MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
-De methoden die beschikbaar voor online-tabellen zijn (inclusief filteren, sorteren, paging, gegevens invoegen, gegevens bijwerken en verwijderen van gegevens) even goed werken op online en offline-tabellen.
+Alle methoden die beschikbaar zijn voor online tabellen (met inbegrip van het filteren, sorteren, pagineren, invoegen van gegevens, het bijwerken van gegevens en het verwijderen van gegevens), werken even goed op online-en offline tabellen.
 
-### <a name="synchronize-the-local-offline-cache"></a>De lokale Cache voor het Offline synchroniseren
+### <a name="synchronize-the-local-offline-cache"></a>De lokale offline cache synchroniseren
 
-Synchronisatie is in het besturingselement van uw app.  Hier volgt een voorbeeld van de synchronisatie-methode:
+Synchronisatie bevindt zich binnen het beheer van uw app.  Hier volgt een voor beeld van een synchronisatie methode:
 
 ```java
 private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
@@ -862,23 +862,23 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 }
 ```
 
-Als de naam van een query is opgegeven voor de `.pull(query, queryname)` methode dan incrementele synchronisatie wordt gebruikt om terug te keren alleen de records die zijn gemaakt of gewijzigd sinds de laatste met succes voltooid pull.
+Als er een query naam wordt ingesteld voor `.pull(query, queryname)` de methode, wordt incrementele synchronisatie alleen gebruikt om records te retour neren die zijn gemaakt of gewijzigd sinds de laatste geslaagde pull.
 
-### <a name="handle-conflicts-during-offline-synchronization"></a>Conflicten tijdens het Offline synchroniseren
+### <a name="handle-conflicts-during-offline-synchronization"></a>Conflicten tijdens offline synchronisatie afhandelen
 
-Als het geval is een conflict tijdens een `.push()` bewerking, een `MobileServiceConflictException` wordt gegenereerd.   Het item server uitgegeven is ingesloten in de uitzondering en kan worden opgehaald door `.getItem()` op de uitzondering.  De pushmelding aanpassen door het aanroepen van de volgende items op het object MobileServiceSyncContext:
+Als er tijdens een `.push()` bewerking een conflict optreedt, wordt een `MobileServiceConflictException` gegenereerd.   Het door de server uitgegeven item is inge sloten in de uitzonde ring en kan `.getItem()` worden opgehaald door de uitzonde ring.  Pas de push aan door de volgende items aan te roepen in het MobileServiceSyncContext-object:
 
 *  `.cancelAndDiscardItem()`
 *  `.cancelAndUpdateItem()`
 *  `.updateOperationAndItem()`
 
-Wanneer alle conflicten zijn gemarkeerd als u wilt, aanroepen `.push()` opnieuw op te lossen alle conflicten.
+Zodra alle conflicten zijn gemarkeerd als gewenst, roept `.push()` u opnieuw aan om alle conflicten op te lossen.
 
-## <a name="custom-api"></a>Een aangepaste API oproept
+## <a name="custom-api"></a>Een aangepaste API aanroepen
 
-Een aangepaste API kunt u aangepaste eindpunten die beschikbaar maken van server-functionaliteit die niet worden toegewezen aan een invoegen, bijwerken, verwijderen of leesbewerking definiëren. Met behulp van een aangepaste API, kunt u hebben meer controle over berichten, zoals lezen en HTTP-bericht headers instellen en definiëren van een indeling van de hoofdtekst van bericht dan JSON.
+Met een aangepaste API kunt u aangepaste eind punten definiëren die server functionaliteit beschikbaar maken die niet is toegewezen aan een insert-, update-, Delete-of Read-bewerking. U kunt met behulp van een aangepaste API meer controle over berichten, waaronder het lezen en instellen van HTTP-bericht koppen en het definiëren van een andere indeling dan JSON.
 
-U aanroepen vanuit een Android-client, de **invokeApi** methode voor het aanroepen van de aangepaste API-eindpunt. Het volgende voorbeeld ziet over het aanroepen van een API-eindpunt met de naam **completeAll**, die de klasse van een verzameling met de naam retourneert **MarkAllResult**.
+Vanuit een Android-client roept u de **invokeApi** -methode aan om het aangepaste API-eind punt aan te roepen. In het volgende voor beeld ziet u hoe u een API-eind punt aanroept met de naam **completeAll**, waarmee een verzamelings klasse met de naam **MarkAllResult**wordt geretourneerd.
 
 ```java
 public void completeItem(View view) {
@@ -898,36 +898,36 @@ public void completeItem(View view) {
 }
 ```
 
-De **invokeApi** methode wordt aangeroepen op de client, die een POST-aanvraag naar de nieuwe aangepaste API verzendt. Het resultaat geretourneerd door de aangepaste API wordt weergegeven in een dialoogvenster weergegeven als er fouten zijn. Andere versies van **invokeApi** kunt u eventueel verzenden van een object in de aanvraagtekst, geeft u de HTTP-methode en queryparameters met de aanvraag verzenden. Versies van getypeerde **invokeApi** ook worden opgegeven.
+De methode **invokeApi** wordt aangeroepen op de client, die een post-aanvraag verzendt naar de nieuwe aangepaste API. Het resultaat dat door de aangepaste API wordt geretourneerd, wordt in een bericht venster weer gegeven, evenals eventuele fouten. Met andere versies van **invokeApi** kunt u desgewenst een object verzenden in de hoofd tekst van de aanvraag, de HTTP-methode opgeven en query parameters met de aanvraag verzenden. Er zijn ook niet-getypte versies van **invokeApi** .
 
 ## <a name="authentication"></a>Verificatie toevoegen aan uw app
 
-Het toevoegen van deze functies beschreven zelfstudies al in detail.
+Zelf studies beschrijven al in detail hoe deze functies kunnen worden toegevoegd.
 
-App Service ondersteunt [verifiëren van appgebruikers](app-service-mobile-android-get-started-users.md) met behulp van verschillende externe id-providers: Facebook, Google, Microsoft-Account, Twitter en Azure Active Directory. U kunt machtigingen instellen voor tabellen toegang voor specifieke bewerkingen alleen geverifieerde gebruikers te beperken. U kunt ook de identiteit van de geverifieerde gebruikers gebruiken voor het implementeren van autorisatieregels in uw back-end.
+App Service ondersteunt het [verifiëren van app-gebruikers](app-service-mobile-android-get-started-users.md) met behulp van verschillende externe ID-providers: Facebook, Google, micro soft-account, Twitter en Azure Active Directory. U kunt machtigingen voor tabellen instellen om de toegang tot specifieke bewerkingen te beperken tot alleen geverifieerde gebruikers. U kunt ook de identiteit van geverifieerde gebruikers gebruiken voor het implementeren van autorisatie regels in uw back-end.
 
-Twee verificatiestromen worden ondersteund: een **server** stroom en een **client** stroom. De stroom van de server bevat de meest eenvoudige verificatie-ervaring, afhankelijk van de id-providers webinterface.  Er zijn geen extra SDK's zijn vereist voor het implementeren van server-verificatie voor flow. Serververificatie voor de stroom biedt geen een diepe integratie in het mobiele apparaat en wordt alleen aanbevolen voor het testen van concept-scenario's.
+Twee verificatie stromen worden ondersteund: een **Server** stroom en een **client** stroom. De server stroom biedt de eenvoudigste verificatie-ervaring, omdat deze afhankelijk is van de web-interface van de id-providers.  Er zijn geen extra Sdk's vereist om server stroom verificatie te implementeren. Server flow-verificatie biedt geen diepe integratie in het mobiele apparaat en wordt alleen aanbevolen voor het testen van concept scenario's.
 
-De stroom kunt diepere integratie met de apparaat-specifieke mogelijkheden, zoals eenmalige aanmelding, zoals afhankelijk van SDK's die worden geleverd door de id-provider.  U kunt bijvoorbeeld de Facebook-SDK integreren in uw mobiele App.  De mobiele client Hiermee wisselt u in de Facebook-app en bevestigt de aanmelding voor het wisselen van terug naar uw mobiele app.
+De client stroom biedt een diep gaande integratie met apparaatspecifieke mogelijkheden, zoals eenmalige aanmelding, afhankelijk van de Sdk's die worden geboden door de ID-provider.  U kunt bijvoorbeeld de Facebook-SDK integreren in uw mobiele toepassing.  De mobiele client wisselt naar de Facebook-app en bevestigt uw aanmelding voordat u terugwisselt naar uw mobiele app.
 
-Vier stappen zijn vereist voor het inschakelen van verificatie in uw app:
+Er zijn vier stappen vereist om verificatie in te scha kelen in uw app:
 
 * Registreer uw app voor verificatie met een id-provider.
-* Configureer de back-end van uw App Service.
-* Tabelmachtigingen beperken voor geverifieerde gebruikers alleen op de back-end van de App Service.
-* Verificatiecode op te geven toevoegen aan uw app.
+* Configureer uw App Service-back-end.
+* Beperk de tabel machtigingen voor geverifieerde gebruikers alleen op de App Service back-end.
+* Voeg verificatie code toe aan uw app.
 
-U kunt machtigingen instellen voor tabellen toegang voor specifieke bewerkingen alleen geverifieerde gebruikers te beperken. U kunt ook de SID van een geverifieerde gebruiker gebruiken om te wijzigen van aanvragen.  Raadpleeg voor meer informatie, [aan de slag met verificatie] en de procedure voor Server-SDK-documentatie.
+U kunt machtigingen voor tabellen instellen om de toegang tot specifieke bewerkingen te beperken tot alleen geverifieerde gebruikers. U kunt ook de SID van een geverifieerde gebruiker gebruiken om aanvragen te wijzigen.  Raadpleeg voor meer informatie aan de [Aan de slag met verificatie] en de documentatie bij de server SDK.
 
-### <a name="caching"></a>Verificatie: Server Flow
+### <a name="caching"></a>Verificatie Server stroom
 
-De volgende code wordt een server flow-aanmelding met de Google-provider gestart.  Aanvullende configuratie is vereist vanwege de beveiligingsvereisten voor de Google-provider:
+Met de volgende code wordt een aanmeldings proces voor Server stromen gestart met de Google-provider.  Aanvullende configuratie is vereist vanwege de beveiligings vereisten voor de Google-provider:
 
 ```java
 MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
 ```
 
-Voeg bovendien de volgende methode toe aan de hoofdklasse van de activiteit:
+Voeg bovendien de volgende methode toe aan de klasse van de hoofd activiteit:
 
 ```java
 // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
@@ -954,9 +954,9 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-De `GOOGLE_LOGIN_REQUEST_CODE` gedefinieerd in uw belangrijkste activiteit wordt gebruikt voor de `login()` methode en binnen de `onActivityResult()` methode.  U kunt een uniek nummer, zolang de hetzelfde nummer wordt gebruikt binnen de `login()` methode en de `onActivityResult()` methode.  Als u de clientcode abstracte in een service-adapter (zoals eerder beschreven), moet u de juiste methoden aanroepen op de service-adapter.
+De `GOOGLE_LOGIN_REQUEST_CODE` gedefinieerde in uw hoofd activiteit wordt gebruikt voor de `login()` methode en binnen de `onActivityResult()` -methode.  U kunt een wille keurig uniek nummer kiezen, zolang hetzelfde nummer wordt gebruikt binnen de `login()` methode en de `onActivityResult()` -methode.  Als u de client code opsplitst in een service adapter (zoals eerder weer gegeven), moet u de juiste methoden op de service adapter aanroepen.
 
-Ook moet u het project voor customtabs configureren.  Eerst een Omleidings-URL opgeven.  Voeg het volgende codefragment `AndroidManifest.xml`:
+U moet ook het project voor customtabs configureren.  Geef eerst een omleidings-URL op.  Voeg het volgende fragment toe `AndroidManifest.xml`aan:
 
 ```xml
 <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -969,7 +969,7 @@ Ook moet u het project voor customtabs configureren.  Eerst een Omleidings-URL o
 </activity>
 ```
 
-Voeg de **redirectUriScheme** naar de `build.gradle` -bestand voor uw toepassing:
+Voeg de **redirectUriScheme** toe aan `build.gradle` het bestand voor uw toepassing:
 
 ```gradle
 android {
@@ -986,7 +986,7 @@ android {
 }
 ```
 
-Voeg tot slot `com.android.support:customtabs:28.0.0` aan de lijst met afhankelijkheden in de `build.gradle` bestand:
+Voeg ten slotte `com.android.support:customtabs:28.0.0` de lijst met afhankelijkheden in `build.gradle` het bestand toe:
 
 ```gradle
 dependencies {
@@ -1000,24 +1000,24 @@ dependencies {
 }
 ```
 
-Ophalen van de ID van de gebruiker is aangemeld vanaf een **MobileServiceUser** met behulp van de **getUserId** methode. Zie voor een voorbeeld van hoe u toekomstige aanroepen van de asynchrone aanmelding API's, [aan de slag met verificatie].
+Haal de ID van de aangemelde gebruiker op uit een **MobileServiceUser** met behulp van de methode **getUserId** . Zie [aan de slag met verificatie]voor een voor beeld van het gebruik van toekomst om de asynchrone aanmeld-api's aan te roepen.
 
 > [!WARNING]
-> Het URL-schema vermeld is hoofdlettergevoelig.  Zorg ervoor dat alle instanties van `{url_scheme_of_you_app}` hoofdlettergevoelig.
+> Het vermelde URL-schema is hoofdletter gevoelig.  Zorg ervoor dat alle exemplaren van `{url_scheme_of_you_app}` matching case.
 
-### <a name="caching"></a>Verificatietokens cache
+### <a name="caching"></a>Verificatie tokens in de cache
 
-Verificatietokens caching, moet u voor het opslaan van de gebruikers-ID en het verificatietoken lokaal op het apparaat. De volgende keer dat de app wordt gestart, controleren van de cache, en als deze waarden aanwezig zijn, kunt u het logboek in procedure overslaan en rehydrate van de client met deze gegevens. Deze gegevens is echter gevoelig en moeten worden opgeslagen voor de veiligheid versleuteld in het geval de telefoon wordt gestolen.  U ziet een compleet voorbeeld van hoe u aan de verificatietokens cache in [verificatiesectie van de tokens in de Cache][7].
+Bij het in cache opslaan van verificatie tokens moet u de gebruikers-ID en het verificatie token lokaal opslaan op het apparaat. De volgende keer dat de app wordt gestart, controleert u de cache en als deze waarden aanwezig zijn, kunt u het logboek in procedure overs Laan en de client met deze gegevens onthydraten. Deze gegevens zijn echter vertrouwelijk en moeten worden opgeslagen als versleuteld voor de beveiliging als de telefoon wordt gestolen.  U kunt een volledig voor beeld bekijken van het in de cache opslaan van verificatie tokens in de [sectie cache-verificatie tokens][7].
 
-Wanneer u probeert een verlopen token wordt gebruikt, ontvangt u een *401-niet gemachtigd* antwoord. U kunt met behulp van filters-verificatiefouten verwerken.  Filters onderscheppen aanvragen naar de back-end van de App Service. De filtercode test van het antwoord voor een 401, activeert de aanmeldprocedure en hervat vervolgens de aanvraag die de 401 gegenereerd.
+Wanneer u een verlopen token probeert te gebruiken, ontvangt u een *401* niet-geautoriseerde reactie. U kunt verificatie fouten met filters afhandelen.  Filters intercepteer aanvragen naar de App Service back-end. De filter code test het antwoord voor een 401, activeert het aanmeldings proces en hervat vervolgens de aanvraag die de 401 heeft gegenereerd.
 
-### <a name="refresh"></a>Vernieuwen van Tokens gebruiken
+### <a name="refresh"></a>Vernieuwings tokens gebruiken
 
-Het token dat is geretourneerd door de Azure App Service-verificatie en autorisatie heeft een gedefinieerde levensduur van één uur.  Als deze tijd is verstreken, moet u de gebruiker verifiëren.  Als u een lange levensduur hebben token dat u hebt ontvangen via clientstroom verificatie gebruikt, kunt u andere referenties met Azure App Service-verificatie en autorisatie met dezelfde token.  Een ander Azure App Service-token wordt gegenereerd met de levensduur van een nieuwe.
+Het token dat wordt geretourneerd door Azure App Service authenticatie en autorisatie, heeft een bepaalde levens duur van één uur.  Na deze periode moet u de gebruiker opnieuw verifiëren.  Als u een langlopend token gebruikt dat u hebt ontvangen via verificatie op basis van de client, kunt u opnieuw verifiëren met Azure App Service verificatie en autorisatie met behulp van hetzelfde token.  Er wordt een ander Azure App Service-token gegenereerd met een nieuwe levens duur.
 
-U kunt ook de provider voor het gebruik van Tokens vernieuwen registreren.  Een Token voor vernieuwen is niet altijd beschikbaar.  Aanvullende configuratie is vereist:
+U kunt de provider ook registreren voor het gebruik van vernieuwings tokens.  Een vernieuwings token is niet altijd beschikbaar.  Aanvullende configuratie is vereist:
 
-* Voor **Azure Active Directory**, een clientgeheim voor de Azure Active Directory-App configureren.  Geef het clientgeheim in Azure App Service bij het configureren van Azure Active Directory-verificatie.  Bij het aanroepen van `.login()`, doorgeven `response_type=code id_token` als een parameter:
+* Configureer voor **Azure Active Directory**een client geheim voor de Azure Active Directory-app.  Geef het client geheim op in de Azure App Service bij het configureren van Azure Active Directory-verificatie.  `.login()`Door geven`response_type=code id_token` als een para meter:
 
     ```java
     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -1029,7 +1029,7 @@ U kunt ook de provider voor het gebruik van Tokens vernieuwen registreren.  Een 
         parameters);
     ```
 
-* Voor **Google**, geven de `access_type=offline` als een parameter:
+* Geef voor **Google**de `access_type=offline` as a-para meter door.
 
     ```java
     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -1041,9 +1041,9 @@ U kunt ook de provider voor het gebruik van Tokens vernieuwen registreren.  Een 
         parameters);
     ```
 
-* Voor **Microsoft-Account**, selecteer de `wl.offline_access` bereik.
+* Selecteer de scope voor het `wl.offline_access` **micro soft-account**.
 
-Als u wilt een vernieuwingstoken aanroepen `.refreshUser()`:
+Voor het vernieuwen van een token `.refreshUser()`roept u het volgende op:
 
 ```java
 MobileServiceUser user = mClient
@@ -1051,15 +1051,15 @@ MobileServiceUser user = mClient
     .get();
 ```
 
-Als een best practice, moet u een filter die een 401-respons van de server detecteert en vernieuwen van het gebruikerstoken wil maken.
+Maak als best practice een filter dat een 401-reactie van de server detecteert en probeert het gebruikers token te vernieuwen.
 
-## <a name="log-in-with-client-flow-authentication"></a>Meld u aan met de verificatie van de Client-stroom
+## <a name="log-in-with-client-flow-authentication"></a>Meld u aan met verificatie op basis van de client stroom
 
-Het algemene proces voor logboekregistratie bij verificatie van de client-stroom is als volgt:
+Het algemene proces voor het aanmelden met client-flow verificatie is als volgt:
 
-* Azure App Service-verificatie en autorisatie configureren als server-flow-verificatie.
-* Integreer de verificatieprovider-SDK voor het produceren van een toegangstoken voor verificatie.
-* Roep de `.login()` methode als volgt te werk (`result` moet een `AuthenticationResult`):
+* Configureer Azure App Service verificatie en autorisatie, zoals u verificatie via de server stroom wilt.
+* Integreer de verificatie provider-SDK voor verificatie om een toegangs token te maken.
+* Roep de `.login()` methode als volgt aan`result` (moet een `AuthenticationResult`):
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1077,16 +1077,16 @@ Het algemene proces voor logboekregistratie bij verificatie van de client-stroom
     });
     ```
 
-Zie het voorbeeld van de volledige code in de volgende sectie.
+Zie het volledige code voorbeeld in de volgende sectie.
 
-Vervang de `onSuccess()` methode met wat u code wilt gebruiken op een geslaagde aanmelding.  De `{provider}` tekenreeks is een geldige provider: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, of **twitter**.  Als u aangepaste verificatie hebt geïmplementeerd, kunt u ook de code van de provider aangepaste verificatie gebruiken.
+Vervang de `onSuccess()` -methode door de code die u wilt gebruiken voor een geslaagde aanmelding.  De `{provider}` teken reeks is een geldige provider: **Aad** (Azure Active Directory) **, Facebook**, **Google**, **MicrosoftAccount**of **Twitter**.  Als u aangepaste verificatie hebt geïmplementeerd, kunt u ook het aangepaste label voor de verificatie provider gebruiken.
 
-### <a name="adal"></a>Verificatie van gebruikers met de Active Directory Authentication Library (ADAL)
+### <a name="adal"></a>Gebruikers verifiëren met de Active Directory Authentication Library (ADAL)
 
-Gebruikers aanmelden bij uw toepassing met behulp van Azure Active Directory kunt u de Active Directory Authentication Library (ADAL). Met behulp van de aanmelding van een client flow is het vaak beter voor het gebruik van de `loginAsync()` methoden als het biedt een meer systeemeigen UX uiterlijk en kunt u extra aanpassingen.
+U kunt de Active Directory Authentication Library (ADAL) gebruiken voor het ondertekenen van gebruikers in uw toepassing met behulp van Azure Active Directory. Het gebruik van een client flow-aanmelding is vaak de voor `loginAsync()` keur voor het gebruik van de-methoden wanneer het een meer systeem eigen UX-ervaring biedt en extra aanpassing mogelijk maakt.
 
-1. Uw mobiele app back-end voor AAD-aanmelding configureren door de [App Service configureren voor Active Directory-aanmelding][22] zelfstudie. Zorg ervoor dat u de optionele stap voor het registreren van een systeemeigen clienttoepassing.
-2. ADAL installeren door het wijzigen van uw build.gradle-bestand om op te nemen van de volgende definities:
+1. Configureer de back-end van uw mobiele app voor AAD-aanmelding door de zelf studie [app service voor Active Directory-aanmelding configureren te][22] volgen. Zorg ervoor dat u de optionele stap voor het registreren van een systeem eigen client toepassing hebt voltooid.
+2. Installeer ADAL door uw build. gradle-bestand te wijzigen met de volgende definities:
 
     ```gradle
     repositories {
@@ -1111,12 +1111,12 @@ Gebruikers aanmelden bij uw toepassing met behulp van Azure Active Directory kun
     }
     ```
 
-3. Voeg de volgende code aan uw toepassing, waardoor de volgende vervangingen:
+3. Voeg de volgende code toe aan uw toepassing, waardoor de volgende vervangingen worden uitgevoerd:
 
-    * Vervang **INSERT-instantie-HERE** met de naam van de tenant waarin u uw toepassing hebt ingericht. De indeling moet https://login.microsoftonline.com/contoso.onmicrosoft.com.
-    * Vervang **INSERT-RESOURCE-ID-HERE** met de client-ID voor de back-end van uw mobiele app. U vindt de client-ID van de **Geavanceerd** tabblad onder **Azure Active Directory-instellingen** in de portal.
-    * Vervang **INSERT-CLIENT-ID-HERE** met de client-ID die u hebt gekopieerd uit de toepassing native client.
-    * Vervang **INSERT-OMLEIDINGS-URI-HERE** met van uw site */.auth/login/done* eindpunt, met behulp van het HTTPS-schema. Deze waarde moet zijn vergelijkbaar met *https://contoso.azurewebsites.net/.auth/login/done* .
+    * Vervang de **INVOEG instantie** door de naam van de Tenant waarin u uw toepassing hebt ingericht. De notatie moet zijn https://login.microsoftonline.com/contoso.onmicrosoft.com.
+    * Vervang de **Insert-resource-id hier** door de client-id voor de back-end van uw mobiele app. U kunt de client-ID verkrijgen via het tabblad **Geavanceerd** onder **Azure Active Directory instellingen** in de portal.
+    * Vervang **Insert-client-id-hier** door de client-id die u hebt gekopieerd uit de systeem eigen client toepassing.
+    * Vervang **Insert-redirect-Uri-hier** met het */.auth/login/done* -eind punt van uw site met behulp van het HTTPS-schema. Deze waarde moet gelijk zijn aan *https://contoso.azurewebsites.net/.auth/login/done* .
 
 ```java
 private AuthenticationContext mContext;
@@ -1181,19 +1181,19 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-## <a name="filters"></a>De Client-servercommunicatie aanpassen
+## <a name="filters"></a>De communicatie tussen de client en de server aanpassen
 
-Verbinding met de Client is normaal gesproken een eenvoudige HTTP-verbinding met behulp van de onderliggende HTTP-bibliotheek is opgegeven met de Android SDK.  Er zijn diverse redenen waarom u wilt wijzigen:
+De client verbinding is doorgaans een eenvoudige HTTP-verbinding met behulp van de onderliggende HTTP-bibliotheek die is geleverd bij de Android-SDK.  Er zijn verschillende redenen waarom u deze wilt wijzigen:
 
-* Wilt u een alternatieve HTTP-clientbibliotheek gebruiken om aan te passen time-outs.
-* Wilt u een voortgangsbalk bieden.
-* U wilt toevoegen van een aangepaste header ter ondersteuning van API management-functionaliteit.
-* Wilt u een mislukte reactie onderschept, zodat u om verificatie wordt uitgevoerd implementeren kunt.
-* Wilt u back-end-aanvragen vastleggen in een analytics-service.
+* U wilt een alternatieve HTTP-bibliotheek gebruiken om time-outs aan te passen.
+* U wilt een voortgangs balk opgeven.
+* U wilt een aangepaste header toevoegen ter ondersteuning van API management-functionaliteit.
+* U wilt een mislukte reactie onderscheppen zodat u de herauthenticatie kunt implementeren.
+* U wilt backend-aanvragen registreren bij een analyse service.
 
-### <a name="using-an-alternate-http-library"></a>Met behulp van een andere HTTP-bibliotheek
+### <a name="using-an-alternate-http-library"></a>Een alternatieve HTTP-bibliotheek gebruiken
 
-Roep de `.setAndroidHttpClientFactory()` methode onmiddellijk na het maken van uw client-verwijzing.  Als u bijvoorbeeld de verbindingstime-out ingesteld op 60 seconden (in plaats van de standaard 10 seconden):
+Roep de `.setAndroidHttpClientFactory()` methode direct aan nadat u uw client verwijzing hebt gemaakt.  Als u bijvoorbeeld de time-out voor de verbinding wilt instellen op 60 seconden (in plaats van de standaard 10 seconden):
 
 ```java
 mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
@@ -1208,9 +1208,9 @@ mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
 });
 ```
 
-### <a name="implement-a-progress-filter"></a>Implementeren van een Filter wordt uitgevoerd
+### <a name="implement-a-progress-filter"></a>Een voortgangs filter implementeren
 
-U kunt een snijpunt van elke aanvraag implementeren door het implementeren van een `ServiceFilter`.  De volgende updates bijvoorbeeld een vooraf gemaakte voortgangsbalk:
+U kunt een interceptie van elke aanvraag implementeren door een `ServiceFilter`te implementeren.  Met de volgende updates wordt bijvoorbeeld een vooraf gemaakte voortgangs balk bijgewerkt:
 
 ```java
 private class ProgressFilter implements ServiceFilter {
@@ -1247,15 +1247,15 @@ private class ProgressFilter implements ServiceFilter {
 }
 ```
 
-U kunt dit filter toevoegen aan de client als volgt:
+U kunt dit filter als volgt aan de client koppelen:
 
 ```java
 mClient = new MobileServiceClient(applicationUrl).withFilter(new ProgressFilter());
 ```
 
-### <a name="customize-request-headers"></a>Aanvraagheaders aanpassen
+### <a name="customize-request-headers"></a>Aanvraag headers aanpassen
 
-Gebruik de volgende `ServiceFilter` en het koppelen van het filter op dezelfde manier als de `ProgressFilter`:
+Gebruik het volgende `ServiceFilter` en koppel het filter op dezelfde manier als de: `ProgressFilter`
 
 ```java
 private class CustomHeaderFilter implements ServiceFilter {
@@ -1278,9 +1278,9 @@ private class CustomHeaderFilter implements ServiceFilter {
 }
 ```
 
-### <a name="conversions"></a>Configureren van automatische serialisatie
+### <a name="conversions"></a>Automatische serialisatie configureren
 
-U kunt opgeven dat een conversiestrategie die van toepassing op elke kolom met behulp van de [gson][3] API. Maakt gebruik van de Android-clientbibliotheek [gson][3] achter de schermen Java om objecten te serialiseren naar JSON-gegevens voordat de gegevens worden verzonden naar Azure App Service.  De volgende code gebruikt de **setFieldNamingStrategy()** methode om in te stellen van de strategie. In dit voorbeeld wordt het eerste teken (een "m"), verwijderen en vervolgens kleine het volgende teken, voor elke veldnaam. Bijvoorbeeld, zou het omzetten 'mId' in 'id'.  Een conversiestrategie voor minder zijn vereist voor implementeren `SerializedName()` aantekeningen in de meeste velden.
+U kunt een conversie strategie opgeven die op elke kolom van toepassing is met behulp van de [gson][3] -API. De Android-client bibliotheek gebruikt [gson][3] achter de schermen om Java-objecten te serialiseren naar JSON-gegevens voordat de gegevens naar Azure app service worden verzonden.  In de volgende code wordt de methode **setFieldNamingStrategy ()** gebruikt om de strategie in te stellen. In dit voor beeld wordt het eerste teken (een ' m ') verwijderd en vervolgens voor elke veld naam kleine letters in het volgende teken. Met de functie wordt bijvoorbeeld ' mId ' omgezet in ' id '.  Implementeer een conversie strategie om de benodigde `SerializedName()` aantekeningen voor de meeste velden te verminderen.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
@@ -1297,7 +1297,7 @@ client.setGsonBuilder(
 );
 ```
 
-Deze code moet worden uitgevoerd voordat het maken van een mobiele client referentie met de **MobileServiceClient**.
+Deze code moet worden uitgevoerd voordat u een verwijzing naar een mobiele client maakt met behulp van de **mobileserviceclient te maken**.
 
 <!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md

@@ -1,6 +1,6 @@
 ---
 title: Wat is Azure Sleutelkluis? | Microsoft Docs
-description: Informatie over hoe Azure Key Vault beschermt cryptografische sleutels en geheimen die cloud-toepassingen en services te gebruiken.
+description: Meer informatie over hoe Azure Key Vault cryptografische sleutels en geheimen beveiligt die worden gebruikt door Cloud toepassingen en-services.
 services: key-vault
 author: barclayn
 manager: barbkess
@@ -9,69 +9,69 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 43794b8ef4e0272362c7695eda75f5af36a77d1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2786ec387d528e1593e2687d906060f8a2673a8c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683466"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934480"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
-Cloud-toepassingen en services met cryptografische sleutels en geheimen om te zorgen dat gegevens beveiligen. Azure Key Vault beschermt deze sleutels en geheimen. Wanneer u Key Vault gebruikt, kunt u verificatiesleutels, opslagaccountsleutels, gegevensversleutelingssleutels, pfx-bestanden en wachtwoorden versleutelen met sleutels die zijn beveiligd door hardware security modules (HSM's).
+Cloud toepassingen en-services gebruiken cryptografische sleutels en geheimen om informatie veilig te houden. Azure Key Vault beveiligt deze sleutels en geheimen. Wanneer u Key Vault gebruikt, kunt u verificatie sleutels, opslag account sleutels, gegevens versleutelings sleutels, pfx-bestanden en wacht woorden versleutelen met behulp van sleutels die worden beveiligd door Hardware Security modules (Hsm's).
 
-Key Vault helpt bij het oplossen van de volgende problemen:
+Key Vault helpt de volgende problemen op te lossen:
 
-- **Geheimenbeheer**: Veilig opslaan en toegang tot tokens, wachtwoorden, certificaten, API-sleutels en andere geheimen nauw beheren.
-- **Sleutelbeheer**: Maken en beheren van de versleutelingssleutels die uw gegevens te versleutelen. 
-- **Certificaatbeheer**: Inrichten, beheren en implementeren van openbare en persoonlijke Secure Sockets Layer/Transport Layer Security (SSL/TLS)-certificaten voor gebruik met Azure en uw interne verbonden bronnen. 
-- **Geheimen die worden ondersteund door een HSM's Store**: Software of FIPS 140-2 niveau 2 HSM's gevalideerde ter bescherming van geheimen en sleutels gebruiken.
+- **Geheim beheer**: De toegang tot tokens, wacht woorden, certificaten, API-sleutels en andere geheimen veilig opslaan en nauw keurig beheren.
+- **Sleutel beheer**: Maak en beheer versleutelings sleutels waarmee uw gegevens worden versleuteld. 
+- **Certificaat beheer**: Het inrichten, beheren en implementeren van certificaten voor open bare en persoonlijke Secure Sockets Layer/Transport Layer Security (SSL/TLS) voor gebruik met Azure en uw interne verbonden resources. 
+- **Sla geheimen op die worden ondersteund door hsm's**: Gebruik software of FIPS 140-2 level 2 valided Hsm's om geheimen en sleutels te helpen beveiligen.
 
 ## <a name="basic-concepts"></a>Basisbegrippen
 
-Azure Key Vault is een hulpprogramma voor het veilig opslaan en openen van geheimen. Een geheim is alles waartoe u de toegang streng wilt beheren, zoals API-sleutels, wachtwoorden of certificaten. Een kluis is een logische groep van geheimen.
+Azure Key Vault is een hulpprogramma voor het veilig opslaan en openen van geheimen. Een geheim is alles waartoe u de toegang streng wilt beheren, zoals API-sleutels, wachtwoorden of certificaten. Een kluis is een logische groep geheimen.
 
-Hier volgen andere belangrijke termen:
+Hier volgen enkele belang rijke voor waarden:
 
-- **Tenant**: Een tenant is de organisatie die eigenaar is van en beheert een specifiek exemplaar van Microsoft-cloudservices. Dit wordt meestal gebruikt om te verwijzen naar de set met Azure en Office 365-services voor een organisatie.
+- **Tenant**: Een Tenant is de organisatie die eigenaar is van en die een specifiek exemplaar van micro soft-Cloud Services beheert. Dit wordt vaak gebruikt om te verwijzen naar de set Azure-en Office 365-Services voor een organisatie.
 
-- **De eigenaar van de kluis**: De eigenaar van een kluis kan maken van een key vault en krijg volledige toegang en controle over het. De eigenaar van de kluis kan ook controles instellen om vast te leggen wie toegang heeft tot geheimen en sleutels. Beheerders kunnen de levenscyclus van sleutels beheren. Ze kunnen een nieuwe versie van de sleutel instellen, een back-up maken en gerelateerde taken uitvoeren.
+- **Eigenaar van kluis**: Een kluis eigenaar kan een sleutel kluis maken en volledige toegang en controle krijgen. De eigenaar van de kluis kan ook controles instellen om vast te leggen wie toegang heeft tot geheimen en sleutels. Beheerders kunnen de levenscyclus van sleutels beheren. Ze kunnen een nieuwe versie van de sleutel instellen, een back-up maken en gerelateerde taken uitvoeren.
 
-- **Kluis consument**: Een kluis consument kan acties uitvoeren op de elementen in de key vault wanneer de eigenaar van de kluis toegang tot de consument verleent. De beschikbare acties zijn afhankelijk van de verleende machtigingen.
+- **Kluis verbruiker**: Een kluis verbruiker kan acties uitvoeren op de assets in de sleutel kluis wanneer de eigenaar van de kluis de gebruikers toegang verleent. De beschikbare acties zijn afhankelijk van de verleende machtigingen.
 
-- **Resource**: Een resource is een beheerbaar item dat is beschikbaar via Azure. Algemene voorbeelden zijn virtuele machine, opslagaccount, web-app, database en virtueel netwerk. Er zijn nog veel meer.
+- **Resource**: Een resource is een beheerbaar item dat beschikbaar is via Azure. Algemene voor beelden hiervan zijn virtuele machines, opslag accounts, Web-apps, data bases en virtuele netwerken. Er zijn nog veel meer.
 
-- **Resourcegroep**: Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. De resourcegroep kan alle resources voor de oplossing bevatten of enkel de resources die u als groep wilt beheren. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is.
+- **Resourcegroep**: Een resourcegroep is een container met verwante resources voor een Azure-oplossing. De resourcegroep kan alle resources voor de oplossing bevatten of enkel de resources die u als groep wilt beheren. U bepaalt hoe resources worden toegewezen aan resourcegroepen op basis van wat voor uw organisatie het meest zinvol is.
 
-- **Service-principal**: Een Azure service-principal is een beveiligings-id die door de gebruiker gemaakte apps, services en automatiseringsprogramma's gebruiken voor toegang tot specifieke Azure-resources. Vergelijken met een 'gebruikers-id' (gebruikersnaam en wachtwoord of certificaat) die een specifieke rol heeft en over nauwkeurig omschreven machtigingen beschikt. Anders dan een algemene gebruikers-id, hoeft een service-principal slechts enkele specifieke handelingen uit te kunnen voeren. Dit verbetert de beveiliging als u deze alleen het niveau minimale machtigingen die nodig is om uit te voeren van de beheertaken worden verleend.
+- **Service-Principal**: Een Azure-Service-Principal is een beveiligings identiteit die door gebruikers gemaakte apps, services en hulpprogram ma's voor automatisering gebruikt om toegang te krijgen tot specifieke Azure-resources. U kunt het beschouwen als een ' gebruikers identiteit ' (gebruikers naam en wacht woord of certificaat) met een specifieke rol en nauw keurig beheerde machtigingen. Anders dan een algemene gebruikers-id, hoeft een service-principal slechts enkele specifieke handelingen uit te kunnen voeren. Het verbetert de beveiliging als u alleen het minimale machtigings niveau hebt dat nodig is om de beheer taken uit te voeren.
 
-- [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md): Azure AD is de Active Directory-service voor een tenant. Elke adreslijst heeft een of meer domeinen. Aan een directory kunnen vele abonnementen zijn gekoppeld, maar slechts één tenant.
+- [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md): Azure AD is de Active Directory-service voor een Tenant. Elke adreslijst heeft een of meer domeinen. Aan een directory kunnen vele abonnementen zijn gekoppeld, maar slechts één tenant.
 
-- **Azure-tenant-ID**: Een tenant-ID is een unieke manier om een Azure AD-exemplaar binnen een Azure-abonnement te identificeren.
+- **Id van Azure-Tenant**: Een Tenant-ID is een unieke manier om een Azure AD-exemplaar te identificeren binnen een Azure-abonnement.
 
-- **Beheerde identiteiten**: Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Met behulp van een beheerde identiteit, maakt het oplossen van dit probleem eenvoudiger door middel van Azure-services een automatisch beheerde identiteit in Azure AD. U kunt deze identiteit gebruiken voor verificatie bij Key Vault bij alle services die ondersteuning bieden voor Microsoft Azure Active Directory-verificatie, zonder dat u referenties in uw code hoeft te hebben. Zie voor meer informatie de volgende afbeelding en de [overzicht van beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md).
+- **Beheerde identiteiten**: Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Het gebruik van een beheerde identiteit maakt het oplossen van dit probleem eenvoudiger door Azure-Services een automatisch beheerde identiteit in azure AD te geven. U kunt deze identiteit gebruiken voor verificatie bij Key Vault bij alle services die ondersteuning bieden voor Microsoft Azure Active Directory-verificatie, zonder dat u referenties in uw code hoeft te hebben. Zie de volgende afbeelding en het [overzicht van beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md)voor meer informatie.
 
-    ![Diagram van hoe beheerde identiteiten voor Azure-resources](./media/key-vault-whatis/msi.png)
+    ![Diagram van hoe beheerde identiteiten voor Azure-resources werken](./media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Verificatie
-Als u wilt doen bewerkingen met Key Vault, moet u eerst om deze te verifiëren. Er zijn drie manieren om te verifiëren naar Key Vault:
+## <a name="authentication"></a>Authentication
+Als u bewerkingen met Key Vault wilt uitvoeren, moet u deze eerst verifiëren. Er zijn drie manieren om te verifiëren bij Key Vault:
 
-- [Identiteiten voor een Azure-resources beheerd](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview): Wanneer u een app op een virtuele machine in Azure implementeert, kunt u een identiteit toewijzen aan uw virtuele machine die toegang tot de Key Vault heeft. U kunt ook toewijzen identiteiten met [andere Azure-resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Het voordeel van deze benadering is dat de app of service de draaihoek van het eerste geheim is niet beheren. Azure draait automatisch de identiteit. Wordt deze methode als een best practice aangeraden. 
-- **Service-principal en certificaat**: U kunt een service-principal en een bijbehorende certificaat dat toegang tot de Key Vault heeft gebruiken. Deze methode wordt niet aanbevolen omdat de toepassingseigenaar van de of de ontwikkelaar moet het certificaat draaien.
-- **Service-principal en -geheim**: Hoewel u een service-principal en een geheim gebruiken kunt om te verifiëren naar Key Vault, aanbevolen niet het. Het is moeilijk te roteer automatisch het bootstrap geheim dat wordt gebruikt voor verificatie aan Key Vault.
+- [Beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md): Wanneer u een app implementeert op een virtuele machine in azure, kunt u een identiteit toewijzen aan uw virtuele machine die toegang heeft tot Key Vault. U kunt ook identiteiten toewijzen aan [andere Azure-resources](../active-directory/managed-identities-azure-resources/overview.md). Het voor deel van deze benadering is dat de draai hoek van het eerste geheim niet door de app of service wordt beheerd. Azure roteert de identiteit automatisch. U wordt aangeraden deze benadering als best practice te doen. 
+- **Service-Principal en certificaat**: U kunt een Service-Principal en een bijbehorend certificaat gebruiken dat toegang heeft tot Key Vault. Deze aanpak wordt niet aanbevolen omdat de eigenaar van de toepassing of de ontwikkelaar het certificaat moet draaien.
+- **Service-Principal en geheim**: Hoewel u een Service-Principal en een geheim kunt gebruiken om te verifiëren bij Key Vault, wordt dit niet aanbevolen. Het is moeilijk om automatisch het Boots trap-geheim te draaien dat wordt gebruikt voor verificatie bij Key Vault.
 
 
 ## <a name="key-vault-roles"></a>Rollen van Key Vault
 
 Gebruik de volgende tabel om beter te begrijpen hoe Key Vault u kan helpen om aan de behoeften van ontwikkelaars en beveiligingsadministrators te voldoen.
 
-| Rol | Probleemformulering | Opgelost door Azure Key Vault |
+| Role | Probleemformulering | Opgelost door Azure Key Vault |
 | --- | --- | --- |
-| Ontwikkelaar voor een Azure-toepassing |"Ik wil een toepassing voor Azure schrijven die gebruikmaakt van sleutels voor ondertekening en versleuteling. Maar ik wil deze externe sleutels zijn van mijn toepassing zodat de oplossing geschikt is voor een toepassing die geografisch wordt gedistribueerd. <br/><br/>Ik wil dat deze sleutels en geheimen worden beveiligd, zonder dat ik de code zelf hoef te schrijven. Ik wil ook dat deze sleutels en geheimen eenvoudig zijn te gebruiken vanuit mijn toepassingen, met optimale prestaties." |√ De sleutels worden opgeslagen in een kluis en wanneer dit nodig is, aangeroepen via een URI.<br/><br/> √ De sleutels worden beveiligd door Azure. Hiervoor wordt gebruikgemaakt van algoritmen, sleutellengten en HSM's die voldoen aan de industriestandaard.<br/><br/> √ Sleutels worden verwerkt in HSM's die zich in dezelfde Azure-datacenters bevinden als de toepassingen. Deze methode biedt betere betrouwbaarheid en minder latentie dan wanneer de sleutels zich op een afzonderlijke locatie bevinden, zoals on-premises. |
-| SaaS-ontwikkelaar (Software as a Service) |"Ik wil niet de verantwoordelijk of potentiële aansprakelijkheid voor de tenantsleutels en -geheimen van mijn klant op mij nemen. <br/><br/>Ik wil dat klanten hun sleutels zelf in eigendom hebben en beheren, zodat ik mij kan concentreren op de zaken waar ik het beste in ben, namelijk het leveren van de kernsoftwarefuncties." |√ Klanten kunnen hun eigen sleutels in Azure importeren en beheren. Wanneer een SaaS-toepassing nodig heeft om uit te voeren cryptografische bewerkingen met behulp van klanten-sleutels, wordt de Key Vault deze bewerkingen namens de toepassing. De toepassing krijgt de sleutels van de klant niet te zien. |
+| Ontwikkelaar voor een Azure-toepassing |"Ik wil een toepassing voor Azure schrijven die sleutels gebruikt voor ondertekening en versleuteling. Maar ik wil dat deze sleutels extern zijn van mijn toepassing, zodat de oplossing geschikt is voor een toepassing die geografisch wordt gedistribueerd. <br/><br/>Ik wil dat deze sleutels en geheimen worden beveiligd, zonder dat ik de code zelf hoef te schrijven. Ik wil ook dat deze sleutels en geheimen eenvoudig zijn te gebruiken vanuit mijn toepassingen, met optimale prestaties." |√ De sleutels worden opgeslagen in een kluis en wanneer dit nodig is, aangeroepen via een URI.<br/><br/> √ De sleutels worden beveiligd door Azure. Hiervoor wordt gebruikgemaakt van algoritmen, sleutellengten en HSM's die voldoen aan de industriestandaard.<br/><br/> √ Sleutels worden verwerkt in HSM's die zich in dezelfde Azure-datacenters bevinden als de toepassingen. Deze methode biedt betere betrouwbaarheid en minder latentie dan wanneer de sleutels zich op een afzonderlijke locatie bevinden, zoals on-premises. |
+| SaaS-ontwikkelaar (Software as a Service) |"Ik wil niet de verantwoordelijk of potentiële aansprakelijkheid voor de tenantsleutels en -geheimen van mijn klant op mij nemen. <br/><br/>Ik wil dat klanten hun sleutels zelf in eigendom hebben en beheren, zodat ik mij kan concentreren op de zaken waar ik het beste in ben, namelijk het leveren van de kernsoftwarefuncties." |√ Klanten kunnen hun eigen sleutels in Azure importeren en beheren. Wanneer een SaaS-toepassing cryptografische bewerkingen moet uitvoeren met behulp van de sleutels van de klant, Key Vault deze bewerkingen namens de toepassing. De toepassing krijgt de sleutels van de klant niet te zien. |
 | Chief Security Officer (CSO) |"Ik wil weten of onze toepassingen voldoen aan de FIPS 140-2 Level 2 HSM's voor beveiligd sleutelbeheer. <br/><br/>Ik wil ervoor zorgen dat mijn organisatie de controle heeft over de levenscyclus van de sleutel en het sleutelgebruik kan bewaken. <br/><br/>En hoewel we meerdere Azure-services en -resources gebruiken, wil ik de sleutels kunnen beheren vanaf één locatie in Azure." |√ HSM's zijn FIPS 140-2 Level 2-gevalideerde modules.<br/><br/>√ Key Vault is zodanig ontworpen dat Microsoft uw sleutels niet kan zien of extraheren.<br/><br/>√ Sleutelgebruik wordt vrijwel in realtime vastgelegd.<br/><br/>√ De kluis biedt één interface, ongeacht het aantal kluizen dat u in Azure hebt, welke regio's ze ondersteunen en door welke toepassingen ze worden gebruikt. |
 
-Iedereen met een Azure-abonnement kan sleutelkluizen maken en gebruiken. Hoewel Key Vault voordelen biedt voor ontwikkelaars en beveiligingsadministrators, kan worden geïmplementeerd en beheerd door de beheerder van een organisatie van andere Azure-services. Deze beheerder kan zich aanmelden met een Azure-abonnement maakt bijvoorbeeld een kluis voor de organisatie waarin sleutels opslaan en vervolgens worden die verantwoordelijk is voor operationele taken zoals deze:
+Iedereen met een Azure-abonnement kan sleutelkluizen maken en gebruiken. Hoewel Key Vault voor delen van ontwikkel aars en beveiligings beheerders, kan het worden geïmplementeerd en beheerd door de beheerder van een organisatie die andere Azure-Services beheert. Deze beheerder kan zich bijvoorbeeld aanmelden met een Azure-abonnement, een kluis maken voor de organisatie waarin sleutels moeten worden opgeslagen en vervolgens verantwoordelijk zijn voor operationele taken als deze:
 
 - Een sleutel of geheim maken of importeren.
 - Een sleutel of geheim intrekken of verwijderen.
@@ -79,7 +79,7 @@ Iedereen met een Azure-abonnement kan sleutelkluizen maken en gebruiken. Hoewel 
 - Sleutelgebruik configureren (bijvoorbeeld ondertekenen of versleutelen).
 - Sleutelgebruik bewaken.
 
-Deze beheerder geeft ontwikkelaars URI's om aan te roepen via hun toepassingen. Deze beheerder geeft ook logboekinformatie voor gebruik van de sleutel tot de beveiligingsbeheerder. 
+Deze beheerder geeft ontwikkel aars vervolgens de functie voor het aanroepen van hun toepassingen. Deze beheerder geeft ook informatie over de logboek registratie van sleutel gebruik aan de beveiligings beheerder. 
 
 ![Overzicht van de werking van Azure Key Vault][1]
 

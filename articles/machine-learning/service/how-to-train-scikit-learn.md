@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: e76a747f7e1d7ca7056edf5b69df0677aeff96a1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5c44f4ed5cd6488520bf6dd99f502f33049b9b17
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856002"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963005"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Scikit bouwen-modellen op schaal leren met Azure Machine Learning service
 
@@ -192,12 +192,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een machine learning, een classificatie model getraind en geregistreerd met behulp van scikit-informatie over Azure Machine Learning-service.
 
-* Ga verder met ons [model implementatie](how-to-deploy-and-where.md) artikel voor meer informatie over het implementeren van een model.
+In dit artikel hebt u een Keras-model getraind en geregistreerd bij Azure Machine Learning service. Ga verder met ons model implementatie artikel voor meer informatie over het implementeren van een model.
 
-* [Hyper parameters afstemmen](how-to-tune-hyperparameters.md).
-
-* [Metrische uitvoerings gegevens tijdens de training volgen](how-to-track-experiments.md).
-
-* Meer informatie over [uitgebreide kennis en machine learning](concept-deep-learning-vs-machine-learning.md).
+> [!div class="nextstepaction"]
+> [Hoe en waar modellen moeten worden geïmplementeerd](how-to-deploy-and-where.md)
+* [Metrische gegevens over uitvoeren tijdens de training bijhouden](how-to-track-experiments.md)
+* [Afstemmen van hyperparameters](how-to-tune-hyperparameters.md)
+* [Een getraind model implementeren](how-to-deploy-and-where.md)
+* [Referentie architectuur voor gedistribueerde training van diep gaande lessen in azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

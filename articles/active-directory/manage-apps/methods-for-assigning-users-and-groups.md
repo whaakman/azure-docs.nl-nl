@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8163b2261601b701913e07d703f5db0ac6fa7c0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688080"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967287"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Gebruikers en groepen toewijzen aan een toepassing in Azure Active Directory
 Dit artikel leest u hoe gebruikers of groepen toewijzen aan een toepassing in Azure Active Directory (Azure AD). Gebruikers moeten eerst worden toegewezen aan een toepassing voordat u een beheerder kan hun toegang wordt verleend om het volgende doen:
@@ -82,7 +82,7 @@ Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de 
 
 15. Klik op de **toewijzen** knop om de toepassing aan de geselecteerde gebruikers te wijzen.
 
-Na een korte periode, de gebruikers die u hebt geselecteerd mogelijk om deze toepassingen met behulp van de methoden die worden beschreven in de sectie oplossing beschrijving te starten.
+Na een korte periode kunnen de gebruikers die u hebt geselecteerd deze toepassingen starten met behulp van de methoden die worden beschreven in de sectie Beschrijving van oplossing.
 
 ## <a name="assign-groups"></a>Groepen toewijzen
 
@@ -120,7 +120,7 @@ Als u wilt toewijzen een of meer groepen rechtstreeks aan een toepassing, de vol
 
 15. Klik op de **toewijzen** om toe te wijzen van de toepassing aan de geselecteerde groepen.
 
-Na een korte periode, de gebruikers binnen de groepen die u hebt geselecteerd mogelijk om deze toepassingen met behulp van de methoden die worden beschreven in de sectie oplossing beschrijving te starten. Als dit dynamische groepen zijn, mogelijk zijn er enkele aanvullende verwerkingsvertraging in deze toewijzingen worden weergegeven voor gebruikers binnen deze groepen toegewezen.
+Na een korte periode kunnen gebruikers in de groepen die u hebt geselecteerd deze toepassingen starten met behulp van de methoden die worden beschreven in de sectie Beschrijving van oplossing. Als dit dynamische groepen zijn, mogelijk zijn er enkele aanvullende verwerkingsvertraging in deze toewijzingen worden weergegeven voor gebruikers binnen deze groepen toegewezen.
 
 ## <a name="enable-self-service-application-access"></a>Toegang tot Self-servicetoepassingen inschakelen
 
@@ -148,7 +148,7 @@ Om in te schakelen Self-servicetoepassingen toegang tot een toepassing, de volge
 
 9. Klik vervolgens op de selector naast het label te selecteren in de groep waaraan de gebruikers die aanvragen toegang tot deze toepassing moet worden toegevoegd, **aan welke groep moeten toegewezen gebruikers worden toegevoegd?** en selecteert u een groep.
 
-10. **Optioneel:** Als u een zakelijke goed keuring wilt vereisen voordat gebruikers toegang worden verleend, stelt u de optie **goed keuring vereisen alvorens toegang tot deze toepassing verlenen** **in.**
+10. **Optioneel:** Als u een zakelijke goed keuring wilt vereisen voordat gebruikers toegang worden verleend, stelt u de optie **goed keuring vereisen alvorens toegang tot deze toepassing verlenen** in.
 
 11. **Optioneel: Voor toepassingen die alleen gebruikmaken van een wacht woord voor** eenmalige aanmelding, als u wilt toestaan dat gebruikers goed keurder de wacht woorden opgeven die worden verzonden naar deze toepassing voor goedgekeurde gebruiker, stelt u **in dat goed keurders toestaan om gebruikers wachtwoorden in te stellen voor dit toepassing?** Schakel over naar **Ja**.
 
@@ -165,7 +165,7 @@ Om in te schakelen Self-servicetoepassingen toegang tot een toepassing, de volge
 
 Nadat u Self-servicetoepassingen configuratie is voltooid, ernaartoe kunnen navigeren hun [Toegangsvenster](https://myapps.microsoft.com/) en klikt u op de **+ toevoegen** knop om de apps waarop u selfservice hebt ingeschakeld te vinden de toegang. Fiatteur ziet ook een melding in hun [Toegangsvenster](https://myapps.microsoft.com/). U kunt een melding wanneer een gebruiker heeft toegang tot een toepassing waarvoor goedkeuring aangevraagd e-mail inschakelen. 
 
-Deze goedkeuringen ondersteunen slechts één goedkeuringswerkstromen wat betekent dat als u meerdere goedkeurders opgeeft, kan alle één goedkeurder goedkeurder toegang tot de toepassing.
+Deze goed keuringen ondersteunen alleen één goedkeurings werk stromen, wat betekent dat als u meerdere goed keurders opgeeft, één fiatteur de toegang tot de toepassing kan goed keuren.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Geef single sign-on bij uw apps met Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)

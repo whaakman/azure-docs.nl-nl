@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: dbe3526444bc35815dd4323a3a5290696619e3f9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 986bed758229d639bb40d0803f7be4a89a0f6e49
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728348"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934814"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Beveiligings frame: Configuratie beheer | Oplossingen 
 | Product/Service | Artikel |
@@ -563,7 +563,7 @@ Als u CORS wilt uitschakelen voor een controller of actie, gebruikt u het kenmer
 | **SDL-fase**               | Ontwikkelen |  
 | **Toepasselijke technologieën** | Encarta |
 | **Eigenschappen**              | Gateway keuze-Azure IoT Hub |
-| **Referentie**              | [Overzicht van IOT hub Apparaatbeheer](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [het bijwerken](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) van de firmware van een apparaat |
+| **Referentie**              | [Overzicht van IOT hub Apparaatbeheer](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [het bijwerken](../../iot-hub/tutorial-firmware-update.md) van de firmware van een apparaat |
 | **Stappen** | LWM2M is een protocol van de Open Mobile Alliance voor IoT Device Management. Azure IoT-Apparaatbeheer maakt het mogelijk om met behulp van apparaatfuncties te communiceren met fysieke apparaten. Zorg ervoor dat de Cloud gateway een proces implementeert om het apparaat en andere configuratie gegevens regel matig up-to-date te houden met behulp van Azure IoT Hub Device Management. |
 
 ## <a id="controls-policies"></a>Zorg ervoor dat het beveiligings beheer voor apparaten op het eind punt is geconfigureerd volgens het beleid van de organisatie

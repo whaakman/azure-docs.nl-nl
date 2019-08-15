@@ -1,6 +1,6 @@
 ---
-title: Azure analyseservices beheren met PowerShell | Microsoft Docs
-description: Azure Analysis Services-beheer met PowerShell.
+title: Azure Analysis Services beheren met Power shell | Microsoft Docs
+description: Azure Analysis Services beheer met Power shell.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
@@ -8,60 +8,60 @@ ms.topic: reference
 ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a958c33e173c881a3ad09a49fe9f71ddb0c9df56
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 38ce44f486616e4ab94e8332884005a187e31008
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508941"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932422"
 ---
-# <a name="manage-azure-analysis-services-with-powershell"></a>Azure analyseservices beheren met PowerShell
+# <a name="manage-azure-analysis-services-with-powershell"></a>Azure Analysis Services beheren met Power shell
 
-Dit artikel beschrijft de PowerShell-cmdlets gebruikt voor het uitvoeren van Azure Analysis Services-server en database-beheertaken. 
+In dit artikel worden de Power shell-cmdlets beschreven die worden gebruikt voor het uitvoeren van Azure Analysis Services server-en database beheer taken. 
 
-Server-beheertaken, zoals het maken of verwijderen van een server, onderbreken of hervatten van serverbewerkingen of wijzigen van het serviceniveau (laag) resource Azure Analysis Services-cmdlets gebruiken. Andere taken voor het beheren van databases wilt toevoegen of verwijderen van leden van een rol, verwerkt of gebruikt u de cmdlets opgenomen in de dezelfde SQL Server-module als SQL Server Analysis Services partitioneren.
+Server Resource beheer taken zoals het maken of verwijderen van een server, het onderbreken of hervatten van Server bewerkingen of het wijzigen van de service niveau (laag) gebruik Azure Analysis Services-cmdlets. Andere taken voor het beheren van data bases, zoals het toevoegen of verwijderen van Rolgroepen, het verwerken of het partitioneren van cmdlets die zijn opgenomen in dezelfde SqlServer-module als SQL Server Analysis Services.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>Machtigingen
 
-De meeste PowerShell-taken moet dat u beheerdersbevoegdheden hebben op de Analysis Services-server die u beheert. PowerShell-taken zijn zonder toezicht bewerkingen. Het account of service-principal die de scheduler uitvoeren, moet beheerdersbevoegdheden hebben op de Analysis Services-server. 
+Voor de meeste Power shell-taken moet u beheerders bevoegdheden hebben op de Analysis Services-server die u beheert. Geplande power shell-taken zijn bewerkingen zonder toezicht. De account of Service-Principal waarop de scheduler wordt uitgevoerd, moet beheerders bevoegdheden hebben op de Analysis Services-server. 
 
-Voor serverbewerkingen met behulp van Azure PowerShell-cmdlets, uw account of de scheduler-account moet ook behoren tot de rol van eigenaar voor de resource in [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md). 
+Voor Server bewerkingen die gebruikmaken van Azure PowerShell-cmdlets, moet uw account of het account dat scheduler uitvoert ook behoren tot de rol van eigenaar van de resource in [Azure op rollen gebaseerde Access Control (RBAC)](../role-based-access-control/overview.md). 
 
-## <a name="resource-and-server-operations"></a>Resource-en-server 
+## <a name="resource-and-server-operations"></a>Resource-en Server bewerkingen 
 
-Module - installeren [Az.AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
-Documentatie - [Az.AnalysisServices verwijzing](/powershell/module/az.analysisservices)
+Module installeren- [AZ. AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
+Documentatie- [AZ. AnalysisServices Reference](/powershell/module/az.analysisservices)
 
-## <a name="database-operations"></a>Databasebewerkingen
+## <a name="database-operations"></a>Database bewerkingen
 
-Azure Analysis Services-database-bewerkingen gebruik dezelfde SQL Server-module als SQL Server Analysis Services. Niet alle cmdlets worden echter ondersteund voor Azure Analysis Services. 
+Azure Analysis Services database bewerkingen gebruiken dezelfde SqlServer-module als SQL Server Analysis Services. Niet alle cmdlets worden echter ondersteund voor Azure Analysis Services. 
 
-De SQL Server-module biedt taakspecifieke database management-cmdlets, evenals de voor algemeen gebruik Invoke-ASCmd cmdlet die een TMSL Tabular Model Scripting Language ()-query of het script accepteert. De volgende cmdlets in de SQL Server-module worden voor Azure Analysis Services ondersteund.
+De SqlServer-module bevat gebruikersspecifieke data base management-cmdlets en de cmdlet invoke-ASCmd die een TMSL-query (Tabular model scripting language) of script accepteert. De volgende cmdlets in de SqlServer-module worden ondersteund voor Azure Analysis Services.
 
-Module - installeren [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
-Documentatie - [SqlServer-verwijzing](/powershell/module/sqlserver)
+Module installeren- [sqlserver](https://www.powershellgallery.com/packages/SqlServer)   
+Documentatie- [sqlserver-referentie](/powershell/module/sqlserver)
 
 ### <a name="supported-cmdlets"></a>Ondersteunde cmdlets
 
 |Cmdlet|Description|
 |------------|-----------------| 
-|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lid toevoegen aan een databaserol.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Back-up van een Analysis Services-database.|  
-|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Een lid verwijderen uit een databaserol.|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Voer een TMSL-script.|
-|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Het proces een database.|  
-|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Een partitie worden verwerkt.| 
-|[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Het proces een tabel.|  
-|[Merge-Partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Een partitie samenvoegen.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Herstellen van een Analysis Services-database.| 
+|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Een lid toevoegen aan een databaserol.| 
+|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Back-up maken van een Analysis Services-Data Base.|  
+|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Een lid uit een databaserol verwijderen.|   
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Voer een TMSL-script uit.|
+|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Een Data Base verwerken.|  
+|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Een partitie verwerken.| 
+|[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Een tabel verwerken.|  
+|[Samen voegen-partitie](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Een partitie samen voegen.|  
+|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Een Analysis Services-Data Base herstellen.| 
   
 
 ## <a name="related-information"></a>Gerelateerde informatie
 
 * [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
-* [SQL Server PowerShell-Module downloaden](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
+* [SQL Server Power shell-module downloaden](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [SSMS downloaden](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
-* [SQL Server-module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
-* [Tabellair Model wilt programmeren voor compatibiliteit niveau 1200 en hoger](/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)
+* [SqlServer-module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
+* [Program meren in tabellair model voor compatibiliteits niveau 1200 en hoger](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9b0cbe8126a01a64e35b2fcfeca400aed5aef0cc
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813824"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952038"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Ondersteunings matrix voor Azure VM-back-up
 U kunt de [Azure backup-service](backup-overview.md) gebruiken voor het maken van een back-up van on-premises machines en werk belastingen, en virtuele machines van Azure (vm's). Dit artikel bevat een overzicht van de ondersteunings instellingen en beperkingen bij het maken van back-ups van virtuele Azure-machines met Azure Backup.
@@ -157,8 +157,8 @@ Herstellen van op zones vastgemaakte Vm's | Ondersteund (voor VM waarvan een bac
 
 **Onderdeel** | **Ondersteuning**
 --- | ---
-Azure VM-gegevensschijven | Maak een back-up van een virtuele machine met 16 of minder gegevens schijven. <br/><br/> Ondersteunt schijf grootten tot 4 TB.
-Grootte van de gegevens schijf | Afzonderlijke schijf mag maximaal 4095 GB zijn.<br/><br/>Als u zich wilt aanmelden voor een persoonlijke preview van Azure Backup ondersteuning voor de grote schijf voor schijven die groter zijn dan 4 TB tot 30TB groot AskAzureBackupTeam@microsoft.comzijn, schrijft u terug naar ons.  
+Azure VM-gegevensschijven | Maak een back-up van een virtuele machine met 16 of minder gegevens schijven. <br/><br/> Ondersteunt schijf grootten tot 4 TB.<br/><br/>Als u zich wilt aanmelden voor een beperkte open bare preview van Azure Backup ondersteuning voor grote schijven voor schijven die groter zijn dan 4 TB en tot Maxi maal 30 TB groot zijn, raadpleegt u [een overzicht van Azure VM-back-up](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Grootte van de gegevens schijf | Afzonderlijke schijf mag maximaal 4095 GB zijn.<br/><br/>Raadpleeg dit [artikel](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)als u zich wilt aanmelden voor een beperkte open bare preview van Azure backup ondersteuning voor grote schijven voor schijven die groter zijn dan 4 TB tot 30TB.
 Opslagtype | Standard-HDD, Standard-SSD Premium-SSD.
 Managed Disks | Ondersteund.
 Versleutelde schijven | Ondersteund.<br/><br/> Voor Azure-Vm's met Azure Disk Encryption kan een back-up worden gemaakt (met of zonder de Azure AD-app).<br/><br/> Versleutelde Vm's kunnen niet worden hersteld op het niveau van het bestand of de map. U moet de volledige VM herstellen.<br/><br/> U kunt versleuteling inschakelen voor virtuele machines die al worden beveiligd door Azure Backup.

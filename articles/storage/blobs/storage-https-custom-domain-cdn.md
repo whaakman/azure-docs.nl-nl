@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 3ad599182191e41ea43d38260692a7ab46e1af6f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f3386d04cd3316b38a094524d0d5d4f3c5ab36bb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844996"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986844"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Azure CDN gebruiken om toegang te krijgen tot blobs met aangepaste domeinen via HTTPS
 
@@ -40,7 +40,7 @@ Ga als volgt te werk om HTTPS in te scha kelen voor uw aangepaste Blob Storage-e
 
 ## <a name="shared-access-signatures"></a>Shared Access signatures
 
-Standaard staat Blob Storage-eind punten geen anonieme lees toegang toe. Als uw Blob Storage-eind punt is geconfigureerd om anonieme lees toegang niet toe te staan, geeft u in elke aanvraag een [Shared Access Signature](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) -token op voor uw aangepaste domein. Zie [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md) voor meer informatie.
+Standaard staat Blob Storage-eind punten geen anonieme lees toegang toe. Als uw Blob Storage-eind punt is geconfigureerd om anonieme lees toegang niet toe te staan, geeft u in elke aanvraag een [Shared Access Signature](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) -token op voor uw aangepaste domein. Zie [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md) voor meer informatie.
 
 Azure CDN respecteert geen beperkingen die worden toegevoegd aan het token voor Shared Access-hand tekeningen. Zo verlopen alle Shared Access Signature-tokens. U hebt nog steeds toegang tot inhoud met een verlopen Shared Access-hand tekening, totdat de inhoud wordt verwijderd uit de Azure CDN Edge-knoop punten. U kunt bepalen hoe lang gegevens worden opgeslagen in de cache van Azure CDN door de Cache-Control-header in te stellen. Zie de [verval datum van Azure Storage-blobs in azure CDN beheren](../../cdn/cdn-manage-expiration-of-blob-content.md)voor meer informatie.
 

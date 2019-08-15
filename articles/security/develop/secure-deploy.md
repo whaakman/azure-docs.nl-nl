@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: dd86e6bf571dd67da00aee63eadff031a1040ff7
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728744"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934876"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Beveiligde toepassingen implementeren in azure
 In dit artikel bieden we beveiligings activiteiten en-controles waarmee u rekening moet houden wanneer u toepassingen voor de Cloud implementeert. Beveiligings vragen en-concepten waarmee u rekening moet houden tijdens de release-en respons fasen van micro soft [Security Development Lifecycle (SDL),](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) worden gedekt. Het doel is om u te helpen bij het definiëren van activiteiten en Azure-Services die u kunt gebruiken om een veiligere toepassing te implementeren.
@@ -40,7 +40,7 @@ Controleer de prestaties van uw toepassing voordat u deze start of installeer up
 
 Webtoepassingen zijn in toenemende mate het doel van aanvallen die gebruikmaken van veelvoorkomende bekende beveiligingsproblemen. Deze cracks zijn gebruikelijk voor SQL-injectie aanvallen en scripts voor cross-site scripting. Het voor komen van deze aanvallen in toepassings code kan lastig zijn. Mogelijk zijn er in veel lagen van de toepassings topologie strikte onderhoud, patching en controle vereist. Een gecentraliseerde WAF helpt beveiligings beheer eenvoudiger te maken. Een WAF-oplossing kan ook reageren op een beveiligings risico door een bekend beveiligings probleem op een centrale locatie op te lossen en elke afzonderlijke webtoepassing te beveiligen.
 
-De [Azure-toepassing gateway WAF](https://docs.microsoft.com/azure/application-gateway/waf-overview) biedt gecentraliseerde beveiliging van uw webtoepassingen van veelvoorkomende aanvallen en beveiligings problemen. De WAF is gebaseerd op regels van de [OWASP core Rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,0 of 2.2.9.
+De [Azure-toepassing gateway WAF](../../application-gateway/waf-overview.md) biedt gecentraliseerde beveiliging van uw webtoepassingen van veelvoorkomende aanvallen en beveiligings problemen. De WAF is gebaseerd op regels van de [OWASP core Rule sets](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,0 of 2.2.9.
 
 ### <a name="create-an-incident-response-plan"></a>Een reactie plan voor incidenten maken
 
@@ -71,13 +71,13 @@ Azure-Services die u helpen bij het bewaken van toepassingen zijn:
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een UITBREID bare apm-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Application Insights detecteert automatisch prestatie afwijkingen. Het bevat krachtige analyse hulpprogramma's die u helpen bij het vaststellen van problemen en inzicht te krijgen in wat gebruikers daad werkelijk doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) is een UITBREID bare apm-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Hiermee kunt u uw livewebtoepassing controleren. Application Insights detecteert automatisch prestatie afwijkingen. Het bevat krachtige analyse hulpprogramma's die u helpen bij het vaststellen van problemen en inzicht te krijgen in wat gebruikers daad werkelijk doen met uw app. Het is bedoeld om u te helpen de prestaties en bruikbaarheid continu te verbeteren.
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u bedreigingen te voor komen, te detecteren en erop te reageren met verbeterde zicht baarheid van de beveiliging van uw Azure-resources, inclusief webtoepassingen. Azure Security Center helpt bedreigingen te detecteren die anders niet kunnen worden opgemerkt. Het werkt met verschillende beveiligings oplossingen.
+[Azure Security Center](../../security-center/security-center-intro.md) helpt u bedreigingen te voor komen, te detecteren en erop te reageren met verbeterde zicht baarheid van de beveiliging van uw Azure-resources, inclusief webtoepassingen. Azure Security Center helpt bedreigingen te detecteren die anders niet kunnen worden opgemerkt. Het werkt met verschillende beveiligings oplossingen.
 
-De gratis laag van Security Center biedt beperkte beveiliging alleen voor uw Azure-resources. De [laag Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-onboarding) breidt deze mogelijkheden uit naar on-premises resources en andere Clouds.
+De gratis laag van Security Center biedt beperkte beveiliging alleen voor uw Azure-resources. De [laag Security Center Standard](../../security-center/security-center-onboarding.md) breidt deze mogelijkheden uit naar on-premises resources en andere Clouds.
 Security Center Standard helpt u bij het volgende:
 
   - Beveiligings problemen detecteren en oplossen.

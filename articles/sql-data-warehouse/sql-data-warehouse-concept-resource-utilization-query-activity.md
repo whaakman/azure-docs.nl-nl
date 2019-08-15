@@ -1,57 +1,58 @@
 ---
-title: Azure SQL Data Warehouse-beheer en controle - activiteit, Resourcegebruik query | Microsoft Docs
-description: Meer informatie over welke mogelijkheden zijn beschikbaar voor het beheren en controleren van Azure SQL Data Warehouse. Gebruik de Azure-portal en de dynamische beheerweergaven (DMV's) om te begrijpen van de query-activiteiten en het Resourcegebruik van uw datawarehouse.
+title: Azure SQL Data Warehouse beheer baarheid en controle-query activiteit, resource gebruik | Microsoft Docs
+description: Meer informatie over de mogelijkheden die beschikbaar zijn voor het beheren en controleren van Azure SQL Data Warehouse. Gebruik de Azure Portal en dynamische beheer weergaven (Dmv's) om inzicht te krijgen in de query-activiteiten en het resource gebruik van uw data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 06/20/2019
+ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5038ae99a804b456c2cc388f07899278cc0f9a24
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 7f7575daa91cef5cb5be6274a699323fafe67a68
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312882"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935137"
 ---
-# <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Controleren van de resource-gebruik en query-activiteit in Azure SQL Data Warehouse
-Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal om inzichten te kunnen verkrijgen voor uw datawarehouse-workload. De Azure portal is het aanbevolen hulpmiddel bij het bewaken van uw datawarehouse, aangezien deze configureerbare bewaarperioden, waarschuwingen, aanbevelingen, en aanpasbare grafieken en dashboards voor metrische gegevens en Logboeken biedt. Via de portal kunt u integreren met andere Azure-bewakingsservices zoals Operations Management Suite (OMS) en Azure Monitor (Logboeken) voor een holistische controle-ervaring voor het niet alleen uw datawarehouse, maar ook uw hele Azure analytics platform voor een geïntegreerde ervaring voor de bewaking. Deze documentatie wordt beschreven welke mogelijkheden voor bewaking zijn beschikbaar om te optimaliseren en beheren van uw platform voor streaminganalyse met SQL Data Warehouse. 
+# <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Resource gebruik en query activiteit bewaken in Azure SQL Data Warehouse
+Azure SQL Data Warehouse biedt een uitgebreide bewakings ervaring in de Azure Portal om inzicht te krijgen in de werk belasting van uw data warehouse. De Azure Portal is het aanbevolen hulp programma voor het bewaken van uw data warehouse, zoals het biedt Configureer bare Bewaar perioden, waarschuwingen, aanbevelingen en aanpas bare grafieken en dash boards voor metrische gegevens en Logboeken. De portal biedt u ook de mogelijkheid om te integreren met andere Azure-bewakings services zoals OMS (Operations Management Suite) en Azure Monitor (Logboeken) om een holistische bewakings ervaring te bieden voor niet alleen uw data warehouse, maar ook uw volledige Azure Analytics platform voor een geïntegreerde bewakings ervaring. In deze documentatie wordt beschreven welke bewakings mogelijkheden beschikbaar zijn voor het optimaliseren en beheren van uw analyse platform met SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Resourcegebruik 
-De volgende metrische gegevens zijn beschikbaar in de Azure-portal voor SQL Data Warehouse. Deze metrische gegevens zijn opgehaald via de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
+De volgende metrische gegevens zijn beschikbaar in de Azure Portal voor SQL Data Warehouse. Deze metrische gegevens worden geoppereerd via [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
-> [!NOTE]
-> Op dit moment knooppuntniveau CPU- en i/o-metrische gegevens zijn niet correct aan datawarehouse gebruik. Deze metrische gegevens worden in de nabije toekomst verwijderd als het team verbetert de bewaking en probleemoplossing voor SQL Data Warehouse. 
 
 | Naam van meetwaarde             | Description                                                  | Aggregatietype |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
-| CPU-percentage          | CPU-gebruik voor alle knooppunten voor het datawarehouse      | Maximum          |
-| Gegevens-I/O-percentage      | I/o-gebruik voor alle knooppunten voor het datawarehouse       | Maximum          |
-| Geheugenpercentage       | Geheugengebruik (SQL Server) voor alle knooppunten voor het datawarehouse | Maximum          |
+| Processorpercentage          | CPU-gebruik in alle knoop punten voor het Data Warehouse      | Maximum          |
+| Percentage gegevens-IO      | IO-gebruik over alle knoop punten voor het Data Warehouse       | Maximum          |
+| Geheugen percentage       | Geheugen gebruik (SQL Server) op alle knoop punten voor het Data Warehouse | Maximum          |
 | Geslaagde verbindingen  | Aantal geslaagde verbindingen met de gegevens                 | Totaal            |
-| Mislukte verbindingen      | Aantal mislukte verbindingen naar het datawarehouse           | Totaal            |
-| Geblokkeerd door Firewall     | Aantal aanmeldingen naar het datawarehouse dat is geblokkeerd     | Totaal            |
-| DWU-limiet               | Serviceniveaudoelstelling van het datawarehouse                | Maximum          |
-| DWU-percentage          | Maximale tussen CPU-percentage en gegevens-IO-percentage        | Maximum          |
-| Gebruikte DWU                | DWU-limiet * DWU-percentage                                   | Maximum          |
-| Percentage treffers in cache    | (treffers in de cache / ontbreekt in de cache) * 100 waarbij treffers in cache is de som van alle columnstore-segmenten treffers in de lokale SSD-cache en Cachemisser de columnstore-segmenten missers in de lokale SSD-cache bij elkaar opgeteld voor alle knooppunten | Maximum          |
-| Percentage gebruikte cache   | (cache gebruikt / capaciteit in de cache) * 100 waar cache die wordt gebruikt, is de som van alle bytes in de lokale SSD-cache voor alle knooppunten en capaciteit van de cache is de som van de opslagcapaciteit van de lokale SSD voor alle knooppunten in de cache | Maximum          |
-| Lokale tempdb-percentage | Lokale tempdb-gebruik op alle rekenknooppunten - waarden om de vijf minuten worden verzonden | Maximum          |
+| Mislukte verbindingen      | Aantal mislukte verbindingen met het Data Warehouse           | Totaal            |
+| Geblokkeerd door de firewall     | Aantal aanmeldingen bij het data warehouse dat is geblokkeerd     | Totaal            |
+| Limiet voor DWU               | Serviceniveau doelstelling van het Data Warehouse                | Maximum          |
+| Percentage DWU          | Maximum tussen CPU-percentage en gegevens-i/o-percentage        | Maximum          |
+| DWU gebruikt                | Limiet voor DWU * DWU percentage                                   | Maximum          |
+| Percentage cache treffers    | (cache treffers/cache-missers) * 100 waarbij treffers in cache de som zijn van alle treffers in de lokale SSD-cache en de cache-Misser is de column Store-segmenten in de lokale SSD-cache die is opgeteld voor alle knoop punten | Maximum          |
+| Percentage gebruikt cache   | (cache capaciteit gebruikt/cache) * 100 waarbij gebruikte cache de som is van alle bytes in de lokale SSD-cache op alle knoop punten en de cache capaciteit is de som van de opslag capaciteit van de lokale SSD-cache op alle knoop punten | Maximum          |
+| Lokaal TempDB-percentage | Lokaal TempDB-gebruik voor alle reken knooppunten: de waarden worden elke vijf minuten verzonden | Maximum          |
 
-## <a name="query-activity"></a>Queryactiviteit
-De service biedt voor een programmatische ervaring bij het bewaken van SQL Data Warehouse via T-SQL, een set van dynamische beheerweergaven (DMV's). Deze weergaven zijn handig wanneer u actief oplossen van problemen en het identificeren van knelpunten met uw werkbelasting.
+> Aandachtspunten bij het weer geven van metrische gegevens en het instellen van waarschuwingen:
+>
+> - Er zijn mislukte en geslaagde verbindingen gerapporteerd voor een bepaald data warehouse, niet voor de logische server
 
-Als u wilt weergeven in de lijst met DMV's die SQL Data Warehouse biedt, verwijzen naar dit [documentatie](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
+## <a name="query-activity"></a>Query activiteit
+Voor een programmatische ervaring bij het bewaken van SQL Data Warehouse via T-SQL, biedt de service een set dynamische beheer weergaven (Dmv's). Deze weer gaven zijn handig bij het oplossen van problemen met de prestaties en het identificeren van prestatie knelpunten met uw werk belasting.
 
-## <a name="metrics-and-diagnostics-logging"></a>Metrische gegevens en logboekregistratie van diagnostische gegevens
-Logboeken en metrische gegevens kunnen worden geëxporteerd naar Azure Monitor, specifiek de [logboeken van Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) onderdeel en via een programma kunnen worden benaderd met [query's bijgehouden](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). De latentie van het logboek voor SQL Data Warehouse is ongeveer 10-15 minuten. Ga naar de volgende documentatie voor meer informatie over de factoren die invloed hebben op de latentie.
+Raadpleeg deze [documentatie](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs)als u de lijst met dmv's die SQL Data Warehouse biedt, wilt weer geven. 
+
+## <a name="metrics-and-diagnostics-logging"></a>Registratie van metrische gegevens en diagnostische gegevens
+Zowel metrische gegevens als logboeken kunnen worden geëxporteerd naar Azure Monitor, met name de [Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) -logboeken component en via een programma kunnen worden geopend via [logboek query's](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). De logboek latentie voor SQL Data Warehouse is ongeveer 10-15 minuten. Raadpleeg de volgende documentatie voor meer informatie over de factoren die van invloed zijn op de latentie.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-De volgende handleidingen worden algemene scenario's beschreven en use-cases bij het controleren en beheren van uw datawarehouse:
+De volgende hand leidingen beschrijven veelvoorkomende scenario's en use cases voor het bewaken en beheren van uw data warehouse:
 
-- [Bewaken van uw datawarehouse-workload met DMV 's](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
-
+- [Uw data warehouse-workload bewaken met Dmv's](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)

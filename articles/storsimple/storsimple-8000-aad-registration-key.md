@@ -1,6 +1,6 @@
 ---
-title: Nieuwe verificatie gebruiken voor de StorSimple 8000 Device Manager-service in Azure | Microsoft Docs
-description: Wordt uitgelegd hoe u op basis van AAD-verificatie gebruiken voor uw service, het genereren van nieuwe registratiesleutel en het uitvoeren van handmatige registratie van de apparaten.
+title: Nieuwe authenticatie gebruiken voor StorSimple 8000 Apparaatbeheer-service in azure | Microsoft Docs
+description: Hierin wordt uitgelegd hoe u verificatie op basis van AAD gebruikt voor uw service, hoe u een nieuwe registratie sleutel genereert en hand matige registratie van de apparaten uitvoert.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,87 +14,89 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 88badf6de5e7181763dd72c7a51262d16697bffd
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309848"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963476"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>De nieuwe verificatie voor uw StorSimple gebruiken
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Overzicht
 
-De StorSimple Device Manager-service wordt uitgevoerd in Microsoft Azure en verbindt met meerdere StorSimple-apparaten. Tot op heden heeft StorSimple Device Manager-service een Access Control service (ACS) gebruikt voor verificatie van de service voor uw StorSimple-apparaat. Het mechanisme voor ACS worden binnenkort worden afgeschaft en vervangen door een Azure Active Directory (AAD)-authenticatie. Ga voor meer informatie naar de volgende aankondigingen voor afschaffen ACS en het gebruik van AAD-verificatie.
+De StorSimple-Apparaatbeheer-service wordt uitgevoerd in Microsoft Azure en er wordt verbinding gemaakt met meerdere StorSimple-apparaten. Tot nu toe heeft StorSimple-Apparaatbeheer service een Access Control service (ACS) gebruikt om de service te verifiëren op uw StorSimple-apparaat. Het ACS-mechanisme wordt binnenkort afgeschaft en vervangen door een Azure Active Directory (AAD)-verificatie. Ga voor meer informatie naar de volgende aankondigingen voor de ACS-afschaffing en het gebruik van AAD-verificatie.
 
 - [De toekomst van Azure ACS is Azure Active Directory](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/)
-- [Toekomstige wijzigingen in de Microsoft Access Control-Service](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/)
+- [Aanstaande wijzigingen in de micro soft-Access Control Service](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/)
 
-Dit artikel beschrijft de details van de AAD-verificatie en de bijbehorende nieuwe serviceregistratiesleutel en wijzigingen in de firewall-regels, zoals van toepassing op het StorSimple-apparaten. De informatie in dit artikel is van toepassing op StorSimple 8000-serie alleen apparaten.
+In dit artikel worden de details van de AAD-verificatie en de bijbehorende nieuwe service registratie sleutel en wijzigingen aan de firewall regels beschreven die van toepassing zijn op de StorSimple-apparaten. De informatie in dit artikel is alleen van toepassing op apparaten uit de StorSimple-serie van 8000.
 
-De AAD-verificatie wordt uitgevoerd in de StorSimple 8000-apparaat met Update 5 of hoger. Vanwege de introductie van de AAD-verificatie optreden wijzigingen in:
+De AAD-verificatie vindt plaats in het StorSimple 8000 Series-apparaat met Update 5 of hoger. Als gevolg van de introductie van de AAD-verificatie, treden er wijzigingen op in:
 
-- URL-patronen voor firewall-regels.
-- Serviceregistratiesleutel.
+- URL-patronen voor firewall regels.
+- Service registratie sleutel.
 
-Deze wijzigingen worden besproken in de volgende secties.
+Deze wijzigingen worden gedetailleerd beschreven in de volgende secties.
 
-## <a name="url-changes-for-aad-authentication"></a>Wijzigingen in de URL voor AAD-verificatie
+## <a name="url-changes-for-aad-authentication"></a>URL-wijzigingen voor AAD-verificatie
 
-Om ervoor te zorgen dat de service op basis van AAD-verificatie gebruikt, moeten alle gebruikers de nieuwe verificatie-URL's opnemen in hun firewall-regels.
+Om ervoor te zorgen dat de service gebruikmaakt van authenticatie op basis van AAD, moeten alle gebruikers de nieuwe verificatie-Url's opnemen in hun firewall regels.
 
-Als u met behulp van StorSimple 8000-serie, zorgt u ervoor dat de volgende URL wordt opgenomen in de firewall-regels:
+Als u de StorSimple 8000-serie gebruikt, moet u ervoor zorgen dat de volgende URL is opgenomen in de firewall regels:
 
 | URL-patroon                         | Cloud | Onderdeel/functionaliteit         |
 |------------------------------------|-------|----------------------------------|
-| `https://login.windows.net`        | Azure Public |AAD authentication-service      |
-| `https://login.microsoftonline.us` | Amerikaanse overheid |AAD authentication-service      |
+| `https://login.windows.net`        | Open bare Azure |AAD-verificatie service      |
+| `https://login.microsoftonline.us` | Amerikaanse overheid |AAD-verificatie service      |
 
-Voor een volledige lijst van URL voor apparaten uit de StorSimple 8000-serie patronen, gaat u naar [URL-patronen voor firewallregels](storsimple-8000-system-requirements.md#url-patterns-for-firewall-rules).
+Voor een volledige lijst met URL-patronen voor StorSimple 8000 Series-apparaten gaat u naar [URL-patronen voor firewall regels](storsimple-8000-system-requirements.md#url-patterns-for-firewall-rules).
 
-Als de verificatie-URL niet in de firewallregels voorbij de afschaffing datum opgenomen is en het apparaat Update 5 wordt uitgevoerd, zien de gebruikers een waarschuwing voor een URL. De gebruikers moeten de nieuwe verificatie-URL. Als het apparaat wordt uitgevoerd een eerdere versie dan Update 5, zien de gebruikers een waarschuwing voor een heartbeat. In elk geval wordt het StorSimple-apparaat kan niet worden geverifieerd met de service en de service is niet kan communiceren met het apparaat.
+Als de verificatie-URL niet is opgenomen in de firewall regels na de datum van afschaffing en op het apparaat Update 5 wordt uitgevoerd, zien de gebruikers een URL-waarschuwing. De gebruikers moeten de nieuwe verificatie-URL toevoegen. Als op het apparaat een versie wordt uitgevoerd voordat 5 wordt bijgewerkt, zien de gebruikers een heartbeat-waarschuwing. In elk geval kan het StorSimple-apparaat niet worden geverifieerd bij de service en kan de service niet communiceren met het apparaat.
 
-## <a name="device-version-and-authentication-changes"></a>Wijzigingen in apparaat-versie en -verificatie
+## <a name="device-version-and-authentication-changes"></a>De versie van het apparaat en de verificatie worden gewijzigd
 
-Als een apparaat voor StorSimple 8000-serie gebruikt, gebruikt u de volgende tabel om te bepalen welke actie u dient te ondernemen op basis van de software-versie van het apparaat die wordt uitgevoerd.
+Als u een StorSimple 8000-serie apparaat gebruikt, gebruikt u de volgende tabel om te bepalen welke actie u moet uitvoeren op basis van de software versie van het apparaat die u gebruikt.
 
-| Als uw apparaat wordt uitgevoerd| De volgende actie ondernemen                                    |
+| Als uw apparaat wordt uitgevoerd| De volgende actie uitvoeren                                    |
 |--------------------------|------------------------|
-| Update 5 of hoger en het apparaat is offline. <br> U ziet een waarschuwing die URL is niet opgenomen in de whitelist.|1. Wijzig de firewall-regels zodanig dat de verificatie-URL. Zie [verificatie-URL's](#url-changes-for-aad-authentication).<br>2. [De registratiesleutel AAD ophalen van de service](#aad-based-registration-keys).<br>3. [Verbinding maken met de Windows PowerShell-interface van de StorSimple 8000-apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Gebruik `Redo-DeviceRegistration` cmdlet voor het registreren van het apparaat via de Windows PowerShell. Geef de sleutel die u hebt verkregen in de vorige stap.|
-| Update 5 of hoger en het apparaat online.| Geen actie vereist.                                       |
-| Update 4 of een eerdere versie en het apparaat is offline. |1. Wijzig de firewall-regels zodanig dat de verificatie-URL.<br>2. [Update 5 downloaden via catalogusserver](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Update 5 toepassen via de methode hotfix](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [De registratiesleutel AAD ophalen van de service](#aad-based-registration-keys).<br>5. [Verbinding maken met de Windows PowerShell-interface van de StorSimple 8000-apparaat](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Gebruik `Redo-DeviceRegistration` cmdlet voor het registreren van het apparaat via de Windows PowerShell. Geef de sleutel die u hebt verkregen in de vorige stap.|
-| Update 4 of een eerdere versie en het apparaat is online. |Wijzig de firewall-regels zodanig dat de verificatie-URL.<br> Update 5 installeren via de Azure-portal.              |
-| Fabrieksinstellingen terugzetten naar een versie voordat u Update 5.      |De portal ziet u een basis van AAD-registratiesleutel terwijl het apparaat oudere software wordt uitgevoerd. Volg de stappen in het voorgaande scenario voor wanneer het apparaat Update 4 of ouder wordt uitgevoerd.              |
+| Update 5 of hoger en het apparaat is offline. <br> U ziet een waarschuwing dat de URL niet white list is.|1. Wijzig de firewall regels zodanig dat ze de verificatie-URL bevatten. Zie [verificatie-url's](#url-changes-for-aad-authentication).<br>2. [Haal de Aad-registratie sleutel op uit de service](#aad-based-registration-keys).<br>3. [Maak verbinding met de Windows Power shell-interface van het apparaat met de StorSimple 8000-serie](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Gebruik `Redo-DeviceRegistration` de cmdlet om het apparaat te registreren via de Windows Power shell. Geef de sleutel op die u in de vorige stap hebt gekregen.|
+| Update 5 of hoger en het apparaat online.| U hoeft geen actie te ondernemen.                                       |
+| Update 4 of lager en het apparaat is offline. |1. Wijzig de firewall regels zodanig dat ze de verificatie-URL bevatten.<br>2. [Down load Update 5 via de catalogus server](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Installeer update 5 via de hotfix-methode](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Haal de Aad-registratie sleutel op uit de service](#aad-based-registration-keys).<br>5. [Maak verbinding met de Windows Power shell-interface van het apparaat met de StorSimple 8000-serie](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Gebruik `Redo-DeviceRegistration` de cmdlet om het apparaat te registreren via de Windows Power shell. Geef de sleutel op die u in de vorige stap hebt gekregen.|
+| Update 4 of lager en het apparaat is online. |Wijzig de firewall regels zodanig dat ze de verificatie-URL bevatten.<br> Installeer update 5 via de Azure Portal.              |
+| Fabrieks instellingen terugzetten naar een versie vóór update 5.      |In de portal wordt een registratie sleutel op basis van AAD weer gegeven terwijl oudere software op het apparaat wordt uitgevoerd. Volg de stappen in het voor gaande scenario voor wanneer op het apparaat update 4 of eerder wordt uitgevoerd.              |
 
-## <a name="aad-based-registration-keys"></a>Van AAD op basis van registratiesleutels
+## <a name="aad-based-registration-keys"></a>Registratie sleutels op basis van AAD
 
-Vanaf Update 5 voor apparaten in de StorSimple 8000-serie, op basis van AAD registratie van nieuwe sleutels worden gebruikt. U de registratiesleutels gebruiken voor het registreren van uw StorSimple Device Manager-service met het apparaat.
+Start update 5 voor de StorSimple-apparaten uit de 8000-serie, worden nieuwe registratie sleutels op basis van AAD gebruikt. U gebruikt de registratie sleutels om uw StorSimple-Apparaatbeheer service met het apparaat te registreren.
 
-U kunt de nieuwe registratiesleutels van de AAD-service niet gebruiken als u een StorSimple 8000-serie-apparaat met Update 4 of eerder (met inbegrip van een ouder apparaat nu wordt geactiveerd).
-In dit scenario moet u de serviceregistratiesleutel opnieuw genereren. Nadat u de sleutel opnieuw genereert, wordt de nieuwe sleutel wordt gebruikt voor het registreren van de volgende apparaten. De oude sleutel is niet meer geldig.
+U kunt de nieuwe registratie sleutels voor AAD-Services niet gebruiken als u een StorSimple 8000 Series-apparaat gebruikt waarop update 4 of eerder wordt uitgevoerd (inclusief een ouder apparaat dat nu wordt geactiveerd).
+In dit scenario moet u de service registratie sleutel opnieuw genereren. Zodra u de sleutel opnieuw hebt gegenereerd, wordt de nieuwe sleutel gebruikt voor het registreren van alle volgende apparaten. De oude sleutel is niet meer geldig.
 
-- De nieuwe AAD-registratiesleutel verloopt na drie dagen.
-- De AAD-registratiesleutels werken alleen met de StorSimple 8000-serie apparaten met Update 5 of hoger.
-- De AAD-registratiesleutels zijn langer zijn dan de bijbehorende sleutels van de ACS-registratie.
+- De nieuwe AAD-registratie sleutel verloopt na drie dagen.
+- De AAD-registratie sleutels werken alleen met StorSimple 8000-serie apparaten met Update 5 of hoger.
+- De AAD-registratie sleutels zijn langer dan de bijbehorende ACS-registratie sleutels.
 
-Voer de volgende stappen uit voor het genereren van een AAD-serviceregistratiesleutel.
+Voer de volgende stappen uit om een AAD-service registratie sleutel te genereren.
 
-#### <a name="to-generate-the-aad-service-registration-key"></a>Voor het genereren van de AAD-serviceregistratiesleutel
+#### <a name="to-generate-the-aad-service-registration-key"></a>De registratie sleutel voor AAD-Services genereren
 
-1. In **StorSimple Device Manager**, gaat u naar **Management &gt;**  **sleutels**. U kunt ook de zoekbalk gebruiken om te zoeken naar _sleutels_.
+1. Ga in **StorSimple Apparaatbeheer**naar **beheer &gt;**  **sleutels**. U kunt ook de zoek balk gebruiken om te zoeken naar _sleutels_.
     
 2. Klik op **sleutel genereren**.
 
-    ![Klik op sleutel opnieuw genereren](./media/storsimple-8000-aad-registration-key/aad-click-generate-registration-key.png)
+    ![Klik op opnieuw genereren](./media/storsimple-8000-aad-registration-key/aad-click-generate-registration-key.png)
 
 3. Kopieer de nieuwe sleutel. De oudere sleutel werkt niet meer.
 
-    ![Controleer of de sleutel opnieuw genereren](./media/storsimple-8000-aad-registration-key/aad-registration-key2.png)
+    ![Opnieuw genereren bevestigen](./media/storsimple-8000-aad-registration-key/aad-registration-key2.png)
 
     > [!NOTE] 
-    > Als u een StorSimple-Cloudapparaat op de service geregistreerd bij de StorSimple 8000-apparaat maakt, genereert u niet een registratiesleutel terwijl het wordt gemaakt. Wachten op voor het maken om te voltooien en vervolgens de registratiesleutel genereren.
+    > Als u een StorSimple Cloud Appliance maakt van de service die is geregistreerd bij uw StorSimple 8000 Series-apparaat, moet u geen registratie sleutel genereren terwijl het maken wordt uitgevoerd. Wacht totdat het maken is voltooid en genereer vervolgens de registratie sleutel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over het implementeren [StorSimple 8000-apparaat](storsimple-8000-deployment-walkthrough-u2.md).
+* Meer informatie over het implementeren van een [StorSimple 8000 Series-apparaat](storsimple-8000-deployment-walkthrough-u2.md).
 

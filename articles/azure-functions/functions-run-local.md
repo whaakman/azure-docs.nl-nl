@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: f0f00745f2f7781bda0e636167b1cf1a4045f7cd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 481e6c5f2271651627577af3d03f9dd4da725146
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881378"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949913"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -93,7 +93,7 @@ In de volgende stappen wordt homebrew gebruikt om de belangrijkste Hulpprogram M
 
 De volgende stappen gebruiken [apt](https://wiki.debian.org/Apt) om kern hulpprogramma's te installeren op uw Ubuntu/Debian Linux-distributie. Raadpleeg het Leesmij-bestand voor de [belangrijkste Hulpprogram ma's](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)voor andere Linux-distributies.
 
-1. Registreer de product code van micro soft als vertrouwd:
+1. Installeer de micro soft package repository GPG-sleutel om de pakket integriteit te valideren:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -135,15 +135,19 @@ func init MyFunctionProj
 ```
 
 Wanneer u een project naam opgeeft, wordt een nieuwe map met die naam gemaakt en geïnitialiseerd. Anders wordt de huidige map geïnitialiseerd.  
-In versie 2. x, wanneer u de opdracht uitvoert, moet u een runtime voor uw project kiezen. Als u van plan bent java script-functies te ontwikkelen, kiest u **knoop punt**:
+In versie 2. x, wanneer u de opdracht uitvoert, moet u een runtime voor uw project kiezen. 
 
 ```output
 Select a worker runtime:
 dotnet
 node
+python (preview)
+powershell (preview)
 ```
 
-Gebruik de pijl omhoog/omlaag om een taal te kiezen en druk vervolgens op ENTER. De uitvoer ziet eruit als in het volgende voor beeld voor een Java script-project:
+Gebruik de pijl omhoog/omlaag om een taal te kiezen en druk vervolgens op ENTER. Als u van plan bent java script-of type script-functies te ontwikkelen, kiest u **knoop punt**en selecteert u vervolgens de taal. Type script heeft [een aantal aanvullende vereisten](functions-reference-node.md#typescript). 
+
+De uitvoer ziet eruit als in het volgende voor beeld voor een Java script-project:
 
 ```output
 Select a worker runtime: node
@@ -269,15 +273,40 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>Functies lokaal uitvoeren
 
-Als u een functions-project wilt uitvoeren, voert u de host functions uit. De host schakelt triggers in voor alle functies in het project:
+Als u een functions-project wilt uitvoeren, voert u de host functions uit. De host schakelt triggers in voor alle functies in het project. 
 
-```bash
+### <a name="version-2x"></a>Versie 2. x
+
+In versie 2. x van de runtime varieert de start opdracht, afhankelijk van de taal van uw project.
+
+#### <a name="c"></a>C\#
+
+```command
+func start --build
+```
+
+#### <a name="javascript"></a>JavaScript
+
+```command
+func start
+```
+
+#### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+### <a name="version-1x"></a>Versie 1. x
+
+Versie 1. x van de functions runtime vereist `host` de opdracht, zoals in het volgende voor beeld:
+
+```command
 func host start
 ```
 
-De `host` opdracht is alleen vereist in versie 1. x.
-
-`func host start`biedt ondersteuning voor de volgende opties:
+`func start`biedt ondersteuning voor de volgende opties:
 
 | Optie     | Description                            |
 | ------------ | -------------------------------------- |
@@ -293,8 +322,6 @@ De `host` opdracht is alleen vereist in versie 1. x.
 | **`--script-root --prefix`** | Hiermee geeft u het pad op naar de hoofdmap van de functie-app die moet worden uitgevoerd of geïmplementeerd. Dit wordt gebruikt voor gecompileerde projecten die Project bestanden in een submap genereren. Wanneer u bijvoorbeeld een C# klassen bibliotheek project bouwt, worden de bestanden host. json, local. settings. json en function. json gegenereerd in een *hoofdmap* met een pad zoals. `MyProject/bin/Debug/netstandard2.0` In dit geval stelt u het voor voegsel `--script-root MyProject/bin/Debug/netstandard2.0`in als. Dit is de basis van de functie-app wanneer deze wordt uitgevoerd in Azure. |
 | **`--timeout -t`** | De time-out voor het starten van de functions-host, in seconden. Standaard: 20 seconden.|
 | **`--useHttps`** | Maak een `https://localhost:{port}` binding aan in `http://localhost:{port}`plaats van aan. Met deze optie wordt standaard een vertrouwd certificaat op uw computer gemaakt.|
-
-Voor een C# Class Library-project (. csproj) moet u de `--build` optie voor het genereren van de bibliotheek. dll toevoegen.
 
 Wanneer de functie host wordt gestart, wordt de URL van de met HTTP geactiveerde functies uitgevoerd:
 

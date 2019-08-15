@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 267872f2036a0e697f4b2da65064805a0cfbd2b7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358737"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990467"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Compute-doelen voor modeltraining instellen 
 
@@ -47,7 +47,7 @@ Azure Machine Learning-service heeft verschillende ondersteuning voor verschille
 
 Bij het trainen is het gebruikelijk om te beginnen op de lokale computer en dat trainings script later uit te voeren op een ander reken doel. Met Azure Machine Learning-service kunt u uw script uitvoeren op verschillende reken doelen zonder dat u het script hoeft te wijzigen. 
 
-Alles wat u hoeft te doen, is het definiëren van de omgeving voor elk reken doel met een **uitvoerings configuratie**.  Wanneer u uw trainings experiment wilt uitvoeren op een ander Compute-doel, geeft u de uitvoerings configuratie op voor die reken kracht. 
+Alles wat u hoeft te doen, is het definiëren van de omgeving voor elk reken doel met een **uitvoerings configuratie**.  Wanneer u uw trainings experiment wilt uitvoeren op een ander Compute-doel, geeft u de uitvoerings configuratie op voor die reken kracht.
 
 Meer informatie over het [verzenden van experimenten](#submit) aan het einde van dit artikel.
 
@@ -74,7 +74,26 @@ Voor een door een gebruiker beheerde omgeving bent u verantwoordelijk voor het i
 De volgende code toont een voor beeld van het configureren van trainings uitvoeringen voor een door de gebruiker beheerde omgeving:
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
+
+## <a name="whats-an-estimator"></a>Wat is een estimator?
+
+Om model training te vergemakkelijken met behulp van populaire frameworks, biedt de Azure Machine Learning python SDK een alternatieve abstractie op hoger niveau, de Estimator-klasse. Met deze klasse kunt u eenvoudig uitvoerings configuraties bouwen. U kunt een algemene [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) maken en gebruiken om trainings scripts te verzenden die gebruikmaken van een door u gekozen trainings raamwerk (zoals scikit-leren).
+
+Voor PyTorch-, tensor flow-en Chainer-taken biedt Azure Machine Learning ook de geraamde [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [tensor flow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)en [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) -schattingen om het gebruik van deze frameworks te vereenvoudigen.
+
+Meer informatie vindt u [in Train ml-modellen met schattingen](how-to-train-ml-models.md).
+
+## <a name="whats-an-ml-pipeline"></a>Wat is een ML-pijp lijn?
+
+Met ML-pijp lijnen kunt u uw werk stroom optimaliseren met eenvoud, snelheid, portabiliteit en hergebruik. Wanneer u pijp lijnen met Azure Machine Learning bouwt, kunt u zich richten op uw expertise, machine learning in plaats van de infra structuur en Automation.
+
+ML-pijp lijnen worden uit meerdere **stappen**gemaakt. Dit zijn afzonderlijke reken kundige eenheden in de pijp lijn. Elke stap kan onafhankelijk worden uitgevoerd en geïsoleerde reken bronnen gebruiken. Op deze manier kunnen meerdere gegevens wetenschappers tegelijkertijd op dezelfde pijp lijn werken zonder dat er meer belasting bronnen hoeft te worden gebruikt, en kunt u voor elke stap eenvoudig verschillende reken typen of-grootten gebruiken.
+
+> [!TIP]
+> ML-pijp lijnen kunnen gebruikmaken van configuratie of schattingen wanneer trainings modellen worden uitgevoerd.
+
+Hoewel ML-pijp lijnen modellen kunnen trainen, kunnen ze ook gegevens voorbereiden voordat ze na de training worden getraind en geïmplementeerd. Een van de primaire gebruiks cases voor pijp lijnen is batch scores. Zie [pijp lijnen voor meer informatie: Optimaliseer machine learning werk](concept-ml-pipelines.md)stromen.
+
 ## <a name="set-up-in-python"></a>Ingesteld in python
 
 Gebruik de volgende secties om deze reken doelen te configureren:

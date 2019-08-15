@@ -1,6 +1,6 @@
 ---
-title: Kies de juiste federation-protocol voor uw toepassing met meerdere tenants
-description: Richtlijnen voor onafhankelijke softwareleveranciers over de integratie met Azure Active Directory
+title: Kies het juiste Federatie protocol voor uw multi tenant-toepassing
+description: Richt lijnen voor onafhankelijke software leveranciers op het integreren met Azure Active Directory
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -12,55 +12,55 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53b315b87200b37cda215a29a65be9babaf54f43
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 3c5975b57b6f960badf747e33deb238adf260199
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795198"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967202"
 ---
-# <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Kies de juiste federation-protocol voor uw toepassing met meerdere tenants
+# <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Kies het juiste Federatie protocol voor uw multi tenant-toepassing
 
-Wanneer u uw software als een dienst (SaaS)-toepassing ontwikkelt, moet u de federation-protocol die het beste aan de behoeften van uw en uw klanten. Dit besluit is gebaseerd op het ontwikkelplatform en je dat wilt integreren met gegevens die beschikbaar zijn in Office 365 en Azure AD-ecosysteem van uw klanten.
+Wanneer u uw SaaS-toepassing (Software as a Service) ontwikkelt, moet u het federatieve protocol selecteren dat het beste voldoet aan de behoeften van uw klanten. Deze beslissing is gebaseerd op uw ontwikkel platform en uw wensen te integreren met gegevens die beschikbaar zijn in het Office 365-en Azure AD-ecosysteem van uw klanten.
 
-Bekijk de volledige lijst van [protocollen die beschikbaar zijn voor SSO-integraties](what-is-single-sign-on.md) met Azure Active Directory.
+Bekijk de volledige lijst met [protocollen die beschikbaar zijn voor SSO](what-is-single-sign-on.md) -integraties met Azure Active Directory.
 De volgende tabel vergelijkt 
-* Open verificatie (OAuth 2.0) 2.0
+* Open verificatie 2,0 (OAuth 2,0)
 * Open ID Connect (OIDC)
 * Security Assertion Markup Language (SAML)
-* Web Services Federation (WSFed)
+* Webservices-federatie (WSFed)
 
-| Mogelijkheid| OAuth / OIDC| SAML / WSFed |
+| Mogelijkheid| OAuth-OIDC| SAML / WSFed |
 | - |-|-|
-| Web gebaseerde eenmalige aanmelding| √| √ |
-| Web gebaseerde eenmalige afmelding| √| √ |
-| Op basis van een mobiele eenmalige aanmelding| √| √* |
-| Op basis van een mobiele eenmalige afmelding| √| √* |
+| Op het web gebaseerde eenmalige aanmelding| √| √ |
+| Op het web gebaseerde eenmalige afmelding| √| √ |
+| Eenmalige aanmelding op basis van mobiel| √| √* |
+| Op mobiele apparaten gebaseerde eenmalige afmelding| √| √* |
 | Beleid voor voorwaardelijke toegang voor mobiele toepassingen| √| X |
 | Naadloze MFA-ervaring voor mobiele toepassingen| √| X |
-| Access Microsoft Graph| √| X |
+| Toegang Microsoft Graph| √| X |
 
-\* Mogelijk, maar Microsoft biedt geen voorbeelden of richtlijnen.
+\* Mogelijk, maar micro soft biedt geen voor beelden of richt lijnen.
 
-## <a name="oauth-20-and-open-id-connect"></a>OAuth 2.0 en Open ID Connect
+## <a name="oauth-20-and-open-id-connect"></a>OAuth 2,0 en open ID Connect
 
-OAuth 2.0 is een [industriestandaard](https://oauth.net/2/) protocol voor autorisatie. OIDC (OpenID Connect) is een [industriestandaard](https://openid.net/connect/) identiteitslaag van verificatie gebaseerd op het Oath-2.0-protocol.
+OAuth 2,0 is een protocol voor de [industrie standaard](https://oauth.net/2/) voor autorisatie. OIDC (OpenID Connect Connect) is een [industrie standaard](https://openid.net/connect/) -identiteits verificatie laag die boven op het Oath 2,0-protocol is gebouwd.
 
 ### <a name="benefits"></a>Voordelen
 
-Microsoft adviseert OIDC-/ OAuth 2.0 omdat ze verificatie en autorisatie die zijn ingebouwd in de protocollen. Met SAML, moet u bovendien autorisatie implementeren.
+Micro soft raadt aan om OIDC/OAuth 2,0 te gebruiken als verificatie en autorisatie zijn ingebouwd in de protocollen. Met SAML moet u ook autorisatie implementeren.
 
-De autorisatie die inherent zijn aan deze protocollen kan uw toepassing te openen en te integreren met uitgebreide gebruiker en de bedrijfsgegevens via de Microsoft Graph API.
+Met de autorisatie inherent aan deze protocollen kan uw toepassing toegang krijgen tot en worden geïntegreerd met uitgebreide gebruikers-en organisatie gegevens via de Microsoft Graph-API.
 
-Met behulp van OAuth 2.0 en OIDC vereenvoudigt de eindgebruikerservaring voor uw klanten bij het kiezen van eenmalige aanmelding voor uw toepassing. U kunt eenvoudig de benodigde machtiging-sets definiëren die vervolgens automatisch worden weergegeven aan de beheerder of gebruiker stemt ermee in dat.
+Door OAuth 2,0 en OIDC te gebruiken, vereenvoudigt u de gebruikers ervaring van uw klanten bij het aannemen van SSO voor uw toepassing. U kunt eenvoudig de benodigde machtigingen sets definiëren, die vervolgens automatisch worden weer gegeven aan de beheerder of de eind gebruiker.
 
-Bovendien kan maakt gebruik van deze protocollen uw klanten voor voorwaardelijke toegang en het MFA-beleid gebruiken voor het beheren van toegang tot de toepassingen. Microsoft biedt de bibliotheken en [codevoorbeelden voor meerdere technologieplatformen](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) om te helpen uw ontwikkeling.  
+Daarnaast kunnen uw klanten met deze protocollen voorwaardelijke toegang en MFA-beleid gebruiken om de toegang tot de toepassingen te beheren. Micro soft biedt bibliotheken en [code voorbeelden op meerdere platformen](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) om u te helpen bij het ontwikkelen.  
 
 ### <a name="implementation"></a>Implementatie
 
-U kunt uw toepassing registreren bij Microsoft Identity, dit een OAuth 2.0-provider is. U kunt uw toepassing op basis van OAuth 2.0 ook registreren met andere id-Provider die u integreren wilt met. 
+U registreert uw toepassing met micro soft-identiteit, een OAuth 2,0-provider. U kunt de op OAuth 2,0 gebaseerde toepassing vervolgens ook registreren bij een andere ID-provider die u wilt integreren met. 
 
-Zie voor meer informatie over het registreren van uw toepassing en deze protocollen implementeren voor eenmalige aanmelding tot web-apps [toegang verlenen aan webtoepassingen met OpenID Connect en Azure Active Directory](../develop/sample-v2-code.md).  Voor informatie over hoe u deze protocollen implementeren voor eenmalige aanmelding in mobiele apps, Zie het volgende: 
+Zie [toegang tot webtoepassingen toestaan met OpenID Connect Connect en Azure Active Directory](../develop/sample-v2-code.md)voor meer informatie over het registreren van uw toepassing en het implementeren van deze protocollen voor SSO naar web apps.  Ga voor informatie over het implementeren van deze protocollen voor SSO in mobiele apps naar het volgende: 
 
 * [Android](../develop/quickstart-v2-android.md)
 
@@ -68,34 +68,34 @@ Zie voor meer informatie over het registreren van uw toepassing en deze protocol
 
 * [Universeel Windows-platform](../develop/quickstart-v2-uwp.md)
 
-## <a name="saml-20-and-wsfed"></a>SAML 2.0 en WSFed
+## <a name="saml-20-and-wsfed"></a>SAML 2,0 en WSFed
 
-Security Assertion Markup Language (SAML) wordt meestal gebruikt voor webtoepassingen. Zie [hoe Azure het SAML-protocol gebruikt](../develop/active-directory-saml-protocol-reference.md) voor een overzicht. 
+Security Assertion Markup Language (SAML) wordt meestal gebruikt voor webtoepassingen. Bekijk [hoe Azure het SAML-protocol gebruikt](../develop/active-directory-saml-protocol-reference.md) voor een overzicht. 
 
-Web Services Federation (WSFed) is een [industriestandaard](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) doorgaans gebruikt voor webtoepassingen die zijn ontwikkeld met behulp van het .net-platform.
+Webservices-federatie (WSFed) is een [industrie standaard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) die algemeen wordt gebruikt voor webtoepassingen die zijn ontwikkeld met behulp van het .NET-platform.
 
 ### <a name="benefits"></a>Voordelen
 
-SAML 2.0 is een goed ontwikkelde standard- en de meeste technologie platforms ondersteuning voor open source-bibliotheken voor SAML 2.0. U kunt uw klanten bieden een interface voor het configureren van SAML SSO-beheer. Ze kunnen SAML SSO configureren voor Microsoft Azure AD en andere id-provider die ondersteuning biedt voor SAML-2
+SAML 2,0 is een volwassene standaard en de meeste technologie platforms ondersteunen open-source bibliotheken voor SAML 2,0. U kunt uw klanten een beheer interface bieden voor het configureren van SAML SSO. Ze kunnen SAML SSO configureren voor Microsoft Azure AD en elke andere ID-provider die ondersteuning biedt voor SAML 2
 
-### <a name="trade-offs"></a>Trade-offs
+### <a name="trade-offs"></a>Commerciële afschrijving
 
-Wanneer u SAML 2.0 of WSFed protocollen voor mobiele toepassingen, worden bepaalde beleidsregels voor voorwaardelijke toegang, met inbegrip van multi-factor Authentication (MFA) een gedegradeerde ervaring hebben. Ook als u toegang wilt tot de Microsoft Graph, moet u voor het implementeren van autorisatie via OAuth 2.0 voor het genereren van tokens die nodig zijn. 
+Wanneer u SAML 2,0-of WSFed-protocollen gebruikt voor mobiele toepassingen, heeft bepaalde beleids regels voor voorwaardelijke toegang, waaronder multi-factor Authentication (MFA), een gedegradeerde ervaring. Als u toegang wilt krijgen tot de Microsoft Graph, moet u ook autorisatie implementeren via OAuth 2,0 om de benodigde tokens te genereren. 
 
 ### <a name="implementation"></a>Implementatie
 
-Microsoft niet bibliotheken bieden voor SAML-implementatie of specifieke bibliotheken aanbevolen. Er zijn veel open source-bibliotheken beschikbaar.
+Micro soft biedt geen bibliotheken voor SAML-implementatie of adviseert specifieke bibliotheken. Er zijn veel open-source bibliotheken beschikbaar.
 
-## <a name="sso-and-using-microsoft-graph-rest-api"></a>Eenmalige aanmelding en met behulp van Microsoft Graph Rest-API 
+## <a name="sso-and-using-microsoft-graph-rest-api"></a>SSO en gebruiken van Microsoft Graph rest API 
 
-Microsoft Graph is de gegevensinfrastructuur voor alle Microsoft 365, met inbegrip van Office 365, Windows 10 en Enterprise Mobility en Security en aanvullende producten, zoals Dynamics 365. Dit omvat de belangrijkste schema's van de entiteiten, zoals gebruikers, groepen, agenda, E-mail, bestanden en meer, die productiviteit van de gebruiker. Microsoft Graph biedt drie interfaces voor ontwikkelaars een op REST API gebaseerde, Microsoft Graph-gegevens verbinden en Connectors waarmee ontwikkelaars hun eigen gegevens toevoegen in Microsoft Graph.  
+Microsoft Graph is de gegevens infrastructuur voor alle Microsoft 365, waaronder Office 365, Windows 10 en Enter prise Mobility en Security, en aanvullende producten zoals Dynamics 365. Dit omvat de kern schema's van de entiteiten zoals gebruikers, groepen, agenda, E-mail, bestanden en meer, die de productiviteit van de gebruiker verhogen. Microsoft Graph biedt ontwikkel aars drie interfaces voor een REST gebaseerde API, Microsoft Graph gegevens verbinding en connectors waarmee ontwikkel aars hun eigen gegevens kunnen toevoegen aan de Microsoft Graph.  
 
-Met behulp van een van de bovenstaande protocollen voor eenmalige aanmelding van uw toepassing toegang biedt tot de uitgebreide gegevens beschikbaar zijn via de Microsoft Graph REST-API. Hierdoor kunnen uw klanten meer waarde halen uit hun investering in Microsoft 365. Uw toepassing kan bijvoorbeeld de Microsoft Graph API om te integreren met Office 365-instantie voor uw klanten en surface gebruikers Microsoft Office en SharePoint-items in uw toepassing aanroepen. 
+Door gebruik te maken van een van de bovenstaande protocollen voor SSO, kan de toegang van uw toepassing tot de uitgebreide gegevens die beschikbaar zijn via de Microsoft Graph REST API. Zo kunnen uw klanten meer waarde krijgen van hun investering in Microsoft 365. Uw toepassing kan bijvoorbeeld de Microsoft Graph-API aanroepen om te integreren met het Office 365-exemplaar en de Microsoft Office en share point-items van uw klanten in uw toepassing. 
 
-Als u van Open ID Connect gebruikmaakt om te verifiëren, is uw ontwikkeling biedt naadloze omdat u deze OAuth2 gebruikt, kan de basis van Open ID Connect, om te verkrijgen van tokens kan worden gebruikt voor het aanroepen van Microsoft Graph-API's. Als uw toepassing van SAML of WSFed gebruikmaakt, moet u aanvullende code toevoegen in uw toepassing aan deze OAuth2 te verkrijgen van de tokens die zijn vereist voor het aanroepen van Microsoft Graph-API's. 
+Als u open ID Connect to authenticatie gebruikt, is uw ontwikkel ervaring naadloos omdat u OAuth2 gebruikt, de basis van Open-ID-verbinding voor het verkrijgen van tokens kan worden gebruikt voor het aanroepen van Microsoft Graph-Api's. Als uw toepassing gebruikmaakt van SAML of WSFed, moet u extra code in uw toepassing toevoegen om deze OAuth2 te verkrijgen om de tokens te verkrijgen die nodig zijn om Microsoft Graph-Api's aan te roepen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[SSO inschakelen voor uw toepassing met meerdere tenants](isv-sso-content.md)
+[Eenmalige aanmelding inschakelen voor uw toepassing met meerdere tenants](isv-sso-content.md)
 
-[Documentatie voor uw toepassing met meerdere tenants maken](isv-create-sso-documentation.md)
+[Documentatie maken voor uw toepassing met meerdere tenants](isv-create-sso-documentation.md)

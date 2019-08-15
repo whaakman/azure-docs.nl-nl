@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599881"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014431"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric cluster instellingen aanpassen
 In dit artikel worden de verschillende infrastructuur instellingen voor uw Service Fabric cluster beschreven die u kunt aanpassen. Voor clusters die worden gehost in azure, kunt u instellingen aanpassen via de [Azure Portal](https://portal.azure.com) of met behulp van een Azure Resource Manager sjabloon. Zie [de configuratie van een Azure-cluster upgraden](service-fabric-cluster-config-upgrade-azure.md)voor meer informatie. Voor zelfstandige clusters past u de instellingen aan door het bestand *ClusterConfig. json* bij te werken en een configuratie-upgrade uit te voeren op uw cluster. Zie [de configuratie van een zelfstandig cluster upgraden](service-fabric-cluster-config-upgrade-windows-server.md)voor meer informatie.
@@ -133,7 +133,7 @@ Hier volgt een lijst met infrastructuur instellingen die u kunt aanpassen, geord
 |AuditHttpRequests |BOOL, default is False | Dynamisch | Schakel HTTP-controle in of uit. Het doel van de controle is om de activiteiten te zien die zijn uitgevoerd op het cluster. inclusief wie de aanvraag heeft gestart. Houd er rekening mee dat dit een beste logboek registratie voor pogingen is. en tracerings verlies kan optreden. HTTP-aanvragen met verificatie van de gebruiker zijn niet geregistreerd. |
 |CaptureHttpTelemetry|BOOL, default is False | Dynamisch | Schakel HTTP-telemetrie in of uit. Het doel van telemetrie is dat Service Fabric telemetrie-gegevens kunnen vastleggen om toekomstige werkzaamheden te plannen en probleem gebieden te identificeren. Telemetrie legt geen persoonlijke gegevens of de hoofd tekst van de aanvraag vast. Alle HTTP-aanvragen worden door telemetrie vastgelegd, tenzij anders is geconfigureerd. |
 |ClusterId |Tekenreeks | Dynamisch |De unieke id van het cluster. Deze wordt gegenereerd wanneer het cluster wordt gemaakt. |
-|ConsumerInstances |Reeks | Dynamisch |De lijst met DCA-consumenten exemplaren. |
+|ConsumerInstances |Tekenreeks | Dynamisch |De lijst met DCA-consumenten exemplaren. |
 |DiskFullSafetySpaceInMB |Int, standaard waarde is 1024 | Dynamisch |Resterende schijf ruimte in MB om te beschermen tegen gebruik door DCA. |
 |EnableCircularTraceSession |BOOL, default is False | Statisch |Vlag geeft aan of circulaire tracerings sessies moeten worden gebruikt. |
 |EnablePlatformEventsFileSink |BOOL, default is False | Statisch |Platform gebeurtenissen die naar de schijf worden geschreven, in-of uitschakelen |
@@ -141,7 +141,7 @@ Hier volgt een lijst met infrastructuur instellingen die u kunt aanpassen, geord
 |FailuresOnlyHttpTelemetry | BOOL, default is True | Dynamisch | Als HTTP-telemetrie-opname is ingeschakeld; alleen mislukte aanvragen vastleggen. Zo kunt u het aantal gebeurtenissen dat wordt gegenereerd voor telemetrie verminderen. |
 |HttpTelemetryCapturePercentage | int, standaard waarde is 50 | Dynamisch | Als HTTP-telemetrie-opname is ingeschakeld; Leg alleen een wille keurig percentage van aanvragen vast. Zo kunt u het aantal gebeurtenissen dat wordt gegenereerd voor telemetrie verminderen. |
 |MaxDiskQuotaInMB |Int, standaard waarde is 65536 | Dynamisch |Schijf quotum in MB voor Windows Fabric-logboek bestanden. |
-|ProducerInstances |Reeks | Dynamisch |De lijst met DCA producer-exemplaren. |
+|ProducerInstances |Tekenreeks | Dynamisch |De lijst met DCA producer-exemplaren. |
 
 ## <a name="dnsservice"></a>DNS
 | **Parameter** | **Toegestane waarden** |**Upgrade beleid**| **Uitleg of korte beschrijving** |
@@ -411,6 +411,11 @@ Hier volgt een lijst met infrastructuur instellingen die u kunt aanpassen, geord
 |WriteBufferMemoryPoolMaximumInKB | Int, standaard is 0 |Dynamisch|Het aantal KB waarmee de geheugen groep voor schrijf buffers mag groeien. Gebruik 0 om aan te geven dat er geen limiet is. |
 |WriteBufferMemoryPoolMinimumInKB |Int, standaard waarde is 8388608 |Dynamisch|Het aantal KB dat in eerste instantie moet worden toegewezen voor de geheugen groep schrijf buffer. Gebruik 0 om aan te geven dat er geen limiet standaard moet overeenkomen met SharedLogSizeInMB hieronder. |
 
+## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
+| **Parameter** | **Toegestane waarden** | **Upgrade beleid** | **Uitleg of korte beschrijving** |
+| --- | --- | --- | --- |
+|isEnabled|BOOL, default is FALSE|Statisch|Markering voor het beheren van de aanwezigheid en status van de beheerde identiteits token service in het cluster. Dit is een vereiste voor het gebruik van de beheerde identiteits functionaliteit van Service Fabric toepassingen.|
+
 ## <a name="management"></a>Beheer
 
 | **Parameter** | **Toegestane waarden** | **Upgrade beleid** | **Uitleg of korte beschrijving** |
@@ -501,7 +506,7 @@ Hier volgt een lijst met infrastructuur instellingen die u kunt aanpassen, geord
 
 | **Parameter** | **Toegestane waarden** | **Upgrade beleid** | **Uitleg of korte beschrijving** |
 | --- | --- | --- | --- |
-|Diverse |Reeks | Dynamisch |Een door komma's gescheiden lijst met prestatie meter items die moeten worden verzameld. |
+|Diverse |Tekenreeks | Dynamisch |Een door komma's gescheiden lijst met prestatie meter items die moeten worden verzameld. |
 |isEnabled |BOOL, default is True | Dynamisch |Vlag geeft aan of de prestatie meter verzameling op het lokale knoop punt is ingeschakeld. |
 |MaxCounterBinaryFileSizeInMB |Int, standaard waarde is 1 | Dynamisch |Maximale grootte (in MB) voor elk binair bestand voor prestatie meter items. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, standaard waarde is 10 | Dynamisch |Het maximum interval (in seconden) waarna een nieuw binair bestand voor het prestatie meter item wordt gemaakt. |
@@ -610,7 +615,7 @@ Hier volgt een lijst met infrastructuur instellingen die u kunt aanpassen, geord
 |RunAsAccountType|teken reeks, standaard instelling is |Dynamisch|Hiermee wordt het account type runas aangegeven. Dit is nodig voor de sectie runas, geldige waarden zijn ' Domain User/Network Service/ManagedServiceAccount/LocalSystem '.|
 |RunAsPassword|teken reeks, standaard instelling is |Dynamisch|Hiermee wordt het wacht woord van het runas-account aangegeven. Dit is alleen nodig voor het account type domein gebruiker. |
 
-## <a name="runasdca"></a>RunAs_DCA
+## <a name="runas_dca"></a>RunAs_DCA
 
 | **Parameter** | **Toegestane waarden** | **Upgrade beleid** | **Uitleg of korte beschrijving** |
 | --- | --- | --- | --- |
@@ -618,7 +623,7 @@ Hier volgt een lijst met infrastructuur instellingen die u kunt aanpassen, geord
 |RunAsAccountType|teken reeks, standaard instelling is |Dynamisch|Hiermee wordt het account type runas aangegeven. Dit is nodig voor alle runas-secties geldige waarden zijn "Lokalegebruiker/Domain Service/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|teken reeks, standaard instelling is |Dynamisch|Hiermee wordt het wacht woord van het runas-account aangegeven. Dit is alleen nodig voor het account type domein gebruiker. |
 
-## <a name="runasfabric"></a>RunAs_Fabric
+## <a name="runas_fabric"></a>RunAs_Fabric
 
 | **Parameter** | **Toegestane waarden** | **Upgrade beleid** | **Uitleg of korte beschrijving** |
 | --- | --- | --- | --- |
@@ -626,7 +631,7 @@ Hier volgt een lijst met infrastructuur instellingen die u kunt aanpassen, geord
 |RunAsAccountType|teken reeks, standaard instelling is |Dynamisch|Hiermee wordt het account type runas aangegeven. Dit is nodig voor alle runas-secties geldige waarden zijn "Lokalegebruiker/Domain Service/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|teken reeks, standaard instelling is |Dynamisch|Hiermee wordt het wacht woord van het runas-account aangegeven. Dit is alleen nodig voor het account type domein gebruiker. |
 
-## <a name="runashttpgateway"></a>RunAs_HttpGateway
+## <a name="runas_httpgateway"></a>RunAs_HttpGateway
 
 | **Parameter** | **Toegestane waarden** | **Upgrade beleid** | **Uitleg of korte beschrijving** |
 | --- | --- | --- | --- |
@@ -824,7 +829,7 @@ Hier volgt een lijst met infrastructuur instellingen die u kunt aanpassen, geord
 | --- | --- | --- | --- |
 |ContainerNetworkName|teken reeks, standaard instelling is| Statisch |De netwerk naam die moet worden gebruikt bij het instellen van een container netwerk.|
 |ContainerNetworkSetup|BOOL, default is FALSE| Statisch |Hiermee wordt aangegeven of een container netwerk moet worden ingesteld.|
-|FabricDataRoot |Reeks | Niet toegestaan |Service Fabric data root directory. De standaard instelling voor Azure is d:\svcfab |
+|FabricDataRoot |Tekenreeks | Niet toegestaan |Service Fabric data root directory. De standaard instelling voor Azure is d:\svcfab |
 |FabricLogRoot |Tekenreeks | Niet toegestaan |Basismap van het service Fabric-logboek. Hier worden SF-logboeken en-traceringen geplaatst. |
 |NodesToBeRemoved|teken reeks, standaard instelling is| Dynamisch |De knoop punten die moeten worden verwijderd als onderdeel van de configuratie-upgrade. (Alleen voor zelfstandige implementaties)|
 |ServiceRunAsAccountName |Tekenreeks | Niet toegestaan |De account naam waaronder de Fabric-hostservice moet worden uitgevoerd. |

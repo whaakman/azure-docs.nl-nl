@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 54bf4512785941ae1d09ae1436deefc032ec0037
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c0163b5280de942491f2174aa371fa7cc83d5984
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780663"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946526"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-blauwdruk voor beveiliging en naleving: Host voor PaaS-webtoepassingen voor de officiële workloads van het Verenigd Konink rijk
 
@@ -27,7 +27,7 @@ Deze Azure-blauwdruk voor beveiliging en naleving biedt richt lijnen en automati
 
 Deze blauw druk is gecontroleerd door het UK National Cyber Security Center (NCSC) en is afgestemd op de NCSC 14 Cloud Security Principles.
 
-De architectuur maakt gebruik van Azure [platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) -onderdelen om een omgeving te bieden waarmee klanten de kosten en complexiteit van het kopen van software licenties kunnen vermijden, van het beheren van de onderliggende toepassings infrastructuur en middleware of de Ontwikkel hulpprogramma's en andere bronnen. Klanten beheren de toepassingen en services die ze ontwikkelen, gericht op het leveren van bedrijfs waarde, terwijl Microsoft Azure de andere Azure-resources, zoals virtuele machines, opslag en netwerken, beheert, waardoor meer van de [divisie van verantwoordelijk](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) voor het beheer van de infra structuur op het Azure-platform. [Azure-app Services](https://azure.microsoft.com/services/app-service/) biedt automatisch schalen, hoge Beschik baarheid, ondersteunt Windows en Linux en maakt automatische implementaties mogelijk vanuit github, Azure DevOps of een Git-opslag plaats als standaard services. Dankzij het gebruik van App Services kunnen ontwikkel aars zich concentreren op het leveren van bedrijfs waarde zonder de overhead van het beheer van de infra structuur. Het is mogelijk om ontwikkel nieuwe Java-, PHP-, node. js-, python- C# , HTML-of webtoepassingen te bouwen, of om bestaande Cloud-of on-premises webtoepassingen te migreren naar Azure-app-Services (hoewel uitgebreide mogelijkheden en testen voor het bevestigen van de prestaties vereist).
+De architectuur maakt gebruik van Azure [platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) -onderdelen om een omgeving te bieden waarmee klanten de kosten en complexiteit van het kopen van software licenties kunnen vermijden, van het beheren van de onderliggende toepassings infrastructuur en middleware of de Ontwikkel hulpprogramma's en andere bronnen. Klanten beheren de toepassingen en services die ze ontwikkelen, gericht op het leveren van bedrijfs waarde, terwijl Microsoft Azure de andere Azure-resources, zoals virtuele machines, opslag en netwerken, beheert, waardoor meer van de [divisie van verantwoordelijk](../fundamentals/paas-deployments.md) voor het beheer van de infra structuur op het Azure-platform. [Azure-app Services](https://azure.microsoft.com/services/app-service/) biedt automatisch schalen, hoge Beschik baarheid, ondersteunt Windows en Linux en maakt automatische implementaties mogelijk vanuit github, Azure DevOps of een Git-opslag plaats als standaard services. Dankzij het gebruik van App Services kunnen ontwikkel aars zich concentreren op het leveren van bedrijfs waarde zonder de overhead van het beheer van de infra structuur. Het is mogelijk om ontwikkel nieuwe Java-, PHP-, node. js-, python- C# , HTML-of webtoepassingen te bouwen, of om bestaande Cloud-of on-premises webtoepassingen te migreren naar Azure-app-Services (hoewel uitgebreide mogelijkheden en testen voor het bevestigen van de prestaties vereist).
 
 Deze blauw druk is gericht op het inrichten van een beveiligd Foundation- [platform als een](https://azure.microsoft.com/overview/what-is-paas/) webinterface op basis van een service voor open bare en ook Back-Office-gebruikers. In dit scenario van de blauw druk wordt het gebruik van door Azure gehoste webservices beschouwd, waarbij een open bare gebruiker veilig gevoelige gegevens kan indienen, bekijken en beheren. het is ook mogelijk dat de gevoelige gegevens die de open bare gebruiker heeft verzonden, veilig kunnen worden verwerkt door een back Office-of overheids operator. Voor dit scenario gelden de volgende cases:
 
@@ -72,18 +72,18 @@ De volgende sectie bevat informatie over de implementatie-en implementatie-eleme
 
 #### <a name="identity-and-authentication"></a>Identiteit en verificatie
 
-Deze blauw druk zorgt ervoor dat de toegang tot bronnen wordt beschermd via Directory-en identiteits beheer Services. Deze architectuur maakt volledig gebruik van [identiteit als de beveiligings verbinding](https://docs.microsoft.com/azure/security/security-paas-deployments). 
+Deze blauw druk zorgt ervoor dat de toegang tot bronnen wordt beschermd via Directory-en identiteits beheer Services. Deze architectuur maakt volledig gebruik van [identiteit als de beveiligings verbinding](../fundamentals/paas-deployments.md). 
 
 De volgende technologieën bieden mogelijkheden voor identiteits beheer in de Azure-omgeving:
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is de multi tenant-Cloud Directory en identiteits beheer service van micro soft. Alle gebruikers voor de oplossing zijn gemaakt in Azure Active Directory, met inbegrip van gebruikers die toegang hebben tot de SQL Database.
-- Verificatie voor de operator die is gericht op de webtoepassing en de toegang tot het beheer van de Azure-resources wordt uitgevoerd met behulp van Azure AD. Zie [toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)voor meer informatie.
+- Verificatie voor de operator die is gericht op de webtoepassing en de toegang tot het beheer van de Azure-resources wordt uitgevoerd met behulp van Azure AD. Zie [toepassingen integreren met Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)voor meer informatie.
 - Database kolom versleuteling maakt gebruik van Azure AD om de toepassing te verifiëren voor Azure SQL Database. Zie [always encrypted voor meer informatie: Beveilig gevoelige gegevens in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - De burger Facing Web-toepassing is geconfigureerd voor open bare toegang. Als u het maken en verifiëren van accounts wilt toestaan via Active Directory of id-providers voor sociale netwerken [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) , indien nodig, kunnen worden geïntegreerd.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecteert mogelijke beveiligings problemen en Risk ante accounts voorziet in aanbevelingen voor het verbeteren van de beveiligings postuur van de identiteiten van uw organisatie, configureert automatische antwoorden op gedetecteerde verdachte acties die betrekking hebben op de identiteiten van uw organisatie en verdachte incidenten onderzoeken en de juiste actie ondernemen om ze op te lossen.
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detecteert mogelijke beveiligings problemen en Risk ante accounts voorziet in aanbevelingen voor het verbeteren van de beveiligings postuur van de identiteiten van uw organisatie, configureert automatische antwoorden op gedetecteerde verdachte acties die betrekking hebben op de identiteiten van uw organisatie en verdachte incidenten onderzoeken en de juiste actie ondernemen om ze op te lossen.
 - [Met Access Control op basis van rollen (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) kunt u nauw keurig toegang krijgen tot het beheer van Azure. Abonnements toegang is beperkt tot de abonnements beheerder en Azure Key Vault toegang is beperkt tot gebruikers die toegang tot sleutel beheer nodig hebben.
-- Dankzij het gebruik van [Azure Active Directory voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) kunnen klanten extra beveiligings controles afdwingen voor toegang tot apps of gebruikers in hun omgeving op basis van specifieke voor waarden, zoals locatie, apparaat, status en aanmeldings risico.
-- [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) in combi natie met aanbevolen procedures voor het ontwerpen van toepassingen, biedt bescherming tegen DDoS-aanvallen, met AlwaysOn verkeers bewaking en real-time beperking van veelvoorkomende aanvallen op netwerk niveau. Met een PaaS-architectuur is platform niveau DDoS-beveiliging transparant voor de klant en is deze opgenomen in het platform, maar het is belang rijk te weten dat de gebruiker verantwoordelijk is voor het ontwerp van de toepassings beveiliging.
+- Dankzij het gebruik van [Azure Active Directory voorwaardelijke toegang](../../active-directory/active-directory-conditional-access-azure-portal.md) kunnen klanten extra beveiligings controles afdwingen voor toegang tot apps of gebruikers in hun omgeving op basis van specifieke voor waarden, zoals locatie, apparaat, status en aanmeldings risico.
+- [Azure DDoS Protection](../fundamentals/paas-deployments.md#security-advantages-of-a-paas-cloud-service-model) in combi natie met aanbevolen procedures voor het ontwerpen van toepassingen, biedt bescherming tegen DDoS-aanvallen, met AlwaysOn verkeers bewaking en real-time beperking van veelvoorkomende aanvallen op netwerk niveau. Met een PaaS-architectuur is platform niveau DDoS-beveiliging transparant voor de klant en is deze opgenomen in het platform, maar het is belang rijk te weten dat de gebruiker verantwoordelijk is voor het ontwerp van de toepassings beveiliging.
 
 #### <a name="data-in-transit"></a>Actieve gegevens
 
@@ -112,14 +112,14 @@ Met deze sjabloon worden de volgende App Service-functies geïmplementeerd:
 - [Standaard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service plan tier
 - Meerdere App Service [implementatie sleuven](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Dev, preview, QA, bedoeld en training Production (standaard sleuf).
 - [Beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity) om verbinding te maken met [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (dit kan ook worden gebruikt om toegang te verlenen tot [Azure SQL database](https://azure.microsoft.com/services/sql-database/) 
-- Integratie met [Azure-toepassing Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) voor het bewaken van de prestaties
-- [Diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
-- Metrische [waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
+- Integratie met [Azure-toepassing Insights](../../azure-monitor/app/azure-web-apps.md) voor het bewaken van de prestaties
+- [Diagnostische logboeken](../../azure-monitor/platform/diagnostic-logs-overview.md) 
+- Metrische [waarschuwingen](../../azure-monitor/app/alerts.md) 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
-SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt beheerde single SQL-data bases, beheerde SQL-data bases in een [elastische pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)en SQL [Managed instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in open bare preview). De service biedt [dynamisch schaalbare prestaties](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt.
+SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt beheerde single SQL-data bases, beheerde SQL-data bases in een [elastische pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)en SQL [Managed instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (in open bare preview). De service biedt [dynamisch schaalbare prestaties](../../sql-database/sql-database-purchase-models.md) en opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt.
 
 Azure SQL Database in deze blauw druk
 
@@ -130,7 +130,7 @@ Het Azure SQL Database exemplaar maakt gebruik van de volgende data base Securit
 - [Azure AD-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)kunt u de identiteiten van database gebruikers en andere micro soft-services centraal beheren op één centrale locatie. Centraal-ID-beheer biedt één locatie voor het beheren van database gebruikers en het vereenvoudigt het beheer van machtigingen.
 - Gebruik van Azure Active Directory voor database beheer
 - [Audit logboeken](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) naar opslag accounts
-- Metrische [waarschuwingen](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) voor mislukte DB-verbindingen
+- Metrische [waarschuwingen](../../azure-monitor/app/alerts.md) voor mislukte DB-verbindingen
 - [SQL-bedreigings detectie](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
 - [Always Encrypted kolommen](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
 
@@ -147,7 +147,7 @@ Deze sjabloon maakt gebruik van de volgende Azure Storage onderdelen:
 
 #### <a name="data-at-rest"></a>Data-at-rest
 
-Via [Storage service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) alle gegevens die naar Azure Storage zijn geschreven, zijn versleuteld via 256-bits AES-versleuteling, een van de krach tigste blok cijfers die beschikbaar zijn. U kunt door micro soft beheerde versleutelings sleutels met SSE gebruiken of u kunt [uw eigen versleutelings sleutels](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)gebruiken.
+Via [Storage service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) alle gegevens die naar Azure Storage zijn geschreven, zijn versleuteld via 256-bits AES-versleuteling, een van de krach tigste blok cijfers die beschikbaar zijn. U kunt door micro soft beheerde versleutelings sleutels met SSE gebruiken of u kunt [uw eigen versleutelings sleutels](../../storage/common/storage-encryption-keys-portal.md)gebruiken.
 
 Opslag accounts kunnen worden beveiligd via [Virtual Network Service-eind punten](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) met behulp van regels voor het [virtuele netwerk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
@@ -181,7 +181,7 @@ Gedetailleerde informatie over het beveiligen van Azure Storage vindt u in de [b
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is een UITBREID bare apm-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Voor het bewaken van Live webtoepassingen worden automatisch prestatie afwijkingen gedetecteerd, worden de prestaties geanalyseerd, worden problemen opgespoord en wordt uitgelegd hoe gebruikers met de app werken. Application Insights kan worden geïmplementeerd op platforms zoals .NET, node. js en Java EE, lokaal gehost of in de Cloud. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) is een UITBREID bare apm-service (Application Performance Management) voor webontwikkelaars op meerdere platforms. Voor het bewaken van Live webtoepassingen worden automatisch prestatie afwijkingen gedetecteerd, worden de prestaties geanalyseerd, worden problemen opgespoord en wordt uitgelegd hoe gebruikers met de app werken. Application Insights kan worden geïmplementeerd op platforms zoals .NET, node. js en Java EE, lokaal gehost of in de Cloud. De service kan ook worden geïntegreerd met uw DevOps-proces en bevat verbindingspunten naar verschillende hulpmiddelen voor ontwikkelaars.
 
 #### <a name="application-insights-in-this-blueprint"></a>Application Insights in deze blauw druk
 
@@ -195,7 +195,7 @@ In [Azure-activiteiten logboek](https://docs.microsoft.com/azure/azure-monitor/p
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) maakt kern bewaking voor Azure-Services mogelijk door het verzamelen van metrische gegevens, activiteiten logboeken en diagnostische Logboeken toe te staan. Azure Monitor biedt metrische infrastructuurgegevens en logboeken op basisniveau voor de meeste services in Microsoft Azure.
+[Azure monitor](../../azure-monitor/overview.md) maakt kern bewaking voor Azure-Services mogelijk door het verzamelen van metrische gegevens, activiteiten logboeken en diagnostische Logboeken toe te staan. Azure Monitor biedt metrische infrastructuurgegevens en logboeken op basisniveau voor de meeste services in Microsoft Azure.
 
 ## <a name="threat-model"></a>Bedreigings model
 
