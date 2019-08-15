@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 312f6746cb02aa66b0e7f8b47cb10e52558fa542
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 118a36587667c815489ddad03426b5cfcfee7382
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323161"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036673"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -55,7 +55,7 @@ Limieten voor groeps grootte worden ingesteld door de batch-service. In tegens t
 | Groeps toewijzings modus Batch-abonnement | 80 |
 | **Reken knooppunten in een [groep die is gemaakt met een aangepaste VM-installatie kopie](batch-custom-images.md)**  <sup>1</sup> ||
 | Toegewezen knooppunten | 2000 |
-| Knooppunten met lage prioriteit | 1000 |
+| Knooppunten met een lage prioriteit | 1000 |
 
 <sup>1</sup> voor groepen waarvoor geen communicatie tussen knoop punten is ingeschakeld.
 
@@ -67,9 +67,10 @@ Aanvullende limieten die zijn ingesteld door de batch-service. In tegens telling
 | --- | --- |
 | [Gelijktijdige taken](batch-parallel-node-tasks.md) per reken knooppunt | 4 x het aantal knooppunt kernen |
 | [Toepassingen](batch-application-packages.md) per batch-account | 20 |
-| Toepassings pakketten per toepassing | 40 |
+| Toepassingspakketten per toepassing | 40 |
 | Toepassings pakketten per pool | 10 |
 | Maximale levens duur van taken | 180 dagen<sup>1</sup> |
+| [Koppelingen](virtual-file-mount.md) per Compute-knoop punt | 10 |
 
 <sup>1</sup> de maximale levens duur van een taak, van wanneer deze wordt toegevoegd aan de taak wanneer deze is voltooid, is 180 dagen. Voltooide taken blijven zeven dagen geldig; gegevens voor taken die niet binnen de maximale levens duur zijn voltooid, zijn niet toegankelijk.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl container | Microsoft Docs
-description: Beschrijving van de opdrachten van Service Fabric-CLI sfctl container.
+title: Azure Service Fabric CLI-sfctl-container | Microsoft Docs
+description: Hierin worden de sfctl-container opdrachten van Service Fabric CLI beschreven.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,83 +8,82 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ce6cf7c627657cf757b0c1ef9aa22428c17a7e7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837303"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036468"
 ---
 # <a name="sfctl-container"></a>sfctl container
-Voer container gerelateerde opdrachten op een clusterknooppunt.
+Container gerelateerde opdrachten uitvoeren op een cluster knooppunt.
 
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
-| invoke-api | Container-API voor een container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket worden aangeroepen. |
-| logs | Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket. |
+| invoke-api | Container-API aanroepen voor een container die is geïmplementeerd op een Service Fabric knoop punt voor het gegeven code pakket. |
+| logs | Hiermee haalt u de container logboeken op voor een container die is geïmplementeerd op een Service Fabric knoop punt voor het gegeven code pakket. |
 
-## <a name="sfctl-container-invoke-api"></a>sfctl aanroepen container-api
-Container-API voor een container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket worden aangeroepen.
-
-### <a name="arguments"></a>Argumenten
-
-|Argument|Description|
-| --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. <br><br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --code-pakket-exemplaar-id (vereist) | De ID die een code-pakket-exemplaar geïmplementeerd op een service fabric-knooppunt wordt aangeduid. <br><br> Kan worden opgehaald door 'code-pakket-lijst van de service'. |
-| --code-pakket-naam (vereist) | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
-| --container-api-uri-pad (vereist) | Container REST API-URI-pad, gebruik {id} in plaats van de naam /-id van de container. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-manifest-name    [Required] | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
-| --container-api-instantie | Hoofdtekst van de HTTP-aanvraag voor de container met REST-API. |
-| --container-api-content-type | Inhoudstype voor de container met REST-API standaard ingesteld op 'application/json'. |
-| --container-api-http-verb | HTTP-term voor de container met REST-API standaard GET. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
-
-## <a name="sfctl-container-logs"></a>de containerlogboeken sfctl
-Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket.
+## <a name="sfctl-container-invoke-api"></a>sfctl-container aanroepen-API
+Container-API aanroepen voor een container die is geïmplementeerd op een Service Fabric knoop punt voor het gegeven code pakket.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. <br><br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --code-pakket-exemplaar-id (vereist) | Pakket exemplaar-ID, die kan worden opgehaald door 'code-pakket-lijst van de service'-code. |
-| --code-pakket-naam (vereist) | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-manifest-name    [Required] | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
-| --staart | Het aantal regels om weer te geven vanaf het einde van de logboeken. De standaardwaarde is 100. 'alle' om weer te geven van de volledige Logboeken. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. <br><br> Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --code-package-instance-id [vereist] | ID die een unieke identificatie vormt van een code pakket exemplaar dat is geïmplementeerd op een service Fabric-knoop punt. <br><br> Kan worden opgehaald door service code-Package List. |
+| --code-pakket naam [vereist] | De naam van het code pakket dat is opgegeven in het service manifest, geregistreerd als onderdeel van een toepassings type in een Service Fabric cluster. |
+| --container-API-URI-pad [vereist] | Container REST API URI-pad, gebruik {id} in plaats van container naam/id. |
+| --node-name [required] | De naam van het knoop punt. |
+| --Service-manifest-naam [vereist] | De naam van een service manifest dat is geregistreerd als onderdeel van een toepassings type in een Service Fabric cluster. |
+| --container-API-hoofd tekst | Hoofd tekst van de HTTP-aanvraag voor container REST API. |
+| --container-API-inhouds type | Inhouds type voor container REST API, wordt standaard ingesteld op Application/JSON. |
+| --container-API-http-verb | HTTP-term voor container REST API, standaard ingesteld op ophalen. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
+
+## <a name="sfctl-container-logs"></a>sfctl-container logboeken
+Hiermee haalt u de container logboeken op voor een container die is geïmplementeerd op een Service Fabric knoop punt voor het gegeven code pakket.
+
+### <a name="arguments"></a>Argumenten
+
+|Argument|Description|
+| --- | --- |
+| --toepassings-id [vereist] | De identiteit van de toepassing. <br><br> Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --code-package-instance-id [vereist] | Code pakket exemplaar-ID, die kan worden opgehaald door service code-Package List. |
+| --code-pakket naam [vereist] | De naam van het code pakket dat is opgegeven in het service manifest, geregistreerd als onderdeel van een toepassings type in een Service Fabric cluster. |
+| --node-name [required] | De naam van het knoop punt. |
+| --Service-manifest-naam [vereist] | De naam van een service manifest dat is geregistreerd als onderdeel van een toepassings type in een Service Fabric cluster. |
+| --staart | Aantal regels dat moet worden weer gegeven aan het einde van de logboeken. De standaard waarde is 100. ' all ' om de volledige logboeken weer te geven. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
+
+### <a name="global-arguments"></a>Algemene argumenten
+
+|Argument|Description|
+| --- | --- |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

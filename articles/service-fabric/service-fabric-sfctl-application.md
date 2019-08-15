@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl-toepassing | Microsoft Docs
-description: Beschrijving van de opdrachten van Service Fabric-CLI sfctl toepassing.
+title: Azure Service Fabric CLI-sfctl-toepassing | Microsoft Docs
+description: Beschrijft de Service Fabric CLI sfctl-toepassings opdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,46 +8,45 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d9728db919f15eda49602f2619f1c27fbb42b57
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837484"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036548"
 ---
 # <a name="sfctl-application"></a>sfctl application
-Maken, verwijderen en beheren van toepassingen en de soorten toepassingen.
+Toepassingen en toepassings typen maken, verwijderen en beheren.
 
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
 | create | Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschrijving. |
-| delete | Hiermee verwijdert u een bestaande Service Fabric-toepassing. |
-| deployed | Hiermee haalt u de informatie over een toepassing is geïmplementeerd op een Service Fabric-knooppunt. |
-| deployed-health | Hiermee haalt u de informatie over de status van een toepassing is geïmplementeerd op een Service Fabric-knooppunt. |
-| deployed-list | Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Service Fabric-knooppunt. |
-| health | Hiermee haalt u de status van de service fabric-toepassing. |
-| info | Hiermee haalt u informatie over een Service Fabric-toepassing. |
-| list | Hiermee haalt u de lijst met toepassingen die in de Service Fabric-cluster gemaakt die overeenkomen met de opgegeven filters. |
-| load | Haalt informatie over een Service Fabric-toepassing te laden. |
-| manifest | Hiermee haalt u het manifest met een beschrijving van een toepassingstype. |
-| provision | Bepalingen of registers typt u een Service Fabric-toepassing met het cluster met behulp van het pakket .sfpkg in de externe opslag of het toepassingspakket in archief van de installatiekopie. |
-| report-health | Verzendt een statusrapport over de Service Fabric-toepassing. |
-| type | Hiermee haalt u de lijst met typen in het Service Fabric-cluster die overeenkomt met precies de opgegeven naam. |
-| type-list | Hiermee haalt de lijst met typen in het Service Fabric-cluster. |
-| unprovision | Hiermee verwijdert u of de registratie van een type Service Fabric-toepassing uit het cluster. |
-| upgrade | Hiermee start u een upgrade van een toepassing in de Service Fabric-cluster. |
-| upgrade-resume | Hervat een upgrade van een toepassing in de Service Fabric-cluster. |
-| upgrade-rollback | Start het terugdraaien van de momenteel continue upgrade van een toepassing in de Service Fabric-cluster. |
-| upgrade-status | Hiermee haalt details voor de meest recente upgrade uitgevoerd voor deze toepassing. |
-| upload | Een Service Fabric-toepassingspakket kopiëren naar de installatiekopieopslag. |
+| verwijderen | Hiermee verwijdert u een bestaande Service Fabric-toepassing. |
+| deployed | Hiermee wordt de informatie opgehaald over een toepassing die op een Service Fabric knoop punt is geïmplementeerd. |
+| deployed-health | Hiermee haalt u de informatie over de status van een toepassing die op een Service Fabric knoop punt is geïmplementeerd. |
+| deployed-list | Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Service Fabric knoop punt. |
+| health | Hiermee wordt de status van de service Fabric-toepassing opgehaald. |
+| info | Hiermee haalt u informatie op over een Service Fabric-toepassing. |
+| list | Hiermee wordt de lijst met toepassingen die in het Service Fabric cluster zijn gemaakt, opgehaald die overeenkomen met de opgegeven filters. |
+| load | Hiermee wordt informatie over het laden van een Service Fabric-toepassing opgehaald. |
+| manifest | Hiermee wordt het manifest opgehaald dat een toepassings type beschrijft. |
+| provision | Hiermee wordt een Service Fabric toepassings type met het cluster ingericht of geregistreerd met behulp van het. sfpkg-pakket in de externe opslag of met behulp van het toepassings pakket in het archief met installatie kopieën. |
+| report-health | Hiermee verzendt u een status rapport op de Service Fabric-toepassing. |
+| Type | Hiermee haalt u de lijst met toepassings typen in het Service Fabric cluster die overeenkomen met de opgegeven naam. |
+| type-list | Hiermee haalt u de lijst met toepassings typen op in het Service Fabric cluster. |
+| unprovision | Hiermee verwijdert of maakt u de registratie van een Service Fabric toepassings type van het cluster ongedaan. |
+| upgrade | Hiermee wordt een toepassing in het Service Fabric cluster bijgewerkt. |
+| upgrade-resume | Hiermee wordt de upgrade van een toepassing in het Service Fabric cluster hervat. |
+| upgrade-terugdraai actie | De huidige doorlopende upgrade van een toepassing in het Service Fabric cluster wordt teruggezet. |
+| upgrade-status | Hiermee worden gegevens opgehaald voor de laatste upgrade die op deze toepassing is uitgevoerd. |
+| upload | Kopieer een Service Fabric toepassings pakket naar de archief met installatie kopieën. |
 
 ## <a name="sfctl-application-create"></a>sfctl-toepassing maken
 Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschrijving.
@@ -56,503 +55,503 @@ Hiermee maakt u een Service Fabric-toepassing met behulp van de opgegeven beschr
 
 |Argument|Description|
 | --- | --- |
-| --app-naam (vereist) | De naam van de toepassing, met inbegrip van de ' fabric\:' URI-schema. |
-| --app-type (vereist) | De naam van de toepassing type is gevonden in het toepassingsmanifest. |
-| --app-versie (vereist) | De versie van het toepassingstype zoals gedefinieerd in het toepassingsmanifest. |
-| --max-node-count | Het maximale aantal knooppunten dat is waar Service Fabric-capaciteit voor deze toepassing wordt gereserveerd. Houd er rekening mee dat dit niet betekent dat de services van deze toepassing op alle knooppunten wordt geplaatst. |
-| --metrische gegevens | Een JSON gecodeerd lijst van de toepassing capaciteit metrische beschrijvingen. Een metrische waarde wordt gedefinieerd als een naam, die zijn gekoppeld aan een set met capaciteiten voor elk knooppunt dat de toepassing bestaat op. |
-| --min-node-count | Het minimum aantal knooppunten dat is waar Service Fabric-capaciteit voor deze toepassing wordt gereserveerd. Houd er rekening mee dat dit niet betekent dat de services van deze toepassing op alle knooppunten wordt geplaatst. |
-| --parameters | Een lijst met JSON gecodeerd van de parameter van de toepassing onderdrukt bij het maken van de toepassing moet worden toegepast. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --app-naam [vereist] | De naam van de toepassing, met inbegrip van\:het URI-schema van de infra structuur. |
+| --app-type [vereist] | De naam van het toepassings type dat in het toepassings manifest is gevonden. |
+| --App-versie [vereist] | De versie van het toepassings type zoals gedefinieerd in het manifest van de toepassing. |
+| --max-node-count | Het maximum aantal knoop punten waar Service Fabric capaciteit voor deze toepassing zal reserveren. Houd er rekening mee dat dit niet betekent dat de services van deze toepassing op al deze knoop punten worden geplaatst. |
+| --metrische gegevens | Een JSON-gecodeerde lijst met metrische gegevens over de toepassings capaciteit. Een metrische waarde wordt gedefinieerd als een naam die is gekoppeld aan een set capaciteit voor elk knoop punt waarop de toepassing zich bevindt. |
+| --min-knooppunt-aantal | Het minimum aantal knoop punten waar Service Fabric capaciteit voor deze toepassing zal reserveren. Houd er rekening mee dat dit niet betekent dat de services van deze toepassing op al deze knoop punten worden geplaatst. |
+| --parameters | Een JSON-gecodeerde lijst met onderdrukkingen van toepassings parameters die moeten worden toegepast bij het maken van de toepassing. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 ## <a name="sfctl-application-delete"></a>sfctl toepassing verwijderen
 Hiermee verwijdert u een bestaande Service Fabric-toepassing.
 
-Een toepassing moet worden gemaakt voordat deze kan worden verwijderd. Een toepassing verwijdert, worden alle services die deel van die toepassing uitmaken. Standaard probeert Service Fabric te sluiten van service-replica's op correcte wijze en verwijder vervolgens de service. Echter als een service is hebt u problemen bij het sluiten van de replica zonder problemen, de delete-bewerking lang kan duren of zitten. Gebruik de optionele ForceRemove vlag de correcte sluiten van een reeks overslaan en de toepassing en alle bijbehorende services geforceerd verwijderen.
+Een toepassing moet worden gemaakt voordat deze kan worden verwijderd. Als u een toepassing verwijdert, worden alle services verwijderd die deel uitmaken van die toepassing. Service Fabric probeert standaard de service replica's op een correcte manier te sluiten en vervolgens de service te verwijderen. Als een service echter problemen heeft met het op de juiste wijze sluiten van de replica, kan de verwijderings bewerking lang duren of blijven vastlopen. Gebruik de optionele vlag ForceRemove om de juiste sluit sequentie over te slaan en de toepassing en alle bijbehorende services geforceerd te verwijderen.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --force-remove | Een Service Fabric-toepassing of service verwijderen geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt voor het geforceerd verwijderen van een toepassing of service voor welke verwijderen time-out vanwege problemen met de code die voorkomt dat vensters sluit van replica's. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --force-remove | Verwijder een Service Fabric toepassing of service geforceerd zonder de juiste afsluit procedure te door lopen. Deze para meter kan worden gebruikt om een toepassing of service geforceerd te verwijderen waarvoor een time-out is opgetreden vanwege problemen in de service code die voor komen dat replica's worden gesloten. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-deployed"></a>sfctl toepassing die is geïmplementeerd
-Hiermee haalt u de informatie over een toepassing is geïmplementeerd op een Service Fabric-knooppunt.
+## <a name="sfctl-application-deployed"></a>sfctl toepassing geïmplementeerd
+Hiermee wordt de informatie opgehaald over een toepassing die op een Service Fabric knoop punt is geïmplementeerd.
 
-Deze query retourneert systeemgegevens van de toepassing als de toepassings-ID opgegeven voor de systeemtoepassing is. Resultaten omvatten geïmplementeerde toepassingen in actieve, activeren en downloaden van Staten. Deze query is vereist dat de knooppuntnaam komt met een knooppunt in het cluster overeen. De query is mislukt als de naam van het opgegeven knooppunt wijst niet naar een actieve Service Fabric-knooppunten op het cluster.
+Met deze query wordt informatie over de systeem toepassing geretourneerd als de verstrekte toepassings-ID voor systeem toepassing is. De resultaten omvatten geïmplementeerde toepassingen in actieve, activerings-en download statussen. Deze query vereist dat de knooppunt naam overeenkomt met een knoop punt in het cluster. De query mislukt als de naam van het gegeven knoop punt niet naar een actieve Service Fabric knoop punten in het cluster wijst.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --opnemen-health-status | De status van een entiteit bevatten. Als deze parameter of niet opgegeven is, wordt de status van de geretourneerde 'Onbekend'. Wanneer is ingesteld op true, wordt de query parallel om in het knooppunt en de system health service gaat voordat de resultaten worden samengevoegd. Als gevolg hiervan de query is duurder en een langere tijd kan duren. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --node-name [required] | De naam van het knoop punt. |
+| --include-status | De status van een entiteit bevatten. Als deze para meter False is of niet is opgegeven, is de geretourneerde status ' onbekend '. Als deze eigenschap is ingesteld op True, wordt de query parallel met het knoop punt en de Health-systeem service gedoofd voordat de resultaten worden samengevoegd. Als gevolg hiervan is de query duurder en kan dit een langere tijd duren. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-deployed-health"></a>sfctl geïmplementeerd-status van de toepassing
-Hiermee haalt u de informatie over de status van een toepassing is geïmplementeerd op een Service Fabric-knooppunt.
+## <a name="sfctl-application-deployed-health"></a>geïmplementeerde sfctl-toepassing-status
+Hiermee haalt u de informatie over de status van een toepassing die op een Service Fabric knoop punt is geïmplementeerd.
 
-Hiermee haalt u de informatie over de status van een toepassing is geïmplementeerd op een Service Fabric-knooppunt. Gebruik EventsHealthStateFilter om te filteren op (optioneel) de verzameling van HealthEvent-objecten die zijn gerapporteerd voor de geïmplementeerde toepassing die is gebaseerd op de status. Gebruik DeployedServicePackagesHealthStateFilter om te filteren op (optioneel) DeployedServicePackageHealth onderliggende items die zijn gebaseerd op de status.
+Hiermee haalt u de informatie over de status van een toepassing die op een Service Fabric knoop punt is geïmplementeerd. Gebruik EventsHealthStateFilter om optioneel te filteren op de verzameling van HealthEvent-objecten die zijn gerapporteerd op basis van de status van de geïmplementeerde toepassing. Gebruik DeployedServicePackagesHealthStateFilter om optioneel te filteren op DeployedServicePackageHealth-kinderen op basis van de status.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --Deployed-service-Packages-Health-State-filter | U kunt filteren van de geïmplementeerde service pakket health state objecten geretourneerd in het resultaat van de geïmplementeerde toepassing health query op basis van hun status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen geïmplementeerd service pakketten die overeenkomen met het filter worden geretourneerd. Alle geïmplementeerde servicepakketten worden gebruikt voor het evalueren van de cumulatieve status van de geïmplementeerde toepassing. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde is 6 status van service-pakketten met HealthState waarde OK (2) en waarschuwing (4) zijn teruggekeerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
-| --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling van HealthEvent-objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is worden vervolgens alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
-| --uitsluiten-health-statistieken | Geeft aan of de health-statistieken moet worden geretourneerd als onderdeel van het queryresultaat. Als de waarde False is, wordt standaard. De statistieken Toon het aantal onderliggende entiteiten in de status Ok, waarschuwing en fout. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --node-name [required] | De naam van het knoop punt. |
+| --geïmplementeerd-service-pakketten-status-filter | Hiermee staat u het filteren toe van de geïmplementeerde service pakket status objecten die zijn geretourneerd in het resultaat van de geïmplementeerde toepassings status query op basis van hun status. De mogelijke waarden voor deze para meter zijn gehele getallen van een van de volgende statussen. Alleen geïmplementeerde service pakketten die overeenkomen met het filter worden geretourneerd. Alle geïmplementeerde service pakketten worden gebruikt om de geaggregeerde status van de geïmplementeerde toepassing te evalueren. Als u niets opgeeft, worden alle vermeldingen geretourneerd. De status waarden zijn inventarisatie op basis van een vlag, dus de waarde kan een combi natie van deze waarden zijn, verkregen met behulp van de operator bitsgewijze of. Als de opgegeven waarde bijvoorbeeld 6 is, wordt de status van de service pakketten met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard-standaard waarde. Komt overeen met een wille keurige HealthState. De waarde is nul.  <br> -Geen: filter dat niet overeenkomt met een HealthState-waarde. Wordt gebruikt om geen resultaten te retour neren voor een bepaalde verzameling statussen. De waarde is 1.  <br> -OK-filter dat overeenkomt met de invoer met HealthState waarde OK. De waarde is 2.  <br> -Waarschuwings filter dat overeenkomt met invoer met HealthState-waarde waarschuwing. De waarde is 4.  <br> -Fout filter dat overeenkomt met de invoer met de HealthState-waarde fout. De waarde is 8.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van HealthState. De waarde is 65535. |
+| --gebeurtenissen-status-filter | Hiermee kunt u het verzamelen van HealthEvent-objecten die zijn geretourneerd op basis van de status wordt gefilterd. De mogelijke waarden voor deze para meter zijn gehele getallen van een van de volgende statussen. Alleen gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt om de geaggregeerde status te evalueren. Als u niets opgeeft, worden alle vermeldingen geretourneerd. De status waarden zijn inventarisatie op basis van een vlag, waardoor de waarde kan bestaan uit een combi natie van deze waarden, verkregen met behulp van de operator bitsgewijze ' of '. Als de opgegeven waarde bijvoorbeeld 6 is, worden alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard-standaard waarde. Komt overeen met een wille keurige HealthState. De waarde is nul.  <br> -Geen: filter dat niet overeenkomt met een HealthState-waarde. Wordt gebruikt om geen resultaten te retour neren voor een bepaalde verzameling statussen. De waarde is 1.  <br> -OK-filter dat overeenkomt met de invoer met HealthState waarde OK. De waarde is 2.  <br> -Waarschuwings filter dat overeenkomt met invoer met HealthState-waarde waarschuwing. De waarde is 4.  <br> -Fout filter dat overeenkomt met de invoer met de HealthState-waarde fout. De waarde is 8.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van HealthState. De waarde is 65535. |
+| --exclude-status-statistieken | Hiermee wordt aangegeven of de status statistieken moeten worden geretourneerd als onderdeel van het query resultaat. Standaard onwaar. In de statistieken wordt het aantal onderliggende entiteiten in de status OK, waarschuwing en fout weer gegeven. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-deployed-list"></a>sfctl geïmplementeerd-lijst met toepassingen
-Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Service Fabric-knooppunt.
+## <a name="sfctl-application-deployed-list"></a>geïmplementeerde sfctl-toepassing-lijst
+Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Service Fabric knoop punt.
 
-Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Service Fabric-knooppunt. De resultaten bevatten geen informatie over het geïmplementeerde systeemtoepassingen, tenzij expliciet een query uitgevoerd voor op ID. Resultaten omvatten geïmplementeerde toepassingen in actieve, activeren en downloaden van Staten. Deze query is vereist dat de knooppuntnaam komt met een knooppunt in het cluster overeen. De query is mislukt als de naam van het opgegeven knooppunt wijst niet naar een actieve Service Fabric-knooppunten op het cluster.
+Hiermee haalt u de lijst met toepassingen die zijn geïmplementeerd op een Service Fabric knoop punt. De resultaten bevatten geen informatie over geïmplementeerde systeem toepassingen, tenzij u expliciet een query voor op ID hebt uitgevoerd. De resultaten omvatten geïmplementeerde toepassingen in actieve, activerings-en download statussen. Deze query vereist dat de knooppunt naam overeenkomt met een knoop punt in het cluster. De query mislukt als de naam van het gegeven knoop punt niet naar een actieve Service Fabric knoop punten in het cluster wijst.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --opnemen-health-status | De status van een entiteit bevatten. Als deze parameter of niet opgegeven is, wordt de status van de geretourneerde 'Onbekend'. Wanneer is ingesteld op true, wordt de query parallel om in het knooppunt en de system health service gaat voordat de resultaten worden samengevoegd. Als gevolg hiervan de query is duurder en een langere tijd kan duren. |
-| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --node-name [required] | De naam van het knoop punt. |
+| --vervolg token | De vervolg token parameter wordt gebruikt om de volgende set resultaten op te halen. Een vervolg token met een niet-lege waarde wordt opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt door gegeven aan de volgende API-aanroep, retourneert de API de volgende set resultaten. Als er geen verdere resultaten zijn, bevat het vervolg token geen waarde. De waarde van deze para meter mag geen URL-code ring zijn. |
+| --include-status | De status van een entiteit bevatten. Als deze para meter False is of niet is opgegeven, is de geretourneerde status ' onbekend '. Als deze eigenschap is ingesteld op True, wordt de query parallel met het knoop punt en de Health-systeem service gedoofd voordat de resultaten worden samengevoegd. Als gevolg hiervan is de query duurder en kan dit een langere tijd duren. |
+| --max-results | Het maximum aantal resultaten dat moet worden geretourneerd als onderdeel van de query's in de pagina. Met deze para meter wordt de bovengrens gedefinieerd voor het aantal geretourneerde resultaten. De geretourneerde resultaten kunnen kleiner zijn dan de opgegeven maximum resultaten als ze niet in het bericht passen conform de maximale grootte van de berichten die in de configuratie is gedefinieerd. Als deze para meter nul is of niet is opgegeven, bevat de opgevraagde query zoveel mogelijk resultaten die in het retour bericht passen. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-health"></a>status van de toepassing sfctl
-Hiermee haalt u de status van de service fabric-toepassing.
+## <a name="sfctl-application-health"></a>sfctl-toepassings status
+Hiermee wordt de status van de service Fabric-toepassing opgehaald.
 
-Retourneert de Health-status van de service fabric-toepassing. Het antwoord rapporteert de status Ok, fout of waarschuwing. Als de entiteit niet in health store gevonden is, wordt deze fout geretourneerd.
+Retourneert de status van de service Fabric-toepassing. De antwoord rapporten hebben de status OK, fout of waarschuwing. Als de entiteit niet wordt gevonden in de Health Store, wordt er een fout geretourneerd.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --geïmplementeerd-toepassingen-health-status-filter | Kan het filteren van de geïmplementeerde toepassingen health state objecten geretourneerd in het resultaat van application health-query op basis van hun status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen geïmplementeerde toepassingen die overeenkomen met het filter wordt geretourneerd. Alle geïmplementeerde toepassingen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde is 6 status van geïmplementeerde toepassingen met HealthState waarde OK (2) en waarschuwing (4) zijn teruggekeerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
-| --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling van HealthEvent-objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is worden vervolgens alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
-| --uitsluiten-health-statistieken | Geeft aan of de health-statistieken moet worden geretourneerd als onderdeel van het queryresultaat. Als de waarde False is, wordt standaard. De statistieken Toon het aantal onderliggende entiteiten in de status Ok, waarschuwing en fout. |
-| --services-health-status-filter | Kan het filteren van de services health state objecten geretourneerd in het resultaat van de query voor health services op basis van hun status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen services die overeenkomen met het filter worden geretourneerd. Alle services worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is wordt vervolgens de status van services met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --geïmplementeerd-toepassingen-status-filter | Hiermee staat u toe dat de status objecten van geïmplementeerde toepassingen worden gefilterd die zijn geretourneerd in het resultaat van de toepassings status query op basis van hun status. De mogelijke waarden voor deze para meter zijn gehele getallen van een van de volgende statussen. Alleen geïmplementeerde toepassingen die overeenkomen met het filter, worden geretourneerd. Alle geïmplementeerde toepassingen worden gebruikt om de geaggregeerde status te evalueren. Als u niets opgeeft, worden alle vermeldingen geretourneerd. De status waarden zijn inventarisatie op basis van een vlag, waardoor de waarde kan bestaan uit een combi natie van deze waarden, verkregen met behulp van de operator bitsgewijze of. Als de opgegeven waarde bijvoorbeeld 6 is, wordt de status van geïmplementeerde toepassingen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard-standaard waarde. Komt overeen met een wille keurige HealthState. De waarde is nul.  <br> -Geen: filter dat niet overeenkomt met een HealthState-waarde. Wordt gebruikt om geen resultaten te retour neren voor een bepaalde verzameling statussen. De waarde is 1.  <br> -OK-filter dat overeenkomt met de invoer met HealthState waarde OK. De waarde is 2.  <br> -Waarschuwings filter dat overeenkomt met invoer met HealthState-waarde waarschuwing. De waarde is 4.  <br> -Fout filter dat overeenkomt met de invoer met de HealthState-waarde fout. De waarde is 8.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van HealthState. De waarde is 65535. |
+| --gebeurtenissen-status-filter | Hiermee kunt u het verzamelen van HealthEvent-objecten die zijn geretourneerd op basis van de status wordt gefilterd. De mogelijke waarden voor deze para meter zijn gehele getallen van een van de volgende statussen. Alleen gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt om de geaggregeerde status te evalueren. Als u niets opgeeft, worden alle vermeldingen geretourneerd. De status waarden zijn inventarisatie op basis van een vlag, waardoor de waarde kan bestaan uit een combi natie van deze waarden, verkregen met behulp van de operator bitsgewijze ' of '. Als de opgegeven waarde bijvoorbeeld 6 is, worden alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard-standaard waarde. Komt overeen met een wille keurige HealthState. De waarde is nul.  <br> -Geen: filter dat niet overeenkomt met een HealthState-waarde. Wordt gebruikt om geen resultaten te retour neren voor een bepaalde verzameling statussen. De waarde is 1.  <br> -OK-filter dat overeenkomt met de invoer met HealthState waarde OK. De waarde is 2.  <br> -Waarschuwings filter dat overeenkomt met invoer met HealthState-waarde waarschuwing. De waarde is 4.  <br> -Fout filter dat overeenkomt met de invoer met de HealthState-waarde fout. De waarde is 8.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van HealthState. De waarde is 65535. |
+| --exclude-status-statistieken | Hiermee wordt aangegeven of de status statistieken moeten worden geretourneerd als onderdeel van het query resultaat. Standaard onwaar. In de statistieken wordt het aantal onderliggende entiteiten in de status OK, waarschuwing en fout weer gegeven. |
+| --Services-status-filter | Hiermee staat u toe dat de services Health State-objecten worden gefilterd die zijn geretourneerd in het resultaat van de status query Services op basis van hun status. De mogelijke waarden voor deze para meter zijn gehele getallen van een van de volgende statussen. Alleen services die overeenkomen met het filter worden geretourneerd. Alle services worden gebruikt om de geaggregeerde status te evalueren. Als u niets opgeeft, worden alle vermeldingen geretourneerd. De status waarden zijn inventarisatie op basis van een vlag, waardoor de waarde kan bestaan uit een combi natie van deze waarden, verkregen met behulp van de operator bitsgewijze of. Als de opgegeven waarde bijvoorbeeld 6 is, wordt de status van services met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard-standaard waarde. Komt overeen met een wille keurige HealthState. De waarde is nul.  <br> -Geen: filter dat niet overeenkomt met een HealthState-waarde. Wordt gebruikt om geen resultaten te retour neren voor een bepaalde verzameling statussen. De waarde is 1.  <br> -OK-filter dat overeenkomt met de invoer met HealthState waarde OK. De waarde is 2.  <br> -Waarschuwings filter dat overeenkomt met invoer met HealthState-waarde waarschuwing. De waarde is 4.  <br> -Fout filter dat overeenkomt met de invoer met de HealthState-waarde fout. De waarde is 8.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van HealthState. De waarde is 65535. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-info"></a>sfctl toepassingsinfo
-Hiermee haalt u informatie over een Service Fabric-toepassing.
+## <a name="sfctl-application-info"></a>informatie over sfctl-toepassing
+Hiermee haalt u informatie op over een Service Fabric-toepassing.
 
-Retourneert de gegevens over de toepassing die is gemaakt of momenteel wordt gemaakt in de Service Fabric-cluster en waarvan de naam overeenkomt met de versie die is opgegeven als parameter. Het antwoord bevat de naam, type, status, parameters en andere details over de toepassing.
+Retourneert de informatie over de toepassing die is gemaakt of in het proces dat in het Service Fabric cluster wordt gemaakt en waarvan de naam overeenkomt met de versie die is opgegeven als de para meter. Het antwoord bevat de naam, het type, de status, de para meters en andere gegevens over de toepassing.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --exclude-application-parameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --exclude-Application-para meters | De vlag waarmee wordt opgegeven of toepassings parameters worden uitgesloten van het resultaat. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-list"></a>lijst met sfctl-toepassingen
-Hiermee haalt u de lijst met toepassingen die in de Service Fabric-cluster gemaakt die overeenkomen met de opgegeven filters.
+## <a name="sfctl-application-list"></a>sfctl-toepassings lijst
+Hiermee wordt de lijst met toepassingen die in het Service Fabric cluster zijn gemaakt, opgehaald die overeenkomen met de opgegeven filters.
 
-Hiermee haalt u de informatie over de toepassingen die zijn gemaakt of momenteel wordt gemaakt in de Service Fabric-cluster en overeenkomen met de opgegeven filters. Het antwoord bevat de naam, type, status, parameters en andere details over de toepassing. Als de toepassingen niet in een pagina passen, wordt een pagina met resultaten geretourneerd en een vervolgtoken, die kan worden gebruikt om de volgende pagina. Alleen ApplicationTypeName filters en ApplicationDefinitionKindFilter kan niet tegelijkertijd worden opgegeven.
+Hiermee wordt de informatie opgehaald over de toepassingen die zijn gemaakt of worden gemaakt in het Service Fabric cluster en overeenkomen met de opgegeven filters. Het antwoord bevat de naam, het type, de status, de para meters en andere gegevens over de toepassing. Als de toepassingen niet op een pagina passen, wordt er één pagina met resultaten geretourneerd, evenals een vervolg token, dat kan worden gebruikt om de volgende pagina op te halen. Filters ApplicationTypeName en ApplicationDefinitionKindFilter kunnen niet tegelijk worden opgegeven.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --toepassing-definition-type-filter | Gebruikt om te filteren op ApplicationDefinitionKind, dit is het mechanisme dat wordt gebruikt voor het definiëren van een Service Fabric-toepassing.  <br> -Standaard - standaardwaarde, die dezelfde functie als 'Alle' selecteren. De waarde is 0.  <br> -Alle - filteren die overeenkomt met de invoer met een willekeurige waarde ApplicationDefinitionKind. De waarde is 65535.  <br> -ServiceFabricApplicationDescription - Filter op dat overeenkomt met de invoer met ApplicationDefinitionKind waarde ServiceFabricApplicationDescription. De waarde is 1.  <br> -Compose - Filter op dat overeenkomt met de invoer met ApplicationDefinitionKind waarde opstellen. De waarde is 2. |
-| --application-type-name | De naam van de toepassing type is gebruikt voor het filteren van de toepassingen op te vragen voor. Deze waarde moet een versie van het toepassingstype niet bevatten. |
-| --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --exclude-application-parameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
-| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings definitie-soort-filter | Wordt gebruikt om te filteren op ApplicationDefinitionKind. Dit is het mechanisme dat wordt gebruikt om een Service Fabric toepassing te definiëren.  <br> -Standaard-standaard waarde, waarmee dezelfde functie wordt uitgevoerd als bij het selecteren van ' alle '. De waarde is 0.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van ApplicationDefinitionKind. De waarde is 65535.  <br> -ServiceFabricApplicationDescription-filter dat overeenkomt met de invoer met de ApplicationDefinitionKind-waarde ServiceFabricApplicationDescription. De waarde is 1.  <br> -Samengesteld filter dat overeenkomt met de invoer met ApplicationDefinitionKind-waarde opstellen. De waarde is 2. |
+| --toepassings type-naam | De naam van het toepassings type dat wordt gebruikt voor het filteren van de toepassingen waarvoor een query moet worden uitgevoerd. Deze waarde mag niet de versie van het toepassings type bevatten. |
+| --vervolg token | De vervolg token parameter wordt gebruikt om de volgende set resultaten op te halen. Een vervolg token met een niet-lege waarde wordt opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt door gegeven aan de volgende API-aanroep, retourneert de API de volgende set resultaten. Als er geen verdere resultaten zijn, bevat het vervolg token geen waarde. De waarde van deze para meter mag geen URL-code ring zijn. |
+| --exclude-Application-para meters | De vlag waarmee wordt opgegeven of toepassings parameters worden uitgesloten van het resultaat. |
+| --max-results | Het maximum aantal resultaten dat moet worden geretourneerd als onderdeel van de query's in de pagina. Met deze para meter wordt de bovengrens gedefinieerd voor het aantal geretourneerde resultaten. De geretourneerde resultaten kunnen kleiner zijn dan de opgegeven maximum resultaten als ze niet in het bericht passen conform de maximale grootte van de berichten die in de configuratie is gedefinieerd. Als deze para meter nul is of niet is opgegeven, bevat de opgevraagde query zoveel mogelijk resultaten die in het retour bericht passen. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-load"></a>sfctl laden
-Haalt informatie over een Service Fabric-toepassing te laden.
+## <a name="sfctl-application-load"></a>sfctl toepassings belasting
+Hiermee wordt informatie over het laden van een Service Fabric-toepassing opgehaald.
 
-Retourneert de load-informatie over de toepassing die is gemaakt of momenteel wordt gemaakt in de Service Fabric-cluster en waarvan de naam overeenkomt met de versie die is opgegeven als parameter. Het antwoord bevat de naam, minimum aantal knooppunten, maximum aantal knooppunten, het aantal knooppunten dat de toepassing is momenteel bezet en toepassing laden metrische gegevens over de toepassing.
+Retourneert de laad informatie over de toepassing die is gemaakt of in het proces dat wordt gemaakt in het Service Fabric cluster en waarvan de naam overeenkomt met de waarde die is opgegeven als de para meter. Het antwoord bevat de naam, het minimale knoop punt, het maximum aantal knoop punten, de knoop punten die de toepassing momenteel bewaart en de metrische gegevens van de toepassings belasting over de toepassing.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-manifest"></a>sfctl-toepassingsmanifest
-Hiermee haalt u het manifest met een beschrijving van een toepassingstype.
+## <a name="sfctl-application-manifest"></a>sfctl-toepassings manifest
+Hiermee wordt het manifest opgehaald dat een toepassings type beschrijft.
 
-Het antwoord bevat de XML-manifest van de toepassing als een tekenreeks.
+Het antwoord bevat de XML van het toepassings manifest als een teken reeks.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
-| --toepassing-type-versie (vereist) | De versie van het toepassingstype. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Application-type-name [required] | De naam van het toepassings type. |
+| --toepassings type-versie [vereist] | De versie van het toepassings type. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-provision"></a>sfctl toepassing inrichten
-Bepalingen of registers typt u een Service Fabric-toepassing met het cluster met behulp van het pakket .sfpkg in de externe opslag of het toepassingspakket in archief van de installatiekopie.
+## <a name="sfctl-application-provision"></a>sfctl-toepassings inrichting
+Hiermee wordt een Service Fabric toepassings type met het cluster ingericht of geregistreerd met behulp van het. sfpkg-pakket in de externe opslag of met behulp van het toepassings pakket in het archief met installatie kopieën.
 
-Richt een type Service Fabric-toepassing met het cluster. Dit is vereist voordat een nieuwe toepassingen kunnen worden gemaakt. De bewerking voor het inrichten kan worden uitgevoerd op het toepassingspakket dat is opgegeven door de relativePathInImageStore, of met behulp van de URI van de externe .sfpkg. Tenzij--externe inrichten is ingesteld, wordt met deze opdracht verwacht dat de installatiekopie store inrichten.
+Richt een Service Fabric toepassings type in met het cluster. Dit is vereist voordat er nieuwe toepassingen kunnen worden geïnstantieerd. De inrichtings bewerking kan worden uitgevoerd op het toepassings pakket dat is opgegeven door de relativePathInImageStore of door gebruik te maken van de URI van het externe. sfpkg. Tenzij--extern inrichten is ingesteld, wordt met deze opdracht de inrichting van het archief van de installatie kopie verwacht.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --application-package-download-uri | Het pad naar het toepassingspakket '.sfpkg' waaruit het toepassingspakket kan worden gedownload met behulp van HTTP of HTTPS-protocol. <br><br> Voor inrichten van het type externe opslaan alleen. Het toepassingspakket kan worden opgeslagen in een externe opslag waarmee GET-bewerking om het bestand te downloaden. Ondersteunde protocollen zijn HTTP en HTTPS en het pad moet leestoegang toestaan. |
-| ---type-build-pad naar toepassing | Voor alleen richten installatiekopie van het soort archief. Het relatieve pad voor het toepassingspakket in het archief van de installatiekopie opgegeven tijdens het uploaden van eerdere. |
-| --application-type-name | Voor inrichten van het type externe opslaan alleen. De naam van de toepassing type vertegenwoordigt de naam van het toepassingstype gevonden in het toepassingsmanifest. |
-| --versie-type-toepassing | Voor inrichten van het type externe opslaan alleen. De versie van het type toepassing geeft de versie van het toepassingstype gevonden in het toepassingsmanifest. |
-| --externe inrichten | De locatie waar toepassingspakket kan worden geregistreerd of ingericht. Geeft aan dat de levering van een toepassingspakket dat eerder is geüpload naar een externe opslag. Het toepassingspakket eindigt met de extensie *.sfpkg. |
-| --niet-wait | Geeft aan of inrichting asynchroon moet plaatsvinden. <br><br> Wanneer is ingesteld op true, de bewerking voor het inrichten wordt geretourneerd blijft wanneer de aanvraag is geaccepteerd door het systeem en de bewerking voor het inrichten zonder een time-outlimiet. De standaardwaarde is false. Voor grote toepassingpakketten raden wij de waarde wordt ingesteld op true. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassing-pakket-down load-URI | Het pad naar het toepassings pakket '. sfpkg ' waaruit het toepassings pakket kan worden gedownload met behulp van HTTP-of HTTPS-protocollen. <br><br> Alleen voor de externe opslag van het type inrichting. Het toepassings pakket kan worden opgeslagen in een externe opslag die GET-bewerking biedt om het bestand te downloaden. Ondersteunde protocollen zijn HTTP en HTTPS, en het pad moet lees toegang toestaan. |
+| --Application-type-Build-Path | Alleen voor de installatie kopie van het besturings systeem. Het relatieve pad voor het toepassings pakket in de installatie kopie opslag die is opgegeven tijdens de vorige upload bewerking. |
+| --toepassings type-naam | Alleen voor de externe opslag van het type inrichting. De naam van het toepassings type vertegenwoordigt de naam van het toepassings type dat in het toepassings manifest is gevonden. |
+| --toepassings type-versie | Alleen voor de externe opslag van het type inrichting. De versie van het toepassings type vertegenwoordigt de versie van het toepassings type dat in het toepassings manifest is gevonden. |
+| --extern inrichten | De locatie van waaruit het toepassings pakket kan worden geregistreerd of ingericht. Geeft aan dat de inrichting is voor een toepassings pakket dat eerder is geüpload naar een externe opslag. Het toepassings pakket eindigt met de extensie *. sfpkg. |
+| --geen wacht tijd | Hiermee wordt aangegeven of inrichting asynchroon moet worden uitgevoerd. <br><br> Als deze eigenschap is ingesteld op True, wordt de inrichtings bewerking geretourneerd wanneer de aanvraag wordt geaccepteerd door het systeem en wordt de inrichtings bewerking voortgezet zonder een time-outlimiet. De standaardwaarde is false. Voor grote toepassings pakketten kunt u het beste de waarde instellen op True. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-report-health"></a>sfctl toepassing rapport-en statusbewaking
-Verzendt een statusrapport over de Service Fabric-toepassing.
+## <a name="sfctl-application-report-health"></a>sfctl-toepassings rapport-status
+Hiermee verzendt u een status rapport op de Service Fabric-toepassing.
 
-Rapporteert de status van de opgegeven Service Fabric-toepassing. Het rapport moet de informatie over de oorzaak van de health-rapport en de eigenschap waarop dit apparaat is gerapporteerd bevatten. Het rapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Het rapport kan worden geaccepteerd door de gateway, maar geweigerd door de health store na extra validatie. Het rapport kan bijvoorbeeld afwijzen, de health store vanwege een ongeldige parameter, zoals een verouderde volgnummer. Status van de toepassing ophalen om te zien of het rapport in de health-store is toegepast, en controleer of het rapport wordt weergegeven.
+Hiermee wordt de status van de opgegeven Service Fabric toepassing gerapporteerd. Het rapport moet de informatie bevatten over de bron van het status rapport en de eigenschap waarvoor deze is gerapporteerd. Het rapport wordt verzonden naar een Service Fabric gateway-toepassing, die wordt doorgestuurd naar de Health Store. Het rapport kan worden geaccepteerd door de gateway, maar door de Health Store na een extra validatie afgewezen. Het Health Store kan bijvoorbeeld het rapport afwijzen vanwege een ongeldige para meter, zoals een verouderd volgorde nummer. Als u wilt zien of het rapport is toegepast in de Health Store, moet u de status van de toepassing ophalen en controleren of het rapport wordt weer gegeven.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. <br><br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id ' Mijntoep\~app1' in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --health-eigenschap (vereist) | De eigenschap van de gegevens over de servicestatus. <br><br> Een entiteit kan statusrapporten voor de verschillende eigenschappen hebben. De eigenschap is een tekenreeks en niet een vaste-opsomming waarmee de journalist flexibiliteit voor het categoriseren van de voorwaarde staat dat het rapport wordt geactiveerd. Bijvoorbeeld, een Rapportagefout met SourceId "LocalWatchdog" die de status van de beschikbare schijfruimte op een knooppunt kunt controleren, zodat deze eigenschap "AvailableDisk" op dat knooppunt rapporteren kunt. De dezelfde journalist kan het knooppunt-connectiviteit, bewaken, zodat het een eigenschap 'Connectiviteit' op hetzelfde knooppunt rapporteren kan. In de winkel de gezondheid van worden deze rapporten behandeld als afzonderlijke health-gebeurtenissen voor het opgegeven knooppunt. Samen met de bron-id identificatie de eigenschap unieke van de gegevens over de servicestatus. |
-| --status (vereist) | Mogelijke waarden zijn\: 'Ongeldige', 'Ok', 'Waarschuwing', 'Fout', 'Onbekend'. |
-| --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
-| --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --immediate | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
-| --remove-when-expired | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
-| --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. <br><br> Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het\~teken. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --status-Property [required] | De eigenschap van de status informatie. <br><br> Een entiteit kan status rapporten voor verschillende eigenschappen hebben. De eigenschap is een teken reeks en geen vaste inventarisatie om de flexibiliteit van de rapporter in te stellen voor het categoriseren van de status voorwaarde waarmee het rapport wordt geactiveerd. Zo kan een rapporter met SourceId "LocalWatchdog" de status van de beschik bare schijf op een knoop punt bewaken, zodat de eigenschap "AvailableDisk" op dat knoop punt kan worden gerapporteerd. Dezelfde rapportage functie kan de verbinding met het knoop punt bewaken, zodat een eigenschap ' connectiviteit ' op hetzelfde knoop punt kan worden gerapporteerd. In de Health Store worden deze rapporten behandeld als afzonderlijke status gebeurtenissen voor het opgegeven knoop punt. Samen met de SourceId wordt met de eigenschap een unieke identificatie van de status informatie aangeduid. |
+| --status (vereist) | Mogelijke waarden zijn\: ' Unknown ', ' OK ', ' warn ', ' error ', ' Unknown '. |
+| --bron-id [vereist] | De bron naam die het client/watchdog/systeem onderdeel identificeert dat de status informatie heeft gegenereerd. |
+| --Beschrijving | De beschrijving van de status informatie. <br><br> Hiermee wordt de vrije tekst aangegeven die wordt gebruikt om informatie over het rapport toe te voegen dat wordt gelezen. De maximale teken reeks lengte van de beschrijving is 4096 tekens. Als de gegeven teken reeks langer is, wordt deze automatisch afgekapt. Wanneer de laatste tekens van de beschrijving worden afgekapt, bevatten ze een markering [afgekapt] en de totale teken reeks grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers de afkap ping hebben plaatsgevonden. Houd er rekening mee dat de beschrijving kleiner is dan 4096 tekens uit de oorspronkelijke teken reeks. |
+| --Immediate | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een status rapport wordt verzonden naar een Service Fabric gateway-toepassing, die wordt doorgestuurd naar de Health Store. Als direct is ingesteld op True, wordt het rapport direct van de HTTP-gateway naar de Health Store verzonden, ongeacht de instellingen van de Fabric-client die door de HTTP-gateway toepassing worden gebruikt. Dit is handig voor kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voor waarden, kan het verzenden van het rapport nog steeds mislukken, bijvoorbeeld als de HTTP-gateway is gesloten of als het bericht de gateway niet bereikt. Als direct is ingesteld op False, wordt het rapport verzonden op basis van de status client instellingen van de HTTP-gateway. Daarom wordt deze batch gebaseerd op de HealthReportSendInterval-configuratie. Dit is de aanbevolen instelling omdat de Health-client de status rapport berichten kan optimaliseren naar Health Store en dat de status rapporten worden verwerkt. Standaard worden rapporten niet onmiddellijk verzonden. |
+| --remove-when-expired | Waarde die aangeeft of het rapport wordt verwijderd uit Health Store wanneer het is verlopen. <br><br> Als deze eigenschap is ingesteld op True, wordt het rapport verwijderd uit de Health Store nadat het is verlopen. Als deze eigenschap is ingesteld op False, wordt het rapport als een fout beschouwd wanneer het is verlopen. De waarde van deze eigenschap is standaard onwaar. Wanneer clients periodiek een rapport rapporteren, moeten ze RemoveWhenExpired False instellen (standaard). Op deze manier heeft de rapporter problemen (bijvoorbeeld deadlock) en kan het rapport niet worden gerapporteerd. de entiteit wordt geëvalueerd als er een fout optreedt wanneer het status rapport verloopt. Hiermee wordt de entiteit gemarkeerd als de fout status. |
+| --Volg nummer | Het Volg nummer voor dit status rapport als een numerieke teken reeks. <br><br> Het Volg nummer van het rapport wordt door de Health Store gebruikt voor het detecteren van verouderde rapporten. Als u niets opgeeft, wordt er automatisch een Volg nummer gegenereerd door de Health-client wanneer een rapport wordt toegevoegd. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
+| --ttl | De duur waarvoor dit status rapport geldig is. Dit veld maakt gebruik van de ISO8601-indeling voor het opgeven van de duur. <br><br> Wanneer clients periodiek rapporteren, moeten ze rapporten met een hogere frequentie verzenden dan live. Als clients rapporteren over overgang, kunnen ze de TTL-waarde (time to Live) instellen op oneindig. Wanneer time to Live verloopt, wordt de status gebeurtenis die de status informatie bevat verwijderd uit Health Store, als RemoveWhenExpired is ingesteld op True, of bij fout geëvalueerd als RemoveWhenExpired False is. Als u niets opgeeft, wordt de time-to-Live-waarde standaard ingesteld op oneindig. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-type"></a>sfctl toepassingstype
-Hiermee haalt u de lijst met typen in het Service Fabric-cluster die overeenkomt met precies de opgegeven naam.
+## <a name="sfctl-application-type"></a>sfctl-toepassings type
+Hiermee haalt u de lijst met toepassings typen in het Service Fabric cluster die overeenkomen met de opgegeven naam.
 
-Retourneert de gegevens over de soorten toepassingen die zijn ingericht of momenteel wordt ingericht in de Service Fabric-cluster. Deze resultaten zijn van de soorten toepassingen waarvan de naam overeenkomt met precies de opgegeven als de parameter en die voldoen aan de opgegeven queryparameters. Alle versies van het type van de toepassing die overeenkomt met de naam van de toepassing-type worden geretourneerd, met elke versie die wordt geretourneerd als een toepassingstype. Het antwoord bevat de naam, versie, status en andere informatie over het toepassingstype. Dit is een gepagineerde query, wat betekent dat als dat niet alle typen van de toepassing in een pagina passen wordt één pagina met resultaten geretourneerd en een vervolgtoken, die kan worden gebruikt om de volgende pagina. Bijvoorbeeld, wordt als er 10 toepassingstypen, maar een pagina past alleen de eerste drie typen, of als het maximum aantal resultaten is ingesteld op 3, klikt u vervolgens drie geretourneerd. Voor toegang tot de rest van de resultaten, de volgende pagina's met behulp van het geretourneerde vervolgtoken in de volgende query worden opgehaald. Een lege vervolgtoken geretourneerd als er geen volgende pagina's.
+Retourneert informatie over de toepassings typen die zijn ingericht of worden ingericht in het Service Fabric cluster. Deze resultaten zijn van toepassings typen waarvan de naam precies overeenkomt met de waarde die is opgegeven als de para meter, en die voldoet aan de opgegeven query parameters. Alle versies van het toepassings type die overeenkomen met de naam van het toepassings type worden geretourneerd, waarbij elke versie als één toepassings type wordt geretourneerd. Het antwoord bevat de naam, versie, status en andere informatie over het toepassings type. Dit is een pagina query, wat betekent dat als niet alle toepassings typen op een pagina passen, er één pagina met resultaten wordt geretourneerd, evenals een vervolg token, dat kan worden gebruikt om de volgende pagina op te halen. Als er bijvoorbeeld 10 toepassings typen zijn, maar een pagina alleen van toepassing is op de eerste drie toepassings typen, of als de maximum resultaten zijn ingesteld op 3, dan wordt er drie geretourneerd. Als u de rest van de resultaten wilt weer geven, haalt u de volgende pagina's op met behulp van het geretourneerde voortzettings token in de volgende query. Er wordt een leeg vervolg token geretourneerd als er geen volgende pagina's zijn.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
-| --versie-type-toepassing | De versie van het toepassingstype. |
-| --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --exclude-application-parameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
-| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Application-type-name [required] | De naam van het toepassings type. |
+| --toepassings type-versie | De versie van het toepassings type. |
+| --vervolg token | De vervolg token parameter wordt gebruikt om de volgende set resultaten op te halen. Een vervolg token met een niet-lege waarde wordt opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt door gegeven aan de volgende API-aanroep, retourneert de API de volgende set resultaten. Als er geen verdere resultaten zijn, bevat het vervolg token geen waarde. De waarde van deze para meter mag geen URL-code ring zijn. |
+| --exclude-Application-para meters | De vlag waarmee wordt opgegeven of toepassings parameters worden uitgesloten van het resultaat. |
+| --max-results | Het maximum aantal resultaten dat moet worden geretourneerd als onderdeel van de query's in de pagina. Met deze para meter wordt de bovengrens gedefinieerd voor het aantal geretourneerde resultaten. De geretourneerde resultaten kunnen kleiner zijn dan de opgegeven maximum resultaten als ze niet in het bericht passen conform de maximale grootte van de berichten die in de configuratie is gedefinieerd. Als deze para meter nul is of niet is opgegeven, bevat de opgevraagde query zoveel mogelijk resultaten die in het retour bericht passen. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-type-list"></a>sfctl-lijst van toepassing
-Hiermee haalt de lijst met typen in het Service Fabric-cluster.
+## <a name="sfctl-application-type-list"></a>sfctl-toepassings type-lijst
+Hiermee haalt u de lijst met toepassings typen op in het Service Fabric cluster.
 
-Retourneert de gegevens over de soorten toepassingen die zijn ingericht of momenteel wordt ingericht in de Service Fabric-cluster. Elke versie van een toepassingstype wordt geretourneerd als een toepassingstype. Het antwoord bevat de naam, versie, status en andere informatie over het toepassingstype. Dit is een gepagineerde query, wat betekent dat als dat niet alle typen van de toepassing in een pagina passen wordt één pagina met resultaten geretourneerd en een vervolgtoken, die kan worden gebruikt om de volgende pagina. Bijvoorbeeld, wordt als er 10 toepassingstypen, maar een pagina past alleen de eerste drie typen, of als het maximum aantal resultaten is ingesteld op 3, klikt u vervolgens drie geretourneerd. Voor toegang tot de rest van de resultaten, de volgende pagina's met behulp van het geretourneerde vervolgtoken in de volgende query worden opgehaald. Een lege vervolgtoken geretourneerd als er geen volgende pagina's.
+Retourneert informatie over de toepassings typen die zijn ingericht of worden ingericht in het Service Fabric cluster. Elke versie van een toepassings type wordt geretourneerd als één toepassings type. Het antwoord bevat de naam, versie, status en andere informatie over het toepassings type. Dit is een pagina query, wat betekent dat als niet alle toepassings typen op een pagina passen, er één pagina met resultaten wordt geretourneerd, evenals een vervolg token, dat kan worden gebruikt om de volgende pagina op te halen. Als er bijvoorbeeld 10 toepassings typen zijn, maar een pagina alleen van toepassing is op de eerste drie toepassings typen, of als de maximum resultaten zijn ingesteld op 3, dan wordt er drie geretourneerd. Als u de rest van de resultaten wilt weer geven, haalt u de volgende pagina's op met behulp van het geretourneerde voortzettings token in de volgende query. Er wordt een leeg vervolg token geretourneerd als er geen volgende pagina's zijn.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --toepassing-type-definition-type-filter | Gebruikt om te filteren op ApplicationTypeDefinitionKind dit is het mechanisme dat wordt gebruikt voor het definiëren van een type Service Fabric-toepassing.  <br> -Standaard - standaardwaarde, die dezelfde functie als 'Alle' selecteren. De waarde is 0.  <br> -Alle - filteren die overeenkomt met de invoer met een willekeurige waarde ApplicationTypeDefinitionKind. De waarde is 65535.  <br> -ServiceFabricApplicationPackage - Filter op dat overeenkomt met de invoer met ApplicationTypeDefinitionKind waarde ServiceFabricApplicationPackage. De waarde is 1.  <br> -Compose - Filter op dat overeenkomt met de invoer met ApplicationTypeDefinitionKind waarde opstellen. De waarde is 2. |
-| --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --exclude-application-parameters | De vlag die aangeeft of de parameters voor de toepassing, worden uitgesloten van het resultaat. |
-| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassing-Type-Definition-type-filter | Wordt gebruikt om te filteren op ApplicationTypeDefinitionKind. Dit is het mechanisme dat wordt gebruikt om een Service Fabric toepassings type te definiëren.  <br> -Standaard-standaard waarde, waarmee dezelfde functie wordt uitgevoerd als bij het selecteren van ' alle '. De waarde is 0.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van ApplicationTypeDefinitionKind. De waarde is 65535.  <br> -ServiceFabricApplicationPackage-filter dat overeenkomt met de invoer met de ApplicationTypeDefinitionKind-waarde ServiceFabricApplicationPackage. De waarde is 1.  <br> -Samengesteld filter dat overeenkomt met de invoer met ApplicationTypeDefinitionKind-waarde opstellen. De waarde is 2. |
+| --vervolg token | De vervolg token parameter wordt gebruikt om de volgende set resultaten op te halen. Een vervolg token met een niet-lege waarde wordt opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt door gegeven aan de volgende API-aanroep, retourneert de API de volgende set resultaten. Als er geen verdere resultaten zijn, bevat het vervolg token geen waarde. De waarde van deze para meter mag geen URL-code ring zijn. |
+| --exclude-Application-para meters | De vlag waarmee wordt opgegeven of toepassings parameters worden uitgesloten van het resultaat. |
+| --max-results | Het maximum aantal resultaten dat moet worden geretourneerd als onderdeel van de query's in de pagina. Met deze para meter wordt de bovengrens gedefinieerd voor het aantal geretourneerde resultaten. De geretourneerde resultaten kunnen kleiner zijn dan de opgegeven maximum resultaten als ze niet in het bericht passen conform de maximale grootte van de berichten die in de configuratie is gedefinieerd. Als deze para meter nul is of niet is opgegeven, bevat de opgevraagde query zoveel mogelijk resultaten die in het retour bericht passen. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-unprovision"></a>sfctl application unprovision
-Hiermee verwijdert u of de registratie van een type Service Fabric-toepassing uit het cluster.
+## <a name="sfctl-application-unprovision"></a>toewijzing van sfctl-toepassing ongedaan maken
+Hiermee verwijdert of maakt u de registratie van een Service Fabric toepassings type van het cluster ongedaan.
 
-Deze bewerking kan alleen worden uitgevoerd als alle toepassingsexemplaren van het type zijn verwijderd. Zodra het toepassingstype ongedaan is gemaakt, kunnen er geen nieuwe toepassingsexemplaren worden gemaakt voor dit type bepaalde toepassing.
+Deze bewerking kan alleen worden uitgevoerd als alle toepassings exemplaren van het toepassings type zijn verwijderd. Zodra het toepassings type niet is geregistreerd, kunnen er geen nieuwe toepassings exemplaren voor dit specifieke toepassings type worden gemaakt.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
-| --toepassing-type-versie (vereist) | De versie van het toepassingstype zoals gedefinieerd in het toepassingsmanifest. |
-| --async-parameter | De vlag die aangeeft of unprovision asynchroon moet worden uitgevoerd. Wanneer is ingesteld op true, de bewerking unprovision wordt geretourneerd blijft wanneer de aanvraag is geaccepteerd op het systeem en de bewerking unprovision zonder een time-outlimiet. De standaardwaarde is false. We raden echter aan instellen op true voor grote toepassingspakketten die zijn ingericht. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Application-type-name [required] | De naam van het toepassings type. |
+| --toepassings type-versie [vereist] | De versie van het toepassings type zoals gedefinieerd in het manifest van de toepassing. |
+| --async-parameter | De vlag waarmee wordt aangegeven of het ongedaan maken van de inrichting asynchroon moet plaatsvinden. Als deze eigenschap is ingesteld op True, wordt de bewerking voor het ongedaan maken van de inrichting geretourneerd wanneer de aanvraag door het systeem wordt geaccepteerd en wordt de inrichtings bewerking voortgezet zonder enige time-outlimiet. De standaardwaarde is false. We raden u echter aan deze in te stellen op True voor grote toepassings pakketten die zijn ingericht. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-upgrade"></a>sfctl toepassingsupgrade
-Hiermee start u een upgrade van een toepassing in de Service Fabric-cluster.
+## <a name="sfctl-application-upgrade"></a>sfctl-toepassings upgrade
+Hiermee wordt een toepassing in het Service Fabric cluster bijgewerkt.
 
-Evalueert de opgegeven parameters toepassingsupgrade en begint met bijwerken van de toepassing als de parameters geldig zijn. Houd er rekening mee dat upgrade beschrijving de beschrijving van de bestaande toepassing vervangt. Dit betekent dat als de parameters niet opgegeven zijn, de bestaande parameters op de toepassingen wordt overschreven met de lijst met lege parameters. Dit zou leiden tot de toepassing met behulp van de standaardwaarde van de parameters van het toepassingsmanifest.
+Valideert de opgegeven para meters voor de toepassings upgrade en begint met de upgrade van de toepassing als de para meters geldig zijn. Houd er rekening mee dat de beschrijving van de upgrade de bestaande toepassings beschrijving vervangt. Dit betekent dat als de para meters niet zijn opgegeven, de bestaande para meters voor de toepassingen worden overschreven door de lege parameter lijst. Dit zou ertoe leiden dat de toepassing de standaard waarde van de para meters uit het toepassings manifest gebruikt.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. <br><br> Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --toepassingsversie (vereist) | De toepassing type doelversie (gevonden in het toepassingsmanifest) voor de upgrade van de toepassing. |
-| --parameters (vereist) | Een lijst met JSON gecodeerd van de parameter van de toepassing onderdrukt bij het upgraden van de toepassing moet worden toegepast. |
-| ---service-health-standaardbeleid | JSON gecodeerd specificatie van het statusbeleid gebruikt standaard voor het evalueren van de status van een servicetype. |
-| --actie bij fout | De actie om uit te voeren wanneer de upgrade van een gecontroleerde controle beleidsschendingen voor beleid of de status. |
-| --force-restart | Start processen geforceerd opnieuw tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd. |
-| --health-controle-nieuwe poging-timeout | De hoeveelheid tijd tussen pogingen tot het uitvoeren van statuscontroles als de toepassing of het cluster niet in orde is.  Standaard\: PT0H10M0S. |
-| --health check-stabiele duur | De hoeveelheid tijd dat de toepassing of het cluster moet in orde blijft voordat de upgrade wordt uitgevoerd op het volgende upgradedomein.  Standaard\: PT0H2M0S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --health-check-wait-duration | De hoeveelheid tijd moet wachten na het voltooien van een upgradedomein voordat u begint met de status controleert proces.  Standaard\: 0. |
-| --max-niet in orde-apps | De maximaal toegestane percentage van de beschadigde geïmplementeerde toepassingen. Weergegeven als een getal tussen 0 en 100 liggen. |
-| --mode | De modus status gecontroleerd tijdens een rolling upgrade.  Standaard\: UnmonitoredAuto. |
-| --replica-set-check-timeout | De maximale hoeveelheid tijd voor het verwerken van een upgradedomein blokkeren en voorkom het verlies van beschikbaarheid wanneer er onverwachte problemen zijn. Gemeten in seconden. |
-| --health-service-beleid | JSON gecodeerd kaart met het service type statusbeleid per service-typenaam. De kaart is leeg worden standaard. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --upgrade-domein-time-out | De hoeveelheid tijd elk upgradedomein is voltooid voordat FailureAction wordt uitgevoerd.  Standaard\: P10675199DT02H48M05.4775807S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --upgrade-time-out | De hoeveelheid tijd de algehele upgrade is voltooid voordat FailureAction wordt uitgevoerd.  Standaard\: P10675199DT02H48M05.4775807S. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --warning-as-error | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. <br><br> Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --toepassing-versie [vereist] | De versie van het doel toepassings type (gevonden in het manifest van de toepassing) voor de upgrade van de toepassing. |
+| --para meters [vereist] | Een JSON-gecodeerde lijst van toepassings parameters onderdrukkingen die moeten worden toegepast bij het upgraden van de toepassing. |
+| --standaard-service-status-beleid | JSON-gecodeerde specificatie van het status beleid dat standaard wordt gebruikt om de status van een service type te evalueren. |
+| --fout-actie | De actie die moet worden uitgevoerd wanneer een bewaakte upgrade het bewakings beleid of schendingen van het status beleid tegen komt. |
+| --Force-restart | Processen geforceerd opnieuw opstarten tijdens de upgrade, zelfs wanneer de code versie niet is gewijzigd. |
+| --status-check-retry-time-out | De tijds duur tussen pogingen om status controles uit te voeren als de toepassing of het cluster niet in orde is.  Standaard\: PT0H10M0S. |
+| --status-controle: stabiel-duur | De hoeveelheid tijd die de toepassing of het cluster in orde moet blijven voordat de upgrade wordt voortgezet naar het volgende upgrade domein.  Standaard\: PT0H2M0S. <br><br> Het wordt eerst geïnterpreteerd als een teken reeks die een ISO 8601-duur vertegenwoordigt. Als dat mislukt, wordt dit geïnterpreteerd als een getal dat het totale aantal milliseconden aangeeft. |
+| --status-controleren-wacht tijd | De tijds duur die moet worden gewacht na het volt ooien van een upgrade domein voordat het proces status controles wordt gestart.  Standaard\: waarde is 0. |
+| --Max-slechte status-apps | Het Maxi maal toegestane percentage van beschadigde geïmplementeerde toepassingen. Wordt weer gegeven als een getal tussen 0 en 100. |
+| --modus | De modus die wordt gebruikt om de status te controleren tijdens een rolling upgrade.  Standaard\: UnmonitoredAuto. |
+| --replica-set-check-timeout | De maximale tijds duur voor het blok keren van de verwerking van een upgrade domein en het voor komen van Beschik baarheid wanneer er onverwachte problemen zijn. Gemeten in seconden. |
+| --service-status-beleid | JSON-gecodeerde toewijzing met status beleid van Service type per service type naam. De kaart is standaard leeg. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
+| --upgrade-time-out van domein | De hoeveelheid tijd die elk upgrade domein moet volt ooien voordat FailureAction wordt uitgevoerd.  Standaard\: p10675199dt02h48m 05.4775807 s. <br><br> Het wordt eerst geïnterpreteerd als een teken reeks die een ISO 8601-duur vertegenwoordigt. Als dat mislukt, wordt dit geïnterpreteerd als een getal dat het totale aantal milliseconden aangeeft. |
+| --upgrade-time-out | De hoeveelheid tijd die de algehele upgrade moet volt ooien voordat FailureAction wordt uitgevoerd.  Standaard\: p10675199dt02h48m 05.4775807 s. <br><br> Het wordt eerst geïnterpreteerd als een teken reeks die een ISO 8601-duur vertegenwoordigt. Als dat mislukt, wordt dit geïnterpreteerd als een getal dat het totale aantal milliseconden aangeeft. |
+| --waarschuwing-als-fout | Hiermee wordt aangegeven of waarschuwingen worden behandeld met dezelfde ernst als bij fouten. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-upgrade-resume"></a>sfctl application upgrade-hervatten
-Hervat een upgrade van een toepassing in de Service Fabric-cluster.
+## <a name="sfctl-application-upgrade-resume"></a>sfctl-toepassings upgrade-hervatten
+Hiermee wordt de upgrade van een toepassing in het Service Fabric cluster hervat.
 
-Hervat een niet-bewaakte handmatige Service Fabric-toepassing upgraden. Service Fabric wordt één upgradedomein tegelijk bijgewerkt. Voor niet-bewaakte handmatige upgrades, nadat een upgradedomein klaar is met Service Fabric wacht kunt u deze API voordat u doorgaat aanroepen naar het volgende upgradedomein.
+Hiermee wordt een niet-bewaakte hand matige Service Fabric-toepassings upgrade hervat. Service Fabric één upgrade domein per keer bijwerken. Voor niet-bewaakte hand matige upgrades moet u nadat Service Fabric een upgrade domein hebt voltooid, wachten tot u deze API aanroept voordat u doorgaat met het volgende upgrade domein.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --upgrade-domain-name (vereist) | De naam van het upgradedomein waarin u kunt doorgaan met de upgrade. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --upgrade-domein naam [vereist] | De naam van het upgrade domein waarin de upgrade moet worden hervat. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-upgrade-rollback"></a>sfctl application upgrade-terugdraaien
-Start het terugdraaien van de momenteel continue upgrade van een toepassing in de Service Fabric-cluster.
+## <a name="sfctl-application-upgrade-rollback"></a>sfctl-toepassings upgrade-terugdraai actie
+De huidige doorlopende upgrade van een toepassing in het Service Fabric cluster wordt teruggezet.
 
-Terugdraaien van de huidige toepassing wordt gestart upgraden naar de vorige versie. Deze API kan alleen worden gebruikt voor het terugdraaien van de huidige upgrade wordt uitgevoerd die doorsturen naar de nieuwe versie is beschikbaar. StartApplicationUpgrade API te upgraden naar de gewenste versie, waaronder terugdraaien naar een eerdere versie gebruiken als de toepassing op dit moment niet worden bijgewerkt.
+De vorige versie van de upgrade van de huidige toepassing wordt teruggezet. Deze API kan alleen worden gebruikt voor het terugdraaien van de huidige actieve upgrade naar de nieuwe versie. Als de toepassing momenteel niet wordt bijgewerkt, gebruikt u de StartApplicationUpgrade-API om deze te upgraden naar de gewenste versie, met inbegrip van een vorige versie.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-application-upgrade-status"></a>sfctl application upgrade-status
-Hiermee haalt details voor de meest recente upgrade uitgevoerd voor deze toepassing.
+## <a name="sfctl-application-upgrade-status"></a>sfctl-toepassings upgrade-status
+Hiermee worden gegevens opgehaald voor de laatste upgrade die op deze toepassing is uitgevoerd.
 
-Retourneert informatie over de status van de upgrade van de meest recente toepassing, samen met details kunnen helpen een foutopsporing statusproblemen van toepassing.
+Retourneert informatie over de status van de nieuwste toepassings upgrade, samen met Details voor hulp bij het oplossen van problemen met de status van toepassingen.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 ## <a name="sfctl-application-upload"></a>sfctl toepassing uploaden
-Een Service Fabric-toepassingspakket kopiëren naar de installatiekopieopslag.
+Kopieer een Service Fabric toepassings pakket naar de archief met installatie kopieën.
 
-(Optioneel) van de uploadvoortgang voor elk bestand in het pakket weergeven. Uploaden wordt uitgevoerd, wordt verzonden naar `stderr`.
+Hier kunt u de voortgang van het uploaden weer geven voor elk bestand in het pakket. De voortgang van het uploaden `stderr`wordt verzonden naar.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --pad (vereist) | Pad naar lokale toepassingspakket. |
-| --imagestore-tekenreeks | De installatiekopie van doel opslaan om het toepassingspakket te te uploaden.  Standaard\: fabric\:ImageStore. |
-| --show-progress | Bestand uploadvoortgang voor grote pakketten weergeven. |
+| --pad [vereist] | Pad naar het lokale toepassings pakket. |
+| --installatie kopie opslag-teken reeks | Archief van de doel installatie kopie waarnaar het toepassings pakket moet worden geüpload.  Standaard\: installatie kopie opslag\:voor de infra structuur. |
+| --voortgang weer geven | Voortgang van uploaden van bestanden voor grote pakketten weer geven. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Setup](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

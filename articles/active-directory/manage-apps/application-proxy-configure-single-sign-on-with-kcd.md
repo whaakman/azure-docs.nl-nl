@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 08/13/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab378fe1e06de49df0fe6481a1aa475d426648dc
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859626"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032570"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Beperkte Kerberos-delegering voor single sign-on bij uw apps met Application Proxy
 
@@ -30,15 +30,15 @@ U kunt eenmalige aanmelding bieden voor on-premises toepassingen worden gepublic
 U kunt eenmalige aanmelding inschakelen voor uw toepassingen met behulp van geïntegreerde Windows-verificatie (IWA) door middel van een Application Proxy connectors machtiging in Active Directory gebruikers te imiteren. De connectors gebruiken deze machtiging om te verzenden en ontvangen van tokens in hun naam.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Hoe eenmalige aanmelding met KCD werkt
-In dit diagram wordt de stroom uitgelegd wanneer een gebruiker probeert te krijgen tot een op lokale toepassing die gebruikmaakt van IWA.
+In dit diagram wordt de stroom uitgelegd wanneer een gebruiker toegang probeert te krijgen tot een on-premises toepassing die gebruikmaakt van IWA.
 
 ![Stroomdiagram van Microsoft AAD-verificatie](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. De gebruiker voert de URL voor toegang tot de on-premises-toepassing via Application Proxy.
+1. De gebruiker voert de URL in voor toegang tot de on-premises toepassing via de toepassings proxy.
 2. Application Proxy stuurt de aanvraag naar Azure AD authentication-services kunnen worden. Azure AD van toepassing op dit moment voor alle van toepassing verificatie en autorisatiebeleid, zoals meervoudige verificatie. Als de gebruiker is gevalideerd, wordt Azure AD wordt een token gemaakt en verzendt ze naar de gebruiker.
 3. De gebruiker wordt het token doorgegeven aan Application Proxy.
-4. Toepassingsproxy valideert het token en de User Principal Name (UPN) opgehaald uit het, en vervolgens de Connector haalt de UPN en de Service SPN (Principal Name) via een beveiligd kanaal voor zowel geverifieerde.
-5. De Connector wordt Kerberos-beperkte delegatie (KCD)-onderhandeling met de on-premises AD, het imiteren van de gebruiker om op te halen van een Kerberos-token naar de toepassing uitgevoerd.
+4. De toepassings proxy valideert het token en haalt de UPN (User Principal Name) van de toepassing op, waarna de connector de UPN en de SPN (Service Principal Name) ophaalt via een dubbel geverifieerd beveiligd kanaal.
+5. De connector voert onderhandelingen met Kerberos-beperkte delegering (KCD) uit met de on-premises AD en imiteert de gebruiker om een Kerberos-token aan de toepassing te krijgen.
 6. Active Directory, verzendt de Kerberos-token voor de toepassing naar de Connector.
 7. De Connector verzendt de oorspronkelijke aanvraag naar de application server, met behulp van het Kerberos-token dat het ontvangen van AD.
 8. De toepassing stuurt het antwoord op de Connector, die vervolgens wordt geretourneerd naar de Application Proxy-service en ten slotte naar de gebruiker.
@@ -59,7 +59,7 @@ De Active Directory-configuratie varieert, afhankelijk van of de toepassingsserv
 2. Selecteer de server waarop de connector wordt uitgevoerd.
 3. Met de rechtermuisknop op en selecteer **eigenschappen** > **delegering**.
 4. Selecteer **deze computer mag alleen aan opgegeven services delegeren**. 
-5. Selecteer **elk verificatieprotocol gebruiken**.
+5. Selecteer **elk verificatie protocol gebruiken**.
 6. Onder **Services waarop dit account gedelegeerde referenties kan presenteren** de waarde voor de identiteit van de SPN-naam van de toepassingsserver toevoegen. Hierdoor kunnen de Connector voor toepassingsproxy te imiteren van gebruikers in AD op basis van de toepassingen die zijn gedefinieerd in de lijst.
 
    ![Schermafbeelding van de eigenschappen van de connector-Server-venster](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
@@ -76,7 +76,7 @@ Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateTo
 Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 ```
 
-`sharepointserviceaccount` mag het computeraccount SP's of een service-account waarmee de app-pool van SP's wordt uitgevoerd.
+`sharepointserviceaccount`Dit kan het SPS-computer account zijn of een service account waaronder de SPS-app-pool wordt uitgevoerd.
 
 ## <a name="configure-single-sign-on"></a>Eenmalige aanmelding configureren 
 1. Publiceer de toepassing op basis van de instructies die worden beschreven [publiceren van toepassingen met toepassingsproxy](application-proxy-add-on-premises-application.md). Zorg ervoor dat u selecteert **Azure Active Directory** als de **vooraf-verificatie methode**.
@@ -112,14 +112,14 @@ Zie voor meer informatie over Kerberos, [alle u wilt weten over Kerberos-beperkt
 Niet-Windows-apps doorgaans gebruiker gebruikersnamen of namen van de SAM-account in plaats van dat e-mailadressen. Als deze situatie is van toepassing op uw toepassingen, moet u de gedelegeerde login ID-veld voor de verbinding van uw cloud-identiteiten met de identiteiten van uw toepassing configureren. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Werken met verschillende on-premises en cloud-identiteiten
-De toepassingsproxy wordt ervan uitgegaan dat gebruikers dezelfde identiteit in de cloud en on-premises. Als dat niet het geval is, kunt u nog steeds KCD gebruiken voor eenmalige aanmelding. Configureer een **gedelegeerde Aanmeldingsidentiteit** voor elke toepassing om op te geven welke identiteit moet worden gebruikt bij het uitvoeren van eenmalige aanmelding.  
+De toepassingsproxy wordt ervan uitgegaan dat gebruikers dezelfde identiteit in de cloud en on-premises. Maar in sommige omgevingen, vanwege bedrijfs beleid of toepassings afhankelijkheden, moeten organisaties wellicht alternatieve Id's gebruiken om zich aan te melden. In dergelijke gevallen kunt u KCD nog steeds gebruiken voor eenmalige aanmelding. Configureer een **gedelegeerde Aanmeldingsidentiteit** voor elke toepassing om op te geven welke identiteit moet worden gebruikt bij het uitvoeren van eenmalige aanmelding.  
 
 Op deze manier kunt veel organisaties die beschikken over verschillende on-premises en cloud-identiteiten voor eenmalige aanmelding vanuit de cloud naar on-premises toepassingen zonder de gebruikers verschillende gebruikersnamen en wachtwoorden in te voeren. Dit omvat organisaties die:
 
 * Hebt u meerdere domeinen intern (joe@us.contoso.com, joe@eu.contoso.com) en één domein in de cloud (joe@contoso.com).
 * Niet-routeerbare domeinnaam intern hebben (joe@contoso.usa) en een juridische in de cloud.
 * Domeinnamen niet intern gebruiken (Jaap)
-* Gebruik verschillende aliassen on-premises en in de cloud. Bijvoorbeeld, joe-johns@contoso.com vs. joej@contoso.com  
+* Gebruik verschillende aliassen on-premises en in de Cloud. Bijvoorbeeld, joe-johns@contoso.com vs. joej@contoso.com  
 
 Met Application Proxy, kunt u selecteren welke identiteit gebruiken om op te halen van het Kerberos-ticket. Deze instelling is per toepassing. Sommige van deze opties zijn geschikt voor systemen die e-mailindeling niet accepteert, anderen zijn ontworpen voor de alternatieve aanmelding.
 

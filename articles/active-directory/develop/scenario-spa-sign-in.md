@@ -1,6 +1,6 @@
 ---
-title: Toepassing met één pagina (aanmelden) - Microsoft identity-platform
-description: Informatie over het bouwen van een toepassing met één pagina (aanmelden)
+title: Toepassing met één pagina (aanmelden)-micro soft Identity-platform
+description: Meer informatie over het maken van een toepassing met één pagina (aanmelden)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,42 +17,42 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc9c46ae28960387e6f8efc1ade20afa1c77ef55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bf614a5523e78fc72918db973ef8d738a171fff
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138790"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031785"
 ---
-# <a name="single-page-application---sign-in"></a>Single-page toepassing - aanmelding
+# <a name="single-page-application---sign-in"></a>Toepassing met één pagina-aanmelden
 
-Informatie over het aanmelden toevoegen aan de code voor uw toepassing met één pagina.
+Meer informatie over het toevoegen van een aanmelding aan de code voor uw toepassing met één pagina.
 
-Voordat u tokens voor toegang tot API's in uw toepassing krijgen kan, moet u de context van een geverifieerde gebruiker. U kunt gebruikers aanmelden bij uw toepassing in MSAL.js op twee manieren:
+Voordat u tokens kunt ophalen voor toegang tot Api's in uw toepassing, hebt u een geverifieerde gebruikers context nodig. U kunt op twee manieren gebruikers aan uw toepassing aanmelden in MSAL. js:
 
-* [Meld u aan met een pop-upvenster](#sign-in-with-a-pop-up-window) met behulp van `loginPopup` methode
-* [Meld u aan met omleiden](#sign-in-with-redirect) met behulp van `loginRedirect` methode
+* [Meld u aan met een pop-](#sign-in-with-a-pop-up-window) upvenster `loginPopup` met behulp van de methode
+* [Meld u aan met](#sign-in-with-redirect) de `loginRedirect` methode Redirect using
 
-U kunt eventueel ook de bereiken van de API's die u de gebruiker moet om toestemming op het moment van aanmelding doorgeven.
+U kunt eventueel ook de scopes door geven van de Api's waarvoor u de gebruiker om toestemming moet vragen op het moment dat u zich aanmeldt.
 
 > [!NOTE]
-> Als uw toepassing al toegang tot een geverifieerde gebruikerscontext of een id heeft-token, kunt u de aanmeldings-stap overslaan en tokens rechtstreeks te verkrijgen. Zie voor meer informatie, [eenmalige aanmelding zonder aanmelding msal.js](msal-js-sso.md#sso-without-msaljs-login).
+> Als uw toepassing al toegang heeft tot een geverifieerde gebruikers context of id-token, kunt u de aanmeldings stap overs Laan en de tokens rechtstreeks ophalen. Zie [SSO zonder msal. js login](msal-js-sso.md#sso-without-msaljs-login)(Engelstalig) voor meer informatie.
 
-## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Kiezen tussen een pop-upvenster- of omleidings-ervaring
+## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Kiezen tussen een pop-up-of omleidings ervaring
 
-U kunt een combinatie van methoden met het pop-upvenster en de omleidings-niet gebruiken in uw toepassing. De keuze tussen een pop-upvenster- of omleidings-ervaring, is afhankelijk van de stroom van uw toepassing.
+U kunt geen combi natie van zowel de pop-up-als omleidings methoden in uw toepassing gebruiken. De keuze tussen een pop-up-of omleidings ervaring is afhankelijk van uw toepassings stroom.
 
-* Als u niet dat de gebruiker wilt verlaat de pagina van uw hoofdtoepassing tijdens de verificatie, is het raadzaam om de pop-methoden te gebruiken. Omdat de verificatie-omleiding in een pop-upvenster gebeurt, wordt de status van de hoofdtoepassing behouden.
+* Als u niet wilt dat de gebruiker tijdens de verificatie naar de hoofd pagina van de toepassing navigeert, is het raadzaam om de pop-upmethode te gebruiken. Omdat de verificatie omleiding plaatsvindt in een pop-upvenster, blijft de status van de hoofd toepassing behouden.
 
-* Er zijn bepaalde gevallen waarin u mogelijk de omleidings-methoden te gebruiken. Als gebruikers van uw toepassing hebt browser beperkingen of beleid waarbij windows pop-ups zijn uitgeschakeld, kunt u de omleidings-methoden. De omleidings-methoden gebruiken met Internet Explorer-browser, omdat er bepaalde zijn [bekende problemen met Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) bij het verwerken van pop-upvensters.
+* Er zijn bepaalde gevallen waarin u mogelijk de omleidings methoden moet gebruiken. Als gebruikers van uw toepassing browser beperkingen of-beleid hebben waarin pop-ups Windows zijn uitgeschakeld, kunt u de omleidings methoden gebruiken. Gebruik de omleidings methoden met Internet Explorer browser omdat er bepaalde [bekende problemen met Internet Explorer optreden](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) bij het verwerken van pop-upvensters.
 
-## <a name="sign-in-with-a-pop-up-window"></a>Meld u aan met een pop-upvenster
+## <a name="sign-in-with-a-pop-up-window"></a>Aanmelden met een pop-upvenster
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 ```javascript
 const loginRequest = {
-    scopes: ["user.read", "user.write"]
+    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
 }
 
 userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
@@ -66,7 +66,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 
 ### <a name="angular"></a>Angular
 
-De MSAL Angular-wrapper kunt u specifieke routes in uw toepassing te beveiligen door alleen toe te voegen de `MsalGuard` aan de definitie van de route. Deze guard roept de methode aan te melden wanneer die route wordt geopend.
+Met de MSAL-hoek wrapper kunt u specifieke routes in uw toepassing beveiligen door simpelweg `MsalGuard` de definitie aan de route toe te voegen. Deze Guard roept de-methode aan om u aan te melden wanneer de route wordt geopend.
 
 ```javascript
 // In app.routes.ts
@@ -78,7 +78,7 @@ De MSAL Angular-wrapper kunt u specifieke routes in uw toepassing te beveiligen 
   { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
 ```
 
-Inschakelen voor een ervaring pop-upvenster de `popUp` config-optie. U kunt ook de bereiken waarvoor toestemming als volgt doorgeven:
+Schakel de `popUp` configuratie optie in voor een pop-upvenster. U kunt ook de volgende bereiken door geven die toestemming nodig heeft:
 
 ```javascript
 //In app.module.ts
@@ -86,16 +86,16 @@ Inschakelen voor een ervaring pop-upvenster de `popUp` config-optie. U kunt ook 
   imports: [ MsalModule.forRoot({
                 clientID: 'your_app_id',
                 popUp: true,
-                consentScopes: ["user.read", "user.write"]
+                consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
             })]
          })
 ```
 
-## <a name="sign-in-with-redirect"></a>Meld u aan met-omleiding
+## <a name="sign-in-with-redirect"></a>Aanmelden met omleiding
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
-De omleidings-methoden retourneren een promise vanwege de navigatie van de belangrijkste app niet. Om te verwerken en toegang tot de geretourneerde tokens, moet u succes- en callbacks registreren voordat u de omleidings-methoden aanroept.
+De omleidings methoden retour neren geen belofte als gevolg van de navigatie weg van de hoofd-app. Als u de geretourneerde tokens wilt verwerken en openen, moet u geslaagde en fout-Call backs registreren voordat u de omleidings methoden aanroept.
 
 ```javascript
 function authCallback(error, response) {
@@ -105,7 +105,7 @@ function authCallback(error, response) {
 userAgentApplication.handleRedirectCallback(authCallback);
 
 const loginRequest = {
-    scopes: ["user.read", "user.write"]
+    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
 }
 
 userAgentApplication.loginRedirect(loginRequest);
@@ -113,18 +113,18 @@ userAgentApplication.loginRedirect(loginRequest);
 
 ### <a name="angular"></a>Angular
 
-Hier de code is hetzelfde als bij het aanmelden bij een sectie pop-upvenster hierboven wordt beschreven. De standaard-stroom is omleiden.
+De code die hier wordt beschreven, is hetzelfde als hierboven vermeld in de sectie aanmelden met een pop-upvenster. De standaard stroom wordt omgeleid.
 
 > [!NOTE]
-> De ID-token bevat niet de toegestane bereiken en alleen vertegenwoordigt de geverifieerde gebruiker. De toegestane bereiken worden geretourneerd in het toegangstoken dat u, in de volgende stap aanschaft wordt.
+> Het ID-token bevat niet de toegestane bereiken en vertegenwoordigt alleen de geverifieerde gebruiker. De toegestane bereiken worden geretourneerd in het toegangs token dat u in de volgende stap gaat ophalen.
 
 ## <a name="sign-out"></a>Afmelden
 
-De MSAL-bibliotheek biedt een `logout` methode die de cache in de browser-opslag worden gewist en een afmelden aanvraag verzendt naar Azure AD. Na het afmelden, wordt hij omgeleid naar de startpagina van de toepassing standaard.
+De MSAL-bibliotheek biedt `logout` een methode waarmee de cache in de browser opslag wordt gewist en een afmeldings aanvraag wordt verzonden naar Azure AD. Nadat u zich hebt afgemeld, wordt de standaard instelling voor de start pagina van de toepassing omgeleid.
 
-U kunt configureren dat de URI waarnaar wordt u omgeleid na teken uit door in te stellen de `postLogoutRedirectUri`. Deze URI moet ook worden geregistreerd als de URI Logout in de registratie van uw toepassing.
+U kunt de URI zo configureren dat deze wordt omgeleid na afmelden door het `postLogoutRedirectUri`in te stellen. Deze URI moet ook worden geregistreerd als de afmeldings-URI in de registratie van uw toepassing.
 
-### <a name="javascript"></a>Javascript
+### <a name="javascript"></a>JavaScript
 
 ```javascript
 const config = {
@@ -159,4 +159,4 @@ this.authService.logout();
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Ophalen van een token voor de app.](scenario-spa-acquire-token.md)
+> [Een token voor de app ophalen](scenario-spa-acquire-token.md)

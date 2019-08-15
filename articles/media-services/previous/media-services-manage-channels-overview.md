@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 45089c77ff2fed7ea5903333514f4d4edbad7cb3
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 5ab4a6b96df964497e20b2b93c59febb0e24393c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "69015548"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035900"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Overzicht van live streamen met Media Services
 
@@ -118,7 +118,7 @@ Wanneer u een kanaal maakt, kunt u toegestane IP-adressen in een van de volgende
 Met een [programma](https://docs.microsoft.com/rest/api/media/operations/program) kunt u het publiceren en opslaan van segmenten in een live stream beheren. Kanalen beheren programma's. De kanaal-/programmarelatie lijkt erg op traditionele media waarbij een kanaal een constante stream met inhoud heeft en een programma is afgestemd op een bepaalde getimede gebeurtenis op dat kanaal.
 U kunt het aantal uren opgeven dat u de opgenomen inhoud voor het programma wilt behouden door de eigenschap **ArchiveWindowLength** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur.
 
-ArchiveWindowLength bepaalt ook de maximale hoeveelheid tijd die clients vanaf de huidige Live positie op tijd kunnen zoeken. Programma's kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
+ArchiveWindowLength bepaalt ook de maximale hoeveelheid tijd die clients vanaf de huidige Live positie op tijd kunnen zoeken. Programma's kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de client manifesten kunnen groeien.
 
 Elk programma is gekoppeld aan een asset. Als u het programma wilt publiceren, moet u een Locator voor de gekoppelde Asset maken. Met deze locator kunt u een streaming-URL maken die u aan uw clients kunt leveren.
 

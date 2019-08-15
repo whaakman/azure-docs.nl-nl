@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d3586c571c2d70034f10cb3e1efd9242d6a1023
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986967"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034193"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Gebruik IoT Edge in Windows om Linux-containers uit te voeren
 
@@ -30,9 +30,7 @@ Gebruik deze sectie om te controleren of uw Windows-apparaat IoT Edge kan onders
 
 ### <a name="supported-windows-versions"></a>Ondersteunde versies van Windows
 
-Azure IoT Edge met Linux-containers kan worden uitgevoerd op de volgende versies van Windows: 
-* Windows 10 jubileum update (build 14393) of nieuwer
-* Windows Server 2016 of hoger
+Azure IoT Edge met Linux-containers kan worden uitgevoerd op elke versie van Windows die voldoet aan de [vereisten voor docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
 Zie [Azure IOT Edge releases](https://github.com/Azure/azure-iotedge/releases)voor meer informatie over wat er is opgenomen in de nieuwste versie van IOT Edge.
 

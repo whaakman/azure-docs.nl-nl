@@ -1,21 +1,21 @@
 ---
 title: Afbeeldings resources in Azure Container Registry verwijderen
-description: Meer informatie over het effectief beheren van de register grootte door container installatie kopie gegevens te verwijderen.
+description: Meer informatie over het effectief beheren van de register grootte door container installatie kopie gegevens te verwijderen met behulp van Azure CLI-opdrachten.
 services: container-registry
 author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: eaf3b3e591ca2ddbd29fd5547d334ef90b24fc5e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 12c1b5f9fa9620622b31f22c701d58ae237bcbf2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309644"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035149"
 ---
-# <a name="delete-container-images-in-azure-container-registry"></a>Container installatie kopieën in Azure Container Registry verwijderen
+# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Container installatie kopieën in Azure Container Registry verwijderen met behulp van de Azure CLI
 
 Als u de grootte van uw Azure container Registry wilt behouden, moet u regel matig verouderde afbeeldings gegevens verwijderen. Hoewel sommige container installatie kopieën die in productie zijn geïmplementeerd, mogelijk meer-termijn opslag vereisen, kunnen anderen doorgaans sneller worden verwijderd. In een geautomatiseerd build-en test scenario kan uw REGI ster bijvoorbeeld snel worden gevuld met installatie kopieën die nooit zijn geïmplementeerd en kunnen ze kort na het volt ooien van de build-en test fase worden verwijderd.
 
@@ -113,7 +113,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Nadat u de verouderde manifest samenvattingen hebt geïdentificeerd, kunt u het volgende bash-script uitvoeren om manifest-samen vattingen te verwijderen die ouder zijn dan een opgegeven tijds tempel. Hiervoor zijn de Azure CLI en **xargs**vereist. Standaard wordt het script niet verwijderd. Wijzig de `ENABLE_DELETE` waarde in `true` om het verwijderen van de installatie kopie in te scha kelen.
 
 > [!WARNING]
-> Gebruik het volgende voorbeeld script met een waarschuwing: verwijderde afbeeldings gegevens zijn onherstelbaar. Als u systemen hebt die installatie kopieën pullen per manifest Digest (in plaats van de naam van de installatie kopie), moet u deze scripts niet uitvoeren. Als u de manifest-samen vattingen verwijdert, voor komt u dat deze systemen de installatie kopieën uit het REGI ster halen. In plaats van op manifest te halen, kunt u overwegen om een uniek schema voor *labels* te gebruiken, een [Aanbevolen best practice][tagging-best-practices]. 
+> Gebruik het volgende voorbeeld script met een waarschuwing: verwijderde afbeeldings gegevens zijn onherstelbaar. Als u systemen hebt die installatie kopieën pullen per manifest Digest (in plaats van de naam van de installatie kopie), moet u deze scripts niet uitvoeren. Als u de manifest-samen vattingen verwijdert, voor komt u dat deze systemen de installatie kopieën uit het REGI ster halen. In plaats van op manifest te halen, kunt u overwegen om een uniek schema voor *labels* te gebruiken, een [Aanbevolen best practice](container-registry-image-tag-version.md). 
 
 ```bash
 #!/bin/bash
@@ -148,7 +148,7 @@ fi
 
 ## <a name="delete-untagged-images"></a>Niet-gelabelde afbeeldingen verwijderen
 
-Zoals vermeld in de sectie [manifest Digest](container-registry-concepts.md#manifest-digest) , het pushen van een gewijzigde installatie kopie  met behulp van een bestaande tag, ontlabelt de eerder gepushte afbeelding, wat resulteert in een zwevende afbeelding (of "Dangling"). Het manifest van de vorige gepushte afbeelding, en de laag gegevens ervan, blijft aanwezig in het REGI ster. Houd rekening met de volgende reeks gebeurtenissen:
+Zoals vermeld in de sectie [manifest Digest](container-registry-concepts.md#manifest-digest) , het pushen van een gewijzigde installatie kopie met behulp van een bestaande tag, ontlabelt de eerder gepushte afbeelding, wat resulteert in een zwevende afbeelding (of "Dangling"). Het manifest van de vorige gepushte afbeelding, en de laag gegevens ervan, blijft aanwezig in het REGI ster. Houd rekening met de volgende reeks gebeurtenissen:
 
 1. Push installatie kopie *ACR-HelloWorld* met tag **nieuwste**:`docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Raadpleeg de manifesten voor de opslag plaats *ACR-HelloWorld*:
@@ -201,7 +201,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Als u deze opdracht in een script gebruikt, kunt u alle niet-gelabelde afbeeldingen in een opslag plaats verwijderen.
 
 > [!WARNING]
-> Gebruik de volgende voorbeeld scripts met een waarschuwing: verwijderde afbeeldings gegevens zijn onherstelbaar. Als u systemen hebt die installatie kopieën pullen per manifest Digest (in plaats van de naam van de installatie kopie), moet u deze scripts niet uitvoeren. Als u niet-gelabelde afbeeldingen verwijdert, kunnen die systemen de installatie kopieën niet uit het REGI ster halen. In plaats van op manifest te halen, kunt u overwegen om een uniek schema voor *labels* te gebruiken, een [Aanbevolen best practice][tagging-best-practices].
+> Gebruik de volgende voorbeeld scripts met een waarschuwing: verwijderde afbeeldings gegevens zijn onherstelbaar. Als u systemen hebt die installatie kopieën pullen per manifest Digest (in plaats van de naam van de installatie kopie), moet u deze scripts niet uitvoeren. Als u niet-gelabelde afbeeldingen verwijdert, kunnen die systemen de installatie kopieën niet uit het REGI ster halen. In plaats van op manifest te halen, kunt u overwegen om een uniek schema voor *labels* te gebruiken, een [Aanbevolen best practice](container-registry-image-tag-version.md).
 
 **Azure CLI in bash**
 
@@ -260,6 +260,10 @@ if ($enableDelete) {
 }
 ```
 
+## <a name="automatically-purge-tags-and-manifests-preview"></a>Tags en manifesten automatisch opschonen (preview-versie)
+
+Als alternatief voor het uitvoeren van scripts van Azure CLI-opdrachten voert u een taak op aanvraag of geplande ACR uit om alle labels te verwijderen die ouder zijn dan een bepaalde duur of die overeenkomen met een opgegeven naam filter. Zie [automatisch installatie kopieën verwijderen uit een Azure container Registry](container-registry-auto-purge.md)voor meer informatie.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [opslag van container installatie kopieën in azure container Registry](container-registry-storage.md)voor meer informatie over de opslag van installatie kopieën in azure container Registry.
@@ -270,7 +274,6 @@ Zie [opslag van container installatie kopieën in azure container Registry](cont
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
 [portal]: https://portal.azure.com
-[tagging-best-practices]: https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 08/14/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c890288539a8abebe688ca4571ffa6c152e992ee
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: aefa6d21488b617b26ddefe5fa4fc61cdd203f96
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694045"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032533"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Zelfstudie: Een on-premises toepassing voor externe toegang toevoegen via Application Proxy in Azure Active Directory
 
@@ -96,7 +96,7 @@ Sta toegang tot de volgende URL's toe:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure gebruikt deze Url's om certificaten te verifiëren. |
 | login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | De connector gebruikt deze URL's tijdens het registratieproces. |
 
-U kunt verbindingen met. \*msappproxy.net en \*. servicebus.Windows.net toestaan als uw firewall of proxy u in staat stelt om DNS-acceptatie lijsten te configureren. Als dat niet het geval is, moet u toegang toestaan tot de [IP-bereiken van Azure DataCenter](https://www.microsoft.com/download/details.aspx?id=41653), die overigens elke week worden bijgewerkt.
+U kunt verbindingen met. \*msappproxy.net en \*. servicebus.Windows.net toestaan als uw firewall of proxy u in staat stelt om DNS-acceptatie lijsten te configureren. Als dat niet het geval is, moet u toegang tot de [Azure IP-bereiken en de service Tags-open bare Cloud](https://www.microsoft.com/download/details.aspx?id=56519)toestaan. die overigens elke week worden bijgewerkt.
 
 ## <a name="install-and-register-a-connector"></a>Een connector installeren en registreren
 
@@ -183,7 +183,7 @@ Nu u uw omgeving hebt voorbereid en een connector hebt geïnstalleerd, kunt u on
     | **Beveiligde cookies gebruiken**| Stel deze waarde in op **Ja** om cookies te verzenden via een beveiligd kanaal, zoals een versleutelde HTTPS-aanvraag.
     | **Permanente cookies gebruiken**| Houd deze waarde ingesteld op **Nee**. Gebruik deze instelling alleen voor toepassingen die geen cookies tussen processen kunnen delen. Zie [cookie-instellingen voor toegang tot on-premises toepassingen in azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)voor meer informatie over cookie-instellingen.
     | **URL's in headers vertalen** | Laat deze waarde op **Ja** staan, tenzij voor uw toepassing de oorspronkelijke host-header in de verificatieaanvraag moet zijn opgenomen. |
-    | **URL's vertalen in de hoofdtekst van de toepassing** | Bewaar deze **waarde alleen als** u hardcoded HTML-koppelingen naar andere on-premises toepassingen hebt en geen aangepaste domeinen gebruikt. Zie [Vertaling koppelen aan Application Proxy](application-proxy-configure-hard-coded-link-translation.md) voor meer informatie.<br><br>Stel deze waarde in op **Ja** als u van plan bent om deze toepassing te bewaken met Microsoft Cloud App Security (MCAS). Zie [realtime toegang tot toepassingen configureren met Microsoft Cloud app Security en Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md)voor meer informatie. |
+    | **URL's vertalen in de hoofdtekst van de toepassing** | Bewaar deze waarde alleen als u hardcoded HTML-koppelingen naar andere on-premises toepassingen hebt en geen aangepaste domeinen gebruikt. Zie [Vertaling koppelen aan Application Proxy](application-proxy-configure-hard-coded-link-translation.md) voor meer informatie.<br><br>Stel deze waarde in op **Ja** als u van plan bent om deze toepassing te bewaken met Microsoft Cloud App Security (MCAS). Zie [realtime toegang tot toepassingen configureren met Microsoft Cloud app Security en Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md)voor meer informatie. |
 
 1. Selecteer **Toevoegen**.
 

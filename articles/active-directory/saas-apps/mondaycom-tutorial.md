@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met monday.com | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en monday.com.
+title: 'Zelfstudie: Integratie met monday.com Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en monday.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,91 +16,91 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93c5e473c62dc6b38f0b2c2906560d6099842d49
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 771b7a07416458fd8523223ca57d3575ae2c85ff
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718497"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033658"
 ---
 # <a name="tutorial-integrate-mondaycom-with-azure-active-directory"></a>Zelfstudie: Monday.com integreren met Azure Active Directory
 
-In deze zelfstudie leert u hoe u monday.com integreert met Azure Active Directory (Azure AD). Wanneer u monday.com met Azure AD integreert, kunt u het volgende doen:
+In deze zelf studie leert u hoe u monday.com integreert met Azure Active Directory (Azure AD). Wanneer u monday.com integreert met Azure AD, kunt u het volgende doen:
 
-* Beheren in Azure AD die toegang tot monday.com heeft.
-* Kunnen uw gebruikers worden automatisch aangemeld monday.com met hun Azure AD-accounts.
-* Beheer uw accounts in één centrale locatie - Azure portal.
+* Controle in azure AD die toegang heeft tot monday.com.
+* Zorg ervoor dat uw gebruikers automatisch worden aangemeld bij monday.com met hun Azure AD-accounts.
+* Beheer uw accounts op één centrale locatie: de Azure Portal.
 
-Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Zie [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)voor meer informatie over SaaS-app-integratie met Azure AD.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om te beginnen, hebt u de volgende items nodig:
+U hebt de volgende items nodig om aan de slag te gaan:
 
-* Een Azure AD-abonnement Als u geen abonnement hebt, krijgt u een [gratis account](https://azure.microsoft.com/free/).
-* ingeschakeld abonnement Monday.com eenmalige aanmelding (SSO).
+* Een Azure AD-abonnement Als u geen abonnement hebt, kunt u een [gratis account](https://azure.microsoft.com/free/)aanvragen.
+* monday.com-abonnement dat is ingeschakeld voor eenmalige aanmelding (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-In deze zelfstudie hebt u configureren en testen van Azure AD-eenmalige aanmelding in een testomgeving. biedt ondersteuning voor Monday.com **SP en IDP** geïnitieerde eenmalige aanmelding en ondersteunt **Just In Time** inrichten van gebruikers.
+In deze zelf studie configureert en test u Azure AD SSO in een test omgeving. monday.com ondersteunt SSO die door **SP en IDP** is geïnitieerd en ondersteunt **just-in-time** -gebruikers inrichting.
 
-## <a name="adding-mondaycom-from-the-gallery"></a>Monday.com uit de galerie toe te voegen
+## <a name="adding-mondaycom-from-the-gallery"></a>Monday.com toevoegen uit de galerie
 
-Voor het configureren van de integratie van monday.com in Azure AD, moet u monday.com uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
+Als u de integratie van monday.com in azure AD wilt configureren, moet u monday.com uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 1. Meld u bij de [Azure-portal](https://portal.azure.com) aan met een werk- of schoolaccount of een persoonlijk Microsoft-account.
-1. Selecteer in het navigatiedeelvenster links in de **Azure Active Directory** service.
-1. Navigeer naar **bedrijfstoepassingen** en selecteer vervolgens **alle toepassingen**.
-1. Nieuwe toepassing toevoegen, selecteert u **nieuwe toepassing**.
-1. In de **toevoegen vanuit de galerie** sectie, typt u **monday.com** in het zoekvak in.
-1. Selecteer **monday.com** van resultaten van het deelvenster en vervolgens de app toevoegen. Wacht een paar seconden terwijl de app wordt toegevoegd aan uw tenant.
+1. Selecteer de **Azure Active Directory** -service in het navigatie deel venster aan de linkerkant.
+1. Ga naar **bedrijfs toepassingen** en selecteer **alle toepassingen**.
+1. Selecteer **nieuwe toepassing**om een nieuwe toepassing toe te voegen.
+1. Typ in de sectie **toevoegen vanuit de galerie** **Monday.com** in het zoekvak.
+1. Selecteer **Monday.com** uit het paneel resultaten en voeg vervolgens de app toe. Wacht een paar seconden wanneer de app aan uw Tenant is toegevoegd.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-Configureren en testen van Azure AD-eenmalige aanmelding met monday.com met behulp van een testgebruiker met de naam **B.Simon**. Voor eenmalige aanmelding om te werken, moet u een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in monday.com vast te stellen.
+Azure AD SSO met monday.com configureren en testen met behulp van een test gebruiker met de naam **B. Simon**. Voor het werken met SSO moet u een koppelings relatie tot stand brengen tussen een Azure AD-gebruiker en de bijbehorende gebruiker in monday.com.
 
-Als u wilt configureren en testen van Azure AD-eenmalige aanmelding met monday.com, voert u de volgende bouwstenen:
+Als u Azure AD SSO wilt configureren en testen met monday.com, voltooit u de volgende bouw stenen:
 
-1. **[Azure AD-eenmalige aanmelding configureren](#configure-azure-ad-sso)**  zodat uw gebruikers deze functie wilt gebruiken.
-2. **[Configureren van monday.com](#configure-mondaycom)**  de SSO-instellingen configureren op de kant van de toepassing.
-3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  voor het testen van Azure AD eenmalige aanmelding met B.Simon.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  B.Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Maken van de testgebruiker monday.com](#create-mondaycom-test-user)**  hebben een equivalent van B.Simon in monday.com die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-6. **[Eenmalige aanmelding testen](#test-sso)**  om te controleren of de configuratie werkt.
+1. **[Configureer Azure AD SSO](#configure-azure-ad-sso)** zodat uw gebruikers deze functie kunnen gebruiken.
+2. **[Configureer Monday.com](#configure-mondaycom)** om de SSO-instellingen aan de kant van de toepassing te configureren.
+3. **[Maak een Azure AD-test gebruiker om de](#create-an-azure-ad-test-user)** eenmalige aanmelding van Azure ad te testen met B. Simon.
+4. **[Wijs de Azure AD-test gebruiker](#assign-the-azure-ad-test-user)** toe om B. Simon in te scha kelen voor het gebruik van eenmalige aanmelding voor Azure AD.
+5. **[Maak een Monday.com-test gebruiker](#create-mondaycom-test-user)** voor het maken van een equivalent van B. Simon in Monday.com dat is gekoppeld aan de Azure AD-representatie van de gebruiker.
+6. **[Test SSO](#test-sso)** om te controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD-eenmalige aanmelding configureren
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO configureren
 
-Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de Azure-portal.
+Volg deze stappen om Azure AD SSO in te scha kelen in de Azure Portal.
 
-1. In de [Azure-portal](https://portal.azure.com/)op de **monday.com** toepassingspagina integratie, vinden de **beheren** sectie en selecteer **eenmalige aanmelding**.
-1. Op de **selecteert u een methode voor eenmalige aanmelding** pagina, selecteert u **SAML**.
-1. Op de **instellen van eenmalige aanmelding met SAML** pagina, klikt u op het pictogram voor bewerken/pen voor **SAML-basisconfiguratie** om de instellingen te bewerken.
+1. Zoek in het [Azure Portal](https://portal.azure.com/)op de pagina Toepassings integratie van **Monday.com** de sectie **beheren** en selecteer **eenmalige aanmelding**.
+1. Selecteer op de pagina **Eén aanmeldings methode selecteren** de optie **SAML**.
+1. Klik op de pagina **eenmalige aanmelding met SAML instellen** op het pictogram bewerken/pen voor **eenvoudige SAML-configuratie** om de instellingen te bewerken.
 
    ![Standaard SAML-configuratie bewerken](common/edit-urls.png)
 
-1. In de **SAML-basisconfiguratie** deelvenster, als u een metagegevensbestand voor serviceprovider hebt en u configureren wilt **IDP gestart door** modus, voert u de volgende stappen uit:
+1. Als u een meta gegevensbestand van een service provider hebt en u wilt configureren in de gestarte modus, voert u de volgende stappen uit in het deel venster **basis-SAML-configuratie** :
 
-    1. Selecteer **metagegevensbestand uploaden**.
+    1. Selecteer **bestand met meta gegevens uploaden**.
 
-    1. Selecteer het bestand met metagegevens, selecteer het mappictogram en selecteer vervolgens **uploaden**.
+    1. Als u het meta gegevensbestand wilt selecteren, selecteert u het mappictogram en selecteert u vervolgens **uploaden**.
 
-    1. Nadat het bestand met metagegevens is geüpload, de **id** en **antwoord-URL** waarden worden automatisch ingevuld de **SAML-basisconfiguratie** deelvenster:
+    1. Nadat het meta gegevensbestand is geüpload, worden de **id** -en **antwoord-URL** -waarden automatisch ingevuld in het **basis configuratie** venster voor SAML:
 
        > [!Note]
-       > Als de **id** en **antwoord-URL** waarden kan niet automatisch ophalen ingevuld en vervolgens de waarden handmatig invullen. De **id** en de **antwoord-URL** zijn hetzelfde en waarde is in het volgende patroon: `https://<your-domain>.monday.com/saml/saml_callback`
+       > Als de **id** -en **antwoord-URL** -waarden niet automatisch worden ingevuld, vult u de waarden hand matig in. De **id** en de **antwoord-URL** zijn gelijk en de waarde is in het volgende patroon:`https://<your-domain>.monday.com/saml/saml_callback`
 
 1. Klik op **Extra URL's instellen** en voer de volgende stap uit als u de toepassing in de door **SP** geïnitieerde modus wilt configureren:
 
     In het tekstvak **Aanmeldings-URL** typt u een URL met de volgende notatie: `https://<your-domain>.monday.com`
 
     > [!NOTE]
-    > Dit zijn geen echte waarden. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [monday.com Client ondersteuningsteam](mailto:dev@food.ee) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
+    > Dit zijn geen echte waarden. Deze waarden bijwerken met de daad werkelijke id, de antwoord-URL en de aanmeldings-URL. Neem contact op met het ondersteunings [team van Monday.com-clients](mailto:dev@food.ee) om deze waarden te verkrijgen. U kunt ook verwijzen naar het patroon dat wordt weergegeven in de sectie **Standaard SAML-configuratie** in de Azure-portal.
 
-1. Uw toepassing monday.com wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster Gebruikerskenmerken te openen.
+1. Uw monday.com-toepassing verwacht de SAML-beweringen in een specifieke indeling, waarvoor u aangepaste kenmerk toewijzingen moet toevoegen aan de configuratie van uw SAML-token kenmerken. In de volgende schermafbeelding wordt de lijst met standaardkenmerken weergegeven. Klik op het pictogram **Bewerken** om het dialoogvenster gebruikerskenmerken te openen.
 
-    ![De gebruiker-deelvenster kenmerken](common/edit-attribute.png)
+    ![Het deel venster gebruikers kenmerken](common/edit-attribute.png)
 
-1. Bovendien hierboven verwacht monday.com toepassing paar meer kenmerken moeten worden doorgegeven in SAML-antwoord. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
+1. Daarnaast verwacht monday.com toepassing nog enkele kenmerken die in het SAML-antwoord weer worden door gegeven. In de sectie **Gebruikersclaims** in het dialoogvenster **Gebruikerskenmerken** voert u de volgende stappen uit om het kenmerk van het SAML-token toe te voegen zoals wordt weergegeven in de onderstaande tabel:
 
     | Name | Bronkenmerk|
     | ---------------| --------------- |
@@ -112,7 +112,7 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     b. In het tekstvak **Naam** typt u de naam van het kenmerk die voor die rij wordt weergegeven.
 
-    c. Verwijder de **Namespace**.
+    c. Verwijder de **naam ruimte**.
 
     d. Selecteer Bron bij **Kenmerk**.
 
@@ -122,78 +122,78 @@ Volg deze stappen voor het inschakelen van Azure AD-eenmalige aanmelding in de A
 
     g. Klik op **Opslaan**.
 
-1. Op de **instellen van eenmalige aanmelding met SAML** pagina, in de **SAML-handtekeningcertificaat** sectie, zoeken **certificaat (Base64)** en selecteer **downloaden** voor het downloaden van het certificaat en sla deze op uw computer.
+1. Zoek op de pagina **eenmalige aanmelding met SAML instellen** , in de sectie **SAML-handtekening certificaat** , naar **certificaat (base64)** en selecteer **downloaden** om het certificaat te downloaden en op uw computer op te slaan.
 
    ![De downloadkoppeling certificaat](common/certificatebase64.png)
 
-1. Op de **monday.com instellen** sectie, kopieert u de juiste URL's op basis van uw behoeften.
+1. Op de sectie **Monday.com instellen** kopieert u de gewenste URL ('s) op basis van uw vereiste.
 
    ![Configuratie-URL's kopiëren](common/copy-configuration-urls.png)
 
 ### <a name="configure-mondaycom"></a>Monday.com configureren
 
-1. Voor het automatiseren van de configuratie in monday.com, die u wilt installeren **mijn Apps beveiligde aanmelding browserextensie** door te klikken op **de extensie installeren**.
+1. Als u de configuratie wilt automatiseren in monday.com, moet u de **uitbrei ding mijn apps Secure Sign-in browser** installeren door te klikken op **de uitbrei ding installeren**.
 
-    ![Mijn apps-extensie](common/install-myappssecure-extension.png)
+    ![Uitbrei ding voor mijn apps](common/install-myappssecure-extension.png)
 
-1. Na het toevoegen van uitbreiding naar de browser, klikt u op **monday.com Setup** die wordt u doorgeleid naar de toepassing monday.com. Geef de referenties van de beheerder zich aanmelden bij monday.com daar. De browserextensie wordt automatisch configureren van de toepassing voor u en stap 3-6 automatiseren.
+1. Nadat u de extensie aan de browser hebt toegevoegd, klikt u op **Setup Monday.com** om naar de Monday.com-toepassing te gaan. Geef de beheerders referenties op om u aan te melden bij monday.com. Met de browser uitbreiding wordt de toepassing automatisch voor u geconfigureerd en wordt stap 3-6 geautomatiseerd.
 
-    ![Configuratie voor de installatie](common/setup-sso.png)
+    ![Configuratie van Setup](common/setup-sso.png)
 
-1. Als u monday.com handmatig instellen wilt, opent u een nieuw browservenster en zich aanmelden bij monday.com als beheerder en voer de volgende stappen uit:
+1. Als u monday.com hand matig wilt instellen, opent u een nieuw webbrowser venster en meldt u zich aan bij monday.com als beheerder en voert u de volgende stappen uit:
 
-1. Ga naar de **profiel** in de rechterbovenhoek van de pagina en klik op **Admin**.
+1. Ga naar het **profiel** in de rechter bovenhoek van de pagina en klik op **beheerder**.
 
-    ![Monday.com configuratie](./media/mondaycom-tutorial/configuration01.png)
+    ![monday.com-configuratie](./media/mondaycom-tutorial/configuration01.png)
 
-1. Selecteer **Security** en zorg ervoor dat op **Open** naast SAML.
+1. Selecteer **beveiliging** en zorg ervoor dat u naast SAML op **openen** klikt.
 
-    ![Monday.com configuratie](./media/mondaycom-tutorial/configuration02.png)
+    ![monday.com-configuratie](./media/mondaycom-tutorial/configuration02.png)
 
-1. Vul de details hieronder vanaf uw id-provider.
+1. Vul de onderstaande gegevens in vanuit uw IDP.
 
-    ![Monday.com configuratie](./media/mondaycom-tutorial/configuration03.png)
+    ![monday.com-configuratie](./media/mondaycom-tutorial/configuration03.png)
 
     >[!NOTE]
-    >Raadpleeg voor meer informatie [dit](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) artikel
+    >Raadpleeg [Dit](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) artikel voor meer informatie
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-In deze sectie maakt u een testgebruiker in Azure portal B.Simon genoemd.
+In deze sectie maakt u een test gebruiker in de Azure Portal met de naam B. Simon.
 
-1. Selecteer in het linkerdeelvenster in de Azure-portal, **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **alle gebruikers**.
+1. Selecteer in het linkerdeel venster van de Azure Portal **Azure Active Directory**, selecteer **gebruikers**en selecteer vervolgens **alle gebruikers**.
 1. Selecteer **nieuwe gebruiker** aan de bovenkant van het scherm.
-1. In de **gebruiker** eigenschappen als volgt te werk:
+1. Voer de volgende stappen uit in de eigenschappen van de **gebruiker** :
    1. Voer in het veld **Naam** `B.Simon` in.  
-   1. In de **gebruikersnaam** en voer de username@companydomain.extension. Bijvoorbeeld `B.Simon@contoso.com`.
+   1. Voer in het veld **gebruikers naam** het username@companydomain.extensionin. Bijvoorbeeld `B.Simon@contoso.com`.
    1. Schakel het selectievakje **Wachtwoord weergeven** in en noteer de waarde die wordt weergegeven in het vak **Wachtwoord**.
    1. Klik op **Create**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u B.Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang tot monday.com.
+In deze sectie schakelt u B. Simon in om eenmalige aanmelding van Azure te gebruiken door toegang te verlenen aan monday.com.
 
-1. Selecteer in de Azure portal, **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
-1. Selecteer in de lijst met toepassingen, **monday.com**.
-1. Zoek in de pagina overzicht van de app, de **beheren** sectie en selecteer **gebruikers en groepen**.
+1. Selecteer in het Azure Portal **bedrijfs toepassingen**en selecteer vervolgens **alle toepassingen**.
+1. Selecteer in de lijst toepassingen de optie **Monday.com**.
+1. Ga op de pagina overzicht van de app naar de sectie **beheren** en selecteer **gebruikers en groepen**.
 
    ![De koppeling 'Gebruikers en groepen'](common/users-groups-blade.png)
 
-1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** dialoogvenster.
+1. Selecteer **gebruiker toevoegen**en selecteer vervolgens **gebruikers en groepen** in het dialoog venster **toewijzing toevoegen** .
 
     ![De koppeling gebruiker toevoegen](common/add-assign-user.png)
 
-1. In de **gebruikers en groepen** dialoogvenster, selecteer **B.Simon** uit de lijst met gebruikers, klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
-1. Als u een waarde voor de rol in het SAML-verklaring verwacht de **rol selecteren** dialoogvenster, selecteer de juiste rol voor de gebruiker in de lijst en klik vervolgens op de **Selecteer** knop aan de onderkant van het scherm.
+1. Selecteer in het dialoog venster **gebruikers en groepen** **B. Simon** van de lijst gebruikers en klik vervolgens op de knop **selecteren** onder aan het scherm.
+1. Als u een wille keurige rol verwacht in de SAML-bewering, selecteert u in het dialoog venster **rol selecteren** de juiste rol voor de gebruiker in de lijst en klikt u op de knop **selecteren** onder aan het scherm.
 1. Klik in het dialoogvenster **Toewijzing toevoegen** op de knop **Toewijzen**.
 
-### <a name="create-mondaycom-test-user"></a>Monday.com testgebruiker maken
+### <a name="create-mondaycom-test-user"></a>Monday.com-test gebruiker maken
 
-In deze sectie wordt een gebruiker met de naam B.Simon gemaakt in monday.com. Monday.com biedt ondersteuning voor just-in-time inrichting, dat standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet in monday.com bestaat, wordt een nieuw bestand wordt gemaakt wanneer u probeert te krijgen tot monday.com.
+In deze sectie wordt een gebruiker met de naam B. Simon gemaakt in monday.com. monday.com biedt ondersteuning voor Just-in-time-inrichting, die standaard is ingeschakeld. Er is geen actie-item voor u in deze sectie. Als een gebruiker nog niet bestaat in monday.com, wordt er een nieuwe gemaakt wanneer u probeert toegang te krijgen tot monday.com.
 
-### <a name="test-sso"></a>Test eenmalige aanmelding
+### <a name="test-sso"></a>SSO testen
 
-Wanneer u de tegel monday.com in het toegangsvenster selecteert, moet u worden automatisch aangemeld bij de monday.com waarvoor u eenmalige aanmelding hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
+Wanneer u de tegel monday.com in het toegangs venster selecteert, wordt u automatisch aangemeld bij de monday.com waarvoor u SSO hebt ingesteld. Zie [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Inleiding tot het toegangsvenster) voor meer informatie over het toegangsvenster.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

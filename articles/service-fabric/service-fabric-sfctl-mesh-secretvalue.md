@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl mesh secretvalue | Microsoft Docs
-description: Beschrijving van de Service Fabric-CLI sfctl mesh secretvalue opdrachten.
+title: Azure Service Fabric CLI-sfctl mesh secretvalue | Microsoft Docs
+description: Beschrijft de Service Fabric CLI sfctl net secretvalue-opdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,95 +8,94 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3f8e46f063d3e725e2174fd907169f3e0167586a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5200c40afe62ce3a236a3a16b59b64deb8d24ced
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836941"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035936"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
-NET secretvalue resources ophalen en verwijderen.
+Net secretvalue-resources ophalen en verwijderen.
 
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
-| delete | Hiermee verwijdert u de opgegeven waarde van de benoemde geheime resource. |
+| verwijderen | Hiermee verwijdert u de opgegeven waarde van de naam van de named Secret-resource. |
 | list | Lijst met namen van alle waarden van de opgegeven geheime resource. |
-| weergeven | De waarde van een opgegeven versie van een geheime resource ophalen. |
+| weergeven | Haal de waarde van een opgegeven versie van een geheime resource op. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue verwijderen
-Hiermee verwijdert u de opgegeven waarde van de benoemde geheime resource.
+Hiermee verwijdert u de opgegeven waarde van de naam van de named Secret-resource.
 
-Hiermee verwijdert u de geheime waarde resource aangeduid met de naam. De naam van de resource is doorgaans de versie die is gekoppeld aan die waarde. Verwijderen mislukt als de opgegeven waarde in gebruik is.
+Hiermee verwijdert u de bron van de geheime waarde die wordt geïdentificeerd door de naam. De naam van de resource is doorgaans de versie die aan die waarde is gekoppeld. Als de opgegeven waarde wordt gebruikt, mislukt de verwijdering.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --geheim-name - n (vereist) | De naam van de geheime resource. |
-| --versie - v (vereist) | De naam van de geheime versie. |
+| --geheim-naam-n [vereist] | De naam van de geheime resource. |
+| --versie-v [vereist] | De naam van de geheime versie. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-mesh-secretvalue-list"></a>sfctl mesh secretvalue lijst
+## <a name="sfctl-mesh-secretvalue-list"></a>sfctl mesh secretvalue-lijst
 Lijst met namen van alle waarden van de opgegeven geheime resource.
 
-Hiermee haalt u informatie over alle geheime waarde resources van de opgegeven geheime resource. De informatie bevat de namen van de geheime waarde-resources, maar niet de werkelijke waarden.
+Haalt informatie op over alle bronnen van de geheime waarde van de opgegeven geheime resource. De informatie bevat de namen van de resources van de geheime waarde, maar niet de werkelijke waarden.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --geheim-name - n (vereist) | De naam van de geheime resource. |
+| --geheim-naam-n [vereist] | De naam van de geheime resource. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-mesh-secretvalue-show"></a>sfctl mesh secretvalue weergeven
-De waarde van een opgegeven versie van een geheime resource ophalen.
+## <a name="sfctl-mesh-secretvalue-show"></a>sfctl mesh secretvalue show
+Haal de waarde van een opgegeven versie van een geheime resource op.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --geheim-name - n (vereist) | De naam van de geheime resource. |
-| --versie - v (vereist) | De naam van de geheime versie. |
-| --show-value | De werkelijke waarde van de geheime versie weergeven. |
+| --geheim-naam-n [vereist] | De naam van de geheime resource. |
+| --versie-v [vereist] | De naam van de geheime versie. |
+| --weer geven-waarde | De werkelijke waarde van de geheime versie weer geven. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

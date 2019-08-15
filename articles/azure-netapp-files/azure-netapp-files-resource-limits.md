@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 763b3961bfd621f05ab5cd021526b0d6d109c020
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
-ms.translationtype: MT
+ms.openlocfilehash: b9dd89e38f5cab6dceca36201695c068e0521943
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881712"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034855"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resourcelimieten voor Azure NetApp Files
 
@@ -40,11 +40,8 @@ In de volgende tabel worden resource limieten voor Azure NetApp Files beschreven
 |  Minimum grootte van één capaciteits groep   |  4 TiB     |    Nee  |
 |  Maximale grootte van één capaciteits groep    |  500 TiB   |   Nee   |
 |  Minimum grootte van één volume    |    100 GiB    |    Nee    |
-|  Maxi maal toegewezen quotum van één volume *   |   92 TiB   |    Nee   |
-|  Maximale grootte van één volume *     |    100 TiB    |    Nee       |
+|  Maximale grootte van één volume     |    100 TiB    |    Nee       |
 |  Maximum aantal bestanden (inodes) per volume     |    50.000.000    |    Nee    |    
-
-\* Een volume kan hand matig worden gemaakt of aangepast aan maximally 92 TiB. Een volume kan echter Maxi maal 100 TiB in een overschrijding-scenario groeien. Zie het [kosten model voor Azure NetApp files](azure-netapp-files-cost-model.md) voor meer informatie over capaciteits overschrijding. 
 
 ## <a name="request-limit-increase"></a>Toename van aanvraag limiet 
 

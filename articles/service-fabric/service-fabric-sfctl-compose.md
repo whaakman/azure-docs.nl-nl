@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl compose | Microsoft Docs
-description: Beschrijving van de Service Fabric-CLI sfctl compose opdrachten.
+title: Azure Service Fabric CLI-sfctl opstellen | Microsoft Docs
+description: Beschrijft de Service Fabric-opdracht voor het opstellen van sfctl-CLI.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,210 +8,209 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dab844246d99b0ab80e1e86219c2064c79e74e4f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837263"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035110"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
-Maken, verwijderen en beheren van Docker Compose-toepassingen.
+Docker opstellen toepassingen maken, verwijderen en beheren.
 
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
-| create | Hiermee maakt u een Service Fabric implementatie voor opstellen. |
-| list | Haalt de lijst met implementaties die zijn gemaakt in de Service Fabric-cluster vormen. |
-| remove | Verwijdert een bestaande Service Fabric vormen van de cluster-implementatie. |
-| status | Haalt informatie over een Service Fabric implementatie voor opstellen. |
-| upgrade | Hiermee start u een upgrade van een implementatie voor opstellen in de Service Fabric-cluster. |
-| upgrade-rollback | Start een implementatie voor opstellen terugdraaien upgraden via de Service Fabric-cluster. |
-| upgrade-status | Meer informatie opgehaald voor de meest recente upgrade uitgevoerd voor deze Service Fabric implementatie voor opstellen. |
+| create | Hiermee maakt u een implementatie voor Service Fabric opstellen. |
+| list | Hiermee haalt u de lijst met opstel implementaties op die zijn gemaakt in het Service Fabric cluster. |
+| verwijderen | Hiermee verwijdert u een bestaande Service Fabric voor het opstellen van een implementatie uit het cluster. |
+| status | Hiermee haalt u informatie op over een implementatie van Service Fabric opstellen. |
+| upgrade | Hiermee wordt een upgrade van een opstel implementatie in het Service Fabric cluster gestart. |
+| upgrade-terugdraai actie | Start een opstel implementatie-upgrade in het Service Fabric cluster. |
+| upgrade-status | Hiermee worden gegevens opgehaald voor de laatste upgrade die is uitgevoerd op deze Service Fabric een implementatie op te stellen. |
 
-## <a name="sfctl-compose-create"></a>sfctl compose maken
-Hiermee maakt u een Service Fabric implementatie voor opstellen.
-
-### <a name="arguments"></a>Argumenten
-
-|Argument|Description|
-| --- | --- |
-| --naam-implementatie (vereist) | De naam van de implementatie. |
-| --bestandspad (vereist) | Pad naar het doelbestand voor de Docker Compose. |
-| --versleuteld pass | Gebruik in plaats van dat wordt gevraagd om een wachtwoord van containerregister, een al is versleuteld wachtwoordzin. |
-| --has-pass | Wordt gevraagd om een wachtwoord voor het containerregister. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --user | De naam van de gebruiker verbinding maken met container registry. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
-
-## <a name="sfctl-compose-list"></a>sfctl lijst opstellen
-Haalt de lijst met implementaties die zijn gemaakt in de Service Fabric-cluster vormen.
-
-Hiermee haalt u de status van de compose-implementaties die zijn gemaakt of dat u momenteel in de Service Fabric-cluster wordt gemaakt. Het antwoord bevat de naam, status en andere details over de implementaties opstellen. Als de lijst met implementaties niet in een pagina passen, wordt een pagina met resultaten geretourneerd en een vervolgtoken, die kan worden gebruikt om de volgende pagina.
+## <a name="sfctl-compose-create"></a>sfctl opstellen maken
+Hiermee maakt u een implementatie voor Service Fabric opstellen.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --implementatie-naam [vereist] | De naam van de implementatie. |
+| --bestandspad [vereist] | Het pad naar het doel bestand van docker voor samen stelling. |
+| --versleuteld-door geven | In plaats van te vragen om een container register wachtwoord, gebruikt u een al versleutelde wachtwoordzin. |
+| --has-pass | Wordt gevraagd om een wacht woord voor het container register. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
+| --user | De gebruikers naam om verbinding te maken met het container register. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-compose-remove"></a>sfctl compose remove
-Verwijdert een bestaande Service Fabric vormen van de cluster-implementatie.
+## <a name="sfctl-compose-list"></a>sfctl-opstel lijst
+Hiermee haalt u de lijst met opstel implementaties op die zijn gemaakt in het Service Fabric cluster.
 
-Verwijdert een bestaande Service Fabric implementatie voor opstellen.
+Hiermee wordt de status opgehaald van de opstellen-implementaties die zijn gemaakt of worden gemaakt in het Service Fabric cluster. Het antwoord bevat de naam, de status en andere gegevens over de opstel implementaties. Als de lijst met implementaties niet op een pagina past, wordt er één pagina met resultaten geretourneerd, evenals een vervolg token, dat kan worden gebruikt om de volgende pagina op te halen.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --naam-implementatie (vereist) | De identiteit van de implementatie. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --vervolg token | De vervolg token parameter wordt gebruikt om de volgende set resultaten op te halen. Een vervolg token met een niet-lege waarde wordt opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt door gegeven aan de volgende API-aanroep, retourneert de API de volgende set resultaten. Als er geen verdere resultaten zijn, bevat het vervolg token geen waarde. De waarde van deze para meter mag geen URL-code ring zijn. |
+| --max-results | Het maximum aantal resultaten dat moet worden geretourneerd als onderdeel van de query's in de pagina. Met deze para meter wordt de bovengrens gedefinieerd voor het aantal geretourneerde resultaten. De geretourneerde resultaten kunnen kleiner zijn dan de opgegeven maximum resultaten als ze niet in het bericht passen conform de maximale grootte van de berichten die in de configuratie is gedefinieerd. Als deze para meter nul is of niet is opgegeven, bevat de opgevraagde query zoveel mogelijk resultaten die in het retour bericht passen. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-compose-status"></a>sfctl compose status
-Haalt informatie over een Service Fabric implementatie voor opstellen.
+## <a name="sfctl-compose-remove"></a>sfctl opstellen verwijderen
+Hiermee verwijdert u een bestaande Service Fabric voor het opstellen van een implementatie uit het cluster.
 
-Retourneert de status van de implementatie voor opstellen die is gemaakt of momenteel wordt gemaakt in de Service Fabric-cluster en waarvan de naam overeenkomt met de versie die is opgegeven als parameter. Het antwoord bevat de naam, status en andere details over de implementatie.
+Hiermee verwijdert u een bestaande Service Fabric opstellen-implementatie.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --naam-implementatie (vereist) | De identiteit van de implementatie. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --implementatie-naam [vereist] | De identiteit van de implementatie. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
-Hiermee start u een upgrade van een implementatie voor opstellen in de Service Fabric-cluster.
+## <a name="sfctl-compose-status"></a>sfctl-samenstel status
+Hiermee haalt u informatie op over een implementatie van Service Fabric opstellen.
 
-Evalueert de opgegeven parameters voor het bijwerken en begint met een upgrade van de implementatie als de parameters geldig zijn.
+Retourneert de status van de opstel implementatie die is gemaakt of in het proces dat wordt gemaakt in het Service Fabric cluster en waarvan de naam overeenkomt met de versie die is opgegeven als de para meter. Het antwoord bevat de naam, status en andere informatie over de implementatie.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --naam-implementatie (vereist) | De naam van de implementatie. |
-| --bestandspad (vereist) | Pad naar het doel van Docker compose bestand. |
-| --Standaard-svc-type-health-map | JSON gecodeerd woordenlijst die beschrijven het statusbeleid dat wordt gebruikt voor het evalueren van de status van services. |
-| --versleuteld pass | Gebruik in plaats van dat wordt gevraagd om een wachtwoord van containerregister, een al is versleuteld wachtwoordzin. |
-| --actie bij fout | Mogelijke waarden zijn\: 'Ongeldig', 'Terugdraaien', 'Manual'. |
-| --force-restart | Processen worden geforceerd opnieuw opgestart tijdens de upgrade, zelfs wanneer de codeversie is niet gewijzigd. <br><br> De upgrade wordt alleen gewijzigd configuratie of gegevens. |
-| --has-pass | Wordt gevraagd om een wachtwoord voor het containerregister. |
-| --health-controle-opnieuw proberen | De hoeveelheid tijd tussen pogingen tot het uitvoeren van statuscontroles als de toepassing of het cluster niet in orde is. |
-| --health-controle-stabiel | De hoeveelheid tijd dat de toepassing of het cluster moet in orde blijft voordat de upgrade wordt uitgevoerd op het volgende upgradedomein. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --wachtduur | De hoeveelheid tijd moet wachten na het voltooien van een upgradedomein voordat u begint met de status controleert proces. |
-| --replica-set-check | De maximale hoeveelheid tijd voor het verwerken van een upgradedomein blokkeren en voorkom het verlies van beschikbaarheid wanneer er onverwachte problemen zijn. <br><br> Wanneer deze time-out is verlopen, wordt de verwerking van het upgradedomein ongeacht beschikbaarheidsproblemen verlies voortgezet. De time-out is opnieuw ingesteld aan het begin van elke upgradedomein. Geldige waarden liggen tussen 0 en 42949672925 liggen. |
-| --svc-type-health-map | JSON gecodeerd lijst met objecten die het statusbeleid dat wordt gebruikt voor het evalueren van de status van de verschillende servicetypen beschrijven. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --niet in orde-app | De maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding. <br><br> Bijvoorbeeld, om toe te staan 10% van de toepassingen niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van toepassingen die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigde toepassing is, wordt de status wordt geëvalueerd als waarschuwing. Dit wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster. |
-| --upgrade-domein-time-out | De hoeveelheid tijd elk upgradedomein is voltooid voordat FailureAction wordt uitgevoerd. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --upgrade-type | Standaard\: Rolling. |
-| --upgrade-mode | Mogelijke waarden zijn\: 'Ongeldig', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Standaard\: UnmonitoredAuto. |
-| --upgrade-time-out | De hoeveelheid tijd de algehele upgrade is voltooid voordat FailureAction wordt uitgevoerd. <br><br> Eerst wordt dit geïnterpreteerd als een tekenreeks voor de duur van een ISO 8601. Als dat mislukt, wordt klikt u vervolgens dit geïnterpreteerd als een getal voor het totale aantal milliseconden. |
-| --user | De naam van de gebruiker verbinding maken met container registry. |
-| --warning-as-error | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
+| --implementatie-naam [vereist] | De identiteit van de implementatie. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose upgrade terugdraaien
-Start een implementatie voor opstellen terugdraaien upgraden via de Service Fabric-cluster.
+## <a name="sfctl-compose-upgrade"></a>upgrade van sfctl-opstellen
+Hiermee wordt een upgrade van een opstel implementatie in het Service Fabric cluster gestart.
 
-Terugdraaien van een service fabric vormen een implementatie-upgrade.
+Valideert de opgegeven upgrade parameters en begint met het upgraden van de implementatie als de para meters geldig zijn.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --naam-implementatie (vereist) | De identiteit van de implementatie. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --implementatie-naam [vereist] | De naam van de implementatie. |
+| --bestandspad [vereist] | Het pad naar het doel bestand van docker voor samen stelling. |
+| --standaard-SVC-type-Health-toewijzing | JSON-gecodeerde woorden lijst waarmee het status beleid wordt beschreven dat wordt gebruikt om de status van services te evalueren. |
+| --versleuteld-door geven | In plaats van te vragen om een container register wachtwoord, gebruikt u een al versleutelde wachtwoordzin. |
+| --fout-actie | Mogelijke waarden zijn\: ' ongeldig ', ' rollback ', ' Manual '. |
+| --Force-restart | Processen worden geforceerd opnieuw gestart tijdens de upgrade, zelfs wanneer de code versie niet is gewijzigd. <br><br> Bij de upgrade worden alleen configuratie of gegevens gewijzigd. |
+| --has-pass | Wordt gevraagd om een wacht woord voor het container register. |
+| --status-controle-opnieuw | De tijds duur tussen pogingen om status controles uit te voeren als de toepassing of het cluster niet in orde is. |
+| --status-controle stabiel | De hoeveelheid tijd die de toepassing of het cluster in orde moet blijven voordat de upgrade wordt voortgezet naar het volgende upgrade domein. <br><br> Het wordt eerst geïnterpreteerd als een teken reeks die een ISO 8601-duur vertegenwoordigt. Als dat mislukt, wordt dit geïnterpreteerd als een getal dat het totale aantal milliseconden aangeeft. |
+| --status-check-wait | De tijds duur die moet worden gewacht na het volt ooien van een upgrade domein voordat het proces status controles wordt gestart. |
+| --replica-set-check | De maximale tijds duur voor het blok keren van de verwerking van een upgrade domein en het voor komen van Beschik baarheid wanneer er onverwachte problemen zijn. <br><br> Wanneer deze time-out is verlopen, wordt de verwerking van het upgrade domein voortgezet, ongeacht de problemen met het Beschikbaarheids verlies. De time-out wordt opnieuw ingesteld aan het begin van elk upgrade domein. Geldige waarden zijn 0 tot en met 42949672925. |
+| --SVC-type-Health-toewijzing | JSON-gecodeerde lijst met objecten die het status beleid beschrijven dat wordt gebruikt om de status van verschillende service typen te evalueren. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
+| --de app is beschadigd | Het Maxi maal toegestane percentage van toepassingen met een slechte status voordat een fout wordt gemeld. <br><br> Als u bijvoorbeeld wilt toestaan dat 10% van de toepassingen een slechte status heeft, is deze waarde 10. Het percentage vertegenwoordigt het Maxi maal toegestane percentage van toepassingen die een slechte status kunnen hebben voordat het cluster als fout wordt beschouwd. Als het percentage wordt geëerbiedigd, maar er ten minste één slechte toepassing is, wordt de status als een waarschuwing geëvalueerd. Dit wordt berekend door het aantal toepassingen met een slechte status te delen ten opzichte van het totale aantal toepassings exemplaren in het cluster. |
+| --upgrade-time-out van domein | De hoeveelheid tijd die elk upgrade domein moet volt ooien voordat FailureAction wordt uitgevoerd. <br><br> Het wordt eerst geïnterpreteerd als een teken reeks die een ISO 8601-duur vertegenwoordigt. Als dat mislukt, wordt dit geïnterpreteerd als een getal dat het totale aantal milliseconden aangeeft. |
+| --upgrade-soort | Standaard\: rollen. |
+| --upgrade-modus | Mogelijke waarden zijn\: ' ongeldig ', ' UnmonitoredAuto ', ' UnmonitoredManual ', ' bewaakt '.  Standaard\: UnmonitoredAuto. |
+| --upgrade-time-out | De hoeveelheid tijd die de algehele upgrade moet volt ooien voordat FailureAction wordt uitgevoerd. <br><br> Het wordt eerst geïnterpreteerd als een teken reeks die een ISO 8601-duur vertegenwoordigt. Als dat mislukt, wordt dit geïnterpreteerd als een getal dat het totale aantal milliseconden aangeeft. |
+| --user | De gebruikers naam om verbinding te maken met het container register. |
+| --waarschuwing-als-fout | Hiermee wordt aangegeven of waarschuwingen worden behandeld met dezelfde ernst als bij fouten. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-compose-upgrade-status"></a>sfctl compose upgrade-status
-Meer informatie opgehaald voor de meest recente upgrade uitgevoerd voor deze Service Fabric implementatie voor opstellen.
+## <a name="sfctl-compose-upgrade-rollback"></a>sfctl opstellen upgrade-terugdraai actie
+Start een opstel implementatie-upgrade in het Service Fabric cluster.
 
-Retourneert informatie over de status van de upgrade van de implementatie opstellen, samen met details kunnen helpen een foutopsporing statusproblemen van toepassing.
+Een implementatie-upgrade voor een service Fabric-samen stel ongedaan maken.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --naam-implementatie (vereist) | De identiteit van de implementatie. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --implementatie-naam [vereist] | De identiteit van de implementatie. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
+
+## <a name="sfctl-compose-upgrade-status"></a>sfctl opstellen upgrade-status
+Hiermee worden gegevens opgehaald voor de laatste upgrade die is uitgevoerd op deze Service Fabric een implementatie op te stellen.
+
+Retourneert informatie over de status van de upgrade voor de samen stellen van de implementatie samen met Details voor hulp bij het oplossen van problemen met de status van toepassingen.
+
+### <a name="arguments"></a>Argumenten
+
+|Argument|Description|
+| --- | --- |
+| --implementatie-naam [vereist] | De identiteit van de implementatie. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
+
+### <a name="global-arguments"></a>Algemene argumenten
+
+|Argument|Description|
+| --- | --- |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

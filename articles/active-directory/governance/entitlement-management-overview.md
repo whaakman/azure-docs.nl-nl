@@ -1,5 +1,5 @@
 ---
-title: Wat is het beheer van rechten van Azure AD? (Preview)-Azure Active Directory
+title: Wat is Azure AD-rechtenbeheer? (Preview)-Azure Active Directory
 description: Bekijk een overzicht van Azure Active Directory rechten beheer en hoe u dit kunt gebruiken voor het beheren van de toegang tot groepen, toepassingen en share point online-sites voor interne en externe gebruikers.
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678161"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032553"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Wat is het beheer van rechten van Azure AD? (Preview-versie)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Wat is Azure AD-rechtenbeheer? (Preview-versie)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD)-rechts beheer is momenteel beschikbaar als open bare preview.
@@ -33,6 +33,10 @@ ms.locfileid: "68678161"
 Werk nemers in organisaties moeten toegang hebben tot verschillende groepen, toepassingen en sites om hun taak uit te voeren. Het beheer van deze toegang is lastig. In de meeste gevallen is er geen geordende lijst met alle resources die een gebruiker nodig heeft voor een project. De project manager heeft een goed inzicht in de benodigde resources, de betrokken personen en hoe lang het duurt voordat het project wordt uitgevoerd. De project manager heeft meestal echter geen machtigingen om anderen goed te keuren of toegang te verlenen. Dit scenario wordt ingewik kelder wanneer u probeert te werken met externe individuen of bedrijven.
 
 Azure Active Directory (Azure AD) rechten beheer kan u helpen bij het beheren van de toegang tot groepen, toepassingen en share point online-sites voor interne gebruikers en ook gebruikers buiten uw organisatie.
+
+In deze video vindt u een overzicht van het rechten beheer en de bijbehorende bedrijfs waarde:
+
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
 ## <a name="why-use-entitlement-management"></a>Waarom het beheer van rechten gebruiken?
 

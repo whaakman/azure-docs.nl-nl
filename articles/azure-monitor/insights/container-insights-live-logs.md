@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 968ee4c8bb5d7e09ef3c345c46f6c7b839e0e25a
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2eab6fa75e4adbbde7bcf20f18301a1e516235c2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990037"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035350"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Logboeken en gebeurtenissen in realtime weer geven (preview)
 Azure Monitor voor containers bevat een functie die momenteel als preview-versie beschikbaar is. deze biedt een live weer gave in uw Azure Kubernetes service (AKS)-container Logboeken (stdout/stderr) en gebeurtenissen zonder kubectl-opdrachten uit te voeren. Wanneer u een van beide opties selecteert, wordt er een nieuw deel venster weer gegeven onder de tabel prestatie gegevens in de weer gave **knoop punten**, **controllers**en **containers** . Hierin worden live logboeken en gebeurtenissen weer gegeven die door de container-Engine zijn gegenereerd voor verdere hulp bij het oplossen van problemen in real-time.
@@ -72,7 +72,7 @@ Als u Kubernetes RBAC-autorisatie hebt ingeschakeld, moet u om toe te passen clu
 
 AKS kan worden geconfigureerd voor het gebruik van Azure Active Directory (AD) voor verificatie van de gebruiker. Als u deze voor de eerste keer configureert, raadpleegt u [Azure Active Directory integreren met de Azure Kubernetes-service](../../aks/azure-ad-integration.md). Geef tijdens de stappen voor het maken van de [client toepassing](../../aks/azure-ad-integration.md#create-the-client-application)het volgende op:
 
-- **Omleidings-URI (optioneel)** : Dit **is een type** webtoepassing en de basis-URL-waarde `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`moet zijn.
+-  Omleidings- **URI**: Er moeten twee typen webtoepassingen worden gemaakt. De eerste basis-URL-waarde `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` moet zijn en de tweede basis-URL `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`-waarde moet zijn.
 - Selecteer na het registreren van de toepassing op de pagina **overzicht** de optie **verificatie** in het linkerdeel venster. Geef op de pagina **verificatie** onder **Geavanceerde instellingen** impliciet **toegangs tokens** en **id-tokens** toe en sla uw wijzigingen op.
 
 >[!NOTE]
@@ -94,7 +94,7 @@ Logboek-en gebeurtenis berichten zijn beperkt op basis van het bron type dat is 
 | Knooppunten | Knooppunt | Gebeurtenis | Wanneer een knoop punt is geselecteerd, worden de gebeurtenissen niet gefilterd en worden Kubernetes-gebeurtenissen voor het hele cluster weer gegeven. De titel van het deel venster toont de naam van het cluster. |
 | Knooppunten | Pod | Gebeurtenis | Wanneer een Pod is geselecteerd, worden de gebeurtenissen gefilterd op de naam ruimte. De titel van het deel venster toont de naam ruimte van de pod. | 
 | Controllers | Pod | Gebeurtenis | Wanneer een Pod is geselecteerd, worden de gebeurtenissen gefilterd op de naam ruimte. De titel van het deel venster toont de naam ruimte van de pod. |
-| Controllers | Regelaar | Gebeurtenis | Wanneer een controller is geselecteerd, worden de gebeurtenissen gefilterd op de naam ruimte. De titel van het deel venster toont de naam ruimte van de controller. |
+| Controllers | Controller | Gebeurtenis | Wanneer een controller is geselecteerd, worden de gebeurtenissen gefilterd op de naam ruimte. De titel van het deel venster toont de naam ruimte van de controller. |
 | Knoop punten/controllers/containers | Container | Logboeken | De titel van het deel venster toont de naam van de pod waarin de container is gegroepeerd. |
 
 Als het AKS-cluster is geconfigureerd met eenmalige aanmelding met AAD, wordt u gevraagd om te verifiëren bij het eerste gebruik tijdens de browsersessie. Selecteer uw account en de volledige verificatie met Azure.  

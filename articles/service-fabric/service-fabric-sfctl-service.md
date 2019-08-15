@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl service | Microsoft Docs
-description: Beschrijving van de opdrachten van Service Fabric-CLI sfctl-service.
+title: Azure Service Fabric CLI-sfctl-service | Microsoft Docs
+description: Beschrijft de Service Fabric CLI sfctl-service opdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,591 +8,590 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e215ab6d3ee56f2cccdd5887c240d9046327f110
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556369"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035223"
 ---
 # <a name="sfctl-service"></a>sfctl service
-Maken, verwijderen en beheren van de service, servicetypen en service-pakketten.
+Services, service typen en service pakketten maken, verwijderen en beheren.
 
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
-| app-name | Hiermee haalt u de naam van de Service Fabric-toepassing voor een service. |
-| code-package-list | Hiermee haalt u de lijst met codepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt. |
-| create | Hiermee maakt u de opgegeven Service Fabric-service. |
-| delete | Hiermee verwijdert u een bestaande Service Fabric-service. |
-| geïmplementeerd-type | Hiermee haalt u de informatie over een opgegeven service-type van de toepassing die is geïmplementeerd op een knooppunt in een Service Fabric-cluster. |
-| geïmplementeerd-type-list | Hiermee haalt u de lijst met de informatie over de servicetypen van de toepassingen die zijn geïmplementeerd op een knooppunt in een Service Fabric-cluster. |
-| description | Hiermee haalt u de beschrijving van een bestaande Service Fabric-service. |
-| Get-container-Logboeken | Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt. |
-| health | Hiermee haalt u de status van de opgegeven Service Fabric-service. |
-| info | Hiermee haalt u de informatie over de specifieke service die behoren tot de Service Fabric-toepassing. |
-| list | Hiermee haalt u de informatie over alle services die behoren tot de toepassing die is opgegeven door de toepassings-ID. |
-| manifest | Hiermee haalt u de beschrijving van het servicetype van een manifest. |
-| pakket implementeren | Downloadt pakketten die zijn gekoppeld aan de opgegeven servicemanifest voor de cache voor installatiekopieën van het opgegeven knooppunt. |
-| package-health | Hiermee haalt de informatie over de status van een servicepakket voor een specifieke toepassing die is geïmplementeerd voor een Service Fabric-knooppunt en de toepassing. |
-| package-info | Hiermee haalt u de lijst met service-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt die overeenkomt met precies de opgegeven naam. |
-| pakket-lijst | Hiermee haalt u de lijst met service-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt. |
-| recover | Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van de opgegeven service die momenteel sprake van quorumverlies is vastgelopen. |
-| report-health | Verzendt een statusrapport van de Service Fabric-service. |
-| oplossen | Een Service Fabric-partitie worden omgezet. |
-| type-list | Hiermee haalt u de lijst met de informatie over de servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster. |
-| update | De opgegeven service met behulp van de beschrijving van de betreffende update-updates. |
+| app-naam | Hiermee wordt de naam van de Service Fabric toepassing voor een service opgehaald. |
+| code-pakket-lijst | Hiermee haalt u de lijst met code pakketten op die op een Service Fabric knoop punt is geïmplementeerd. |
+| create | Hiermee wordt de opgegeven Service Fabric-service gemaakt. |
+| verwijderen | Hiermee verwijdert u een bestaande Service Fabric-service. |
+| geïmplementeerd-type | Hiermee wordt de informatie opgehaald over een opgegeven service type van de toepassing die is geïmplementeerd op een knoop punt in een Service Fabric cluster. |
+| geïmplementeerd-type-lijst | Hiermee wordt de lijst opgehaald met de informatie over service typen van de toepassingen die zijn geïmplementeerd op een knoop punt in een Service Fabric cluster. |
+| description | Hiermee wordt de beschrijving van een bestaande Service Fabric-service opgehaald. |
+| Get-container-logboeken | Hiermee worden de container logboeken opgehaald voor de container die op een Service Fabric knoop punt is geïmplementeerd. |
+| health | Hiermee wordt de status van de opgegeven Service Fabric service opgehaald. |
+| info | Hiermee wordt de informatie opgehaald over de specifieke service die bij de Service Fabric toepassing hoort. |
+| list | Haalt de informatie op over alle services die horen bij de toepassing die is opgegeven door de toepassings-ID. |
+| manifest | Hiermee wordt het manifest opgehaald waarmee een service type wordt beschreven. |
+| pakket-implementeren | Pakketten die zijn gekoppeld aan het opgegeven service manifest, worden gedownload naar de installatie kopie cache op het opgegeven knoop punt. |
+| package-health | Haalt de informatie over de status van een service pakket voor een specifieke toepassing die is geïmplementeerd voor een Service Fabric knoop punt en toepassing. |
+| package-info | Hiermee haalt u de lijst met Service pakketten op die zijn geïmplementeerd op een Service Fabric knoop punt dat exact overeenkomt met de opgegeven naam. |
+| pakket-lijst | Hiermee wordt de lijst met Service pakketten opgehaald die op een Service Fabric knoop punt zijn geïmplementeerd. |
+| recover | Hiermee geeft u aan het Service Fabric cluster op dat moet worden geprobeerd om de opgegeven service te herstellen die momenteel is vastgelopen in quorum verlies. |
+| report-health | Hiermee verzendt u een status rapport voor de Service Fabric-service. |
+| oplossen | Een Service Fabric partitie omzetten. |
+| type-list | Hiermee wordt de lijst opgehaald met de informatie over service typen die worden ondersteund door een ingericht toepassings type in een Service Fabric cluster. |
+| bijwerken | Hiermee wordt de opgegeven service bijgewerkt met de opgegeven beschrijving van de update. |
 
-## <a name="sfctl-service-app-name"></a>sfctl service app-naam
-Hiermee haalt u de naam van de Service Fabric-toepassing voor een service.
+## <a name="sfctl-service-app-name"></a>app-naam van sfctl-service
+Hiermee wordt de naam van de Service Fabric toepassing voor een service opgehaald.
 
-Hiermee haalt u de naam van de toepassing voor de opgegeven service. Een 404 FABRIC_E_SERVICE_DOES_NOT_EXIST-fout wordt geretourneerd als een service met de opgegeven ID niet bestaat.
-
-### <a name="arguments"></a>Argumenten
-
-|Argument|Description|
-| --- | --- |
-| --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
-
-## <a name="sfctl-service-code-package-list"></a>sfctl service code-pakket-list
-Hiermee haalt u de lijst met codepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.
-
-Hiermee haalt u de lijst met codepakketten die zijn geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven toepassing.
+Hiermee wordt de naam van de toepassing voor de opgegeven service opgehaald. Er wordt een 404 FABRIC_E_SERVICE_DOES_NOT_EXIST-fout geretourneerd als een service met de opgegeven service-ID niet bestaat.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --code-package-name | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
-| --naam van een service manifest | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Service-id [vereist] | De identiteit van de service. Deze id is doorgaans de volledige naam van de service zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de service naam bijvoorbeeld ' Fabric\:/MyApp/app1/svc1 ' is, is de service-identiteit ' Mijntoep\~app1\~svc1 ' in 6.0 + en ' Mijntoep/app1/svc1 ' in vorige versies. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
+
+## <a name="sfctl-service-code-package-list"></a>sfctl-service code-pakket-lijst
+Hiermee haalt u de lijst met code pakketten op die op een Service Fabric knoop punt is geïmplementeerd.
+
+Hiermee haalt u de lijst met code pakketten op die zijn geïmplementeerd op een Service Fabric knoop punt voor de betreffende toepassing.
+
+### <a name="arguments"></a>Argumenten
+
+|Argument|Description|
+| --- | --- |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --node-name [required] | De naam van het knoop punt. |
+| --code-package-name | De naam van het code pakket dat is opgegeven in het service manifest, geregistreerd als onderdeel van een toepassings type in een Service Fabric cluster. |
+| --Service-manifest-naam | De naam van een service manifest dat is geregistreerd als onderdeel van een toepassings type in een Service Fabric cluster. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
+
+### <a name="global-arguments"></a>Algemene argumenten
+
+|Argument|Description|
+| --- | --- |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 ## <a name="sfctl-service-create"></a>sfctl-service maken
-Hiermee maakt u de opgegeven Service Fabric-service.
+Hiermee wordt de opgegeven Service Fabric-service gemaakt.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --app-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id ' Mijntoep\~app1' in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --naam (vereist) | Naam van de service. Dit moet een onderliggend element van de toepassings-id. Dit is de volledige naam waaronder de `fabric\:` URI. Bijvoorbeeld service `fabric\:/A/B` een onderliggend item van application `fabric\:/A`. |
-| --servicetype (vereist) | De naam van het type van de service. |
-| --activering-modus | De modus voor activering voor het servicepakket. |
-| --beperkingen | De plaatsingsbeperkingen als een tekenreeks. Plaatsingsbeperkingen zijn Booleaanse expressies in de eigenschappen van het knooppunt en toestaan voor het beperken van een service voor bepaalde knooppunten op basis van de servicevereisten. Bijvoorbeeld, om een service op de knooppunten waar NodeType blauw is het volgende opgeven\:"NodeColor == blue '. |
-| --gecorreleerde-service | De naam van de doelservice correleren met. |
-| --correlatie | De service met een bestaande service met behulp van een affiniteit uitlijning correleren. |
-| --dns-name | De DNS-naam van de service moet worden gemaakt. De Service Fabric-DNS-service moet zijn ingeschakeld voor deze instelling. |
-| --instance-count | Het aantal instanties. Dit geldt voor stateless services alleen. |
-| --int-scheme | Geeft aan dat de service op uniforme wijze moet worden gepartitioneerd op tal van niet-ondertekende gehele getallen. |
-| --int-scheme-count | Het aantal partities binnen het gehele getal sleutel moet worden gemaakt, als u met behulp van een partitieschema uniform geheel getal zijn. |
-| --int-scheme-high | Het einde van het bereik van belangrijke geheel getal zijn, als een partitieschema uniform geheel getal zijn. |
-| --int-scheme-low | Het begin van het bereik van belangrijke geheel getal zijn, als een partitieschema uniform geheel getal zijn. |
-| --load-metrische gegevens | JSON gecodeerd overzicht van metrische gegevens die gebruikt wordt wanneer load balancing services over knooppunten. |
-| --min-replica-set-size | De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen. |
-| --move-cost | Hiermee geeft u de kosten voor het verplaatsen van de service. Mogelijke waarden zijn\: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'. |
-| --named-scheme | Geeft aan dat de service moet meerdere benoemde partities hebben. |
-| --named-scheme-list | JSON gecodeerd lijst met namen voor het partitioneren van de service in, als de benoemde partitieschema. |
-| --niet-persistent-status | Indien waar, geeft dit aan de service heeft geen permanente status opgeslagen op de lokale schijf, of alleen wordt status opgeslagen in het geheugen. |
-| --plaatsing beleidslijst | JSON gecodeerd lijst met beleidsregels voor plaatsing voor de service, en alle gekoppelde domeinnamen. Beleidsregels kunnen worden een of meer van\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --quorum-loss-wait | De maximale duur, in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen. |
-| --replica-restart-wait | De duur, in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen. |
-| --schalen-beleid | JSON gecodeerd lijst met beleidsregels voor deze service te schalen. |
-| --singleton-scheme | Geeft aan dat de service moet beschikken over één partitie of een niet-gepartitioneerde-service. |
-| --stand-by-replica-keep | De maximale duur, in seconden, voor welke stand-by-wordt replica's onderhouden voordat het wordt verwijderd. Dit geldt voor stateful services alleen. |
-| --stateful | Geeft aan dat de service is een stateful service. |
-| --stateless | Geeft aan dat de service is een staatloze service. |
-| --target-replica-set-size | Grootte van instellen de doelreplica als een getal. Dit geldt voor stateful services alleen. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --App-ID [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het\~teken. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --naam [vereist] | De naam van de service. Dit moet een onderliggend item van de toepassings-id zijn. Dit is de volledige naam met inbegrip van de `fabric\:` URI. De service `fabric\:/A/B` is bijvoorbeeld een onderliggend `fabric\:/A`item van de toepassing. |
+| --Service-type [vereist] | De naam van het Service type. |
+| --activerings modus | De activerings modus voor het service pakket. |
+| --beperkingen | De plaatsings beperkingen als een teken reeks. Plaatsings beperkingen zijn Booleaanse expressies op knooppunt eigenschappen en bieden de mogelijkheid om een service te beperken tot bepaalde knoop punten op basis van de service vereisten. Als u bijvoorbeeld een service wilt plaatsen op knoop punten waarbij NodeType blauw is, geeft\:u het volgende op: "NodeColor = = Blue". |
+| --correled-service | De naam van de doel service waarmee moet worden gecorreleerd. |
+| --correlatie | Correleer de service met een bestaande service met behulp van een uitlijning-affiniteit. |
+| --DNS-naam | De DNS-naam van de service die moet worden gemaakt. De Service Fabric DNS-systeem service moet zijn ingeschakeld voor deze instelling. |
+| --exemplaar-aantal | Het aantal instanties. Dit geldt alleen voor stateless Services. |
+| --int-scheme | Geeft aan dat de service uniform moet worden gepartitioneerd over een bereik van niet-ondertekende gehele getallen. |
+| --int-scheme-count | Het aantal partities binnen het bereik van de gehele sleutel dat moet worden gemaakt als een uniform geheel getal is. |
+| --int-scheme-high | Het einde van het sleutel bereik met gehele getallen, als er een uniform geheel getal is voor het partitie schema. |
+| --int-scheme-low | Het begin van het sleutel bereik met gehele getallen, als er een uniform geheel getal is voor het partitie schema. |
+| --metrische gegevens voor belasting | JSON-gecodeerde lijst met metrische gegevens die worden gebruikt bij de taak verdeling van services tussen knoop punten. |
+| --min-replica-set-size | De minimale grootte van de replicaset als een getal. Dit geldt alleen voor stateful Services. |
+| --kosten voor verplaatsing | Hiermee geeft u de verplaatsings kosten voor de service op. Mogelijke waarden zijn\: ' nul ', ' laag ', ' medium ', ' hoog '. |
+| --name-schema | Geeft aan dat de service meerdere benoemde partities moet hebben. |
+| --schema-lijst | JSON-gecodeerde lijst met namen voor het partitioneren van de service in, als het partitie schema met de naam wordt gebruikt. |
+| --zonder persistente status | Als deze eigenschap waar is, wordt hiermee aangegeven dat de service geen permanente status op de lokale schijf heeft opgeslagen, of alleen de status in het geheugen opslaat. |
+| --plaatsing-beleid-lijst | JSON-gecodeerde lijst met plaatsings beleid voor de service en eventuele bijbehorende domein namen. Beleids regels kunnen een of meer van\: `NonPartiallyPlaceService`, `PreferPrimaryDomain` `RequireDomain`,, `RequireDomainDistribution`, zijn. |
+| --quorum verlies-wachten | De maximum duur, in seconden, waarvoor een partitie een status van quorum verlies mag hebben. Dit geldt alleen voor stateful Services. |
+| --replica-opnieuw opstarten-wachten | De duur, in seconden, tussen het moment dat een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt alleen voor stateful Services. |
+| --schalen-beleids regels | JSON-gecodeerde lijst met schaal beleid voor deze service. |
+| --Singleton-schema | Geeft aan dat de service één partitie moet hebben of een niet-gepartitioneerde service moet zijn. |
+| --stand-by-replica-behoud | De maximum duur, in seconden, waarvoor stand-by replica's worden behouden voordat ze worden verwijderd. Dit geldt alleen voor stateful Services. |
+| -stateful | Geeft aan dat de service een stateful service is. |
+| -stateless | Geeft aan dat de service een stateless service is. |
+| --target-replica-set-size | De doel grootte van de replicaset is ingesteld als een getal. Dit geldt alleen voor stateful Services. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-delete"></a>sfctl service verwijderen
+## <a name="sfctl-service-delete"></a>sfctl-service verwijderen
 Hiermee verwijdert u een bestaande Service Fabric-service.
 
-Een service moet worden gemaakt voordat deze kan worden verwijderd. Standaard probeert Service Fabric te sluiten van service-replica's op correcte wijze en verwijder vervolgens de service. Echter als de service is hebt u problemen bij het sluiten van de replica zonder problemen, de delete-bewerking lang kan duren of zitten. Gebruik de optionele ForceRemove vlag de correcte sluiten van een reeks overslaan en de service geforceerd verwijderen.
+U moet een service maken voordat u deze kunt verwijderen. Service Fabric probeert standaard de service replica's op een correcte manier te sluiten en vervolgens de service te verwijderen. Als de service echter problemen heeft met het op de juiste wijze sluiten van de replica, kan de verwijderings bewerking lang duren of vastlopen. Gebruik de optionele vlag ForceRemove om de correcte sluit sequentie over te slaan en de service geforceerd te verwijderen.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
-| --force-remove | Een Service Fabric-toepassing of service verwijderen geforceerd zonder tussenkomst van de reeks correct afsluiten. Deze parameter kan worden gebruikt voor het geforceerd verwijderen van een toepassing of service voor welke verwijderen time-out vanwege problemen met de code die voorkomt dat vensters sluit van replica's. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Service-id [vereist] | De identiteit van de service. Deze id is doorgaans de volledige naam van de service zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de service naam bijvoorbeeld ' Fabric\:/MyApp/app1/svc1 ' is, is de service-identiteit ' Mijntoep\~app1\~svc1 ' in 6.0 + en ' Mijntoep/app1/svc1 ' in vorige versies. |
+| --force-remove | Verwijder een Service Fabric toepassing of service geforceerd zonder de juiste afsluit procedure te door lopen. Deze para meter kan worden gebruikt om een toepassing of service geforceerd te verwijderen waarvoor een time-out is opgetreden vanwege problemen in de service code die voor komen dat replica's worden gesloten. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-deployed-type"></a>sfctl service geïmplementeerd-type
-Hiermee haalt u de informatie over een opgegeven service-type van de toepassing die is geïmplementeerd op een knooppunt in een Service Fabric-cluster.
+## <a name="sfctl-service-deployed-type"></a>geïmplementeerde sfctl-Service-type
+Hiermee wordt de informatie opgehaald over een opgegeven service type van de toepassing die is geïmplementeerd op een knoop punt in een Service Fabric cluster.
 
-Hiermee haalt u de lijst met de informatie over een specifieke service-type van de toepassingen die zijn geïmplementeerd op een knooppunt in een Service Fabric-cluster. Het antwoord bevat de naam van het type van de service, de registratiestatus, het codepakket dat deze en activering geregistreerd-ID van het servicepakket. Elk item vertegenwoordigt één activering van een servicetype onderscheiden door de id van de activering.
+Hiermee wordt de lijst opgehaald met de informatie over een specifiek Service type uit de toepassingen die zijn geïmplementeerd op een knoop punt in een Service Fabric cluster. Het antwoord bevat de naam van het Service type, de registratie status, het code pakket waarmee het is geregistreerd en de activerings-ID van het service pakket. Elk item vertegenwoordigt één activering van een service type, gedifferentieerd door de activerings-ID.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-type-naam (vereist) | Hiermee geeft u de naam van een type Service Fabric-service. |
-| --naam van een service manifest | De naam van het servicemanifest voor het filteren van de lijst met geïmplementeerde service-informatie. Indien opgegeven, is het antwoord bevat alleen de informatie over servicetypen die zijn gedefinieerd in het servicemanifest van deze. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --node-name [required] | De naam van het knoop punt. |
+| --Service-type-naam [vereist] | Hiermee geeft u de naam van een Service Fabric-Service type op. |
+| --Service-manifest-naam | De naam van het service manifest waarmee de lijst met geïmplementeerde informatie over het Service type wordt gefilterd. Als deze is opgegeven, bevat het antwoord alleen de informatie over de service typen die in dit service manifest zijn gedefinieerd. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-deployed-type-list"></a>sfctl service geïmplementeerd-type-list
-Hiermee haalt u de lijst met de informatie over de servicetypen van de toepassingen die zijn geïmplementeerd op een knooppunt in een Service Fabric-cluster.
+## <a name="sfctl-service-deployed-type-list"></a>geïmplementeerde sfctl-Service-type-lijst
+Hiermee wordt de lijst opgehaald met de informatie over service typen van de toepassingen die zijn geïmplementeerd op een knoop punt in een Service Fabric cluster.
 
-Hiermee haalt u de lijst met de informatie over de servicetypen van de toepassingen die zijn geïmplementeerd op een knooppunt in een Service Fabric-cluster. Het antwoord bevat de naam van het type van de service, de registratiestatus, het codepakket dat deze en activering geregistreerd-ID van het servicepakket.
+Hiermee wordt de lijst opgehaald met de informatie over service typen van de toepassingen die zijn geïmplementeerd op een knoop punt in een Service Fabric cluster. Het antwoord bevat de naam van het Service type, de registratie status, het code pakket waarmee het is geregistreerd en de activerings-ID van het service pakket.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --naam van een service manifest | De naam van het servicemanifest voor het filteren van de lijst met geïmplementeerde service-informatie. Indien opgegeven, is het antwoord bevat alleen de informatie over servicetypen die zijn gedefinieerd in het servicemanifest van deze. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --node-name [required] | De naam van het knoop punt. |
+| --Service-manifest-naam | De naam van het service manifest waarmee de lijst met geïmplementeerde informatie over het Service type wordt gefilterd. Als deze is opgegeven, bevat het antwoord alleen de informatie over de service typen die in dit service manifest zijn gedefinieerd. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-description"></a>Beschrijving van de service sfctl
-Hiermee haalt u de beschrijving van een bestaande Service Fabric-service.
+## <a name="sfctl-service-description"></a>Beschrijving van de sfctl-service
+Hiermee wordt de beschrijving van een bestaande Service Fabric-service opgehaald.
 
-Hiermee haalt u de beschrijving van een bestaande Service Fabric-service. Een service moet worden gemaakt voordat de beschrijving ervan kan worden verkregen.
+Hiermee wordt de beschrijving van een bestaande Service Fabric-service opgehaald. Er moet een service worden gemaakt voordat de beschrijving ervan kan worden verkregen.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Service-id [vereist] | De identiteit van de service. Deze id is doorgaans de volledige naam van de service zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de service naam bijvoorbeeld ' Fabric\:/MyApp/app1/svc1 ' is, is de service-identiteit ' Mijntoep\~app1\~svc1 ' in 6.0 + en ' Mijntoep/app1/svc1 ' in vorige versies. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-get-container-logs"></a>sfctl get-container-Logboeken
-Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt.
+## <a name="sfctl-service-get-container-logs"></a>Get-container van sfctl-service-logboeken
+Hiermee worden de container logboeken opgehaald voor de container die op een Service Fabric knoop punt is geïmplementeerd.
 
-Hiermee haalt u de logboeken voor containers voor de container geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven codepakket.
+Hiermee haalt u de container logboeken op voor een container die is geïmplementeerd op een Service Fabric knoop punt voor het gegeven code pakket.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --code-pakket-naam (vereist) | De naam van het codepakket opgegeven in het servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-manifest-naam (vereist) | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
-| --vorige | Geeft aan of de containerlogboeken ophalen uit is afgesloten/dead containers van het exemplaar van code-pakket. |
-| --staart | Het aantal regels om weer te geven vanaf het einde van de logboeken. De standaardwaarde is 100. 'alle' om weer te geven van de volledige Logboeken. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --code-pakket naam [vereist] | De naam van het code pakket dat is opgegeven in het service manifest, geregistreerd als onderdeel van een toepassings type in een Service Fabric cluster. |
+| --node-name [required] | De naam van het knoop punt. |
+| --Service-manifest-naam [vereist] | De naam van een service manifest dat is geregistreerd als onderdeel van een toepassings type in een Service Fabric cluster. |
+| --vorige | Hiermee geeft u op of container logboeken moeten worden opgehaald uit gesloten/Dead-containers van het code pakket exemplaar. |
+| --staart | Aantal regels dat moet worden weer gegeven aan het einde van de logboeken. De standaard waarde is 100. ' all ' om de volledige logboeken weer te geven. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-health"></a>sfctl-servicestatus
-Hiermee haalt u de status van de opgegeven Service Fabric-service.
+## <a name="sfctl-service-health"></a>status van sfctl-service
+Hiermee wordt de status van de opgegeven Service Fabric service opgehaald.
 
-Hiermee haalt u de statusgegevens van de opgegeven service. EventsHealthStateFilter gebruiken voor het filteren van de verzameling van health-gebeurtenissen die zijn gerapporteerd voor de service op basis van de status. Gebruik PartitionsHealthStateFilter voor het filteren van de verzameling van partities die worden geretourneerd. Als u een service die niet in de health-store bestaat opgeeft, wordt in deze aanvraag een fout geretourneerd.
+Hiermee worden de status gegevens van de opgegeven service opgehaald. Gebruik EventsHealthStateFilter om de verzameling van status gebeurtenissen die op de service zijn gerapporteerd, te filteren op basis van de status. Gebruik PartitionsHealthStateFilter om de verzameling van opgehaalde partities te filteren. Als u een service opgeeft die niet voor komt in de Health Store, retourneert deze aanvraag een fout.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
-| --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling van HealthEvent-objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is worden vervolgens alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
-| --uitsluiten-health-statistieken | Geeft aan of de health-statistieken moet worden geretourneerd als onderdeel van het queryresultaat. Als de waarde False is, wordt standaard. De statistieken Toon het aantal onderliggende entiteiten in de status Ok, waarschuwing en fout. |
-| --partities-health-status-filter | Kan het filteren van de partities health state objecten geretourneerd in het resultaat van de zoekopdracht van de health-service op basis van hun status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de partities die overeenkomen met het filter worden geretourneerd. Alle partities worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarde die is verkregen met behulp van bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is wordt vervolgens de status van de partities met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Service-id [vereist] | De identiteit van de service. Deze id is doorgaans de volledige naam van de service zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de service naam bijvoorbeeld ' Fabric\:/MyApp/app1/svc1 ' is, is de service-identiteit ' Mijntoep\~app1\~svc1 ' in 6.0 + en ' Mijntoep/app1/svc1 ' in vorige versies. |
+| --gebeurtenissen-status-filter | Hiermee kunt u het verzamelen van HealthEvent-objecten die zijn geretourneerd op basis van de status wordt gefilterd. De mogelijke waarden voor deze para meter zijn gehele getallen van een van de volgende statussen. Alleen gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt om de geaggregeerde status te evalueren. Als u niets opgeeft, worden alle vermeldingen geretourneerd. De status waarden zijn inventarisatie op basis van een vlag, waardoor de waarde kan bestaan uit een combi natie van deze waarden, verkregen met behulp van de operator bitsgewijze ' of '. Als de opgegeven waarde bijvoorbeeld 6 is, worden alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard-standaard waarde. Komt overeen met een wille keurige HealthState. De waarde is nul.  <br> -Geen: filter dat niet overeenkomt met een HealthState-waarde. Wordt gebruikt om geen resultaten te retour neren voor een bepaalde verzameling statussen. De waarde is 1.  <br> -OK-filter dat overeenkomt met de invoer met HealthState waarde OK. De waarde is 2.  <br> -Waarschuwings filter dat overeenkomt met invoer met HealthState-waarde waarschuwing. De waarde is 4.  <br> -Fout filter dat overeenkomt met de invoer met de HealthState-waarde fout. De waarde is 8.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van HealthState. De waarde is 65535. |
+| --exclude-status-statistieken | Hiermee wordt aangegeven of de status statistieken moeten worden geretourneerd als onderdeel van het query resultaat. Standaard onwaar. In de statistieken wordt het aantal onderliggende entiteiten in de status OK, waarschuwing en fout weer gegeven. |
+| --partities-status-filter | Hiermee staat u toe dat de status objecten van de partities worden gefilterd die zijn geretourneerd in het resultaat van de service status query op basis van hun status. De mogelijke waarden voor deze para meter zijn gehele getallen van een van de volgende statussen. Alleen partities die overeenkomen met het filter worden geretourneerd. Alle partities worden gebruikt om de geaggregeerde status te evalueren. Als u niets opgeeft, worden alle vermeldingen geretourneerd. De status waarden zijn inventarisatie op basis van een vlag, waardoor de waarde kan bestaan uit een combi natie van deze waarde die is verkregen met behulp van de operator bitsgewijze of. Als de opgegeven waarde bijvoorbeeld 6 is, wordt de status van partities met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard-standaard waarde. Komt overeen met een wille keurige HealthState. De waarde is nul.  <br> -Geen: filter dat niet overeenkomt met een HealthState-waarde. Wordt gebruikt om geen resultaten te retour neren voor een bepaalde verzameling statussen. De waarde is 1.  <br> -OK-filter dat overeenkomt met de invoer met HealthState waarde OK. De waarde is 2.  <br> -Waarschuwings filter dat overeenkomt met invoer met HealthState-waarde waarschuwing. De waarde is 4.  <br> -Fout filter dat overeenkomt met de invoer met de HealthState-waarde fout. De waarde is 8.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van HealthState. De waarde is 65535. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-info"></a>sfctl service-informatie
-Hiermee haalt u de informatie over de specifieke service die behoren tot de Service Fabric-toepassing.
+## <a name="sfctl-service-info"></a>sfctl-service gegevens
+Hiermee wordt de informatie opgehaald over de specifieke service die bij de Service Fabric toepassing hoort.
 
-Retourneert informatie over de opgegeven service die behoren tot de opgegeven Service Fabric-toepassing.
+Retourneert de informatie over de opgegeven service die hoort bij de opgegeven Service Fabric-toepassing.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --Service-id [vereist] | De identiteit van de service. Deze id is doorgaans de volledige naam van de service zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de service naam bijvoorbeeld ' Fabric\:/MyApp/app1/svc1 ' is, is de service-identiteit ' Mijntoep\~app1\~svc1 ' in 6.0 + en ' Mijntoep/app1/svc1 ' in vorige versies. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-list"></a>lijst van de service sfctl
-Hiermee haalt u de informatie over alle services die behoren tot de toepassing die is opgegeven door de toepassings-ID.
+## <a name="sfctl-service-list"></a>sfctl-service lijst
+Haalt de informatie op over alle services die horen bij de toepassing die is opgegeven door de toepassings-ID.
 
-Retourneert informatie over alle services die behoren tot de toepassing die is opgegeven door de toepassings-ID.
+Retourneert de informatie over alle services die deel uitmaken van de toepassing die wordt opgegeven door de toepassings-ID.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --service-type-name | De naam van de service type is gebruikt voor het filteren van de services aan te vragen voor. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --vervolg token | De vervolg token parameter wordt gebruikt om de volgende set resultaten op te halen. Een vervolg token met een niet-lege waarde wordt opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt door gegeven aan de volgende API-aanroep, retourneert de API de volgende set resultaten. Als er geen verdere resultaten zijn, bevat het vervolg token geen waarde. De waarde van deze para meter mag geen URL-code ring zijn. |
+| --Service-type-name | De naam van het Service type dat wordt gebruikt om de services te filteren op query's voor. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-manifest"></a>sfctl-servicemanifest
-Hiermee haalt u de beschrijving van het servicetype van een manifest.
+## <a name="sfctl-service-manifest"></a>sfctl-service manifest
+Hiermee wordt het manifest opgehaald waarmee een service type wordt beschreven.
 
-Hiermee haalt u de beschrijving van het servicetype van een manifest. Het antwoord bevat de XML van het servicemanifest als een tekenreeks.
+Hiermee wordt het manifest opgehaald waarmee een service type wordt beschreven. Het antwoord bevat de XML van het service manifest als een teken reeks.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
-| --toepassing-type-versie (vereist) | De versie van het toepassingstype. |
-| --service-manifest-name    [Required] | De naam van een servicemanifest geregistreerd als onderdeel van een toepassingstype in een Service Fabric-cluster. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Application-type-name [required] | De naam van het toepassings type. |
+| --toepassings type-versie [vereist] | De versie van het toepassings type. |
+| --Service-manifest-naam [vereist] | De naam van een service manifest dat is geregistreerd als onderdeel van een toepassings type in een Service Fabric cluster. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-package-deploy"></a>sfctl service pakket implementeren
-Downloadt pakketten die zijn gekoppeld aan de opgegeven servicemanifest voor de cache voor installatiekopieën van het opgegeven knooppunt.
+## <a name="sfctl-service-package-deploy"></a>sfctl-service pakket-implementeren
+Pakketten die zijn gekoppeld aan het opgegeven service manifest, worden gedownload naar de installatie kopie cache op het opgegeven knoop punt.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --app-type-naam (vereist) | De naam van het manifest van de toepassing voor het bijbehorende aangevraagde servicemanifest. |
-| --app-type-versie (vereist) | De versie van het manifest van de toepassing voor het bijbehorende aangevraagde servicemanifest. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-manifest-naam (vereist) | De naam van het servicemanifest die zijn gekoppeld aan de pakketten die worden gedownload. |
-| --share-beleid | Lijst met JSON gecodeerd van het delen van beleid. Voor elk beleidselement in delen bestaat uit een 'name' en 'bereik'. De naam overeenkomt met de naam van het pakket met code, configuratie of gegevens die moet worden gedeeld. Het bereik mag 'None', 'All', 'Code', 'Config' of 'Gegevens'. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --app-type-naam [vereist] | De naam van het toepassings manifest voor het bijbehorende aangevraagde service manifest. |
+| --app-type-versie [vereist] | De versie van het toepassings manifest voor het bijbehorende aangevraagde service manifest. |
+| --node-name [required] | De naam van het knoop punt. |
+| --Service-manifest-naam [vereist] | De naam van het service manifest dat is gekoppeld aan de pakketten die worden gedownload. |
+| --delen-beleid | JSON-gecodeerde lijst met beleids regels voor delen. Elk element voor het delen van beleid bestaat uit een ' name ' en ' scope '. De naam komt overeen met de naam van de code, configuratie of het gegevens pakket dat moet worden gedeeld. Het bereik kan ' none ', ' all ', ' code ', ' config ' of ' data ' zijn. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-package-health"></a>sfctl pakket-servicestatus
-Hiermee haalt de informatie over de status van een servicepakket voor een specifieke toepassing die is geïmplementeerd voor een Service Fabric-knooppunt en de toepassing.
+## <a name="sfctl-service-package-health"></a>sfctl-service pakket-status
+Haalt de informatie over de status van een service pakket voor een specifieke toepassing die is geïmplementeerd voor een Service Fabric knoop punt en toepassing.
 
-Hiermee haalt de informatie over de status van een servicepakket voor een specifieke toepassing die is geïmplementeerd op een Service Fabric-knooppunt. Gebruik EventsHealthStateFilter om te filteren op (optioneel) de verzameling van HealthEvent-objecten die zijn gerapporteerd voor de geïmplementeerde service-pakket dat is gebaseerd op de status.
+Haalt de informatie over de status van een service pakket voor een specifieke toepassing die op een Service Fabric knoop punt is geïmplementeerd. Gebruik EventsHealthStateFilter om optioneel te filteren op de verzameling HealthEvent-objecten die zijn gerapporteerd op het geïmplementeerde service pakket op basis van de status.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-pakket-naam (vereist) | De naam van het servicepakket. |
-| --gebeurtenissen-health-status-filter | Hiermee kunt u filteren van de verzameling van HealthEvent-objecten geretourneerd op basis van status. De mogelijke waarden voor deze parameter zijn integer-waarde van een van de volgende statussen. Alleen de gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt voor het evalueren van de geaggregeerde status. Als niet is opgegeven, worden alle vermeldingen geretourneerd. De provincie-waarden zijn vlag gebaseerde inventarisatie, zodat de waarde kan bestaan uit een combinatie van deze waarden, verkregen met behulp van de bitwise "OR"-operator. Bijvoorbeeld, als de opgegeven waarde 6 is worden vervolgens alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard - standaardwaarde. Komt overeen met alle HealthState. De waarde is nul.  <br> -Geen - Filter op dat komt niet overeen met een willekeurige waarde HealthState. Er zijn geen resultaten geretourneerd bij een bepaalde verzameling van statussen gebruikt. De waarde is 1.  <br> -Ok - filteren dat overeenkomt met op de Ok invoer met HealthState waarde. De waarde is 2.  <br> -Waarschuwing - Filter dat overeenkomt met invoer aan HealthState waarschuwing waarde. De waarde is 4.  <br> -Fout: Filter die overeenkomt met de invoer met HealthState waarde fout. De waarde is 8.  <br> -Alle - Filter op dat overeenkomt met de invoer met een willekeurige waarde HealthState. De waarde is 65535. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --node-name [required] | De naam van het knoop punt. |
+| --service-pakket-naam [vereist] | De naam van het service pakket. |
+| --gebeurtenissen-status-filter | Hiermee kunt u het verzamelen van HealthEvent-objecten die zijn geretourneerd op basis van de status wordt gefilterd. De mogelijke waarden voor deze para meter zijn gehele getallen van een van de volgende statussen. Alleen gebeurtenissen die overeenkomen met het filter worden geretourneerd. Alle gebeurtenissen worden gebruikt om de geaggregeerde status te evalueren. Als u niets opgeeft, worden alle vermeldingen geretourneerd. De status waarden zijn inventarisatie op basis van een vlag, waardoor de waarde kan bestaan uit een combi natie van deze waarden, verkregen met behulp van de operator bitsgewijze ' of '. Als de opgegeven waarde bijvoorbeeld 6 is, worden alle gebeurtenissen met HealthState waarde OK (2) en waarschuwing (4) geretourneerd.  <br> -Standaard-standaard waarde. Komt overeen met een wille keurige HealthState. De waarde is nul.  <br> -Geen: filter dat niet overeenkomt met een HealthState-waarde. Wordt gebruikt om geen resultaten te retour neren voor een bepaalde verzameling statussen. De waarde is 1.  <br> -OK-filter dat overeenkomt met de invoer met HealthState waarde OK. De waarde is 2.  <br> -Waarschuwings filter dat overeenkomt met invoer met HealthState-waarde waarschuwing. De waarde is 4.  <br> -Fout filter dat overeenkomt met de invoer met de HealthState-waarde fout. De waarde is 8.  <br> -Alle-filter die overeenkomt met invoer met een wille keurige waarde van HealthState. De waarde is 65535. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-package-info"></a>sfctl service-pakket-informatie
-Hiermee haalt u de lijst met service-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt die overeenkomt met precies de opgegeven naam.
+## <a name="sfctl-service-package-info"></a>sfctl-service pakket-info
+Hiermee haalt u de lijst met Service pakketten op die zijn geïmplementeerd op een Service Fabric knoop punt dat exact overeenkomt met de opgegeven naam.
 
-Retourneert informatie over de servicepakketten dat is geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven toepassing. Deze resultaten zijn van de service-pakketten waarvan de naam overeenkomt met precies de naam van de service-pakket opgegeven als parameter.
+Retourneert de informatie over de service pakketten die zijn geïmplementeerd op een Service Fabric knoop punt voor de betreffende toepassing. Deze resultaten zijn van service pakketten waarvan de naam exact overeenkomt met de naam van het service pakket dat is opgegeven als de para meter.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --service-pakket-naam (vereist) | De naam van het servicepakket. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --node-name [required] | De naam van het knoop punt. |
+| --service-pakket-naam [vereist] | De naam van het service pakket. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-package-list"></a>sfctl service pakketlijst
-Hiermee haalt u de lijst met service-pakketten die zijn geïmplementeerd op een Service Fabric-knooppunt.
+## <a name="sfctl-service-package-list"></a>sfctl-service pakket-lijst
+Hiermee wordt de lijst met Service pakketten opgehaald die op een Service Fabric knoop punt zijn geïmplementeerd.
 
-Retourneert informatie over de servicepakketten dat is geïmplementeerd op een Service Fabric-knooppunt voor de opgegeven toepassing.
+Retourneert de informatie over de service pakketten die zijn geïmplementeerd op een Service Fabric knoop punt voor de betreffende toepassing.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --aanvraag-id (vereist) | De identiteit van de toepassing. Dit is meestal de volledige naam van de toepassing zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de toepassingsnaam van de is ' fabric\:/Mijntoep/app1 ', is de toepassings-id "mijntoep\~app1" in 6.0 en hoger en ' Mijntoep/app1' in eerdere versies. |
-| --knooppuntnaam (vereist) | De naam van het knooppunt. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --toepassings-id [vereist] | De identiteit van de toepassing. Dit is doorgaans de volledige naam van de toepassing zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de naam van de toepassing bijvoorbeeld ' Fabric\:/MyApp/app1 ' is, is de toepassings identiteit ' Mijntoep\~app1 ' in 6.0 + en ' Mijntoep/app1 ' in vorige versies. |
+| --node-name [required] | De naam van het knoop punt. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-recover"></a>sfctl service herstellen
-Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van de opgegeven service die momenteel sprake van quorumverlies is vastgelopen.
+## <a name="sfctl-service-recover"></a>sfctl-service herstellen
+Hiermee geeft u aan het Service Fabric cluster op dat moet worden geprobeerd om de opgegeven service te herstellen die momenteel is vastgelopen in quorum verlies.
 
-Geeft aan dat de Service Fabric-cluster dat het proberen moet te herstellen van de opgegeven service die momenteel sprake van quorumverlies is vastgelopen. Met deze bewerking moet alleen worden uitgevoerd als bekend is dat de replica's die niet beschikbaar zijn, kunnen niet worden hersteld. Onjuist gebruik van deze API kan leiden tot verlies van gegevens.
+Hiermee geeft u aan het Service Fabric cluster op dat moet worden geprobeerd om de opgegeven service te herstellen die momenteel is vastgelopen in quorum verlies. Deze bewerking mag alleen worden uitgevoerd als bekend is dat de replica's die niet beschikbaar zijn, niet kunnen worden hersteld. Een onjuist gebruik van deze API kan leiden tot mogelijk gegevens verlies.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Service-id [vereist] | De identiteit van de service. Deze id is doorgaans de volledige naam van de service zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de service naam bijvoorbeeld ' Fabric\:/MyApp/app1/svc1 ' is, is de service-identiteit ' Mijntoep\~app1\~svc1 ' in 6.0 + en ' Mijntoep/app1/svc1 ' in vorige versies. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-report-health"></a>sfctl rapport-servicestatus
-Verzendt een statusrapport van de Service Fabric-service.
+## <a name="sfctl-service-report-health"></a>sfctl-service rapport-status
+Hiermee verzendt u een status rapport voor de Service Fabric-service.
 
-Status van de opgegeven Service Fabric-service-rapporten. Het rapport moet de informatie over de oorzaak van de health-rapport en de eigenschap waarop dit apparaat is gerapporteerd bevatten. Het rapport wordt verzonden naar een Service Fabric-gateway-Service, die wordt doorgestuurd naar de health-store. Het rapport kan worden geaccepteerd door de gateway, maar geweigerd door de health store na extra validatie. Het rapport kan bijvoorbeeld afwijzen, de health store vanwege een ongeldige parameter, zoals een verouderde volgnummer. Om te zien of het rapport in de health-store is toegepast, Controleer of het rapport wordt weergegeven in de health-gebeurtenissen van de service.
+Rapporteert de status van de opgegeven Service Fabric service. Het rapport moet de informatie bevatten over de bron van het status rapport en de eigenschap waarvoor deze is gerapporteerd. Het rapport wordt verzonden naar een Service Fabric Gateway Service, die wordt doorgestuurd naar de Health Store. Het rapport kan worden geaccepteerd door de gateway, maar door de Health Store na een extra validatie afgewezen. Het Health Store kan bijvoorbeeld het rapport afwijzen vanwege een ongeldige para meter, zoals een verouderd volgorde nummer. Als u wilt zien of het rapport is toegepast in de Health Store, controleert u of het rapport wordt weer gegeven in de status gebeurtenissen van de service.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --health-eigenschap (vereist) | De eigenschap van de gegevens over de servicestatus. <br><br> Een entiteit kan statusrapporten voor de verschillende eigenschappen hebben. De eigenschap is een tekenreeks en niet een vaste-opsomming waarmee de journalist flexibiliteit voor het categoriseren van de voorwaarde staat dat het rapport wordt geactiveerd. Bijvoorbeeld, een Rapportagefout met SourceId "LocalWatchdog" die de status van de beschikbare schijfruimte op een knooppunt kunt controleren, zodat deze eigenschap "AvailableDisk" op dat knooppunt rapporteren kunt. De dezelfde journalist kan het knooppunt-connectiviteit, bewaken, zodat het een eigenschap 'Connectiviteit' op hetzelfde knooppunt rapporteren kan. In de winkel de gezondheid van worden deze rapporten behandeld als afzonderlijke health-gebeurtenissen voor het opgegeven knooppunt. Samen met de bron-id identificatie de eigenschap unieke van de gegevens over de servicestatus. |
-| --status (vereist) | Mogelijke waarden zijn\: 'Ongeldige', 'Ok', 'Waarschuwing', 'Fout', 'Onbekend'. |
-| --service-id (vereist) | De identiteit van de service. <br><br> Dit is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1', de service-identiteit is ' Mijntoep\~app1\~svc1' in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
-| --bron-id (vereist) | De naam van de bron die de watchdog-client-systeem component aangeduid die de gezondheidsinformatie gegenereerd. |
-| --Beschrijving | De beschrijving van de gegevens over de servicestatus. <br><br> Hiermee geeft u vrije tekst die wordt gebruikt om toe te voegen menselijke leesbare informatie over het rapport. De maximumlengte voor de beschrijving is 4096 tekens. Als de opgegeven tekenreeks langer is, worden deze automatisch afgekapt. Wanneer afgekapt, de laatste tekens van de beschrijving van de markering van een '[Truncated]' bevatten en totale grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers die moet worden afgekapt is opgetreden. Houd er rekening mee dat wanneer afgekapt, de beschrijving van minder dan 4096 tekens uit de oorspronkelijke reeks heeft. |
-| --immediate | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een statusrapport wordt verzonden naar een gateway Service Fabric-toepassing, die wordt doorgestuurd naar de health-store. Als direct is ingesteld op true, het rapport wordt direct verzonden van HTTP-Gateway naar de health-store, ongeacht de instellingen van de fabric-client die de HTTP-Gateway-toepassing wordt gebruikt. Dit is handig voor de kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voorwaarden mislukken verzenden van het rapport nog steeds, bijvoorbeeld als de HTTP-Gateway is gesloten of het bericht de Gateway niet bereiken. Als direct is ingesteld op false, wordt het rapport verzonden op basis van de clientinstellingen voor de status van de HTTP-Gateway. Het wordt daarom worden batchgewijs op basis van de configuratie van de HealthReportSendInterval. Dit is de aanbevolen instelling omdat hierdoor de health-client de gezondheid van berichten in health store, evenals verwerking van statusrapporten reporting optimaliseren. Standaard rapporten niet onmiddellijk verzonden. |
-| --remove-when-expired | De waarde die aangeeft of het rapport is verwijderd uit health store wanneer het verloopt. <br><br> Als is ingesteld op true, wordt het rapport wordt verwijderd uit de store health nadat deze is verlopen. Indien ingesteld op false, het rapport wordt behandeld als een fout bij het verlopen. De waarde van deze eigenschap is ingesteld op false standaard. Als clients regelmatig rapporteren, moeten ze RemoveWhenExpired false (standaard) ingesteld. Op deze manier is de journalist heeft problemen (bijvoorbeeld impasse) en kan niet rapporteren, wordt de entiteit bij fout wordt geëvalueerd wanneer het statusrapport is verlopen. Deze vlaggen die de entiteit alsof ze de status fout. |
-| --volgnummer: | Het volgnummer voor dit statusrapport als een numerieke tekenreeks. <br><br> Het volgnummer van het rapport wordt gebruikt door de health store voor het detecteren van verouderde rapporten. Indien niet opgegeven, is een volgnummer automatisch gegenereerd door de client health wanneer een rapport wordt toegevoegd. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --ttl | De tijdsduur waarvoor deze statusrapport geldig is. Dit veld wordt ISO8601-notatie gebruikt voor het opgeven van de duur. <br><br> Als clients regelmatig rapporteren, moeten ze rapporten verzenden met een hogere frequentie dan time to live van. Als clients een over de overgang rapport, kunnen ze time to live op oneindig ingesteld. Wanneer time to live van is verlopen, de statusgebeurtenis met de health-gegevens is verwijderd uit health store, als RemoveWhenExpired true, of op een fout, geëvalueerd als onwaar RemoveWhenExpired. Indien niet opgegeven, time to live van oneindige waarde de standaardwaarde van. |
+| --status-Property [required] | De eigenschap van de status informatie. <br><br> Een entiteit kan status rapporten voor verschillende eigenschappen hebben. De eigenschap is een teken reeks en geen vaste inventarisatie om de flexibiliteit van de rapporter in te stellen voor het categoriseren van de status voorwaarde waarmee het rapport wordt geactiveerd. Zo kan een rapporter met SourceId "LocalWatchdog" de status van de beschik bare schijf op een knoop punt bewaken, zodat de eigenschap "AvailableDisk" op dat knoop punt kan worden gerapporteerd. Dezelfde rapportage functie kan de verbinding met het knoop punt bewaken, zodat een eigenschap ' connectiviteit ' op hetzelfde knoop punt kan worden gerapporteerd. In de Health Store worden deze rapporten behandeld als afzonderlijke status gebeurtenissen voor het opgegeven knoop punt. Samen met de SourceId wordt met de eigenschap een unieke identificatie van de status informatie aangeduid. |
+| --status (vereist) | Mogelijke waarden zijn\: ' Unknown ', ' OK ', ' warn ', ' error ', ' Unknown '. |
+| --Service-id [vereist] | De identiteit van de service. <br><br> Dit is doorgaans de volledige naam van de service zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het\~teken. Als de service naam bijvoorbeeld ' Fabric\:/MyApp/app1/svc1 ' is, is de service-identiteit ' Mijntoep\~app1\~svc1 ' in 6.0 + en ' Mijntoep/app1/svc1 ' in vorige versies. |
+| --bron-id [vereist] | De bron naam die het client/watchdog/systeem onderdeel identificeert dat de status informatie heeft gegenereerd. |
+| --Beschrijving | De beschrijving van de status informatie. <br><br> Hiermee wordt de vrije tekst aangegeven die wordt gebruikt om informatie over het rapport toe te voegen dat wordt gelezen. De maximale teken reeks lengte van de beschrijving is 4096 tekens. Als de gegeven teken reeks langer is, wordt deze automatisch afgekapt. Wanneer de laatste tekens van de beschrijving worden afgekapt, bevatten ze een markering [afgekapt] en de totale teken reeks grootte is 4096 tekens. De aanwezigheid van de markering geeft aan dat gebruikers de afkap ping hebben plaatsgevonden. Houd er rekening mee dat de beschrijving kleiner is dan 4096 tekens uit de oorspronkelijke teken reeks. |
+| --Immediate | Een vlag die aangeeft of het rapport direct moet worden verzonden. <br><br> Een status rapport wordt verzonden naar een Service Fabric gateway-toepassing, die wordt doorgestuurd naar de Health Store. Als direct is ingesteld op True, wordt het rapport direct van de HTTP-gateway naar de Health Store verzonden, ongeacht de instellingen van de Fabric-client die door de HTTP-gateway toepassing worden gebruikt. Dit is handig voor kritieke rapporten die zo snel mogelijk moeten worden verzonden. Afhankelijk van de timing en andere voor waarden, kan het verzenden van het rapport nog steeds mislukken, bijvoorbeeld als de HTTP-gateway is gesloten of als het bericht de gateway niet bereikt. Als direct is ingesteld op False, wordt het rapport verzonden op basis van de status client instellingen van de HTTP-gateway. Daarom wordt deze batch gebaseerd op de HealthReportSendInterval-configuratie. Dit is de aanbevolen instelling omdat de Health-client de status rapport berichten kan optimaliseren naar Health Store en dat de status rapporten worden verwerkt. Standaard worden rapporten niet onmiddellijk verzonden. |
+| --remove-when-expired | Waarde die aangeeft of het rapport wordt verwijderd uit Health Store wanneer het is verlopen. <br><br> Als deze eigenschap is ingesteld op True, wordt het rapport verwijderd uit de Health Store nadat het is verlopen. Als deze eigenschap is ingesteld op False, wordt het rapport als een fout beschouwd wanneer het is verlopen. De waarde van deze eigenschap is standaard onwaar. Wanneer clients periodiek een rapport rapporteren, moeten ze RemoveWhenExpired False instellen (standaard). Op deze manier heeft de rapporter problemen (bijvoorbeeld deadlock) en kan het rapport niet worden gerapporteerd. de entiteit wordt geëvalueerd als er een fout optreedt wanneer het status rapport verloopt. Hiermee wordt de entiteit gemarkeerd als de fout status. |
+| --Volg nummer | Het Volg nummer voor dit status rapport als een numerieke teken reeks. <br><br> Het Volg nummer van het rapport wordt door de Health Store gebruikt voor het detecteren van verouderde rapporten. Als u niets opgeeft, wordt er automatisch een Volg nummer gegenereerd door de Health-client wanneer een rapport wordt toegevoegd. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
+| --ttl | De duur waarvoor dit status rapport geldig is. Dit veld maakt gebruik van de ISO8601-indeling voor het opgeven van de duur. <br><br> Wanneer clients periodiek rapporteren, moeten ze rapporten met een hogere frequentie verzenden dan live. Als clients rapporteren over overgang, kunnen ze de TTL-waarde (time to Live) instellen op oneindig. Wanneer time to Live verloopt, wordt de status gebeurtenis die de status informatie bevat verwijderd uit Health Store, als RemoveWhenExpired is ingesteld op True, of bij fout geëvalueerd als RemoveWhenExpired False is. Als u niets opgeeft, wordt de time-to-Live-waarde standaard ingesteld op oneindig. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-resolve"></a>sfctl service oplossen
-Een Service Fabric-partitie worden omgezet.
+## <a name="sfctl-service-resolve"></a>sfctl-service oplossen
+Een Service Fabric partitie omzetten.
 
-Een partitie van de Service Fabric-service om op te halen van de eindpunten van de service-replica's worden omgezet.
+Een Service Fabric-service partitie oplossen om de eind punten van de service replica's op te halen.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --service-id (vereist) | De identiteit van de service. Deze ID is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1 ', de service-identiteit is ' Mijntoep\~app1\~svc1 "in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
-| --partitie-sleutel-type | Type van de sleutel voor de partitie. Deze parameter is vereist als het partitieschema van de service Int64Range of naam is. De mogelijke waarden zijn te volgen. -Geen (1) - geeft aan dat de parameter PartitionKeyValue niet is opgegeven. Dit is ongeldig voor de partities met het partitieschema als Singleton. Dit is de standaardwaarde. De waarde is 1. -Int64Range (2) - geeft aan dat de parameter PartitionKeyValue de partitiesleutel van een gegevenstype int64. Dit is ongeldig voor de partities met het partitieschema als Int64Range. De waarde is 2. -Met de naam (3) - geeft aan dat de parameter PartitionKeyValue een naam op van de partitie is. Dit is ongeldig voor de partities met het partitieschema als naam. De waarde is 3. |
-| --partition-key-value | Partitiesleutel. Dit is vereist als het partitieschema van de service Int64Range of naam is. Dit is niet de partitie-ID, maar in plaats daarvan een van beide het gehele getal sleutel-waarde of de naam van de partitie-ID. Bijvoorbeeld, als uw service van variabele partities van 0 tot en met 10 gebruikmaakt, is klikt u vervolgens ze PartitionKeyValue een geheel getal in dat bereik. Beschrijving van de service om te zien van het bereik of de naam van een query uitvoeren. |
-| --vorige rsp-versie | De waarde in het veld versie van het antwoord dat eerder is ontvangen. Dit is vereist als de gebruiker weet dat het resultaat dat is verkregen eerder verouderd is. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Service-id [vereist] | De identiteit van de service. Deze id is doorgaans de volledige naam van de service zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de service naam bijvoorbeeld ' Fabric\:/MyApp/app1/svc1 ' is, is de service-identiteit ' Mijntoep\~app1\~svc1 ' in 6.0 + en ' Mijntoep/app1/svc1 ' in vorige versies. |
+| --Partition-sleutel-type | Sleutel type voor de partitie. Deze para meter is vereist als het partitie schema voor de service Int64Range of een naam heeft. De mogelijke waarden zijn als volgt. -Geen (1)-geeft aan dat de para meter PartitionKeyValue niet is opgegeven. Dit is geldig voor de partities met het partitie schema als Singleton. Dit is de standaardwaarde. De waarde is 1. -Int64Range (2)-geeft aan dat de para meter PartitionKeyValue een int64-partitie sleutel is. Dit is geldig voor de partities met partitie schema als Int64Range. De waarde is 2. -Met de naam (3): geeft aan dat de PartitionKeyValue-para meter een naam is van de partitie. Dit is geldig voor de partities met het partitie schema met de naam. De waarde is 3. |
+| --partition-key-value | Partitie sleutel. Dit is vereist als het partitie schema voor de service Int64Range of een naam heeft. Dit is niet de partitie-ID, maar is wel de sleutel waarde integer of de naam van de partitie-ID. Als uw service bijvoorbeeld bereik partities van 0 tot 10 gebruikt, is het PartitionKeyValue een geheel getal in dat bereik. Beschrijving van de query service om het bereik of de naam weer te geven. |
+| --vorige-RSP-version | De waarde in het veld versie van het antwoord dat eerder is ontvangen. Dit is vereist als de gebruiker weet dat het resultaat dat eerder is gevonden, verouderd is. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-type-list"></a>sfctl-lijst van service
-Hiermee haalt u de lijst met de informatie over de servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster.
+## <a name="sfctl-service-type-list"></a>sfctl-Service type-lijst
+Hiermee wordt de lijst opgehaald met de informatie over service typen die worden ondersteund door een ingericht toepassings type in een Service Fabric cluster.
 
-Hiermee haalt u de lijst met de informatie over de servicetypen die worden ondersteund door een ingerichte toepassingstype in een Service Fabric-cluster. Het opgegeven type moet bestaan. Anders wordt een 404-status geretourneerd.
+Hiermee wordt de lijst opgehaald met de informatie over service typen die worden ondersteund door een ingericht toepassings type in een Service Fabric cluster. Het gegeven toepassings type moet bestaan. Als dat niet het geval is, wordt de status 404 geretourneerd.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --toepassing-type-naam (vereist) | De naam van het toepassingstype. |
-| --toepassing-type-versie (vereist) | De versie van het toepassingstype. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Application-type-name [required] | De naam van het toepassings type. |
+| --toepassings type-versie [vereist] | De versie van het toepassings type. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-service-update"></a>sfctl service-update
-De opgegeven service met behulp van de beschrijving van de betreffende update-updates.
+## <a name="sfctl-service-update"></a>sfctl-service-update
+Hiermee wordt de opgegeven service bijgewerkt met de opgegeven beschrijving van de update.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --service-id (vereist) | De identiteit van de service. Dit is meestal de volledige naam van de service zonder de ' fabric\:' URI-schema. Vanaf versie 6.0, hiërarchische namen worden gescheiden met de '\~' teken. Bijvoorbeeld, als de servicenaam van de is ' fabric\:/myapp/app1/svc1', de service-identiteit is ' Mijntoep\~app1\~svc1' in 6.0 en hoger en ' Mijntoep/app1/svc1' in eerdere versies. |
-| --beperkingen | De plaatsingsbeperkingen als een tekenreeks. Plaatsingsbeperkingen zijn Booleaanse expressies in de eigenschappen van het knooppunt en toestaan voor het beperken van een service voor bepaalde knooppunten op basis van de servicevereisten. Bijvoorbeeld, om een service op de knooppunten waar NodeType blauw is het volgende opgeven\: "NodeColor == blue '. |
-| --gecorreleerde-service | De naam van de doelservice correleren met. |
-| --correlatie | De service met een bestaande service met behulp van een affiniteit uitlijning correleren. |
-| --instance-count | Het aantal instanties. Dit geldt voor stateless services alleen. |
-| --load-metrische gegevens | JSON gecodeerd overzicht van metrische gegevens die worden gebruikt wanneer de taakverdeling over meerdere knooppunten. |
-| --min-replica-set-size | De replica van de minimale instellen grootte als een getal. Dit geldt voor stateful services alleen. |
-| --move-cost | Hiermee geeft u de kosten voor het verplaatsen van de service. Mogelijke waarden zijn\: 'Nul', 'Laag', 'Gemiddeld', 'Hoog'. |
-| --plaatsing beleidslijst | JSON gecodeerd lijst met beleidsregels voor plaatsing voor de service, en alle gekoppelde domeinnamen. Beleidsregels kunnen worden een of meer van\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --quorum-loss-wait | De maximale duur, in seconden, waarvoor een partitie is toegestaan in een status van quorumverlies. Dit geldt voor stateful services alleen. |
-| --replica-restart-wait | De duur, in seconden tussen wanneer een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt voor stateful services alleen. |
-| --schalen-beleid | JSON gecodeerd lijst met beleidsregels voor deze service te schalen. |
-| --stand-by-replica-keep | De maximale duur, in seconden, voor welke stand-by-wordt replica's onderhouden voordat het wordt verwijderd. Dit geldt voor stateful services alleen. |
-| --stateful | Geeft aan dat de doelservice is een stateful service. |
-| --stateless | Geeft aan dat de doelservice is een staatloze service. |
-| --target-replica-set-size | Grootte van instellen de doelreplica als een getal. Dit geldt voor stateful services alleen. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --Service-id [vereist] | De identiteit van de service. Dit is doorgaans de volledige naam van de service zonder het URI-\:schema ' fabric '. Vanaf versie 6,0 worden hiërarchische namen gescheiden met het teken '\~'. Als de service naam bijvoorbeeld ' Fabric\:/MyApp/app1/svc1 ' is, is de service-identiteit ' Mijntoep\~app1\~svc1 ' in 6.0 + en ' Mijntoep/app1/svc1 ' in vorige versies. |
+| --beperkingen | De plaatsings beperkingen als een teken reeks. Plaatsings beperkingen zijn Booleaanse expressies op knooppunt eigenschappen en bieden de mogelijkheid om een service te beperken tot bepaalde knoop punten op basis van de service vereisten. Als u bijvoorbeeld een service wilt plaatsen op knoop punten waarbij NodeType blauw is, geeft\: u het volgende op: "NodeColor = = Blue". |
+| --correled-service | De naam van de doel service waarmee moet worden gecorreleerd. |
+| --correlatie | Correleer de service met een bestaande service met behulp van een uitlijning-affiniteit. |
+| --exemplaar-aantal | Het aantal instanties. Dit geldt alleen voor stateless Services. |
+| --metrische gegevens voor belasting | JSON-gecodeerde lijst met metrische gegevens die worden gebruikt bij taak verdeling tussen knoop punten. |
+| --min-replica-set-size | De minimale grootte van de replicaset als een getal. Dit geldt alleen voor stateful Services. |
+| --kosten voor verplaatsing | Hiermee geeft u de verplaatsings kosten voor de service op. Mogelijke waarden zijn\: ' nul ', ' laag ', ' medium ', ' hoog '. |
+| --plaatsing-beleid-lijst | JSON-gecodeerde lijst met plaatsings beleid voor de service en eventuele bijbehorende domein namen. Beleids regels kunnen een of meer van\: `NonPartiallyPlaceService`, `PreferPrimaryDomain` `RequireDomain`,, `RequireDomainDistribution`, zijn. |
+| --quorum verlies-wachten | De maximum duur, in seconden, waarvoor een partitie een status van quorum verlies mag hebben. Dit geldt alleen voor stateful Services. |
+| --replica-opnieuw opstarten-wachten | De duur, in seconden, tussen het moment dat een replica uitvalt en wanneer een nieuwe replica wordt gemaakt. Dit geldt alleen voor stateful Services. |
+| --schalen-beleids regels | JSON-gecodeerde lijst met schaal beleid voor deze service. |
+| --stand-by-replica-behoud | De maximum duur, in seconden, waarvoor stand-by replica's worden behouden voordat ze worden verwijderd. Dit geldt alleen voor stateful Services. |
+| -stateful | Geeft aan dat de doel service een stateful service is. |
+| -stateless | Geeft aan dat de doel service een stateless service is. |
+| --target-replica-set-size | De doel grootte van de replicaset is ingesteld als een getal. Dit geldt alleen voor stateful Services. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

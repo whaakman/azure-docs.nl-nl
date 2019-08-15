@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: chackdan
-ms.openlocfilehash: df25c52e7a3f35355eb52bd95a39f55852adfcae
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 826e7e953bd713bb623ec469b45c56012601490b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876583"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030806"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Een omgekeerde proxy instellen en configureren in azure Service Fabric
 Omgekeerde proxy is een optionele Azure Service Fabric-service die micro services die worden uitgevoerd in een Service Fabric cluster kan detecteren en communiceren met andere services met http-eind punten. Zie reverse [proxy in Azure service Fabric](service-fabric-reverseproxy.md)voor meer informatie. In dit artikel wordt beschreven hoe u een omgekeerde proxy in uw cluster instelt en configureert. 

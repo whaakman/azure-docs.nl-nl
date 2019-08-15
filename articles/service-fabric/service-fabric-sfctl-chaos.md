@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl chaos | Microsoft Docs
-description: Beschrijving van de Service Fabric-CLI sfctl chaos-opdrachten.
+title: Azure Service Fabric CLI-sfctl chaos | Microsoft Docs
+description: Beschrijft de Service Fabric CLI-sfctl chaos-opdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,136 +8,135 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: b584ec301f0f4841c8df8fbbafb410abf645c373
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27178b2f26086bf693dc9cda342c66f7d47a34d7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837348"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035096"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
-Starten, stoppen en rapporteren over de chaos-test-service.
+Starten, stoppen en rapporteren op de chaos-test service.
 
 ## <a name="subgroups"></a>Subgroepen
 |Subgroep|Description|
 | --- | --- |
-| [schedule](service-fabric-sfctl-chaos-schedule.md) | Ophalen en instellen van de planning van chaos. |
+| [schedule](service-fabric-sfctl-chaos-schedule.md) | De chaos-planning ophalen en instellen. |
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
-| events | Hiermee haalt u het volgende segment van de Chaos-gebeurtenissen op basis van het vervolgtoken of het tijdsbereik. |
-| Toevoegen | De status van Chaos ophalen. |
-| start | Chaos start in het cluster. |
-| Stoppen | Chaos stopt als deze wordt uitgevoerd in het cluster en de planning Chaos in een status ' gestopt plaatsen '. |
+| gebeurtenissen | Hiermee wordt het volgende segment van de chaos-gebeurtenissen opgehaald op basis van het vervolg token of het tijds bereik. |
+| Toevoegen | De status van chaos ophalen. |
+| start | Chaos wordt gestart in het cluster. |
+| tab | Stopt chaos als deze wordt uitgevoerd in het cluster en de chaos-planning in een status gestopt heeft gezet. |
 
 ## <a name="sfctl-chaos-events"></a>sfctl chaos-gebeurtenissen
-Hiermee haalt u het volgende segment van de Chaos-gebeurtenissen op basis van het vervolgtoken of het tijdsbereik.
+Hiermee wordt het volgende segment van de chaos-gebeurtenissen opgehaald op basis van het vervolg token of het tijds bereik.
 
-Als u het volgende segment van de Chaos-gebeurtenissen, kunt u de ContinuationToken opgeven. Als u het begin van een nieuw segment van Chaos-gebeurtenissen, kunt u het tijdsbereik via StartTimeUtc en EndTimeUtc opgeven. U kunt zowel de ContinuationToken en het tijdsbereik niet opgeven in de aanroep van dezelfde. Wanneer er meer dan 100 Chaos-gebeurtenissen zijn, de Chaos gebeurtenissen geretourneerd in meerdere segmenten waarin een segment niet langer zijn dan 100 Chaos-gebeurtenissen bevat, zodat het volgende segment maakt u een aanroep van deze API met het vervolgtoken.
+Als u het volgende segment van de chaos-gebeurtenissen wilt ophalen, kunt u de ContinuationToken opgeven. Als u het begin van een nieuw segment van chaos-gebeurtenissen wilt ontvangen, kunt u het tijds bereik opgeven via StartTimeUtc en EndTimeUtc. U kunt niet zowel de ContinuationToken als het tijds bereik opgeven in dezelfde aanroep. Wanneer er meer dan 100 chaos-gebeurtenissen zijn, worden de chaos-gebeurtenissen geretourneerd in meerdere segmenten waarbij een segment niet meer dan 100 chaos gebeurtenissen bevat en dat u het volgende segment kunt ophalen met behulp van het vervolg token.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --end-time-utc | De Windows-bestand tijd voor de eindtijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
-| --max-results | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
-| --start-time-utc | De Windows-bestand tijd voor de begintijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --vervolg token | De vervolg token parameter wordt gebruikt om de volgende set resultaten op te halen. Een vervolg token met een niet-lege waarde wordt opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt door gegeven aan de volgende API-aanroep, retourneert de API de volgende set resultaten. Als er geen verdere resultaten zijn, bevat het vervolg token geen waarde. De waarde van deze para meter mag geen URL-code ring zijn. |
+| --eind tijd-UTC | De Windows-bestands tijd die de eind tijd vertegenwoordigt van het tijds bereik waarvoor een chaos-rapport moet worden gegenereerd. Raadpleeg de [methode DateTime. onToFileTimeUtc](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
+| --max-results | Het maximum aantal resultaten dat moet worden geretourneerd als onderdeel van de query's in de pagina. Met deze para meter wordt de bovengrens gedefinieerd voor het aantal geretourneerde resultaten. De geretourneerde resultaten kunnen kleiner zijn dan de opgegeven maximum resultaten als ze niet in het bericht passen conform de maximale grootte van de berichten die in de configuratie is gedefinieerd. Als deze para meter nul is of niet is opgegeven, bevat de opgevraagde query zoveel mogelijk resultaten die in het retour bericht passen. |
+| --begin tijd-UTC | De Windows-bestands tijd die de start tijd vertegenwoordigt van het tijds bereik waarvoor een chaos-rapport moet worden gegenereerd. Raadpleeg de [methode DateTime. onToFileTimeUtc](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 ## <a name="sfctl-chaos-get"></a>sfctl chaos ophalen
-De status van Chaos ophalen.
+De status van chaos ophalen.
 
-De status van Chaos waarmee wordt aangegeven of Chaos wordt uitgevoerd, wordt de Chaos-parameters voor het uitvoeren van Chaos en de status van de planning Chaos ophalen.
-
-### <a name="arguments"></a>Argumenten
-
-|Argument|Description|
-| --- | --- |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
-
-## <a name="sfctl-chaos-start"></a>sfctl chaos start
-Chaos start in het cluster.
-
-Als Chaos niet al wordt uitgevoerd in het cluster, het Chaos begint met het doorgegeven in de Chaos-parameters. Als Chaos al wordt uitgevoerd wanneer deze oproep wordt gedaan, wordt de aanroep mislukt met foutcode FABRIC_E_CHAOS_ALREADY_RUNNING.
+Haal de status van chaos op die aangeeft of chaos wordt uitgevoerd, de chaos-para meters die worden gebruikt voor het uitvoeren van chaos en de status van het schema chaos.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --app-type-health-policy-toewijzing | JSON gecodeerd lijst met maximale percentage beschadigde toepassingen voor specifieke typen. Elke vermelding bevat als sleutel de typenaam van de toepassing en als een waarde een geheel getal dat staat voor het percentage MaxPercentUnhealthyApplications is gebruikt voor het evalueren van de toepassingen van het opgegeven type. <br><br> Hiermee definieert u een kaart met het maximale percentage beschadigde toepassingen voor specifieke typen. Elke vermelding bevat als de naam van de toepassing type sleutel en waarde een geheel getal dat staat voor het percentage MaxPercentUnhealthyApplications is gebruikt voor het evalueren van de toepassingen van het opgegeven type. Het toepassingsoverzicht type health beleid kan worden gebruikt tijdens de evaluatie van cluster health om te beschrijven van speciale typen. De soorten toepassingen is opgenomen in de kaart worden geëvalueerd op basis van het percentage dat is opgegeven in de kaart en niet met de globale MaxPercentUnhealthyApplications gedefinieerd in het cluster health-beleid. De toepassingen van toepassingstypen die zijn opgegeven in de kaart worden niet geteld op basis van de algemene groep van toepassingen. Bijvoorbeeld, als sommige toepassingen van een type essentieel zijn, de Clusterbeheerder kunt een vermelding toevoegen aan de kaart voor die toepassing en hieraan een waarde van 0% (dat wil zeggen, doen niet tolereren fouten). Alle andere toepassingen kunnen worden geëvalueerd met MaxPercentUnhealthyApplications ingesteld op 20% te tolereren fouten opgetreden buiten de duizenden exemplaren van de toepassing. Het toepassingsoverzicht type health beleid wordt alleen gebruikt als het clustermanifest kunt type toepassing evalueren met behulp van de configuratie-item voor HealthManager/EnableApplicationTypeHealthEvaluation. |
-| --chaos-doel-filter | JSON gecodeerd woordenlijst met twee tekenreeks type sleutels. De twee sleutels zijn NodeTypeInclusionList en ApplicationInclusionList. Waarden voor beide sleutels zijn lijst met tekenreeksen. chaos_target_filter definieert alle filters voor gerichte Chaos fouten, bijvoorbeeld alleen bepaalde typen met fout of alleen bepaalde toepassingen met fout. <br><br> Als chaos_target_filter niet gebruikt wordt, bedrijfsstoringen Chaos alle entiteiten van het cluster. Als chaos_target_filter wordt gebruikt, bedrijfsstoringen Chaos alleen de entiteiten die voldoen aan de specificatie chaos_target_filter. NodeTypeInclusionList en ApplicationInclusionList kunt alleen een union semantiek. Het is niet mogelijk om op te geven van een snijpunt van NodeTypeInclusionList en ApplicationInclusionList. Het is bijvoorbeeld niet mogelijk om op te geven "fault deze toepassing alleen wanneer deze zich op dit knooppunttype." Zodra een entiteit is opgenomen in NodeTypeInclusionList of ApplicationInclusionList, kan niet die entiteit worden uitgesloten chaostargetfilter kunnen gebruiken. Zelfs als applicationX niet wordt weergegeven in ApplicationInclusionList, in bepaalde iteratie Chaos applicationX kunnen worden is mislukt omdat dit gebeurt op een knooppunt van het nodeTypeY die is opgenomen in NodeTypeInclusionList. Als zowel NodeTypeInclusionList en ApplicationInclusionList leeg zijn, is er een ArgumentException gegenereerd. Alle typen fouten (knooppunt opnieuw opstarten, opnieuw opstarten codepakket replica verwijderen, replica opnieuw, verplaatsen primaire en secundaire verplaatsen) zijn ingeschakeld voor de knooppunten van de volgende knooppunttypen. Als een knooppunttype (bijvoorbeeld NodeTypeX) niet wordt weergegeven in de NodeTypeInclusionList en vervolgens het knooppunt niveau fouten (zoals NodeRestart) nooit worden ingeschakeld voor de knooppunten van NodeTypeX, maar het fouten voor het pakket en de replica van code kunnen nog steeds worden ingeschakeld voor NodeTypeX als een toepassing in de ApplicationInclusionList gebeurt zich bevinden op een knooppunt van NodeTypeX. Maximaal 100 knooppunt Typenamen kunnen worden opgenomen in deze lijst, dit aantal vergroten, een upgrade van een configuratie is vereist voor MaxNumberOfNodeTypesInChaosEntityFilter configuratie. Alle replica's die behoren tot de services van deze toepassingen zijn aanmerking voor replica-fouten (opnieuw opstarten replica, replica verwijderen, verplaatsen primaire en secundaire verplaatsen) door Chaos. Chaos mogelijk opnieuw opstarten van een codepakket alleen als het codepakket als host fungeert voor replica's van deze toepassingen alleen. Als een toepassing niet in deze lijst wordt weergegeven, kan het nog steeds mislukt in bepaalde iteratie Chaos als beëindigd door de toepassing van op een knooppunt van een knooppunttype dat is opgenomen in NodeTypeInclusionList. Maar als applicationX is gekoppeld aan nodeTypeY door middel van plaatsingsbeperkingen en applicationX afwezig is van ApplicationInclusionList en nodeTypeY is afwezig van NodeTypeInclusionList, klikt u vervolgens applicationX wordt nooit worden is mislukt. Maximaal 1000 toepassingsnamen kunnen worden opgenomen in deze lijst, dit aantal vergroten, een upgrade van een configuratie is vereist voor MaxNumberOfApplicationsInChaosEntityFilter configuratie. |
-| --context | JSON gecodeerd toewijzing van het (string, string) typt u sleutel-waardeparen. De kaart kan worden gebruikt om vast te leggen van de informatie over het uitvoeren van Chaos. Er mag niet meer dan 100 dergelijke paren en elke tekenreeks (sleutel of waarde) mag maximaal 4095 tekens lang zijn. Deze kaart is ingesteld door de starter van de Chaos uitgevoerd voor het opslaan van de context over de specifieke uitvoering (optioneel). |
-| --disable-verplaatsen-replica-fouten | Schakelt de verplaatsen primaire en secundaire fouten verplaatsen. |
-| --max-cluster-stabilization | De maximale hoeveelheid tijd te wachten totdat alle entiteiten stabiel en in orde cluster.  Standaard\: 60. <br><br> Chaos uitgevoerd in iteraties en aan het begin van elke herhaling valideert de status van de cluster-entiteiten. Als een cluster-entiteit niet stabiel en binnen MaxClusterStabilizationTimeoutInSeconds, gezonde Chaos tijdens de validatie genereert een mislukte validatie-gebeurtenis. |
-| --max-concurrent-faults | Het maximum aantal gelijktijdige fouten veroorzaakte per herhaling. Chaos uitgevoerd in iteraties en twee opeenvolgende pogingen worden gescheiden door een validatiefase. Hoe hoger de waarde voor concurrency, de agressiever het injecteren van fouten--meer complexe reeks statussen om fouten veroorzaken. De aanbeveling is om te beginnen met een waarde 2 of 3 en wees voorzichtig met het tijdens het verplaatsen van.  Standaard\: 1. |
-| --max-percent-unhealthy-apps | Bij het evalueren van clusterstatus tijdens Chaos, het maximale percentage van de beschadigde toepassingen toegestaan voordat u een foutmelding. <br><br> De maximaal toegestane percentage van de beschadigde toepassingen voordat u een foutmelding. Bijvoorbeeld, om toe te staan 10% van de toepassingen niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van toepassingen die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigde toepassing is, wordt de status wordt geëvalueerd als waarschuwing. Dit wordt berekend door het aantal beschadigde toepassingen delen via het totale aantal exemplaren van een toepassing in het cluster, met uitzondering van toepassingen van toepassingstypen die zijn opgenomen in de ApplicationTypeHealthPolicyMap. De berekening rondt af naar één tolereren op kleine aantallen toepassingen. Percentage van de standaardwaarde is nul. |
-| --max-procent--knooppunten met slechte | Bij het evalueren van clusterstatus tijdens Chaos, mag de maximale percentage van knooppunten met slechte voordat u een foutmelding. <br><br> De maximaal toegestane percentage van knooppunten met slechte voordat u een foutmelding. Bijvoorbeeld, om toe te staan 10% van de knooppunten niet in orde, is deze waarde 10. Het percentage geeft het maximum aantal verdragen percentage van knooppunten die niet in orde zijn mag voordat het cluster wordt beschouwd als fout. Als het percentage in acht wordt genomen, maar er ten minste één beschadigd knooppunt is, wordt de status wordt geëvalueerd als waarschuwing. Het percentage wordt berekend door het aantal knooppunten met slechte delen via het totale aantal knooppunten in het cluster. De berekening rondt af naar één tolereren op kleine aantallen knooppunten. Percentage van de standaardwaarde is nul. In grote clusters sommige knooppunten altijd worden omlaag of uit voor herstellingen, zodat dit percentage moet worden geconfigureerd om te tolereren die. |
-| --tijd-en-klaar | Totale tijd (in seconden) waarvoor Chaos voordat automatisch gestopt wordt uitgevoerd. De maximaal toegestane waarde is 4.294.967.295 (System.UInt32.MaxValue).  Standaard\: 4294967295. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
-| --Wacht tijd tussen fouten | Wachttijd (in seconden) tussen opeenvolgende fouten binnen een enkel iteratie.  Standaard\: 20. <br><br> Hoe hoger de waarde, des te lager de overlappende tussen fouten en het eenvoudiger de volgorde van de status verandert dat het cluster wordt verstuurd via. De aanbeveling is om te beginnen met een waarde tussen 1 en 5 en oefening waarschuwing tijdens het verplaatsen van. |
-| --wait-time-between-iterations | Time-scheiding (in seconden) tussen twee opeenvolgende herhalingen van Chaos. Hoe hoger de waarde, des te lager tarief voor fout met betrekking tot injectie.  Standaard\: 30. |
-| --warning-as-error | Geeft aan of waarschuwingen met de dezelfde ernst als fouten worden behandeld. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
+
+## <a name="sfctl-chaos-start"></a>sfctl chaos starten
+Chaos wordt gestart in het cluster.
+
+Als chaos niet al in het cluster wordt uitgevoerd, wordt chaos gestart met de door gegeven para meters in chaos. Als chaos al wordt uitgevoerd wanneer deze aanroep plaatsvindt, mislukt de aanroep met de fout code FABRIC_E_CHAOS_ALREADY_RUNNING.
+
+### <a name="arguments"></a>Argumenten
+
+|Argument|Description|
+| --- | --- |
+| --app-type-status-Policy-map | JSON-gecodeerde lijst met Maxi maal percentage toepassingen met een slechte status voor specifieke toepassings typen. Elke vermelding geeft als sleutel de naam van het toepassings type en als een waarde een geheel getal dat het MaxPercentUnhealthyApplications percentage vertegenwoordigt dat wordt gebruikt om de toepassingen van het opgegeven toepassings type te evalueren. <br><br> Definieert een toewijzing met Maxi maal percentage toepassingen met een slechte status voor specifieke toepassings typen. Elke vermelding geeft als sleutel de naam van het toepassings type en als waarde een geheel getal dat het MaxPercentUnhealthyApplications percentage vertegenwoordigt dat wordt gebruikt om de toepassingen van het opgegeven toepassings type te evalueren. De toewijzing van het status beleid van het toepassings type kan worden gebruikt tijdens de cluster status evaluatie om speciale toepassings typen te beschrijven. De toepassings typen die zijn opgenomen in de kaart, worden geëvalueerd op basis van het percentage dat is opgegeven in de kaart en niet met de globale MaxPercentUnhealthyApplications die zijn gedefinieerd in het cluster status beleid. De toepassingen van toepassings typen die zijn opgegeven in de kaart, worden niet meegeteld bij de algemene groep toepassingen. Als sommige toepassingen van een type bijvoorbeeld kritiek zijn, kan de Cluster beheerder een vermelding toevoegen aan de kaart voor het betreffende toepassings type en een waarde van 0% toewijzen (dat wil zeggen, geen storingen voor komen). Alle andere toepassingen kunnen worden geëvalueerd met MaxPercentUnhealthyApplications ingesteld op 20% om sommige fouten te verdragen buiten de duizenden toepassings exemplaren. De toewijzing van het status beleid van het toepassings type wordt alleen gebruikt als het cluster manifest de status evaluatie van het toepassings type inschakelt met behulp van de configuratie vermelding voor HealthManager/EnableApplicationTypeHealthEvaluation. |
+| --chaos-doel filter | JSON-gecodeerde woorden lijst met twee teken reeks sleutel typen. De twee sleutels zijn NodeTypeInclusionList en ApplicationInclusionList. De waarden voor beide sleutels zijn lijst met teken reeksen. chaos_target_filter definieert alle filters voor de doel chaos-fouten, bijvoorbeeld alleen bepaalde knooppunt typen, of fout bij bepaalde toepassingen. <br><br> Als chaos_target_filter niet wordt gebruikt, heeft chaos fouten met alle cluster entiteiten. Als chaos_target_filter wordt gebruikt, veroorzaakt chaos alleen de entiteiten die voldoen aan de chaos_target_filter-specificatie. NodeTypeInclusionList en ApplicationInclusionList bieden alleen een semantiek toe. Het is niet mogelijk om een snij punt op te geven voor NodeTypeInclusionList en ApplicationInclusionList. Het is bijvoorbeeld niet mogelijk om ' fout deze toepassing alleen op te geven wanneer deze zich op het knooppunt type bevindt '. Wanneer een entiteit is opgenomen in NodeTypeInclusionList of ApplicationInclusionList, kan die entiteit niet worden uitgesloten met ChaosTargetFilter. Zelfs als applicationx niet wordt weer gegeven in ApplicationInclusionList, kan in sommige chaos iteratie applicationx een fout optreden, omdat deze zich in een knoop punt van nodeTypeY bevindt dat is opgenomen in NodeTypeInclusionList. Als zowel NodeTypeInclusionList als ApplicationInclusionList leeg zijn, wordt er een ArgumentException gegenereerd. Alle typen fouten (knoop punt opnieuw starten, code pakket opnieuw starten, replica verwijderen, replica opnieuw starten en secundaire verplaatsen) zijn ingeschakeld voor de knoop punten van deze knooppunt typen. Als een knooppunt type (bijvoorbeeld NodeTypeX) niet wordt weer gegeven in de NodeTypeInclusionList, worden er op knooppunt niveau fouten (zoals NodeRestart) nooit ingeschakeld voor de knoop punten van NodeTypeX, maar code pakket-en replica fouten kunnen nog steeds worden ingeschakeld voor NodeTypeX als een toepassing in de ApplicationInclusionList gebeurt op een knoop punt van NodeTypeX. Er kunnen Maxi maal 100 knooppunt type namen worden opgenomen in deze lijst, om dit aantal te verhogen, is een configuratie-upgrade vereist voor de configuratie van MaxNumberOfNodeTypesInChaosEntityFilter. Alle replica's die deel uitmaken van services van deze toepassingen, zijn geschikter naar replica fouten (start replica, verwijder replica, Move Primary en Move secundair) door chaos. Chaos kan een code pakket alleen opnieuw starten als het code pakket alleen replica's van deze toepassingen host. Als een toepassing niet in deze lijst wordt weer gegeven, kan deze in sommige chaos-iteraties nog steeds worden gestopt als de toepassing wordt beëindigd op een knoop punt van een knooppunt type dat is opgenomen in NodeTypeInclusionList. Als applicationx echter is gekoppeld aan nodeTypeY via plaatsings beperkingen en applicationx niet aanwezig is in ApplicationInclusionList en nodeTypeY niet aanwezig is in NodeTypeInclusionList, wordt applicationx nooit gefoutd. Er kunnen Maxi maal 1000 toepassings namen in deze lijst worden opgenomen, om dit aantal te verhogen, is een configuratie-upgrade vereist voor de configuratie van MaxNumberOfApplicationsInChaosEntityFilter. |
+| --context | JSON-gecodeerde toewijzing van (teken reeks, teken reeks) type sleutel-waardeparen. De kaart kan worden gebruikt om informatie vast te leggen over de uitvoering van de chaos. Er kunnen niet meer dan 100 dergelijke paren bestaan en elke teken reeks (sleutel of waarde) mag Maxi maal 4095 tekens lang zijn. Deze kaart wordt ingesteld door de start van de chaos-uitvoering, zodat de context van de specifieke uitvoering optioneel kan worden opgeslagen. |
+| --uitschakelen-verplaatsen-replica-fouten | Hiermee schakelt u het verplaatsen van primaire en secundaire fouten verplaatsen. |
+| --Max-cluster-stabilisatie | De maximale hoeveelheid tijd die moet worden gewacht totdat alle cluster entiteiten stabiel en in orde zijn.  Standaard\: 60. <br><br> Chaos wordt uitgevoerd in iteraties en aan het begin van elke iteratie wordt de status van cluster entiteiten gevalideerd. Tijdens de validatie als een cluster entiteit niet stabiel is en in orde is binnen MaxClusterStabilizationTimeoutInSeconds, genereert chaos een mislukte validatie gebeurtenis. |
+| --Max-gelijktijdige-fouten | Het maximum aantal gelijktijdige fouten per iteratie. Chaos wordt uitgevoerd in iteraties en twee opeenvolgende herhalingen worden gescheiden door een validatie fase. Hoe hoger de gelijktijdigheid, hoe sterker het introduceren van fouten--die een complexere reeks statussen hebben om fouten op te sporen. De aanbeveling is om te beginnen met een waarde van 2 of 3 en om voorzichtig te zijn tijdens het verplaatsen.  Standaard\: 1. |
+| --Max-percentage-beschadigde apps | Bij het evalueren van de cluster status tijdens chaos, het Maxi maal toegestane percentage van toepassingen met een slechte status voordat een fout wordt gemeld. <br><br> Het Maxi maal toegestane percentage van toepassingen met een slechte status voordat een fout wordt gemeld. Als u bijvoorbeeld wilt toestaan dat 10% van de toepassingen een slechte status heeft, is deze waarde 10. Het percentage vertegenwoordigt het Maxi maal toegestane percentage van toepassingen die een slechte status kunnen hebben voordat het cluster als fout wordt beschouwd. Als het percentage wordt geëerbiedigd, maar er ten minste één slechte toepassing is, wordt de status als een waarschuwing geëvalueerd. Dit wordt berekend door het aantal toepassingen met een slechte status te delen ten opzichte van het totale aantal toepassings exemplaren in het cluster, met uitzonde ring van toepassings typen die zijn opgenomen in de ApplicationTypeHealthPolicyMap. De berekening wordt afgerond om één fout te verdragen bij een klein aantal toepassingen. Het standaard percentage is nul. |
+| --Max-percentage-slechte status: knoop punten | Bij het evalueren van de cluster status tijdens chaos, het Maxi maal toegestane percentage van beschadigde knoop punten voordat een fout wordt gemeld. <br><br> Het Maxi maal toegestane percentage van beschadigde knoop punten voordat een fout wordt gemeld. Als u bijvoorbeeld wilt toestaan dat 10% van de knoop punten een slechte status heeft, is deze waarde 10. Het percentage vertegenwoordigt het Maxi maal toegestane percentage van knoop punten waarvan de status niet in orde kan zijn voordat het cluster als fout wordt beschouwd. Als het percentage wordt geëerbiedigd maar er ten minste één slecht knoop punt is, wordt de status als waarschuwing geëvalueerd. Het percentage wordt berekend door het aantal knoop punten met een slechte status te delen ten opzichte van het totale aantal knoop punten in het cluster. De berekening wordt afgerond om één fout te verdragen op een klein aantal knoop punten. Het standaard percentage is nul. In grote clusters zijn bepaalde knoop punten altijd actief of uitgaand voor reparaties, dus dit percentage moet zo worden geconfigureerd dat het wordt toegestaan. |
+| --time-to-run-out | Totale tijd (in seconden) dat chaos wordt uitgevoerd voordat deze automatisch wordt gestopt. De Maxi maal toegestane waarde is 4.294.967.295 (System. UInt32. MaxValue).  Standaard\: 4294967295. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
+| --wacht tijd tussen-fouten | Wacht tijd (in seconden) tussen opeenvolgende fouten binnen één iteratie.  Standaard\: 20. <br><br> Hoe groter de waarde, hoe lager de overlappende fouten en hoe eenvoudiger de volg orde van de status overgangen die het cluster doorloopt. De aanbeveling begint met een waarde tussen 1 en 5 en wees voorzichtig tijdens het verplaatsen. |
+| --wacht tijd-tussen-iteraties | Tijds scheiding (in seconden) tussen twee opeenvolgende herhalingen van chaos. Hoe groter de waarde, hoe lager het aantal fout injecties.  Standaard\: 30. |
+| --waarschuwing-als-fout | Hiermee wordt aangegeven of waarschuwingen worden behandeld met dezelfde ernst als bij fouten. |
+
+### <a name="global-arguments"></a>Algemene argumenten
+
+|Argument|Description|
+| --- | --- |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 ## <a name="sfctl-chaos-stop"></a>sfctl chaos stoppen
-Chaos stopt als deze wordt uitgevoerd in het cluster en de planning Chaos in een status ' gestopt plaatsen '.
+Stopt chaos als deze wordt uitgevoerd in het cluster en de chaos-planning in een status gestopt heeft gezet.
 
-Hiermee stopt u Chaos van nieuwe fouten wordt uitgevoerd. Actieve fouten blijft om uit te voeren totdat ze voltooid zijn. De huidige Chaos-planning wordt geplaatst in een status ' gestopt '. Nadat een schema is gestopt, wordt de status ' gestopt ' blijven en niet worden gebruikt voor nieuwe uitvoeringen van Chaos Chaos-schema. Een nieuw Chaos-schema moet worden ingesteld om te kunnen hervatten plannen.
+Stopt chaos met het uitvoeren van nieuwe fouten. In-Flight-fouten blijven uitvoeren totdat ze zijn voltooid. Het huidige chaos-schema wordt in een status gestopt gezet. Zodra een schema is gestopt, blijft het de status gestopt en wordt het niet gebruikt om nieuwe uitvoeringen van chaos te plannen. U moet een nieuw chaos-schema instellen om de planning te hervatten.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Setup](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241385"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035996"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Zelfstudie: Gekoppelde Azure Resource Manager-sjablonen maken
 
 Informatie over het maken van gekoppelde Azure Resource Manager-sjablonen. Met gekoppelde sjablonen kunt u een sjabloon een andere sjabloon laten aanroepen. Dit is handig om sjablonen te modulariseren. In deze zelfstudie gebruikt u dezelfde sjabloon als in [Zelfstudie: Azure Resource Manager-sjablonen maken met afhankelijke resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md) voor het maken van een virtuele machine, een virtueel netwerk en andere afhankelijke resources, waaronder een opslagaccount. U verplaatst de gemaakte resource van het opslagaccount naar een gekoppelde sjabloon.
 
-Het aanroepen van een gekoppelde sjabloon is zoals het maken van een aanroep van de functie.  U leert ook hoe u parameterwaarden doorgeven aan de gekoppelde sjabloon en hoe u 'retourwaarden' van de gekoppelde sjabloon.
+Het aanroepen van een gekoppelde sjabloon is vergelijkbaar met het maken van een functie aanroep.  U leert ook hoe u parameter waarden kunt door geven aan de gekoppelde sjabloon en hoe u retour waarden ophaalt uit de gekoppelde sjabloon.
 
 Deze zelfstudie bestaat uit de volgende taken:
 
@@ -37,7 +37,7 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * De sjabloon implementeren
 > * Aanvullende procedures
 
-Zie voor meer informatie, [gekoppelde en geneste sjablonen bij het implementeren van Azure-resources](./resource-group-linked-templates.md).
+Zie voor meer informatie [gekoppelde en geneste sjablonen gebruiken bij het implementeren van Azure-resources](./resource-group-linked-templates.md).
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -77,18 +77,18 @@ Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
-     Het is handig om op te halen van enige basiskennis van het sjabloonschema voor het aanpassen van de sjabloon.
+     Het is handig om basis informatie over het sjabloon schema op te halen voordat u de sjabloon aanpast.
 5. Selecteer **Bestand**>**Opslaan als** om het bestand op uw lokale computer op te slaan als **azuredeploy.json**.
 6. Selecteer **Bestand**>**Opslaan als** om nog een exemplaar te maken van het bestand met de naam **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>De gekoppelde sjabloon maken
 
-De gekoppelde sjabloon maakt een opslagaccount. De gekoppelde sjabloon kan worden gebruikt als een zelfstandige-sjabloon om een opslagaccount te maken. In deze zelfstudie wordt in de gekoppelde sjabloon twee parameters zijn vereist, en hoe een waarde terug naar de belangrijkste sjabloon. Deze waarde 'return' is gedefinieerd in de `outputs` element.
+De gekoppelde sjabloon maakt een opslagaccount. De gekoppelde sjabloon kan worden gebruikt als een zelfstandige sjabloon voor het maken van een opslag account. In deze zelf studie heeft de gekoppelde sjabloon twee para meters en wordt er een waarde weer gegeven in de hoofd sjabloon. Deze return-waarde is gedefinieerd in het `outputs` -element.
 
-1. Open **linkedTemplate.json** in Visual Studio-Code als het bestand is niet geopend.
+1. Open **linkedTemplate. json** in Visual Studio code als het bestand niet wordt geopend.
 2. Breng de volgende wijzigingen aan:
 
-    * Verwijder alle parameters dan **locatie**.
+    * Verwijder alle para meters, met uitzonde ring van de **locatie**.
     * Voeg een parameter met de naam **storageAccountName** toe.
         ```json
         "storageAccountName":{
@@ -98,10 +98,10 @@ De gekoppelde sjabloon maakt een opslagaccount. De gekoppelde sjabloon kan worde
           }
         },
         ```
-        De naam van het opslagaccount en de locatie worden van de belangrijkste sjabloon naar de gekoppelde sjabloon als parameters doorgegeven.
+        De naam en locatie van het opslag account worden door gegeven van de hoofd sjabloon naar de gekoppelde sjabloon als para meters.
 
     * Het element **variables** en alle variabeledefinities te verwijderen.
-    * Verwijder alle resources dan de storage-account. U moet in totaal vier resources verwijderen.
+    * Verwijder alle andere resources dan het opslag account. U moet in totaal vier resources verwijderen.
     * Werk de waarde van het element **name** van de opslagaccount-resource om:
 
         ```json
@@ -227,13 +227,13 @@ echo "Linked template URI with SAS token: $templateURI"
 4. Noteer de twee waarden (naam van de resourcegroep en URI van de gekoppelde sjabloon URI) aan het einde van het shellvenster. U hebt deze waarden later in de zelfstudie nodig.
 5. Selecteer **Focusmodus sluiten** om het shellvenster te sluiten.
 
-In de praktijk genereert u een SAS-token wanneer u de hoofdsjabloon implementeert en geeft u het SAS-token een kortere verlooptijd om het beter te beveiligen. Zie [SAS-token opgeven tijdens implementatie](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment) voor meer informatie.
+In de praktijk genereert u een SAS-token wanneer u de hoofdsjabloon implementeert en geeft u het SAS-token een kortere verlooptijd om het beter te beveiligen. Zie [SAS-token opgeven tijdens implementatie](./secure-template-with-sas-token.md#provide-sas-token-during-deployment) voor meer informatie.
 
 ## <a name="call-the-linked-template"></a>De gekoppelde sjabloon aanroepen
 
 De hoofdsjabloon heet azuredeploy.json.
 
-1. Open **azuredeploy.json** in Visual Studio-Code als deze niet is geopend.
+1. Open **azuredeploy. json** in Visual Studio code als deze niet is geopend.
 2. Verwijder de resourcedefinitie van het opslagaccount uit de sjabloon:
 
     ```json
@@ -327,7 +327,7 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
 U kunt het project verder verbeteren door de volgende aanvullende wijzigingen aan te brengen in het voltooide project:
 
 1. Wijzig de hoofdsjabloon (azuredeploy.json) zo, dat de waarde voor de URI van de gekoppelde sjabloon wordt verkregen via een parameter.
-2. Genereer het SAS-token bij het uploaden van de hoofdsjabloon in plaats van bij het uploaden van de gekoppelde sjabloon. Zie [SAS-token opgeven tijdens implementatie](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment) voor meer informatie.
+2. Genereer het SAS-token bij het uploaden van de hoofdsjabloon in plaats van bij het uploaden van de gekoppelde sjabloon. Zie [SAS-token opgeven tijdens implementatie](./secure-template-with-sas-token.md#provide-sas-token-during-deployment) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

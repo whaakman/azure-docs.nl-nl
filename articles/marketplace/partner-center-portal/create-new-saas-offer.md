@@ -1,18 +1,18 @@
 ---
 title: Een nieuwe SaaS-aanbieding maken in de commerciële Marketplace
 description: Het maken van een nieuwe SaaS-aanbieding (Software as a Service) voor het aanbieden of verkopen van objecten in azure Marketplace, AppSource of via het programma Cloud Solution Provider (CSP) met behulp van de commerciële Marketplace-Portal in micro soft Partner Center.
-author: mattwojo
+author: qianw211
 manager: evansma
-ms.author: mattwoj
+ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 6bf22bce28972e1f3a43efea3b33446ab2a81761
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.date: 08/14/2019
+ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019598"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033539"
 ---
 # <a name="create-a-new-saas-offer"></a>Een nieuwe SaaS-aanbieding maken
 
@@ -22,7 +22,7 @@ Als u wilt beginnen met het maken van SaaS-aanbiedingen (Software as a Service),
 
 Selecteer de + **nieuwe aanbieding...** en selecteert u vervolgens het menu-item **software als service** . 
 
-Als u een van de andere aanbiedings typen selecteert, wordt u omgeleid naar de oudere [Cloud Partner-Portal](https://cloudpartner.azure.com/).  Er zijn op dit moment alleen SaaS-aanbiedingen beschikbaar in de commerciële Marketplace-portal van het partner centrum. 
+Als u een ander type aanbieding selecteert, wordt u mogelijk omgeleid naar de oudere [Cloud Partner-Portal](https://cloudpartner.azure.com/). Op dit moment zijn alleen SaaS-en Dynamics 365-aanbiedingen beschikbaar in de commerciële Marketplace-Portal op het partner centrum.
 
 ![Aanbiedings venster maken in Partner Center](./media/new-offer-click.png)
 

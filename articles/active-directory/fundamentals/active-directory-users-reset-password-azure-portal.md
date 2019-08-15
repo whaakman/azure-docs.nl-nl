@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382ffab090613a2b14ce710a45be10b4c36e5222
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b4fdbbd4d71a9c97259678413cd9e59ee8aeae6b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561735"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032673"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Wachtwoord opnieuw instellen van een gebruiker met Azure Active Directory
 
@@ -43,7 +43,8 @@ U kunt als beheerder, het wachtwoord van een gebruiker opnieuw als het wachtwoor
 
 3. In de **wachtwoord opnieuw instellen** weergeeft, schakelt **wachtwoord opnieuw instellen**.
 
-    Een tijdelijk wachtwoord wordt automatisch gegenereerd voor de gebruiker.
+    > [!Note]
+    > Wanneer u Azure Active Directory gebruikt, wordt er automatisch een tijdelijk wacht woord voor de gebruiker gegenereerd. Wanneer u Active Directory on-premises gebruikt, maakt u het wacht woord voor de gebruiker.
 
 4. Kopiëren van het wachtwoord en geeft u het aan de gebruiker. De gebruiker moet het wachtwoord wijzigen tijdens de volgende aanmelding.
 

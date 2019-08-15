@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: a35e0496c7e36d42e28a64fef438fe56713d3c78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a72a0e26c2af34942faaa6a7e62feef86082e196
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855004"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034823"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Veelvoorkomende problemen met Azure Database Migration Service oplossen
 
@@ -98,9 +98,9 @@ Als u verbinding wilt maken met de bron in de wizard Azure Database Migration-se
 | ------------- | ------------- |
 | Wanneer u [ExpressRoute](https://azure.microsoft.com/services/expressroute/)gebruikt, [moet](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) Azure database Migration service drie service-eind punten inrichten op het Virtual Network subnet dat is gekoppeld aan de service:<br> --Service Bus-eind punt<br> --Eind punt van opslag<br> --Doel database-eind punt (bijvoorbeeld SQL-eind punt, Cosmos DB-eind punt)<br><br><br><br><br> | [Schakel](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) de vereiste service-eind punten in voor de ExpressRoute-connectiviteit tussen de bron en de Azure database Migration service. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Time-outfout bij het migreren van een MySQL-data base naar Azure DB voor MySQL
+## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Fout tijdens vergren deling wacht tijd bij het migreren van een MySQL-data base naar Azure DB voor MySQL
 
-Wanneer u via Azure Database Migration Service een MySQL-data base migreert naar een Azure Database for MySQL-exemplaar, mislukt de migratie met de volgende time-outfout:
+Wanneer u via Azure Database Migration Service een MySQL-data base migreert naar een Azure Database for MySQL-exemplaar, mislukt de migratie met de volgende fout in de vergrendelings wachttijd:
 
 * **Fout**: Database migratie fout-kan het bestand niet laden-kan het laad proces voor bestand ' n ' niet starten RetCode: SQL_ERROR SqlState: HY000 NativeError: 1205 bericht: [MySQL] [ODBC-stuur programma] [mysqld] wacht tijd voor vergren deling is overschreden; trans actie opnieuw starten
 

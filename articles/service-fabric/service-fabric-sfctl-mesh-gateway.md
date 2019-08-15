@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl mesh gateway | Microsoft Docs
-description: Beschrijving van de Service Fabric-CLI sfctl mesh-gateway-opdrachten.
+title: Azure Service Fabric CLI-sfctl mesh-gateway | Microsoft Docs
+description: Beschrijft de Service Fabric CLI-gateway opdrachten voor sfctl.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,88 +8,87 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 27cfe380e5988f17ca79c430cde7defc7f7bc440
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8acb23b274e6062ae3c50ab80220ab93297037e
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839076"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036427"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
-Ophalen en verwijderen van mesh-gateway-resources.
+Netgateway-resources ophalen en verwijderen.
 
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
-| delete | Hiermee verwijdert u de Gateway-resource. |
-| list | Geeft een lijst van alle gateway-resources. |
-| weergeven | Hiermee haalt u de Gateway-resource met de opgegeven naam. |
+| verwijderen | Hiermee verwijdert u de gateway resource. |
+| list | Een lijst met alle gateway-resources. |
+| weergeven | Hiermee wordt de gateway resource met de opgegeven naam opgehaald. |
 
-## <a name="sfctl-mesh-gateway-delete"></a>sfctl mesh-gateway delete
-Hiermee verwijdert u de Gateway-resource.
+## <a name="sfctl-mesh-gateway-delete"></a>sfctl net gateway verwijderen
+Hiermee verwijdert u de gateway resource.
 
-Hiermee verwijdert u de Gateway-resource aangeduid met de naam.
-
-### <a name="arguments"></a>Argumenten
-
-|Argument|Description|
-| --- | --- |
-| --naam -n (vereist) | De naam van de gateway-resource. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
-
-## <a name="sfctl-mesh-gateway-list"></a>sfctl mesh-gateway list
-Geeft een lijst van alle gateway-resources.
-
-Hiermee haalt de informatie over alle gateway-resources in een bepaalde resourcegroep. De informatie omvat de beschrijving en andere eigenschappen van de Gateway.
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
-
-## <a name="sfctl-mesh-gateway-show"></a>sfctl mesh-gateway show
-Hiermee haalt u de Gateway-resource met de opgegeven naam.
-
-Hiermee haalt u de informatie over de Gateway-resource met de opgegeven naam. De informatie omvat de beschrijving en andere eigenschappen van de Gateway.
+Hiermee verwijdert u de gateway bron geïdentificeerd door de naam.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --naam -n (vereist) | De naam van de gateway-resource. |
+| --naam-n [vereist] | De naam van de gateway resource. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
+
+## <a name="sfctl-mesh-gateway-list"></a>sfctl mesh-gateway lijst
+Een lijst met alle gateway-resources.
+
+Hiermee wordt de informatie opgehaald over alle gateway-resources in een bepaalde resource groep. De informatie bevat de beschrijving en andere eigenschappen van de gateway.
+
+### <a name="global-arguments"></a>Algemene argumenten
+
+|Argument|Description|
+| --- | --- |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
+
+## <a name="sfctl-mesh-gateway-show"></a>sfctl net gateway show
+Hiermee wordt de gateway resource met de opgegeven naam opgehaald.
+
+Hiermee wordt de informatie opgehaald over de gateway resource met de opgegeven naam. De informatie bevat de beschrijving en andere eigenschappen van de gateway.
+
+### <a name="arguments"></a>Argumenten
+
+|Argument|Description|
+| --- | --- |
+| --naam-n [vereist] | De naam van de gateway resource. |
+
+### <a name="global-arguments"></a>Algemene argumenten
+
+|Argument|Description|
+| --- | --- |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

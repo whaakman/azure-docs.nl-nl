@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4e234d3849e09bd8c57a8c33bb378ab801ce0f6d
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019455"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032249"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Preview: gebruik een standaard SKU-load balancer in azure Kubernetes service (AKS)
 
@@ -39,7 +39,7 @@ De AKS-Cluster service-principal moet machtigingen hebben om netwerk bronnen te 
 U moet een AKS-cluster maken dat de SKU voor de load balancer instelt op *Standard* in plaats van de standaard *basis*. Het maken van een AKS-cluster wordt in een latere stap behandeld, maar u moet eerst een paar preview-functies inschakelen.
 
 > [!IMPORTANT]
-> AKS preview-functies zijn self-service en opt-in. Ze zijn bedoeld om feedback en bugs van onze community te verzamelen. In de preview-versie zijn deze functies niet bedoeld voor productie gebruik. Functies in open bare preview vallen onder de ondersteuning voor beste inspanningen. Hulp van de technische ondersteunings teams van AKS is alleen beschikbaar tijdens kantoor uren Pacific time zone (PST). Raadpleeg de volgende ondersteunings artikelen voor meer informatie:
+> De preview-functies van AKS zijn self-service opt-in. Previews worden ' as-is ' en ' as available ' gegeven en zijn uitgesloten van de service level agreements en beperkte garantie. AKS-previews worden gedeeltelijk gedekt door klant ondersteuning, op basis van de beste inspanningen. Daarom zijn deze functies niet bedoeld voor productie gebruik. Raadpleeg de volgende artikelen met technische ondersteuning voor meer informatie.
 >
 > * [AKS-ondersteunings beleid][aks-support-policies]
 > * [Veelgestelde vragen over ondersteuning voor Azure][aks-faq]

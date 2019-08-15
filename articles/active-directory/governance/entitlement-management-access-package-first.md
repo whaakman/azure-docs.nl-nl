@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1688651466ba6748e1254c9d33bb24435602868b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 76ba284ec1a30322a24c762a1829b399f2583c6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489174"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032919"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Zelfstudie: Uw eerste toegangs pakket maken in het beheer van rechten van Azure AD (preview-versie)
 
@@ -44,7 +44,9 @@ In deze zelfstudie leert u het volgende:
 > * Laat zien hoe een interne gebruiker het toegangs pakket kan aanvragen
 > * De toegangs aanvraag goed keuren
 
-Als u geen Azure AD Premium P2 of Enterprise Mobility + Security E5-licentie hebt, maakt u een gratis [proef versie van Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
+Bekijk de volgende video voor een stapsgewijze demonstratie van het proces voor het implementeren van Azure Active Directory rechten beheer, inclusief het maken van uw eerste toegangs pakket:
+
+>[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -52,6 +54,8 @@ Als u Azure AD-rechts beheer (preview) wilt gebruiken, hebt u een van de volgend
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5-licentie
+
+Als u geen Azure AD Premium P2 of Enterprise Mobility + Security E5-licentie hebt, maakt u een gratis [proef versie van Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
 
 ## <a name="step-1-set-up-users-and-group"></a>Stap 1: Gebruikers en groepen instellen
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl mesh-netwerk | Microsoft Docs
-description: Beschrijving van de Service Fabric-CLI sfctl mesh-netwerkopdrachten.
+title: Azure Service Fabric CLI-sfctl mesh-netwerk | Microsoft Docs
+description: Beschrijft de Service Fabric CLI-netwerk opdrachten voor sfctl.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,88 +8,87 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: feec5c4796c025c1707b4eb93bfe34b8d384ef3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e92fbc3856bba69db11aba6ad5d85e814bf30a81
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694518"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035041"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
-Ophalen en verwijderen van mesh-netwerkbronnen.
+Net-netwerk resources ophalen en verwijderen.
 
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
-| delete | Hiermee verwijdert u de netwerk-resource. |
-| list | Geeft een lijst van alle netwerkbronnen. |
-| weergeven | Hiermee haalt u de netwerk-resource met de opgegeven naam. |
+| verwijderen | Hiermee verwijdert u de netwerk bron. |
+| list | Een lijst met alle netwerk resources. |
+| weergeven | Hiermee wordt de netwerk bron met de opgegeven naam opgehaald. |
 
-## <a name="sfctl-mesh-network-delete"></a>sfctl mesh netwerk verwijderen
-Hiermee verwijdert u de netwerk-resource.
+## <a name="sfctl-mesh-network-delete"></a>sfctl net-netwerk verwijderen
+Hiermee verwijdert u de netwerk bron.
 
-Hiermee verwijdert u de netwerkbron aangeduid met de naam.
+Hiermee verwijdert u de netwerk resource die wordt geïdentificeerd door de naam.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --naam -n (vereist) | De naam van het netwerk. |
+| --naam-n [vereist] | De naam van het netwerk. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 ## <a name="sfctl-mesh-network-list"></a>lijst met sfctl mesh-netwerken
-Geeft een lijst van alle netwerkbronnen.
+Een lijst met alle netwerk resources.
 
-Hiermee haalt de informatie over alle netwerkbronnen in een bepaalde resourcegroep. De informatie omvat de beschrijving en andere eigenschappen van het netwerk.
+Hiermee haalt u de informatie over alle netwerk resources in een bepaalde resource groep op. De informatie bevat de beschrijving en andere eigenschappen van het netwerk.
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
-## <a name="sfctl-mesh-network-show"></a>sfctl mesh netwerk weergeven
-Hiermee haalt u de netwerk-resource met de opgegeven naam.
+## <a name="sfctl-mesh-network-show"></a>sfctl net-netwerk weer geven
+Hiermee wordt de netwerk bron met de opgegeven naam opgehaald.
 
-Hiermee haalt u de informatie over de netwerk-resource met de opgegeven naam. De informatie omvat de beschrijving en andere eigenschappen van het netwerk.
+Hiermee wordt de informatie opgehaald over de netwerk bron met de opgegeven naam. De informatie bevat de beschrijving en andere eigenschappen van het netwerk.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --naam -n (vereist) | De naam van het netwerk. |
+| --naam-n [vereist] | De naam van het netwerk. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

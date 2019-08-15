@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl is | Microsoft Docs
-description: Beschrijving van de Service Fabric-CLI sfctl opdrachten is.
+title: Azure Service Fabric CLI-sfctl is | Microsoft Docs
+description: Beschrijft de Service Fabric CLI sfctl is-opdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,76 +8,75 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 2039dd9222809d2c05aaeaf01f9d38c51f3b3797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 998a94350250402d4face64f64e12f32cf5b2a36
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837304"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036500"
 ---
 # <a name="sfctl-is"></a>sfctl is
-Query's uitvoeren en opdrachten worden verzonden naar de infrastructuur-service.
+Query's uitvoeren en opdrachten verzenden naar de infrastructuur service.
 
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
-| Opdracht | Hiermee wordt een opdracht met beheerdersrechten op de opgegeven infrastructuur voor Service-exemplaar. |
-| query | Hiermee wordt een alleen-lezen query op het opgegeven infrastructuur service-exemplaar. |
+| Opdracht | Hiermee wordt een beheer opdracht aangeroepen voor het opgegeven infrastructuur service-exemplaar. |
+| query | Hiermee wordt een alleen-lezen query aangeroepen voor het opgegeven infrastructuur service-exemplaar. |
 
 ## <a name="sfctl-is-command"></a>sfctl is opdracht
-Hiermee wordt een opdracht met beheerdersrechten op de opgegeven infrastructuur voor Service-exemplaar.
+Hiermee wordt een beheer opdracht aangeroepen voor het opgegeven infrastructuur service-exemplaar.
 
-Voor clusters die u een of meer exemplaren van de Service-infrastructuur is geconfigureerd hebt, biedt deze API een manier om infrastructuur-specifieke opdrachten worden verzonden naar een bepaalde instantie van de Service-infrastructuur. Beschikbare opdrachten en hun bijbehorende antwoord indelingen variëren, afhankelijk van de infrastructuur waarin het cluster wordt uitgevoerd. Deze API biedt ondersteuning voor de Service Fabric-platform; het is niet bedoeld voor gebruik rechtstreeks vanuit uw code.
+Voor clusters waarvoor een of meer exemplaren van de infrastructuur service zijn geconfigureerd, biedt deze API een manier om met een infra structuur-specifieke opdracht naar een bepaald exemplaar van de infrastructuur service te verzenden. Beschik bare opdrachten en de bijbehorende antwoord indelingen variëren, afhankelijk van de infra structuur waarop het cluster wordt uitgevoerd. Deze API ondersteunt het Service Fabric-platform. het is niet bedoeld om rechtstreeks vanuit uw code te worden gebruikt.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --opdracht (vereist) | De tekst van de opdracht om te worden aangeroepen. De inhoud van de opdracht is specifiek voor infrastructuur. |
-| --service-id | De identiteit van de infrastructuur-service. <br><br> Dit is de volledige naam van de service infrastructuur zonder de ' fabric\:' URI-schema. Deze parameter is alleen vereist voor het cluster dat is meer dan één exemplaar van de infrastructuur-service die wordt uitgevoerd. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --opdracht [vereist] | De tekst van de opdracht die moet worden aangeroepen. De inhoud van de opdracht is specifiek voor een infra structuur. |
+| --Service-id | De identiteit van de infrastructuur service. <br><br> Dit is de volledige naam van de infrastructuur service zonder het URI-\:schema ' fabric '. Deze para meter is alleen vereist voor het cluster waarop meer dan één exemplaar van de infrastructuur service wordt uitgevoerd. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 ## <a name="sfctl-is-query"></a>sfctl is query
-Hiermee wordt een alleen-lezen query op het opgegeven infrastructuur service-exemplaar.
+Hiermee wordt een alleen-lezen query aangeroepen voor het opgegeven infrastructuur service-exemplaar.
 
-Voor clusters die u een of meer exemplaren van de Service-infrastructuur is geconfigureerd hebt, biedt deze API een manier om infrastructuur-query's verzenden naar een bepaalde instantie van de Service-infrastructuur. Beschikbare opdrachten en hun bijbehorende antwoord indelingen variëren, afhankelijk van de infrastructuur waarin het cluster wordt uitgevoerd. Deze API biedt ondersteuning voor de Service Fabric-platform; het is niet bedoeld voor gebruik rechtstreeks vanuit uw code.
+Voor clusters waarvoor een of meer exemplaren van de infrastructuur service zijn geconfigureerd, biedt deze API een manier om infrastructuur query's te verzenden naar een bepaald exemplaar van de infrastructuur service. Beschik bare opdrachten en de bijbehorende antwoord indelingen variëren, afhankelijk van de infra structuur waarop het cluster wordt uitgevoerd. Deze API ondersteunt het Service Fabric-platform. het is niet bedoeld om rechtstreeks vanuit uw code te worden gebruikt.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --opdracht (vereist) | De tekst van de opdracht om te worden aangeroepen. De inhoud van de opdracht is specifiek voor infrastructuur. |
-| --service-id | De identiteit van de infrastructuur-service. <br><br> Dit is de volledige naam van de service infrastructuur zonder de ' fabric\:' URI-schema. Deze parameter is alleen vereist voor het cluster dat is meer dan één exemplaar van de infrastructuur-service die wordt uitgevoerd. |
-| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --opdracht [vereist] | De tekst van de opdracht die moet worden aangeroepen. De inhoud van de opdracht is specifiek voor een infra structuur. |
+| --Service-id | De identiteit van de infrastructuur service. <br><br> Dit is de volledige naam van de infrastructuur service zonder het URI-\:schema ' fabric '. Deze para meter is alleen vereist voor het cluster waarop meer dan één exemplaar van de infrastructuur service wordt uitgevoerd. |
+| --time-out-t | Time-out van server in seconden.  Standaard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

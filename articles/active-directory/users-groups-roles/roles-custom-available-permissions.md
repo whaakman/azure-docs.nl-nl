@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ff6755f1391ff19e65df669fb51967a904f4f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707563"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033339"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Subtypen en machtigingen voor toepassings registratie in Azure Active Directory
 
@@ -46,12 +46,12 @@ Details voor de volgende machtigingen voor de preview van de aangepaste rollen w
 
 ### <a name="create-and-delete"></a>Maken en verwijderen
 
-Er zijn twee machtigingen beschikbaar voor het verlenen van de mogelijkheid om app-registraties te maken:
+Er zijn twee machtigingen beschikbaar voor het verlenen van de mogelijkheid om toepassings registraties te maken, elk met een ander gedrag:
 
-- **micro soft. Directory/toepassingen/createAsOwner**
-- **micro soft. Directory/toepassingen/maken**
+- **micro soft. Directory/toepassingen/createAsOwner**: Als u deze machtiging toewijst, wordt de maker toegevoegd als de eerste eigenaar van de gemaakte app-registratie en wordt de gemaakte app-registratie geteld voor het quotum van 250 gemaakte objecten van de maker.
+- **micro soft. map/applicationPolicies/maken**: Als u deze machtigingen toewijst, wordt de maker niet toegevoegd als de eerste eigenaar van de gemaakte app-registratie en wordt de gemaakte app-registratie niet meegeteld op basis van het 250 gemaakte object quota van de maker. Gebruik deze machtiging aandachtig door, omdat er niets is dat de toegewezen persoon app-registraties kan maken totdat de quotum op Directory niveau is bereikt. Als beide machtigingen zijn toegewezen, heeft deze machtiging voor rang.
 
-Als beide machtigingen zijn toegewezen, heeft de machtiging maken prioriteit. Hoewel de createAsOwner-machtiging de maker niet automatisch toevoegt als de eerste eigenaar, kunnen eigen aren worden opgegeven tijdens het maken van de app-registratie bij gebruik van Graph Api's of Power shell-cmdlets.
+Als beide machtigingen zijn toegewezen, heeft de/Create-machtiging prioriteit. Hoewel de/createAsOwner-machtiging de maker niet automatisch toevoegt als de eerste eigenaar, kunnen eigen aren worden opgegeven tijdens het maken van de app-registratie bij gebruik van Graph Api's of Power shell-cmdlets.
 
 Maak machtigingen verlenen toegang tot de **nieuwe registratie** opdracht.
 

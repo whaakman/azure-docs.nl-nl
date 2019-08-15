@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl mesh | Microsoft Docs
-description: Beschrijving van de Service Fabric-CLI sfctl mesh-opdrachten.
+title: Azure Service Fabric CLI-sfctl mesh | Microsoft Docs
+description: Hierin worden de Service Fabric CLI-opdrachten met sfctl-net beschreven.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,37 +8,36 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4901630509eb60cb1bbe88a46b51277af244c8f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0774a933bb109ffc66c7f4673d2803f0631f9b82
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556828"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035327"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
-Verwijderen en beheren van Service Fabric-NET-toepassingen.
+Service Fabric-mesh-toepassingen verwijderen en beheren.
 
 ## <a name="subgroups"></a>Subgroepen
 |Subgroep|Description|
 | --- | --- |
-| [app](service-fabric-sfctl-mesh-app.md) | Ophalen en verwijderen van de toepassingsresources. |
-| [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | De logboeken ophalen voor de container van de opgegeven code-pakket voor de opgegeven service-replica. |
-| [Implementatie](service-fabric-sfctl-mesh-deployment.md) | Net van Service Fabric-resources maken. |
-| [gateway](service-fabric-sfctl-mesh-gateway.md) | Ophalen en verwijderen van mesh-gateway-resources. |
-| [network](service-fabric-sfctl-mesh-network.md) | Ophalen en verwijderen van mesh-netwerkbronnen. |
-| [secret](service-fabric-sfctl-mesh-secret.md) | Ophalen en verwijderen van geheime mesh-resources. |
-| [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | NET secretvalue resources ophalen en verwijderen. |
-| [service](service-fabric-sfctl-mesh-service.md) | Servicedetails en lijst met services van de bron van een toepassing ophalen. |
-| [service-replica](service-fabric-sfctl-mesh-service-replica.md) | Details van de replica en de lijst met replica's van een bepaalde service in de bron van een toepassing ophalen. |
-| [volume](service-fabric-sfctl-mesh-volume.md) | Ophalen en verwijderen van volume-resources. |
+| [app](service-fabric-sfctl-mesh-app.md) | Toepassings resources ophalen en verwijderen. |
+| [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | De logboeken ophalen voor de container van het opgegeven code pakket voor de opgegeven service replica. |
+| [inhoudsdistributiepad](service-fabric-sfctl-mesh-deployment.md) | Service Fabric netresources maken. |
+| [gateway](service-fabric-sfctl-mesh-gateway.md) | Netgateway-resources ophalen en verwijderen. |
+| [netwerk](service-fabric-sfctl-mesh-network.md) | Net-netwerk resources ophalen en verwijderen. |
+| [secret](service-fabric-sfctl-mesh-secret.md) | Geheim bronnen van het net ophalen en verwijderen. |
+| [secretvalue](service-fabric-sfctl-mesh-secretvalue.md) | Net secretvalue-resources ophalen en verwijderen. |
+| [service](service-fabric-sfctl-mesh-service.md) | Haal service Details en lijst Services van een toepassings bron op. |
+| [service-replica](service-fabric-sfctl-mesh-service-replica.md) | Replica Details ophalen en replica's van een bepaalde service in een toepassings bron weer geven. |
+| [volumebitmap](service-fabric-sfctl-mesh-volume.md) | Volume bronnen ophalen en verwijderen. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

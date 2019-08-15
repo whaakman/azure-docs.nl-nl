@@ -8,52 +8,27 @@ ms.topic: include
 ms.date: 01/16/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6f9065786879749eee6187e93283f4c026b7fff
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 98172c2c487488a72bbfdd3a8205ac7d8668db60
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175908"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035785"
 ---
-De configuratie van de volgende computer is gebruikt voor de volgende stappen uit:
-
-  | | |
-  |---|---|
-  |Computer| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
-  |Afhankelijkheden| strongSwan |
-
-#### <a name="1-install-strongswan"></a>1. Install strongSwan
-
-Gebruik de volgende opdrachten voor het installeren van de vereiste strongSwan-configuratie:
-
-```
-apt-get install strongswan-ikev2 strongswan-plugin-eap-tls
-```
-
-```
-apt-get install libstrongswan-standard-plugins
-```
-
-```
-apt-get install strongswan-pki
-```
-
-#### <a name="2-generate-keys-and-certificate"></a>2. Genereren van sleutels en certificaten
-
-Het CA-certificaat genereren.
+Genereer het CA-certificaat.
 
   ```
   ipsec pki --gen --outform pem > caKey.pem
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
 
-Afdrukken op de CA-certificaat in Base 64-indeling. Dit is de indeling die wordt ondersteund door Azure. U zult dit later uploaden naar Azure als onderdeel van uw P2S-configuratie.
+Het CA-certificaat in Base64-indeling afdrukken. Dit is de indeling die wordt ondersteund door Azure. U kunt dit later uploaden naar Azure als onderdeel van uw P2S-configuratie.
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo
   ```
 
-Het gebruikerscertificaat genereren.
+Genereer het gebruikers certificaat.
 
   ```
   export PASSWORD="password"
@@ -63,7 +38,7 @@ Het gebruikerscertificaat genereren.
   ipsec pki --pub --in "${USERNAME}Key.pem" | ipsec pki --issue --cacert caCert.pem --cakey caKey.pem --dn "CN=${USERNAME}" --san "${USERNAME}" --flag clientAuth --outform pem > "${USERNAME}Cert.pem"
   ```
 
-Genereer een p12-bundel met het gebruikerscertificaat. Deze bundel wordt gebruikt in de volgende stappen bij het werken met de configuratiebestanden van de client.
+Genereer een P12-bundel met het gebruikers certificaat. Deze bundel wordt in de volgende stappen gebruikt bij het werken met de client configuratie bestanden.
 
   ```
   openssl pkcs12 -in "${USERNAME}Cert.pem" -inkey "${USERNAME}Key.pem" -certfile caCert.pem -export -out "${USERNAME}.p12" -password "pass:${PASSWORD}"

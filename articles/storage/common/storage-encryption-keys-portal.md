@@ -1,6 +1,6 @@
 ---
-title: Configureren van de klant beheerde sleutels voor Azure Storage-versleuteling van de Azure-portal
-description: Leer hoe u de Azure portal gebruiken voor het configureren van de klant beheerde sleutels voor Azure Storage-versleuteling. Door de klant beheerde sleutels kunnen u maken, draaien, uitschakelen en besturingselementen voor toegang intrekken.
+title: Door de klant beheerde sleutels configureren voor Azure Storage versleuteling van de Azure Portal
+description: Meer informatie over het gebruik van de Azure Portal voor het configureren van door de klant beheerde sleutels voor Azure Storage versleuteling. Door de klant beheerde sleutels bieden u de mogelijkheid om toegangs beheer te maken, te draaien, uit te scha kelen en in te trekken.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,67 +9,68 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: baabc5a8e1d063cb51a3edea3a7218591e85aa1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154157"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030958"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configureren van de klant beheerde sleutels voor Azure Storage-versleuteling van de Azure-portal
+# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Door de klant beheerde sleutels configureren voor Azure Storage versleuteling van de Azure Portal
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-In dit artikel laat zien hoe het configureren van een key vault met door de klant beheerde sleutels die gebruikmaken van de [Azure-portal](https://portal.azure.com/). Zie voor meer informatie over het maken van een sleutelkluis met behulp van de Azure-portal, [Quick Start: Instellen en ophalen van een geheim uit Azure Key Vault met behulp van de Azure-portal](../../key-vault/quick-create-portal.md). 
+In dit artikel wordt beschreven hoe u een sleutel kluis kunt configureren met door de klant beheerde sleutels met behulp van de [Azure Portal](https://portal.azure.com/). Ga [voor meer informatie over het maken van een sleutel kluis met behulp van de Azure Portal naar Quick Start: Stel een geheim in en haal het op uit Azure Key Vault](../../key-vault/quick-create-portal.md)met behulp van de Azure Portal. 
 
 
 > [!IMPORTANT]
-> Met behulp van de klant beheerde sleutels met Azure Storage-versleuteling vereist dat de key vault twee vereiste eigenschappen die zijn geconfigureerd, **voorlopig verwijderen** en **doen niet leegmaken**. Deze eigenschappen zijn standaard ingeschakeld wanneer u een nieuwe sleutelkluis in Azure portal maakt. Echter, als u deze eigenschappen in een bestaande sleutelkluis inschakelen wilt, moet u PowerShell of Azure CLI.
+> Het gebruik van door de klant beheerde sleutels met Azure Storage versleuteling vereist dat er voor de sleutel kluis twee vereiste eigenschappen zijn geconfigureerd, worden **verwijderd** en kunnen **niet worden**verwijderd. Deze eigenschappen zijn standaard ingeschakeld wanneer u een nieuwe sleutel kluis maakt in de Azure Portal. Als u deze eigenschappen echter wilt inschakelen voor een bestaande sleutel kluis, moet u Power shell of Azure CLI gebruiken.
+> Alleen RSA-sleutels en sleutel grootte 2048 worden ondersteund.
 
-## <a name="enable-customer-managed-keys"></a>Inschakelen van de klant beheerde sleutels
+## <a name="enable-customer-managed-keys"></a>Door de klant beheerde sleutels inschakelen
 
-Als u wilt inschakelen door de klant beheerde sleutels in Azure portal, de volgende stappen uit:
+Voer de volgende stappen uit om door de klant beheerde sleutels in te scha kelen in de Azure Portal:
 
 1. Ga naar uw opslagaccount.
-1. Op de **instellingen** blade voor de storage-account, klikt u op **versleuteling**. Selecteer de **uw eigen sleutel gebruiken** optie, zoals wordt weergegeven in de volgende afbeelding.
+1. Klik op de Blade **instellingen** voor het opslag account op **versleuteling**. Selecteer de optie **uw eigen sleutel gebruiken** , zoals wordt weer gegeven in de volgende afbeelding.
 
-    ![Schermafbeelding van portal weergeven versleutelingsoptie](./media/storage-encryption-keys-portal/ssecmk1.png)
+    ![Scherm opname van de portal met versleutelings optie](./media/storage-encryption-keys-portal/ssecmk1.png)
 
 ## <a name="specify-a-key"></a>Een sleutel opgeven
 
-Nadat u de klant beheerde sleutels hebt ingeschakeld, hebt u de mogelijkheid om op te geven van een sleutel wilt koppelen aan de storage-account.
+Nadat u door de klant beheerde sleutels hebt ingeschakeld, hebt u de mogelijkheid om een sleutel op te geven die u wilt koppelen aan het opslag account.
 
-### <a name="specify-a-key-as-a-uri"></a>Een sleutel opgeeft als een URI
+### <a name="specify-a-key-as-a-uri"></a>Een sleutel opgeven als een URI
 
-Als u een sleutel als een URI, de volgende stappen uit:
+Voer de volgende stappen uit om een sleutel als URI op te geven:
 
-1. Als u wilt de sleutel-URI vinden in Azure portal, gaat u naar uw key vault en selecteer de **sleutels** instelling. Selecteer de gewenste sleutel en klik vervolgens op de toets om de instellingen ervan weer te geven. Kopieer de waarde van de **sleutel-id** veld, waarmee u de URI.
+1. Als u de sleutel-URI in de Azure Portal wilt zoeken, navigeert u naar uw sleutel kluis en selecteert u de instelling **sleutels** . Selecteer de gewenste sleutel en klik vervolgens op de sleutel om de instellingen ervan weer te geven. Kopieer de waarde van het veld **sleutel-id** , dat de URI levert.
 
-    ![Schermopname die laat zien sleutelkluis sleutel-URI](media/storage-encryption-keys-portal/key-uri-portal.png)
+    ![Scherm opname van sleutel kluis sleutel-URI](media/storage-encryption-keys-portal/key-uri-portal.png)
 
-1. In de **versleuteling** -instellingen voor uw storage-account, kies de **Enter-toets URI** optie.
-1. In de **Key URI** veld, geeft u de URI.
+1. Kies in de versleutelings instellingen voor uw opslag account de optie **sleutel-URI opgeven** .
+1. Geef in het veld **sleutel-URI** de URI op.
 
-   ![Schermopname die laat zien hoe u sleutel-URI invoeren](./media/storage-encryption-keys-portal/ssecmk2.png)
+   ![Scherm afbeelding die laat zien hoe de sleutel-URI moet worden ingevoerd](./media/storage-encryption-keys-portal/ssecmk2.png)
 
-### <a name="specify-a-key-from-a-key-vault"></a>Geef een sleutel van een key vault
+### <a name="specify-a-key-from-a-key-vault"></a>Een sleutel uit een sleutel kluis opgeven
 
-Zorg ervoor dat u een sleutelkluis met een sleutel om op te geven van een sleutel van een key vault. Als u een sleutel van een key vault, de volgende stappen uit:
+Als u een sleutel van een sleutel kluis wilt opgeven, moet u eerst controleren of u een sleutel kluis hebt die een sleutel bevat. Voer de volgende stappen uit om een sleutel van een sleutel kluis op te geven:
 
-1. Kies de **selecteren uit Key Vault** optie.
-2. Kies de key vault met de sleutel die u wilt gebruiken.
-3. Kies de sleutel uit de key vault.
+1. Kies de optie **selecteren uit Key Vault** .
+2. Kies de sleutel kluis met de sleutel die u wilt gebruiken.
+3. Kies de sleutel in de sleutel kluis.
 
-   ![Schermafbeelding van de klant beheerde sleutel optie](./media/storage-encryption-keys-portal/ssecmk3.png)
+   ![Scherm afbeelding met door de klant beheerde sleutel optie](./media/storage-encryption-keys-portal/ssecmk3.png)
 
-## <a name="update-the-key-version"></a>De belangrijkste versie bijwerken
+## <a name="update-the-key-version"></a>De sleutel versie bijwerken
 
-Wanneer u een nieuwe versie van een sleutel maakt, moet u het opslagaccount voor het gebruik van de nieuwe versie bijwerken. Volg deze stappen:
+Wanneer u een nieuwe versie van een sleutel maakt, moet u het opslag account bijwerken voor gebruik van de nieuwe versie. Volg deze stappen:
 
-1. Ga naar uw opslagaccount en weer te geven de **versleuteling** instellingen.
-1. Geef de URI voor de nieuwe sleutelversie. U kunt ook de key vault en de sleutel opnieuw om bij te werken van de versie selecteren.
+1. Navigeer naar uw opslag account en geef de versleutelings instellingen weer.
+1. Geef de URI op voor de nieuwe sleutel versie. U kunt ook de sleutel kluis en de sleutel opnieuw selecteren om de versie bij te werken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure Storage-versleuteling voor data-at-rest](storage-service-encryption.md)
+- [Azure Storage versleuteling voor Data-at-rest](storage-service-encryption.md)
 - [Wat is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?

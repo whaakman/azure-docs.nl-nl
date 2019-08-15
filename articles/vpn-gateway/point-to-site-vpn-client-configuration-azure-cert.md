@@ -1,27 +1,27 @@
 ---
-title: 'Maken en installeren van P2S-VPN-clientconfiguratiebestanden voor Azure-certificaatverificatie: Azure'
-description: Maken en installeren van Windows, Linux, Linux (strongSwan) en Mac OS X-VPN-clientconfiguratiebestanden voor P2S-certificaatverificatie.
+title: 'P2S VPN-client configuratie bestanden maken en installeren voor Azure-certificaat verificatie: Azure'
+description: Windows-, Linux-, Linux-, strongSwan-en Mac OS X VPN-client configuratie bestanden maken en installeren voor P2S-certificaat verificatie.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 624c1648bc709e1ca6ee9c4120350a606df67df5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113881"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035743"
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Maken en VPN-clientconfiguratiebestanden voor native Azure certificate authentication P2S-configuraties installeren
+# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>VPN-client configuratie bestanden maken en installeren voor systeem eigen Azure-certificaat verificatie P2S-configuraties
 
-VPN-clientconfiguratiebestanden zijn opgenomen in een zip-bestand. Configuratiebestanden bevatten de instellingen die vereist zijn voor een systeemeigen Windows-, Mac IKEv2 VPN- of Linux-clients verbinding maken met een VNet via punt-naar-Site-verbindingen die gebruikmaken van systeemeigen Azure certificaatverificatie.
+Configuratie bestanden voor VPN-clients zijn opgenomen in een zip-bestand. Configuratie bestanden bieden de instellingen die zijn vereist voor een systeem eigen Windows, Mac IKEv2-VPN of Linux-clients om verbinding te maken met een VNet via punt-naar-site-verbindingen die gebruikmaken van systeem eigen Azure-certificaat authenticatie.
 
-Client-configuratiebestanden zijn specifiek voor de VPN-configuratie voor het VNet. Als er wijzigingen in de punt-naar-Site VPN-configuratie na het genereren van de VPN-client-configuratiebestanden, zoals het VPN-protocol-type of verificatie, moet u voor het genereren van nieuwe VPN-clientconfiguratiebestanden voor uw apparaten van gebruikers. 
+Client configuratie bestanden zijn specifiek voor de VPN-configuratie voor het VNet. Als er wijzigingen zijn aangebracht in de punt-naar-site-VPN-configuratie nadat u de configuratie bestanden voor de VPN-client hebt gegenereerd, zoals het type VPN-protocol of het verificatie type, moet u nieuwe VPN-client configuratie bestanden voor uw gebruikers apparaten genereren. 
 
 * Voor meer informatie over point-to-site-verbindingen leest u [About Point-to-Site VPN](point-to-site-about.md) (Over point-to-site-VPN).
-* Zie voor instructies OpenVPN [OpenVPN configureren voor P2S](vpn-gateway-howto-openvpn.md) en [OpenVPN configureren clients](vpn-gateway-howto-openvpn-clients.md).
+* Zie [Configure openvpn for P2S](vpn-gateway-howto-openvpn.md) (Engelstalig) en [Configure openvpn clients](vpn-gateway-howto-openvpn-clients.md)(Engelstalig) voor openvpn instructies.
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
@@ -29,153 +29,148 @@ Client-configuratiebestanden zijn specifiek voor de VPN-configuratie voor het VN
 
 ## <a name="generate"></a>Configuratiebestanden voor VPN-clients genereren
 
-Voordat u begint, zorg ervoor dat alle gebruikers die verbinding maken een geldig certificaat geïnstalleerd op het apparaat van de gebruiker. Zie voor meer informatie over het installeren van een clientcertificaat [een clientcertificaat installeren](point-to-site-how-to-vpn-client-install-azure-cert.md).
+Voordat u begint, moet u ervoor zorgen dat alle gebruikers met een verbinding een geldig certificaat hebben geïnstalleerd op het apparaat van de gebruiker. Zie [een client certificaat installeren](point-to-site-how-to-vpn-client-install-azure-cert.md)voor meer informatie over het installeren van een client certificaat.
 
-U kunt genereren met behulp van PowerShell-clientconfiguratiebestanden of met behulp van de Azure-portal. Een van beide methoden retourneert het dezelfde zip-bestand. Decomprimeer het bestand om de volgende mappen weer te geven:
+U kunt client configuratie bestanden genereren met behulp van Power shell of met behulp van de Azure Portal. Beide methoden retour neren hetzelfde zip-bestand. Pak het bestand uit om de volgende mappen weer te geven:
 
-  * **WindowsAmd64** en **WindowsX86**, die het installatieprogramma voor Windows 32-bits en 64-bits pakketten, respectievelijk bevatten. De **WindowsAmd64** installer-pakket is voor alle ondersteunde op 64-bits Windows-clients niet alleen Amd.
-  * **Algemene**, bevat algemene informatie gebruikt voor het maken van de configuratie van uw eigen VPN-client. De algemene map is opgegeven als IKEv2 of SSTP + IKEv2 is geconfigureerd op de gateway. Als er slechts SSTP is geconfigureerd, klikt u vervolgens is de algemene map niet aanwezig.
+  * **WindowsAmd64** en **WindowsX86**, die respectievelijk de Windows 32-bits en 64-bits installatie pakketten bevatten. Het **WindowsAmd64** Installer-pakket is voor alle ondersteunde 64-bits Windows-clients, niet alleen AMD.
+  * **Algemeen**, dat algemene informatie bevat die wordt gebruikt voor het maken van uw eigen VPN-client configuratie. De algemene map wordt opgegeven als IKEv2 of SSTP + IKEv2 is geconfigureerd op de gateway. Als alleen SSTP is geconfigureerd, is de generieke map niet aanwezig.
 
-### <a name="zipportal"></a>Genereren van bestanden met behulp van de Azure-portal
+### <a name="zipportal"></a>Bestanden genereren met behulp van de Azure Portal
 
-1. Navigeer naar de virtuele netwerkgateway voor het virtuele netwerk dat u verbinding wilt maken in de Azure-portal.
-2. Klik op de pagina virtual network gateway **punt-naar-site-configuratie**.
-3. Aan de bovenkant van de pagina punt-naar-site-configuratie, klikt u op **VPN-client downloaden**. Het duurt een paar minuten voor de client voor het genereren van het configuratiepakket.
-4. Uw browser geeft aan dat het zip-bestand van een client-configuratie beschikbaar is. De naam ervan is dezelfde naam als uw gateway. Decomprimeer het bestand om de mappen weer te geven.
+1. Navigeer in het Azure Portal naar de virtuele netwerk gateway voor het virtuele netwerk waarmee u verbinding wilt maken.
+2. Klik op de pagina virtuele netwerk gateway op **punt-naar-site-configuratie**.
+3. Klik boven aan de pagina punt-naar-site-configuratie op **VPN-client downloaden**. Het duurt enkele minuten voordat het client configuratie pakket is gegenereerd.
+4. Uw browser geeft aan dat een zip-bestand voor de client configuratie beschikbaar is. Deze heeft dezelfde naam als uw gateway. Pak het bestand uit om de mappen weer te geven.
 
-### <a name="zipps"></a>Genereren van bestanden met behulp van PowerShell
+### <a name="zipps"></a>Bestanden genereren met behulp van Power shell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Bij genereren van het VPN-clientconfiguratie van bestanden, de waarde voor '-AuthenticationMethod' is 'EapTls'. Genereren van de configuratiebestanden van de VPN-client met de volgende opdracht:
+1. Bij het genereren van configuratie bestanden voor VPN-clients is de waarde '-EapTls '. Genereer de configuratie bestanden voor de VPN-client met de volgende opdracht:
 
    ```azurepowershell-interactive
    $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
 
    $profile.VPNProfileSASUrl
    ```
-2. Kopieer de URL naar uw browser naar het zip-bestand downloaden en Decomprimeer het bestand om de mappen weer te geven.
+2. Kopieer de URL naar uw browser om het zip-bestand te downloaden en pak het bestand uit om de mappen weer te geven.
 
 ## <a name="installwin"></a>Windows
 
-Als de versie overeenkomt met de architectuur voor de client, kunt u hetzelfde configuratiepakket voor VPN-client op elke Windows-clientcomputer. Voor een lijst van client-besturingssystemen die worden ondersteund, Zie de sectie punt-naar-Site van de [Veelgestelde vragen over VPN-Gateway](vpn-gateway-vpn-faq.md#P2S).
+U kunt hetzelfde configuratie pakket voor de VPN-client gebruiken op elke Windows-client computer, mits de versie overeenkomt met de architectuur van de client. Zie de sectie punt-naar-site van de [Veelgestelde vragen over VPN gateway](vpn-gateway-vpn-faq.md#P2S)voor de lijst met ondersteunde client besturingssystemen.
 
 >[!NOTE]
->U moet beheerdersrechten hebben op de Windows-clientcomputer van waaruit u verbinding wilt maken.
+>U moet over beheerders rechten beschikken voor de Windows-client computer waarmee u verbinding wilt maken.
 >
 >
 
-Gebruik de volgende stappen uit om te configureren van de systeemeigen Windows VPN-client voor verificatie via certificaat:
+Gebruik de volgende stappen om de systeem eigen Windows VPN-client te configureren voor verificatie van certificaten:
 
 1. Selecteer de VPN-clientconfiguratiebestanden die overeenkomen met de architectuur van de Windows-computer. Kies voor een architectuur met 64-bits processor het installatiepakket ‘VpnClientSetupAmd64’. Kies voor een architectuur met 32-bits processor het installatiepakket ‘VpnClientSetupAmdX86’. 
 2. Dubbelklik op het pakket om het te installeren. Als u een SmartScreen-melding ziet, klikt u op **Meer info** en vervolgens op **Toch uitvoeren**.
 3. Navigeer op de clientcomputer naar **Netwerkinstellingen** en klik op **VPN**. De VPN-verbinding bevat de naam van het virtuele netwerk waarmee verbinding wordt gemaakt. 
-4. Controleer of u een clientcertificaat op de clientcomputer hebt geïnstalleerd voordat u verbinding probeert te maken. Een clientcertificaat is vereist voor verificatie als u het systeemeigen verificatietype met Azure-certificaat gebruikt. Zie voor meer informatie over het genereren van certificaten, [certificaten genereren](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Zie voor meer informatie over het installeren van een clientcertificaat [een clientcertificaat installeren](point-to-site-how-to-vpn-client-install-azure-cert.md).
+4. Controleer of u een clientcertificaat op de clientcomputer hebt geïnstalleerd voordat u verbinding probeert te maken. Een clientcertificaat is vereist voor verificatie als u het systeemeigen verificatietype met Azure-certificaat gebruikt. Zie [certificaten genereren](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)voor meer informatie over het genereren van certificaten. Zie [een client certificaat installeren](point-to-site-how-to-vpn-client-install-azure-cert.md)voor meer informatie over het installeren van een client certificaat.
 
 ## <a name="installmac"></a>Mac (OS X)
 
- U moet de systeemeigen IKEv2 VPN-client handmatig configureren op elke Mac die verbinding met Azure zal maken. Azure biedt geen mobileconfig-bestand voor verificatie van systeemeigen Azure-certificaten. De **algemene** bevat alle informatie die u nodig hebt voor de configuratie. Als u de map Generic niet ziet in uw download, is IKEv2 waarschijnlijk niet geselecteerd als tunneltype. Houd er rekening mee dat de basis-SKU van de VPN-gateway geen ondersteuning biedt voor IKEv2. Genereer het zip-bestand opnieuw om de map Generic te verkrijgen nadat IKEv2 is geselecteerd.<br>De map Generic bevat de volgende bestanden:
+ U moet de systeemeigen IKEv2 VPN-client handmatig configureren op elke Mac die verbinding met Azure zal maken. Azure biedt geen mobileconfig-bestand voor verificatie van systeemeigen Azure-certificaten. De **algemene** bevat alle informatie die u nodig hebt voor configuratie. Als u de map Generic niet ziet in uw download, is IKEv2 waarschijnlijk niet geselecteerd als tunneltype. Houd er rekening mee dat de basis-SKU VPN gateway geen ondersteuning biedt voor IKEv2. Genereer het zip-bestand opnieuw om de map Generic te verkrijgen nadat IKEv2 is geselecteerd.<br>De map Generic bevat de volgende bestanden:
 
-* **VpnSettings.xml**, die belangrijke instellingen, zoals het adres en tunnel servertype bevat. 
-* **VpnServerRoot.cer**, die het basiscertificaat dat is vereist voor het valideren van de Azure VPN-Gateway tijdens de installatie van de P2S-verbinding bevat.
+* **VpnSettings. XML**, dat belang rijke instellingen bevat, zoals het server adres en het tunnel type. 
+* **VpnServerRoot. CER**, dat het basis certificaat bevat dat is vereist voor het valideren van de Azure VPN gateway tijdens de configuratie van de P2S-verbinding.
 
-Gebruik de volgende stappen uit het configureren van de systeemeigen VPN-client op Mac voor verificatie via certificaat. U moet deze stappen op elke Mac-computer maakt verbinding met Azure:
+Voer de volgende stappen uit om de systeem eigen VPN-client te configureren voor verificatie via een certificaat. U moet deze stappen uitvoeren op elke Mac die verbinding maakt met Azure:
 
-1. Importeren van de **VpnServerRoot** basiscertificaat op uw Mac. Dit kan worden gedaan door het bestand kopiëren naar uw Mac en erop te dubbelklikken. Klik op **toevoegen** om te importeren.
+1. Importeer het basis certificaat van de **VpnServerRoot** naar uw Mac. U kunt dit doen door het bestand te kopiëren naar uw Mac en erop te dubbel klikken. Klik op **toevoegen** om te importeren.
 
    ![certificaat toevoegen](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
   
     >[!NOTE]
-    >Te dubbelklikken op het certificaat wellicht niet weergegeven de **toevoegen** dialoogvenster, maar het certificaat is geïnstalleerd in de juiste opslag. U kunt het certificaat in de sleutelketen aanmelding onder de categorie certificaten controleren.
+    >Als u dubbelklikt op het certificaat, wordt het dialoog venster **toevoegen** niet weer gegeven, maar wordt het certificaat in de juiste opslag geïnstalleerd. U kunt het certificaat controleren in de sleutel voor aanmelding bij de categorie certificaten.
     >
   
-2. Controleer of dat u een clientcertificaat dat is uitgegeven door het basiscertificaat dat u hebt geüpload naar Azure wanneer u u P2S-instellingen geconfigureerd hebt geïnstalleerd. Dit wijkt af van de VPNServerRoot die u in de vorige stap hebt geïnstalleerd. Het clientcertificaat wordt gebruikt voor verificatie en is vereist. Zie voor meer informatie over het genereren van certificaten, [certificaten genereren](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Zie voor meer informatie over het installeren van een clientcertificaat [een clientcertificaat installeren](point-to-site-how-to-vpn-client-install-azure-cert.md).
-3. Open de **netwerk** dialoogvenster onder **Netwerkvoorkeuren** en klikt u op **'+'** te maken van een nieuwe VPN-client verbinding-profiel voor een P2S-verbinding met het Azure-VNet.
+2. Controleer of u een client certificaat hebt geïnstalleerd dat is uitgegeven door het basis certificaat dat u hebt geüpload naar Azure wanneer u P2S-instellingen hebt geconfigureerd. Dit wijkt af van de VPNServerRoot die u in de vorige stap hebt geïnstalleerd. Het client certificaat wordt gebruikt voor verificatie en is vereist. Zie [certificaten genereren](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)voor meer informatie over het genereren van certificaten. Zie [een client certificaat installeren](point-to-site-how-to-vpn-client-install-azure-cert.md)voor meer informatie over het installeren van een client certificaat.
+3. Open het dialoog venster **netwerk** onder **netwerk voorkeuren** en klik op **+** om een nieuw VPN-client VERBINDINGS profiel te maken voor een P2S-verbinding met Azure VNet.
 
-   De **Interface** waarde is 'VPN' en **VPN-Type** waarde is 'IKEv2'. Geef een naam voor het profiel in de **servicenaam** veld en klik vervolgens op **maken** het profiel voor VPN-client verbinding maken.
+   De **Interface** waarde is ' VPN ' en de waarde van het **VPN-type** is ' IKEv2 '. Geef een naam op voor het profiel in het veld **service naam** en klik vervolgens op **maken** om het VPN-client verbindings profiel te maken.
 
-   ![Netwerk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
-4. In de **algemene** map van de **VpnSettings.xml** bestand, kopieert u de **VpnServer** tagwaarde. Plak deze waarde in de **serveradres** en **externe ID** velden van het profiel.
+   ![netwerk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+4. Kopieer in de map **Algemeen** , in het bestand **VpnSettings. XML** , de waarde van de **VpnServer** -tag. Plak deze waarde in de velden **server adres** en **externe ID** van het profiel.
 
-   ![de gegevens van uw](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
+   ![Server gegevens](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
 5. Klik op **verificatie-instellingen** en selecteer **certificaat**. 
 
    ![verificatie-instellingen](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-6. Klik op **selecteren...** om te kiezen het clientcertificaat dat u wilt gebruiken voor verificatie. Dit is het certificaat dat u in stap 2 hebt geïnstalleerd.
+6. Klik op **selecteren...** om het client certificaat te kiezen dat u voor verificatie wilt gebruiken. Dit is het certificaat dat u in stap 2 hebt geïnstalleerd.
 
    ![certificaat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-7. **Kies een identiteit** geeft een lijst van certificaten voor u om uit te kiezen. Het juiste certificaat selecteren en klik vervolgens op **doorgaan**.
+7. **Kies een identiteit** om een lijst met certificaten weer te geven waaruit u kunt kiezen. Selecteer het juiste certificaat en klik vervolgens op **door gaan**.
 
    ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-8. In de **lokale ID** veld, geeft u de naam van het certificaat (uit stap 6). In dit voorbeeld is 'ikev2Client.com'. Klik vervolgens op **toepassen** knop de wijzigingen op te slaan.
+8. Geef in het veld **lokale id** de naam van het certificaat op (uit stap 6). In dit voor beeld is het ' ikev2Client.com '. Klik vervolgens op de knop **Toep assen** om de wijzigingen op te slaan.
 
-   ![Van toepassing](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
-9. Op de **netwerk** dialoogvenster, klikt u op **toepassen** alle wijzigingen op te slaan. Klik vervolgens op **Connect** om te beginnen de P2S-verbinding met het Azure-VNet.
+   ![toepassen](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+9. Klik in het dialoog venster **netwerk** op **Toep assen** om alle wijzigingen op te slaan. Klik vervolgens op **verbinding maken** om de P2S-verbinding met Azure VNet te starten.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
-### <a name="extract-the-key-and-certificate"></a>De sleutel en het certificaat ophalen
+### <a name="installstrongswan"></a>StrongSwan installeren
 
-Voor strongSwan moet u de sleutel en het certificaat ophalen uit het clientcertificaat (PFX-bestand) en slaat u ze op afzonderlijke .pem-bestanden.
-Volg de onderstaande stappen:
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. Download en installeer de OpenSSL van [OpenSSL](https://www.openssl.org/source/).
-2. Open een opdrachtregelvenster en wijzig in de map waarin u OpenSSL, bijvoorbeeld geïnstalleerd ' c:\OpenSLL-Win64\bin\'.
-3. Voer de volgende opdracht om de persoonlijke sleutel uitpakken en sla deze op een nieuw bestand met de naam 'privatekey.pem' vanuit uw clientcertificaat:
+### <a name="genlinuxcerts"></a>Certificaten genereren
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
-   ```
-4. Voer nu de volgende opdracht voor het extraheren van het openbare certificaat en sla deze op een nieuw bestand:
+Als u nog geen certificaten hebt gegenereerd, gebruikt u de volgende stappen:
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
-   ```
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install"></a>Installeren en configureren
 
-De volgende instructies zijn gemaakt via strongSwan 5.5.1 op Ubuntu 17.0.4. Ubuntu 16.0.10 biedt geen ondersteuning voor strongSwan GUI. Als u gebruiken van Ubuntu 16.0.10 wilt, u moet gebruiken de [vanaf de opdrachtregel](#linuxinstallcli). De onderstaande voorbeelden mogelijk niet overeenkomt met de schermen die u, afhankelijk van uw versie van Linux- en strongSwan ziet.
+De volgende instructies zijn gemaakt via strongSwan 5.5.1 op Ubuntu 17.0.4. Ubuntu 16.0.10 biedt geen ondersteuning voor strongSwan-GUI. Als u Ubuntu 16.0.10 wilt gebruiken, moet u de [opdracht regel](#linuxinstallcli)gebruiken. De onderstaande voor beelden komen mogelijk niet overeen met de schermen die u ziet, afhankelijk van uw versie van Linux en strongSwan.
 
-1. Open de **Terminal** voor het installeren van **strongSwan** en de netwerkbeheerder met de opdracht in het voorbeeld. Als u een foutbericht dat gerelateerd ontvangt aan *libcharon-extra-invoegtoepassingen*, vervang deze door 'strongswan-invoegtoepassing-eap-mschapv2'.
+1. Open de **Terminal** om **strongswan** en de bijbehorende netwerk beheerder te installeren door de opdracht in het voor beeld uit te voeren. Als u een fout melding krijgt die betrekking heeft op *libcharon-extra-invoeg toepassingen*, vervangt u deze door ' strongswan-plugin-EAP-MSCHAPv2 '.
 
    ```
    sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
    ```
-2. Selecteer de **netwerkbeheerder** pictogram (omhoog-pijl/pijl-omlaag) Selecteer **verbindingen bewerken**.
+2. Selecteer het pictogram **netwerk beheerder** (pijl-omhoog en pijl-omlaag) en selecteer vervolgens **verbindingen bewerken**.
 
    ![verbindingen bewerken](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. Klik op de **toevoegen** knop om een nieuwe verbinding te maken.
+3. Klik op de knop **toevoegen** om een nieuwe verbinding te maken.
 
    ![een verbinding toevoegen](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. Selecteer **IPsec/IKEv2 (strongswan)** uit de vervolgkeuzelijst en klik vervolgens op **maken**. U kunt de naam van de verbinding in deze stap wijzigen.
+4. Selecteer **IPSec/IKEv2 (strongswan)** in de vervolg keuzelijst en klik vervolgens op **maken**. In deze stap kunt u de naam van de verbinding wijzigen.
 
-   ![Kies een verbindingstype](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
-5. Open de **VpnSettings.xml** -bestand uit de **algemene** map die is opgenomen in de gedownloade client-configuratiebestanden. De code met de naam zoeken **VpnServer** en kopieert u de naam, die met 'azuregateway' beginnen en eindigen met '. cloudapp.net'.
+   ![Kies een verbindings type](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
+5. Open het **VpnSettings. XML-** bestand in de **algemene** map die zich in de gedownloade client configuratie bestanden bevindt. Zoek het label **VpnServer** en kopieer de naam, te beginnen met ' azuregateway ' en eindigt met '. cloudapp.net '.
 
-   ![naam van de kopieerbewerking](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
-6. Plak de naam in de **adres** veld van uw nieuwe VPN-verbinding in de **Gateway** sectie. Selecteer vervolgens het mappictogram aan het einde van de **certificaat** veld, Ga naar de **algemene** map en selecteer de **VpnServerRoot** bestand.
-7. In de **Client** sectie van de verbinding voor **verificatie**, selecteer **certificaten/persoonlijk sleutelpaar**. Voor **certificaat** en **privésleutel**, kiest u het certificaat en de persoonlijke sleutel die eerder zijn gemaakt. In **opties**, selecteer **aanvragen van een interne IP-adres**. Klik vervolgens op **toevoegen**.
+   ![naam kopiëren](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
+6. Plak deze naam in het **adres** veld van uw nieuwe VPN-verbinding in de sectie **Gateway** . Selecteer vervolgens het mappictogram aan het einde van het veld **certificaat** , blader naar de **algemene** map en selecteer het **VpnServerRoot** -bestand.
+7. Selecteer in het gedeelte **client** van de verbinding voor **verificatie**de optie **certificaat/persoonlijke sleutel**. Voor het **certificaat** en de **persoonlijke sleutel**kiest u het certificaat en de persoonlijke sleutel die u eerder hebt gemaakt. Selecteer bij **Opties** **een intern IP-adres aanvragen**. Klik vervolgens op **toevoegen**.
 
-   ![een interne IP-adres aanvragen](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. Klik op de **netwerkbeheerder** pictogram (omhoog-pijl/pijl-omlaag) en houd de muis boven **VPN-verbindingen**. U ziet dat de VPN-verbinding die u hebt gemaakt. Klik op de verbinding tot stand brengt.
+   ![een intern IP-adres aanvragen](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
+8. Klik op het pictogram **Network Manager** (pijl-omhoog/pijl-omlaag) en beweeg de muis aanwijzer over **VPN-verbindingen**. U ziet de VPN-verbinding die u hebt gemaakt. Klik om de verbinding te initiëren.
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 
-### <a name="install-strongswan"></a>Install strongSwan
+### <a name="install-strongswan"></a>StrongSwan installeren
 
-U kunt de volgende CLI-opdrachten gebruiken of gebruik de strongSwan-stappen in de [GUI](#install) strongSwan installeren.
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+### <a name="generate-certificates"></a>Certificaten genereren
+
+Als u nog geen certificaten hebt gegenereerd, gebruikt u de volgende stappen:
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install-and-configure"></a>Installeren en configureren
 
-1. Download het VPNClient-pakket van Azure portal.
-2. Pak het bestand.
-3. Uit de **algemene** map, de VpnServerRoot.cer naar /etc/ipsec.d/cacerts verplaatsen of kopiëren.
-4. Kopiëren of verplaatsen van cp client.p12 naar /etc/ipsec.d/private/. Dit bestand is een clientcertificaat voor Azure VPN-Gateway.
-5. Open VpnSettings.xml bestand en kopieer de `<VpnServer>` waarde. U gebruikt deze waarde in de volgende stap.
-6. Wijzig de waarden in het voorbeeld hieronder en klik vervolgens in het voorbeeld in de configuratie /etc/ipsec.conf toevoegen.
+1. Down load het VPNClient-pakket van Azure Portal.
+2. Pak het bestand uit.
+3. Kopieer of verplaats de VpnServerRoot. CER uit de **algemene** map naar/etc/IPSec.d/cacerts.
+4. Kopieer of verplaats CP-client. p12 naar/etc/IPSec.d/private/. Dit bestand is een client certificaat voor Azure VPN Gateway.
+5. Open het bestand VpnSettings. XML en kopieer `<VpnServer>` de waarde. In de volgende stap gaat u deze waarde gebruiken.
+6. Wijzig de waarden in het onderstaande voor beeld en voeg het voor beeld toe aan de/etc/IPSec.conf-configuratie.
   
    ```
    conn azure
@@ -191,7 +186,7 @@ U kunt de volgende CLI-opdrachten gebruiken of gebruik de strongSwan-stappen in 
    leftsourceip=%config
    auto=add
    ```
-6. Het volgende toevoegen aan */etc/ipsec.secrets*.
+6. Voeg het volgende toe aan */etc/IPSec.Secrets*.
 
    ```
    : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
@@ -206,9 +201,9 @@ U kunt de volgende CLI-opdrachten gebruiken of gebruik de strongSwan-stappen in 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga terug naar het artikel [uw P2S-configuratie voltooien](vpn-gateway-howto-point-to-site-rm-ps.md).
+Ga terug naar het artikel om [uw P2S-configuratie te volt ooien](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-Zie de volgende artikelen voor het oplossen van P2S-verbindingen:
+Raadpleeg de volgende artikelen om problemen met P2S-verbindingen op te lossen:
 
-  * [Problemen met Azure point-to-site-verbindingen oplossen](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-  * [Problemen met VPN-verbindingen van Mac OS X-VPN-clients oplossen](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+  * [Problemen met Azure Point-to-site-verbindingen oplossen](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+  * [Problemen met VPN-verbindingen van Mac OS X VPN-clients oplossen](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)

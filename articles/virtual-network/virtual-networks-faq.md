@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b088b4d0e21819411c7329f3cb1e6ca9761665fd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610198"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035332"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Virtual Network
 
@@ -67,9 +67,11 @@ Ja. Zie [een virtueel netwerk maken](manage-virtual-network.md#create-a-virtual-
 Ja. Zie [Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) -limieten voor meer informatie. De adres ruimten van het subnet mogen elkaar niet overlappen.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Zijn er beperkingen voor het gebruik van IP-adressen in deze subnetten?
-Ja. In Azure worden vijf IP-adressen gereserveerd in elk subnet. Dit zijn x. x. x. 0-x. x. x. 3 en het laatste adres van het subnet.    
-- x. x. x. 0 en het laatste adres van het subnet is gereserveerd voor protocol conformiteit.
-- x. x. x. 1-x. x. x. 3 is gereserveerd in elk subnet voor Azure-Services.
+Ja. In Azure worden vijf IP-adressen gereserveerd in elk subnet. Dit zijn x. x. x. 0-x. x. x. 3 en het laatste adres van het subnet. x. x. x. 1-x. x. x. 3 is gereserveerd in elk subnet voor Azure-Services.   
+- x. x. x. 0: Netwerk adres
+- x. x. x. 1: Gereserveerd door Azure voor de standaard gateway
+- x. x. x. 2, x. x. x. 3: Gereserveerd door Azure om de Azure DNS Ip's toe te wijzen aan de VNet-ruimte
+- x. x. x. 255: Broadcast adres van netwerk
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Hoe klein en hoe groot kan VNets en subnetten?
 Het kleinste ondersteunde subnet is/29 en de grootste is/8 (met behulp van CIDR-subnet-definities).

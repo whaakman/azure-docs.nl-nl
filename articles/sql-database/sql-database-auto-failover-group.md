@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/18/2019
-ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640102"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035063"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Gebruik groepen voor automatische failover om transparante en gecoördineerde failover van meerdere data bases mogelijk te maken
 
@@ -133,9 +133,13 @@ Als u een failover wilt uitvoeren, moet u RBAC-schrijf toegang hebben tot de fai
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Aanbevolen procedures voor het gebruik van failover-groepen met afzonderlijke data bases en elastische Pools
 
-De groep voor automatische failover moet worden geconfigureerd op de primaire SQL Database-Server en wordt verbonden met de secundaire SQL Database-Server in een andere Azure-regio.  De groepen kunnen alle of sommige data bases op deze servers bevatten. Het volgende diagram illustreert een typische configuratie van een geo-redundante Cloud toepassing met behulp van meerdere data bases en een groep voor automatische failover.
+De groep voor automatische failover moet worden geconfigureerd op de primaire SQL Database-Server en wordt verbonden met de secundaire SQL Database-Server in een andere Azure-regio. De groepen kunnen alle of sommige data bases op deze servers bevatten. Het volgende diagram illustreert een typische configuratie van een geo-redundante Cloud toepassing met behulp van meerdere data bases en een groep voor automatische failover.
 
 ![automatische failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> Zie [Eén data base toevoegen aan een failovergroep](sql-database-single-database-failover-group-tutorial.md) voor een gedetailleerde stapsgewijze zelf studie een enkele data base toevoegen aan een failovergroep. 
+
 
 Houd bij het ontwerpen van een service met bedrijfs continuïteit de volgende algemene richt lijnen:
 
@@ -167,12 +171,17 @@ Houd bij het ontwerpen van een service met bedrijfs continuïteit de volgende al
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Aanbevolen procedures voor het gebruik van failover-groepen met beheerde exemplaren
 
-De groep voor automatische failover moet worden geconfigureerd op het primaire exemplaar en wordt verbonden met het secundaire exemplaar in een andere Azure-regio.  Alle data bases in het exemplaar worden gerepliceerd naar het secundaire exemplaar. Het volgende diagram illustreert een typische configuratie van een geo-redundante Cloud toepassing met behulp van beheerde exemplaren en de groep voor automatische failover.
+> [!IMPORTANT]
+> Groeps beleidsobjecten voor automatische failover voor een beheerd exemplaar bevindt zich in open bare preview.
+
+De groep voor automatische failover moet worden geconfigureerd op het primaire exemplaar en wordt verbonden met het secundaire exemplaar in een andere Azure-regio.  Alle data bases in het exemplaar worden gerepliceerd naar het secundaire exemplaar. 
+
+Het volgende diagram illustreert een typische configuratie van een geo-redundante Cloud toepassing met behulp van beheerde exemplaren en de groep voor automatische failover.
 
 ![automatische failover](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> Groeps beleidsobjecten voor automatische failover voor een beheerd exemplaar bevindt zich in open bare preview.
+> [!NOTE]
+> Zie [Managed instance toevoegen aan een failovergroep](sql-database-managed-instance-failover-group-tutorial.md) voor een gedetailleerde stapsgewijze zelf studie voor het toevoegen van een beheerd exemplaar voor het gebruik van een failovergroep. 
 
 Als uw toepassing gebruikmaakt van een beheerd exemplaar als gegevenslaag, volgt u deze algemene richt lijnen bij het ontwerpen voor bedrijfs continuïteit:
 
@@ -367,6 +376,10 @@ Zoals eerder besproken, kunnen automatische failover-groepen en actieve geo-repl
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- Zie voor gedetailleerde zelf studies
+    - [Eén data base aan een failovergroep toevoegen](sql-database-single-database-failover-group-tutorial.md)
+    - [Elastische pool toevoegen aan een failovergroep](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [Een beheerd exemplaar toevoegen aan een failovergroep](sql-database-managed-instance-failover-group-tutorial.md)
 - Zie voor voorbeeld scripts:
   - [Power shell gebruiken voor het configureren van actieve geo-replicatie voor één data base in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Power shell gebruiken voor het configureren van actieve geo-replicatie voor een gegroepeerde Data base in Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

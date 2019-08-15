@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl-NET-app | Microsoft Docs
-description: Beschrijving van de Service Fabric-CLI sfctl mesh-app-opdrachten.
+title: Azure Service Fabric CLI-sfctl mesh-app | Microsoft Docs
+description: Beschrijft de Service Fabric CLI-opdrachten voor sfctl net-apps.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,88 +8,87 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: fb812412c7dd07800c1e2231c9472a122ab7d7d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e560b08290146b4a497539ecc180f8ae4431246
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837280"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035161"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
-Ophalen en verwijderen van de toepassingsresources.
+Toepassings resources ophalen en verwijderen.
 
 ## <a name="commands"></a>Opdrachten
 
 |Opdracht|Description|
 | --- | --- |
-| delete | Hiermee verwijdert u de bron van de toepassing. |
-| list | Geeft een lijst van alle toepassingsresources. |
-| weergeven | Hiermee haalt u de bron van de toepassing met de opgegeven naam. |
+| verwijderen | Hiermee verwijdert u de toepassings resource. |
+| list | Een lijst met alle toepassings bronnen. |
+| weergeven | Hiermee wordt de toepassings resource met de opgegeven naam opgehaald. |
 
-## <a name="sfctl-mesh-app-delete"></a>sfctl mesh-app verwijderen
-Hiermee verwijdert u de bron van de toepassing.
+## <a name="sfctl-mesh-app-delete"></a>sfctl-mesh-app verwijderen
+Hiermee verwijdert u de toepassings resource.
 
-Hiermee verwijdert u de bron van het geïdentificeerd door de naam van de toepassing.
-
-### <a name="arguments"></a>Argumenten
-
-|Argument|Description|
-| --- | --- |
-| --naam -n (vereist) | De naam van de toepassing. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
-
-## <a name="sfctl-mesh-app-list"></a>sfctl NET app-lijst
-Geeft een lijst van alle toepassingsresources.
-
-Hiermee haalt de informatie over alle toepassingsbronnen in een bepaalde resourcegroep. De informatie omvat de beschrijving en andere eigenschappen van de toepassing.
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Description|
-| --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
-
-## <a name="sfctl-mesh-app-show"></a>sfctl mesh-app weergeven
-Hiermee haalt u de bron van de toepassing met de opgegeven naam.
-
-Hiermee haalt u de informatie over de bron van de toepassing met de opgegeven naam. De informatie omvat de beschrijving en andere eigenschappen van de toepassing.
+Hiermee verwijdert u de toepassings resource die wordt geïdentificeerd door de naam.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Description|
 | --- | --- |
-| --naam -n (vereist) | De naam van de toepassing. |
+| --naam-n [vereist] | De naam van de toepassing. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Description|
 | --- | --- |
-| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
-| --help -h | In dit help-bericht en afsluiten weergeven. |
-| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
-| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
+
+## <a name="sfctl-mesh-app-list"></a>lijst met sfctl mesh-apps
+Een lijst met alle toepassings bronnen.
+
+Hiermee haalt u de informatie op over alle toepassings resources in een bepaalde resource groep. De informatie bevat de beschrijving en andere eigenschappen van de toepassing.
+
+### <a name="global-arguments"></a>Algemene argumenten
+
+|Argument|Description|
+| --- | --- |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
+
+## <a name="sfctl-mesh-app-show"></a>sfctl-mesh-app weer geven
+Hiermee wordt de toepassings resource met de opgegeven naam opgehaald.
+
+Hiermee wordt de informatie opgehaald over de toepassings resource met de opgegeven naam. De informatie bevat de beschrijving en andere eigenschappen van de toepassing.
+
+### <a name="arguments"></a>Argumenten
+
+|Argument|Description|
+| --- | --- |
+| --naam-n [vereist] | De naam van de toepassing. |
+
+### <a name="global-arguments"></a>Algemene argumenten
+
+|Argument|Description|
+| --- | --- |
+| --debug | Verg root logboek registratie uitgebreid om alle logboeken voor fout opsporing weer te geven. |
+| --Help-h | Dit Help-bericht weer geven en afsluiten. |
+| --uitvoer-o | Uitvoer indeling.  Toegestane waarden\: JSON, jsonc, Table, TSV.  Standaard\: JSON. |
+| --query | JMESPath-query reeks. Zie http\://jmespath.org/voor meer informatie en voor beelden. |
+| --verbose | Uitgebreide logboek registratie verhogen. Gebruik--debug voor volledige logboeken voor fout opsporing. |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Stel](service-fabric-cli.md) de service Fabric cli in.
+- Meer informatie over het gebruik van de Service Fabric CLI met behulp van de [voorbeeld scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

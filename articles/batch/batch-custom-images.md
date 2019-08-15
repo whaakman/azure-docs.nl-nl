@@ -1,21 +1,21 @@
 ---
-title: Azure Batch groep inrichten vanuit een aangepaste installatie kopie | Microsoft Docs
-description: Maak een batch-pool van een aangepaste installatie kopie om reken knooppunten in te richten die de software en gegevens bevatten die u nodig hebt voor uw toepassing. Aangepaste installatie kopieën zijn een efficiënte manier om reken knooppunten te configureren om uw batch-workloads uit te voeren.
+title: De galerie met gedeelde afbeeldingen gebruiken om een pool te maken-Azure Batch | Microsoft Docs
+description: Maak een batch-pool met de galerie gedeelde afbeeldingen om aangepaste installatie kopieën in te richten op reken knooppunten die de software en gegevens bevatten die u nodig hebt voor uw toepassing. Aangepaste installatie kopieën zijn een efficiënte manier om reken knooppunten te configureren om uw batch-workloads uit te voeren.
 services: batch
 author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/14/2019
 ms.author: lahugh
-ms.openlocfilehash: d8bda817231ec0a5a733d5e586e49639c62ea177
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882828"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036701"
 ---
-# <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Een aangepaste installatie kopie gebruiken om een pool van virtuele machines te maken
+# <a name="use-the-shared-image-gallery-to-create-a-pool"></a>De galerie met gedeelde afbeeldingen gebruiken om een groep te maken
 
 Wanneer u een Azure Batch groep maakt met behulp van de configuratie van de virtuele machine, geeft u een VM-installatie kopie op die het besturings systeem levert voor elk reken knooppunt in de pool. U kunt een pool met virtuele machines maken met een ondersteunde installatie kopie van Azure Marketplace of een aangepaste installatie kopie maken met de [Galerie met gedeelde afbeeldingen](../virtual-machines/windows/shared-image-galleries.md).
 

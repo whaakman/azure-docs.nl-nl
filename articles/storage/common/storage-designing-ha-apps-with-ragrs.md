@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 79d00d39903b6fb3891ee7c0ccc4743763043568
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015617"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036605"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Maxi maal beschik bare toepassingen ontwerpen met geografisch redundante opslag met lees toegang
 
@@ -150,7 +150,7 @@ Er zijn drie belang rijke opties voor het bewaken van de frequentie van nieuwe p
 
 * Een handler toevoegen voor het [](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) -object dat u aan uw opslag aanvragen door gegeven. Dit is de methode die wordt weer gegeven in dit artikel en wordt gebruikt in het bijbehorende voor beeld. Deze gebeurtenissen worden geactiveerd wanneer de client een aanvraag opnieuw probeert, zodat u kunt bijhouden hoe vaak de client herstel bare fouten op een primair eind punt tegen komt.
 
-    ```csharp 
+    ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
         // Retrying in the primary region
@@ -219,7 +219,13 @@ U kunt Power shell of Azure CLI gebruiken om de laatste synchronisatie tijd op t
 
 ### <a name="powershell"></a>PowerShell
 
-Als u de laatste synchronisatie tijd voor het opslag account wilt ophalen met behulp van Power shell, controleert u de eigenschap **GeoReplicationStats. LastSyncTime** van het opslag account. Vergeet niet om de waarden van de tijdelijke aanduidingen te vervangen door uw eigen waarden:
+Als u de laatste synchronisatie tijd voor het opslag account wilt ophalen met behulp van Power shell, installeert u een Azure Storage preview-module die ondersteuning biedt voor het ophalen van geo-replicatie statistieken. Bijvoorbeeld:
+
+```powershell
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+```
+
+Controleer vervolgens de eigenschap **GeoReplicationStats. LastSyncTime** van het opslag account. Vergeet niet om de waarden van de tijdelijke aanduidingen te vervangen door uw eigen waarden:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

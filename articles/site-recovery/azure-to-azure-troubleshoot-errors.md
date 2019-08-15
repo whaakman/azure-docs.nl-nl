@@ -8,41 +8,41 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: asgang
-ms.openlocfilehash: 1e0450554597d99aa99d6df51f22bfc90c0d92ad
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 4d8ba44cdd5161a1a5ff108837cb57af4cd98835
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798556"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034791"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
 Dit artikel beschrijft de voorkomende problemen in Azure Site Recovery bij het repliceren en herstellen van virtuele machines van Azure van de ene regio naar een andere regio en wordt uitgelegd hoe u oplossingen voor deze problemen. Zie voor meer informatie over ondersteunde configuraties, de [ondersteuningsmatrix voor het repliceren van virtuele Azure-machines](site-recovery-support-matrix-azure-to-azure.md).
 
 ## <a name="list-of-errors"></a>Lijst met fouten
-- **[Quotumproblemen met he Azure-resource (foutcode 150097)](#azure-resource-quota-issues-error-code-150097)**
-- **[Vertrouwde basiscertificaten (foutcode 151066)](#trusted-root-certificates-error-code-151066)**
-- **[Uitgaande connectiviteit voor Site Recovery (foutcode 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)**
+- **[Problemen met Azure-resource quota (fout code 150097)](#azure-resource-quota-issues-error-code-150097)**
+- **[Vertrouwde basis certificaten (fout code 151066)](#trusted-root-certificates-error-code-151066)**
+- **[Uitgaande connectiviteit voor Site Recovery (fout code 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)**
 
-## <a name="azure-resource-quota-issues-error-code-150097"></a>Quotumproblemen met he Azure-resource (foutcode 150097)
+## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemen met Azure-resource quota (fout code 150097)
 Uw abonnement moet worden ingeschakeld om te maken van virtuele Azure-machines in de doelregio die u van plan bent om te gebruiken als uw Dr-regio. Uw abonnement moet ook voldoende quotum ingeschakeld als u virtuele machines van specifieke grootte hebben. Standaard wordt met Site Recovery even groot is voor de doel-VM kiest als de bron-VM. Als de overeenkomende grootte niet beschikbaar is, wordt automatisch de dichtstbijzijnde grootte opgehaald. Als er geen overeenkomende grootte die ondersteuning biedt voor bron-VM-configuratie is, wordt dit foutbericht weergegeven:
 
 **Foutcode** | **Mogelijke oorzaken** | **Aanbeveling**
 --- | --- | ---
-150097<br></br>**Bericht**: Replicatie kan niet worden ingeschakeld voor de virtuele machine VmName. | -Uw abonnements-ID kan niet worden ingeschakeld om te maken van virtuele machines op de doellocatie voor de regio.</br></br>-Uw abonnements-ID kan niet worden ingeschakeld of beschikt niet over voldoende quotum voor het maken van specifieke VM-grootten op de doellocatie voor de regio.</br></br>-Een geschikt doel-VM-grootte die overeenkomt met de bron-VM NIC aantal (2) is niet gevonden voor de abonnements-ID op de doellocatie voor de regio.| Neem contact op met [Azure ondersteuning voor facturering](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om te kunnen maken van de virtuele machine voor de vereiste VM-grootten op de doellocatie voor uw abonnement. Nadat deze ingeschakeld, moet u de mislukte bewerking opnieuw proberen.
+150097<br></br>**Bericht**: Kan replicatie niet inschakelen voor de VmName van de virtuele machine. | -Uw abonnements-ID kan niet worden ingeschakeld om te maken van virtuele machines op de doellocatie voor de regio.</br></br>-Uw abonnements-ID kan niet worden ingeschakeld of beschikt niet over voldoende quotum voor het maken van specifieke VM-grootten op de doellocatie voor de regio.</br></br>-Een geschikt doel-VM-grootte die overeenkomt met de bron-VM NIC aantal (2) is niet gevonden voor de abonnements-ID op de doellocatie voor de regio.| Neem contact op met [Azure ondersteuning voor facturering](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om te kunnen maken van de virtuele machine voor de vereiste VM-grootten op de doellocatie voor uw abonnement. Nadat deze ingeschakeld, moet u de mislukte bewerking opnieuw proberen.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 U kunt contact opnemen met [Azure ondersteuning voor facturering](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) om in te schakelen van uw abonnement te maken van virtuele machines van de vereiste grootte in de doellocatie.
 
 Als de doellocatie een beperking van capaciteit heeft, replicatie uitschakelen en inschakelen naar een andere locatie waar uw abonnement voldoende quotum voor het maken van virtuele machines van de vereiste grootte heeft.
 
-## <a name="trusted-root-certificates-error-code-151066"></a>Vertrouwde basiscertificaten (foutcode 151066)
+## <a name="trusted-root-certificates-error-code-151066"></a>Vertrouwde basis certificaten (fout code 151066)
 
 Als de meest recente vertrouwde basiscertificaten niet aanwezig op de virtuele machine, mislukken uw taak 'replicatie inschakelen'. Zonder de certificaten mislukt de verificatie en autorisatie van Site Recovery-serviceaanroepen van de virtuele machine. Het foutbericht voor de taak is mislukt 'replicatie inschakelen' Site Recovery wordt weergegeven:
 
 **Foutcode** | **Mogelijke oorzaak** | **Aanbevelingen**
 --- | --- | ---
-151066<br></br>**Bericht**: Configuratie van site Recovery is mislukt. | De vereiste vertrouwde basiscertificaten gebruikt voor autorisatie en verificatie zijn niet aanwezig op de machine. | -Voor een virtuele machine met het Windows-besturingssysteem, zorg ervoor dat de vertrouwde basiscertificaten aanwezig zijn op de machine. Zie voor meer informatie, [configureren van vertrouwde basiscertificaten en niet-toegestane certificaten](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Voor een virtuele machine met het Linux-besturingssysteem, volg de richtlijnen voor vertrouwde basiscertificaten gepubliceerd door de distributeur versie van Linux-besturingssysteem.
+151066<br></br>**Bericht**: Site Recovery configuratie is mislukt. | De vereiste vertrouwde basiscertificaten gebruikt voor autorisatie en verificatie zijn niet aanwezig op de machine. | -Voor een virtuele machine met het Windows-besturingssysteem, zorg ervoor dat de vertrouwde basiscertificaten aanwezig zijn op de machine. Zie voor meer informatie, [configureren van vertrouwde basiscertificaten en niet-toegestane certificaten](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-Voor een virtuele machine met het Linux-besturingssysteem, volg de richtlijnen voor vertrouwde basiscertificaten gepubliceerd door de distributeur versie van Linux-besturingssysteem.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 **Windows**
@@ -154,9 +154,9 @@ Omdat symlinks SuSE Linux gebruikt voor het onderhouden van een lijst van certif
 
 Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde URL's of IP-bereiken zijn van de virtuele machine. Als uw VM zich achter een firewall bevindt of regels voor network security group (NSG) gebruikt voor het beheren van uitgaande connectiviteit, kunt u een van deze problemen kan tegenkomen.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Probleem 1: Kan niet registreren van virtuele machine van Azure met Site Recovery (151195) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Probleem 1: Kan de virtuele machine van Azure niet registreren met Site Recovery (151195) </br>
 - **Mogelijke oorzaak** </br>
-  - Kan geen verbinding maken met Site Recovery-eindpunten vanwege een probleem met de DNS-omzetting.
+  - Er kan geen verbinding tot stand worden gebracht met Site Recovery-eind punten vanwege een DNS-omzettings fout.
   - Dit wordt vaker gezien tijdens opnieuw beveiliging wanneer u de virtuele machine failover, maar de DNS-server niet bereikbaar vanaf de DR-regio is.
 
 - **Resolutie**
@@ -165,7 +165,7 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
     ![COM-fout](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
 
 
-### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Probleem 2: Configuratie van site Recovery is mislukt (151196)
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Probleem 2: Configuratie van Site Recovery is mislukt (151196)
 - **Mogelijke oorzaak** </br>
   - Verbinding kan niet worden gemaakt met Office 365-verificatie en identiteit IP4-eindpunten.
 
@@ -175,9 +175,9 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
       - Als er nieuwe adressen worden toegevoegd aan de Azure Active Directory (AAD) in de toekomst, moet u nieuwe NSG-regels maken.
 
 > [!NOTE]
-> Als de virtuele machines achter **Standard** interne load balancer dan geen toegang tot O365-IP-adressen Internet Explorer Login.microsoftonline.com standaard. Wijzig het **Basic** interne type load balancer of uitgaande toegang maken, zoals vermeld in de [artikel](https://aka.ms/lboutboundrulescli).
+> Als de virtuele machines zich achter de **standaard** interne Load Balancer bevinden, heeft deze geen toegang tot O365 ip's, dat wil zeggen standaard login.microsoftonline.com. Wijzig deze in een **Basic** interne Load Balancer type of maak afhankelijke toegang zoals vermeld in het [artikel](https://aka.ms/lboutboundrulescli).
 
-### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Probleem 3: Configuratie van site Recovery is mislukt (151197)
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Probleem 3: Configuratie van Site Recovery is mislukt (151197)
 - **Mogelijke oorzaak** </br>
   - Kan geen verbinding maken met Azure Site Recovery service-eindpunten.
 
@@ -185,14 +185,14 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
   - Azure Site Recovery vereist toegang tot [Site Recovery-IP-adresbereiken](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) , afhankelijk van de regio. Zorg ervoor dat het ip-bereiken zijn toegankelijk is vanaf de virtuele machine vereist.
 
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Probleem met 4: A2A-replicatie is mislukt tijdens het netwerkverkeer via on-premises proxy-server (151072 verloopt)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Probleem 4: A2A-replicatie mislukt wanneer het netwerk verkeer via on-premises proxy server loopt (151072)
 - **Mogelijke oorzaak** </br>
-  - De aangepaste proxy-instellingen zijn ongeldig en Azure Site Recovery Mobility Service-agent heeft geen automatische detectie de proxy-instellingen van Internet Explorer
+  - De aangepaste proxy instellingen zijn ongeldig en de Azure Site Recovery Mobility-Service agent heeft de proxy-instellingen niet automatisch gedetecteerd via IE
 
 
 - **Resolutie**
   1. Mobility Service-agent detecteert de proxy-instellingen van Internet Explorer op Windows en /etc/environment op Linux.
-  2. Als u liever om in te stellen van proxy voor de Azure Site Recovery Mobility Service, kunt u de proxygegevens in ProxyInfo.conf dat zich bevindt in opgeven:</br>
+  2. Als u liever proxy alleen instelt voor Azure Site Recovery Mobility-service, kunt u de proxy gegevens opgeven in ProxyInfo. conf op:</br>
      - ``/usr/local/InMage/config/`` op ***Linux***
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` op ***Windows***
   3. De ProxyInfo.conf moet de proxy-instellingen in de volgende INI-indeling hebben.</br>
@@ -203,7 +203,7 @@ Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde U
 
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
-Om toe te staan [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).
+Volg de stappen in het [document voor netwerk](site-recovery-azure-to-azure-networking-guidance.md)ondersteuning om [de vereiste url's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-bereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)toe te staan.
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Schijf niet gevonden in de machine (foutcode 150039)
 
@@ -211,63 +211,63 @@ Een nieuwe schijf die is gekoppeld aan de virtuele machine moet worden geïnitia
 
 **Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
 --- | --- | ---
-150039<br></br>**Bericht**: Azure-gegevensschijf (DiskName) (DiskURI) met logische unit number (LUN) (LUNValue) is niet toegewezen aan een overeenkomende schijf die wordt doorgegeven vanuit de virtuele machine met dezelfde LUN-waarde. | -Een nieuwe gegevensschijf aan de VM is gekoppeld, maar deze is niet geïnitialiseerd.</br></br>-De gegevensschijf binnen de virtuele machine rapporteert de LUN-waarde waarop de schijf is gekoppeld aan de virtuele machine niet correct.| Zorg ervoor dat de gegevensschijven zijn geïnitialiseerd en voer de bewerking vervolgens opnieuw uit.</br></br>Voor Windows: [Koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Voor Linux: [Initialiseren van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+150039<br></br>**Bericht**: De Azure-gegevens schijf (DiskURI) met Logical Unit Number (LUN) (LUNValue) is niet toegewezen aan een overeenkomende schijf die wordt gerapporteerd vanuit de VM met dezelfde LUN-waarde. | -Een nieuwe gegevensschijf aan de VM is gekoppeld, maar deze is niet geïnitialiseerd.</br></br>-De gegevensschijf binnen de virtuele machine rapporteert de LUN-waarde waarop de schijf is gekoppeld aan de virtuele machine niet correct.| Zorg ervoor dat de gegevensschijven zijn geïnitialiseerd en voer de bewerking vervolgens opnieuw uit.</br></br>Voor Windows: [Een nieuwe schijf koppelen en initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Voor Linux: [Initialiseer een nieuwe gegevens schijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 Zorg ervoor dat de gegevensschijven zijn geïnitialiseerd en voer de bewerking vervolgens opnieuw uit:
 
-- Voor Windows: [Koppelen en een nieuwe schijf initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- Voor Windows: [Een nieuwe schijf koppelen en initialiseren](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
 - Voor Linux: [toevoegen van een nieuwe gegevensschijf in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Als het probleem zich blijft voordoen, neem dan contact op met ondersteuning.
 
-## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Een of meer schijven zijn beschikbaar voor beveiliging (foutcode 153039)
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Er zijn een of meer schijven beschikbaar voor beveiliging (fout code 153039)
 - **Mogelijke oorzaak** </br>
-  - Als een of meer schijven zijn recentelijk toegevoegd aan de virtuele machine nadat de beveiliging. 
-  - Als een of meer schijven zijn geïnitialiseerd nadat de beveiliging van de virtuele machine.
+  - Als er na de beveiliging onlangs een of meer schijven aan de virtuele machine zijn toegevoegd. 
+  - Als een of meer schijven zijn geïnitialiseerd na de beveiliging van de virtuele machine.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
-U kunt kiezen om te beveiligen van de schijven of negeer de waarschuwing aan dat de replicatiestatus van de virtuele machine opnieuw in orde.</br>
-1. Ter bescherming van de schijven. Navigeer naar gerepliceerde Items > virtuele machine > schijven > Klik op niet-beveiligde schijf > Replicatie inschakelen.
+U kunt ervoor kiezen om de schijven te beveiligen of de waarschuwing te negeren om de replicatie status van de virtuele machine weer in orde te maken.</br>
+1. Om de schijven te beveiligen. Navigeer naar gerepliceerde items > VM-> schijven > Klik op niet-beveiligde schijf > replicatie inschakelen.
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
-2. Aan de waarschuwing negeren. Ga naar gerepliceerde items > virtuele machine > Klik op de waarschuwing sluiten onder de overzichtssectie.
+2. Om de waarschuwing te negeren. Ga naar gerepliceerde items > VM > Klik op het gedeelte waarschuwing negeren onder overzicht.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 
 
-## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>Verwijder de virtuele machine uit de kluis is voltooid met informatie (foutcode 150225)
-Op het moment van de bescherming van de virtuele machine, maakt Azure Site Recovery enkele koppelingen die u op de virtuele bronmachine. Wanneer u de beveiliging verwijderen of uitschakelen van replicatie, verwijderen Azure Site Recovery deze koppelingen als onderdeel van de opschoontaak. Als de virtuele machine een resourcevergrendeling heeft haalt de taak voltooid met de gegevens. Deze geeft aan dat de virtuele machine is verwijderd uit de Recovery services-kluis, maar sommige van de verouderde koppelingen kan niet worden opgeschoond van de bronmachine.
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>Verwijderen van de virtuele machine uit de kluis is voltooid met informatie (fout code 150225)
+Op het moment van de beveiliging van de virtuele machine maakt Azure Site Recovery enkele koppelingen op de virtuele bron machine. Wanneer u de beveiliging verwijdert of replicatie uitschakelt, Azure Site Recovery deze koppelingen verwijderen als onderdeel van de opschoon taak. Als de virtuele machine een resource vergrendeling heeft, wordt de taak voltooid met de informatie. Hiermee wordt aangegeven dat de virtuele machine is verwijderd uit de Recovery Services-kluis, maar sommige verouderde koppelingen kunnen niet worden opgeruimd van de bron machine.
 
-U kunt deze waarschuwing negeren als u deze niet nodig om te beveiligen van deze virtuele machine opnieuw in de toekomst. Echter, hebt u later opnieuw beveiligen van deze virtuele machine vervolgens u moet opschonen de koppelingen zoals vermeld in de onderstaande stappen. 
+U kunt deze waarschuwing negeren als u deze virtuele machine niet meer wilt beveiligen in de toekomst. Als u deze virtuele machine echter later wilt beveiligen, moet u de koppelingen opschonen zoals vermeld in de volgende stappen. 
 
-**Als u niet het opschonen van vervolgens doet:**
+**Als u deze niet opschoont, gaat u als volgt te werk:**
 
-1.  Tijdens het ophalen van het inschakelen van de replicatie via de Recovery services-kluis, worden virtuele machine, niet weergegeven. 
-2.  Als u probeert te beveiligen van de virtuele machine via **virtuele machine > Instellingen > herstel na noodgevallen** wordt is mislukt met de fout '*replicatie kan niet worden ingeschakeld vanwege de bestaande bronrecords koppelingen op de virtuele machine*".
+1.  Tijdens het inschakelen van de replicatie via de Recovery Services-kluis wordt de virtuele machine niet weer gegeven. 
+2.  Als u de virtuele machine probeert te beveiligen via de > instellingen voor het uitvoeren van de VM **> herstel na nood** geval mislukt met de fout ' de*replicatie kan niet worden ingeschakeld vanwege de bestaande verouderde bron koppelingen op de VM*'.
 
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 
 >[!NOTE]
 >
->Azure Site Recovery niet verwijderen van de bron-VM of dit van invloed op geen enkele manier tijdens het uitvoeren van onderstaande stappen.
+>Azure Site Recovery verwijdert de virtuele bron machine niet of heeft deze op geen enkele manier effect tijdens het uitvoeren van de onderstaande stappen.
 >
 
-1. Verwijder de vergrendeling van de virtuele machine of VM-resourcegroep. Bijvoorbeeld: Hieronder VM heeft de naam 'MoveDemo' de resourcevergrendeling die moet worden verwijderd.
+1. Verwijder de vergren deling van de virtuele machine of VM-resource groep. Bijvoorbeeld: Onder de naam van de virtuele machine "MoveDemo" is de resource vergrendeling die moet worden verwijderd.
 
    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-2. Script downloaden [verouderde Azure Site Recovery-configuratie verwijderen](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-3. Voer het script *Cleanup-stale-asr-config-Azure-VM.ps1*.
-4. Geef de naam van het abonnement-ID, VM-resourcegroep en de VM als een parameter.
-5. Als Azure-referenties wordt gevraagd, geef die op en controleer dat het script wordt uitgevoerd zonder fouten. 
+2. Script downloaden [verouderde Azure site Recovery configuratie verwijderen](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Voer het script *Cleanup-stale-ASR-config-Azure-VM. ps1*uit.
+4. Geef de abonnements-ID, VM-resource groep en VM-naam op als para meter.
+5. Als Azure-referenties worden gevraagd, moet u ervoor zorgen dat het script zonder storingen wordt uitgevoerd. 
 
 
-## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>Replicatie kan niet worden ingeschakeld vanwege de bestaande bronrecords koppelingen op de virtuele machine (foutcode 150226)
+## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>Replicatie kan niet worden ingeschakeld vanwege de bestaande verlopen bron koppelingen op de VM (fout code 150226)
 
-**Oorzaak: Virtuele machine heeft een verouderde configuratie links van de vorige Site Recovery-beveiliging**
+**Oorzaak: De virtuele machine heeft een verouderde configuratie van de vorige Site Recovery beveiliging**
 
 De verouderde configuratie kan worden blijven op een Azure-VM in de volgende gevallen:
 
-- U replicatie voor de Azure-VM met behulp van Site Recovery ingeschakeld en schakelt u replicatie uit, maar de **bron-VM heeft een resourcevergrendeling**.
+- U hebt replicatie ingeschakeld voor de virtuele Azure-machine met behulp van Site Recovery en vervolgens de replicatie uitschakelen, maar de **bron-VM had een resource vergrendeling**.
 - U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de Site Recovery-kluis wordt verwijderd zonder expliciet uitschakelen van replicatie op de virtuele machine.
 - U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de resourcegroep die de Site Recovery-kluis bevat zonder expliciet uitschakelen van replicatie op de virtuele machine wordt verwijderd.
 
@@ -275,57 +275,57 @@ De verouderde configuratie kan worden blijven op een Azure-VM in de volgende gev
 
 >[!NOTE]
 >
->Azure Site Recovery niet verwijderen van de bron-VM of dit van invloed op geen enkele manier tijdens het uitvoeren van onderstaande stappen.
+>Azure Site Recovery verwijdert de virtuele bron machine niet of heeft deze op geen enkele manier effect tijdens het uitvoeren van de onderstaande stappen.
 
 
-1. Verwijder de vergrendeling van de virtuele machine of virtuele machine als er een resourcegroep. *Bijvoorbeeld:* Hieronder VM heeft de naam 'MoveDemo' de resourcevergrendeling die moet worden verwijderd.
+1. Verwijder de vergren deling van de virtuele machine of VM-resource groep, indien aanwezig. *Bijvoorbeeld:* Onder de naam van de virtuele machine "MoveDemo" is de resource vergrendeling die moet worden verwijderd.
    
    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-2. Script downloaden [verouderde Azure Site Recovery-configuratie verwijderen](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-3. Voer het script *Cleanup-stale-asr-config-Azure-VM.ps1*.
-4. Geef de naam van het abonnement-ID, VM-resourcegroep en de VM als een parameter.
-5. Als Azure-referenties wordt gevraagd, geef die op en controleer dat het script wordt uitgevoerd zonder fouten.  
+2. Script downloaden [verouderde Azure site Recovery configuratie verwijderen](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Voer het script *Cleanup-stale-ASR-config-Azure-VM. ps1*uit.
+4. Geef de abonnements-ID, VM-resource groep en VM-naam op als para meter.
+5. Als Azure-referenties worden gevraagd, moet u ervoor zorgen dat het script zonder storingen wordt uitgevoerd.  
 
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Kan niet zien van de virtuele machine van Azure of Resource-groep voor selectie in 'replicatie inschakelen'
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Kan de virtuele machine van Azure of de resource groep niet zien voor selectie in replicatie inschakelen
 
- **1 oorzaak:  Resourcegroep en de virtuele bronmachine zich in andere locatie**
+ **Oorzaak 1:  De resource groep en de virtuele bron machine bevinden zich op een andere locatie**
  
-Azure Site Recovery momenteel mandaten die bron resourcegroep regio en virtuele machines moeten zich in dezelfde locatie. Als dit niet het geval is klikt zou u niet kunnen vinden van de virtuele machine of de resourcegroep tijdens het ophalen van beveiliging. 
+Azure Site Recovery is momenteel verplicht om de resource groep en de virtuele machines van de bron regio op dezelfde locatie te vinden. Als dat niet het geval is, kunt u de virtuele machine of resource groep niet vinden tijdens het tijdstip van de beveiliging. 
 
-**Als tijdelijke oplossing**, kunt u replicatie van de virtuele machine in plaats van de Recovery services-kluis inschakelen. Ga naar de bron-VM > Eigenschappen > herstel na noodgevallen en schakelt u de replicatie.
+**Als tijdelijke oplossing**kunt u replicatie van de virtuele machine inschakelen in plaats van de Recovery Services-kluis. Ga naar de > Eigenschappen van de bron-VM > nood herstel te herstellen en de replicatie in te scha kelen.
 
-**2 oorzaak: Resourcegroep maakt geen deel uit van het geselecteerde abonnement**
+**Oorzaak 2: De resource groep maakt geen deel uit van het geselecteerde abonnement**
 
 U kunt mogelijk niet vinden van de resourcegroep op het moment van beveiliging, als deze geen deel uitmaakt van het betreffende abonnement. Zorg ervoor dat de resourcegroep deel uitmaakt van het abonnement dat wordt gebruikt.
 
- **3 oorzaak: Verouderde configuratie**
+ **Oorzaak 3: Verouderde configuratie**
  
 Als u de virtuele machine die u wilt inschakelen voor de replicatie niet ziet, wordt mogelijk vanwege een verouderde configuratie van Site Recovery blijven op de virtuele machine van Azure. De verouderde configuratie kan worden blijven op een Azure-VM in de volgende gevallen:
 
 - U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de Site Recovery-kluis wordt verwijderd zonder expliciet uitschakelen van replicatie op de virtuele machine.
 - U replicatie voor de Azure-VM ingeschakeld met behulp van Site Recovery en vervolgens de resourcegroep die de Site Recovery-kluis bevat zonder expliciet uitschakelen van replicatie op de virtuele machine wordt verwijderd.
 
-- U replicatie voor de Azure-VM met behulp van Site Recovery ingeschakeld en schakelt u replicatie uit, maar de bron-VM heeft een resourcevergrendeling.
+- U hebt replicatie ingeschakeld voor de virtuele Azure-machine met behulp van Site Recovery en vervolgens de replicatie uitschakelen, maar de bron-VM had een resource vergrendeling.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 
 > [!NOTE]
 >
-> Zorg ervoor dat u de module "" AzureRM.Resources"" bijwerken voordat u het onderstaande script. Azure Site Recovery niet verwijderen van de bron-VM of dit van invloed op geen enkele manier tijdens het uitvoeren van onderstaande stappen.
+> Zorg ervoor dat u de module ' AzureRM. resources ' bijwerkt voordat u het onderstaande script gebruikt. Azure Site Recovery verwijdert de virtuele bron machine niet of heeft deze op geen enkele manier effect tijdens het uitvoeren van de onderstaande stappen.
 >
 
-1. Verwijder de vergrendeling van de virtuele machine of virtuele machine als er een resourcegroep. *Bijvoorbeeld:* Hieronder VM heeft de naam 'MoveDemo' de resourcevergrendeling die moet worden verwijderd.
+1. Verwijder de vergren deling van de virtuele machine of VM-resource groep, indien aanwezig. *Bijvoorbeeld:* Onder de naam van de virtuele machine "MoveDemo" is de resource vergrendeling die moet worden verwijderd.
 
    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-2. Script downloaden [verwijderen verouderde configuratie](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-3. Voer het script *Cleanup-stale-asr-config-Azure-VM.ps1*.
-4. Geef de naam van het abonnement-ID, VM-resourcegroep en de VM als een parameter.
-5. Als Azure-referenties wordt gevraagd, geef die op en controleer dat het script wordt uitgevoerd zonder fouten.
+2. Script downloaden [verouderde configuratie verwijderen](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Voer het script *Cleanup-stale-ASR-config-Azure-VM. ps1*uit.
+4. Geef de abonnements-ID, VM-resource groep en VM-naam op als para meter.
+5. Als Azure-referenties worden gevraagd, moet u ervoor zorgen dat het script zonder storingen wordt uitgevoerd.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Kan geen virtuele machine voor beveiliging selecteert
- **1 oorzaak:  Virtuele machine uitbreidings-sommige in de status van een mislukte of reageert niet geïnstalleerd** <br>
+ **Oorzaak 1:  Voor de virtuele machine is een uitbrei ding in een mislukte of niet-reagerende status geïnstalleerd** <br>
  Ga naar virtuele machines > instelling > extensies en controleer of er geen extensies in een foutstatus zijn. Verwijder de extensie is mislukt en probeer het opnieuw beveiligen van de virtuele machine.<br>
- **2 oorzaak:  [De Inrichtingsstatus van de virtuele machine is niet geldig](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **Oorzaak 2:  [De inrichtings status van de virtuele machine is niet geldig](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>De Inrichtingsstatus van de virtuele machine is niet geldig (foutcode 150019)
 
@@ -344,12 +344,12 @@ Inschakelen van replicatie op de virtuele machine, de Inrichtingsstatus moet **g
 
 ## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>Kan geen virtueel netwerk - tabblad voor netwerk-selectie is grijs doel selecteren.
 
-**1 oorzaak: Als uw virtuele machine is gekoppeld aan een netwerk dat al aan een doelnetwerk toegewezen is.**
+**Oorzaak 1: Als uw virtuele machine is gekoppeld aan een netwerk dat al is toegewezen aan een Doelnet netwerk.**
 - Als de bron-VM deel uit van een virtueel netwerk maakt en een andere virtuele machine in hetzelfde virtuele netwerk is al met een netwerk in de doelresourcegroep die is toegewezen, wordt klikt u vervolgens door de standaardselectie netwerk vervolgkeuzelijst uitgeschakeld.
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-**2 oorzaak: Als u eerder hebt beveiligd van de virtuele machine met Azure Site Recovery en de replicatie uitgeschakeld.**
+**Oorzaak 2: Als u de virtuele machine eerder hebt beveiligd met Azure Site Recovery en de replicatie is uitgeschakeld.**
  - Uitschakelen van de replicatie van een virtuele machine verwijdert niet de netwerktoewijzing. Er moet worden verwijderd uit de recovery Services-kluis waarin de virtuele machine is beveiligd. </br>
  Navigeer naar de recovery Services-kluis > Site Recovery-infrastructuur > netwerktoewijzing. </br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
@@ -362,40 +362,40 @@ Inschakelen van replicatie op de virtuele machine, de Inrichtingsstatus moet **g
 
 **Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
 --- | --- | ---
-151025<br></br>**Bericht**: Kan de extensie voor site Recovery niet installeren | -, COM + System Application' service uitgeschakeld.</br></br>-'Volume Shadow Copy-service is uitgeschakeld.| 'COM + System Application' en 'Volume Shadow Copy' services ingesteld op automatische of handmatige opstartmodus.
+151025<br></br>**Bericht**: Kan de Site Recovery-extensie niet installeren | -, COM + System Application' service uitgeschakeld.</br></br>-'Volume Shadow Copy-service is uitgeschakeld.| 'COM + System Application' en 'Volume Shadow Copy' services ingesteld op automatische of handmatige opstartmodus.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 
 U kunt 'Services'-console opent en zorg ervoor dat de ' COM + System Application' en 'Volume Shadow Copy' zijn niet ingesteld op 'Uitgeschakeld' voor 'Opstarttype'.
   ![COM-fout](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
-## <a name="unsupported-managed-disk-size-error-code-150172"></a>Niet-ondersteunde beheerd schijfgrootte (foutcode 150172)
+## <a name="unsupported-managed-disk-size-error-code-150172"></a>Niet-ondersteunde beheerde schijf grootte (fout code 150172)
 
 
 **Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
 --- | --- | ---
-150172<br></br>**Bericht**: Beveiliging kan niet worden ingeschakeld voor de virtuele machine omdat er (DiskName) met grootte (DiskSize) die lager is dan de minimaal ondersteunde grootte van 1024 MB. | -De schijf is kleiner dan de ondersteunde grootte van 1024 MB| Ervoor zorgen dat de schijfgrootten binnen het ondersteunde bereik valt en probeer het opnieuw.
+150172<br></br>**Bericht**: De beveiliging kan niet worden ingeschakeld voor de virtuele machine, omdat deze de grootte (DiskSize) heeft die kleiner is dan de mini maal ondersteunde grootte van 1024 MB. | -De schijf is kleiner dan de ondersteunde grootte van 1024 MB| Zorg ervoor dat de schijf grootten binnen het ondersteunde bereik liggen en voer de bewerking opnieuw uit.
 
-## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Schakel de beveiliging is mislukt omdat de apparaatnaam die worden vermeld in de GRUB-configuratie in plaats van de UUID (foutcode 151126)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>Het inschakelen van de beveiliging is mislukt als de apparaatnaam die wordt vermeld in de GRUB-configuratie in plaats van de UUID (fout code 151126)
 
 **Mogelijke oorzaak:** </br>
-De GRUB-configuratiebestanden (' / boot/grub/menu.lst ', ' / boot/grub/grub.cfg ', ' / boot/grub2/grub.cfg ' of '/ standaard/etc/wormgaten') kan de waarde voor de parameters bevatten **hoofdmap** en **hervatten** als de werkelijke apparaatnamen in plaats van UUID. Site Recovery mandaten UUID benadering, zoals de naam van de apparaten voor opnieuw opstarten van de virtuele machine verschilt mogelijk als virtuele machine mogelijk niet afkomstig is-up met dezelfde naam leidt tot problemen met failover. Bijvoorbeeld: </br>
+De GRUB-configuratie bestanden ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" of "/etc/default/grub") bevatten mogelijk de waarde voor de **root** van de para meters en worden **hervat** als de werkelijke APPARAATNAMEN in plaats van uuid. Site Recovery is een UUID-benadering omdat de naam van apparaten kan veranderen tijdens het opnieuw opstarten van de virtuele machine, omdat VM mogelijk niet wordt bereikt met dezelfde naam als de failover, waardoor er problemen ontstaan. Bijvoorbeeld: </br>
 
 
-- De volgende regel wordt uit het bestand WORMGATEN **/boot/grub2/grub.cfg**. <br>
-  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+- De volgende regel is afkomstig uit het GRUB-bestand **/boot/grub2/grub.cfg**. <br>
+  *linux/boot/vmlinuz-3.12.49-11-default **root =/dev/sda2** $ {extra_cmdline} **Resume =/dev/sda1** begin = Silent quiet showopts*
 
 
 - De volgende regel wordt uit het bestand WORMGATEN **/boot/grub/menu.lst**
   *kernel /boot/vmlinuz-3.0.101-63-default **hoofdmap = / dev/sda2** **= / dev/sda1 hervatten** splash = op de achtergrond crashkernel 256M-:128M showopts vga = 0x314 =*
 
-Als u de bovenstaande vet tekenreeks ziet, bevat WORMGATEN daadwerkelijk apparaatnamen voor de parameters "root" en "Doorgaan" in plaats van UUID.
+Als u de vetgedrukte teken reeks hierboven ziet, heeft GRUB werkelijke apparaatnamen voor de para meters ' root ' en ' Resume ' in plaats van UUID.
 
-**Over het oplossen van:**<br>
+**Oplossen:**<br>
 De apparaatnamen moeten worden vervangen door de bijbehorende UUID.<br>
 
 
-1. De UUID van het apparaat vinden door het uitvoeren van de opdracht ' blkid \<apparaatnaam > '. Bijvoorbeeld:<br>
+1. Zoek de UUID van het apparaat door de opdracht ' blkid \<device name > ' uit te voeren. Bijvoorbeeld:<br>
    ```
    blkid /dev/sda1
    ```<br>
@@ -403,43 +403,43 @@ De apparaatnamen moeten worden vervangen door de bijbehorende UUID.<br>
    ```blkid /dev/sda2```<br>
    ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```<br>
+   ```
 
 
 
-1. Now replace the device name with its UUID in the format like "root=UUID=\<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
-   *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
-1. Restart the protection again
+1. Vervang nu de naam van het apparaat door de bijbehorende uuid in de notatie zoals root =\<uuid = uuid >. Als we bijvoorbeeld de apparaatnaam vervangen door UUID voor de para meter root en resume die hierboven wordt genoemd in de bestanden "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" of "/etc/default/grub:, zien de regels in de bestanden er als volgt uit. <br>
+   *kernel/boot/vmlinuz-3.0.101-63-default **root = uuid = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **Resume = uuid = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** begin = Silent crashkernel = 256M-: 128M showopts VGA = 0x314*
+1. De beveiliging opnieuw starten
 
-## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
-**Possible Cause:** </br>
-The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples:
+## <a name="enable-protection-failed-as-device-mentioned-in-the-grub-configuration-doesnt-existerror-code-151124"></a>Het inschakelen van de beveiliging is mislukt omdat het apparaat dat wordt vermeld in de GRUB-configuratie niet bestaat (fout code 151124)
+**Mogelijke oorzaak:** </br>
+De GRUB-configuratie bestanden ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" of "/etc/default/grub") kunnen de para meters ' rd.lvm.lv ' of ' rd_LVM_LV ' bevatten om aan te geven dat het LVM-apparaat moet worden gedetecteerd op het moment van opstarten. Als deze LVM-apparaten niet bestaan, wordt het beveiligde systeem zelf niet opgestart en vastgelopen in het opstart proces. Ook wordt de failover-VM in acht genomen. Hieronder ziet u enkele voor beelden:
 
-Few examples: </br>
+Enkele voor beelden: </br>
 
-1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
-   *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
-1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
-   *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
-1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
-   *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
-   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
+1. De volgende regel is uit het GRUB-bestand **/boot/grub2/grub.cfg** op RHEL7. </br>
+   *linux16/vmlinuz-3.10.0-957.EL7.x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128M\@64M **rd. lvm. lv = rootvg/root RD. lvm. lv = rootvg/swap** rhgb stille lang = en_US. UTF-8*</br>
+   Hier ziet u dat de GRUB twee LVM-apparaten met de namen **' root '** en **' swap '** in de volume groep ' rootvg ' moet detecteren.
+1. De volgende regel is uit het GRUB-bestand **/etc/default/grub** op RHEL7 </br>
+   *GRUB_CMDLINE_LINUX = "crashkernel = auto **rd. lvm. lv = rootvg/root RD. lvm. lv = rootvg/swap** rhgb quiet"*</br>
+   Hier ziet u dat de GRUB twee LVM-apparaten met de namen **' root '** en **' swap '** in de volume groep ' rootvg ' moet detecteren.
+1. De volgende regel is uit het GRUB-bestand **/boot/grub/menu.lst** op RHEL6 </br>
+   *kernel/vmlinuz-2.6.32-754.el6.x86_64 ro root = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto rd_LVM_LV = rootvg/lv_root KEYBOARDTYPE = PC-tabel = US rd_LVM_LV = rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
+   Hier ziet u dat de GRUB twee LVM-apparaten met de namen **' root '** en **' swap '** in de volume groep ' rootvg ' moet detecteren.<br>
 
-**How to Fix:**<br>
+**Oplossen:**<br>
 
-If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
+Als het LVM-apparaat niet bestaat, kunt u dit oplossen door het te maken of de para meter uit de GRUB-configuratie bestanden te verwijderen en de beveiliging opnieuw in te scha kelen. </br>
 
-## Site Recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
-**Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
+## <a name="site-recovery-mobility-service-update-completed-with-warnings--error-code-151083"></a>De update van de Site Recovery Mobility-service is voltooid met waarschuwingen (fout code 151083)
+Site Recovery Mobility-service heeft veel onderdelen, een van de het filter stuur programma genoemd. Filter stuur programma wordt in het systeem geheugen alleen geladen op het moment dat het systeem opnieuw wordt opgestart. Wanneer er Site Recovery Mobility service-updates met wijzigingen in het filter stuur programma, worden de computer bijgewerkt, maar krijgt u een waarschuwing dat sommige oplossingen opnieuw moeten worden opgestart. Dit betekent dat de correcties van het filter stuur programma alleen kunnen worden gerealiseerd wanneer een nieuw filter stuur programma wordt geladen dat alleen kan optreden wanneer het systeem opnieuw wordt opgestart.<br>
+**Houd er rekening mee** dat dit slechts een waarschuwing is en dat bestaande replicaties blijven werken, zelfs na de nieuwe update van de agent. U kunt ervoor kiezen om op elk gewenst moment opnieuw op te starten om de voor delen van het nieuwe filter stuur programma te krijgen, maar als u de computer niet opnieuw opstart dan ook het oude filter stuur programma blijft actief. Naast het filter stuur programma worden **de voor delen van andere verbeteringen en oplossingen in Mobility service gerealiseerd zonder dat de computer opnieuw hoeft te worden opgestart wanneer de agent wordt bijgewerkt.**  
 
 
-## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
+## <a name="protection-couldnt-be-enabled-as-replica-managed-disk-diskname-replica-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>De beveiliging kan niet worden ingeschakeld omdat de door de replica beheerde schijf ' schijfwitness-replica ' al bestaat, zonder de verwachte labels in de doel resource groep (fout code 150161
 
-**Cause**: It can occur if the  virtual machine was protected earlier in the past and during disabling the replication, replica disk was not cleaned due to some reason.</br>
-**How to fix:**
-Delete the mentioned replica disk in the error message and restart the failed protection job again.
+**Oorzaak**: Dit kan gebeuren als de virtuele machine eerder in het verleden is beveiligd en tijdens het uitschakelen van de replicatie, de replica schijf om een of andere reden niet is opgeschoond.</br>
+**Oplossen:** Verwijder de vermelde replica schijf in het fout bericht en start de mislukte beveiligings taak opnieuw.
 
-## Next steps
-[Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
+## <a name="next-steps"></a>Volgende stappen
+[Virtuele Azure-machines repliceren](site-recovery-replicate-azure-to-azure.md)

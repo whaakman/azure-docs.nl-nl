@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5a1e487b52cb6f146ccc7fd3208ecc90de9aa080
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: eb2a6933b711804f957056353d7d609dbdbbe5d5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840154"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036451"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Zelfstudie: Een C# IOT Edge-module ontwikkelen voor Windows-apparaten
 
@@ -51,7 +51,7 @@ Voordat u met deze zelf studie begint, moet u de vorige zelf studie hebben door 
 * Een [Windows-apparaat met Azure IOT Edge](quickstart.md).
 * Een container register, zoals [Azure container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) geconfigureerd met de extensie [Azure IOT Edge-hulpprogram ma's](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) .
-* [Docker CE](https://docs.docker.com/install/) is geconfigureerd om Windows-containers uit te voeren.
+* [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) is geconfigureerd om Windows-containers uit te voeren.
 
 > [!TIP]
 > Als u Visual Studio 2017 (versie 15,7 of hoger) gebruikt, downloadt en installeert u [Azure IOT Edge-Hulpprogram ma's](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) voor VS 2017 van de Visual Studio Marketplace

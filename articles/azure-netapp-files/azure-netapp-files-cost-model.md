@@ -1,6 +1,6 @@
 ---
-title: Model met kosten van Azure NetApp Files | Microsoft Docs
-description: Beschrijft het Kostenmodel voor Azure NetApp bestanden voor het beheren van kosten van de service.
+title: Kosten model voor Azure NetApp Files | Microsoft Docs
+description: Beschrijft het kosten model voor Azure NetApp Files voor het beheren van onkosten van de service.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,81 +14,81 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: b06e3366224b90899dd3f9f9439edf897de82794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65524218"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030801"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Kostenmodel voor Azure NetApp Files 
 
-Inzicht krijgen in het Kostenmodel voor Azure NetApp-bestanden, kunt u uw kosten beheren van de service.
+Wat is het kosten model voor Azure NetApp Files helpt u bij het beheren van uw kosten van de service.
 
-## <a name="calculation-of-capacity-consumption"></a>Berekening van het capaciteitsverbruik
+## <a name="calculation-of-capacity-consumption"></a>Berekening van capaciteits verbruik
 
-Azure Files met NetApp wordt in rekening gebracht op de capaciteit van de ingerichte opslag.  Ingerichte capaciteit is toegewezen door het maken van pools van capaciteit.  Capaciteit van toepassingen worden in rekening gebracht op basis van $/ ingericht-GiB/maand per uur. De minimale grootte voor een groep één capaciteit is 4 TiB en capaciteit groepen kunnen vervolgens worden uitgebreid in stappen van 1 TiB. Volumes worden gemaakt binnen de capaciteit van toepassingen.  Elk volume een quotum is toegewezen dat afloopt in stappen van de capaciteit van toepassingen is ingericht. De quota die kan worden toegewezen aan volumes bereiken van een minimum van 100 GiB tot een maximum van 92 TiB.  
+Azure NetApp Files wordt in rekening gebracht op de ingerichte opslag capaciteit.  De ingerichte capaciteit wordt toegewezen door het maken van capaciteits groepen.  Capaciteits Pools worden in rekening gebracht op basis van $/provisioned-GiB/month in stappen van elk uur. De minimale grootte voor een groep met één capaciteit is 4 TiB, en capaciteits Pools kunnen vervolgens worden uitgebreid in 1-TiB stappen. Volumes worden gemaakt in capaciteits Pools.  Aan elk volume wordt een quotum toegewezen dat de ingerichte capaciteit van de Pools verlaagt. Het quotum dat kan worden toegewezen aan volumes, bereiken van Mini maal 100 GiB tot Maxi maal 100 TiB.  
 
-Capaciteitsgebruik meegeteld voor het quotum is voor een actieve volume gebaseerd op logische (effectieve) capaciteit.
+Voor een actief volume is het capaciteits verbruik voor quota gebaseerd op logische (efficiënte) capaciteit.
 
-Als het verbruik van de werkelijke capaciteit van een volume het opslagquotum overschrijdt, moet het volume kunt blijven groeien. Als de grootte van het daadwerkelijke volume kleiner dan de systeemlimiet (100 TiB is) worden nog steeds schrijfbewerkingen toegestaan.  
+Als het werkelijke capaciteits verbruik van een volume groter is dan het opslag quotum, kan het volume blijven groeien. Schrijf bewerkingen zijn nog steeds toegestaan zolang de werkelijke volume grootte kleiner is dan de systeem limiet (100 TiB).  
 
-Het totale aantal gebruikte capaciteit in een capaciteit van toepassingen op basis van de ingerichte bedrag is de som van de grootste van het toegewezen quotum of het werkelijke gebruik van alle volumes in de pool: 
+De totale gebruikte capaciteit in een capaciteits pool op basis van de ingerichte hoeveelheid is de som van het aantal toegewezen quota of het werkelijke verbruik van alle volumes in de groep: 
 
-   ![Berekening van het totale aantal gebruikte capaciteit](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
+   ![Berekening totale gebruikte capaciteit](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
 
-Het volgende diagram illustreert deze concepten.  
-* We hebben een capaciteit van toepassingen met 4 TiB ingerichte capaciteit.  De groep bevat drie volumes.  
-    * Volume 1 een quotum van 2 TiB is toegewezen en er 800 GiB van verbruik.  
-    * Volume 2 een quotum van 1 TiB is toegewezen en heeft 100 GiB van verbruik.  
-    * 3 volume een quotum van 500 GiB is toegewezen, maar heeft 800 GiB van verbruik (overschrijding).  
-* De capaciteit van toepassingen wordt gemeten voor 4 TiB aan capaciteit (het ingerichte bedrag).  
-    3,8 TiB aan capaciteit is verbruikt (2 TiB en 1 TiB quotum van Volumes 1 en 2 en 800 GiB van het werkelijke verbruik voor Volume 3). En 200 GiB van de capaciteit is overgebleven.
+In het onderstaande diagram ziet u deze concepten.  
+* We hebben een capaciteits pool met 4 TiB aan ingerichte capaciteit.  De pool bevat drie volumes.  
+    * Aan het volume 1 is een quotum van 2 TiB toegewezen en 800 GiB van het verbruik.  
+    * Aan volume 2 is een quotum van 1 TiB toegewezen en 100 GiB van het verbruik.  
+    * Aan volume 3 is een quotum van 500 GiB toegewezen, maar er is 800 GiB (overschrijding).  
+* De capaciteits pool wordt gemeten voor 4 TiB capaciteit (de ingerichte hoeveelheid).  
+    3,8 TiB capaciteit wordt verbruikt (2 TiB en 1 TiB quotum van de volumes 1 en 2, en 800 GiB van het werkelijke verbruik voor volume 3). En 200 GiB van de capaciteit is resterend.
 
-   ![Capaciteit van toepassingen met drie volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
+   ![Capaciteits pool met drie volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
-## <a name="overage-in-capacity-consumption"></a>Overschrijding van het capaciteitsverbruik  
+## <a name="overage-in-capacity-consumption"></a>Overschrijding in capaciteits verbruik  
 
-Wanneer de totale capaciteit van een pool gebruikt de ingerichte capaciteit overschrijdt, schrijven van gegevens nog steeds zijn toegestaan.  Nadat de respijtperiode (1 uur) als de gebruikte capaciteit van de pool nog steeds de ingerichte capaciteit overschrijdt, klikt u vervolgens de poolgrootte automatisch verhoogd in stappen van 1 TiB totdat de ingerichte capaciteit groter dan het totale aantal gebruikte capaciteit is.  Bijvoorbeeld, in de afbeelding hierboven, als Volume 3 blijft toenemen en het werkelijke verbruik 1.2 TiB bereikt vervolgens nadat de respijtperiode is verlopen en de groep wordt automatisch worden uitgebreid tot 5 TiB.  Het resultaat is dat de capaciteit van de ingerichte objectgroep (5 TiB) groter is dan de gebruikte capaciteit (4.2 TiB).  
+Wanneer de totale gebruikte capaciteit van een pool de ingerichte capaciteit overschrijdt, zijn gegevens schrijf bewerkingen nog steeds toegestaan.  Na de respijt periode (één uur), als de gebruikte capaciteit van de pool nog steeds de ingerichte capaciteit overschrijdt, wordt de pool grootte automatisch verhoogd in stappen van 1 TiB totdat de ingerichte capaciteit groter is dan de totale gebruikte capaciteit.  Als in de bovenstaande afbeelding bijvoorbeeld het volume 3 blijft groeien en het werkelijke verbruik 1,2 TiB bereikt, wordt de grootte van de groep na de respijt periode automatisch gewijzigd in 5 TiB.  Het resultaat is dat de ingerichte capaciteit van de groep (5 TiB) de gebruikte capaciteit (4,2 TiB) overschrijdt.  
 
-## <a name="manual-changes-of-the-pool-size"></a>Handmatige wijzigingen van de grootte van de groep  
+## <a name="manual-changes-of-the-pool-size"></a>Hand matige wijzigingen van de pool grootte  
 
-U kunt handmatig vergroten of verkleinen van de grootte van de groep. Echter, de volgende beperkingen zijn van toepassing:
-* Minimum- en servicebeperkingen  
-    Zie het artikel over [resourcelimieten](azure-netapp-files-resource-limits.md).
-* Een interval van 1 TiB na de eerste 4-TiB minimumaankoopprijs
-* Minimale facturering interval van één uur
-* Grootte van de ingerichte groep kan niet worden verkleind tot minder dan de totale capaciteit gebruikt in de groep.
+U kunt de groeps grootte hand matig Verg Roten of verkleinen. De volgende beperkingen zijn echter van toepassing:
+* Minimale en maximale limieten voor services  
+    Zie het artikel over [resource limieten](azure-netapp-files-resource-limits.md).
+* Een verhoging van 1-TiB na de eerste 4-TiB-minimale aankoop
+* Een minimale facturerings toename van één uur
+* De ingerichte grootte van de groep mag niet kleiner zijn dan de totale gebruikte capaciteit in de pool.
 
-## <a name="behavior-of-maximum-size-pool-overage"></a>Gedrag van overschrijding van de maximale grootte van toepassingen   
+## <a name="behavior-of-maximum-size-pool-overage"></a>Gedrag van groep met maximale grootte overschrijding   
 
-De maximale grootte van een capaciteit van toepassingen die u kunt maken of het formaat is 500 TiB.  Wanneer de totale capaciteit in een pool capaciteit gebruikt overschrijdt 500 TiB, treden de volgende situaties:
-* Schrijven van gegevens wordt nog steeds worden toegestaan (als het volume dan het Systeemmaximum van 100 TiB is).
-* Nadat de respijtperiode van één uur de pool automatisch wordt gewijzigd in 1 TiB stapsgewijs is verhoogd, totdat de groepscapaciteit ingericht totale gebruikte capaciteit overschrijdt.
-* De extra ingericht en capaciteit die van meer dan 500 TiB kan niet worden gebruikt om toe te wijzen volume quotum in rekening gebracht. Deze worden ook niet gebruikt om uit te breiden prestatielimieten QoS.  
-    Zie [serviceniveaus](azure-netapp-files-service-levels.md) over prestatielimieten en QoS-grootte.
+De maximale grootte van een capaciteits groep die u kunt maken of aanpassen, is 500 TiB.  Wanneer de totale gebruikte capaciteit in een capaciteits groep groter is dan 500 TiB, worden de volgende situaties weer gegeven:
+* Gegevens schrijf bewerkingen zijn nog steeds toegestaan (als het volume lager is dan het systeem maximum van 100 TiB).
+* Na de respijt periode van één uur wordt de grootte van de pool automatisch gewijzigd in een interval van 1 TiB, totdat de ingerichte capaciteit van de pool de totale gebruikte capaciteit overschrijdt.
+* De extra ingerichte en gefactureerde pool capaciteit van meer dan 500 TiB kan niet worden gebruikt om volume quota toe te wijzen. Het kan ook niet worden gebruikt om QoS-limieten voor prestaties uit te breiden.  
+    Zie [service niveaus](azure-netapp-files-service-levels.md) over prestatie limieten en QoS-grootte.
 
-Het volgende diagram illustreert deze concepten:
-* We hebben een capaciteit van toepassingen met een Premium storage-laag en een 500 TiB-capaciteit. De groep bevat negen volumes.
-    * Volumes 1 tot en met 8 zijn een quotum van 60 TiB toegewezen.  Het totale aantal gebruikte capaciteit is 480 TiB.  
-        Elk volume heeft een QoS-limiet van 3,75 GiB/s aan doorvoer (60 TiB * 64 MiB/s).  
-    * Volume 9 is een quotum van 20 TiB toegewezen.  
-        Volume 9 heeft een QoS-limiet van 1,25 GiB/s aan doorvoer (60 TiB * 64 MiB/s).
-* Volume 9 is een overschrijding scenario. 25 TiB van het werkelijke verbruik heeft.  
-    * Nadat de respijtperiode van één uur, wordt de capaciteit van toepassingen in 505 TiB worden aangepast.  
-        Dat wil zeggen, de totale capaciteit gebruikt 8 * 60 =-TiB quotum voor Volumes van 1 tot en met 8 en 25 TiB van het werkelijke verbruik voor Volume 9.
+In het onderstaande diagram ziet u deze concepten:
+* We hebben een capaciteits pool met een Premium-opslaglaag en een capaciteit van 500 TiB. De pool bevat negen volumes.
+    * Aan de volumes 1 tot en met 8 wordt een quotum van 60 TiB toegewezen.  De totale gebruikte capaciteit is 480 TiB.  
+        Elk volume heeft een QoS-limiet van 3,75 GiB/s aan door Voer (60 TiB * 64 MiB/s).  
+    * Aan volume 9 is een quotum van 20 TiB toegewezen.  
+        Volume 9 heeft een QoS-limiet van 1,25 GiB/s aan door Voer (60 TiB * 64 MiB/s).
+* Volume 9 is een overschrijding-scenario. Er is 25 TiB van het werkelijke verbruik.  
+    * Na de evaluatie periode van één uur wordt de grootte van de capaciteits groep gewijzigd in 505 TiB.  
+        Dat wil zeggen, totale gebruikte capaciteit = 8 * 60-TiB quota voor volumes 1 t/m 8 en 25 TiB van het werkelijke verbruik voor volume 9.
     * De gefactureerde capaciteit is 505 TiB.
-    * Volume-quotum voor Volume 9 kan niet worden verhoogd (omdat de totale toegewezen quota voor de groep mag niet meer dan 500 TiB).
-    * Extra QoS doorvoer kan niet worden toegewezen (omdat de totale QoS voor de pool is nog steeds op basis van 500 TiB).
+    * Het volume quotum voor volume 9 kan niet worden verhoogd (omdat de totale toegewezen quota voor de pool niet groter mag zijn dan 500 TiB).
+    * Er kan geen aanvullende QoS-door voer worden toegewezen (omdat het totale aantal QoS voor de groep nog steeds is gebaseerd op 500 TiB).
 
-   ![Capaciteit van toepassingen met negen volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
+   ![Capaciteits pool met negen volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
 
-## <a name="capacity-consumption-of-snapshots"></a>Capaciteit verbruik van momentopnamen 
+## <a name="capacity-consumption-of-snapshots"></a>Capaciteits verbruik van moment opnamen 
 
-Het capaciteitsgebruik van momentopnamen in Azure NetApp bestanden wordt in rekening gebracht op basis van het quotum van het bovenliggende volume.  Als gevolg hiervan, deelt deze het hetzelfde tarief als de capaciteit van toepassingen die het volume behoort.  Echter, in tegenstelling tot de actieve volume snapshot gebruik wordt gemeten op basis van de incrementele capaciteit is verbruikt.  Azure NetApp bestanden-momentopnamen zijn differentiële van aard. Afhankelijk van de wijzigingssnelheid van de gegevens gebruiken de momentopnamen vaak veel minder capaciteit dan de logische capaciteit van het actieve volume. Bijvoorbeeld, wordt ervan uitgegaan dat u hebt een momentopname van een volume 500 GiB dat alleen 10 GiB van differentiële gegevens. De capaciteit die in rekening voor het volume-quotum voor deze momentopname gebracht wordt zou 10 GiB, niet 500 GiB zijn. 
+Het capaciteits verbruik van moment opnamen in Azure NetApp Files wordt berekend op basis van het quotum van het bovenliggende volume.  Als gevolg hiervan wordt hetzelfde factuur tarief gedeeld als de capaciteits groep waartoe het volume behoort.  Maar in tegens telling tot het actieve volume wordt het momentopname verbruik gemeten op basis van de verbruikte incrementele capaciteit.  Azure NetApp Files moment opnamen zijn differentieel. Afhankelijk van de wijzigings frequentie van de gegevens verbruiken de moment opnamen vaak veel minder capaciteit dan de logische capaciteit van het actieve volume. Stel dat u een moment opname hebt van een 500-GiB-volume dat slechts 10 GiB van differentiële gegevens bevat. De capaciteit die wordt berekend op basis van het volume quotum voor die moment opname, zou 10 GiB zijn, niet 500 GiB. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Azure NetApp bestanden pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/netapp/)
+* [Pagina met Azure NetApp Files prijzen](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Serviceniveau's voor Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Resourcelimieten voor Azure NetApp Files](azure-netapp-files-resource-limits.md)

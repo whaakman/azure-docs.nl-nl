@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 8/14/2019
 ms.author: rkarlin
-ms.openlocfilehash: b5aae5f8e7195cfea7817b9e40e6f28d47fc3eff
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 138efd7cba80e288c4f8831b45272f4e46c8ee3f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780406"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036245"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Nuttige bronnen voor het werken met Azure Sentinel preview
 
@@ -41,8 +41,12 @@ Azure Logic Apps-connectors:<https://docs.microsoft.com/connectors/>
 | PaloAlto| CEF configureren| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
 | PluralSight | Kusto-query taal cursus| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
+## <a name="blogs-and-forums"></a>Blogs en forums
+
+Plaats uw vragen op de [TechCommunity ruimte](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) voor Azure Sentinel.
+
+Bekijk Azure Sentinel-blog berichten van de [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) en [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u een lijst met resources die handig zijn wanneer u met Azure Sentinel werkt. Zie het volgende voor meer informatie over Azure Sentinel:
-
-* [Azure-beveiligingsblog](https://blogs.msdn.com/b/azuresecurity/). Raadpleeg de blogberichten over beveiliging en naleving in Azure.
+In dit document hebt u een lijst met resources die handig zijn wanneer u met Azure Sentinel werkt. U vindt aanvullende informatie over de beveiliging en naleving van Azure in de [Microsoft Azure beveiligings-en nalevings blog](https://blogs.msdn.com/b/azuresecurity/).
