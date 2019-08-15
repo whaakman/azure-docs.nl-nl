@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: barclayn
-ms.openlocfilehash: bc305938801a4edcf32e36ce57f76079f33c5bf8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c91c8de35dcf3f1bc8fd5f41bd2356336c3fe450
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727387"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927954"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure-gegevens versleuteling-at-rest
 
@@ -161,7 +161,7 @@ Voor bewerkingen die gebruikmaken van versleutelings sleutels, kan aan een servi
 Voor het verkrijgen van een sleutel voor gebruik bij het versleutelen of ontsleutelen van gegevens in rust de service-identiteit die door het service-exemplaar van de resource manager moet worden uitgevoerd sleutel uitpakken (om de sleutel voor ontsleuteling op te halen) en WrapKey (om een sleutel in te voegen in de sleutel kluis bij het maken van een nieuwe sleutel).
 
 >[!NOTE]
->Zie de pagina uw sleutel kluis beveiligen in de [Azure Key Vault documentatie](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)voor meer informatie over Key Vault autorisatie.
+>Zie de pagina uw sleutel kluis beveiligen in de [Azure Key Vault documentatie](../../key-vault/key-vault-secure-your-key-vault.md)voor meer informatie over Key Vault autorisatie.
 
 **Voordelen**
 
@@ -237,14 +237,14 @@ Microsoft Azure Services bieden ondersteuning voor een of meer van de versleutel
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Elke klant die gebruikmaakt van Azure Infrastructure as a Service (IaaS)-functies, kan versleutelen op rest voor hun IaaS Vm's en schijven via Azure Disk Encryption. Zie de [Azure Disk Encryption-documentatie](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)voor meer informatie over Azure Disk Encryption.
+Elke klant die gebruikmaakt van Azure Infrastructure as a Service (IaaS)-functies, kan versleutelen op rest voor hun IaaS Vm's en schijven via Azure Disk Encryption. Zie de [Azure Disk Encryption-documentatie](../azure-security-disk-encryption-overview.md)voor meer informatie over Azure Disk Encryption.
 
 #### <a name="azure-storage"></a>Azure Storage
 
 Alle Azure Storage services (Blob-opslag, wachtrij opslag, tabel opslag en Azure Files) ondersteunen server versleuteling in rust. Sommige services ondersteunen daarnaast door de klant beheerde sleutels en versleuteling aan de client zijde. 
 
-- Server zijde: Alle Azure Storage services maken versleuteling aan de server zijde standaard met behulp van door de service beheerde sleutels, die transparant zijn voor de toepassing. Zie [Azure Storage-service versleuteling voor Data-at-rest](https://docs.microsoft.com/azure/storage/storage-service-encryption)voor meer informatie. Azure Blob-opslag en Azure Files ondersteunen ook RSA 2048-bits door de klant beheerde sleutels in Azure Key Vault. Zie [Storage service Encryption het gebruik van door de klant beheerde sleutels in azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)voor meer informatie.
-- Aan de client zijde: Azure-blobs,-tabellen en-wacht rijen ondersteunen versleuteling aan de client zijde. Wanneer u versleuteling aan de client zijde gebruikt, versleutelt klanten de gegevens en uploadt de gegevens als een versleutelde blob. Sleutel beheer wordt uitgevoerd door de klant. Zie [versleuteling aan client zijde en Azure Key Vault voor Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption)voor meer informatie.
+- Server zijde: Alle Azure Storage services maken versleuteling aan de server zijde standaard met behulp van door de service beheerde sleutels, die transparant zijn voor de toepassing. Zie [Azure Storage-service versleuteling voor Data-at-rest](../../storage/common/storage-service-encryption.md)voor meer informatie. Azure Blob-opslag en Azure Files ondersteunen ook RSA 2048-bits door de klant beheerde sleutels in Azure Key Vault. Zie [Storage service Encryption het gebruik van door de klant beheerde sleutels in azure Key Vault](../../storage/common/storage-encryption-keys-portal.md)voor meer informatie.
+- Aan de client zijde: Azure-blobs,-tabellen en-wacht rijen ondersteunen versleuteling aan de client zijde. Wanneer u versleuteling aan de client zijde gebruikt, versleutelt klanten de gegevens en uploadt de gegevens als een versleutelde blob. Sleutel beheer wordt uitgevoerd door de klant. Zie [versleuteling aan client zijde en Azure Key Vault voor Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md)voor meer informatie.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 

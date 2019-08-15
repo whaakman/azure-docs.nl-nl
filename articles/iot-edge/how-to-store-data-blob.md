@@ -1,21 +1,21 @@
 ---
 title: Blok-blobs Store op apparaten - Azure IoT Edge | Microsoft Docs
 description: Zie ondersteunde bewerkingen voor Blob-opslag en maak verbinding met uw Blob Storage-account voor meer informatie over lagen en time-to-Live-functies.
-author: arduppal
+author: kgremban
 manager: mchad
-ms.author: arduppal
-ms.reviewer: arduppal
+ms.author: kgremban
+ms.reviewer: kgremban
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 861b5c3ee6d5661339788e7a27ba70557d0ea267
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881224"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947022"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Gegevens opslaan aan de rand met Azure Blob Storage op IoT Edge
 
@@ -28,7 +28,7 @@ Deze module is handig in scenario's:
 * Wanneer u de bandbreedte kosten wilt verlagen en wilt voor komen dat terabytes aan gegevens naar de cloud worden overgebracht. U kunt de gegevens lokaal verwerken en alleen de verwerkte gegevens verzenden naar de Cloud.
 
 Bekijk de video voor snelle inleiding
-> [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
+> [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
 
 Deze module wordt geleverd met **deviceToCloudUpload** -en **deviceAutoDelete** -functies.
 

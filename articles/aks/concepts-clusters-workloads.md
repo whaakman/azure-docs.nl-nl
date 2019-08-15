@@ -1,6 +1,6 @@
 ---
-title: Concepten - basisbeginselen voor Kubernetes voor Azure Kubernetes Services (AKS)
-description: Informatie over de basic-cluster en de onderdelen van de werkbelasting van Kubernetes en hoe deze in verband met functies in Azure Kubernetes Service (AKS)
+title: Concepten-Kubernetes-basis beginselen voor Azure Kubernetes Services (AKS)
+description: Meer informatie over de basis onderdelen van het cluster en de workload van Kubernetes en hoe deze zijn gerelateerd aan functies in azure Kubernetes service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,108 +8,108 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
 ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67616007"
 ---
-# <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes-belangrijkste concepten voor Azure Kubernetes Service (AKS)
+# <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes core-concepten voor Azure Kubernetes service (AKS)
 
-Als de ontwikkeling van toepassingen wordt verplaatst naar een benadering op basis van een container, is het belangrijk hoeft te coördineren en beheren van resources. Kubernetes is het toonaangevende platform waarmee u de mogelijkheid te bieden betrouwbare planning van fouttolerantie toepassingsworkloads. Azure Kubernetes Service (AKS) is een beheerde Kubernetes-aanbieding die verder vereenvoudigt de implementatie van toepassing op basis van een container en beheer.
+Wanneer toepassings ontwikkeling naar een op een container gebaseerde aanpak gaat, is het belang rijk om resources te organiseren en te beheren. Kubernetes is het toonaangevende platform dat de mogelijkheid biedt om een betrouw bare planning te bieden voor werk belastingen voor fout tolerante toepassingen. Azure Kubernetes service (AKS) is een beheerde Kubernetes-aanbieding waarmee de implementatie en het beheer van toepassingen op basis van containers worden vereenvoudigd.
 
-Dit artikel bevat de basisonderdelen van de Kubernetes-infrastructuur, zoals de *cluster master*, *knooppunten*, en *knooppuntgroepen*. Workload-resources zoals *schillen*, *implementaties*, en *ingesteld* ook geïntroduceerd, samen met het om resources te groeperen in *naamruimten*.
+In dit artikel worden de belangrijkste onderdelen van de Kubernetes-infra structuur geïntroduceerd, zoals de *cluster Master*, *knoop punten*en *knooppunt groepen*. Werkbelasting resources zoalspeulen, implementaties en *sets* worden ook geïntroduceerd, samen met het groeperen van resources in *naam ruimten*.
 
 ## <a name="what-is-kubernetes"></a>Wat is Kubernetes?
 
-Kubernetes is een snel groeiende platform dat wordt beheerd op containers gebaseerde toepassingen en hun bijbehorende netwerk- en opslagonderdelen. De focus ligt op de werkbelastingen van toepassingen, niet op de onderliggende infrastructuuronderdelen. Kubernetes biedt een declaratieve benadering voor implementaties, ondersteund door een krachtige reeks API's voor beheerbewerkingen.
+Kubernetes is een snel evoluerend platform dat toepassingen op basis van containers en de bijbehorende netwerk-en opslag onderdelen beheert. De focus geldt voor de werk belasting van de toepassing, niet voor de onderliggende onderdelen van de infra structuur. Kubernetes biedt een declaratieve aanpak van implementaties, ondersteund door een robuuste set Api's voor beheer bewerkingen.
 
-U kunt bouwen en uitvoeren van moderne, draagbare, op basis van microservices-toepassingen die profiteren van Kubernetes indelen en beheren van de beschikbaarheid van deze onderdelen van de toepassing. Kubernetes biedt ondersteuning voor staatloze en stateful toepassingen als teams uitgevoerd via de acceptatie van toepassingen op basis van microservices.
+U kunt moderne, draag bare, op micro Services gebaseerde toepassingen bouwen en uitvoeren die profiteren van Kubernetes en de beschik baarheid van die toepassings onderdelen beheren. Kubernetes ondersteunt zowel stateless als stateful toepassingen als teams voortgang door de aanneming van op micro Services gebaseerde toepassingen.
 
-Als een open platform kunt met Kubernetes u uw toepassingen met uw favoriete programmeertaal, besturingssysteem, bibliotheken of bus messaging. Bestaande continue integratie en continue levering (CI/CD) hulpprogramma's kunnen integreren met Kubernetes voor het plannen en implementeren van releases.
+Als een open platform kunt u met Kubernetes uw toepassingen bouwen met uw favoriete programmeer taal, besturings systeem, bibliotheken of Messa ging-bus. Bestaande hulpprogram ma's voor continue integratie en continue levering (CI/CD) kunnen worden geïntegreerd met Kubernetes voor het plannen en implementeren van releases.
 
-Azure Kubernetes Service (AKS) biedt een beheerde Kubernetes-service die de complexiteit voor implementatie en core-beheertaken, waaronder upgrades coördineren. De AKS-cluster-modellen worden beheerd door de Azure-platform en u betaalt alleen voor de AKS-knooppunten waarop uw toepassingen worden uitgevoerd. AKS is gebaseerd op de open-source Azure Kubernetes Service Engine ([aks-engine][aks-engine]).
+Azure Kubernetes service (AKS) biedt een beheerde Kubernetes-service die de complexiteit van implementatie-en kern beheer taken reduceert, inclusief het coördineren van upgrades. De AKS-cluster Masters worden beheerd door het Azure-platform en u betaalt alleen voor de AKS-knoop punten waarop uw toepassingen worden uitgevoerd. AKS is gebaseerd op de open-source Azure Kubernetes service Engine ([AKS engine][aks-engine]).
 
-## <a name="kubernetes-cluster-architecture"></a>Architectuur van de Kubernetes-cluster
+## <a name="kubernetes-cluster-architecture"></a>Kubernetes-cluster architectuur
 
 Een Kubernetes-cluster is onderverdeeld in twee onderdelen:
 
-- *Cluster-master* knooppunten bieden de kernservices van Kubernetes en de indeling van de werkbelastingen van toepassingen.
-- *Knooppunten* uw werkbelastingen van toepassingen worden uitgevoerd.
+- *Cluster hoofd* knooppunten bieden de kern Kubernetes Services en de indeling van werk belastingen van toepassingen.
+- *Knoop punten* voeren werk belastingen van uw toepassing uit.
 
-![Kubernetes-cluster hoofd- en knooppunt-onderdelen](media/concepts-clusters-workloads/cluster-master-and-nodes.png)
+![Kubernetes cluster Master en knooppunt onderdelen](media/concepts-clusters-workloads/cluster-master-and-nodes.png)
 
-## <a name="cluster-master"></a>Cluster-model
+## <a name="cluster-master"></a>Cluster Master
 
-Wanneer u een AKS-cluster maakt, wordt automatisch een cluster-model gemaakt en geconfigureerd. Dit model van het cluster wordt geleverd als een beheerde Azure-resource van de gebruiker wordt geabstraheerd. Er is geen kosten voor de cluster-master, alleen de knooppunten die deel van het AKS-cluster uitmaken.
+Wanneer u een AKS-cluster maakt, wordt automatisch een cluster Master gemaakt en geconfigureerd. Dit cluster Master wordt gegeven als een beheerde Azure-resource die is afgeleid van de gebruiker. Er zijn geen kosten verbonden aan de cluster Master, alleen de knoop punten die deel uitmaken van het AKS-cluster.
 
-Het cluster-model bevat de volgende basisonderdelen voor Kubernetes:
+De cluster master bevat de volgende kern Kubernetes-onderdelen:
 
-- *kube-apiserver* -server om de API is hoe de onderliggende Kubernetes-API's worden weergegeven. Dit onderdeel biedt de interactie van beheerhulpprogramma's, zoals `kubectl` of het Kubernetes-dashboard.
-- *etcd* : als u wilt onderhouden van de status van de Kubernetes-cluster en de configuratie, de maximaal beschikbare *etcd* is een sleutel-waardearchief in Kubernetes.
-- *kube-scheduler* : wanneer u maken of schaaltoepassingen, de Scheduler wordt bepaald welke knooppunten de werkbelasting kunnen uitvoeren en deze wordt gestart.
-- *kube-controller-manager* -de Controller Manager verantwoordelijk is voor een aantal kleinere domeincontrollers die acties uitvoeren zoals het repliceren van schillen en afhandelen van knooppunt-bewerkingen.
+- *uitvoeren-apiserver* -de API-server is hoe de onderliggende Kubernetes api's worden weer gegeven. Dit onderdeel biedt de interactie voor beheer hulpprogramma's, zoals `kubectl` of het Kubernetes-dash board.
+- *etcd* : om de status van uw Kubernetes-cluster en-configuratie te behouden, is de Maxi maal beschik bare *etcd* een sleutel waarde Store in Kubernetes.
+- *uitvoeren-scheduler* : wanneer u toepassingen maakt of schaalt, bepaalt de planner op welke knoop punten de werk belasting kan worden uitgevoerd en worden deze gestart.
+- *uitvoeren-Controller-Manager* : de controller beheerder ziet een aantal kleinere controllers die acties uitvoeren, zoals het repliceren van peulen en het verwerken van knooppunt bewerkingen.
 
-AKS biedt een cluster met één tenant-model, met een eigen API-server, Scheduler, enzovoort. U definieert het aantal en de grootte van de knooppunten en het Azure-platform configureert de veilige communicatie tussen de cluster-model en de knooppunten. Interactie met de cluster-master vindt plaats via Kubernetes APIs, zoals `kubectl` of het Kubernetes-dashboard.
+AKS biedt een cluster Master met één Tenant, met een speciale API-server, scheduler, enzovoort. U definieert het aantal en de grootte van de knoop punten en het Azure-platform configureert de beveiligde communicatie tussen de cluster Master en knoop punten. Interactie met de cluster Master vindt plaats via Kubernetes api's, zoals `kubectl` of het Kubernetes-dash board.
 
-Dit model beheerd cluster betekent dat u hoeft geen te configureren van onderdelen, zoals een maximaal beschikbare *etcd* store, maar dit betekent ook dat u kan niet rechtstreeks toegang hebben tot de cluster-master. Upgrades naar Kubernetes worden beheerd via de Azure CLI of Azure portal, die de cluster-master en klik vervolgens op de knooppunten wordt bijgewerkt. Voor het oplossen van problemen, kunt u de cluster master logboeken via Azure Monitor logboeken bekijken.
+Dit beheerde cluster Master betekent dat u geen onderdelen hoeft te configureren, zoals een Maxi maal beschik bare *etcd* -opslag, maar dit betekent ook dat u niet rechtstreeks toegang hebt tot het cluster model. Upgrades naar Kubernetes worden beheerd via de Azure CLI-of Azure Portal, waarmee de cluster Master en vervolgens de knoop punten worden bijgewerkt. Om mogelijke problemen op te lossen, kunt u de logboeken van de cluster Master bekijken via Azure Monitor-Logboeken.
 
-Als u wilt configureren van de cluster-master op een bepaalde manier of directe toegang nodig tot deze, kunt u uw eigen Kubernetes-cluster via te implementeren [aks-engine][aks-engine].
+Als u het cluster model op een bepaalde manier moet configureren of directe toegang tot deze gegevens nodig hebt, kunt u uw eigen Kubernetes-cluster implementeren met behulp van [AKS-engine][aks-engine].
 
-Zie voor de bijbehorende best practices, [aanbevolen procedures voor beveiliging van clusters en upgrades in AKS][operator-best-practices-cluster-security].
+Zie [Aanbevolen procedures voor cluster beveiliging en upgrades in AKS][operator-best-practices-cluster-security]voor de bijbehorende aanbevolen procedures.
 
-## <a name="nodes-and-node-pools"></a>Knooppunten en knooppuntgroepen
+## <a name="nodes-and-node-pools"></a>Knoop punten en knooppunt groepen
 
-Als u wilt uitvoeren op uw toepassingen en ondersteunende services, moet u een Kubernetes *knooppunt*. Een AKS-cluster heeft een of meer knooppunten, dit is een Azure virtuele machine (VM) die wordt uitgevoerd van de onderdelen van het knooppunt Kubernetes en container-runtime:
+Als u uw toepassingen en ondersteunende services wilt uitvoeren, hebt u een Kubernetes- *knoop punt*nodig. Een AKS-cluster heeft een of meer knoop punten, een virtuele Azure-machine (VM) waarop de Kubernetes-knooppunt onderdelen en de container runtime worden uitgevoerd:
 
-- De `kubelet` is de Kubernetes-agent die de orchestration-aanvragen van het cluster hoofd- en planning van het uitvoeren van de aangevraagde containers worden verwerkt.
-- Virtuele netwerken wordt verwerkt door de *kube-proxy* op elk knooppunt. De proxy-routes netwerkverkeer en beheert IP-adressering voor services en schillen.
-- De *container runtime* is het onderdeel waarmee toepassingen in containers uitvoeren en communiceren met andere resources, zoals het virtuele netwerk en opslag. In AKS, wordt Moby gebruikt als de container-runtime.
+- De `kubelet` is de Kubernetes-agent die de Orchestration-aanvragen verwerkt vanuit het cluster Master en de planning van het uitvoeren van de aangevraagde containers.
+- Virtuele netwerken worden verwerkt door de *uitvoeren-proxy* op elk knoop punt. De proxy routeert netwerk verkeer en beheert IP-adres sering voor services en peulen.
+- De *container runtime* is het onderdeel dat container toepassingen toestaat om uit te voeren en te communiceren met aanvullende bronnen zoals het virtuele netwerk en de opslag. In AKS wordt Moby gebruikt als container runtime.
 
-![Virtuele Azure-machine en de ondersteunende resources voor een Kubernetes-knooppunt](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
+![Virtuele Azure-machine en ondersteunende bronnen voor een Kubernetes-knoop punt](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-De Azure VM-grootte voor uw knooppunten definieert het aantal CPU's, hoeveel geheugen en de grootte en hetzelfde type van de opslagruimte beschikbaar is (zoals hoogwaardige SSD of reguliere HDD). Als u verwacht nodig is voor toepassingen waarvoor grote hoeveelheden CPU en geheugen of opslag met hoge prestaties dat, plan u de grootte van het knooppunt dienovereenkomstig. U kunt ook het aantal knooppunten opschalen in uw AKS-cluster om te voldoen aan de vraag.
+De grootte van de Azure VM voor uw knoop punten bepaalt hoeveel Cpu's, hoeveel geheugen en de grootte en het type beschik bare opslag (zoals een hoge prestatie SSD of normale HDD). Als u verwacht dat toepassingen die grote hoeveel heden CPU en geheugen of hoge prestaties vereisen, moeten de knooppunt grootte dienovereenkomstig plannen. U kunt ook het aantal knoop punten in uw AKS-cluster omhoog schalen om aan de vraag te voldoen.
 
-De VM-installatiekopie voor de knooppunten in het cluster is momenteel in AKS gebaseerd op Ubuntu Linux of Windows Server 2019. Wanneer u een AKS-cluster maken of het aantal knooppunten opschalen, wordt het Azure-platform het aangevraagde aantal virtuele machines maakt en configureert u deze. Er is geen handmatige configuratie voor u om uit te voeren. Agentknooppunten worden in rekening gebracht als de standaard virtuele machines, zodat eventuele kortingen die u hebt op de VM-grootte u (met inbegrip van [Azure reserveringen][reservation-discounts]) automatisch worden toegepast.
+In AKS is de VM-installatie kopie voor de knoop punten in uw cluster momenteel gebaseerd op Ubuntu Linux of Windows Server 2019. Wanneer u een AKS-cluster maakt of het aantal knoop punten schaalt, wordt het aangevraagde aantal Vm's door het Azure-platform gemaakt en geconfigureerd. Er is geen hand matige configuratie die u kunt uitvoeren. Agent knooppunten worden gefactureerd als standaard virtuele machines, dus eventuele kortingen op de VM-grootte die u gebruikt (inclusief [Azure-reserve ringen][reservation-discounts]) worden automatisch toegepast.
 
-Als u nodig hebt voor het gebruik van een andere host-besturingssysteem hebt, container-runtime, of aangepaste pakketten bevatten, kunt u uw eigen Kubernetes-cluster via implementeren [aks-engine][aks-engine]. De upstream `aks-engine` vrijgegeven functies en configuratieopties bevat voordat ze officieel worden ondersteund in AKS-clusters. Bijvoorbeeld, als u een container runtime dan Moby gebruiken wilt, kunt u `aks-engine` configureren en implementeren van een Kubernetes-cluster die voldoet aan de behoeften van uw huidige.
+Als u een ander host-besturings systeem, container runtime of aangepaste pakketten wilt gebruiken, kunt u uw eigen Kubernetes-cluster implementeren met behulp van [AKS-engine][aks-engine]. De functies van `aks-engine` de upstream releases en bieden configuratie opties voordat ze officieel worden ondersteund in AKS-clusters. Als u bijvoorbeeld een andere container-runtime dan Moby wilt gebruiken, kunt u gebruiken `aks-engine` om een Kubernetes-cluster te configureren en implementeren dat voldoet aan uw huidige behoeften.
 
-### <a name="resource-reservations"></a>Resource-reserveringen
+### <a name="resource-reservations"></a>Resource reserveringen
 
-U hoeft te beheren, de Kubernetes-basisonderdelen op elk knooppunt, zoals de *kubelet*, *kube-proxy*, en *kube-DNS-* , maar ze enkele van de beschikbare gebruiken COMPUTE-resources. Als u wilt behouden knooppunt prestaties en functionaliteit, zijn de volgende rekenresources gereserveerd op elk knooppunt:
+U hoeft de kern Kubernetes-onderdelen op elk knoop punt niet te beheren, zoals de *kubelet*, *uitvoeren-proxy*en *uitvoeren-DNS*, maar ze nemen wel een aantal beschik bare reken bronnen in beslag. Voor het behoud van de prestaties en functionaliteit van knoop punten zijn de volgende reken bronnen gereserveerd op elk knoop punt:
 
-- **CPU** - 60 ms
-- **Geheugen** -20% maximaal 4 GiB
+- **CPU** -60 MS
+- **Geheugen** -20% Maxi maal 4 GiB
 
-Deze reserveringen betekenen dat de hoeveelheid beschikbare CPU en geheugen voor uw toepassingen kan worden weergegeven kleiner is dan het knooppunt zelf bevat. Als er resourcebeperkingen vanwege het aantal toepassingen die u uitvoert, wordt deze reserveringen Zorg ervoor dat de CPU en geheugen blijft beschikbaar voor de belangrijkste onderdelen die Kubernetes. De resource-reserveringen kunnen niet worden gewijzigd.
+Deze reserve ringen betekenen dat de hoeveelheid beschik bare CPU en het geheugen voor uw toepassingen lager kan worden weer gegeven dan het knoop punt zelf bevat. Als er sprake is van resource beperkingen vanwege het aantal toepassingen dat u uitvoert, zorgen deze reserve ringen ervoor dat de CPU en het geheugen beschikbaar blijven voor de belangrijkste Kubernetes-onderdelen. De resource reserveringen kunnen niet worden gewijzigd.
 
 Bijvoorbeeld:
 
-- **Standard DS2 versie 2** knooppuntgrootte bevat 2 vCPU en 7 GiB geheugen
-    - 20% van 7 GiB geheugen 1,4 GiB =
-    - Totaal *(7-1.4) 5.6 GiB =* geheugen beschikbaar is voor het knooppunt
+- **Standaard DS2 v2** -knooppunt grootte bevat 2 vCPU en 7 GiB geheugen
+    - 20% van 7 GiB geheugen = 1,4 GiB
+    - Er is een totaal van *(7-1,4) = 5,6 GiB* geheugen beschikbaar voor het knoop punt
     
-- **Standard E4s v3** knooppuntgrootte bevat 4 vCPU en 32 GiB geheugen
-    - 20% van 32 GiB geheugen = 6.4 GiB, maar AKS alleen behoudt zich een maximum van 4 GiB
-    - Totaal *(32-4) 28 GiB =* is beschikbaar voor het knooppunt
+- **Standaard E4s v3** -knooppunt grootte bevat 4 vCPU en 32 GiB geheugen
+    - 20% van 32 GiB geheugen = 6,4 GiB, maar AKS reserveert slechts een maximum van 4 GiB
+    - Totaal van *(32-4) = 28 GiB* is beschikbaar voor het knoop punt
     
-Het onderliggende knooppunt OS vereist ook een zekere mate van CPU en geheugen zijn voor het voltooien van een eigen kernfuncties.
+Het onderliggende knooppunt besturingssysteem vereist ook een aantal CPU-en geheugen bronnen om zijn eigen kern functies te volt ooien.
 
-Zie voor de bijbehorende best practices, [aanbevolen procedures voor basic scheduler-functies in AKS][operator-best-practices-scheduler].
+Zie [Best Practices for Basic scheduler-functies in AKS][operator-best-practices-scheduler]voor gekoppelde aanbevolen procedures.
 
 ### <a name="node-pools"></a>Knooppuntgroepen
 
-Knooppunten met dezelfde configuratie zijn gegroepeerd tot *knooppuntgroepen*. Een Kubernetes-cluster bevat een of meer groepen. Het oorspronkelijke aantal knooppunten en de grootte worden gedefinieerd bij het maken van een AKS-cluster maakt een *knooppuntgroep standaard*. Deze standaardgroep knooppunt in AKS bevat de onderliggende VM's waarop de agent knooppunten. Ondersteuning voor meerdere knooppunt pool is momenteel in preview in AKS.
+Knoop punten van dezelfde configuratie worden samen in *knooppunt groepen*gegroepeerd. Een Kubernetes-cluster bevat een of meer knooppunt groepen. Het eerste aantal knoop punten en grootte worden gedefinieerd wanneer u een AKS-cluster maakt, waarmee een *standaard knooppunt groep*wordt gemaakt. Deze standaard knooppunt groep in AKS bevat de onderliggende virtuele machines waarop de agent knooppunten worden uitgevoerd. Ondersteuning voor meerdere knooppunt groepen is momenteel beschikbaar als preview-versie in AKS.
 
-Wanneer u een AKS-cluster upgraden of schalen, wordt de actie wordt uitgevoerd op basis van de standaardgroep voor het knooppunt. U kunt ook om te schalen of upgrade van een specifiek knooppunt-groep. Actieve containers worden gepland op andere knooppunten in het knooppunt van toepassingen voor upgrade-bewerkingen, totdat alle knooppunten worden bijgewerkt.
+Wanneer u een AKS-cluster schaalt of bijwerkt, wordt de actie uitgevoerd op basis van de standaard knooppunt groep. U kunt er ook voor kiezen om een specifieke knooppunt groep te schalen of bij te werken. Voor upgrade bewerkingen worden actieve containers gepland op andere knoop punten in de knooppunt groep totdat alle knoop punten zijn bijgewerkt.
 
-Zie voor meer informatie over het gebruik van meerdere knooppuntgroepen in AKS [maken en beheren van meerdere knooppuntgroepen voor een cluster in AKS][use-multiple-node-pools].
+Zie [meerdere knooppunt groepen maken en beheren voor een cluster in AKS][use-multiple-node-pools]voor meer informatie over het gebruik van meerdere knooppunt groepen in AKS.
 
-### <a name="node-selectors"></a>Knooppunt selectoren
+### <a name="node-selectors"></a>Knooppunt selecties
 
-In een AKS-cluster met meerdere groepen, moet u mogelijk de Kubernetes-Scheduler zien welke knooppuntgroep wilt gebruiken voor een bepaalde resource. Bijvoorbeeld: inkomend controllers mag niet uitvoeren op Windows Server-knooppunten (momenteel in preview in AKS). Knooppunt selectoren kunnen u bij het definiëren van de verschillende parameters, zoals het knooppunt OS, om te bepalen waar een schil moet worden gepland.
+In een AKS-cluster dat meerdere knooppunt groepen bevat, moet u mogelijk de Kubernetes-planner laten weten welke knooppunt groep voor een bepaalde resource moet worden gebruikt. Inactieve controllers mogen bijvoorbeeld niet worden uitgevoerd op Windows Server-knoop punten (momenteel in de preview-versie van AKS). Met knooppunt selecties kunt u verschillende para meters definiëren, zoals het besturings systeem van het knoop punt, om te bepalen waar een pod moet worden gepland.
 
-De volgende eenvoudige voorbeeld plant u een NGINX-instantie op een Linux-knooppunt met de selector knooppunt *"beta.kubernetes.io/os": linux*:
+In het volgende eenvoudige voor beeld wordt een NGINX-exemplaar gepland op een Linux-knoop punt met behulp van de knooppunt kiezer *' Beta.kubernetes.io/OS ': Linux*:
 
 ```yaml
 kind: Pod
@@ -124,29 +124,29 @@ spec:
     "beta.kubernetes.io/os": linux
 ```
 
-Zie voor meer informatie over het besturingselement waarbij schillen zijn gepland, [aanbevolen procedures voor geavanceerde scheduler-functies in AKS][operator-best-practices-advanced-scheduler].
+Zie [Aanbevolen procedures voor geavanceerde functies van scheduler in AKS][operator-best-practices-advanced-scheduler]voor meer informatie over het bepalen van de planning.
 
-## <a name="pods"></a>Pods
+## <a name="pods"></a>Gehele
 
-Maakt gebruik van Kubernetes *schillen* naar een exemplaar van uw toepassing wordt uitgevoerd. Een schil vertegenwoordigt één exemplaar van uw toepassing. Schillen hebben doorgaans een 1:1 toewijzing met een container, hoewel er worden geavanceerde scenario's waarbij een schil meerdere containers kan bevatten. Deze schillen meerdere containers samen op hetzelfde knooppunt worden gepland en toestaan dat containers om gerelateerde resources te delen.
+Kubernetes maakt gebruik van *peul* om een exemplaar van uw toepassing uit te voeren. Een pod vertegenwoordigt één exemplaar van uw toepassing. In het algemeen is er sprake van een 1:1-toewijzing met een container, hoewel er geavanceerde scenario's zijn waarbij een pod mogelijk meerdere containers bevat. Deze meerdere containers worden op hetzelfde knoop punt gepland en kunnen containers gerelateerde resources delen.
 
-Wanneer u een schil maakt, kunt u definiëren *resourcelimieten* om aan te vragen van een bepaalde hoeveelheid resources CPU of geheugen. De Kubernetes Scheduler probeert te plannen van het gehele product uit te voeren op een knooppunt met beschikbare bronnen om te voldoen aan de aanvraag. U kunt ook maximale resourcebeperkingen die verhinderen dat een bepaalde schil verbruikt te veel compute-resource van het onderliggende knooppunt opgeven. Er is een best practice om op te nemen voor alle schillen om te helpen bij de Kubernetes-planner te begrijpen welke resources zijn die nodig zijn en toegestaan.
+Wanneer u een pod maakt, kunt u *resource limieten* definiëren om een bepaalde hoeveelheid CPU-of geheugen bronnen aan te vragen. De Kubernetes scheduler probeert het peul te plannen dat wordt uitgevoerd op een knoop punt met beschik bare bronnen om te voldoen aan de aanvraag. U kunt ook maximale resource limieten opgeven waarmee wordt voor komen dat een bepaalde pod te veel Compute-resources van het onderliggende knoop punt verbruikt. Een best practice bestaat uit het opneemen van resource limieten voor alle peulen om de Kubernetes te helpen begrijpen welke resources nodig zijn en zijn toegestaan.
 
-Zie voor meer informatie, [Kubernetes-schillen][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
+Zie [Kubernetes peul][kubernetes-pods] en [Kubernetes pod Lifecycle][kubernetes-pod-lifecycle]voor meer informatie.
 
-Een schil is een logische resource, maar de container (s) zijn waar de werkbelastingen van toepassingen worden uitgevoerd. Schillen zijn doorgaans tijdelijke, beschikbare resources en afzonderlijk geplande schillen missen enkele van de hoge beschikbaarheid en redundantie functies biedt voor Kubernetes. In plaats daarvan schillen meestal worden geïmplementeerd en beheerd door Kubernetes *Controllers*, zoals de implementatie-Controller.
+Een Pod is een logische resource, maar de container (s) zijn waar de werk belasting van de toepassing wordt uitgevoerd. De meeste zijn doorgaans tijdelijke, wegwerp bronnen en individueel geplande een aantal van de hoge Beschik baarheid en redundantie functies die Kubernetes biedt. In plaats daarvan worden er meestal peulen geïmplementeerd en beheerd door Kubernetes- *controllers*, zoals de implementatie controller.
 
-## <a name="deployments-and-yaml-manifests"></a>YAML manifesten en implementaties
+## <a name="deployments-and-yaml-manifests"></a>Implementaties en YAML-manifesten
 
-Een *implementatie* vertegenwoordigt een of meer identieke schillen, beheerd door de netwerkcontroller Kubernetes-implementatie. Een implementatie definieert het aantal *replica's* (schillen) voor het maken, en de Kubernetes Scheduler zorgt ervoor dat als schillen of knooppunten kunt u problemen ondervindt, extra schillen zijn gepland op knooppunten in orde.
+Een *implementatie* vertegenwoordigt een of meer identieke peulen, beheerd door de Kubernetes-implementatie controller. In een implementatie wordt het aantal *replica's* (peul) gedefinieerd dat moet worden gemaakt, en de Kubernetes-planner zorgt ervoor dat als er bij de meeste of knoop punten problemen optreden, extra peulen worden gepland op gezonde knoop punten.
 
-U kunt update-implementaties om de configuratie van pods te wijzigen, container-installatiekopie gebruikt, of opslag die is gekoppeld. De Controller implementatie verkeer naar en een bepaald aantal replica's wordt beëindigd, maakt van replica's van de implementatiedefinitie van de nieuwe en het proces wordt herhaald totdat alle replica's in de implementatie worden bijgewerkt.
+U kunt implementaties bijwerken om de configuratie van een Peul, container installatie kopie of gekoppelde opslag te wijzigen. De implementatie controller verwerkt en beëindigt een gegeven aantal replica's, maakt replica's van de nieuwe implementatie definitie en gaat door met het proces totdat alle replica's in de implementatie worden bijgewerkt.
 
-De meeste stateless toepassingen in AKS moeten gebruiken voor het implementatiemodel in plaats van afzonderlijke schillen plannen. Kubernetes kunt controleren, de status en de status van implementaties om ervoor te zorgen dat de vereiste aantal replica's in het cluster worden uitgevoerd. Als u alleen afzonderlijke schillen plant, worden niet de schillen opnieuw opgestart als ze zich een probleem voordoet, en niet opnieuw gepland op knooppunten in orde als het huidige knooppunt een probleem optreedt.
+Voor de meeste stateless toepassingen in AKS moet het implementatie model worden gebruikt in plaats van dat er afzonderlijke peulen worden gepland. Kubernetes kan de status en status van implementaties controleren om ervoor te zorgen dat het vereiste aantal replica's binnen het cluster wordt uitgevoerd. Wanneer u alleen afzonderlijke peulen plant, wordt het meren aantal niet opnieuw gestart als er een probleem optreedt en worden ze niet opnieuw gepland op gezonde knoop punten als het huidige knoop punt een probleem aantreft.
 
-Als een toepassing een quorum van exemplaren altijd beschikbaar zijn voor management beslissingen worden genomen vereist, kunt u een updateproces verstoren die mogelijkheid niet wilt. *Pod onderbreking budgetten* kan worden gebruikt voor het definiëren van het aantal replica's in een implementatie kunnen alleen worden uitgeschakeld tijdens de upgrade van een update of het knooppunt. Als u hebt bijvoorbeeld *5* replica's in uw implementatie, kunt u een onderbreking van de schil van definiëren *4* om toe te staan slechts één replica wordt verwijderd/gewijzigd op een tijdstip. Met pod resourcebeperkingen is een best practice te definiëren pod onderbreking budgetten voor toepassingen waarvoor een minimum aantal replica's altijd aanwezig zijn.
+Als een toepassing een quorum van instanties vereist om altijd beschikbaar te zijn voor het beheer van beslissingen, wilt u niet dat een update proces die mogelijkheid verstoort. *Pod* -onderbrekings budgetten kunnen worden gebruikt om te definiëren hoeveel replica's in een implementatie kunnen worden uitgevoerd tijdens een update of een upgrade van een knoop punt. Als u bijvoorbeeld *vijf* replica's in uw implementatie hebt, kunt u een pod-onderbreking van *4* definiëren, zodat er slechts één replica tegelijk mag worden verwijderd of opnieuw wordt gepland. Net als bij pod-resource limieten bestaat een best practice uit het definiëren van pod-onderbrekings budgetten voor toepassingen waarvoor een minimum aantal replica's vereist is om altijd aanwezig te zijn.
 
-Implementaties worden meestal gemaakt en beheerd met `kubectl create` of `kubectl apply`. Voor het maken van een implementatie, kunt u een manifestbestand definieert in de indeling YAML (YAML Ain't Markup Language). Het volgende voorbeeld wordt een eenvoudige implementatie van de NGINX-webserver. Hiermee geeft u op de implementatie *3* replica's moet worden gemaakt en die poort *80* zijn geopend voor de container. Resourceaanvragen en -limieten zijn ook gedefinieerd voor de CPU en geheugen.
+Implementaties worden doorgaans gemaakt en beheerd met `kubectl create` of `kubectl apply`. Als u een implementatie wilt maken, definieert u een manifest bestand in de indeling YAML (YAML Ain't Markup Language). In het volgende voor beeld wordt een basis implementatie van de NGINX-webserver gemaakt. In de implementatie worden *drie* te maken replica's opgegeven en wordt poort *80* geopend op de container. Resource aanvragen en-limieten worden ook gedefinieerd voor de CPU en het geheugen.
 
 ```yaml
 apiVersion: apps/v1
@@ -177,75 +177,75 @@ spec:
             memory: 256Mi
 ```
 
-Complexere toepassingen kunnen worden gemaakt door ook services zoals load balancers in het manifest YAML.
+Complexere toepassingen kunnen worden gemaakt door ook services zoals load balancers binnen het YAML-manifest op te nemen.
 
-Zie voor meer informatie, [Kubernetes-implementaties][kubernetes-deployments].
+Zie [Kubernetes][kubernetes-deployments]-implementaties voor meer informatie.
 
-### <a name="package-management-with-helm"></a>Pakketbeheer met Helm
+### <a name="package-management-with-helm"></a>Pakket beheer met helm
 
-Een veelgebruikte manier voor het beheren van toepassingen in Kubernetes is met [Helm][helm]. U kunt bouwen en gebruiken van bestaande openbare Helm *grafieken* die bevatten een ingepakte versie van toepassingscode en Kubernetes YAML manifesten voor het implementeren van resources. Deze Helm-grafieken kunnen worden opgeslagen lokaal of vaak in een externe opslagplaats, zoals een [opslagplaats voor Azure Container Registry Helm-grafiek][acr-helm].
+Een veelvoorkomende benadering van het beheren van toepassingen in Kubernetes is met [helm][helm]. U kunt bestaande open bare helm- *grafieken* maken en gebruiken die een verpakte versie van de toepassings code en Kubernetes yaml-manifesten bevatten voor het implementeren van resources. Deze helm-grafieken kunnen lokaal worden opgeslagen of vaak in een externe opslag plaats, zoals een [Azure container Registry helm-grafiek opslag plaats][acr-helm].
 
-Voor het gebruik van Helm, een onderdeel van de server met de naam *Tiller* is geïnstalleerd in uw Kubernetes-cluster. De Tiller beheert de installatie van grafieken binnen het cluster. De Helm-client zichzelf lokaal op uw computer is geïnstalleerd, of kan worden gebruikt binnen de [Azure Cloud Shell][azure-cloud-shell]. U kunt zoeken naar of Helm-grafieken maken met de client en deze vervolgens installeren in uw Kubernetes-cluster.
+Als u helm wilt gebruiken, wordt er een server onderdeel met de naam *Tiller* geïnstalleerd in uw Kubernetes-cluster. De Tiller beheert de installatie van grafieken binnen het cluster. De helm-client zelf is lokaal op uw computer geïnstalleerd of kan worden gebruikt binnen het [Azure Cloud shell][azure-cloud-shell]. U kunt helm-grafieken zoeken of maken met de-client en deze vervolgens installeren op uw Kubernetes-cluster.
 
-![Helm bevat een clientonderdeel en een serverzijde Tiller-onderdeel dat wordt gemaakt van de resources in het Kubernetes-cluster](media/concepts-clusters-workloads/use-helm.png)
+![Helm bevat een client onderdeel en een Tiller-onderdeel aan de server zijde dat bronnen in het Kubernetes-cluster maakt](media/concepts-clusters-workloads/use-helm.png)
 
-Zie voor meer informatie, [installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)][aks-helm].
+Zie [Installing Applications with helm in azure Kubernetes service (AKS) (Engelstalig)][aks-helm]voor meer informatie.
 
 ## <a name="statefulsets-and-daemonsets"></a>StatefulSets en DaemonSets
 
-De Controller implementatie maakt gebruik van de Kubernetes-Scheduler om uit te voeren van een bepaald aantal replica's op een beschikbaar knooppunt met beschikbare bronnen. Deze aanpak van het gebruik van implementaties mogelijk voldoende voor staatloze toepassingen, maar niet voor toepassingen waarvoor een permanente naamconventie of opslag. Voor toepassingen waarvoor een replica aanwezig zijn op elk knooppunt, of de geselecteerde knooppunten binnen een cluster, kijken de implementatie-Controller niet hoe replica's worden verdeeld over de knooppunten.
+De implementatie controller maakt gebruik van de Kubernetes Planner om een bepaald aantal replica's uit te voeren op elk beschikbaar knoop punt met beschik bare resources. Deze methode voor het gebruik van implementaties kan voldoende zijn voor stateless toepassingen, maar niet voor toepassingen waarvoor een permanente naam Conventie of opslag vereist is. Voor toepassingen waarvoor een replica moet bestaan op elk knoop punt, of geselecteerde knoop punten, binnen een cluster, wordt de implementatie controller niet weer geven op hoe replica's over de knoop punten worden gedistribueerd.
 
-Er zijn twee Kubernetes-resources waarmee u kunnen deze soorten toepassingen beheren:
+Er zijn twee Kubernetes-resources waarmee u deze typen toepassingen kunt beheren:
 
-- *StatefulSets* -onderhouden van de status van toepassingen buiten de levenscyclus van een afzonderlijke pod, zoals opslag.
-- *DaemonSets* -Zorg ervoor dat een actief exemplaar op elk knooppunt, al vroeg in de bootstrap-proces voor Kubernetes.
+- *StatefulSets* : Houd de status van toepassingen na een afzonderlijke pod-levens cyclus, zoals opslag.
+- *DaemonSets* : Zorg ervoor dat op elk knoop punt een actief exemplaar van de Kubernetes-Boots trap-procedure wordt uitgevoerd.
 
 ### <a name="statefulsets"></a>StatefulSets
 
-Ontwikkeling van moderne toepassingen vaak is erop gericht voor staatloze toepassingen, maar *StatefulSets* kan worden gebruikt voor stateful toepassingen, zoals toepassingen die databaseonderdelen bevatten. Een StatefulSet is vergelijkbaar met een implementatie in die een of meer identieke schillen worden gemaakt en beheerd. Replica's in een StatefulSet Volg een correcte, sequentiële benadering te implementeren, schalen, upgrades en afsluitingen. Blijven behouden als replica's opnieuw worden gepland met een StatefulSet, de naamconventie netwerknamen en opslag.
+Ontwikkeling van moderne toepassingen is vaak gericht op stateless toepassingen, maar *StatefulSets* kan worden gebruikt voor stateful toepassingen, zoals toepassingen die database onderdelen bevatten. Een StatefulSet is vergelijkbaar met een implementatie in dat een of meer identieke peulen worden gemaakt en beheerd. Replica's in een StatefulSet volgen een gepaste, sequentiële benadering van implementatie, schaal, upgrades en beëindigingen. Met een StatefulSet zijn de naam Conventie, netwerk namen en opslag persistent, omdat replica's opnieuw worden gepland.
 
-Definieert u de toepassing bij het gebruik van een YAML-indeling `kind: StatefulSet`, en de StatefulSet Controller verwerkt vervolgens de implementatie en het beheer van de vereiste replica's. Gegevens worden geschreven naar de permanente opslag, geleverd door Azure Managed Disks of Azure Files. Met StatefulSets, worden de onderliggende permanente opslag zelfs beschikbaar wanneer de StatefulSet wordt verwijderd.
+U definieert de toepassing in YAML-indeling `kind: StatefulSet`met en de StatefulSet-controller verwerkt vervolgens de implementatie en het beheer van de vereiste replica's. Gegevens worden naar permanente opslag geschreven, die wordt verschaft door Azure Managed Disks of Azure Files. Met StatefulSets blijft de onderliggende permanente opslag behouden, zelfs wanneer de StatefulSet is verwijderd.
 
-Zie voor meer informatie, [Kubernetes StatefulSets][kubernetes-statefulsets].
+Zie [Kubernetes StatefulSets][kubernetes-statefulsets]voor meer informatie.
 
-Replica's in een StatefulSet zijn gepland en uitgevoerd op een beschikbaar knooppunt in een AKS-cluster. Als u nodig hebt om ervoor te zorgen dat ten minste één pod in kunt de verzameling op een knooppunt wordt uitgevoerd, u in plaats daarvan een DaemonSet.
+Replica's in een StatefulSet worden gepland en uitgevoerd op alle beschik bare knoop punten in een AKS-cluster. Als u er zeker van wilt zijn dat er ten minste één pod in uw set wordt uitgevoerd op een knoop punt, kunt u in plaats daarvan een Daemonset gebruiken.
 
 ### <a name="daemonsets"></a>DaemonSets
 
-Voor specifieke logboekverzameling of behoeften op het gebied, u moet mogelijk een bepaalde schil uitvoeren op alle of geselecteerd, knooppunten. Een *DaemonSet* opnieuw wordt gebruikt voor het implementeren van een of meer identieke schillen, maar de DaemonSet Controller zorgt ervoor dat elk knooppunt opgegeven een exemplaar van de schil.
+Voor specifieke vereisten voor logboek verzameling of-bewaking moet u mogelijk een opgegeven pod uitvoeren op alle, of geselecteerd, knoop punten. Een *daemonset* wordt opnieuw gebruikt om een of meer identieke peulen te implementeren, maar de controller van de daemonset zorgt ervoor dat elk opgegeven knoop punt een exemplaar van de pod uitvoert.
 
-De DaemonSet Controller kunt plannen dat schillen op knooppunten vroeg in het opstartproces cluster voordat u de standaard Kubernetes Taakplanner is gestart. Deze mogelijkheid zorgt ervoor dat de schillen in een DaemonSet worden gestart voordat de traditionele schillen in een implementatie of StatefulSet zijn gepland.
+De controller van de Daemonset kan in het proces voor het opstarten van het cluster in een vroeg stadium plannen voordat de standaard Kubernetes scheduler is gestart. Op deze manier zorgt u ervoor dat het Peul in een Daemonset wordt gestart voordat het traditionele peul in een implementatie of StatefulSet wordt gepland.
 
-Zoals StatefulSets, een DaemonSet is gedefinieerd als onderdeel van een YAML-definitie met `kind: DaemonSet`.
+Net als StatefulSets wordt een Daemonset gedefinieerd als onderdeel van een YAML-definitie `kind: DaemonSet`met behulp van.
 
-Zie voor meer informatie, [Kubernetes DaemonSets][kubernetes-daemonset].
+Zie [Kubernetes DaemonSets][kubernetes-daemonset]voor meer informatie.
 
 > [!NOTE]
-> Als de [virtuele knooppunten invoegtoepassing](virtual-nodes-cli.md#enable-virtual-nodes-addon), DaemonSets maakt geen schillen op de virtuele-knooppunt.
+> Als de [add-on van de virtuele knoop punten](virtual-nodes-cli.md#enable-virtual-nodes-addon)wordt gebruikt, maakt DaemonSets geen peul op het virtuele knoop punt.
 
 ## <a name="namespaces"></a>Naamruimten
 
-Kubernetes-resources, zoals schillen en implementaties, logisch zijn gegroepeerd in een *naamruimte*. Deze groeperingen bieden een manier om logisch delen van een AKS-cluster en beperken de toegang als u wilt maken, weergeven of beheren van resources. U kunt naamruimten bedrijfsonderdelen, bijvoorbeeld afzonderlijke maken. Gebruikers kunnen alleen interactief werken met resources binnen hun toegewezen naamruimten.
+Kubernetes-resources, zoals peulen en implementaties, worden logisch gegroepeerd in een *naam ruimte*. Deze groeperingen bieden een manier om een AKS-cluster logisch te verdelen en de toegang te beperken tot het maken, weer geven of beheren van resources. U kunt bijvoorbeeld naam ruimten maken om bedrijfs groepen te scheiden. Gebruikers kunnen alleen communiceren met resources binnen hun toegewezen naam ruimten.
 
-![Kubernetes-naamruimten logisch verdeeld bronnen en toepassingen](media/concepts-clusters-workloads/namespaces.png)
+![Kubernetes-naam ruimten om resources en toepassingen logisch te verdelen](media/concepts-clusters-workloads/namespaces.png)
 
-Wanneer u een AKS-cluster maakt, zijn de volgende naamruimten zijn beschikbaar:
+Wanneer u een AKS-cluster maakt, zijn de volgende naam ruimten beschikbaar:
 
-- *standaard* -deze naamruimte is waarbij schillen en implementaties standaard gemaakt worden wanneer niets wordt opgegeven. U kunt toepassingen rechtstreeks in de standaard-naamruimte in kleinere omgevingen implementeren zonder dat er extra logische ontslag nemen. Wanneer u met de Kubernetes-API, werken zoals met `kubectl get pods`, de standaard-naamruimte wordt gebruikt wanneer niets is opgegeven.
-- *kube-systeem* -deze naamruimte is waar kernbronnen bestaat, zoals network-functies, zoals DNS- en proxy, of het Kubernetes-dashboard. U implementeren uw eigen toepassingen in deze naamruimte die doorgaans niet.
-- *kube-openbare* : deze naamruimte wordt normaal gesproken niet gebruikt, maar kan worden gebruikt voor resources zijn zichtbaar in het hele cluster, en kunnen worden weergegeven door een gebruiker.
+- *standaard* -deze naam ruimte is de standaard instelling voor de meeste en implementaties, wanneer er geen wordt gegeven. In kleinere omgevingen kunt u toepassingen rechtstreeks in de standaard naam ruimte implementeren zonder dat u extra logische schei dingen hoeft te maken. Wanneer u communiceert met de Kubernetes-API, zoals `kubectl get pods`met, wordt de standaard naam ruimte gebruikt wanneer er geen is opgegeven.
+- *uitvoeren-systeem* : deze naam ruimte is de belangrijkste bronnen, zoals netwerk functies, zoals DNS en proxy, of het Kubernetes-dash board. Normaal gesp roken implementeert u uw eigen toepassingen niet in deze naam ruimte.
+- *uitvoeren-Public* : deze naam ruimte wordt meestal niet gebruikt, maar kan worden gebruikt voor resources die zichtbaar zijn in het hele cluster en kunnen worden weer gegeven door elke wille keurige gebruiker.
 
-Zie voor meer informatie, [Kubernetes-naamruimten][kubernetes-namespaces].
+Zie [Kubernetes-naam ruimten][kubernetes-namespaces]voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Dit artikel vindt u enkele van de belangrijkste onderdelen die Kubernetes en hoe ze worden toegepast met AKS-clusters. Zie de volgende artikelen voor meer informatie over core Kubernetes en concepten voor AKS:
+In dit artikel worden enkele van de belangrijkste Kubernetes-onderdelen beschreven en hoe deze van toepassing zijn op AKS-clusters. Raadpleeg de volgende artikelen voor meer informatie over de belangrijkste Kubernetes-en AKS-concepten:
 
-- [Kubernetes / AKS toegang en identiteit][aks-concepts-identity]
-- [Kubernetes / AKS-beveiliging][aks-concepts-security]
-- [Kubernetes / AKS virtuele netwerken][aks-concepts-network]
-- [Kubernetes / AKS-opslag][aks-concepts-storage]
-- [Kubernetes / AKS schalen][aks-concepts-scale]
+- [Kubernetes/AKS-toegang en-identiteit][aks-concepts-identity]
+- [Kubernetes/AKS-beveiliging][aks-concepts-security]
+- [Kubernetes/AKS virtuele netwerken][aks-concepts-network]
+- [Kubernetes/AKS-opslag][aks-concepts-storage]
+- [Kubernetes/AKS-schaal][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 [aks-engine]: https://github.com/Azure/aks-engine

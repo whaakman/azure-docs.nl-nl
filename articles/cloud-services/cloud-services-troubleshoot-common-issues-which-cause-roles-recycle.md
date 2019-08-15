@@ -1,6 +1,6 @@
 ---
-title: Veelvoorkomende oorzaken van cloudservicerollen | Microsoft Docs
-description: Een cloud service-rol die plotseling wordt gerecycled kan leiden tot significante downtime. Hier volgen enkele veelvoorkomende problemen waardoor rollen worden gerecycled, waarmee u downtime verminderen.
+title: Veelvoorkomende oorzaken voor het recyclen van Cloud service rollen | Microsoft Docs
+description: Een Cloud service functie die plotseling kan worden gerecycled, kan aanzienlijke uitval tijd veroorzaken. Hier volgen enkele veelvoorkomende problemen die ertoe leiden dat rollen worden gerecycled, zodat u downtime kunt verlagen.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -9,62 +9,61 @@ editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 2a9214b918883e493ebe5c93fc7f56e7ce9c77ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37abdae07c1b0ecc11d39c57b550b1c7f60c73cd
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60652210"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945422"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Algemene problemen waardoor rollen worden herhaald
-In dit artikel worden enkele van de veelvoorkomende oorzaken van problemen met implementatie beschreven en vindt u tips voor probleemoplossing voor u deze problemen oplossen. Een indicatie dat er een probleem met een toepassing is is wanneer de rolinstantie niet kan worden gestart, of deze cycli tussen de statussen initialiseren, bezet en stoppen.
+In dit artikel worden enkele veelvoorkomende oorzaken van implementatie problemen beschreven en tips voor het oplossen van problemen die u kunnen helpen bij het oplossen van deze problemen. Een indicatie dat er een probleem is met een toepassing is wanneer de rolinstantie niet kan worden gestart, of wordt gerecycled tussen de status initialisatie, bezet en gestopt.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-runtime-dependencies"></a>Ontbrekende runtime-afhankelijkheden
-Als een rol in uw toepassing afhankelijk van een is assembly die geen deel uitmaakt van het .NET Framework of de door Azure beheerde bibliotheek, moet u expliciet die assembly opnemen in het toepassingspakket. Houd er rekening mee dat andere Microsoft-frameworks niet beschikbaar op Azure standaard zijn. Als uw rol is afhankelijk van een dergelijke structuur, moet u deze assembly's toevoegen aan het toepassingspakket.
+Als een rol in uw toepassing afhankelijk is van een assembly die geen deel uitmaakt van de .NET Framework of de door Azure beheerde bibliotheek, moet u deze assembly expliciet opnemen in het toepassings pakket. Denk eraan dat andere micro soft Frameworks niet standaard beschikbaar zijn in Azure. Als uw rol afhankelijk is van een dergelijk Framework, moet u deze assembly's toevoegen aan het toepassings pakket.
 
-Voordat u bouwen en inpakken van uw toepassing, controleert u het volgende:
+Controleer het volgende voordat u uw toepassing bouwt en inpakt:
 
-* Als u Visual studio gebruikt, controleert u of de **lokale kopie** eigenschap is ingesteld op **waar** voor elke assembly waarnaar wordt verwezen in uw project die geen deel uitmaakt van de Azure SDK of .NET Framework.
-* Zorg ervoor dat het web.config-bestand verwijst niet naar een niet-gebruikte assembly's in het element compilatie.
-* De **Buildactie** van elke .cshtml bestand is ingesteld op **inhoud**. Dit zorgt ervoor dat de bestanden correct wordt weergegeven in het pakket en kunnen andere waarnaar wordt verwezen, bestanden worden weergegeven in het pakket.
+* Als u Visual Studio gebruikt, moet u ervoor zorgen dat de **lokale eigenschap Copy** is ingesteld op **True** voor elke assembly waarnaar wordt verwezen in uw project die geen deel uitmaakt van de Azure SDK of de .NET Framework.
+* Zorg ervoor dat het bestand Web. config niet verwijst naar ongebruikte assembly's in het compilatie-element.
+* De **Build-actie** van elk. cshtml-bestand is ingesteld op **inhoud**. Dit zorgt ervoor dat de bestanden correct worden weer gegeven in het pakket en dat andere bestanden waarnaar wordt verwezen, kunnen worden weer gegeven in het pakket.
 
 ## <a name="assembly-targets-wrong-platform"></a>Assembly doelen onjuist platform
-Azure is een 64-bits-omgeving. .NET-assembly's gecompileerd voor een 32-bits-doel werkt daarom niet op Azure.
+Azure is een 64-bits omgeving. Daarom werken .NET-assembly's die zijn gecompileerd voor een 32-bits doel niet in Azure.
 
-## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>Rol onverwerkte uitzonderingen genereert tijdens initialiseren of stoppen
-Eventuele uitzonderingen die zijn gegenereerd door de methoden van de [RoleEntryPoint] klasse, waaronder de [OnStart], [OnStop], en [uitvoeren] methoden, zijn niet-verwerkte uitzonderingen. Als er een niet-verwerkte uitzondering optreedt in een van deze methoden, wordt de rol gerecycled. Als het recyclen van de rol is herhaaldelijk, ArgumentOutOfRangeException het kan een niet-verwerkte uitzondering telkens wanneer die er wordt geprobeerd om te starten.
+## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>De rol genereert niet-verwerkte uitzonde ringen tijdens het initialiseren of stoppen
+Uitzonde ringen die worden veroorzaakt door de methoden van de klasse [RoleEntryPoint] , die de []methoden onstart, [OnStop]en [Uitvoeren] bevatten, zijn niet-verwerkte uitzonde ringen. Als er een onverwerkte uitzonde ring optreedt in een van deze methoden, wordt de rol opnieuw gerecycled. Als de rol herhaaldelijk wordt gerecycled, wordt er een onverwerkte uitzonde ring gegenereerd telkens wanneer deze wordt gestart.
 
-## <a name="role-returns-from-run-method"></a>Rol retourneert uit Run-methode
-De [uitvoeren] methode is bedoeld voor onbepaalde tijd worden uitgevoerd. Als uw code overschrijft de [uitvoeren] methode, dat deze moet slapen voor onbepaalde tijd. Als de [uitvoeren] methode retourneert, de rol wordt gerecycled.
+## <a name="role-returns-from-run-method"></a>Rol wordt geretourneerd vanuit run-methode
+De methode [Uitvoeren] is bedoeld om voor onbepaalde tijd te worden uitgevoerd. Als uw code de methode [Uitvoeren] overschrijft, moet de slaap stand voor onbepaalde tijd worden ingeschakeld. Als de [Uitvoeren] -methode retourneert, wordt de rol gerecycled.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Onjuiste DiagnosticsConnectionString-instelling
-Als toepassing gebruikmaakt van Azure Diagnostics, uw serviceconfiguratiebestand moet opgeven de `DiagnosticsConnectionString` configuratie-instelling. Deze instelling moet een HTTPS-verbinding naar uw opslagaccount opgeven in Azure.
+Als de toepassing Azure Diagnostics gebruikt, moet uw service configuratie bestand de `DiagnosticsConnectionString` configuratie-instelling opgeven. Met deze instelling moet een HTTPS-verbinding met uw opslag account in Azure worden opgegeven.
 
-Om ervoor te zorgen dat uw `DiagnosticsConnectionString` instelling correct is voordat u het pakket van uw toepassing in Azure implementeert, controleert u het volgende:  
+Controleer het volgende om `DiagnosticsConnectionString` ervoor te zorgen dat uw instelling juist is voordat u het toepassings pakket implementeert in Azure:  
 
-* De `DiagnosticsConnectionString` instelling verwijst naar een geldig opslagaccount in Azure.  
-  Standaard worden deze instelling verwijst naar de geëmuleerde storage-account, zodat u deze instelling expliciet wijzigen moet voordat u uw toepassingspakket implementeren. Als u deze instelling niet wijzigt, wordt er een uitzondering opgetreden bij de rolinstantie probeert te starten van de diagnostische monitor. Dit kan leiden tot de rolinstantie worden voor onbepaalde tijd wordt gerecycled.
-* De verbindingsreeks is opgegeven in de volgende [indeling](../storage/common/storage-configure-connection-string.md). (Het protocol moet worden opgegeven als HTTPS). Vervang *MyAccountName* met de naam van uw opslagaccount en *MyAccountKey* door uw toegangssleutel:    
+* De `DiagnosticsConnectionString` instelling wijst naar een geldig opslag account in Azure.  
+  Deze instelling verwijst standaard naar het geëmuleerde opslag account, dus u moet deze instelling expliciet wijzigen voordat u het toepassings pakket implementeert. Als u deze instelling niet wijzigt, wordt er een uitzonde ring gegenereerd wanneer de rolinstantie de diagnostische monitor probeert te starten. Dit kan ertoe leiden dat de rolinstantie voor onbepaalde tijd wordt gerecycled.
+* De connection string is opgegeven in de volgende [indeling](../storage/common/storage-configure-connection-string.md). (Het protocol moet worden opgegeven als HTTPS.) Vervang *MyAccountName* door de naam van uw opslag account en *MyAccountKey* met uw toegangs sleutel:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Als u uw toepassing ontwikkelt met behulp van Azure-hulpprogramma's voor Microsoft Visual Studio, kunt u de eigenschappenpagina's gebruiken om in te stellen deze waarde.
+  Als u uw toepassing ontwikkelt met behulp van Azure-Hulpprogram Ma's voor micro soft Visual Studio, kunt u de eigenschappen pagina's gebruiken om deze waarde in te stellen.
 
-## <a name="exported-certificate-does-not-include-private-key"></a>Geëxporteerde certificaat bevat geen persoonlijke sleutel
-Als u wilt uitvoeren van een Webrol onder SSL, moet u ervoor zorgen dat het geëxporteerde management-certificaat de persoonlijke sleutel bevat. Als u de *Windows Certificate Manager* voor het exporteren van het certificaat, moet u selecteren **Ja** voor de **de persoonlijke sleutel exporteren** optie. Het certificaat moet worden geëxporteerd in de PFX-indeling, dit de enige indeling die momenteel worden ondersteund is.
+## <a name="exported-certificate-does-not-include-private-key"></a>Het geëxporteerde certificaat bevat geen persoonlijke sleutel
+Als u een webrole onder SSL wilt uitvoeren, moet u ervoor zorgen dat het geëxporteerde beheer certificaat de persoonlijke sleutel bevat. Als u *Windows certificaat beheer* gebruikt om het certificaat te exporteren, moet u **Ja** selecteren voor de optie **de persoonlijke sleutel exporteren** . Het certificaat moet worden geëxporteerd in de PFX-indeling. Dit is de enige indeling die momenteel wordt ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer weergeven [artikelen over probleemoplossing](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) voor cloudservices.
+Bekijk meer [artikelen over probleem oplossing](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) voor Cloud Services.
 
-Nog een rol recyclen van scenario's op weergeven [van Kevin Williamson blogserie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Bekijk meer scenario's voor het recyclen van rollen in [de blog serie van Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx

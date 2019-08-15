@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de Community voor Azure Media Services | Microsoft Docs
-description: "Deze community-pagina voor Azure Media Services (AMS) worden verschillende manieren waarop u kunt updates over AMS ophalen, Zie nieuwe video's en podcasts, vragen stellen en feedback geven. "
+title: Azure Media Services Community-overzicht | Microsoft Docs
+description: "Op deze Azure Media Services (AMS) community-pagina worden verschillende manieren beschreven waarop u updates kunt verkrijgen over AMS, nieuwe Video's en podcasts, vragen stellen en feedback geven. "
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,58 +14,50 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61245099"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016633"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services-community  
 
-Deze community-pagina voor Azure Media Services (AMS) worden verschillende manieren krijgt u updates over AMS besproken. U kunt ook nieuwe video's en podcasts weergeven, vragen stellen en feedback geven.   
+Deze Azure Media Services (AMS) community-pagina bespreekt verschillende manieren om updates over AMS te krijgen. U kunt ook nieuwe Video's en podcasts bekijken, vragen stellen en feedback geven.   
 
-## <a name="videos-and-podcasts"></a>Video's en Podcasts
+## <a name="videos-and-podcasts"></a>Video's en podcasts
 
-- [Bescherming van uw mediainhoud met DRM](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) 
-- [Bescherming van uw mediainhoud met AES-versleuteling](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
-- [Gedetailleerde informatie voor ontwikkelaars voor Azure Media Services](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
-- [Azure Media Indexer maakt automatisch Transcripten voor uw media](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
+- [Uw media-inhoud beschermen met DRM](https://azure.microsoft.com/documentation/videos/azurefridayprotectingyourmediacontentdrm/) 
+- [Uw media-inhoud beveiligen met AES-versleuteling](https://azure.microsoft.com/documentation/videos/azure-media-services-protecting-your-media-content-with-aes-encryption/) 
+- [Azure Media Services ontwikkel aars dieper](https://azure.microsoft.com/documentation/videos/build-2015-azure-media-services-developer-deep-dive/) 
+- [Azure Media Indexer maakt automatisch transcripten voor uw media](https://azure.microsoft.com/documentation/videos/azure-media-indexer-autoatically-creates-transcripts-for-your-media-with-adarsh-solanki/)  
 
 
-## <a name="provide-feedback-and-make-suggestions"></a>Uw feedback en suggesties
+## <a name="provide-feedback-and-make-suggestions"></a>Feedback geven en suggesties doen
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Discussie
 
 ### <a name="twitter"></a>Twitter
 
-Gebruik de [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter-handle contact met ons opnemen of Voer de updates op Twitter. U kunt de [ @AzureSupport ](https://twitter.com/azuresupport) twitter-handle het aanvragen van ondersteuning op Twitter.  
+Gebruik de [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter-handle om contact met ons op te nemen of om updates op Twitter te volgen. U kunt de [@AzureSupport](https://twitter.com/azuresupport) Twitter-handle gebruiken om ondersteuning op Twitter aan te vragen.  
 
 ### <a name="online-forums"></a>Onlineforums
 
-De volgende forums kunnen worden gebruikt voor het stellen van vragen over de huidige producten en -functies.
+De volgende forums kunnen worden gebruikt voor het stellen van vragen over huidige producten en functies.
 
-MSDN is momenteel de primaire communityforum van Media Services-team.
+Op dit moment is MSDN Media Services het primaire Community-Forum van het team.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
-Het team controleert ook vragen gemarkeerd op Stack Overflow met de 'azure-media-services'.
+Het team bewaakt ook vragen die zijn gelabeld op Stack Overflow met ' Azure-Media-Services '.
 
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
+[![Stack overflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Contact opnemen met het team
 
-Azure Media Services primaire e-mailadres is: **amshelp\@microsoft.com**.
+Azure Media Services primaire ondersteunings- **amshelp@microsoft.com** e-mail is:.
 
-De volgende tabel geeft een lijst van e-mailadres van de functie sub teams:
+## <a name="next-steps"></a>Volgende stappen
 
-| Functie | Email |
-| --- | --- |
-| Azure Media Analytics |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Workflow Designer |mepd@microsoft.com |
-| Bestandsstreaming-en -verpakking |amsstreaming@microsoft.com |
-| Live Streaming en -verpakking |amslived@microsoft.com |
-
+[Overzicht](media-services-overview.md)

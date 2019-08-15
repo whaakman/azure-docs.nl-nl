@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 754eb063f82344e72bece8fb0ac5708dbc8ab791
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0da426a9302ce72b5359df15d3f8e244fc1766a0
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249139"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935365"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -133,7 +133,7 @@ Voltooi het plannings proces voordat u de implementatie uitvoert. Planning bouwt
 | Definitie van virtueel netwerk/subnet | Waar Vm's voor IBM Db2 en Azure Load Balancer worden geïmplementeerd. U kunt bestaande of nieuwe maken. |
 | Virtuele machines die IBM Db2 LUW hosten | VM-grootte, opslag, netwerken, IP-adres. |
 | Naam van virtuele host en virtueel IP-adres voor de IBM Db2-data base| De naam van het virtuele IP-adres of de hostnaam die wordt gebruikt voor de verbinding met SAP-toepassings servers. **db-virt-hostname**, **db-virt-IP**. |
-| Azure-omheining | Azure-omheining of SBD-omheining (sterk aanbevolen). Methode om te voor komen dat situaties met gesplitste problemen worden voor komen. |
+| Azure-omheining | Azure-omheining of SBD-omheining (sterk aanbevolen). Methode om te voor komen dat het gebruik van een hersenen wordt gesplitst. |
 | SBD-VM | SBD-grootte voor virtuele machines, opslag, netwerk. |
 | Azure Load Balancer | Gebruik van Basic of Standard (aanbevolen), test poort voor de Db2-data base (onze aanbeveling 62500) **test poort**. |
 | Naamomzetting| Hoe naam omzetting werkt in de omgeving. DNS-service wordt sterk aanbevolen. Lokaal Hosts-bestand kan worden gebruikt. |
@@ -172,7 +172,7 @@ Als u een basis-pacemaker-cluster wilt maken voor deze IBM Db2-server, raadpleeg
 
 Voordat u begint met de installatie van een SAP-omgeving op basis van IBM Db2 LUW, raadpleegt u de volgende documentatie:
 
-+ Documentatie voor Azure
++ Azure-documentatie
 + SAP-documentatie
 + IBM-Documentatie
 
@@ -404,10 +404,10 @@ sudo crm configure property maintenance-mode=false</pre></code>
 # <a name="full-list-of-resources"></a>Volledige lijst met resources:
 
 #  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>stonith-SBD (stonith: External/SBD): Azibmdb02 gestart
-#  <a name="resource-group-gipdb2ptrptr"></a>Resource groep: g_ip_db2ptr_PTR
-#      <a name="rscipdb2ptrptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: heartbeat: IPaddr2):       Azibmdb02 gestart
-#      <a name="rscncdb2ptrptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: heartbeat: alles):      Azibmdb02 gestart
-#  <a name="masterslave-set-msldb2db2ptrptr-rscdb2db2ptrptr"></a>Master/Slave-set: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
+#  <a name="resource-group-g_ip_db2ptr_ptr"></a>Resource groep: g_ip_db2ptr_PTR
+#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: heartbeat: IPaddr2):       Azibmdb02 gestart
+#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: heartbeat: alles):      Azibmdb02 gestart
+#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Master/Slave-set: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>Stramienen: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>Slaves: [azibmdb01]
 </pre>
@@ -425,7 +425,7 @@ Als u Azure Load Balancer wilt configureren, is het raadzaam om de [Azure Standa
 
    b. Voer de naam in van de nieuwe front-end-IP-adres groep (bijvoorbeeld **Db2-verbinding**).
 
-   c. Stel de **toewijzing** in op **statisch**en voer het IP- **adres in** dat aan het begin is gedefinieerd.
+   c. Stel de **toewijzing** in op **statisch**en voer het IP- adres in dat aan het begin is gedefinieerd.
 
    d. Selecteer **OK**.
 

@@ -1,9 +1,9 @@
 ---
-title: Interpreteren van de Azure Active Directory-schema audit log in Azure Monitor | Microsoft Docs
-description: Beschrijf de Azure AD audit log-schema voor gebruik in Azure Monitor
+title: Het Azure Active Directory controle logboek schema in Azure Monitor interpreteren | Microsoft Docs
+description: Beschrijf het schema voor het audit logboek van Azure AD voor gebruik in Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437070"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987946"
 ---
-# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpreteren van de Azure AD audit logs schema in Azure Monitor (preview)
+# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Het Azure AD audit logs-schema interpreteren in Azure Monitor (preview)
 
-Dit artikel beschrijft de Azure Active Directory (Azure AD) audit log schema in Azure Monitor. Elke afzonderlijke logboekvermelding is opgeslagen als tekst en opgemaakt als een JSON-blob, zoals wordt weergegeven in de volgende twee voorbeelden: 
+In dit artikel wordt het schema voor het audit logboek voor Azure Active Directory (Azure AD) beschreven in Azure Monitor. Elke afzonderlijke logboek vermelding wordt als tekst opgeslagen en opgemaakt als een JSON-blob, zoals wordt weer gegeven in de volgende twee voor beelden: 
 
 ```json
 { 
@@ -145,36 +145,36 @@ Dit artikel beschrijft de Azure Active Directory (Azure AD) audit log schema in 
 
 ```
 
-## <a name="field-and-property-descriptions"></a>Veld en de eigenschap beschrijvingen
+## <a name="field-and-property-descriptions"></a>Beschrijvingen van velden en eigenschappen
 
 | Veldnaam | Description |
 |------------|-------------|
 | time       | De datum en tijd (UTC). |
 | operationName | De naam van de bewerking. |
-| operationVersion | De REST-API-versie die aangevraagd door de client. |
-| category | Op dit moment *Audit* is de enige ondersteunde waarde. |
-| tenantId | De tenant GUID die is gekoppeld aan de logboeken. |
-| resultType | Het resultaat van de bewerking. Kan het resultaat zijn *succes* of *fout*. |
-| resultSignature |  Dit veld is niet-toegewezen en u kunt deze gewoon negeren. | 
-| resultDescription | Een extra beschrijving van het resultaat, indien beschikbaar. | 
-| durationMs |  Dit veld is niet-toegewezen en u kunt deze gewoon negeren. |
+| operationVersion | De REST API versie die door de client is aangevraagd. |
+| category | De *controle* is momenteel de enige ondersteunde waarde. |
+| tenantId | De Tenant-GUID die is gekoppeld aan de logboeken. |
+| resultType | Het resultaat van de bewerking. Het resultaat kan *slagen* of *mislukken*. |
+| resultSignature |  Dit veld is niet-toegewezen en u kunt het veilig negeren. | 
+| resultDescription | Een aanvullende beschrijving van het resultaat, indien beschikbaar. | 
+| durationMs |  Dit veld is niet-toegewezen en u kunt het veilig negeren. |
 | callerIpAddress | Het IP-adres van de client die de aanvraag heeft ingediend. | 
-| correlationId | Een optionele GUID die wordt doorgegeven door de client. Kunt vergelijken client-side-bewerkingen met serverzijde bewerkingen en dit is handig wanneer u logboeken met betrekking services tot bijhoudt. |
-| identity | De identiteit van het token dat is opgegeven wanneer u de aanvraag heeft ingediend. De identiteit kan worden een gebruikersaccount, systeem-account of service-principal. |
-| niveau | Het berichttype. Voor de logboeken voor controle, is het niveau van de altijd *ter informatie*. |
-| location | De locatie van het datacenter. |
-| properties | Geeft een lijst van de ondersteunde eigenschappen die betrekking op een auditlogboek hebben. Zie de volgende tabel voor meer informatie. | 
+| correlationId | Een optionele GUID die door de client wordt door gegeven. Dit kan helpen bij het correleren aan de client zijde met bewerkingen aan de server zijde en is handig wanneer u Logboeken traceert die services omvatten. |
+| identity | De identiteit van het token dat is gepresenteerd tijdens het maken van de aanvraag. De identiteit kan een gebruikers account, systeem account of Service-Principal zijn. |
+| level | Het bericht type. Voor audit Logboeken is het niveau altijd *informatief*. |
+| location | De locatie van het Data Center. |
+| properties | Een lijst met ondersteunde eigenschappen die betrekking hebben op een audit logboek. Zie de volgende tabel voor meer informatie. | 
 
 <br>
 
 | Naam van eigenschap | Description |
 |---------------|-------------|
-| AuditEventCategory | Het type controlegebeurtenis. Kan het zijn *Gebruikersbeheer*, *Toepassingsbeheer*, of een ander type.|
-| ID-Type | Het type kan worden *toepassing* of *gebruiker*. |
-| Type bewerking | Het type kan worden *toevoegen*, *Update*, *verwijderen*. of *andere*. |
-| Doelbrontype | Hiermee geeft u het doeltype van de resource die de bewerking is uitgevoerd op. Het type kan worden *toepassing*, *gebruiker*, *rol*, *beleid* | 
-| Naam van de doel-Resource | De naam van de doelresource. De toepassingsnaam van een, de naam van een rol, een user principal name of een service principal name kan zijn. |
-| additionalTargets | Hier worden eventuele aanvullende eigenschappen voor specifieke bewerkingen. Bijvoorbeeld, voor een updatebewerking de oude en de nieuwe waarden worden vermeld in *targetUpdatedProperties*. | 
+| AuditEventCategory | Het type controle gebeurtenis. Dit kan *gebruikers beheer*, *toepassings beheer*of een ander type zijn.|
+| Identiteits type | Het type kan *toepassing* of *gebruiker*zijn. |
+| Bewerkingstype | Het type kan worden *toegevoegd*, *bijgewerkt*, *verwijderd*. of *andere*. |
+| Doelbrontype | Hiermee geeft u het doel resource type op waarop de bewerking is uitgevoerd. Het type kan *toepassing*, *gebruiker*, *rol*, *beleid* zijn | 
+| Doel resource naam | De naam van de doel resource. Dit kan een toepassings naam, een rolnaam, een user principal name of een Service Principal Name zijn. |
+| additionalTargets | Een lijst met aanvullende eigenschappen voor specifieke bewerkingen. Voor een update bewerking worden bijvoorbeeld de oude waarden en de nieuwe waarden weer gegeven onder *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Volgende stappen
 

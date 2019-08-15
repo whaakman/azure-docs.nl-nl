@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688731"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954980"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Maak een back-up van een Azure-VM met behulp van Azure Backup via REST API
 
-In dit artikel wordt beschreven hoe u back-ups beheert voor een Azure-VM met behulp van Azure Backup via REST API. Configureer beveiliging voor de eerste keer voor een eerder onbeveiligde Azure-VM, Activeer een back-up op aanvraag voor een beveiligde Azure-VM en wijzig de back-upeigenschappen van een back-up van een virtuele machine via REST API, zoals hier wordt uitgelegd.
+In dit artikel wordt beschreven hoe u back-ups beheert voor een Azure-VM met behulp van Azure Backup via REST API. Configureer beveiliging voor de eerste keer voor een eerder onbeveiligde Azure-VM, Activeer een back-up op aanvraag voor een beveiligde Azure-VM en wijzig de back-upeigenschappen van een back-up van een virtuele machine via REST API zoals hier wordt uitgelegd.
 
 Raadpleeg voor het maken van de [kluis](backup-azure-arm-userestapi-createorupdatevault.md) en het [maken van beleid](backup-azure-arm-userestapi-createorupdatepolicy.md) rest API zelf studies voor het maken van nieuwe kluizen en beleids regels.
 
@@ -98,7 +98,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>De relevante Azure-VM selecteren
 
- U kunt controleren of ' caching ' wordt uitgevoerd door [alle Beveilig bare items](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) onder het abonnement te vermelden en de gewenste vm in het antwoord te vinden. [Het antwoord van deze bewerking](#example-responses-1) geeft u ook informatie over de wijze waarop met Recovery Services een VM wordt geïdentificeerd.  Zodra u vertrouwd bent met het patroon, kunt u deze stap overs Laan en direct door gaan met het inschakelen van de [beveiliging](#enabling-protection-for-the-azure-vm).
+ U kunt controleren of ' caching ' wordt uitgevoerd door [alle Beveilig bare items](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) onder het abonnement te vermelden en de gewenste vm in het antwoord te vinden. [Het antwoord van deze bewerking](#example-responses-1) geeft u informatie over de manier waarop Recovery Services een virtuele machine identificeert.  Zodra u vertrouwd bent met het patroon, kunt u deze stap overs Laan en direct door gaan met het inschakelen van de [beveiliging](#enabling-protection-for-the-azure-vm).
 
 Deze bewerking is een *Get* -bewerking.
 
@@ -393,7 +393,7 @@ Omdat de back-uptaak een langlopende bewerking is, moet deze worden gevolgd zoal
 
 ### <a name="changing-the-policy-of-protection"></a>Het beveiligings beleid wijzigen
 
-Als u het beleid wilt wijzigen waarmee de virtuele machine wordt beveiligd, kunt u dezelfde indeling gebruiken als voor het inschakelen van de [beveiliging](#enabling-protection-for-the-azure-vm). Geef de nieuwe beleids-ID op in [de hoofd tekst van de aanvraag](#example-request-body) en verzend de aanvraag. Voor bijvoorbeeld: Als u het beleid van testVM van Defaultpolicy bij wilt wijzigen in ProdPolicy, geeft u de ProdPolicy-id op in de aanvraag tekst.
+Als u het beleid wilt wijzigen waarmee de virtuele machine wordt beveiligd, kunt u dezelfde indeling gebruiken als voor het inschakelen van de [beveiliging](#enabling-protection-for-the-azure-vm). Geef de nieuwe beleids-ID op in [de hoofd tekst van de aanvraag](#example-request-body) en verzend de aanvraag. Bijvoorbeeld: Als u het beleid van testVM van Defaultpolicy bij wilt wijzigen in ProdPolicy, geeft u de ProdPolicy-ID op in de aanvraag tekst.
 
 ```http
 {

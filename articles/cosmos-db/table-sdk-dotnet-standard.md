@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: b3ebd8b6f65ec86d338932579f5d4ccec6a90be3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e92c2e58122556f90b25f070fff9e6e6616b0257
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704735"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976852"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabel .NET Standard API: Down load en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -31,8 +31,13 @@ ms.locfileid: "68704735"
 |**Snelstartgids**|[Snelstartgids](create-table-dotnet.md)|
 |**Zelfstudie**|[Zelfstudie](tutorial-develop-table-dotnet.md)|
 |**Huidige ondersteunde framework**|[Microsoft .NET standaard 2,0](https://www.nuget.org/packages/NETStandard.Library)|
+|**Probleem melden**|[Probleem melden](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name104104"></a><a name="1.0.4"/>1.0.4
+* Opgeloste fouten
+* Geef de HttpClientTimeout-optie voor RestExecutorConfiguration op.
 
 ### <a name="a-name104-preview104-preview"></a><a name="1.0.4-preview"/>1.0.4-preview
 * Opgeloste fouten
@@ -71,6 +76,7 @@ In deze platformoverschrijdende .NET Standard-bibliotheek [micro soft. Azure. Co
 
 | Version | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.0.4](#1.0.4) |Auguest 12, 2019 |--- |
 | [1.0.4-preview](#1.0.4-preview) |26 juli 2019 |--- |
 | 1.0.2-voorbeeld |2 mei 2019 |--- |
 | [1.0.1](#1.0.1) |19 april 2019 |--- |
@@ -86,4 +92,4 @@ In deze platformoverschrijdende .NET Standard-bibliotheek [micro soft. Azure. Co
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zie ook
-Zie [Inleiding tot Azure Cosmos DB Table-API](table-introduction.md)voor meer informatie over de Azure Cosmos db table-API. 
+Zie [Inleiding tot Azure Cosmos DB Table-API](table-introduction.md)voor meer informatie over de Azure Cosmos db table-API.

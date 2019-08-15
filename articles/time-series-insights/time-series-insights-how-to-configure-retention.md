@@ -1,6 +1,6 @@
 ---
-title: Bewaren configureren in uw Azure Time Series Insights-omgeving | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u bewaren in uw Azure Time Series Insights-omgeving configureren.
+title: Bewaar termijn configureren in uw Azure Time Series Insights omgeving | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u de Bewaar periode in uw Azure Time Series Insights omgeving kunt configureren.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,46 +9,46 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3235844c8750003d08e996f5065fcef256c2d244
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5cc1489af1dce3a9a57b96a3240c63e0395c33a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165669"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947230"
 ---
-# <a name="configuring-retention-in-time-series-insights"></a>Configuratie van de bewaartermijn in Time Series Insights
+# <a name="configuring-retention-in-time-series-insights"></a>Bewaar periode in Time Series Insights configureren
 
-In dit artikel wordt beschreven hoe u **gegevensretentietijd** en **-limiet voor opslag overschreden gedrag** in Azure Time Series Insights.
+In dit artikel wordt beschreven hoe u de **Bewaar tijd voor gegevens** en de **opslag limiet hebt overschreden** in azure time series Insights.
 
 ## <a name="summary"></a>Samenvatting
 
-Elke omgeving Time Series Insights (TSI) heeft een instelling voor het configureren van **gegevensretentietijd**. De waarde omvat van 1 tot 400 dagen. De gegevens worden verwijderd op basis van de omgeving capaciteit of bewaring opslagduur (1-400), afhankelijk van wat het eerste komt.
+Elke Time Series Insights-omgeving (TSI) heeft een instelling voor het configureren van **gegevens retentie tijd**. De waarde ligt tussen 1 en 400 dagen. De gegevens worden verwijderd op basis van de opslag capaciteit van de omgeving of de Bewaar periode (1-400), afhankelijk van wat het eerste komt.
 
-Elke TSI-omgeving heeft een instelling voor extra **-limiet voor opslag overschreden gedrag**. Deze instelling wordt bepaald gedrag van inkomend verkeer en opschonen na het verstrijken van de maximale capaciteit van een omgeving. Er zijn twee gedrag kiezen uit:
+Voor elke TSI omgeving is een extra **opslag limiet**ingesteld. Met deze instelling bepaalt u het gedrag van ingang en leegmaken wanneer de maximale capaciteit van een omgeving wordt bereikt. Er zijn twee manieren om te kiezen:
 
-- **Verwijderen van oude gegevens** (standaard)
-- **Inkomende gegevens onderbreken**
+- **Oude gegevens** opschonen prijs
+- **Ingangs onderbrekingen**
 
-Raadpleeg voor gedetailleerde informatie voor meer informatie over deze instellingen [Understanding bewaren in Time Series Insights](time-series-insights-concepts-retention.md).  
+Lees de informatie [over retentie in time series Insights](time-series-insights-concepts-retention.md)voor gedetailleerde gegevens om deze instellingen beter te begrijpen.  
 
 ## <a name="configure-data-retention"></a>Gegevensretentie configureren
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-1. Ga naar uw bestaande Time Series Insights-omgeving. Selecteer **alle resources** in het menu aan de linkerkant van de Azure-portal. Selecteer uw Time Series Insights-omgeving.
+1. Ga naar uw bestaande Time Series Insights-omgeving. Selecteer **alle resources** in het menu aan de linkerkant van het Azure Portal. Selecteer uw Time Series Insights-omgeving.
 
-1. Onder de **instellingen** kop, selecteer **configureren**.
+1. Selecteer **configureren**onder de kop **instellingen** .
 
-1. Selecteer de **gegevensretentietijd** te configureren van de bewaarperiode met behulp van de schuifregelaar of typ een getal in het tekstvak.
+1. Selecteer de **Bewaar tijd voor gegevens** om de retentie te configureren met behulp van de schuif regelaar of typ een getal in het tekstvak.
 
-1. Houd er rekening mee de **capaciteit** instellen, aangezien deze configuratie zorgt ervoor dat de maximale hoeveelheid Gegevensgebeurtenissen en de totale opslagcapaciteit voor het opslaan van gegevens.
+1. Let op de capaciteits instelling, omdat deze configuratie invloed heeft op de maximale hoeveelheid gegevens gebeurtenissen en de totale opslag capaciteit voor het opslaan van gegevens.
 
-1. Schakelen tussen de **-limiet voor opslag overschreden gedrag** instelling. Selecteer **oude gegevens opschonen** of **onderbreken inkomend** gedrag.
+1. De instelling voor het gedrag van de **opslag limiet is overschreden** . Selecteer **oude gegevens leegmaken** of ingangs gedrag **onderbreken** .
 
-1. Selecteer **opslaan** het configureren van de wijzigingen.
+1. Selecteer **Opslaan** om de wijzigingen te configureren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Raadpleeg voor meer informatie, [Understanding bewaren in Time Series Insights](time-series-insights-concepts-retention.md).
+- Lees voor meer informatie [uitleg over retentie in time series Insights](time-series-insights-concepts-retention.md).

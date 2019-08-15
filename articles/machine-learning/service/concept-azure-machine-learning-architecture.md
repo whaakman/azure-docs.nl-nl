@@ -1,7 +1,7 @@
 ---
 title: Belangrijkste concepten van architectuur &
 titleSuffix: Azure Machine Learning service
-description: Meer informatie over de architectuur, termen, concepten en werk stromen waaruit Azure Machine Learning-service is opgebouwd.
+description: Meer informatie over de architectuur, termen, concepten en werk stromen waaruit de Azure Machine Learning-service is opgebouwd.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ea5e476680b07a6a7ba2b57e94f1f0b99cc10987
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848227"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990086"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>De werking van Azure Machine Learning-service: Architectuur en concepten
 
@@ -49,12 +49,16 @@ Gebruik deze hulpprogram ma's voor Azure Machine Learning:
 + Code schrijven in Visual Studio code met [Azure machine learning VS code-extensie](how-to-vscode-tools.md)
 + Gebruik de [visuele interface (preview) voor Azure machine learning-service](ui-concept-visual-interface.md) om de werk stroom stappen uit te voeren zonder code te schrijven.
 
-## <a name="glossary-of-concepts"></a>Woorden lijst met concepten
+> [!NOTE]
+> Hoewel in dit artikel voor waarden en concepten worden gedefinieerd die worden gebruikt door Azure Machine Learning service, worden er geen termen en concepten voor het Azure-platform gedefinieerd. Zie de [Microsoft Azure verklarende woorden lijst](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)voor meer informatie over de terminologie van het Azure-platform.
+
+## <a name="glossary"></a>Woordenlijst
 
 + <a href="#workspaces">Workspace</a>
 + <a href="#experiments">Experimenten</a>
 + <a href="#models">Models</a>
 + <a href="#run-configurations">Configuratie uitvoeren</a>
++ [Schattingen](#estimators)
 + <a href="#datasets-and-datastores">Gegevensset & gegevens opslag</a>
 + <a href="#compute-targets">Compute-doelen</a>
 + <a href="#training-scripts">Trainings script</a>
@@ -69,19 +73,9 @@ Gebruik deze hulpprogram ma's voor Azure Machine Learning:
 + <a href="#ml-pipelines">ML-pijp lijnen</a>
 + <a href="#logging">Logging</a>
 
-> [!NOTE]
-> Hoewel in dit artikel voor waarden en concepten worden gedefinieerd die worden gebruikt door Azure Machine Learning service, worden er geen termen en concepten voor het Azure-platform gedefinieerd. Zie de [Microsoft Azure verklarende woorden lijst](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)voor meer informatie over de terminologie van het Azure-platform.
-
-
 ### <a name="workspaces"></a>Werkruimten
 
-[De werk ruimte](concept-workspace.md) is de resource op het hoogste niveau voor Azure machine learning service. Het biedt een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service gebruikt.
-
-Een taxonomie van de werk ruimte wordt geïllustreerd in het volgende diagram:
-
-[![Taxonomie van werkruimte](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
-
-Zie [Wat is een Azure machine learning-werk ruimte?](concept-workspace.md)voor meer informatie over werk ruimten.
+[De werk ruimte](concept-workspace.md) is de resource op het hoogste niveau voor Azure machine learning service. Het biedt een centrale locatie voor het werken met alle artefacten die u maakt wanneer u Azure Machine Learning-service gebruikt. U kunt een werk ruimte delen met anderen. Zie [Wat is een Azure machine learning-werk ruimte?](concept-workspace.md)voor een gedetailleerde beschrijving van werk ruimten.
 
 ### <a name="experiments"></a>Experimenten
 
@@ -97,7 +91,7 @@ Een model wordt geproduceerd door een uitvoering in Azure Machine Learning. U ku
 
 Azure Machine Learning-service is Framework neutraal. Wanneer u een model maakt, kunt u een populair machine learning Framework gebruiken, zoals Scikit-learn, XGBoost, PyTorch, tensor flow en Chainer.
 
-Zie [zelf studie voor een voor beeld van een model trainen: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
+Zie [zelf studie voor een voor beeld van een model trainen met Scikit-Learn en een Estimator: Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
 Het **model register** houdt alle modellen in de werk ruimte van uw Azure machine learning-service bij.
 
@@ -119,6 +113,19 @@ Een uitvoerings configuratie is een set instructies die definieert hoe een scrip
 Een uitvoerings configuratie kan worden opgeslagen in een bestand in de map met uw trainings script of kan worden geconstrueerd als een in-memory-object en worden gebruikt voor het verzenden van een run.
 
 Zie bijvoorbeeld configuraties [selecteren en een compute-doel gebruiken om uw model te trainen](how-to-set-up-training-targets.md).
+
+### <a name="estimators"></a>Schattingen
+
+Om model training met populaire Frameworks mogelijk te maken, kunt u met de klasse Estimator eenvoudig uitvoer configuraties bouwen. U kunt een algemene [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) maken en gebruiken om trainings scripts te verzenden die gebruikmaken van een door u gekozen trainings raamwerk (zoals scikit-leren).
+
+Voor PyTorch-, tensor flow-en Chainer-taken biedt Azure Machine Learning ook de geraamde [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [tensor flow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)en [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) -schattingen om het gebruik van deze frameworks te vereenvoudigen.
+
+Raadpleeg voor meer informatie de volgende artikelen:
+
+* [Train ml-modellen met schattingen](how-to-train-ml-models.md).
+* [Train Pytorche diepe Learning-modellen op schaal met Azure machine learning](how-to-train-pytorch.md).
+* [Tensor flow-modellen trainen en registreren op schaal met Azure machine learning service](how-to-train-tensorflow.md).
+* [Ketting modellen trainen en registreren op schaal met Azure machine learning service](how-to-train-chainer.md).
 
 ### <a name="datasets-and-datastores"></a>Gegevens sets en gegevens opslag
 
@@ -152,7 +159,6 @@ Een uitvoering is een record met de volgende informatie:
 * Een momentopname van de map waarin uw scripts, voordat de uitvoering
 
 U produceert een uitvoering wanneer u een script voor het trainen van een model verzendt. Een uitvoering kan nul of meer onderliggende uitvoeringen hebben. De uitvoering op het hoogste niveau kan bijvoorbeeld twee onderliggende uitvoeringen hebben, waarvan elk een eigen onderliggend item kan hebben.
-
 
 ### <a name="github-tracking-and-integration"></a>GitHub bijhouden en integreren
 

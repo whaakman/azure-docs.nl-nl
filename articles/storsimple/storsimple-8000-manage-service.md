@@ -1,6 +1,6 @@
 ---
-title: De StorSimple Device Manager-service in Azure implementeren | Microsoft Docs
-description: Uitleg over het maken en verwijderen van de StorSimple Device Manager-service in Azure portal en wordt beschreven hoe u voor het beheren van de serviceregistratiesleutel.
+title: De StorSimple Apparaatbeheer-service in azure implementeren | Microsoft Docs
+description: Hierin wordt uitgelegd hoe u de StorSimple-Apparaatbeheer-service in de Azure Portal maakt en verwijdert, en wordt beschreven hoe u de service registratie sleutel beheert.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,202 +14,204 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60506530"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965461"
 ---
-# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>De service StorSimple Device Manager voor apparaten uit de StorSimple 8000-serie implementeren
+# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>De StorSimple Apparaatbeheer-service voor StorSimple 8000 Series-apparaten implementeren
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Overzicht
 
-De StorSimple Device Manager-service wordt uitgevoerd in Microsoft Azure en verbindt met meerdere StorSimple-apparaten. Nadat u de service hebt gemaakt, kunt u deze kunt gebruiken voor het beheren van de apparaten die zijn verbonden met de StorSimple Device Manager-service vanaf een centrale locatie, waardoor de administratieve overhead worden geminimaliseerd.
+De StorSimple-Apparaatbeheer-service wordt uitgevoerd in Microsoft Azure en er wordt verbinding gemaakt met meerdere StorSimple-apparaten. Nadat u de service hebt gemaakt, kunt u deze gebruiken voor het beheren van alle apparaten die zijn verbonden met de StorSimple-Apparaatbeheer service vanaf één centrale locatie, waardoor de administratieve belasting wordt geminimaliseerd.
 
-Deze zelfstudie beschrijft de stappen die nodig zijn voor het maken, verwijderen, de migratie van de service en het beheer van de serviceregistratiesleutel. De informatie in dit artikel is alleen van toepassing op apparaten uit de StorSimple 8000-serie. Ga voor meer informatie over virtuele StorSimple-matrices naar [implementeren van een StorSimple Device Manager-service voor uw StorSimple Virtual Array](storsimple-virtual-array-manage-service.md).
+In deze zelf studie worden de stappen beschreven die nodig zijn voor het maken, verwijderen, migreren van de service en het beheer van de service registratie sleutel. De informatie in dit artikel is alleen van toepassing op apparaten uit de StorSimple 8000-serie. Ga voor meer informatie over virtuele StorSimple-matrices naar [Deploy a StorSimple Apparaatbeheer service voor uw StorSimple Virtual array](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> -  De Azure-portal biedt ondersteuning voor apparaten met Update 5.0 of hoger. Als uw apparaat niet actueel te houden is, onmiddellijk Update 5 installeren. Ga voor meer informatie naar [Update 5 installeren](storsimple-8000-install-update-5.md). 
-> - Als u een StorSimple Cloud Appliance (8010/8020), kunt u een cloudapparaat niet bijwerken. Gebruik de nieuwste versie van software voor het maken van een nieuw cloudapparaat met Update 5.0 en vervolgens een failover uitvoeren naar de nieuwe cloudapparaat hebt gemaakt. 
-> - Alle apparaten met Update 4.0 of lager te maken met verminderde functionaliteit. 
+> -  Het Azure Portal ondersteunt apparaten met Update 5,0 of hoger. Als uw apparaat niet up-to-date is, installeert u update 5 onmiddellijk. Ga voor meer informatie naar [Update 5 installeren](storsimple-8000-install-update-5.md). 
+> - Als u een StorSimple Cloud Appliance (8010/8020) gebruikt, kunt u een Cloud apparaat niet bijwerken. Gebruik de nieuwste versie van de software om een nieuw Cloud apparaat met Update 5,0 te maken en ga vervolgens naar het nieuwe Cloud apparaat dat is gemaakt. 
+> - Op alle apparaten waarop update 4,0 of eerder wordt uitgevoerd, wordt de beheer functionaliteit gereduceerd. 
 
 ## <a name="create-a-service"></a>Een service maken
-Voor het maken van een StorSimple Device Manager-service, moet u beschikken over:
+Als u een StorSimple Apparaatbeheer-service wilt maken, moet u het volgende hebben:
 
 * Een abonnement met een Enterprise Agreement
-* Een actieve Microsoft Azure storage-account
-* De informatie die wordt gebruikt voor toegangsbeheer
+* Een actief Microsoft Azure Storage-account
+* De facturerings gegevens die worden gebruikt voor toegangs beheer
 
-Alleen de abonnementen, met een Enterprise Agreement zijn toegestaan. U kunt ook een standaardopslagaccount genereren wanneer u de service maakt.
+Alleen de abonnementen met een Enterprise Agreement zijn toegestaan. U kunt er ook voor kiezen om een standaard-opslag account te genereren wanneer u de service maakt.
 
-Een enkele service kunt meerdere apparaten beheren. Een apparaat kan niet echter meerdere services omvatten. Een grote onderneming kan meerdere exemplaren van de service te werken met verschillende abonnementen, organisaties, of zelfs implementatie locaties hebben. 
+Eén service kan meerdere apparaten beheren. Een apparaat kan echter niet meerdere services omvatten. Een grote onderneming kan meerdere service-exemplaren gebruiken om te werken met verschillende abonnementen, organisaties of zelfs implementatie locaties. 
 
 > [!NOTE]
-> U moet afzonderlijke exemplaren van StorSimple Device Manager-service voor het beheer van apparaten uit de StorSimple 8000-serie en virtuele StorSimple-matrices.
+> U hebt afzonderlijke instanties van StorSimple Apparaatbeheer service nodig voor het beheren van StorSimple 8000 Series-apparaten en StorSimple virtuele matrices.
 
-Voer de volgende stappen uit voor het maken van een service.
+Voer de volgende stappen uit om een service te maken.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
 
-Voor elke service StorSimple Device Manager bestaat de volgende kenmerken:
+Voor elke StorSimple-Apparaatbeheer service bestaan de volgende kenmerken:
 
-* **Naam** – de naam die is toegewezen aan uw StorSimple Device Manager-service wanneer deze is gemaakt. **Naam van de service kan niet worden gewijzigd nadat de service is gemaakt. Dit geldt ook voor andere entiteiten, zoals apparaten, volumes, volumecontainers en back-upbeleid dat kunnen niet worden gewijzigd in de Azure-portal.**
-* **Status** – de status van de service, die kan worden **Active**, **maken**, of **Online**.
-* **Locatie** – de geografische locatie waar het StorSimple-apparaat wordt geïmplementeerd.
-* **Abonnement** – het factureringsabonnement die is gekoppeld aan uw service.
+* **Naam** : de naam die is toegewezen aan uw StorSimple-Apparaatbeheer service toen deze werd gemaakt. **De service naam kan niet worden gewijzigd nadat de service is gemaakt. Dit geldt ook voor andere entiteiten, zoals apparaten, volumes, volume containers en back-upbeleiden waarvan de naam niet kan worden gewijzigd in de Azure Portal.**
+* **Status** : de status van de service, die **actief**, **maken**of **online**kan zijn.
+* **Locatie** : de geografische locatie waar het StorSimple-apparaat wordt geïmplementeerd.
+* **Abonnement** : het facturerings abonnement dat is gekoppeld aan uw service.
 
 ## <a name="delete-a-service"></a>Een service verwijderen
 
-Voordat u een service verwijdert, controleert u dat er zijn geen verbonden apparaten worden gebruikt. Als de service gebruikt wordt, schakelt u de verbonden apparaten. De bewerking uitschakelen wordt de verbinding tussen het apparaat en de service-Server, maar behouden de apparaatgegevens in de cloud.
+Voordat u een service verwijdert, moet u ervoor zorgen dat er geen aangesloten apparaten worden gebruikt. Als de service wordt gebruikt, deactiveert u de verbonden apparaten. Met de bewerking deactiveren wordt de verbinding tussen het apparaat en de service verbroken, maar blijven de apparaatgegevens in de Cloud behouden.
 
 > [!IMPORTANT]
-> Nadat een service is verwijderd, de bewerking kan niet ongedaan worden gemaakt. Een apparaat dat is met de service moet opnieuw naar de fabrieksinstellingen worden ingesteld voordat deze kan worden gebruikt met een andere service. In dit scenario is de lokale gegevens op het apparaat, evenals de configuratie, gaan verloren.
+> De bewerking kan niet ongedaan worden gemaakt nadat een service is verwijderd. Elk apparaat dat de service gebruikt, moet opnieuw worden ingesteld op de fabrieks instellingen voordat het kan worden gebruikt met een andere service. In dit scenario gaan de lokale gegevens op het apparaat, evenals de configuratie, verloren.
 
-Voer de volgende stappen uit als een service wilt verwijderen.
+Voer de volgende stappen uit om een service te verwijderen.
 
-### <a name="to-delete-a-service"></a>Verwijderen van een service
+### <a name="to-delete-a-service"></a>Een service verwijderen
 
-1. Zoeken naar de service die u wilt verwijderen. Klik op **Resources** pictogram en geef de juiste voorwaarden om te zoeken. Klik op de service die u wilt verwijderen in de lijst met zoekresultaten.
+1. Zoek de service die u wilt verwijderen. Klik op het pictogram **resources** en voer vervolgens de juiste voor waarden in om te zoeken. Klik in de zoek resultaten op de service die u wilt verwijderen.
 
-    ![Search-service verwijderen](./media/storsimple-8000-manage-service/deletessdevman1.png)
+    ![Zoek service die u wilt verwijderen](./media/storsimple-8000-manage-service/deletessdevman1.png)
 
-2. Hiermee gaat u naar de serviceblade StorSimple Device Manager. Klik op **Verwijderen**.
+2. Hiermee gaat u naar de Blade StorSimple Apparaatbeheer service. Klik op **Verwijderen**.
 
     ![Service verwijderen](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
-3. Klik op **Ja** in het bevestigingsbericht. Het duurt een paar minuten voor de service moet worden verwijderd.
+3. Klik op **Ja** in het bevestigings bericht. Het kan enkele minuten duren voordat de service is verwijderd.
 
     ![Verwijdering bevestigen](./media/storsimple-8000-manage-service/deletessdevman3.png)
 
 ## <a name="get-the-service-registration-key"></a>De serviceregistratiesleutel ophalen
 
-Nadat u een service hebt gemaakt, moet u uw StorSimple-apparaat registreren bij de service. Voor het registreren van uw eerste StorSimple-apparaat, moet u de serviceregistratiesleutel. Om extra apparaten registreren met een bestaande StorSimple-service, moet u zowel de registratiesleutel en de versleutelingssleutel voor servicegegevens (die wordt gegenereerd op het eerste apparaat tijdens de registratie). Zie voor meer informatie over de versleutelingssleutel voor servicegegevens [StorSimple security](storsimple-8000-security.md). U kunt de registratiesleutel ophalen door het openen van **sleutels** op de blade StorSimple Device Manager.
+Nadat u een service hebt gemaakt, moet u uw StorSimple-apparaat registreren bij de service. Als u uw eerste StorSimple-apparaat wilt registreren, hebt u de service registratie sleutel nodig. Als u extra apparaten wilt registreren met een bestaande StorSimple-service, hebt u zowel de registratie sleutel als de versleutelings sleutel voor service gegevens nodig (die tijdens de registratie wordt gegenereerd op het eerste apparaat). Zie [StorSimple Security](storsimple-8000-security.md)(Engelstalig) voor meer informatie over de versleutelings sleutel voor service gegevens. U kunt de registratie sleutel ophalen met behulp van **sleutels** op uw StorSimple Apparaatbeheer-Blade.
 
-De volgende stappen uitvoeren om de serviceregistratiesleutel ophalen.
+Voer de volgende stappen uit om de service registratie sleutel op te halen.
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
-Houd de serviceregistratiesleutel op een veilige locatie. U moet deze sleutel, evenals de versleutelingssleutel voor servicegegevens, extra apparaten registreren bij deze service. Nadat u de serviceregistratiesleutel, moet u uw apparaat via de Windows PowerShell voor StorSimple-interface configureren.
+Behoud de service registratie sleutel op een veilige locatie. U hebt deze sleutel nodig, evenals de versleutelings sleutel voor service gegevens, om extra apparaten te registreren bij deze service. Nadat u de service registratie sleutel hebt verkregen, moet u uw apparaat configureren via de Windows PowerShell voor StorSimple-interface.
 
-Zie voor meer informatie over het gebruik van deze registratiesleutel [stap 3: Configureren en registreren van het apparaat via Windows PowerShell voor StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Zie [voor meer informatie over het gebruik van deze registratie sleutel stap 3: Configureer en registreer het apparaat via Windows PowerShell voor StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-## <a name="regenerate-the-service-registration-key"></a>De serviceregistratiesleutel opnieuw genereren
-U moet een serviceregistratiesleutel opnieuw genereren als u bent verplicht om uit te voeren rouleren van de sleutel of als de lijst met servicebeheerders is gewijzigd. Wanneer u de sleutel opnieuw genereert, wordt de nieuwe sleutel alleen gebruikt voor latere apparaten registreren. De apparaten die al zijn geregistreerd, worden niet beïnvloed door dit proces.
+## <a name="regenerate-the-service-registration-key"></a>De service registratie sleutel opnieuw genereren
+Als u een sleutel rotatie moet uitvoeren of als de lijst met service beheerders is gewijzigd, moet u een service registratie sleutel opnieuw genereren. Wanneer u de sleutel opnieuw genereert, wordt de nieuwe sleutel alleen gebruikt voor het registreren van volgende apparaten. De apparaten die al zijn geregistreerd, worden niet beïnvloed door dit proces.
 
-De volgende stappen uitvoeren om een serviceregistratiesleutel opnieuw genereren.
+Voer de volgende stappen uit om een service registratie sleutel opnieuw te genereren.
 
-### <a name="to-regenerate-the-service-registration-key"></a>De serviceregistratiesleutel opnieuw genereren
-1. In de **StorSimple Device Manager** blade, Ga naar **Management &gt;**  **sleutels**.
+### <a name="to-regenerate-the-service-registration-key"></a>De service registratie sleutel opnieuw genereren
+1. Ga op de Blade **StorSimple Apparaatbeheer** naar **beheer &gt;**  **sleutels**.
     
     ![De blade Sleutels](./media/storsimple-8000-manage-service/regenregkey2.png)
 
-2. In de **sleutels** blade, klikt u op **opnieuw genereren**.
+2. Klik op de Blade **sleutels** op **opnieuw genereren**.
 
-    ![Klik op sleutel opnieuw genereren](./media/storsimple-8000-manage-service/regenregkey3.png)
-3. In de **serviceregistratiesleutel opnieuw genereren** blade, Controleer de actie vereist als de sleutels zijn opnieuw gegenereerd. De volgende apparaten die zijn geregistreerd bij deze service gebruikt de nieuwe registratiesleutel. Klik op **opnieuw genereren** om te bevestigen. U krijgt een melding nadat het opnieuw genereren voltooid is.
+    ![Klik op opnieuw genereren](./media/storsimple-8000-manage-service/regenregkey3.png)
+3. Controleer op de Blade **service registratie sleutel opnieuw genereren** de actie die vereist is wanneer de sleutels opnieuw worden gegenereerd. Op alle volgende apparaten die zijn geregistreerd bij deze service wordt de nieuwe registratie sleutel gebruikt. Klik op **opnieuw genereren** om te bevestigen. U wordt gewaarschuwd nadat het opnieuw genereren is voltooid.
 
-    ![Controleer of de sleutel opnieuw genereren](./media/storsimple-8000-manage-service/regenregkey4.png)
+    ![Opnieuw genereren bevestigen](./media/storsimple-8000-manage-service/regenregkey4.png)
 
-4. Een nieuwe serviceregistratiesleutel wordt weergegeven.
+4. Er wordt een nieuwe service registratie sleutel weer gegeven.
 
-5. Kopieer deze sleutel en bewaar het voor het registreren van nieuwe apparaten met deze service.
+5. Kopieer deze sleutel en sla deze op voor het registreren van nieuwe apparaten bij deze service.
 
 
 
-## <a name="change-the-service-data-encryption-key"></a>Wijzigen van de versleutelingssleutel voor servicegegevens
-De versleutelingssleutel worden gebruikt voor het versleutelen van vertrouwelijke klantgegevens, zoals opslagaccountreferenties, die uit de StorSimple Manager-service worden verzonden naar het StorSimple-apparaat. U moet deze sleutels worden periodiek gewijzigd als uw IT-organisatie een beleid voor sleutelroulatie op de opslagapparaten heeft. Het proces voor sleutel kan zijn enigszins verschillen afhankelijk van of er is een enkel apparaat of meerdere apparaten die worden beheerd door de StorSimple Manager-service. Ga voor meer informatie naar [StorSimple beveiliging en gegevensbescherming](storsimple-8000-security.md).
+## <a name="change-the-service-data-encryption-key"></a>De versleutelings sleutel voor service gegevens wijzigen
+De versleutelings sleutels voor service gegevens worden gebruikt voor het versleutelen van vertrouwelijke klant gegevens, zoals referenties voor het opslag account, die worden verzonden vanuit uw StorSimple Manager-service naar het StorSimple-apparaat. U moet deze sleutels regel matig wijzigen als uw IT-organisatie een beleid voor sleutel rotatie heeft op de opslag apparaten. Het sleutel wijzigings proces kan enigszins verschillen, afhankelijk van het feit of er één apparaat of meerdere apparaten worden beheerd door de StorSimple Manager-service. Ga voor meer informatie naar [StorSimple beveiliging en gegevens bescherming](storsimple-8000-security.md).
 
-Wijzigen van de versleutelingssleutel voor servicegegevens is een proces 3-stappen:
+Het wijzigen van de versleutelings sleutel voor service gegevens is een proces met drie stappen:
 
-1. Met Windows PowerShell-scripts voor Azure Resource Manager, toestaan dat een apparaat te wijzigen van de versleutelingssleutel voor servicegegevens.
-2. Windows PowerShell voor StorSimple gebruiken, start de service gegevens codering belangrijke wijziging.
-3. Als u meer dan één StorSimple-apparaat hebt, werkt u de versleutelingssleutel voor servicegegevens op de andere apparaten.
+1. Een apparaat machtigen om de versleutelings sleutel van de service gegevens te wijzigen met behulp van Windows Power shell-scripts voor Azure Resource Manager.
+2. Met Windows PowerShell voor StorSimple initieert u de wijziging van de versleutelings sleutel voor de service gegevens.
+3. Als u meer dan één StorSimple-apparaat hebt, werkt u de versleutelings sleutel voor service gegevens op de andere apparaten bij.
 
-### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Stap 1: Windows PowerShell-script gebruiken om te autoriseren van een apparaat te wijzigen van de versleutelingssleutel voor servicegegevens
-Normaal gesproken wordt de apparaatbeheerder aanvragen dat de service-beheerder toestaan dat een apparaat te wijzigen van de versleutelingssleutel. De servicebeheerder wordt vervolgens machtigen voor het apparaat om de sleutel te wijzigen.
+### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>Stap 1: Windows Power shell-script gebruiken om een apparaat te autoriseren om de versleutelings sleutel van de service gegevens te wijzigen
+Normaal gesp roken vraagt de beheerder aan dat de service beheerder een apparaat moet machtigen om de versleutelings sleutels voor de service gegevens te wijzigen. De service beheerder geeft het apparaat vervolgens toestemming om de sleutel te wijzigen.
 
-Deze stap wordt uitgevoerd met behulp van het script op basis van Azure Resource Manager. De servicebeheerder kan een apparaat dat in aanmerking komende Autoriseer kunt selecteren. Het apparaat is vervolgens gemachtigd om de service gegevens codering belangrijke wijzigingsproces te starten. 
+Deze stap wordt uitgevoerd met behulp van het script op basis van Azure Resource Manager. De service beheerder kan een apparaat selecteren dat in aanmerking komt voor autorisatie. Het apparaat wordt vervolgens geautoriseerd om het wijzigings proces voor de versleutelings sleutel van de service gegevens te starten. 
 
-Ga voor meer informatie over het gebruik van het script naar [autoriseren-ServiceEncryptionRollover.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
+Ga voor meer informatie over het gebruik van het script naar [authorize-ServiceEncryptionRollover. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Authorize-ServiceEncryptionRollover.ps1)
 
-#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Welke apparaten kunnen worden geautoriseerd om te wijzigen van de versleutelingssleutel?
-Een apparaat moet de volgende criteria voldoen voordat deze kan worden geautoriseerd om te starten van belangrijke wijzigingen in de service gegevens versleuteling:
+#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Welke apparaten kunnen worden geautoriseerd om de versleutelings sleutels voor service gegevens te wijzigen?
+Een apparaat moet voldoen aan de volgende criteria voordat het kan worden geautoriseerd om de wijzigingen in de versleutelings sleutel van de service gegevens te initiëren:
 
-* Het apparaat moet online in aanmerking komt voor de service gegevens codering belangrijke wijziging autorisatie.
-* Als de belangrijkste wijziging is niet gestart, kunt u hetzelfde apparaat na 30 minuten opnieuw autoriseren.
-* U kunt een ander apparaat autoriseren voorwaarde dat de wijziging niet door de eerder geautoriseerde apparaat gestart is. Nadat het nieuwe apparaat is geautoriseerd, kan de wijziging niet het oude apparaat starten.
-* U kunt een apparaat kan niet toestaan, terwijl de rollover van de versleutelingssleutel voor servicegegevens uitgevoerd wordt.
-* Wanneer sommige van de apparaten die zijn geregistreerd bij de service via de versleuteling hebt hersteld, terwijl anderen dit niet hebt gedaan, kunt u een apparaat autoriseren. 
+* Het apparaat moet online zijn om in aanmerking te komen voor wijzigings autorisatie van de versleutelings sleutel voor service gegevens.
+* U kunt hetzelfde apparaat na 30 minuten opnieuw autoriseren als de sleutel wijziging niet is geïnitieerd.
+* U kunt een ander apparaat machtigen, mits de sleutel wijziging niet door het eerder geautoriseerde apparaat is geïnitieerd. Nadat het nieuwe apparaat is geautoriseerd, kan het oude apparaat de wijziging niet initiëren.
+* U kunt een apparaat niet machtigen terwijl de overschakeling van de versleutelings sleutel voor de service gegevens wordt uitgevoerd.
+* U kunt een apparaat machtigen wanneer een aantal van de apparaten die zijn geregistreerd bij de service, zijn doorgevoerd in de versleuteling, terwijl anderen dat niet doen. 
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Stap 2: Gebruik Windows PowerShell voor StorSimple om te starten van de versleutelingssleutel voor servicegegevens wijzigen
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Stap 2: Windows PowerShell voor StorSimple gebruiken om de wijziging van de versleutelings sleutel van de service gegevens te initiëren
 Deze stap wordt uitgevoerd in de Windows PowerShell voor StorSimple-interface op het geautoriseerde StorSimple-apparaat.
 
 > [!NOTE]
-> Er zijn geen bewerkingen kunnen worden uitgevoerd in de Azure-portal van uw StorSimple Manager-service totdat de rollover van ondertekeningssleutel is voltooid.
+> Er kunnen geen bewerkingen worden uitgevoerd in de Azure Portal van uw StorSimple Manager-service totdat de sleutel rollover is voltooid.
 
 
-Als u van de seriële console van het apparaat gebruikmaakt verbinding maken met de Windows PowerShell-interface, moet u de volgende stappen uitvoeren.
+Als u de seriële console van het apparaat gebruikt om verbinding te maken met de Windows Power shell-interface, voert u de volgende stappen uit.
 
-#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Starten van de service gegevens codering belangrijke wijziging
-1. Selecteer optie 1 om aan te melden met volledige toegang.
+#### <a name="to-initiate-the-service-data-encryption-key-change"></a>De wijziging van de versleutelings sleutel van de service gegevens initiëren
+1. Selecteer optie 1 om u aan te melden met volledige toegang.
 2. Typ in de opdrachtprompt:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
-3. Nadat de cmdlet is voltooid, ontvangt u een nieuwe versleutelingssleutel voor servicegegevens. Kopieer en bewaar deze sleutel voor gebruik in stap 3 van dit proces. Deze sleutel wordt gebruikt om bij te werken van alle overige apparaten die zijn geregistreerd bij de StorSimple Manager-service.
+3. Nadat de cmdlet is voltooid, krijgt u een nieuwe versleutelings sleutel voor service gegevens. Kopieer deze sleutel en sla deze op voor gebruik in stap 3 van dit proces. Deze sleutel wordt gebruikt om alle resterende apparaten bij te werken die zijn geregistreerd bij de StorSimple Manager-service.
    
    > [!NOTE]
-   > Dit proces moet worden gestart binnen vier uur van een StorSimple-apparaat te autoriseren.
+   > Dit proces moet worden gestart binnen vier uur na het autoriseren van een StorSimple-apparaat.
    > 
    > 
    
-   Deze nieuwe sleutel wordt verzonden naar de service worden gepusht naar alle apparaten die zijn geregistreerd bij de service. Een waarschuwing wordt vervolgens weergegeven op het servicedashboard. Alle bewerkingen op de geregistreerde apparaten door de service wordt uitgeschakeld en moet de apparaatbeheerder vervolgens om bij te werken van de versleutelingssleutel voor servicegegevens op de andere apparaten. De i/o's (hosts die gegevens verzenden naar de cloud) wordt echter niet worden onderbroken.
+   Deze nieuwe sleutel wordt vervolgens naar de service verzonden die moet worden gepusht naar alle apparaten die zijn geregistreerd bij de service. Er wordt dan een waarschuwing weer gegeven in het service dashboard. De service schakelt alle bewerkingen op de geregistreerde apparaten uit en de apparaat-beheerder moet de versleutelings sleutel voor de service gegevens vervolgens op de andere apparaten bijwerken. Het I/O's (hosts die gegevens verzenden naar de Cloud) wordt echter niet onderbroken.
    
-   Hebt u één apparaat geregistreerd bij uw service, de rollover is nu voltooid en u kunt de volgende stap overslaan. Als u meerdere apparaten die zijn geregistreerd met uw service, gaat u verder met stap 3.
+   Als er één apparaat is geregistreerd bij uw service, is het rollover proces nu voltooid en kunt u de volgende stap overs Laan. Als er meerdere apparaten zijn geregistreerd bij uw service, gaat u verder met stap 3.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Stap 3: Bijwerken van de versleutelingssleutel voor servicegegevens op andere StorSimple-apparaten
-Deze stappen moeten worden uitgevoerd in de Windows PowerShell-interface van uw StorSimple-apparaat hebt u meerdere apparaten die zijn geregistreerd bij de StorSimple Manager-service. De sleutel die u hebt verkregen in stap 2 moet worden gebruikt om bij te werken van alle de resterende StorSimple-apparaat geregistreerd bij de StorSimple Manager-service.
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Stap 3: De versleutelings sleutel voor service gegevens op andere StorSimple-apparaten bijwerken
+Deze stappen moeten worden uitgevoerd in de Windows Power shell-interface van uw StorSimple-apparaat als er meerdere apparaten zijn geregistreerd bij uw StorSimple Manager-service. De sleutel die u hebt verkregen in stap 2 moet worden gebruikt voor het bijwerken van alle resterende StorSimple-apparaten die zijn geregistreerd bij de StorSimple Manager-service.
 
-Voer de volgende stappen uit voor het bijwerken van de service-gegevensversleuteling op uw apparaat.
+Voer de volgende stappen uit om de service gegevens versleuteling op uw apparaat bij te werken.
 
-#### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>De versleutelingssleutel voor servicegegevens op fysieke apparaten bijwerken
-1. Windows PowerShell voor StorSimple gebruiken voor verbinding met de console. Selecteer optie 1 om aan te melden met volledige toegang.
-2. Bij de opdrachtprompt, typt u:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Geef de versleutelingssleutel voor servicegegevens die u hebt verkregen in [stap 2: Windows PowerShell voor StorSimple gebruiken om te starten van de service gegevens codering belangrijke wijziging](#to-initiate-the-service-data-encryption-key-change).
+#### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>De versleutelings sleutel voor service gegevens op fysieke apparaten bijwerken
+1. Gebruik Windows PowerShell voor StorSimple om verbinding te maken met de console. Selecteer optie 1 om u aan te melden met volledige toegang.
+2. Typ het volgende achter de opdracht prompt:`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+3. Geef de versleutelings sleutel voor service gegevens op [die u hebt verkregen in stap 2: Gebruik Windows PowerShell voor StorSimple om de wijziging](#to-initiate-the-service-data-encryption-key-change)van de versleutelings sleutel van de service gegevens te initiëren.
 
-#### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Bijwerken van de versleutelingssleutel voor servicegegevens op alle 8010/8020-cloudapparaten
-1. Downloaden en installeren [Update CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell-script. 
-2. Open PowerShell en typ het volgende achter de opdrachtprompt:  `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+#### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>De versleutelings sleutel voor service gegevens op alle 8010/8020-Cloud apparaten bijwerken
+1. Down load en stel het Power shell-script [Update-CloudApplianceServiceEncryptionKey. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) . 
+2. Open Power shell en typ bij de opdracht prompt:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
-Met dit script zorgt ervoor dat versleutelingssleutel voor servicegegevens is ingesteld op alle 8010/8020-cloudapparaten onder Apparaatbeheer.
+Met dit script wordt ervoor gezorgd dat de versleutelings sleutel voor service gegevens is ingesteld op alle 8010/8020-Cloud apparaten onder Apparaatbeheer.
 
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Ondersteunde bewerkingen op apparaten met versies vóór Update 5.0
-In de Azure-portal, worden alleen de StorSimple-apparaten met Update 5.0 en hoger ondersteund. De apparaten met oudere versies beperkt worden ondersteund. Nadat u hebt gemigreerd naar Azure portal, gebruikt u de volgende tabel om te begrijpen welke bewerkingen worden ondersteund op apparaten met versies vóór Update 5.0.
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Ondersteunde bewerkingen op apparaten met versies voorafgaand aan update 5,0
+In de Azure Portal worden alleen de StorSimple-apparaten met Update 5,0 en hoger ondersteund. De apparaten waarop oudere versies worden uitgevoerd, hebben beperkte ondersteuning. Nadat u naar de Azure Portal hebt gemigreerd, gebruikt u de volgende tabel om te begrijpen welke bewerkingen worden ondersteund op apparaten met versies voorafgaand aan update 5,0.
 
 | Bewerking                                                                                                                       | Ondersteund      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | Een apparaat registreren                                                                                                               | Ja            |
-| Instellingen voor apparaten zoals Algemeen, netwerk en beveiliging configureren                                                                | Ja            |
-| Scannen, downloaden en installeren van updates                                                                                             | Ja            |
+| Apparaatinstellingen configureren, zoals algemeen, netwerk en beveiliging                                                                | Ja            |
+| Updates scannen, downloaden en installeren                                                                                             | Ja            |
 | Apparaat deactiveren                                                                                                               | Ja            |
 | Apparaat verwijderen                                                                                                                   | Ja            |
-| Maken, wijzigen en verwijderen van een volumecontainer                                                                                   | Nee             |
-| Maken, wijzigen en verwijderen van een volume                                                                                             | Nee             |
-| Maken, wijzigen en verwijderen van een back-upbeleid                                                                                      | Nee             |
-| Een handmatige back-up maken                                                                                                            | Nee             |
+| Een volume container maken, wijzigen en verwijderen                                                                                   | Nee             |
+| Een volume maken, wijzigen en verwijderen                                                                                             | Nee             |
+| Een back-upbeleid maken, wijzigen en verwijderen                                                                                      | Nee             |
+| Een hand matige back-up maken                                                                                                            | Nee             |
 | Een geplande back-up maken                                                                                                         | Niet van toepassing |
-| Herstellen vanaf een back-upset                                                                                                        | Nee             |
-| Klonen op een apparaat met Update 3.0 en hoger <br> Het bronapparaat wordt versie voordat u Update 3.0 uitgevoerd.                                | Ja            |
-| Bij een apparaat met versies vóór Update 3.0 klonen                                                                          | Nee             |
-| Failover als Bronapparaat <br> (vanaf een apparaat met versie vóór de Update 3.0 bij een apparaat met Update 3.0 en hoger)                                                               | Ja            |
-| Failover als doelapparaat <br> (op een apparaat met softwareversie vóór Update 3.0)                                                                                   | Nee             |
+| Herstellen vanuit een back-upset                                                                                                        | Nee             |
+| Klonen naar een apparaat met update 3,0 en hoger <br> Op het bron apparaat wordt versie uitgevoerd vóór het bijwerken van 3,0.                                | Ja            |
+| Klonen naar een apparaat met versies voorafgaand aan update 3,0                                                                          | Nee             |
+| Failover als bron apparaat <br> (vanaf een apparaat met versie vóór het bijwerken van 3,0 naar een apparaat met update 3,0 of hoger)                                                               | Ja            |
+| Failover als doel apparaat <br> (op een apparaat met software versie vóór update 3,0)                                                                                   | Nee             |
 | Een waarschuwing wissen                                                                                                                  | Ja            |
-| Back-upbeleid, back-catalogus, volumes, volumecontainers, bewakingsgrafieken, taken en waarschuwingen die zijn gemaakt in de klassieke portal weergeven | Ja            |
-| In-en uitschakelen apparaatcontrollers                                                                                              | Ja            |
+| Back-upbeleid, back-upcatalogus, volumes, volume containers, bewakings grafieken, taken en waarschuwingen die zijn gemaakt in de klassieke portal weer geven | Ja            |
+| Apparaat-controllers in-of uitschakelen                                                                                              | Ja            |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over de [StorSimple-implementatieproces](storsimple-8000-deployment-walkthrough-u2.md).
-* Meer informatie over [beheren van uw StorSimple-opslagaccount](storsimple-8000-manage-storage-accounts.md).
-* Meer informatie over het [de StorSimple Device Manager-service gebruiken voor het beheren van uw StorSimple-apparaat](storsimple-8000-manager-service-administration.md).
+* Meer informatie over het [implementatie proces van StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
+* Meer informatie over [het beheren van uw StorSimple-opslag account](storsimple-8000-manage-storage-accounts.md).
+* Meer informatie over [het gebruik van de StorSimple Apparaatbeheer-service voor het beheren van uw StorSimple-apparaat](storsimple-8000-manager-service-administration.md).

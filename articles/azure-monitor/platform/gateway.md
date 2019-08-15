@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met computers met behulp van de Log Analytics-gateway | Microsoft Docs
-description: Verbinding maken met uw apparaten en computers met Operations Manager bewaakt met behulp van de gateway Log Analytics om gegevens te verzenden naar de Azure Automation en Log Analytics-service als ze geen toegang tot internet hebben.
+title: Computers verbinden met behulp van de Log Analytics-gateway | Microsoft Docs
+description: Verbind uw apparaten en Operations Manager bewaakte computers met behulp van de Log Analytics-gateway om gegevens te verzenden naar de Azure Automation-en Log Analytics-service wanneer ze geen toegang tot internet hebben.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,69 +11,69 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 08/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d735a3740b473806835f2e80f40cea02b48387e
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60396331"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955101"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Verbinding maken met computers zonder toegang tot het internet met behulp van de Log Analytics-gateway in Azure Monitor
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Computers zonder Internet toegang verbinden met behulp van de Log Analytics-gateway in Azure Monitor
 
 >[!NOTE]
->Als Microsoft Operations Management Suite (OMS) in Microsoft Azure Monitor verandert, wordt terminologie gewijzigd. In dit artikel verwijst naar de OMS-Gateway als de Azure Log Analytics-gateway. 
+>Als Microsoft Operations Management Suite (OMS) overgangen naar Microsoft Azure monitor, wordt de terminologie gewijzigd. Dit artikel heeft betrekking op de OMS-gateway als de Azure Log Analytics-gateway. 
 >
 
-In dit artikel wordt beschreven hoe u communicatie met Azure Automation en Azure Monitor configureren met behulp van de Log Analytics-gateway wanneer de computers die rechtstreeks zijn verbonden of die worden bewaakt door Operations Manager hebben geen toegang tot internet. 
+In dit artikel wordt beschreven hoe u communicatie met Azure Automation en Azure Monitor kunt configureren met behulp van de Log Analytics gateway wanneer computers die rechtstreeks zijn verbonden of die worden bewaakt door Operations Manager geen Internet toegang hebben. 
 
-De Log Analytics-gateway is een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding. Deze gateway kan gegevens verzamelen en te verzenden naar Azure Automation en Log Analytics-werkruimte in Azure Monitor namens de computers die niet zijn verbonden met internet.  
+De Log Analytics-gateway is een HTTP-doorstuur proxy die ondersteuning biedt voor HTTP-tunnels met behulp van de HTTP-opdracht verbinding. Deze Gateway verzendt gegevens naar Azure Automation en een Log Analytics-werk ruimte in Azure Monitor namens de computers die niet rechtstreeks verbinding kunnen maken met internet. Er worden geen gegevens van de agents in de cache opgeslagen. de agent verwerkt gegevens in deze situatie in de cache totdat de communicatie is hersteld.
 
 De Log Analytics-gateway ondersteunt:
 
-* Rapportage tot de dezelfde vier Log Analytics werkruimte agents die erachter zijn en die zijn geconfigureerd met Azure Automation Hybrid Runbook Workers.  
-* Windows-computers waarop de Microsoft Monitoring Agent rechtstreeks is verbonden met een Log Analytics-werkruimte in Azure Monitor.
-* Linux-computers waarop een Log Analytics-agent voor Linux rechtstreeks is verbonden met een Log Analytics-werkruimte in Azure Monitor.  
-* System Center Operations Manager 2012 SP1 UR7, Operations Manager 2012 R2 met UR3 of een beheergroep in Operations Manager 2016 of hoger die is geïntegreerd met Log Analytics.  
+* Het rapporteren van Maxi maal vier Log Analytics werkruimte agents die zich achter het werk gebied bevinden en die zijn geconfigureerd met Azure Automation Hybrid Runbook Workers.  
+* Windows-computers waarop micro soft Monitoring Agent rechtstreeks is verbonden met een Log Analytics-werk ruimte in Azure Monitor.
+* Linux-computers waarop een Log Analytics-agent voor Linux rechtstreeks is verbonden met een Log Analytics-werk ruimte in Azure Monitor.  
+* System Center Operations Manager 2012 SP1 met UR7, Operations Manager 2012 R2 met UR3, of een beheer groep in Operations Manager 2016 of hoger die is geïntegreerd met Log Analytics.  
 
-Sommige het beveiligingsbeleid van verbinding met internet voor computers in het netwerk niet is toegestaan. Deze niet-verbonden computers mogelijk punt van apparaten verkooppunten (POS) of de servers die ondersteuning bieden IT-services, bijvoorbeeld. Als u wilt deze apparaten verbinden met Azure Automation of een Log Analytics-werkruimte, zodat u kunt beheren en bewaken configureren, zodat deze communiceren rechtstreeks met de Log Analytics-gateway. De Log Analytics-gateway kan ontvangen configuratie-informatie en doorsturen van gegevens in hun naam. Als de computers zijn geconfigureerd met de Log Analytics-agent rechtstreeks verbinding maken met een Log Analytics-werkruimte, worden de computers in plaats daarvan communiceren met de Log Analytics-gateway.  
+In sommige IT-beveiligings beleidsregels is Internet verbinding voor netwerk computers niet toegestaan. Deze niet-verbonden computers kunnen bijvoorbeeld POS-apparaten (Point of Sale) zijn of servers die IT-Services ondersteunen. Als u deze apparaten wilt verbinden met Azure Automation of een Log Analytics werk ruimte, zodat u ze kunt beheren en controleren, moet u ze configureren om rechtstreeks te communiceren met de Log Analytics gateway. De Log Analytics-gateway kan configuratie-informatie ontvangen en gegevens namens u door sturen. Als de computers zijn geconfigureerd met de Log Analytics-agent om rechtstreeks verbinding te maken met een Log Analytics-werk ruimte, communiceren de computers in plaats daarvan met de Log Analytics gateway.  
 
-De Log Analytics-gateway gegevens worden overgebracht van de agents met de service rechtstreeks. Deze een van de gegevens die onderweg zijn niet geanalyseerd.
+De Log Analytics-gateway brengt gegevens rechtstreeks over van de agents naar de service. De gegevens die onderweg zijn, worden niet geanalyseerd.
 
-Wanneer een Operations Manager-beheergroep is geïntegreerd met Log Analytics, worden de beheerservers geconfigureerd om te verbinden met de Log Analytics-gateway naar configuratie-informatie ontvangen en verzenden van verzamelde gegevens, afhankelijk van de oplossing die u hebt ingeschakeld .  Operations Manager-agents verzenden gegevens naar de beheerserver. Voor agents worden verzonden, Operations Manager waarschuwingen, configuratie-evaluatiegegevens ruimte Instantiegegevens en capaciteitsgegevens. Andere gegevens van hoge volumes, zoals Internet Information Services (IIS)-Logboeken, prestatiegegevens en beveiligingsgebeurtenissen, wordt rechtstreeks naar de gateway voor Log Analytics verzonden. 
+Wanneer een Operations Manager-beheer groep is geïntegreerd met Log Analytics, kunnen de beheerser vers worden geconfigureerd om verbinding te maken met de gateway van Log Analytics om configuratie-informatie te ontvangen en verzamelde gegevens te verzenden, afhankelijk van de oplossing die u hebt ingeschakeld .  Operations Manager-agents verzenden enkele gegevens naar de-beheer server. Agents kunnen bijvoorbeeld Operations Manager-waarschuwingen, gegevens over de configuratie-evaluatie, gegevens over de exemplaar ruimte en capaciteits gegevens verzenden. Andere gegevens met een hoog volume, zoals Internet Information Services (IIS)-logboeken, prestatie gegevens en beveiligings gebeurtenissen, worden rechtstreeks naar de Log Analytics gateway verzonden. 
 
-Als een of meer Operations Manager-Gateway-servers worden geïmplementeerd voor het controleren van niet-vertrouwde systemen in een perimeternetwerk of in een geïsoleerd netwerk, worden deze servers kunnen niet communiceren met een Log Analytics-gateway.  Operations Manager-gatewayservers kunnen alleen met een beheerserver rapporteren.  Wanneer een Operations Manager-beheergroep is geconfigureerd om te communiceren met de Log Analytics-gateway, wordt de proxy-configuratie-informatie automatisch gedistribueerd naar elke agent beheerde computer die is geconfigureerd voor het verzamelen van gegevens aan het logboek voor Azure Monitor zelfs als de instelling leeg is.    
+Als er een of meer Operations Manager Gateway servers zijn geïmplementeerd om niet-vertrouwde systemen in een perimeter netwerk of een geïsoleerd netwerk te bewaken, kunnen die servers niet communiceren met een Log Analytics gateway.  Operations Manager Gateway servers kunnen alleen rapporteren aan een beheer server.  Wanneer een Operations Manager-beheer groep is geconfigureerd voor communicatie met de Log Analytics gateway, worden de configuratie gegevens van de proxy automatisch gedistribueerd naar elke door agents beheerde computer die is geconfigureerd voor het verzamelen van logboek gegevens voor Azure Monitor. zelfs als de instelling leeg is.
 
-Voor maximale beschikbaarheid voor direct verbonden of bewerkingen beheergroepen die communiceren met Log Analytics-werkruimte via de gateway gebruiken voor netwerktaakverdeling (NLB) om te leiden en distribueren van verkeer tussen meerdere gatewayservers. Op die manier als een gatewayserver uitvalt, wordt het verkeer doorgestuurd naar een ander beschikbaar knooppunt.  
+Gebruik Network Load Balancing (NLB) voor het omleiden en distribueren van verkeer tussen meerdere Gateway servers om hoge Beschik baarheid te bieden voor rechtstreeks verbonden of Operations Management-groepen die communiceren met een Log Analytics-werk ruimte via de gateway. Op die manier wordt het verkeer omgeleid naar een ander beschikbaar knoop punt als één gateway server uitvalt.  
 
-De Log Analytics-Windows-agent voor het identificeren van de service-eindpunten die de gateway nodig heeft om te communiceren met vereist de computer met de Log Analytics-gateway De agent moet ook om te leiden van de gateway om te rapporteren aan de dezelfde werkruimten die de agents of Operations Manager-beheergroep achter de gateway zijn geconfigureerd met. Deze configuratie kunt de gateway en de agent kan communiceren met hun toegewezen werkruimte.
+Op de computer waarop de Log Analytics-gateway wordt uitgevoerd, is de Log Analytics Windows-agent vereist voor het identificeren van de service-eind punten waarmee de gateway moet communiceren. De agent moet ook de gateway omleiden om te rapporteren aan dezelfde werk ruimten als de agents of Operations Manager beheer groep achter de gateway zijn geconfigureerd met. Met deze configuratie kunnen de gateway en de agent communiceren met hun toegewezen werk ruimte.
 
-Een gateway kan multihomed naar maximaal vier werkruimten zijn. Dit is het totale aantal werkruimten die een Windows-agent ondersteunt.  
+Een gateway kan een multihomed tot vier werk ruimten zijn. Dit is het totale aantal werk ruimten dat een Windows-agent ondersteunt.  
 
-Elke agent moet de netwerkverbinding met de gateway hebben, zodat agents kunnen automatisch worden overgedragen gegevens van en naar de gateway. Voorkomen dat u de gateway installeert op een domeincontroller.
+Elke agent moet een netwerk verbinding met de gateway hebben, zodat agents automatisch gegevens kunnen overdragen van en naar de gateway. Vermijd de installatie van de gateway op een domein controller.
 
-Het volgende diagram toont gegevens die binnenkomen van directe agents, via de gateway, naar Azure Automation en Log Analytics. De configuratie van de agent-proxy moet overeenkomen met de poort die de Log Analytics-gateway is geconfigureerd met.  
+In het volgende diagram ziet u gegevens die vanuit direct agents, via de gateway, worden gestroomd naar Azure Automation en Log Analytics. De configuratie van de agent proxy moet overeenkomen met de poort waarop de Log Analytics-gateway is geconfigureerd.  
 
-![Diagram van directe agentcommunicatie met services](./media/gateway/oms-omsgateway-agentdirectconnect.png)
+![Diagram van directe agent communicatie met Services](./media/gateway/oms-omsgateway-agentdirectconnect.png)
 
 Het volgende diagram toont de gegevensstroom van een Operations Manager-beheergroep naar Log Analytics.   
 
-![Diagram van de Operations Manager-communicatie met Log Analytics](./media/gateway/log-analytics-agent-opsmgrconnect.png)
+![Diagram van Operations Manager communicatie met Log Analytics](./media/gateway/log-analytics-agent-opsmgrconnect.png)
 
-## <a name="set-up-your-system"></a>Instellen van uw systeem
+## <a name="set-up-your-system"></a>Uw systeem instellen
 
-Computers die worden uitgevoerd van de Log Analytics-gateway moeten beschikken over de volgende configuratie:
+Computers die zijn aangewezen voor het uitvoeren van de Log Analytics gateway, moeten de volgende configuratie hebben:
 
-* Windows 10, Windows 8.1 of Windows 7
-* WindowsServer 2016, Windows Server 2012 R2, WindowsServer 2012, Windows Server 2008 R2 of WindowsServer 2008
+* Windows 10, Windows 8,1 of Windows 7
+* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 of Windows Server-2008
 * Microsoft .NET Framework 4.5
-* Ten minste een 4-core-processor en 8 GB geheugen 
-* Een [Log Analytics-agent voor Windows](agent-windows.md) die is geconfigureerd om te rapporteren aan dezelfde werkruimte als de agents die via de gateway communiceren
+* Minstens een 4-core-processor en 8 GB aan geheugen 
+* Een [log Analytics-agent voor Windows](agent-windows.md) die is geconfigureerd om te rapporteren aan dezelfde werk ruimte als de agents die communiceren via de gateway
 
 ### <a name="language-availability"></a>Taal-beschikbaarheid
 
-De Log Analytics-gateway is beschikbaar in deze talen:
+De Log Analytics gateway is beschikbaar in de volgende talen:
 
 - Chinees (vereenvoudigd)
 - Chinees (traditioneel)
@@ -93,224 +93,229 @@ De Log Analytics-gateway is beschikbaar in deze talen:
 - Spaans (internationaal)
 
 ### <a name="supported-encryption-protocols"></a>Ondersteunde codering protocollen
-De Log Analytics-gateway ondersteunt alleen Transport Layer Security (TLS) 1.0, 1.1 en 1.2.  Het biedt geen ondersteuning voor Secure Sockets Layer (SSL).  Om te controleren of de beveiliging van gegevens die onderweg zijn naar Log Analytics, configureert u de gateway te gebruiken ten minste TLS 1.2. Oudere versies van TLS of SSL zijn kwetsbaar. Hoewel ze toestaan op dit moment voor neerwaartse compatibiliteit, te voorkomen dat het gebruik ervan.  
+
+De Log Analytics-gateway ondersteunt alleen Transport Layer Security (TLS) 1,0, 1,1 en 1,2.  Secure Sockets Layer (SSL) wordt niet ondersteund.  Configureer de gateway voor het gebruik van ten minste TLS 1,2 om te zorgen voor de beveiliging van gegevens die onderweg zijn naar Log Analytics. Oudere versies van TLS of SSL zijn kwetsbaar. Hoewel ze momenteel achterwaartse compatibiliteit toestaan, kunt u ze beter niet gebruiken.  
 
 Raadpleeg voor meer informatie, [verzenden van gegevens veilig gebruik TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Aantal ondersteunde agent-verbindingen
-De volgende tabel ziet u ongeveer hoeveel agents kunnen communiceren met een gateway-server. Ondersteuning is gebaseerd op agents die ongeveer 200 KB aan gegevens om de 6 seconden uploaden. Gegevensvolume staat voor elke agent die wordt getest, ongeveer 2.7 GB per dag.
 
-|Gateway |Agents ondersteund (bij benadering)|  
+In de volgende tabel ziet u ongeveer hoeveel agents kunnen communiceren met een gateway server. Ondersteuning is gebaseerd op agents die elke 6 seconden ongeveer 200 KB aan gegevens uploaden. Voor elke geteste agent is het gegevens volume ongeveer 2,7 GB per dag.
+
+|Gateway |Ondersteunde agents (bij benadering)|  
 |--------|----------------------------------|  
-|CPU: Intel Xeon Processor E5-2660 v3 \@ 2,6 GHz 2 kernen<br> Geheugen: 4 GB<br> Bandbreedte van het netwerk: 1 Gbps| 600|  
-|CPU: Intel Xeon Processor E5-2660 v3 \@ 2,6 GHz 4 Cores<br> Geheugen: 8 GB<br> Bandbreedte van het netwerk: 1 Gbps| 1000|  
+|VERBRUIK Intel Xeon-processor E5-2660 \@ v3 2,6 GHz 2 kernen<br> Geheugen: 4 GB<br> Netwerk bandbreedte: 1 Gbps| 600|  
+|VERBRUIK Intel Xeon-processor E5-2660 \@ v3 2,6 GHz 4 kernen<br> Geheugen: 8 GB<br> Netwerk bandbreedte: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>De Log Analytics-gateway downloaden
 
-Download de nieuwste versie van het installatiebestand van de Log Analytics-gateway van een [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=54443) of de Azure-portal.
+Down load de nieuwste versie van het installatie bestand voor de Log Analytics gateway vanuit het [micro soft Download centrum](https://www.microsoft.com/download/details.aspx?id=54443) of via de Azure Portal.
 
-Als u de Log Analytics-gateway vanuit de Azure-portal, de volgende stappen uit:
+Voer de volgende stappen uit om de Log Analytics-gateway op te halen uit de Azure Portal:
 
 1. Blader door de lijst met services en selecteer vervolgens **Log Analytics**. 
 1. Selecteer een werkruimte.
-1. In de blade van uw werkruimte onder **algemene**, selecteer **Quick Start**. 
-1. Onder **kiest u een gegevensbron verbinding maken met de werkruimte**, selecteer **Computers**.
-1. In de **Direct Agent** Selecteer **downloaden Log Analytics gateway**.
+1. Selecteer in de Blade van de werk ruimte onder **algemeen** **Quick Start**. 
+1. Selecteer **computers**onder **een gegevens bron kiezen om verbinding te maken met de werk ruimte**.
+1. Selecteer op de Blade **direct-agent** de optie **log Analytics gateway downloaden**.
  
-   ![Schermafbeelding van de stappen voor het downloaden van de Log Analytics-gateway](./media/gateway/download-gateway.png)
+   ![Scherm afbeelding van de stappen voor het downloaden van de Log Analytics-gateway](./media/gateway/download-gateway.png)
 
 of 
 
-1. In de blade van uw werkruimte onder **instellingen**, selecteer **geavanceerde instellingen**.
-1. Ga naar **verbonden bronnen** > **Windows Servers** en selecteer **downloaden Log Analytics gateway**.
+1. Selecteer in de Blade van de werk ruimte onder **instellingen**de optie **Geavanceerde instellingen**.
+1. Ga naar **verbonden bronnen** > **Windows-servers** en selecteer **log Analytics gateway downloaden**.
 
-## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Met behulp van de wizard setup van Log Analytics-gateway installeren
+## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Log Analytics gateway installeren met de wizard Setup
 
-Volg deze stappen voor het installeren van een gateway met de wizard setup. 
+Voer de volgende stappen uit als u een gateway wilt installeren met de wizard Setup. 
 
 1. Dubbelklik in de doelmap op **Log Analytics gateway.msi**.
 1. Op de pagina **Welkom** selecteert u **Volgende**.
 
-   ![Schermafbeelding van de welkomstpagina van de wizard Setup voor Gateway](./media/gateway/gateway-wizard01.png)
+   ![Scherm afbeelding van de welkomst pagina in de wizard gateway installeren](./media/gateway/gateway-wizard01.png)
 
-1. Op de **License Agreement** weergeeft, schakelt **ik ga akkoord met de voorwaarden van de gebruiksrechtovereenkomst** moet akkoord gaan met de licentievoorwaarden voor Microsoft-Software, en selecteer vervolgens **volgende**.
+1. Selecteer op de pagina **gebruiksrecht overeenkomst** **de optie Ik ga akkoord met de voor waarden in de gebruiksrecht overeenkomst** om akkoord te gaan met de licentie voorwaarden voor micro soft-software en selecteer **volgende**.
 1. Op de **poort- en proxy-adres** pagina:
 
-   a. Voer het nummer van de TCP-poort moet worden gebruikt voor de gateway. Dit poortnummer gebruikt het installatieprogramma een inkomende regel configureren op Windows-Firewall.  De standaardwaarde is 8080.
-      Het geldige bereik van het poortnummer ligt tussen 1 en 65535 zijn. Als de invoer niet in dit bereik valt, wordt een foutbericht weergegeven.
+   a. Voer het TCP-poort nummer in dat voor de gateway moet worden gebruikt. Setup gebruikt dit poort nummer voor het configureren van een binnenkomende regel op Windows Firewall.  De standaardwaarde is 8080.
+      Het geldige bereik van het poort nummer is 1 tot en met 65535. Als de invoer niet in dit bereik valt, wordt een foutbericht weergegeven.
 
-   b. Als de server waarop de gateway is geïnstalleerd communiceren via een proxy moet, voert u de proxy-adres waar de gateway nodig heeft om verbinding te maken. Geef bijvoorbeeld `http://myorgname.corp.contoso.com:80` op.  Als u dit veld leeg laat, wordt de gateway probeert rechtstreeks verbinding maakt met internet.  Als uw proxyserver verificatie is vereist, voert u een gebruikersnaam en wachtwoord.
+   b. Als de server waarop de gateway is geïnstalleerd, moet communiceren via een proxy, voert u het proxy adres in waar de gateway verbinding moet maken. Geef bijvoorbeeld `http://myorgname.corp.contoso.com:80` op.  Als u dit veld leeg laat, probeert de gateway rechtstreeks verbinding te maken met het internet.  Als uw proxyserver verificatie is vereist, voert u een gebruikersnaam en wachtwoord.
 
-   c. Selecteer **Next**.
+   c. Selecteer **Volgende**.
 
-   ![Schermopname van configuratie van de gatewayproxy](./media/gateway/gateway-wizard02.png)
+   ![Scherm opname van configuratie voor de gateway proxy](./media/gateway/gateway-wizard02.png)
 
-1. Als u nog geen Microsoft Update is ingeschakeld, de Microsoft Update-pagina wordt weergegeven en u kunt deze inschakelen. Maak een selectie en selecteer vervolgens **volgende**. Ga anders verder met de volgende stap.
-1. Op de **doelmap** pagina, laat de standaardmap C:\Program Files\OMS Gateway of geef de locatie waar u de gateway te installeren. Selecteer vervolgens **Volgende**.
-1. Op de **gereed voor installatie** weergeeft, schakelt **installeren**. Als Gebruikersaccountbeheer toestemming om te installeren vraagt, selecteert u **Ja**.
-1. Nadat de installatie is voltooid, schakelt u **voltooien**. Open de module services.msc om te controleren of de service wordt uitgevoerd, en Controleer **OMS-Gateway** wordt weergegeven in de lijst met services en die de status **met**.
+1. Als Microsoft Update niet is ingeschakeld, wordt de pagina Microsoft Update weer gegeven en kunt u ervoor kiezen om deze in te scha kelen. Maak een selectie en selecteer **volgende**. Ga anders verder met de volgende stap.
+1. Accepteer op de pagina **doelmap** de standaardmap C:\Program Files\OMS gateway of voer de locatie in waar u de gateway wilt installeren. Selecteer vervolgens **Volgende**.
+1. Selecteer **installeren**op de pagina **gereed voor installatie** . Selecteer **Ja**als u wilt dat Gebruikersaccountbeheer toestemming heeft om te installeren.
+1. Nadat de installatie is voltooid, selecteert u **volt ooien**. Als u wilt controleren of de service wordt uitgevoerd, opent u de module Services. msc en controleert u of de **OMS-gateway** wordt weer gegeven in de lijst met Services en of de status wordt **uitgevoerd**.
 
-   ![Schermafbeelding van lokale services of OMS-Gateway wordt uitgevoerd](./media/gateway/gateway-service.png)
+   ![Scherm opname van lokale services, met de uitvoering van de OMS-gateway](./media/gateway/gateway-service.png)
 
-## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Installeer de Log Analytics-gateway met behulp van de opdrachtregel
-Het gedownloade bestand voor de gateway is een Windows Installer-pakket die ondersteuning biedt voor installatie op de achtergrond van de opdrachtregel of andere geautomatiseerde methode. Als u niet bekend met de standaard opdrachtregelopties voor Windows Installer bent, Zie [opdrachtregelopties](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
-
-De volgende tabel ziet u de parameters die worden ondersteund door setup.
+## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>De Log Analytics-gateway installeren met behulp van de opdracht regel
+Het gedownloade bestand voor de gateway is een Windows Installer-pakket dat een installatie op de achtergrond ondersteunt vanaf de opdracht regel of een andere automatische methode. Zie [opdracht regel opties](https://docs.microsoft.com/windows/desktop/Msi/command-line-options)als u niet bekend bent met de standaard opdracht regel opties voor Windows Installer.
+ 
+De volgende tabel geeft een overzicht van de para meters die door Setup worden ondersteund.
 
 |Parameters| Opmerkingen|
 |----------|------| 
-|POORTNUMMER | TCP-poortnummer voor de gateway om te luisteren op |
-|PROXY | IP-adres van proxyserver |
-|INSTALLDIR | Volledig gekwalificeerde pad naar de installatiemap van de bestanden van de gateway-software opgeven |
-|GEBRUIKERSNAAM | Gebruikers-Id om te verifiëren bij de proxyserver |
-|WACHTWOORD | Wachtwoord van de gebruikers-Id om te verifiëren met proxy |
-|LicenseAccepted | Geef een waarde van **1** om te controleren of u de gebruiksrechtovereenkomst accepteren |
-|HASAUTH | Geef een waarde van **1** als parameters van de gebruikersnaam en wachtwoord worden opgegeven |
-|HASPROXY | Geef een waarde van **1** bij het opgeven van IP-adres voor **PROXY** parameter |
+|PORTNUMBER | TCP-poort nummer voor de gateway waarop moet worden geluisterd |
+|WEBTOEPASSINGSPROXY | IP-adres van proxy server |
+|INSTALLDIR | Volledig gekwalificeerde pad voor het opgeven van de installatiemap van de gateway software bestanden |
+|GEBRUIKERSNAAM | Gebruikers-id voor verificatie met proxy server |
+|WACHTWOORD | Wacht woord van de gebruikers-id die moet worden geverifieerd met de proxy |
+|LicenseAccepted | Geef een waarde van **1** op om te controleren of u akkoord gaat met de gebruiksrecht overeenkomst |
+|HASAUTH | Geef een waarde van **1** op wanneer de para meters gebruikers naam/wacht woord zijn opgegeven |
+|HASPROXY | Geef een waarde van **1** op bij het opgeven van het IP-adres voor de **proxy** parameter |
 
-Als u wilt op de achtergrond installeren van de gateway en configureer dit met een specifieke proxy-adres, poortnummer, typ het volgende:
+Als u de gateway op de achtergrond wilt installeren en configureren met een specifiek proxy adres, poort nummer, typt u het volgende:
 
 ```dos
 Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
 ```
 
-Installatie met behulp van de opdrachtregeloptie /qn verbergt, qb setup tijdens een installatie zonder toezicht wordt weergegeven.  
+Met de opdracht regel optie/qn wordt Setup verborgen,/QB geeft de installatie weer tijdens de installatie op de achtergrond.  
 
-Als u moet referenties voor verificatie met de proxy op te geven, typ het volgende:
+Als u referenties moet opgeven voor verificatie bij de proxy, typt u het volgende:
 
 ```dos
 Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
 ```
 
-Na de installatie, kunt u bevestigen de instellingen zijn geaccepteerd (exlcuding de gebruikersnaam en wachtwoord) met behulp van de volgende PowerShell-cmdlets:
+Na de installatie kunt u controleren of de instellingen zijn geaccepteerd (exlcuding de gebruikers naam en het wacht woord) met behulp van de volgende Power shell-cmdlets:
 
-- **Get-OMSGatewayConfig** : retourneert de door de gateway is geconfigureerd om te luisteren op TCP-poort.
-- **Get-OMSGatewayRelayProxy** – het IP-adres van de proxyserver die u hebt geconfigureerd om communicatie met retourneert.
+- **Get-OMSGatewayConfig** : retourneert de TCP-poort waarop de gateway is geconfigureerd om te Luis teren.
+- **Get-OMSGatewayRelayProxy** : retourneert het IP-adres van de proxy server waarmee u deze hebt geconfigureerd om te communiceren met.
 
 ## <a name="configure-network-load-balancing"></a>Netwerktaakverdeling 
-U kunt de gateway voor hoge beschikbaarheid met behulp van netwerktaakverdeling (NLB) met behulp van Microsoft configureren [Network Load Balancing (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), of op basis van hardware load balancers. De load balancer beheert verkeer door te leiden van de aangevraagde verbindingen van de Log Analytics-agents of beheerservers van Operations Manager op de knooppunten. Als een Gateway-server uitvalt, wordt het verkeer wordt omgeleid naar andere knooppunten.
+U kunt de gateway configureren voor maximale Beschik baarheid met behulp van Network Load Balancing (NLB) met behulp van micro soft [Network Load Balancing (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)of load balancers op basis van hardware. De load balancer beheert verkeer door te leiden van de aangevraagde verbindingen van de Log Analytics-agents of beheerservers van Operations Manager op de knooppunten. Als een Gateway-server uitvalt, wordt het verkeer wordt omgeleid naar andere knooppunten.
 
-### <a name="microsoft-network-load-balancing"></a>Microsoft Network Load Balancing
-Zie voor informatie over het ontwerpen en implementeren van een Windows Server 2016 network load balancing-cluster, [Network load balancing](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). De volgende stappen wordt beschreven hoe u een Microsoft network load balancing-cluster configureren.  
+### <a name="microsoft-network-load-balancing"></a>Micro soft Network Load Balancing
+Zie voor informatie over het ontwerpen en implementeren van een Windows Server 2016 network load balancing-cluster, [Network load balancing](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). In de volgende stappen wordt beschreven hoe u een micro soft Network Load Balancing-cluster configureert.  
 
 1. Meld u aan de Windows-server die deel uitmaakt van het NLB-cluster met een Administrator-account.  
 2. Beheer van netwerktaakverdeling in Serverbeheer openen, klikt u op **extra**, en klik vervolgens op **beheer van netwerktaakverdeling**.
 3. Als u wilt verbinding maken met een Log Analytics gateway-server met de Microsoft Monitoring Agent is geïnstalleerd, met de rechtermuisknop op het IP-adres van het cluster en klik vervolgens op **Host aan Cluster toevoegen**. 
 
-    ![Network Load Balancing Manager – toevoegen Host aan Cluster](./media/gateway/nlb02.png)
+    ![Beheer van netwerk taakverdeling – host aan cluster toevoegen](./media/gateway/nlb02.png)
  
 4. Voer het IP-adres van de gateway-server waarmee u verbinding wilt maken. 
 
-    ![Network Load Balancing Manager – toevoegen Host aan Cluster: Verbinding maken](./media/gateway/nlb03.png) 
+    ![Beheer van netwerk taakverdeling: een host toevoegen aan het cluster: Verbinden](./media/gateway/nlb03.png) 
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Zie voor informatie over het ontwerpen en implementeren van een Azure Load Balancer, [wat is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Voor het implementeren van een basic load balancer, volg de stappen in deze [snelstartgids](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) met uitzondering van de stappen die worden beschreven in de sectie **maken van back-endservers**.   
+Zie [Wat is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md)voor meer informatie over het ontwerpen en implementeren van een Azure Load Balancer. Als u een basis load balancer wilt implementeren, volgt u de stappen die worden beschreven in deze [Quick](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) start, met uitzonde ring van de stappen die worden beschreven in de sectie **back-endservers maken**.   
 
 > [!NOTE]
-> Configureren van de Azure Load Balancer met behulp van de **basis-SKU**, vereist dat virtuele Azure-machines deel uitmaken van een Beschikbaarheidsset. Zie voor meer informatie over beschikbaarheidssets, [de beschikbaarheid van Windows virtuele machines in Azure beheren](../../virtual-machines/windows/manage-availability.md). Bestaande virtuele machines toevoegen aan een beschikbaarheidsset, verwijzen naar [ingesteld Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Voor het configureren van de Azure Load Balancer met behulp van de **basis-SKU**, moeten virtuele Azure-machines deel uitmaken van een beschikbaarheidsset. Zie [de beschik baarheid van virtuele Windows-machines beheren in azure](../../virtual-machines/windows/manage-availability.md)voor meer informatie over beschikbaarheids sets. Als u bestaande virtuele machines wilt toevoegen aan een beschikbaarheidsset, raadpleegt u Azure Resource Manager-Beschikbaarheidsset voor [Vm's instellen](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
-Nadat de load balancer is gemaakt, moet een back-endgroep worden gemaakt, die wordt gedistribueerd naar een of meer gatewayservers. Volg de stappen in de sectie quickstart-artikel [resources maken voor de load balancer](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
+Nadat de load balancer is gemaakt, moet er een back-end-pool worden gemaakt die verkeer naar een of meer Gateway servers distribueert. Volg de stappen die worden beschreven in de sectie Quick Start-artikel [resources maken voor de Load Balancer](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
 
 >[!NOTE]
->Bij het configureren van de statustest moet deze worden geconfigureerd voor het gebruik van de TCP-poort van de gateway-server. De statustest voegt dynamisch of verwijdert u de gateway-servers uit de load balancer-rotatie op basis van hun reactie op statuscontroles. 
+>Bij het configureren van de status test moet deze worden geconfigureerd voor het gebruik van de TCP-poort van de gateway server. Met de Health probe worden de gateway servers dynamisch toegevoegd aan of verwijderd uit de load balancer draaiing op basis van hun reactie op status controles. 
 >
 
-## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>De Log Analytics-agent en Operations Manager-beheergroep configureren
-In deze sectie ziet u hoe u rechtstreeks verbonden zijn met Log Analytics-agents, een beheergroep van Operations Manager of Azure Automation Hybrid Runbook Workers configureren met de Log Analytics-gateway om te communiceren met Azure Automation of Log Analytics.  
+## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>De Log Analytics agent en Operations Manager beheer groep configureren
+In deze sectie ziet u hoe u rechtstreeks verbonden Log Analytics agents, een Operations Manager beheer groep of Azure Automation Hybrid Runbook Workers met de Log Analytics gateway kunt configureren om te communiceren met Azure Automation of Log Analytics.  
 
 ### <a name="configure-a-standalone-log-analytics-agent"></a>Een zelfstandige Log Analytics-agent configureren
-Bij het configureren van de Log Analytics-agent, vervang u de waarde van de proxy door het IP-adres van de Log Analytics gateway-server en het poortnummer. Als u meerdere gatewayservers achter een load balancer hebt geïmplementeerd, is de configuratie van de Log Analytics-agent-proxy in het virtuele IP-adres van de load balancer.  
+Vervang bij het configureren van de Log Analytics-agent de waarde van de proxy server door het IP-adres van de Log Analytics Gateway server en het poort nummer. Als u meerdere Gateway servers achter een load balancer hebt geïmplementeerd, is de proxy configuratie van de Log Analytics-agent het virtuele IP-adres van de load balancer.  
 
 >[!NOTE]
->Zie voor informatie over het installeren van de Log Analytics-agent op de gateway en de Windows-computers die rechtstreeks verbinding met Log Analytics maken [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](agent-windows.md). Zie voor Linux-computers verbinding, [configureren van een Log Analytics-agent voor Linux-computers in een hybride omgeving](../../azure-monitor/learn/quick-collect-linux-computer.md). 
+>Zie [Windows-computers verbinden met de log Analytics-service in azure](agent-windows.md)om de log Analytics-agent te installeren op de gateway en Windows-computers die rechtstreeks verbinding maken met log Analytics. Zie [Configure a log Analytics agent for Linux computers in een hybride omgeving](../../azure-monitor/learn/quick-collect-linux-computer.md)voor het verbinden van Linux-computers. 
 >
 
-Nadat u de agent op de gateway-server installeert, configureert om te rapporteren aan de werkruimte of werkruimte agents die met de gateway communiceren. Als de Log Analytics-Windows-agent is niet geïnstalleerd op de gateway, wordt de gebeurtenis 300 geschreven naar het gebeurtenislogboek van de OMS-Gateway, die aangeeft dat de agent moet worden geïnstalleerd. Als de agent is geïnstalleerd, maar niet is geconfigureerd om te rapporteren aan dezelfde werkruimte als de agents die via het communiceren, is 105 gebeurtenis geschreven naar hetzelfde logboek, waarmee wordt aangegeven dat de agent op de gateway moet worden geconfigureerd om te rapporteren aan dezelfde werkruimte als de agents die co mmunicate met de gateway.
+Nadat u de agent op de gateway server hebt geïnstalleerd, moet u deze configureren om te rapporteren aan de werk ruimte of werkruimte agenten die communiceren met de gateway. Als de Log Analytics Windows-agent niet is geïnstalleerd op de gateway, wordt gebeurtenis 300 naar het gebeurtenis logboek van de OMS-gateway geschreven, waarmee wordt aangegeven dat de agent moet worden geïnstalleerd. Als de agent is geïnstalleerd, maar niet is geconfigureerd om te rapporteren aan dezelfde werk ruimte als de agents die door worden gecommuniceerd, wordt gebeurtenis 105 naar hetzelfde logboek geschreven. Dit betekent dat de agent op de gateway moet worden geconfigureerd om te rapporteren aan dezelfde werk ruimte als de agents die co mmunicate met de gateway.
 
-Nadat u de configuratie hebt voltooid, start u de OMS-Gateway-service om de wijzigingen te laten. Anders wordt de gateway de agents die probeert te communiceren met Log Analytics en rapporteert gebeurtenis 105 in het gebeurtenislogboek van de OMS-Gateway geweigerd. Dit gebeurt ook wanneer u toevoegen of verwijderen van een werkruimte van de configuratie van de agent op de gatewayserver.   
+Nadat u de configuratie hebt voltooid, start u de OMS-Gateway Service opnieuw om de wijzigingen toe te passen. Anders weigert de gateway agents die proberen te communiceren met Log Analytics en rapporteert gebeurtenis 105 in het gebeurtenis logboek van de OMS-gateway. Dit gebeurt ook wanneer u een werk ruimte toevoegt aan of verwijdert uit de configuratie van de agent op de gateway server.   
 
-Zie voor informatie met betrekking tot Automation Hybrid Runbook Worker [resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
+Zie [resources in uw Data Center of Cloud automatiseren](../../automation/automation-hybrid-runbook-worker.md)met behulp van Hybrid Runbook worker voor informatie met betrekking tot de automatiserings Hybrid Runbook Worker.
 
-### <a name="configure-operations-manager-where-all-agents-use-the-same-proxy-server"></a>Configureren van Operations Manager, waar alle agenten dezelfde proxyserver gebruiken
-De configuratie van de Operations Manager-proxy wordt automatisch toegepast op alle agents die aan Operations Manager rapporteren, zelfs als de instelling leeg is.  
+### <a name="configure-operations-manager-where-all-agents-use-the-same-proxy-server"></a>Operations Manager configureren, waarbij alle agents dezelfde proxy server gebruiken
 
-Voor het gebruik van OMS-Gateway voor de ondersteuning van Operations Manager, moet u het volgende hebben:
+De configuratie van de Operations Manager-proxy wordt automatisch toegepast op alle agents die rapporteren aan Operations Manager, zelfs als de instelling leeg is.  
 
-* Microsoft Monitoring Agent (versie 8.0.10900.0 of hoger) op de server van de OMS-Gateway is geïnstalleerd en geconfigureerd met de dezelfde Log Analytics-werkruimten die uw beheergroep is geconfigureerd voor rapportage aan.
-* Verbinding met Internet. U kunt ook moet OMS-Gateway worden verbonden met een proxyserver die is verbonden met internet.
+Als u de OMS-gateway wilt gebruiken voor de ondersteuning van Operations Manager, hebt u het volgende nodig:
+
+* Micro soft Monitoring Agent (versie 8.0.10900.0 of hoger) geïnstalleerd op de OMS-Gateway server en is geconfigureerd met dezelfde Log Analytics werk ruimten die door uw beheer groep zijn geconfigureerd om te rapporteren.
+* Internet verbinding. De OMS-gateway moet ook zijn verbonden met een proxy server die is verbonden met internet.
 
 > [!NOTE]
-> Als u geen waarde voor de gateway opgeeft, worden lege waarden worden gepusht naar alle agents.
+> Als u geen waarde voor de gateway opgeeft, worden lege waarden naar alle agents gepusht.
 >
 
-Als uw Operations Manager-beheergroep voor het eerst bij een Log Analytics-werkruimte registreren is, ziet u de optie om op te geven van de configuratie van de proxy voor de beheergroep die u in de Operations-console. Deze optie is alleen beschikbaar als de beheergroep is geregistreerd bij de service.  
+Als uw Operations Manager-beheer groep voor de eerste keer wordt geregistreerd met een Log Analytics-werk ruimte, ziet u de optie om de proxy configuratie voor de beheer groep niet op te geven in de operations-console. Deze optie is alleen beschikbaar als de beheer groep is geregistreerd bij de service.  
 
-Bijwerken om integratie te configureren, de systeemconfiguratie van de proxyserver met behulp van Netsh op het systeem waarop u de Operations-console wordt uitgevoerd en op alle beheerservers in de beheergroep. Volg deze stappen:
+Als u de integratie wilt configureren, werkt u de systeem proxy configuratie bij met behulp van Netsh op het systeem waarop u de operations-console uitvoert en op alle beheerser vers in de beheer groep. Volg deze stappen:
 
-1. Open een opdrachtprompt met verhoogde bevoegdheid:
+1. Open een opdracht prompt met verhoogde bevoegdheid:
 
-   a. Selecteer **Start** en voer **cmd**.  
+   a. Selecteer **Start** en typ **cmd**.  
 
-   b. Met de rechtermuisknop op **opdrachtprompt** en selecteer **als administrator uitvoeren**.  
+   b. Klik met de rechter muisknop op **opdracht prompt** en selecteer **als administrator uitvoeren**.  
 
 1. Voer de volgende opdracht in:
 
    `netsh winhttp set proxy <proxy>:<port>`
 
-Na het voltooien van de integratie met Log Analytics, verwijdert u de wijziging door te voeren `netsh winhttp reset proxy`. Gebruik vervolgens in de Operations-console de **proxyserver configureren** optie om op te geven van de Log Analytics-gatewayserver. 
+Nadat de integratie met Log Analytics is voltooid, verwijdert u de wijziging `netsh winhttp reset proxy`door uit te voeren. Gebruik vervolgens de optie **proxy server configureren** in de operations-console om de log Analytics Gateway server op te geven. 
 
-1. Op de Operations Manager-console onder **Operations Management Suite**, selecteer **verbinding**, en selecteer vervolgens **proxyserver configureren**.
+1. Selecteer in de Operations Manager-console, onder **Operations Management Suite**, de optie **verbinding**en selecteer vervolgens **proxy server configureren**.
 
-   ![Schermafbeelding van Operations Manager, waarin de selectie van Proxy-Server configureren](./media/gateway/scom01.png)
+   ![Scherm opname van Operations Manager, met de selectie proxy server configureren](./media/gateway/scom01.png)
 
-1. Selecteer **een proxyserver gebruiken voor toegang tot de Operations Management Suite** en voer het IP-adres van de Log Analytics-gatewayserver of virtueel IP-adres van de load balancer. Zorg ervoor dat u beginnen met het voorvoegsel `http://`.
+1. Selecteer **een proxy server gebruiken voor toegang tot de Operations Management Suite** en voer vervolgens het IP-adres in van de log Analytics Gateway server of het virtuele IP-adres van de Load Balancer. Zorg ervoor dat u begint met het `http://`voor voegsel.
 
-   ![Schermafbeelding van Operations Manager, waarin de proxy-serveradres](./media/gateway/scom02.png)
+   ![Scherm opname van Operations Manager, met het proxyserver adres](./media/gateway/scom02.png)
 
 1. Selecteer **Finish**. Uw Operations Manager-beheergroep is nu geconfigureerd voor communicatie via de gatewayserver aan de Log Analytics-service.
 
-### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>Operations Manager, waarin specifieke agents wordt gebruikt een proxyserver configureren
-Voor grote of complexe omgevingen, kunt u alleen specifieke servers (of groepen) de Log Analytics-gateway-server te gebruiken.  Voor deze servers bijwerken u niet Operations Manager-agent rechtstreeks omdat deze waarde wordt overschreven door de algemene waarde voor de beheergroep.  In plaats daarvan de regel die wordt gebruikt om deze waarden onderdrukken.  
+### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>Operations Manager configureren, waarbij specifieke agenten een proxy server gebruiken
+
+Voor grote of complexe omgevingen wilt u mogelijk dat alleen specifieke servers (of groepen) de Log Analytics Gateway server gebruiken.  Voor deze servers kunt u de Operations Manager-agent niet rechtstreeks bijwerken omdat deze waarde wordt overschreven door de globale waarde voor de beheer groep.  In plaats daarvan overschrijft u de regel die wordt gebruikt om deze waarden te pushen.  
 
 > [!NOTE] 
-> Deze techniek configuratie gebruiken als u wilt toestaan voor meerdere Log Analytics gateway-servers in uw omgeving.  U kunt bijvoorbeeld vereisen dat specifieke Log Analytics gateway-servers worden opgegeven op basis van landinstellingen.
+> Gebruik deze configuratie techniek als u meerdere Log Analytics Gateway servers in uw omgeving wilt toestaan.  U kunt bijvoorbeeld vereisen dat specifieke Log Analytics Gateway servers op regionale basis worden opgegeven.
 >
 
-Het configureren van specifieke servers of groepen de Log Analytics-gateway-server te gebruiken: 
+Specifieke servers of groepen configureren voor het gebruik van de Log Analytics-Gateway server: 
 
 1. Open de Operations Manager-console en selecteer de **ontwerpen** werkruimte.  
-1. Selecteer in de werkruimte ontwerpen **regels**. 
-1. Selecteer op de werkbalk Operations Manager de **bereik** knop. Als deze knop niet beschikbaar is, controleert u of u een object, en geen map, hebt geselecteerd in de **bewaking** deelvenster. De **bereik Management Pack-objecten** in het dialoogvenster geeft een lijst van algemene gerichte klassen, groepen of objecten. 
-1. In de **zoekt** veld **Health-Service** en selecteer deze in de lijst. Selecteer **OK**.  
-1. Zoeken naar **Advisor Proxy-instelling van regel**. 
-1. Selecteer op de werkbalk Operations Manager **onderdrukkingen** en wijs vervolgens **overschrijven de Rule\For een specifiek object van klasse: Health-Service** en selecteer een object in de lijst.  Of een aangepaste groep waarin de health-service-object van de servers die u wilt toepassen met deze onderdrukking te maken. De onderdrukking toepassen op uw aangepaste groep.
-1. In de **Onderdrukkingseigenschappen** dialoogvenster vak, voegt u een vinkje in de **overschrijven** kolom naast de **WebProxyAddress** parameter.  In de **Onderdrukkingswaarde** en voer de URL van de Log Analytics-gatewayserver. Zorg ervoor dat u beginnen met het voorvoegsel `http://`.  
+1. Selecteer in de werk ruimte ontwerpen de optie **regels**. 
+1. Selecteer de knop **bereik** op de werk balk Operations Manager. Als deze knop niet beschikbaar is, moet u ervoor zorgen dat u een object hebt geselecteerd, niet een map, in het deel venster **bewaking** . De **bereik Management Pack-objecten** in het dialoogvenster geeft een lijst van algemene gerichte klassen, groepen of objecten. 
+1. In het veld **zoeken naar** voert u **Health Service** in en selecteert u deze in de lijst. Selecteer **OK**.  
+1. Zoek naar een regel voor de instellingen van de **Advisor-proxy**. 
+1. Selecteer op de werk balk Operations Manager de optie onderdrukkingen en wijs **vervolgens de Rule\For van een specifiek object van klasse. Health Service** en selecteer een object in de lijst.  Of maak een aangepaste groep die het Health Service-object bevat van de servers waarop u deze onderdrukking wilt Toep assen. Pas vervolgens de onderdrukking toe op uw aangepaste groep.
+1. Voeg in het dialoog venster **onderdrukkings eigenschappen** het selectie vakje in de kolom **overschrijven** naast de para meter **WebProxyAddress** toe.  Voer in het veld **onderdrukkings waarde** de URL in van de log Analytics Gateway server. Zorg ervoor dat u begint met het `http://`voor voegsel.  
 
     >[!NOTE]
-    > U hoeft niet te de regel in te schakelen. Er is al automatisch beheerd met een onderdrukking in het managementpack voor Microsoft System Center Advisor beveiligde verwijzing overschrijven die is gericht op de Microsoft System Center Advisor Monitoring Server-groep.
+    > U hoeft de regel niet in te scha kelen. Het wordt al automatisch beheerd met een onderdrukking in de beveiligings onderdrukking van micro soft System Center Advisor management pack die gericht is op de micro soft System Center Advisor monitoring Server-groep.
     > 
 
-1. Selecteer een managementpack uit de **selecteert bestemmingsmanagement pack** lijst of maak een nieuw niet-verzegeld managementpack door te selecteren **nieuw**. 
+1. Selecteer een management pack in de lijst **doel Management Pack selecteren** of maak een nieuw niet-verzegeld Management Pack door **Nieuw**te selecteren. 
 1. Selecteer **OK** wanneer u klaar bent. 
 
-### <a name="configure-for-automation-hybrid-runbook-workers"></a>Voor Automation Hybrid Runbook Workers configureren
-Als u Automation Hybrid Runbook Workers in uw omgeving hebt, volgt u deze stappen voor handmatige, tijdelijke oplossingen ter ondersteuning van de werknemers OMS-Gateway configureren.
+### <a name="configure-for-automation-hybrid-runbook-workers"></a>Configureren voor Hybrid Automation-Runbook Workers
 
-Als u wilt volgen de stappen in deze sectie, moet u weten van de Azure-regio waarin het Automation-account zich bevindt. Om te zoeken die locatie:
+Als u Automation Hybrid Runbook Workers in uw omgeving hebt, volgt u deze stappen voor hand matige tijdelijke oplossingen voor het configureren van de OMS-gateway voor de ondersteuning van de werk nemers.
+
+Als u de stappen in deze sectie wilt volgen, moet u weten wat de Azure-regio is waarin het Automation-account zich bevindt. Deze locatie zoeken:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 1. Selecteer de Azure Automation-service.
 1. Selecteer het juiste Azure Automation-account.
 1. De regio onder weergeven **locatie**.
 
-   ![Schermafbeelding van de locatie van de Automation-account in Azure portal](./media/gateway/location.png)
+   ![Scherm afbeelding van de locatie van het Automation-account in de Azure Portal](./media/gateway/location.png)
 
-Gebruik de volgende tabellen om te identificeren van de URL voor elke locatie.
+Gebruik de volgende tabellen om de URL voor elke locatie te identificeren.
 
-**Gegevens van de Runtime-URL 's**
+**Url's voor taak runtime gegevens service**
 
-| **Locatie** | **URL** |
+| **Location** | **URL** |
 | --- | --- |
 | US - noord-centraal |ncus-jobruntimedata-prod-su1.azure-automation.net |
 | Europa -west |we-jobruntimedata-prod-su1.azure-automation.net |
@@ -325,7 +330,7 @@ Gebruik de volgende tabellen om te identificeren van de URL voor elke locatie.
 
 **Agent-service-URL 's**
 
-| **Locatie** | **URL** |
+| **Location** | **URL** |
 | --- | --- |
 | US - noord-centraal |ncus-agentservice-prod-1.azure-automation.net |
 | Europa -west |we-agentservice-prod-1.azure-automation.net |
@@ -338,12 +343,12 @@ Gebruik de volgende tabellen om te identificeren van de URL voor elke locatie.
 | Japan |jpe-agentservice-prod-1.azure-automation.net |
 | Australië |ase-agentservice-prod-1.azure-automation.net |
 
-Als uw computer wordt automatisch geregistreerd als een Hybrid Runbook Worker, gebruikt u de oplossing Update Management voor het beheren van de patch. Volg deze stappen:
+Als uw computer automatisch als Hybrid Runbook Worker wordt geregistreerd, gebruikt u de Updatebeheer-oplossing om de patch te beheren. Volg deze stappen:
 
 1. De gegevens van de Runtime-service-URL's toevoegen aan de lijst met toegestane Host op de Log Analytics-gateway. Bijvoorbeeld: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. De Log Analytics-gateway-service opnieuw starten met behulp van de volgende PowerShell-cmdlet: `Restart-Service OMSGatewayService`
 
-Als uw computer is toegevoegd aan Azure Automation met behulp van de cmdlet voor de Hybrid Runbook Worker-registratie, volg deze stappen:
+Als uw computer is toegevoegd aan Azure Automation met behulp van de Hybrid Runbook Worker registratie-cmdlet, volgt u deze stappen:
 
 1. De registratie-URL van de agent-service toevoegen aan de lijst met toegestane Host op de Log Analytics-gateway. Bijvoorbeeld: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
 1. De gegevens van de Runtime-service-URL's toevoegen aan de lijst met toegestane Host op de Log Analytics-gateway. Bijvoorbeeld: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
@@ -351,15 +356,16 @@ Als uw computer is toegevoegd aan Azure Automation met behulp van de cmdlet voor
     `Restart-Service OMSGatewayService`
 
 ## <a name="useful-powershell-cmdlets"></a>Nuttige PowerShell-cmdlets
-U kunt cmdlets gebruiken om de taken voor het bijwerken van de Log Analytics-gatewayconfiguratie-instellingen te voltooien. Voordat u cmdlets gebruikt, moet u naar:
 
-1. De Log Analytics-gateway (Microsoft Windows-installatieprogramma) installeren.
+U kunt cmdlets gebruiken om de taken uit te voeren om de configuratie-instellingen van de Log Analytics-gateway bij te werken. Voordat u cmdlets gebruikt, moet u het volgende doen:
+
+1. Installeer de Log Analytics-gateway (Microsoft Windows Installer).
 1. Open een PowerShell-consolevenster.
-1. Importeer de module met deze opdracht te typen: `Import-Module OMSGateway`
+1. Importeer de module door de volgende opdracht te typen:`Import-Module OMSGateway`
 1. Als er geen fout is opgetreden in de vorige stap, de module is geïmporteerd en de cmdlets kunnen worden gebruikt. Voer `Get-Module OMSGateway` in
-1. Nadat u de cmdlets gebruikt om wijzigingen aanbrengen, moet u de OMS-Gateway-service opnieuw starten.
+1. Nadat u de cmdlets hebt gebruikt om wijzigingen aan te brengen, start u de OMS-Gateway Service opnieuw.
 
-Een fout in stap 3 betekent dat de module is niet geïmporteerd. De fout kan optreden wanneer PowerShell kan de module niet vinden. U kunt de module niet vinden in de OMS-Gateway-installatiepad: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
+Een fout in stap 3 betekent dat de module niet is geïmporteerd. De fout kan optreden wanneer Power shell de module niet kan vinden. U kunt de module vinden in het installatiepad van de OMS-gateway: *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Cmdlet** | **Parameters** | **Beschrijving** | **Voorbeeld** |
 | --- | --- | --- | --- |  
@@ -367,56 +373,59 @@ Een fout in stap 3 betekent dat de module is niet geïmporteerd. De fout kan opt
 | `Set-OMSGatewayConfig` |Sleutel (vereist) <br> Waarde |De configuratie van de service wordt gewijzigd |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Het adres van de relay (upstream) proxy opgehaald |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Adres<br> Gebruikersnaam<br> Wachtwoord |Hiermee stelt u het adres (en de referentie) van de relay (upstream) proxy |1. Stel een relay-proxy en de referentie:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Een relay-proxy die verificatie hoeft niet instellen: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Schakel de relay proxy-instellingen:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
-| `Get-OMSGatewayAllowedHost` | |De host momenteel toegestane opgehaald (alleen de lokaal geconfigureerde toegestane toegestane host is, niet automatisch gedownload hosts) |`Get-OMSGatewayAllowedHost` | 
+| `Get-OMSGatewayAllowedHost` | |Hiermee wordt de momenteel toegestane host opgehaald (alleen de lokaal geconfigureerde host, niet automatisch gedownloade hosts) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (vereist) |De host aan de lijst met toegestane toevoegt |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (vereist) |Hiermee verwijdert u de host uit de lijst met toegestane |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
 | `Add-OMSGatewayAllowedClientCertificate` |Subject (vereist) |Het clientcertificaat onderworpen aan de lijst met toegestane toegevoegd |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
 | `Remove-OMSGatewayAllowedClientCertificate` |Subject (vereist) |Hiermee verwijdert u het certificaatonderwerp client uit de lijst met toegestane |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
-| `Get-OMSGatewayAllowedClientCertificate` | |Haalt de client op dit moment toegestane (alleen de lokaal geconfigureerde toegestane onderwerpen, niet automatisch gedownload toegestaan onderwerpen) certificaat onderwerpen |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
+| `Get-OMSGatewayAllowedClientCertificate` | |Hiermee worden de momenteel toegestane certificaat houders van client certificaten opgehaald (alleen de lokaal geconfigureerde, niet automatisch gedownloade onderwerpen) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-U hebt voor het verzamelen van gebeurtenissen vastgelegd door de gateway, de Log Analytics-agent is geïnstalleerd.
 
-![Schermafbeelding van de Event Viewer-lijst in het logboek voor de Log Analytics-gateway](./media/gateway/event-viewer.png)
+Als u gebeurtenissen wilt verzamelen die door de gateway worden geregistreerd, moet de Log Analytics-agent zijn geïnstalleerd.
 
-### <a name="log-analytics-gateway-event-ids-and-descriptions"></a>Log Analytics-gateway gebeurtenis-id's en beschrijvingen
+![Scherm afbeelding van de lijst Logboeken in het Log Analytics gateway-logboek](./media/gateway/event-viewer.png)
 
-De volgende tabel ziet u de gebeurtenis-id's en beschrijvingen voor logboekgebeurtenissen van Log Analytics-gateway.
+### <a name="log-analytics-gateway-event-ids-and-descriptions"></a>Log Analytics gateway gebeurtenis-Id's en-beschrijvingen
+
+In de volgende tabel worden de gebeurtenis-Id's en beschrijvingen voor Log Analytics-gateway logboek gebeurtenissen weer gegeven.
 
 | **ID** | **Beschrijving** |
 | --- | --- |
-| 400 |Een toepassingsfout die geen specifieke id heeft. |
-| 401 |Onjuiste configuratie. Bijvoorbeeld, listenPort = "text" in plaats van een geheel getal zijn. |
-| 402 |Uitzondering bij het parseren van TLS-handshake berichten. |
-| 403 |Fout bij het netwerk. Bijvoorbeeld: kan geen verbinding maken met doelserver. |
+| 400 |Een toepassings fout die geen specifieke ID heeft. |
+| 401 |Onjuiste configuratie. Bijvoorbeeld, listenPort = "text" in plaats van een geheel getal. |
+| 402 |Uitzonde ring bij het parseren van TLS-Handshake-berichten. |
+| 403 |Fout bij het netwerk. Kan bijvoorbeeld geen verbinding maken met de doel server. |
 | 100 |Algemene informatie. |
-| 101 |Service is gestart. |
-| 102 |Service is gestopt. |
-| 103 |Een opdracht HTTP-verbinding is ontvangen van de client. |
-| 104 |Geen een HTTP-verbinding maken met de opdracht. |
-| 105 |Doelserver zich niet in de lijst met toegestane of doelpoort is niet beveiligd (443). <br> <br> Zorg ervoor dat de MMA-agent op uw OMS-Gateway-server en de agents die met OMS-Gateway communiceren zijn verbonden met de dezelfde Log Analytics-werkruimte. |
-| 105 |Fout TcpConnection: ongeldig clientcertificaat: CN=Gateway. <br><br> Zorg ervoor dat u OMS-Gateway versie 1.0.395.0 of hoger. Zorg er ook voor dat de MMA-agent op uw OMS-Gateway-server en de agents die communiceren met OMS-Gateway zijn verbonden met de dezelfde Log Analytics-werkruimte. |
-| 106 |Niet-ondersteunde versie van TLS/SSL-protocol.<br><br> De Log Analytics-gateway ondersteunt alleen TLS 1.0, TLS 1.1 en 1.2. Het biedt geen ondersteuning voor SSL.|
-| 107 |De TLS-sessie is geverifieerd. |
+| 101 |De service is gestart. |
+| 102 |De service is gestopt. |
+| 103 |Er is een HTTP CONNECT-opdracht ontvangen van de client. |
+| 104 |Geen HTTP-VERBINDINGS opdracht. |
+| 105 |De doel server bevindt zich niet in de lijst met toegestane servers of de doel poort is niet beveiligd (443). <br> <br> Zorg ervoor dat de MMA-agent op de OMS-Gateway server en de agents die communiceren met de OMS-gateway, zijn verbonden met dezelfde Log Analytics-werk ruimte. |
+| 105 |FOUT TcpConnection: ongeldig client certificaat: CN = gateway. <br><br> Zorg ervoor dat u de OMS-gateway versie 1.0.395.0 of hoger gebruikt. Zorg er ook voor dat de MMA-agent op de OMS-Gateway server en de agents die communiceren met de OMS-gateway, zijn verbonden met dezelfde Log Analytics-werk ruimte. |
+| 106 |Niet-ondersteunde TLS/SSL-protocol versie.<br><br> De Log Analytics-gateway ondersteunt alleen TLS 1,0, TLS 1,1 en 1,2. Het biedt geen ondersteuning voor SSL.|
+| 107 |De TLS-sessie is gecontroleerd. |
 
-### <a name="performance-counters-to-collect"></a>Te verzamelen prestatiemeteritems
+### <a name="performance-counters-to-collect"></a>Te verzamelen prestatie meter items
 
-De volgende tabel ziet u de prestatiemeteritems die beschikbaar zijn voor de Log Analytics-gateway. Prestatiemeter gebruiken voor het toevoegen van de items.
+De volgende tabel ziet u de prestatiemeteritems die beschikbaar zijn voor de Log Analytics-gateway. Gebruik prestatie meter om de tellers toe te voegen.
 
-| **Naam** | **Beschrijving** |
+| **Name** | **Beschrijving** |
 | --- | --- |
 | Log Analytics Gateway/actieve-clientverbinding |Aantal actieve client-Netwerkverbindingen (TCP) |
 | Aantal log Analytics-Gateway/fouten |Aantal fouten |
 | Log Analytics-Gateway of verbonden Client |Aantal verbonden clients |
 | Log Analytics Gateway/afwijzing tellen |Het aantal weigeringen vanwege een validatiefout TLS |
 
-![Schermafbeelding van Log Analytics gateway interface, prestatiemeteritems weergeven](./media/gateway/counters.png)
+![Scherm opname van Log Analytics Gateway Interface, met prestatie meter items](./media/gateway/counters.png)
 
 ## <a name="assistance"></a>Ondersteuning
-Wanneer u bent aangemeld bij de Azure-portal, kunt u hulp bij de Log Analytics-gateway of een andere Azure-service of functie.
-Hulp bij, selecteert u het vraagtekenpictogram in de rechterbovenhoek van de portal en selecteer **nieuwe ondersteuningsaanvraag**. Voltooi nieuw aanvraagformulier voor de ondersteuning.
 
-![Schermafbeelding van een nieuwe ondersteuningsaanvraag](./media/gateway/support.png)
+Wanneer u bent aangemeld bij de Azure Portal, kunt u hulp krijgen bij de Log Analytics gateway of een andere Azure-service of-functie.
+Als u hulp wilt krijgen, selecteert u het pictogram vraag teken in de rechter bovenhoek van de portal en selecteert u **nieuwe ondersteunings aanvraag**. Vul vervolgens het nieuwe formulier voor de ondersteunings aanvraag in.
+
+![Scherm opname van een nieuwe ondersteunings aanvraag](./media/gateway/support.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-[Gegevensbronnen toevoegen](../../azure-monitor/platform/agent-data-sources.md) voor het verzamelen van gegevens vanuit verbonden bronnen, en opslaan van de gegevens in uw Log Analytics-werkruimte.
+
+[Voeg gegevens bronnen](../../azure-monitor/platform/agent-data-sources.md) toe om gegevens te verzamelen van verbonden bronnen en sla de gegevens op in uw log Analytics-werk ruimte.

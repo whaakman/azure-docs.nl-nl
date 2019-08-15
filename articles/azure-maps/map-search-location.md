@@ -1,6 +1,6 @@
 ---
 title: Zoek resultaten weer geven met Azure Maps | Microsoft Docs
-description: Een zoek opdracht uitvoeren met Azure Maps de resultaten weer geven op een Java script-kaart
+description: Het uitvoeren van een zoek opdracht met Azure Maps de resultaten weer geven op de Azure Maps Web-SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 22b677ef4b21d3869e39d600910c271c935934ca
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7c4c78e1d21754d42391a3762e9f7ed199a7376b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638657"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975966"
 ---
 # <a name="show-search-results-on-the-map"></a>Zoek resultaten weer geven op de kaart
 
@@ -55,7 +55,7 @@ Met het vierde code blok wordt een gegevens bron object gemaakt met behulp van d
 
 Met het laatste code blok wordt een [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest) -object gemaakt met behulp van de matrix met resultaten en worden de camera grenzen voor de kaart vervolgens aangepast met behulp van de [SetCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)van de kaart. Vervolgens worden de resultaat pinnen weer gegeven.
 
-De zoek aanvraag, de gegevens bron en de symbool-laag en de grenzen van de camera worden ingesteld in de [gebeurtenislistener van de](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) kaart, om ervoor te zorgen dat de resultaten worden weer gegeven nadat de kaart volledig is geladen.
+De zoek aanvraag, de gegevens bron en de symbool-laag en de grenzen van de camera worden ingesteld in de [](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) gebeurtenislistener van de kaart, om ervoor te zorgen dat de resultaten worden weer gegeven nadat de kaart volledig is geladen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

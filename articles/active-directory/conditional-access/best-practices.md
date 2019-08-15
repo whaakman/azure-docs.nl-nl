@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248884"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963453"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -35,7 +35,7 @@ Wanneer u een nieuw beleid maakt, zijn er geen gebruikers, groepen, apps of toeg
 
 Als u uw beleid wilt laten werken, moet u het volgende configureren:
 
-| Wat           | werking                                  | Waarom |
+| Wat           | Werking                                  | Waarom |
 | :--            | :--                                  | :-- |
 | **Cloud-apps** |Selecteer een of meer apps.  | Het doel van een beleid voor voorwaardelijke toegang is om u te laten bepalen hoe geautoriseerde gebruikers toegang hebben tot Cloud-apps.|
 | **Gebruikers en groepen** | Selecteer ten minste één gebruiker of groep die is gemachtigd om toegang te krijgen tot uw geselecteerde Cloud-apps. | Een beleid voor voorwaardelijke toegang waaraan geen gebruikers en groepen zijn toegewezen, wordt nooit geactiveerd. |
@@ -50,7 +50,8 @@ Er kunnen meer dan één beleid voor voorwaardelijke toegang van toepassing zijn
 Alle beleids regels worden in twee fasen afgedwongen:
 
 - In de **eerste** fase worden alle beleids regels geëvalueerd en worden alle toegangs controles die niet worden voldaan, verzameld. 
-- In de **tweede** fase wordt u gevraagd om te voldoen aan de vereisten die u niet hebt vervuld. Als een van de beleids regels toegang blokkeert, wordt u geblokkeerd en wordt niet gevraagd om te voldoen aan andere beleids elementen. Als u beleids regels blokkeert, wordt u gevraagd om aan andere beleids besturings elementen te voldoen in de volgende volg orde:
+
+- In de **tweede** fase wordt u gevraagd om te voldoen aan de vereisten die u niet hebt vervuld. Als een van de beleids regels toegang blokkeert, wordt u geblokkeerd en wordt niet gevraagd om te voldoen aan andere beleids elementen. Als geen van de beleids regels u blokkeert, wordt u gevraagd om aan andere beleids besturings elementen te voldoen in de volgende volg orde:
 
    ![Bestellen](./media/best-practices/06.png)
     

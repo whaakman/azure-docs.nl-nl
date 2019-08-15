@@ -1,6 +1,6 @@
 ---
-title: Problemen vaststellen en oplossen van problemen met query bij het gebruik van Azure Cosmos DB
-description: Informatie over het identificeren, onderzoeken en oplossen van problemen met Azure Cosmos DB SQL-query.
+title: Problemen met query's diagnosticeren en oplossen bij het gebruik van Azure Cosmos DB
+description: Meer informatie over het identificeren, vaststellen en oplossen van problemen met Azure Cosmos DB SQL-query's.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: troubleshooting
@@ -8,62 +8,66 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 079e8677febfe6683d4f0e60a0e7ba6b06ea549d
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835839"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986172"
 ---
-# <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Prestaties van query's voor Azure Cosmos DB oplossen
-In dit artikel wordt uitgelegd hoe u identificeren, onderzoeken en oplossen van problemen met Azure Cosmos DB SQL-query. Als u wilt bereiken van optimale prestaties voor Azure Cosmos DB-query's, volgt u de onderstaande stappen. 
+# <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Problemen met de query prestaties voor Azure Cosmos DB oplossen
+In dit artikel wordt beschreven hoe u Azure Cosmos DB SQL-query problemen kunt identificeren, vaststellen en oplossen. Volg de onderstaande stappen voor probleem oplossing om de prestaties van Azure Cosmos DB query's optimaal te benutten. 
 
-## <a name="collocate-clients-in-same-azure-region"></a>Clients in hetzelfde Azure-regio te plaatsen 
-De laagst mogelijke latentie wordt bereikt door ervoor te zorgen dat de aanroepende toepassing bevindt zich in dezelfde Azure-regio als de ingerichte Azure Cosmos DB-eindpunt. Zie voor een lijst van beschikbare regio's, [Azure-regio's](https://azure.microsoft.com/global-infrastructure/regions/#services) artikel.
+## <a name="collocate-clients-in-same-azure-region"></a>Termijnen-clients in dezelfde Azure-regio 
+De laagst mogelijke latentie wordt bereikt door ervoor te zorgen dat de aanroepende toepassing zich in dezelfde Azure-regio bevindt als het ingerichte Azure Cosmos DB-eind punt. Zie het artikel [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/#services) voor een lijst met beschik bare regio's.
 
-## <a name="check-consistency-level"></a>Consistentieniveau van de controleren
-[Consistentieniveau](consistency-levels.md) kan invloed hebben op prestaties en kosten in rekening gebracht. Zorg ervoor dat uw consistentieniveau is geschikt voor het gegeven scenario. Zie voor meer informatie [Consistentieniveau kiezen](consistency-levels-choosing.md).
+## <a name="check-consistency-level"></a>Consistentie niveau controleren
+Het [consistentie niveau](consistency-levels.md) kan invloed hebben op de prestaties en kosten. Zorg ervoor dat het consistentie niveau geschikt is voor het gegeven scenario. Zie [consistentie niveau kiezen](consistency-levels-choosing.md)voor meer informatie.
 
-## <a name="log-query-metrics"></a>Meld u query metrische gegevens
-Gebruik `QueryMetrics` om op te lossen trage of dure query's. 
+## <a name="log-sql-query-in-storage-account"></a>SQL-query in het opslag account registreren
+[Met de SQL-API-query logboeken via Diagnostische logboeken](logging.md#turn-on-logging-in-the-azure-portal) kunt u de verborgen query in een opslag account van uw keuze registreren. Zo kunt u de diagnostische logboeken bekijken en query's zoeken met meer RUs en de activiteits-id gebruiken om te matchen in de QueryRuntimeStatistics. 
 
-  * Stel `FeedOptions.PopulateQueryMetrics = true` hebben `QueryMetrics` in het antwoord.
-  * `QueryMetrics` de klasse heeft een overbelaste `.ToString()` -functie die kan worden aangeroepen om op te halen van de tekenreeksvoorstelling van `QueryMetrics`. 
-  * De metrische gegevens kan worden gebruikt voor het afleiden van de volgende inzichten, onder andere: 
+
+## <a name="log-query-metrics"></a>Metrische gegevens van logboek query
+Gebruiken `QueryMetrics` voor het oplossen van problemen met trage of dure query's. 
+
+  * `FeedOptions.PopulateQueryMetrics = true` Ingesteld`QueryMetrics` op in het antwoord.
+  * `QueryMetrics`klasse heeft een overbelaste `.ToString()` functie die kan worden aangeroepen om de teken reeks representatie van `QueryMetrics`te verkrijgen. 
+  * De metrische gegevens kunnen worden gebruikt voor het afleiden van de volgende inzichten, onder andere: 
   
-      * Een specifiek onderdeel van de querypijplijn duurde of abnormaal lang (in volgorde van honderden milliseconden of meer). 
+      * Of een specifiek onderdeel van de query pijplijn abnormaal lang duurde om te volt ooien (in volg orde van honderden milliseconden of meer). 
 
-          * Bekijk `TotalExecutionTime`.
-          * Als de `TotalExecutionTime` van de query lager is dan de end-to-uitvoeringstijd en vervolgens de tijd wordt besteed in clientzijde of netwerk. Controleer dat de client en de Azure-regio worden samengevoegd.
+          * Kijk naar `TotalExecutionTime`.
+          * Als de `TotalExecutionTime` query kleiner is dan het einde van de uitvoerings tijd, wordt de tijd aan de client zijde of het netwerk uitgegeven. Controleer of de client en de Azure-regio co zijn.
       
-      * (Als uitvoer documentaantal veel minder dan opgehaald documentaantal is) of er fout-positieven beschikbaar in de documenten zijn worden geanalyseerd.  
+      * Hiermee wordt aangegeven of er sprake is van foutieve positieven in de documenten die worden geanalyseerd (als het aantal uitvoer documenten veel minder is dan het opgehaalde document aantal).  
 
-          * Bekijk `Index Utilization`.
-          * `Index Utilization` = (Aantal geretourneerde documenten / aantal geladen van documenten)
-          * Als het aantal geretourneerde documenten veel minder dan het aantal geladen is, worden klikt u vervolgens fout-positieven geanalyseerd.
-          * Beperk het aantal documenten worden opgehaald met smaller filters.  
+          * Kijk naar `Index Utilization`.
+          * `Index Utilization`= (Aantal geretourneerde documenten/aantal geladen documenten)
+          * Als het aantal geretourneerde documenten veel minder is dan het aantal dat is geladen, worden fout-positieven geanalyseerd.
+          * Beperk het aantal documenten dat wordt opgehaald met beperkende filters.  
 
-      * Hoe afzonderlijke retouren fared (Zie de `Partition Execution Timeline` van de tekenreeksvoorstelling van `QueryMetrics`). 
-      * De query gebruikt of hoge aanvraag kosten in rekening gebracht. 
+      * Hoe afzonderlijke retouren fared (Zie `Partition Execution Timeline` van de teken reeks representatie van `QueryMetrics`). 
+      * Hiermee wordt aangegeven of de query hoge kosten voor aanvragen heeft verbruikt. 
 
-Zie voor meer informatie [over het verkrijgen van metrische gegevens voor uitvoering van SQL-query](profile-sql-api-query.md) artikel.
+Zie [het artikel metrische gegevens over SQL-query's uitvoeren](profile-sql-api-query.md) voor meer informatie.
       
-## <a name="tune-query-feed-options-parameters"></a>Feed opties queryparameters afstemmen 
-Prestaties van query's kan worden afgestemd via van de aanvraag [Feed opties](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) Parameters. Probeer instelling van de onderstaande opties:
+## <a name="tune-query-feed-options-parameters"></a>Parameters voor feed-opties van query's afstemmen 
+De prestaties van query's kunnen worden afgestemd via de parameters voor de [feed-opties](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) van de aanvraag. Stel de onderstaande opties in:
 
-  * Stel `MaxDegreeOfParallelism` op-1 en vervolgens vergelijken prestaties via verschillende waarden. 
-  * Stel `MaxBufferedItemCount` op-1 en vervolgens vergelijken prestaties via verschillende waarden. 
-  * Stel `MaxItemCount` op-1.
+  * Stel `MaxDegreeOfParallelism` eerst in-1 in en vergelijkt de prestaties voor verschillende waarden. 
+  * Stel `MaxBufferedItemCount` eerst in-1 in en vergelijkt de prestaties voor verschillende waarden. 
+  * Ingesteld `MaxItemCount` op-1.
 
-Als prestaties van verschillende waarden te vergelijken, kunt u waarden zoals 2, 4, 8, 16 en anderen.
+Bij het vergelijken van de prestaties voor verschillende waarden, kunt u waarden proberen als 2, 4, 8, 16 en andere.
  
-## <a name="read-all-results-from-continuations"></a>Alle resultaten van doorloopt lezen
-Als u denkt dat u niet alle resultaten ontvangt dat, zorg ervoor dat de voortzetting volledig leegmaken. Met andere woorden, houd resultaten lezen terwijl het vervolgtoken heeft meer documenten te dragen aan.
+## <a name="read-all-results-from-continuations"></a>Alle resultaten van vervolgen lezen
+Als u denkt dat u niet alle resultaten krijgt, dient u het vervolg volledig leeg te halen. Met andere woorden: blijf de resultaten aflezen terwijl het vervolgtoken meer documenten blijft opleveren.
 
-Volledig verwerkingsstop kan worden bereikt met een van de volgende patronen:
+U kunt het vervolg volledig leeghalen met een van de twee volgende patronen:
 
-  * Verwerking resultaten blijven terwijl voortzetting niet leeg zijn is.
-  * Doorgaan met het verwerken terwijl query meer resultaten heeft. 
+  * Door gaan met het verwerken van resultaten terwijl voortzetting niet leeg is.
+  * Ga verder met de verwerking terwijl de query meer resultaten heeft. 
 
     ```csharp
     // using AsDocumentQuery you get access to whether or not the query HasMoreResults
@@ -79,16 +83,16 @@ Volledig verwerkingsstop kan worden bereikt met een van de volgende patronen:
     }
     ```
 
-## <a name="choose-system-functions-that-utilize-index"></a>Kies systeemfuncties die gebruikmaken van de index
-Als de expressie kan worden vertaald naar een reeks tekenreekswaarden, kan klikt u vervolgens het gebruikmaken van de index; anders wordt deze niet. 
+## <a name="choose-system-functions-that-utilize-index"></a>Systeemfuncties kiezen die gebruikmaken van de index
+Alleen als de expressie kan worden vertaald in een bereik met tekenreekswaarden, kan de expressie van de index gebruikmaken. 
 
-Hier volgt de lijst van de tekenreeksfuncties die de index kunnen gebruiken: 
+Hier volgt een lijst met tekenreeksfuncties die van de index gebruik kunnen maken: 
     
   * STARTSWITH(str_expr, str_expr) 
   * LEFT(str_expr, num_expr) = str_expr 
   * SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0 
     
-    Hier volgen enkele voorbeelden: 
+    Hier volgen enkele voor beelden van query's: 
     
     ```sql
 
@@ -108,9 +112,9 @@ Hier volgt de lijst van de tekenreeksfuncties die de index kunnen gebruiken:
 
     ```
 
-  * Voorkomen dat de systeemfuncties in het filter (of de component WHERE) die niet worden verwerkt door de index. Enkele voorbeelden van dergelijke systeemfuncties zijn bevat, hoofdletters, kleine.
+  * Vermijd systeem functies in het filter (of de component WHERE) die niet worden geleverd door de index. Enkele voor beelden van dergelijke systeem functies zijn onder andere contains, Upper, Lower.
   * Neem in query's indien mogelijk een filter op de partitiesleutel op.
-  * Voor het bereiken van goed presterende query's te voorkomen dat het aanroepen van hoofdletters en kleine in het filter. In plaats daarvan normaliseren hoofdlettergebruik van de waarden bij het invoegen. Voeg de waarde met de gewenste hoofdlettergebruik voor elk van de waarden of zowel de oorspronkelijke waarde als de waarde met het gewenste hoofdlettergebruik invoegen. 
+  * Om query's uit te voeren, kunt u het gebruik van een bovenste/onderste in het filter vermijden. Maak in plaats daarvan hoofdletter gebruik bij het invoegen. Voor elk van de waarden voert u de waarde in met de gewenste behuizing of voegt u de oorspronkelijke waarde en de waarde in met de gewenste behuizing. 
 
     Bijvoorbeeld:
     
@@ -120,9 +124,9 @@ Hier volgt de lijst van de tekenreeksfuncties die de index kunnen gebruiken:
 
     ```
     
-    In dit geval, store "JAAP" in hoofdletters zijn of opslaan van zowel "JAAP" als "Jaap" de oorspronkelijke waarde. 
+    In dit geval moet u ' JOE ' in hoofd letters opslaan of zowel ' Joe ' opslaan als de oorspronkelijke waarde en ' JOE '. 
     
-    Als het hoofdlettergebruik JSON-gegevens is genormaliseerd, de query wordt:
+    Als de JSON-gegevens behuizing wordt genormaliseerd, wordt de query:
     
     ```sql
 
@@ -130,45 +134,45 @@ Hier volgt de lijst van de tekenreeksfuncties die de index kunnen gebruiken:
 
     ```
 
-    De tweede query worden beter als er geen transformaties uitvoeren op elk van de waarden hoeven om de waarden vergelijken met "Jan".
+    De tweede query is meer presteert omdat hiervoor geen trans formaties voor elk van de waarden hoeft te worden uitgevoerd om de waarden te vergelijken met ' JOE '.
 
-Zie voor meer systeemfunctie details [systeemfuncties](sql-query-system-functions.md) artikel.
+Zie het artikel over [systeem functies](sql-query-system-functions.md) voor meer informatie over de systeem functie.
 
-## <a name="check-indexing-policy"></a>Beleid voor indexering controleren
-Om te controleren of de huidige [Indexeringsbeleid](index-policy.md) optimaal is:
+## <a name="check-indexing-policy"></a>Indexerings beleid controleren
+U kunt als volgt verifiëren of het huidige [Indexeringsbeleid](index-policy.md) optimaal is:
 
-  * Zorg ervoor dat alle JSON-paden die worden gebruikt in query's zijn opgenomen in het indexeringsbeleid voor snellere leesbewerkingen.
-  * Paden niet gebruikt in query's voor meer goed werkende schrijfbewerkingen uitsluiten.
+  * Zorg ervoor dat alle JSON-paden die in query's worden gebruikt, zijn opgenomen in het indexerings beleid voor snellere lees bewerkingen.
+  * Paden uitsluiten die niet worden gebruikt in query's voor meer uitvoeringen van uitvoerende hand.
 
-Zie voor meer informatie [hoe om te Indexeringsbeleid beheren](how-to-manage-indexing-policy.md) artikel.
+Zie het artikel Indexing- [beleid beheren](how-to-manage-indexing-policy.md) voor meer informatie.
 
-## <a name="spatial-data-check-ordering-of-points"></a>Ruimtelijke gegevens: Controleren op volgorde van de punten
+## <a name="spatial-data-check-ordering-of-points"></a>Ruimtelijke gegevens: Volg orde van punten controleren
 Punten in een Polygoon moeten worden opgegeven in volgorde van linksom draaien. Een veelhoek in rechtsom volgorde opgegeven vertegenwoordigt de omgekeerde waarde van de regio binnen het.
 
-## <a name="optimize-join-expressions"></a>JOIN-expressies optimaliseren
-`JOIN` expressies kunnen uitbreiden tot grote cross-producten. Wanneer mogelijk, query op een kleinere zoekopdracht ruimte via een meer gedetailleerde filter.
+## <a name="optimize-join-expressions"></a>KOPPELINGs expressies optimaliseren
+`JOIN`expressies kunnen worden uitgebreid naar grote kruis producten. Als dat mogelijk is, kunt u query's uitvoeren op een kleinere Zoek ruimte met een meer beperkt filter.
 
-Subquery's met meerdere waarden kunnen optimaliseren `JOIN` expressies door te pushen predicaten na elke select-veel-expressie in plaats van nadat alle cross-joins in de `WHERE` component. Zie voor een gedetailleerd voorbeeld [Join expressies optimaliseren](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) artikel.
+Subquery's met meerdere waarden kunnen expressies optimaliseren `JOIN` door predikaten te pushen na elke Select-many-expressie in plaats van na alle cross-join's in `WHERE` de component. Zie het artikel over het [optimaliseren van joinexpressie](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) voor een gedetailleerd voor beeld.
 
-## <a name="optimize-order-by-expressions"></a>ORDER BY-expressies optimaliseren 
-`ORDER BY` prestaties van query's mogelijk te maken krijgen als de velden verspreide of niet opgenomen in de index-beleid zijn.
+## <a name="optimize-order-by-expressions"></a>Volg orde van expressies optimaliseren 
+`ORDER BY`de prestaties van query's kunnen verlijden als de velden verspreid zijn of niet zijn opgenomen in het index beleid.
 
-  * Voor sparse velden, zoals de tijd, verlaagt u de search-ruimte zo veel mogelijk met filters. 
-  * Voor één eigenschap `ORDER BY`, eigenschap opnemen in de index-beleid. 
-  * Voor meerdere eigenschap `ORDER BY` expressies definieert een [samengestelde index](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) op velden wordt gesorteerd.  
+  * Voor velden met een sparse veld, zoals tijd, verlaagt u de zoek ruimte zoveel mogelijk met filters. 
+  * Neem voor één `ORDER BY`eigenschap de eigenschap op in het index beleid. 
+  * Voor meerdere eigenschappen `ORDER BY` expressies definieert u een [samengestelde index](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) voor velden die worden gesorteerd.  
 
-## <a name="many-large-documents-being-loaded-and-processed"></a>Veel grote documenten wordt geladen en verwerkt
-De tijd en de RU's die door een query vereist zijn zijn niet alleen afhankelijk van de grootte van het antwoord, ze zijn ook afhankelijk van het werk dat wordt uitgevoerd door de query verwerkings-pipeline. Tijd en RUs verhogen evenredig met de hoeveelheid werk dat door de volledige query verwerkings-pipeline. Meer werk wordt uitgevoerd voor grote documenten, waardoor meer tijd en ru's zijn vereist om te laden en verwerken van grote documenten.
+## <a name="many-large-documents-being-loaded-and-processed"></a>Veel grote documenten die worden geladen en verwerkt
+De tijd en RUs die door een query zijn vereist, zijn niet alleen afhankelijk van de grootte van het antwoord, ze zijn ook afhankelijk van het werk dat door de query processing-pijp lijn is uitgevoerd. Tijd en RUs worden proportioneel verhoogd met de hoeveelheid werk die door de hele query verwerking pijp lijn is uitgevoerd. Meer werk wordt uitgevoerd voor grote documenten, wat tijd en RUs vereist om grote documenten te laden en te verwerken.
 
-## <a name="low-provisioned-throughput"></a>Lage ingerichte doorvoer
-Zorg ervoor dat de ingerichte doorvoer werkbelasting kan verwerken. RU-budget voor betrokken verzamelingen verhogen.
+## <a name="low-provisioned-throughput"></a>Lage ingerichte door Voer
+Zorg ervoor dat de ingerichte door Voer werk belasting kan verwerken. Verhoog het RU-budget voor verzamelingen met impact.
 
 ## <a name="try-upgrading-to-the-latest-sdk-version"></a>Voer een upgrade uit naar de nieuwste SDK-versie
-Om te bepalen van de meest recente SDK-Zie [opmerkingen bij de SDK downloaden en vrijgeven](sql-api-sdk-dotnet.md) artikel.
+Raadpleeg het artikel [SDK downloaden en release opmerkingen](sql-api-sdk-dotnet.md) om de nieuwste SDK te bepalen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Verwijzen naar de volgende documenten voor het meten van ru's per query, Uitvoeringsstatistieken om af te stemmen uw query's en meer ophalen:
+Raadpleeg de documenten hieronder over hoe u RUs per query kunt meten, uitvoerings statistieken kunt ophalen om uw query's af te stemmen en meer:
 
-* [SQL-query tot uitvoering van metrische gegevens met behulp van .NET-SDK ophalen](profile-sql-api-query.md)
+* [Metrische gegevens voor uitvoering van SQL-query's ophalen met .NET SDK](profile-sql-api-query.md)
 * [Queryprestaties afstemmen met Azure Cosmos DB](sql-api-sql-query-metrics.md)
-* [Tips voor betere prestaties voor .NET SDK](performance-tips.md)
+* [Tips voor betere prestaties voor de .NET-SDK](performance-tips.md)

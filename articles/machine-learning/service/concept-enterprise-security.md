@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856214"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946393"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Enter prise Security voor Azure Machine Learning-service
 
 In dit artikel vindt u informatie over de beveiligings functies die beschikbaar zijn in de Azure machine learning-service.
 
-Wanneer u een Cloud service gebruikt, is dit een best practice om de toegang alleen te beperken tot de gebruikers die het nodig hebben. Dit begint met het verificatie-en autorisatie model dat door de service wordt gebruikt. U kunt ook de netwerk toegang beperken of bronnen veilig samen voegen in uw on-premises netwerk met die in de Cloud. Gegevens versleuteling is ook cruciaal, zowel bij rust als tijdens het verplaatsen van gegevens tussen services. Ten slotte moet u de service kunnen bewaken en een audit logboek maken van alle activiteiten.
+Wanneer u een Cloud service gebruikt, is dit een best practice om de toegang alleen te beperken tot de gebruikers die het nodig hebben. Dit begint met het verificatie-en autorisatie model dat door de service wordt gebruikt. U kunt ook de netwerk toegang beperken of bronnen veilig samen voegen in uw on-premises netwerk met de Cloud. Gegevens versleuteling is ook cruciaal, zowel bij rust als tijdens het verplaatsen van gegevens tussen services. Ten slotte moet u de service kunnen bewaken en een audit logboek maken van alle activiteiten.
 
 ## <a name="authentication"></a>Authentication
 
@@ -29,7 +29,7 @@ Multi factor Authentication wordt ondersteund als Azure Active Directory (Azure 
 
 * Client meldt zich aan bij Azure AD en ontvangt Azure Resource Manager token.  Gebruikers en service-principals worden volledig ondersteund.
 * Client presenteert token om alle Azure Machine Learning Services te Azure Resource Manager &
-* Azure Machine Learning-service levert een Azure Machine Learning-token aan de gebruiker die wordt berekend. Bijvoorbeeld Machine Learning Compute. Dit Azure Machine Learning token wordt gebruikt door de gebruikers Compute om terug te bellen naar Azure Machine Learning service (limieten voor de werk ruimte) nadat de uitvoering is voltooid.
+* Azure Machine Learning-service levert een Azure Machine Learning-token aan de gebruiker die wordt berekend. Bijvoorbeeld Machine Learning Compute. Dit token wordt gebruikt door de gebruikers Compute om terug te bellen naar Azure Machine Learning service (limieten voor de werk ruimte) nadat de uitvoering is voltooid.
 
 ![Scherm afbeelding die laat zien hoe verificatie werkt in Azure Machine Learning service](./media/enterprise-readiness/authentication.png)
 
@@ -151,7 +151,7 @@ Zie het artikel [toegangs sleutels voor opslag opnieuw genereren](how-to-change-
 
 #### <a name="cosmos-db"></a>Cosmos DB
 
-Azure Machine Learning-service slaat metrische gegevens en meta data op voor de Cosmos DB die in een micro soft-abonnement vallen dat wordt beheerd door Azure Machine Learning service. Alle gegevens die zijn opgeslagen in Cosmos DB, worden op rest versleuteld met behulp van door micro soft beheerde sleutels.
+Azure Machine Learning-service slaat metrische gegevens en meta data op voor de Cosmos DB die in een micro soft-abonnement vallen dat wordt beheerd door Azure Machine Learning service. Alle gegevens die zijn opgeslagen in Cosmos DB, worden op rest versleuteld met door micro soft beheerde sleutels.
 
 #### <a name="azure-container-registry-acr"></a>Azure Container Registry (ACR)
 
@@ -159,8 +159,8 @@ Alle container installatie kopieën in uw REGI ster (ACR) worden op rest versleu
 
 #### <a name="machine-learning-compute"></a>Machine Learning Compute
 
-De besturingssysteem schijf voor elk reken knooppunt wordt opgeslagen in Azure Storage wordt versleuteld met behulp van door micro soft beheerde sleutels in Azure Machine Learning-opslag accounts voor services. Deze berekening is kortstondig en clusters worden meestal omlaag geschaald wanneer er geen uitvoeringen in de wachtrij worden geplaatst. De onderliggende virtuele machine is ongedaan gemaakt en de besturingssysteem schijf is verwijderd. Azure Disk Encryption wordt niet ondersteund voor de besturingssysteem schijf.
-Elke virtuele machine heeft ook een lokale tijdelijke schijf voor besturingssysteem bewerkingen. Deze schijf kan ook worden gebruikt voor het faseren van de trainings gegevens. Deze schijf is niet versleuteld.
+De besturingssysteem schijf voor elk reken knooppunt wordt opgeslagen in Azure Storage is versleuteld met door micro soft beheerde sleutels in Azure Machine Learning service-opslag accounts. Dit Compute-doel is kortstondig en clusters worden meestal omlaag geschaald wanneer er geen uitvoeringen in de wachtrij worden geplaatst. De onderliggende virtuele machine is ongedaan gemaakt en de besturingssysteem schijf is verwijderd. Azure Disk Encryption wordt niet ondersteund voor de besturingssysteem schijf.
+Elke virtuele machine heeft ook een lokale tijdelijke schijf voor besturingssysteem bewerkingen. De schijf kan eventueel ook worden gebruikt voor het faseren van de trainings gegevens. De schijf is niet versleuteld.
 Zie [Azure Data Encryption-at-rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)voor meer informatie over de werking van versleuteling bij rest in Azure.
 
 ### <a name="encryption-in-transit"></a>Versleuteling in transit
@@ -199,7 +199,12 @@ De volgende scherm afbeelding toont het activiteiten logboek voor een werk ruimt
 
 ![Scherm opname met activiteiten logboek onder een werk ruimte](./media/enterprise-readiness/workspace-activity-log.png)
 
-Details van Score aanvragen worden opgeslagen in de AppInsights, die in het abonnement van de gebruiker wordt gemaakt tijdens het maken van de werk ruimte. Dit zijn onder andere velden als HTTPMethod, User agent, ComputeType, RequestUrl, status code, aanvraag code, duur, enzovoort.
+Details van Score aanvragen worden opgeslagen in Application Insight, dat wordt gemaakt in het abonnement van de gebruiker tijdens het maken van de werk ruimte. Geregistreerde gegevens zijn onder andere velden als HTTPMethod, User agent, ComputeType, RequestUrl, status code, aanvraag code, duur, enzovoort.
+
+> [!IMPORTANT]
+> Sommige acties in de Azure Machine Learning-werk ruimte registreren geen gegevens in het activiteiten logboek. U kunt bijvoorbeeld een training starten of een model registreren.
+>
+> Sommige van deze acties worden weer gegeven in het gebied __activiteiten__ van uw werk ruimte, maar ze geven niet aan wie de activiteit heeft gestart.
 
 ## <a name="data-flow-diagram"></a>Gegevens stroom diagram
 
@@ -220,7 +225,7 @@ Andere reken processen die zijn gekoppeld aan een werk ruimte (Azure Kubernetes 
 ### <a name="save-source-code-training-scripts"></a>Bron code opslaan (trainings scripts)
 
 In het volgende diagram ziet u de werk stroom voor code momentopnamen.
-Gekoppeld aan een Azure Machine Learning service werkruimte zijn mappen (experimenten), die de bron code (trainings scripts) bevatten.  Deze worden opgeslagen op de lokale computer van de klant en in de Cloud (in de Azure-Blob Storage onder het abonnement van de klant). Deze code momentopnamen worden gebruikt voor uitvoering of inspectie voor historische controle.
+Gekoppeld aan een Azure Machine Learning service werkruimte zijn mappen (experimenten), die de bron code (trainings scripts) bevatten.  Deze scripts worden opgeslagen op de lokale computer van de klant en in de Cloud (in de Azure-Blob Storage onder het abonnement van de klant). De code momentopnamen worden gebruikt voor uitvoering of inspectie voor historische controle.
 
 ![Scherm opname van werk stroom werk ruimte maken](./media/enterprise-readiness/code-snapshot.png)
 
@@ -233,12 +238,12 @@ In het volgende diagram ziet u de werk stroom training.
 * U kunt kiezen voor een beheerde Compute (bijvoorbeeld Machine Learning Compute) of onbeheerde reken kracht (bijvoorbeeld VM) om uw trainings taken uit te voeren. De gegevens stroom wordt uitgelegd voor de volgende scenario's:
 * (VM/HDInsight – toegankelijk via SSH-referenties in Key Vault in het micro soft-abonnement) Azure Machine Learning-service voert beheer code uit op reken doel die:
 
-   1. Bereidt de omgeving voor. (In docker is ook een optie voor VM en lokaal. Raadpleeg de volgende stappen voor Machine Learning Compute om te begrijpen hoe het uitvoeren van experiment op docker-container werkt.)
+   1. Bereidt de omgeving voor. (Docker is ook een optie voor VM en lokaal. Raadpleeg de volgende stappen voor Machine Learning Compute om te begrijpen hoe het uitvoeren van experiment op docker-container werkt.)
    1. Hiermee downloadt u de code.
    1. Hiermee stelt u omgevings variabelen en configuraties in.
    1. Hiermee wordt het gebruikers script uitgevoerd (code momentopname hierboven genoemd).
 
-* (Machine Learning Compute: toegankelijk via door werk ruimte beheerde identiteit) Houd er rekening mee dat omdat Machine Learning Compute een beheerde Compute is die wordt beheerd door micro soft, omdat deze wordt uitgevoerd onder het micro soft-abonnement.
+* (Machine Learning Compute: toegankelijk via door werk ruimte beheerde identiteit) Omdat Machine Learning Compute een beheerde Compute is, wordt deze beheerd door micro soft, omdat deze wordt uitgevoerd onder het micro soft-abonnement.
 
    1. De externe docker-constructie wordt zo nodig gestart.
    1. Hiermee schrijft u de beheer code naar de gebruiker Azure file share.
@@ -259,7 +264,7 @@ Zie de details hieronder:
 * Gebruiker maakt installatie kopie met behulp van model, Score bestand en andere model afhankelijkheden
 * De docker-installatie kopie wordt gemaakt en opgeslagen in ACR
 * De webservice wordt geïmplementeerd op het Compute-doel (ACI/AKS) met behulp van de installatie kopie die hierboven is gemaakt
-* Details van Score aanvragen worden opgeslagen in de AppInsights, die zich in het abonnement van de gebruiker bevindt
+* Details van Score aanvragen worden opgeslagen in Application Insight, dat zich in het abonnement van de gebruiker bevindt
 * Telemetrie wordt ook gepusht naar micro soft/Azure-abonnement
 
 ![Scherm opname van werk stroom werk ruimte maken](./media/enterprise-readiness/inferencing.png)

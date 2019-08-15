@@ -5,25 +5,25 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/20/2018
-ms.author: adgera
+ms.date: 08/12/2019
+ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 40ab53c941a7ac619ebb09d381a4ae0450f26e8b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 94baeb3d459b700cc95d88fb82f995957640aab6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176668"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012107"
 ---
-De `objectIdType` (of **object-id-type**) verwijst naar het type van de identiteit die wordt toegewezen aan een rol. Naast de `DeviceId` en `UserDefinedFunctionId` typen, typen van object-id's komen overeen met de eigenschappen van Azure Active Directory-objecten.
+Het `objectIdType` (of **object-ID-type**) verwijst naar het type identiteit dat wordt gegeven aan een rol. Naast het- `DeviceId` en `UserDefinedFunctionId` -type komen object-id-typen overeen met de eigenschappen van Azure Active Directory-objecten.
 
-De volgende tabel bevat de ondersteunde object-id-typen in Azure digitale dubbels:
+De volgende tabel bevat de ondersteunde object-id-typen in azure Digital Apparaatdubbels:
 
-| Type | Description |
+| type | Description |
 | --- | --- |
-| Gebruikers-id | Een rol aan een gebruiker toegewezen. |
-| DeviceId | Een rol toewijst aan een apparaat. |
-| Domeinnaam | Wijst een rol toe aan een domein. Elke gebruiker met de opgegeven domeinnaam is de toegangsrechten van de bijbehorende rol. |
-| TenantId | Een rol toegewezen aan een tenant. Elke gebruiker die tot de opgegeven behoort Azure AD-tenant-ID heeft de toegangsrechten van de bijbehorende rol. |
-| ServicePrincipalId | Wijst een rol toe aan een service-principal-object-ID. |
-| UserDefinedFunctionId | Een rol toegewezen aan een gebruiker gedefinieerde functie (UDF's). |
+| UserId | Hiermee wijst u een rol toe aan een gebruiker. |
+| DeviceId | Hiermee wijst u een rol toe aan een apparaat. |
+| Naam | Hiermee wijst u een rol toe aan een domein naam. Elke gebruiker met de opgegeven domein naam heeft de toegangs rechten van de bijbehorende rol. |
+| TenantId | Hiermee wijst u een rol toe aan een Tenant. Elke gebruiker die lid is van de opgegeven Azure AD-Tenant-ID heeft de toegangs rechten van de bijbehorende rol. |
+| ServicePrincipalId | Hiermee wijst u een rol toe aan een Service-Principal object-ID. |
+| UserDefinedFunctionId | Hiermee wijst u een rol toe aan een door de gebruiker gedefinieerde functie (UDF). |

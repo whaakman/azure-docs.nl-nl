@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: dc4c36735ade8a094acbf897ee040a239a1bed48
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9053866b76ec1cc409c3f00d0af59bf3761d3936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727418"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927985"
 ---
 # <a name="azure-database-security-overview"></a>Overzicht van Azure data base-beveiliging
 
@@ -206,7 +206,7 @@ SQL Advanced Threat Protection (ATP) biedt een aantal geavanceerde SQL-beveiligi
 
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) helpt u bedreigingen te voorkomen, te detecteren en erop te reageren. Het biedt geïntegreerde beveiligings bewaking en beleids beheer in uw Azure-abonnementen. Het helpt bedreigingen te detecteren die anders niet kunnen worden opgemerkt en werkt met een uitgebreid ecosysteem van beveiligings oplossingen.
 
-[Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-database) helpt u bij het beveiligen van gegevens in SQL database door inzicht te krijgen in de beveiliging van al uw servers en data bases. Met Security Center kunt u het volgende doen:
+[Security Center](../../security-center/security-center-sql-database.md) helpt u bij het beveiligen van gegevens in SQL database door inzicht te krijgen in de beveiliging van al uw servers en data bases. Met Security Center kunt u het volgende doen:
 
 - Beleids regels definiëren voor SQL Database versleuteling en controle.
 - Bewaak de beveiliging van SQL Database resources in al uw abonnementen.

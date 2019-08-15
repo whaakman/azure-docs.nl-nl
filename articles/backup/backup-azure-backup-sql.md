@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 744c954c9192f75489911f09a1ef7195c5bbd1fa
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: d564cc16a1261cdf71d783ce9f40e577177ff74c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689375"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954790"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Back-ups maken van SQL Server naar Azure als een DPM-workload
 Dit artikel leidt u door de configuratie stappen voor het maken van back-ups van SQL Server-data bases met behulp van Azure Backup.
@@ -46,7 +46,7 @@ Voordat u begint, moet u ervoor zorgen dat aan alle [vereisten](backup-azure-dpm
     ![Methode voor gegevens beveiliging-korte termijn schijf & online Azure](./media/backup-azure-backup-sql/pg-name.png)
 7. In het scherm doelen voor de **korte termijn opgeven** , neemt u de benodigde invoer op om back-uppunten te maken op schijf.
 
-    Hier ziet u dat het **Bewaar bereik** is ingesteld op *5 dagen*, wordt de **synchronisatie frequentie** elke *15 minuten* ingesteld op de frequentie waarmee back-ups worden gemaakt. **Snelle volledige back-up** is ingesteld op *8:00 P. M*.
+    Hier ziet u dat het **Bewaar bereik** is ingesteld op *5 dagen*, wordt de **synchronisatie frequentie** elke *15 minuten*ingesteld op de frequentie waarmee back-ups worden gemaakt. **Snelle volledige back-up** is ingesteld op *8:00 P. M*.
 
     ![Doelen voor de korte termijn](./media/backup-azure-backup-sql/pg-shortterm.png)
 

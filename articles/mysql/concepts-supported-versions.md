@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 7/25/2019
-ms.openlocfilehash: 3d4bab4558ebfd0f6031ef00a0b67bb0d5b61120
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.date: 08/09/2019
+ms.openlocfilehash: 28d635dc5042799790d032ef4b46bf28118cb326
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501448"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947160"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Ondersteunde Azure Database for MySQL server versies
 
@@ -38,8 +38,8 @@ Raadpleeg de opmerkingen bij de [versie](https://dev.mysql.com/doc/relnotes/mysq
 
 ## <a name="mysql-version-80"></a>MySQL-versie 8,0
 
-> [!NOTE]
-> MySQL 8,0 is momenteel beschikbaar als preview-versie. Als MySQL 8,0 niet wordt weer geven in de Azure Portal, is de implementatie mogelijk niet voltooid in uw regio. 
+> [!IMPORTANT]
+> MySQL 8,0 is momenteel beschikbaar als preview-versie.
 
 Release van de oplossing voor fouten: 8.0.15
 
@@ -52,4 +52,4 @@ Upgrades van de secundaire en primaire versie worden momenteel niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [service lagen](./concepts-pricing-tiers.md) voor informatie over specifieke resource quota en beperkingen op basis **van uw servicelaag**.
+Zie [service lagen](./concepts-pricing-tiers.md) voor informatie over specifieke resource quota en beperkingenop basis van uw servicelaag.

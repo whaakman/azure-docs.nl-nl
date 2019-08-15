@@ -1,6 +1,6 @@
 ---
-title: Een autorisatiebeleid voor inhoudssleutels configureren met behulp van de Media Services .NET SDK | Microsoft Docs
-description: Leer hoe u een verificatiebeleid voor een inhoudssleutel configureren met behulp van de Media Services .NET SDK.
+title: Een autorisatie beleid voor de inhouds sleutel configureren met behulp van de Media Services .NET SDK | Microsoft Docs
+description: Meer informatie over het configureren van een verificatie beleid voor een inhouds sleutel met behulp van de Media Services .NET SDK.
 services: media-services
 documentationcenter: ''
 author: mingfeiy
@@ -13,50 +13,50 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;mingfeiy
-ms.openlocfilehash: 744887a3b23518a5b970a3fda94bf990806bd2d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: a2d978a68f6f654e3bdeea07c931cd7103f5850c
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61230267"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015534"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dynamische versleuteling: Een autorisatiebeleid voor inhoudssleutels configureren
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dynamische versleuteling: Een autorisatie beleid voor de inhouds sleutel configureren
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Overzicht
- U kunt Azure Media Services MPEG-DASH, Smooth Streaming en HTTP Live Streaming (HLS)-streams beveiligd met de Advanced Encryption Standard (AES) 128-bits versleutelingssleutels met leveren of [PlayReady digital rights management (DRM) ](https://www.microsoft.com/playready/overview/). Met Media Services, kunt u ook versleuteld met Widevine DRM DASH-streams leveren. Zowel PlayReady als Widevine zijn versleuteld volgens de specificatie Common Encryption (ISO/IEC 23001-7 CENC).
+ U kunt Azure Media Services gebruiken voor het leveren van MPEG-DASH-, Smooth Streaming-en HTTP Live Streaming (HLS)-streams die zijn beveiligd met de Advanced Encryption Standard (AES) door gebruik te maken van 128-bits versleutelings sleutels of [PlayReady Digital Rights Management (DRM)](https://www.microsoft.com/playready/overview/). Met Media Services kunt u ook STREEPJES stromen leveren die zijn versleuteld met Widevine DRM. Zowel PlayReady als Widevine zijn versleuteld volgens de specificatie Common Encryption (ISO/IEC 23001-7 CENC).
 
-Media Services biedt ook een leveringsservice voor sleutels/licenties waarvan clients sleutels voor AES of PlayReady/Widevine-licenties om af te spelen de versleutelde inhoud kunnen ophalen.
+Media Services biedt ook een service voor het leveren van belang rijke services waarmee clients AES-sleutels of PlayReady/Widevine-licenties kunnen verkrijgen om de versleutelde inhoud af te spelen.
 
-Als u Media Services voor het versleutelen van een asset wilt, moet u een versleutelingssleutel gemaakt (CommonEncryption of EnvelopeEncryption) koppelen aan de asset. Zie voor meer informatie, [Inhoudssleutels maken met .NET](media-services-dotnet-create-contentkey.md). U moet ook autorisatiebeleid voor de sleutel (zoals beschreven in dit artikel) configureren.
+Als u Media Services een Asset wilt versleutelen, moet u een versleutelings sleutel (CommonEncryption of EnvelopeEncryption) koppelen aan de Asset. Zie [Create ContentKeys with .net](media-services-dotnet-create-contentkey.md)(Engelstalig) voor meer informatie. U moet ook autorisatie beleid configureren voor de sleutel (zoals beschreven in dit artikel).
 
-Wanneer een stroom wordt aangevraagd door een speler, Media Services maakt gebruik van de opgegeven sleutel voor het versleutelen van uw inhoud dynamisch met behulp van versleuteling met AES of DRM. Voor het ontsleutelen van de stream, wordt door de speler de sleutel van de sleutelleveringsservice aangevraagd. Om te bepalen dat of de gebruiker is gemachtigd om op te halen van de sleutel, de service beoordeelt wat de autorisatiebeleidsregels die u hebt opgegeven voor de sleutel.
+Wanneer een stroom wordt aangevraagd door een speler, gebruikt Media Services de opgegeven sleutel om uw inhoud dynamisch te versleutelen met behulp van AES of DRM-versleuteling. Voor het ontsleutelen van de stream, wordt door de speler de sleutel van de sleutelleveringsservice aangevraagd. Om te bepalen of de gebruiker gemachtigd is om de sleutel op te halen, evalueert de service het autorisatie beleid dat u hebt opgegeven voor de sleutel.
 
-Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben. De opties zijn beperking voor openen of token. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in de simple web tokens ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2))-indeling en JSON Web Token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) indeling.
+Media Services ondersteunt meerdere manieren om gebruikers te verifiëren die sleutels aanvragen. Het autorisatie beleid voor inhouds sleutels kan een of meer autorisatie beperkingen hebben. De opties zijn open of Token beperking. Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in de[SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)-indeling (Simple Web token) en de JSON Web token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3))-indeling.
 
-Media Services biedt geen STS. U kunt een aangepaste STS maken of gebruik van Azure Access Control Service om probleem tokens. De STS moeten worden geconfigureerd voor het maken van een token dat is ondertekend met de opgegeven sleutel en probleem claims die u hebt opgegeven in de configuratie van de tokenbeperking (zoals beschreven in dit artikel). Als het token geldig is en de claims in het token overeenkomen met die zijn geconfigureerd voor de inhoudssleutel, retourneert de sleutelleveringsservice van Media Services de versleutelingssleutel voor de client.
+Media Services biedt geen STS. U kunt een aangepaste STS maken of Azure Access Control Service gebruiken om tokens te verlenen. De STS moet worden geconfigureerd om een token te maken dat is ondertekend met de opgegeven sleutel en claims uitgeven die u hebt opgegeven in de configuratie van de token beperking (zoals beschreven in dit artikel). Als het token geldig is en de claims in het token overeenkomen met die zijn geconfigureerd voor de inhouds sleutel, retourneert de Media Services key delivery service de versleutelings sleutel naar de client.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [JWT-tokenverificatie](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [Op basis van een Azure Media Services OWIN MVC-app integreren met Azure Active Directory en beperken de levering van inhoud sleutel op basis van JWT-claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
+- [Verificatie JWT-token](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Azure Media Services op OWIN MVC gebaseerde app integreren met Azure Active Directory en de levering van de inhouds sleutel beperken op basis van de JWT-claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
-### <a name="some-considerations-apply"></a>Enkele overwegingen zijn van toepassing
-* Wanneer uw Media Services-account is gemaakt, wordt er een standaard streaming-eindpunt met de status Gestopt aan uw account toegevoegd. Als u wilt uw inhoud wilt streamen en te profiteren van dynamische pakketten en dynamische versleuteling, moet uw streaming-eindpunt in de status 'Running'. 
-* Uw asset moet een set adaptive bitrate MP4s of adaptive bitrate Smooth Streaming-bestanden bevatten. Zie voor meer informatie, [een asset coderen](media-services-encode-asset.md).
-* Uploaden en uw assets coderen met behulp van de optie AssetCreationOptions.StorageEncrypted.
-* Als u van plan bent om meerdere inhoudssleutels waarvoor de dezelfde beleidsconfiguratie, raden wij u een enkel verificatiebeleid maken en deze opnieuw te gebruiken met meerdere inhoudssleutels.
-* De sleutelleveringsservice caches ContentKeyAuthorizationPolicy en de verwante objecten (opties en beperkingen) voor 15 minuten. U kunt ContentKeyAuthorizationPolicy maken en geef voor het gebruik van een beperking van de token, testen en vervolgens het beleid bijwerken naar de beperking die wordt geopend. Dit proces duurt ongeveer 15 minuten voordat de beleid-switches op de geopende versie van het beleid.
+### <a name="some-considerations-apply"></a>Er zijn enkele overwegingen van toepassing
+* Wanneer uw Media Services-account is gemaakt, wordt er een standaard streaming-eindpunt met de status Gestopt aan uw account toegevoegd. Als u uw inhoud wilt streamen en gebruik wilt maken van dynamische pakketten en dynamische versleuteling, moet het streaming-eind punt de status ' running ' hebben. 
+* Uw asset moet een set adaptieve bitsnelheid Mp4's of een adaptieve bitrate Smooth Streaming-bestanden bevatten. Zie [een Asset coderen](media-services-encode-asset.md)voor meer informatie.
+* Upload en codeer uw assets met de optie AssetCreationOptions. StorageEncrypted.
+* Als u van plan bent meerdere inhouds sleutels te hebben waarvoor dezelfde beleids configuratie is vereist, raden we u aan om één autorisatie beleid te maken en het opnieuw te gebruiken met meerdere inhouds sleutels.
+* De key delivery service slaat ContentKeyAuthorizationPolicy en de bijbehorende objecten (beleids opties en-beperkingen) gedurende 15 minuten op. U kunt ContentKeyAuthorizationPolicy maken en opgeven dat u een token beperking wilt gebruiken, deze wilt testen en vervolgens het beleid wilt bijwerken naar de beperking open. Dit proces duurt ongeveer 15 minuten voordat het beleid overschakelt naar de open-versie van het beleid.
 * Als u het leveringsbeleid voor uw asset toevoegt of bijwerkt, moet u een eventuele locator verwijderen en een nieuwe locator maken.
-* U kunt progressieve downloads op dit moment niet coderen.
-* Een Media Services streaming-eindpunt stelt de waarde van de CORS-Access-Control-Allow-Origin'-header in voorbereidende antwoord als het jokerteken '\*'. Deze waarde werkt goed samen met de meeste spelers, met inbegrip van Azure Media Player, Roku en JWPlayer en anderen. Evenwel sommige spelers die gebruikmaken van dashjs werken niet omdat, met de referenties-modus is ingesteld op "bevatten", XMLHttpRequest in hun dashjs is niet toegestaan voor het jokerteken '\*' als de waarde van 'Access-Control-Allow-Origin'. Als tijdelijke oplossing voor deze beperking in dashjs, als host fungeert voor de client van een enkel domein, kunt Media Services opgeven dat domein in de voorbereidende antwoordkop. Open een ondersteuningsticket in via de Azure-portal voor hulp.
+* Op dit moment kunt u geen progressieve down loads versleutelen.
+* Een Media Services streaming-eind punt stelt de waarde in van de CORS ' Access-Control-Allow-Origin ' in het Preflight-antwoord\*als het Joker teken. Deze waarde is goed geschikt voor de meeste spelers, waaronder Azure Media Player, Roku en JWPlayer, en andere. Sommige spelers die gebruikmaken van dashjs werken echter niet omdat, waarbij de referenties modus is ingesteld op ' include ', XMLHttpRequest in hun dashjs geen joker teken\*' ' als waarde van ' toegangs beheer-allow-Origin ' toestaat. Als tijdelijke oplossing voor deze beperking in dashjs, als u uw client vanuit één domein host, kan Media Services dat domein opgeven in de kopregel van het Preflight-antwoord. Open een ondersteunings ticket via de Azure Portal voor hulp.
 
-## <a name="aes-128-dynamic-encryption"></a>Dynamische AES-128-versleuteling
-### <a name="open-restriction"></a>Open beperking
-Open beperking betekent dat het systeem levert de sleutel aan iedereen die sleutels aanvragen. Deze beperking kan handig zijn voor testdoeleinden.
+## <a name="aes-128-dynamic-encryption"></a>AES-128 dynamische versleuteling
+### <a name="open-restriction"></a>Beperking openen
+Beperking openen betekent dat het systeem de sleutel levert aan iedereen die een belang rijke aanvraag doet. Deze beperking kan handig zijn voor test doeleinden.
 
-Het volgende voorbeeld maakt u een open autorisatiebeleid en voegt deze toe aan de inhoudssleutel:
+In het volgende voor beeld wordt een open autorisatie beleid gemaakt en toegevoegd aan de inhouds sleutel:
 ```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
     {
@@ -95,10 +95,10 @@ Het volgende voorbeeld maakt u een open autorisatiebeleid en voegt deze toe aan 
     }
 ```
 
-### <a name="token-restriction"></a>Beperking van token
-Deze sectie wordt beschreven hoe u een autorisatiebeleid voor inhoudssleutels maakt en deze koppelen aan de inhoudssleutel. Het autorisatiebeleid wordt beschreven welke autorisatievereisten moeten worden voldaan om te bepalen of de gebruiker is gemachtigd voor het ontvangen van de sleutel. Bijvoorbeeld, bevat de lijst met sleutels voor verificatie van de sleutel die de token is ondertekend met?
+### <a name="token-restriction"></a>Token beperking
+In deze sectie wordt beschreven hoe u een autorisatie beleid voor de inhouds sleutel maakt en het koppelt aan de inhouds sleutel. In het autorisatie beleid wordt beschreven aan welke autorisatie vereisten moet worden voldaan om te bepalen of de gebruiker gemachtigd is om de sleutel te ontvangen. Bevat de lijst met verificatie sleutels bijvoorbeeld de sleutel waarmee het token is ondertekend?
 
-Voor het configureren van de tokenbeperking-optie, moet u een XML gebruiken om te beschrijven van autorisatievereisten van het token. De configuratie-XML voor de tokenbeperking moet voldoen aan de volgende XML-schema:
+Als u de optie voor de token beperking wilt configureren, moet u een XML gebruiken om de autorisatie vereisten van het token te beschrijven. De configuratie-XML van de token beperking moet voldoen aan het volgende XML-schema:
 ```csharp
 #### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
@@ -148,10 +148,10 @@ Voor het configureren van de tokenbeperking-optie, moet u een XML gebruiken om t
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 ```
-Wanneer u de tokenbeperking beleid configureert, moet u de primaire verificatiesleutel, uitgever en doelgroep parameters opgeven. De primaire verificatiesleutel bevat de sleutel die het token is ondertekend. De uitgever wordt de STS die de token uitgeeft. De doelgroep (ook wel bereik) beschrijft de intentie van de token of de resource voor het token wordt toegang tot geautoriseerd. De Media Services-sleutelleveringsservice valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
+Wanneer u het token beperkt beleid configureert, moet u de para meters voor de primaire verificatie sleutel, verlener en doel groep opgeven. De primaire verificatiesleutel bevat de sleutel die het token is ondertekend. De uitgever is de STS die het token uitgeeft. De doel groep (ook wel bereik genoemd) beschrijft de bedoeling van het token of de bron waarvan het token toegang verleent. De Media Services-sleutelleveringsservice valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
 
-Wanneer u de Media Services SDK voor .NET gebruikt, kunt u de klasse TokenRestrictionTemplate kunt gebruiken om de beperking-token te genereren.
-Het volgende voorbeeld wordt een verificatiebeleid met een beperking van de token. In dit voorbeeld moet de client een token dat bestaat uit een ondertekeningssleutel (VerificationKey), een uitgever van het token en vereiste claims aanwezig.
+Wanneer u de Media Services SDK voor .NET gebruikt, kunt u de TokenRestrictionTemplate-klasse gebruiken om het beperkings token te genereren.
+In het volgende voor beeld wordt een autorisatie beleid met een token beperking gemaakt. In dit voor beeld moet de client een token aanbieden dat een ondertekeningssleutel (VerificationKey), een token Uitgever en de vereiste claims bevat.
 ```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
@@ -207,8 +207,8 @@ Het volgende voorbeeld wordt een verificatiebeleid met een beperking van de toke
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 ```
-#### <a name="test-token"></a>Test-token
-Als u een test-token op basis van de tokenbeperking die is gebruikt voor het sleutelautorisatiebeleid, het volgende doen:
+#### <a name="test-token"></a>Test token
+Ga als volgt te werk om een test token te verkrijgen op basis van de token beperking die is gebruikt voor het sleutel autorisatie beleid:
 ```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
@@ -227,17 +227,17 @@ Als u een test-token op basis van de tokenbeperking die is gebruikt voor het sle
     Console.WriteLine();
 ```
 
-## <a name="playready-dynamic-encryption"></a>Dynamische versleuteling van PlayReady
-U kunt Media Services gebruiken voor het configureren van de rechten en beperkingen die u wilt dat de runtime PlayReady DRM moeten worden afgedwongen wanneer een gebruiker probeert om af te spelen beveiligde inhoud. 
+## <a name="playready-dynamic-encryption"></a>PlayReady dynamische versleuteling
+U kunt Media Services gebruiken om de rechten en beperkingen te configureren die u wilt dat de PlayReady DRM-runtime wordt afgedwongen wanneer een gebruiker beveiligde inhoud wil afspelen. 
 
-Wanneer u uw inhoud met PlayReady beveiligt, is een van de dingen die u nodig hebt om op te geven in het autorisatiebeleid voor een XML-tekenreeks die definieert de [PlayReady-licentiesjabloon](media-services-playready-license-template-overview.md). In de Media Services SDK voor .NET kunnen de klassen PlayReadyLicenseResponseTemplate en PlayReadyLicenseTemplate u de PlayReady-licentiesjabloon te definiëren.
+Wanneer u uw inhoud beveiligt met PlayReady, is een van de dingen die u in uw autorisatie beleid moet opgeven, een XML-teken reeks die de [PlayReady-licentie sjabloon](media-services-playready-license-template-overview.md)definieert. In de PlayReadyLicenseResponseTemplate-en PlayReadyLicenseTemplate-klassen in de Media Services SDK voor .NET kunt u de PlayReady-licentie sjabloon definiëren.
 
-Zie voor informatie over het versleutelen van uw inhoud met PlayReady en Widevine, [met PlayReady en/of Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md).
+Zie voor meer informatie over het versleutelen van uw inhoud met PlayReady en Widevine de [Dynamic common Encryption gebruiken playready en/of Widevine](media-services-protect-with-playready-widevine.md).
 
-### <a name="open-restriction"></a>Open beperking
-Open beperking betekent dat het systeem levert de sleutel aan iedereen die sleutels aanvragen. Deze beperking kan handig zijn voor testdoeleinden.
+### <a name="open-restriction"></a>Beperking openen
+Beperking openen betekent dat het systeem de sleutel levert aan iedereen die een belang rijke aanvraag doet. Deze beperking kan handig zijn voor test doeleinden.
 
-Het volgende voorbeeld maakt u een open autorisatiebeleid en voegt deze toe aan de inhoudssleutel:
+In het volgende voor beeld wordt een open autorisatie beleid gemaakt en toegevoegd aan de inhouds sleutel:
 
 ```csharp
     static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
@@ -278,8 +278,8 @@ Het volgende voorbeeld maakt u een open autorisatiebeleid en voegt deze toe aan 
     }
 ```
 
-### <a name="token-restriction"></a>Beperking van token
-Voor het configureren van de tokenbeperking-optie, moet u een XML gebruiken om te beschrijven van autorisatievereisten van het token. De configuratie-XML voor de tokenbeperking moet voldoen aan de XML-schema in de sectie 'Token beperking schema' weergegeven.
+### <a name="token-restriction"></a>Token beperking
+Als u de optie voor de token beperking wilt configureren, moet u een XML gebruiken om de autorisatie vereisten van het token te beschrijven. De configuratie-XML van de token beperking moet voldoen aan het XML-schema dat wordt weer gegeven in de sectie ' token restrictie schema '.
 
 ```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
@@ -389,9 +389,9 @@ Voor het configureren van de tokenbeperking-optie, moet u een XML gebruiken om t
     }
 ```
 
-Als u een test-token op basis van de tokenbeperking die is gebruikt voor het sleutelautorisatiebeleid, raadpleegt u de '[Test-token](#test-token)"sectie. 
+Als u een test token wilt ophalen op basis van de token beperking die voor het sleutel autorisatie beleid is gebruikt, raadpleegt u de sectie[test token](#test-token). 
 
-## <a id="types"></a>Typen die worden gebruikt bij het definiëren van ContentKeyAuthorizationPolicy
+## <a id="types"></a>Typen die worden gebruikt wanneer u ContentKeyAuthorizationPolicy definieert
 ### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
 
 ```csharp
@@ -433,5 +433,5 @@ Als u een test-token op basis van de tokenbeperking die is gebruikt voor het sle
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u hebt geconfigureerd voor de inhoudssleutel-autorisatie, Zie [een leveringsbeleid voor Assets configureren](media-services-dotnet-configure-asset-delivery-policy.md).
+Nu u het autorisatie beleid voor de inhouds sleutel hebt geconfigureerd, raadpleegt u [een leverings beleid voor assets configureren](media-services-dotnet-configure-asset-delivery-policy.md).
 

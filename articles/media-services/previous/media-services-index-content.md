@@ -1,6 +1,6 @@
 ---
-title: Indexeren van mediabestanden met Azure Media Indexer
-description: Azure Media Indexer kunt u de inhoud van uw mediabestanden doorzoekbaar maken en voor het genereren van een volledig uitgeschreven tekstversie voor gesloten ondertiteling en sleutelwoorden. In dit onderwerp laat zien hoe Media Indexer gebruiken.
+title: Media bestanden indexeren met Azure Media Indexer
+description: Met Azure Media Indexer kunt u inhoud van uw media bestanden doorzoekbaar maken en een transcriptie van volledige tekst genereren voor ondertiteling en tref woorden. In dit onderwerp wordt beschreven hoe u Media Indexer gebruikt.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -13,47 +13,48 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: a11ae0414d6737f1588515ec19524bcf499f0c74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: johndeu
+ms.openlocfilehash: a51774a1db76086440742abd5aedce3fbd26c270
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61215802"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016093"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer"></a>Indexeren van mediabestanden met Azure Media Indexer
-Azure Media Indexer kunt u de inhoud van uw mediabestanden doorzoekbaar maken en voor het genereren van een volledig uitgeschreven tekstversie voor gesloten ondertiteling en sleutelwoorden. U kunt één mediabestand verwerken of meerdere mediabestanden als batch verwerken.  
+# <a name="indexing-media-files-with-azure-media-indexer"></a>Media bestanden indexeren met Azure Media Indexer
+Met Azure Media Indexer kunt u inhoud van uw media bestanden doorzoekbaar maken en een transcriptie van volledige tekst genereren voor ondertiteling en tref woorden. U kunt één mediabestand verwerken of meerdere mediabestanden als batch verwerken.  
 
 > [!IMPORTANT]
-> Wanneer u de inhoud indexeren, zorg er dan voor dat gebruikmaken van mediabestanden waarvoor wissen spraak (zonder achtergrondmuziek, geluid, effecten of microfoon hiss). Enkele voorbeelden van de betreffende inhoud zijn: vastgelegd vergaderingen, lezingen en presentaties. De volgende inhoud is mogelijk niet geschikt voor indexering: films, tv-programma's, alles met gemengde audio en geluid effecten, slecht opgenomen inhoud met achtergrondgeluiden (hiss).
+> Wanneer u inhoud indexeert, moet u ervoor zorgen dat u media bestanden gebruikt met duidelijke spraak (zonder achtergrond muziek, ruis, effecten of microfoon hiss). Enkele voor beelden van de juiste inhoud zijn: vastgelegde vergaderingen, colleges of presentaties. De volgende inhoud is mogelijk niet geschikt voor indexering: films, TV-Program ma's, alles met gemengde audio en geluids effecten, slecht vastgelegde inhoud met achtergrond geluid (hiss).
 > 
 > 
 
-Een indexeringstaak kunt de volgende uitvoer gegenereerd:
+Een indexerings taak kan de volgende uitvoer genereren:
 
-* Ondertitelingsbestand in de volgende indelingen: **SAMI**, **TTML**, en **WebVTT**.
+* Ondertitelings bestanden in de volgende indelingen: **Sami**, **TTML**en **WebVTT**.
   
-    Ondertitelingsbestand bevatten een tag met de naam Recognizability, welke scores een indexeringstaak op basis van hoe herkenbare de gesproken tekst in de bronvideo.  U kunt de waarde van Recognizability scherm uitvoerbestanden voor gebruiksgemak. Een lage score betekent slechte indexering resultaten vanwege audio kwaliteit.
-* Trefwoordenbestand (XML).
-* Audio indexering van blob-bestand (AIB) voor gebruik met SQL server.
+    Ondertitelings bestanden bevatten een tag met de naam herkenning, waarmee een indexerings taak wordt gescoord op basis van de manier waarop de spraak in de bron video herkenbaar is.  U kunt de waarde van herkenning voor scherm uitvoer bestanden gebruiken voor bruikbaarheid. Een lage score zou een slechte indexerings resultaat hebben als gevolg van de audio kwaliteit.
+* Trefwoord bestand (XML).
+* Audio-Indexing BLOB file (AIB) voor gebruik met SQL Server.
   
-    Zie voor meer informatie, [AIB-bestanden met behulp van Azure Media Indexer en SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+    Zie [AIB-bestanden gebruiken met Azure media indexer en SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)voor meer informatie.
 
-In dit artikel wordt beschreven hoe maakt indexeertaken laten naar **indexeren van een asset** en **Index van meerdere bestanden**.
+In dit artikel wordt beschreven hoe u Indexeer taken maakt voor **het indexeren van een Asset en het** **indexeren van meerdere bestanden**.
 
-Zie voor de meest recente updates voor Azure Media Indexer, [Media Services-blogs](#preset).
+Zie [Media Services blogs](#preset)voor de meest recente Azure media indexer updates.
 
-## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Met behulp van configuratie-en-manifest voor indexering van taken
-U kunt meer informatie voor uw indexering taken opgeven met behulp van de taakconfiguratie van een. U kunt bijvoorbeeld opgeven welke metagegevens te gebruiken voor uw media-bestand. Deze metagegevens wordt gebruikt door de engine taal om uit te breiden de vocabulaire en aanzienlijk verbetert de nauwkeurigheid van de spraakherkenning.  Bent u ook uw gewenste uitvoerbestanden opgeven.
+## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Configuratie-en manifest bestanden gebruiken voor indexerings taken
+U kunt meer informatie voor uw indexerings taken opgeven met behulp van een taak configuratie. U kunt bijvoorbeeld opgeven welke meta gegevens voor uw media bestand moeten worden gebruikt. Deze meta gegevens worden door de taal engine gebruikt om de bijbehorende woorden lijst uit te breiden, waardoor de nauw keurigheid van de spraak herkenning aanzienlijk wordt verbeterd.  U kunt ook de gewenste uitvoer bestanden opgeven.
 
-U kunt ook meerdere mediabestanden in één keer verwerken met behulp van een manifestbestand.
+U kunt ook meerdere media bestanden tegelijk verwerken door een manifest bestand te gebruiken.
 
-Zie voor meer informatie, [taak vooraf voor Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+Zie voor meer informatie [taak vooraf instellen voor Azure media indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
-## <a name="index-an-asset"></a>Indexeren van een asset
-De volgende methode uploadt een mediabestand als een asset en maakt u een taak voor het indexeren van de asset.
+## <a name="index-an-asset"></a>Een Asset indexeren
+Met de volgende methode wordt een media bestand als een Asset geüpload en wordt een taak gemaakt om het activum te indexeren.
 
-Als er is geen configuratiebestand is opgegeven, wordt het mediabestand geïndexeerd met alle standaardinstellingen.
+Als er geen configuratie bestand is opgegeven, wordt het Media bestand geïndexeerd met alle standaard instellingen.
 
 ```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
@@ -145,24 +146,24 @@ Als er is geen configuratiebestand is opgegeven, wordt het mediabestand geïndex
 ```
 
 <!-- __ -->
-### <a id="output_files"></a>Uitvoerbestanden
-Standaard genereert een indexeringstaak de volgende uitvoerbestanden. De bestanden worden opgeslagen in de eerste uitvoerasset.
+### <a id="output_files"></a>Uitvoer bestanden
+Standaard genereert een indexerings taak de volgende uitvoer bestanden. De bestanden worden opgeslagen in het eerste uitvoer activum.
 
-Wanneer er meer dan één invoer mediabestand, genereert de indexeerfunctie een manifestbestand voor de taakuitvoer, met de naam 'JobResult.txt'. Voor elk mediabestand invoerkaart, de resulterende AIB, SAMI, TTML, WebVTT en sleutelwoord-bestanden zijn sequentieel genummerd en met de naam met behulp van de "Alias."
+Wanneer er meer dan één invoer Media bestand is, genereert de Indexeer functie een manifest bestand voor de taak uitvoer, met de naam JobResult. txt. Voor elk invoer Media bestand zijn de resulterende AIB-, SAMI-, TTML-, WebVTT-en trefwoord bestanden opeenvolgend genummerd en benoemd met behulp van de alias.
 
 | Bestandsnaam | Description |
 | --- | --- |
-| **InputFileName.aib** |Audio indexering blob-bestand. <br/><br/> Audiobestand indexeren Blob (AIB) is een binair bestand dat kan worden doorzocht in Microsoft SQL server met behulp van zoeken in volledige tekst.  De AIB-bestand is krachtiger zijn dan de eenvoudige bijschriftbestanden, omdat deze alternatieven voor elk woord, zodat een veel uitgebreider zoekervaring bevat. <br/> <br/>Dit is de installatie van de indexeerfunctie voor SQL-invoegtoepassing op een computer waarop Microsoft SQL server 2008 of hoger vereist. Zoeken naar de AIB met behulp van Microsoft SQL biedt server zoekopdracht in volledige tekst meer nauwkeurige zoekresultaten dan de ondertiteling-bestanden die worden gegenereerd door WAMI zoeken. Dit komt doordat de AIB word alternatieven die klinken bevat terwijl de ondertiteling-bestanden de hoogste betrouwbaarheid word voor elk segment van de audio bevatten. Als het zoeken naar gesproken woorden is van belang upmost, en vervolgens het verdient aanbeveling de AIB In combinatie met Microsoft SQL Server gebruiken.<br/><br/> Als u wilt de invoegtoepassing downloaden, klikt u op <a href="https://aka.ms/indexersql">SQL-invoegtoepassing van Azure Media Indexer</a>. <br/><br/>Het is ook mogelijk gebruikmaken van andere zoekmachines zoals Apache Lucene/Solr gewoon indexeren van de video die op basis van de ondertiteling en sleutelwoord XML-bestanden, maar dit leidt tot minder nauwkeurige zoekresultaten. |
-| **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |Gesloten bijschrift (CC)-bestanden in SAMI, TTML en WebVTT-indeling.<br/><br/>Ze kunnen worden gebruikt om audio-of videobestanden toegankelijk voor mensen met een handicap horen.<br/><br/>Gesloten bijschriftbestanden bevatten een tag met de naam <b>Recognizability</b> die een indexeringstaak op basis van hoe herkenbaar is van de gesproken tekst in de bronvideo beoordeelt.  U kunt de waarde van <b>Recognizability</b> naar de uitvoerbestanden scherm voor gebruiksgemak. Een lage score betekent slechte indexering resultaten vanwege audio kwaliteit. |
-| **InputFileName.kw.xml<br/>InputFileName.info** |Sleutelwoord en info-bestanden. <br/><br/>Trefwoordenbestand is een XML-bestand sleutelwoorden die van de gesproken inhoud, met de frequentie en offset informatie bevat. <br/><br/>Bestand met scriptgegevens is een tekstbestand met gedetailleerde informatie over elke term wordt herkend. De eerste regel is bijzonder en de score Recognizability bevat. Elke volgende regel wordt een lijst met door tabs gescheiden van de volgende gegevens: starten van de tijd, eindtijd, woord/bepaalde woordgroep, vertrouwen. De tijden worden uitgedrukt in seconden en het vertrouwen wordt gegeven als een getal van 0-1. <br/><br/>Voorbeeld van de regel: "1.20 1,45 word 0.67" <br/><br/>Deze bestanden kunnen worden gebruikt voor verschillende doeleinden, zoals, voor het uitvoeren van spraakanalyse, of zoekmachines, zoals Bing, Google of Microsoft SharePoint om te zorgen dat de mediabestanden beter worden gedetecteerd, of zelfs gebruikt voor het leveren van meer relevante advertenties worden weergegeven. |
-| **JobResult.txt** |Uitvoer manifest, aanwezig zijn alleen tijdens het indexeren van meerdere bestanden, met de volgende gegevens:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Fout</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **InputFileName.aib** |BLOB-bestand voor audio-indexering. <br/><br/> Audio Indexing blob bestand (AIB) is een binair bestand dat in micro soft SQL Server kan worden doorzocht met behulp van zoeken in volledige tekst.  Het AIB-bestand is krachtiger dan de eenvoudige ondertitelings bestanden, omdat deze alternatieven bevat voor elk woord, waardoor een veel uitgebreidere Zoek ervaring mogelijk is. <br/> <br/>Hiervoor moet de SQL-invoeg toepassing van de Indexeer functie zijn geïnstalleerd op een computer met micro soft SQL Server 2008 of hoger. Zoeken in de AIB met behulp van de zoek opdracht in volledige tekst van micro soft SQL Server biedt nauw keurige Zoek resultaten dan de ondertitelings bestanden die door WAMI worden gegenereerd. Dit komt omdat de AIB alternatieven bevat die vergelijkbaar zijn met het feit dat de ondertitelings bestanden het woord met de hoogste betrouw baarheid bevatten voor elk segment van de audio. Als u naar gesp roken woorden zoekt, is het raadzaam om de AIB te gebruiken in combi natie met Microsoft SQL Server.<br/><br/> Klik op <a href="https://aka.ms/indexersql">Azure media INDEXER SQL-invoeg toepassing</a>om de invoeg toepassing te downloaden. <br/><br/>Het is ook mogelijk om andere zoek machines te gebruiken, zoals Apache Lucene/solr, om de video eenvoudigweg te indexeren op basis van de ondertitelings-en trefwoord XML-bestanden, maar dit leidt tot minder nauw keurige Zoek resultaten. |
+| **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |Ondertitelings bestanden (CC) in SAMI-, TTML-en WebVTT-indelingen.<br/><br/>Ze kunnen worden gebruikt om audio-en video bestanden toegankelijk te maken voor mensen met een gehoor handicap.<br/><br/>Ondertitelings bestanden bevatten een tag met de naam <b>herkenning</b> waarmee een indexerings taak wordt gescoord op basis van de manier waarop de spraak in de bron video herkenbaar is.  U kunt de waarde van <b>herkenning</b> voor scherm uitvoer bestanden gebruiken voor bruikbaarheid. Een lage score zou een slechte indexerings resultaat hebben als gevolg van de audio kwaliteit. |
+| **InputFileName.kw.xml<br/>InputFileName.info** |Trefwoord-en info bestanden. <br/><br/>Trefwoord bestand is een XML-bestand dat tref woorden bevat die zijn geëxtraheerd uit de spraak inhoud, met frequentie en verschuivings gegevens. <br/><br/>Info bestand is een bestand met onbewerkte tekst dat gedetailleerde informatie bevat over elke herkende term. De eerste regel is speciaal en bevat de herken bare Score. Elke volgende regel is een door tabs gescheiden lijst met de volgende gegevens: begin tijd, eind tijd, woord/zin, betrouw baarheid. De tijden worden in seconden gegeven en het vertrouwen wordt gegeven als een getal van 0-1. <br/><br/>Voorbeeld regel: "1,20 1,45 Word 0,67" <br/><br/>Deze bestanden kunnen worden gebruikt voor een aantal doel einden, zoals, voor het uitvoeren van een spraak analyse of voor het weer geven van zoek machines zoals Bing, Google of micro soft share point, om de media bestanden meer detecteerbaar te maken of zelfs te gebruiken voor het leveren van meer relevante advertenties. |
+| **JobResult.txt** |Uitvoer manifest, alleen aanwezig bij het indexeren van meerdere bestanden, met de volgende gegevens:<br/><br/><table border="1"><tr><th>Invoer</th><th>Alias</th><th>MediaLength</th><th>Fout</th></tr><tr><td>een. MP4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c. MP4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
-Als u niet alle invoer mediabestanden worden geïndexeerd, de indexeringstaak mislukt met foutcode 4000. Zie voor meer informatie, [foutcodes](#error_codes).
+Als niet alle invoer media bestanden zijn geïndexeerd, mislukt de indexerings taak met fout code 4000. Zie [fout codes](#error_codes)voor meer informatie.
 
-## <a name="index-multiple-files"></a>Index van meerdere bestanden
-De volgende methode meerdere mediabestanden als een asset uploadt, en maakt een taak voor het indexeren van deze bestanden in een batch.
+## <a name="index-multiple-files"></a>Meerdere bestanden indexeren
+Met de volgende methode uploadt u meerdere media bestanden als een Asset en maakt u een taak voor het indexeren van alle bestanden in een batch.
 
-Een manifestbestand met de extensie '.lst' is gemaakt en in de asset uploaden. Het manifestbestand bevat de lijst van alle assetbestanden. Zie voor meer informatie, [taak vooraf voor Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+Een manifest bestand met de extensie '. lst ' wordt gemaakt en geüpload naar de Asset. Het manifest bestand bevat de lijst met alle asset-bestanden. Zie voor meer informatie [taak vooraf instellen voor Azure media indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -239,38 +240,38 @@ Een manifestbestand met de extensie '.lst' is gemaakt en in de asset uploaden. H
     }
 ```
 
-### <a name="partially-succeeded-job"></a>Gedeeltelijk geslaagd taak
-Als dat niet alle invoer mediabestanden worden geïndexeerd, de indexeringstaak mislukt met foutcode 4000. Zie voor meer informatie, [foutcodes](#error_codes).
+### <a name="partially-succeeded-job"></a>Gedeeltelijk geslaagde taak
+Als niet alle invoer media bestanden zijn geïndexeerd, mislukt de indexerings taak met fout code 4000. Zie [fout codes](#error_codes)voor meer informatie.
 
-De dezelfde uitvoer (als geslaagd taken) worden gegenereerd. U kunt verwijzen naar het manifestbestand van de uitvoer wilt weten welke invoerbestanden zijn mislukt, op basis van de kolomwaarden fout. Voor de invoerbestanden dat is mislukt, de resulterende AIB, SAMI, TTML, WebVTT en trefwoord wordt bestanden niet worden gegenereerd.
+Dezelfde uitvoer (als geslaagde taken) worden gegenereerd. U kunt naar het uitvoer manifest bestand zoeken om te ontdekken welke invoer bestanden zijn mislukt, volgens de fout kolom waarden. Voor invoer bestanden die zijn mislukt, worden de resulterende AIB-, SAMI-, TTML-, WebVTT-en trefwoord bestanden niet gegenereerd.
 
-### <a id="preset"></a> Taken vooraf instellen voor Azure Media Indexer
-De verwerking van Azure Media Indexer kan worden aangepast door te geven van een optionele taak voorinstelling samen met de taak.  De volgende tabel ziet de indeling van deze configuratie-xml.
+### <a id="preset"></a>Taak voorinstelling voor Azure Media Indexer
+De verwerking van Azure Media Indexer kan worden aangepast door naast de taak een optionele vooraf ingestelde taak te geven.  Hieronder wordt de indeling van deze XML-configuratie beschreven.
 
 | Name | Require | Description |
 | --- | --- | --- |
-| **input** |false |Asset-bestanden die u wilt indexeren.</p><p>Azure Media Indexer biedt ondersteuning voor de volgende indelingen voor media: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>U kunt de naam van het bestand (s) opgeven de **naam** of **lijst** kenmerk van de **invoer** element (zoals hieronder wordt weergegeven). Als u niet welke assetbestand index opgeeft, wordt het primaire bestand opgehaald. Als er geen primaire assetbestand is ingesteld, wordt het eerste bestand in het invoeractivum geïndexeerd.</p><p>Als u wilt de naam van het asset expliciet opgeven, doet u het:<br/>`<input name="TestFile.wmv">`<br/><br/>U kunt ook meerdere assetbestanden in één keer (maximaal 10) index. Om dit te doen:<br/><br/><ol class="ordered"><li><p>Maak een tekstbestand (manifest-bestand) en wijs hieraan de extensie .lst. </p></li><li><p>Een lijst met alle namen van de asset-bestand in uw invoeractivum toevoegen aan deze manifestbestand. </p></li><li><p>(Uploaden) het manifest-bestand toevoegen aan de asset.  </p></li><li><p>Geef de naam van het manifestbestand in kenmerk van de invoer.<br/>`<input list="input.lst">`</li></ol><br/><br/>Opmerking: Als u meer dan 10 bestanden aan het manifestbestand toevoegt, mislukt de indexeringstaak met foutcode 2006. |
-| **metadata** |false |Metagegevens voor de opgegeven asset-bestanden die worden gebruikt voor de Woordenlijstaanpassing.  Dit is handig om voor te bereiden indexeerfunctie voor het herkennen van niet-standaard vocabulaire woorden, zoals de juiste woorden.<br/>`<metadata key="..." value="..."/>` <br/><br/>U kunt opgeven **waarden** voor vooraf gedefinieerde **sleutels**. De volgende sleutels worden momenteel ondersteund:<br/><br/>"title" en 'description' - gebruikt voor de woordenlijstaanpassing aanpassen van de taal model van uw taak en de nauwkeurigheid van de spraakherkenning te verbeteren.  De waarden seed-zoekacties op Internet om te zoeken contextueel relevante tekstdocumenten, met behulp van de inhoud om te verbeteren van de interne woordenlijst voor de duur van de Indexing-taak.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **Functies** <br/><br/> Toegevoegd in versie 1.2. Op dit moment is het enige ondersteunde kenmerk spraakherkenning ('ASR'). |false |De functie voor spraakherkenning heeft de volgende instellingen voor sleutels:<table><tr><th><p>Sleutel</p></th>        <th><p>Description</p></th><th><p>Voorbeeldwaarde</p></th></tr><tr><td><p>Taal</p></td><td><p>De natuurlijke taal moet worden herkend in het multimediabestand.</p></td><td><p>Engels, Spaans</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>een door puntkomma's gescheiden lijst van de gewenste uitvoer bijschrift-indelingen (indien aanwezig)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Een Booleaanse vlag die aangeeft of een AIB-bestand (voor gebruik met SQL Server en de klant indexeerfunctie IFilter) vereist is.  Zie voor meer informatie, <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">AIB-bestanden met behulp van Azure Media Indexer en SQL Server</a>.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Een Booleaanse vlag die aangeeft of de XML-bestand van een sleutelwoord vereist is.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Een Booleaanse vlag die aangeeft of om af te dwingen volledige bijschriften (ongeacht vertrouwensniveau) of niet.  </p><p>Standaard is ingesteld op false, in welk geval woorden en zinnen die kleiner dan 50% vertrouwensniveau hebben zijn weggelaten uit de uitvoer van de laatste bijschrift en vervangen door de weglatingstekens ('...').  De weglatingstekens zijn handig voor kwaliteitscontrole bijschrift en controle.</p></td><td><p>True; False. </p></td></tr></table> |
+| **input** |false |Activa bestand (en) die u wilt indexeren.</p><p>Azure Media Indexer ondersteunt de volgende indelingen voor media bestanden: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>U kunt de bestands namen opgeven in het kenmerk **name** of **List** van het **input** -element (zoals hieronder weer gegeven). Als u niet opgeeft welk item bestand moet worden geïndexeerd, wordt het primaire bestand gekozen. Als er geen primair activa bestand is ingesteld, wordt het eerste bestand in de invoer Asset geïndexeerd.</p><p>Ga als volgt te werk om de naam van het activa bestand expliciet op te geven:<br/>`<input name="TestFile.wmv">`<br/><br/>U kunt ook meerdere Asset-bestanden tegelijk indexeren (Maxi maal 10 bestanden). Om dit te doen:<br/><br/><ol class="ordered"><li><p>Maak een tekst bestand (manifest bestand) en geef het de extensie. lst. </p></li><li><p>Voeg een lijst met alle bestands namen van assets in uw invoer Asset toe aan dit manifest bestand. </p></li><li><p>Voeg het manifest bestand toe (upload) naar de Asset.  </p></li><li><p>Geef de naam op van het manifest bestand in het lijst kenmerk van de invoer.<br/>`<input list="input.lst">`</li></ol><br/><br/>Opmerking: Als u meer dan 10 bestanden toevoegt aan het manifest bestand, mislukt de indexerings taak met de fout code 2006. |
+| **metadata** |false |Meta gegevens voor het opgegeven item bestand (en) die worden gebruikt voor het aanpassen van de woorden lijst.  Het is handig om de Indexeer functie voor te bereiden om niet-standaard woordenlijst woorden, zoals de juiste naam woorden, te herkennen.<br/>`<metadata key="..." value="..."/>` <br/><br/>U kunt **waarden** voor vooraf gedefinieerde **sleutels**opgeven. Momenteel worden de volgende sleutels ondersteund:<br/><br/>"title" en "Description": wordt gebruikt voor het aanpassen van de terminologie van het taal model voor uw taak en het verbeteren van de nauw keurigheid van spraak herkenning.  De waarden Seed internet zoekt naar context afhankelijke relevante tekst documenten, waarbij de inhoud wordt gebruikt om de interne woorden lijst voor de duur van uw indexerings taak te verg Roten.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
+| **functies** <br/><br/> Toegevoegd in versie 1,2. Op dit moment is de enige ondersteunde functie spraak herkenning (ASR). |false |De functie voor spraak herkenning heeft de volgende instellingen sleutels:<table><tr><th><p>Sleutel</p></th>        <th><p>Description</p></th><th><p>Voorbeeldwaarde</p></th></tr><tr><td><p>Taal</p></td><td><p>De natuurlijke taal die moet worden herkend in het multimedia bestand.</p></td><td><p>Engels, Spaans</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>een door punt komma's gescheiden lijst met de gewenste indelingen van de uitvoer bijschriften (indien van toepassing)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Een Booleaanse vlag die aangeeft of een AIB-bestand vereist is (voor gebruik met SQL Server en de IFilter van de klant index).  Zie <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">AIB-bestanden gebruiken met Azure media indexer en SQL Server</a>voor meer informatie.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Een Booleaanse vlag die aangeeft of een XML-bestand met een tref woord is vereist.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Een Booleaanse vlag die aangeeft of volledige bijschriften moeten worden geforceerd (ongeacht het betrouwbaarheids niveau).  </p><p>De standaard waarde is False, in het geval dat woorden en zinsdelen met een kleiner dan 50% betrouw niveau worden wegge laten uit de laatste bijschrift uitvoer en worden vervangen door beletsel tekens ("...").  De weglatings tekens zijn handig voor het controleren van bijschriften en controles.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a id="error_codes"></a>Foutcodes
-In het geval van een fout op Azure Media Indexer wilt laten rapporteren back-ups maken een van de volgende foutcodes:
+### <a id="error_codes"></a>Fout codes
+In het geval van een fout moet Azure Media Indexer een van de volgende fout codes rapporteren:
 
-| Code | Name | Mogelijke oorzaken |
+| Code | Name | Mogelijke redenen |
 | --- | --- | --- |
 | 2000 |Ongeldige configuratie |Ongeldige configuratie |
-| 2001 |Ongeldige invoer activa |Invoer activa of lege asset ontbreekt. |
-| 2002 |Ongeldig manifest |Het manifest is leeg of manifest bevat ongeldige items. |
-| 2003 |Mediabestand is niet gedownload |Ongeldige URL in het manifestbestand. |
-| 2004 |Niet-ondersteund protocol |Protocol van media-URL wordt niet ondersteund. |
-| 2005 |Niet-ondersteund bestandstype |Invoer mediabestandstype wordt niet ondersteund. |
-| 2006 |Te veel invoerbestanden |Er zijn meer dan 10 bestanden in het manifest van de invoer. |
-| 3000 |Mediabestand decoderen is mislukt |Niet-ondersteunde mediacodec <br/>of<br/> Beschadigd bestand <br/>of<br/> Er is geen audiostream in de invoer media. |
-| 4000 |Indexeren van batch voltooid gedeeltelijk |Enkele van de invoer mediabestanden worden kan niet worden geïndexeerd. Zie voor meer informatie, <a href="#output_files">uitvoerbestanden</a>. |
-| andere |Interne fouten |Neem contact op met voor ondersteuningsteam. indexer@microsoft.com |
+| 2001 |Ongeldige invoer assets |Ontbrekende invoer assets of lege activa. |
+| 2002 |Ongeldig manifest |Het manifest is leeg of het manifest bevat ongeldige items. |
+| 2003 |Kan het Media bestand niet downloaden |De URL in het manifest bestand is ongeldig. |
+| 2004 |Niet-ondersteund protocol |Het Protocol van de media-URL wordt niet ondersteund. |
+| 2005 |Niet-ondersteund bestandstype |Invoer media bestands type wordt niet ondersteund. |
+| 2006 |Te veel invoer bestanden |Er zijn meer dan 10 bestanden in het invoer manifest. |
+| 3000 |Kan Media bestand niet decoderen |Niet-ondersteunde media-codec <br/>of<br/> Beschadigd media bestand <br/>of<br/> Geen audio stroom in invoer media. |
+| 4000 |Batch indexeren is gedeeltelijk voltooid |Een aantal invoer media bestanden kan niet worden geïndexeerd. Zie <a href="#output_files">uitvoer bestanden</a>voor meer informatie. |
+| overig |Interne fouten |Neem contact op met het ondersteunings team. indexer@microsoft.com |
 
 ## <a id="supported_languages"></a>Ondersteunde talen
-Op dit moment worden het Engels en Spaans talen ondersteund. Zie voor meer informatie, [het blogbericht van v1.2 release](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Op dit moment worden de Engelse en Spaanse talen ondersteund. Zie [het blog bericht v 1.2 release](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)voor meer informatie.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -279,9 +280,9 @@ Op dit moment worden het Engels en Spaans talen ondersteund. Zie voor meer infor
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Verwante koppelingen
-[Azure Media Services Analytics-overzicht](media-services-analytics-overview.md)
+[Overzicht van Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[AIB-bestanden met Azure Media Indexer en SQL Server gebruiken](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[AIB-bestanden gebruiken met Azure Media Indexer en SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
-[Indexeren van mediabestanden met Azure Media Indexer 2-Preview](media-services-process-content-with-indexer2.md)
+[Media bestanden indexeren met Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
 

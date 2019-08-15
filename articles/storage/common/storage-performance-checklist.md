@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ee216bd4d6994179e347465c30039f2f8e293c85
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 48a5484e2b2b663d0046fc628c02e656c5bd7a25
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233024"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985154"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Controle lijst voor prestaties en schaal baarheid Microsoft Azure Storage
 
@@ -30,7 +30,7 @@ In dit artikel worden de bewezen procedures in de volgende groepen ingedeeld. Be
 * Tabellen
 * Wachtrijen  
 
-| Klaar | Onderwerp | Categorie | Vraag |
+| Gereed | Onderwerp | Categorie | Vraag |
 | --- | --- | --- | --- |
 | &nbsp; | Alle services |Schaalbaarheids doelen |[Is uw toepassing ontworpen om te voor komen dat de schaalbaarheids doelen worden bereikt?](#subheading1) |
 | &nbsp; | Alle services |Schaalbaarheids doelen |[Is uw naamgevings Conventie ontworpen om een betere taak verdeling te bieden?](#subheading47) |
@@ -172,7 +172,7 @@ Beide technologieën kunnen u helpen bij het voor komen van onnodige belasting (
 
 #### <a name="useful-resources"></a>Nuttige informatie
 
-Zie [voor meer informatie over sa's Shared Access Signatures, Part 1: Meer informatie over het](../storage-dotnet-shared-access-signature-part-1.md)SAS-model.  
+Zie voor meer informatie over SA'S [beperkte toegang verlenen tot Azure storage-resources met behulp van Shared Access signatures (SAS)](storage-sas-overview.md).  
 
 Zie [ondersteuning voor het gebruik van cors (cross-Origin Resource Sharing) voor de Azure Storage services](https://msdn.microsoft.com/library/azure/dn535601.aspx)voor meer informatie over cors.  
 

@@ -1,6 +1,6 @@
 ---
 title: Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-description: Informatie over het gebruik van Resource Manager-sjabloon te maken van een waarschuwing voor metrische gegevens.
+description: Meer informatie over het gebruik van een resource manager-sjabloon voor het maken van een metrische waarschuwing.
 author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,33 +8,33 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 8300baa1afa3e6c738cee4c2a2517463c2af1e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4430b14a93bb4cf2ccf43881ad061590f8e6815
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978857"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976685"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Dit artikel wordt beschreven hoe u kunt een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) configureren [nieuwere metrische waarschuwingen](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Azure Monitor. Resource Manager-sjablonen kunnen u programmatisch waarschuwingen instellen op een consistente en reproduceerbare manier in uw omgevingen. Nieuwere metrische waarschuwingen zijn momenteel beschikbaar op [deze set resourcetypen](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+In dit artikel wordt beschreven hoe u een [Azure Resource Manager sjabloon](../../azure-resource-manager/resource-group-authoring-templates.md) kunt gebruiken om [nieuwe metrische waarschuwingen](../../azure-monitor/platform/alerts-metric-near-real-time.md) te configureren in azure monitor. Met Resource Manager-sjablonen kunt u via programma code waarschuwingen instellen op een consistente en reproduceer bare manier in uw omgevingen. Er zijn momenteel nieuwere metrische waarschuwingen beschikbaar voor [Deze set met resource typen](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resource-sjabloon voor het maken van metrische waarschuwingen voor het resourcetype: Azure Log Analytics-werkruimte (dat wil zeggen) `Microsoft.OperationalInsights/workspaces`, zijn extra stappen vereist. Zie voor meer informatie het artikel op [metrische waarschuwingen voor logboeken - Resource-sjabloon](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resource sjabloon voor het maken van metrische waarschuwingen voor het resource type: Voor de Azure log Analytics-werk ruimte `Microsoft.OperationalInsights/workspaces`(i.e.) zijn aanvullende stappen vereist. Zie het artikel over [metrische waarschuwing voor logboeken-resource sjabloon](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)voor meer informatie.
 
-De eenvoudige stappen zijn als volgt:
+De basis stappen zijn als volgt:
 
-1. Gebruik een van de sjablonen hieronder als een JSON-bestand dat wordt beschreven hoe u de waarschuwing wilt maken.
-2. Bewerken en de bijbehorende parameterbestand als een JSON gebruiken om aan te passen van de waarschuwing
-3. Implementeer de sjabloon met [eventuele implementatiemethode](../../azure-resource-manager/resource-group-template-deploy.md).
+1. Gebruik een van de volgende sjablonen als een JSON-bestand met een beschrijving van het maken van de waarschuwing.
+2. Het bijbehorende parameter bestand bewerken en gebruiken als JSON om de waarschuwing aan te passen
+3. Implementeer de sjabloon met [een implementatie methode](../../azure-resource-manager/resource-group-template-deploy.md).
 
-## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Sjabloon voor een eenvoudige statische drempelwaarde-waarschuwing voor metrische gegevens
+## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Sjabloon voor een eenvoudige waarschuwing voor een statische drempel waarde voor waarschuwingen
 
-Voor het maken van een waarschuwing met behulp van Resource Manager-sjabloon maken van een resource van het type `Microsoft.Insights/metricAlerts` en vul alle verwante eigenschappen. Hieronder volgt een voorbeeldsjabloon die wordt gemaakt van een waarschuwingsregel voor metrische gegevens.
+Als u een waarschuwing wilt maken met behulp van een resource manager-sjabloon, `Microsoft.Insights/metricAlerts` maakt u een bron van het type en vult u alle gerelateerde eigenschappen in. Hieronder volgt een voorbeeld sjabloon waarmee een waarschuwing regel voor metrische gegevens wordt gemaakt.
 
-De onderstaande json opslaan als simplestaticmetricalert.json ten behoeve van dit scenario.
+Sla de JSON hieronder op als simplestaticmetricalert. json voor het doel van deze procedure.
 
 ```json
 {
@@ -187,15 +187,15 @@ De onderstaande json opslaan als simplestaticmetricalert.json ten behoeve van di
 }
 ```
 
-Een uitleg van het schema en de eigenschappen voor een waarschuwingsregel [is hier beschikbaar](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+[Hier](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate)vindt u een uitleg van het schema en de eigenschappen voor een waarschuwings regel.
 
-U kunt de waarden voor de parameters instellen op de opdrachtregel of via een parameterbestand. Hieronder vindt u een voorbeeldbestand voor de parameter.
+U kunt de waarden voor de para meters instellen op de opdracht regel of via een parameter bestand. Hieronder vindt u een voor beeld van een parameter bestand.
 
-De onderstaande json opslaan als simplestaticmetricalert.parameters.json en deze zo nodig wijzigen.
+Sla de JSON hieronder op als simplestaticmetricalert. para meters. json en wijzig deze indien nodig.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -233,7 +233,7 @@ De onderstaande json opslaan als simplestaticmetricalert.parameters.json en deze
 ```
 
 
-U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI maken.
+U kunt de metrische waarschuwing maken met behulp van de sjabloon en het parameter bestand met behulp van Power shell of Azure CLI.
 
 Azure PowerShell gebruiken
 
@@ -260,13 +260,13 @@ az group deployment create \
 
 > [!NOTE]
 >
-> Hoewel de waarschuwing voor metrische gegevens kan worden gemaakt in een andere resourcegroep voor de doelresource, adviseren we met behulp van dezelfde resourcegroep bevinden als de doelresource.
+> Terwijl de metrische waarschuwing in een andere resource groep kan worden gemaakt naar de doel resource, raden we u aan dezelfde resource groep te gebruiken als de doel resource.
 
-## <a name="template-for-a-simple-dynamic-thresholds-metric-alert"></a>Sjabloon voor een eenvoudige dynamische drempelwaarden metrische waarschuwing
+## <a name="template-for-a-simple-dynamic-thresholds-metric-alert"></a>Sjabloon voor een waarschuwing met metrische gegevens voor eenvoudige dynamische drempel waarden
 
-Voor het maken van een waarschuwing met behulp van Resource Manager-sjabloon maken van een resource van het type `Microsoft.Insights/metricAlerts` en vul alle verwante eigenschappen. Hieronder volgt een voorbeeldsjabloon die wordt gemaakt van een waarschuwingsregel voor metrische gegevens.
+Als u een waarschuwing wilt maken met behulp van een resource manager-sjabloon, `Microsoft.Insights/metricAlerts` maakt u een bron van het type en vult u alle gerelateerde eigenschappen in. Hieronder volgt een voorbeeld sjabloon waarmee een waarschuwing regel voor metrische gegevens wordt gemaakt.
 
-De onderstaande json opslaan als simpledynamicmetricalert.json ten behoeve van dit scenario.
+Sla de JSON hieronder op als simpledynamicmetricalert. json voor het doel van deze procedure.
 
 ```json
 {
@@ -440,15 +440,15 @@ De onderstaande json opslaan als simpledynamicmetricalert.json ten behoeve van d
 }
 ```
 
-Een uitleg van het schema en de eigenschappen voor een waarschuwingsregel [is hier beschikbaar](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+[Hier](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate)vindt u een uitleg van het schema en de eigenschappen voor een waarschuwings regel.
 
-U kunt de waarden voor de parameters instellen op de opdrachtregel of via een parameterbestand. Hieronder vindt u een voorbeeldbestand voor de parameter. 
+U kunt de waarden voor de para meters instellen op de opdracht regel of via een parameter bestand. Hieronder vindt u een voor beeld van een parameter bestand. 
 
-De onderstaande json opslaan als simpledynamicmetricalert.parameters.json en deze zo nodig wijzigen.
+Sla de JSON hieronder op als simpledynamicmetricalert. para meters. json en wijzig deze indien nodig.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -492,7 +492,7 @@ De onderstaande json opslaan als simpledynamicmetricalert.parameters.json en dez
 ```
 
 
-U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI maken.
+U kunt de metrische waarschuwing maken met behulp van de sjabloon en het parameter bestand met behulp van Power shell of Azure CLI.
 
 Azure PowerShell gebruiken
 
@@ -519,13 +519,13 @@ az group deployment create \
 
 > [!NOTE]
 >
-> Hoewel de waarschuwing voor metrische gegevens kan worden gemaakt in een andere resourcegroep voor de doelresource, adviseren we met behulp van dezelfde resourcegroep bevinden als de doelresource.
+> Terwijl de metrische waarschuwing in een andere resource groep kan worden gemaakt naar de doel resource, raden we u aan dezelfde resource groep te gebruiken als de doel resource.
 
-## <a name="template-for-a-more-advanced-static-threshold-metric-alert"></a>Sjabloon voor een meer geavanceerde statische drempelwaarde metrische waarschuwing
+## <a name="template-for-a-more-advanced-static-threshold-metric-alert"></a>Sjabloon voor een meer geavanceerde waarschuwing voor een meting van een vaste drempel waarde
 
-Nieuwere metrische waarschuwingen ondersteunt waarschuwingen voor de multi-dimensionale metrische gegevens, evenals ondersteuning van meerdere criteria. U kunt de volgende sjabloon gebruiken een geavanceerdere waarschuwing voor metrische gegevens op eendimensionale metrische gegevens maken en meerdere criteria opgeven.
+Nieuwere metrische waarschuwingen bieden ondersteuning voor waarschuwingen over multidimensionale metrische gegevens en het ondersteunen van meerdere criteria. U kunt de volgende sjabloon gebruiken om een meer geavanceerde metrische waarschuwing te maken voor dimensionale metrieken en meerdere criteria op te geven.
 
-De onderstaande json opslaan als advancedstaticmetricalert.json ten behoeve van dit scenario.
+Sla de JSON hieronder op als advancedstaticmetricalert. json voor het doel van deze procedure.
 
 ```json
 {
@@ -641,13 +641,13 @@ De onderstaande json opslaan als advancedstaticmetricalert.json ten behoeve van 
 }
 ```
 
-U kunt de bovenstaande sjabloon gebruiken samen met de parameter-bestand die hieronder. 
+U kunt de bovenstaande sjabloon gebruiken, samen met het parameter bestand dat hieronder wordt vermeld. 
 
-Opslaan en het wijzigen van de onderstaande json als advancedstaticmetricalert.parameters.json ten behoeve van dit scenario.
+Sla de JSON hieronder op en wijzig deze als advancedstaticmetricalert. para meters. json voor het doel van deze procedure.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -710,7 +710,7 @@ Opslaan en het wijzigen van de onderstaande json als advancedstaticmetricalert.p
 ```
 
 
-U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI in uw huidige werkmap maken
+U kunt de waarschuwing voor metrische gegevens maken met behulp van de sjabloon en het parameter bestand met behulp van Power shell of Azure CLI vanuit uw huidige werkmap
 
 Azure PowerShell gebruiken
 ```powershell
@@ -737,15 +737,15 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Hoewel de waarschuwing voor metrische gegevens kan worden gemaakt in een andere resourcegroep voor de doelresource, adviseren we met behulp van dezelfde resourcegroep bevinden als de doelresource.
+> Terwijl de metrische waarschuwing in een andere resource groep kan worden gemaakt naar de doel resource, raden we u aan dezelfde resource groep te gebruiken als de doel resource.
 
-## <a name="template-for-a-more-advanced-dynamic-thresholds-metric-alert"></a>Sjabloon voor een meer geavanceerde dynamische drempelwaarden metrische waarschuwing
+## <a name="template-for-a-more-advanced-dynamic-thresholds-metric-alert"></a>Sjabloon voor een geavanceerde waarschuwing voor de metrische gegevens over dynamische drempel waarden
 
-U kunt de volgende sjabloon gebruiken om te maken van een metrische waarschuwing voor een meer geavanceerde dynamische drempelwaarden op eendimensionale metrische gegevens. Meerdere criteria worden momenteel niet ondersteund.
+U kunt de volgende sjabloon gebruiken om een geavanceerdere dynamische drempel waarden waarschuwing voor metrische gegevens te maken. Er worden momenteel niet meerdere criteria ondersteund.
 
-Dynamische drempelwaarden voor waarschuwingsregel kunt maken die zijn afgestemd drempelwaarden voor honderden metrische reeks (zelfs in verschillende typen) op een tijdstip, wat tot minder waarschuwingsregels leidt beheren.
+Waarschuwings regel voor dynamische drempel waarden kan aangepaste drempel waarden maken voor honderden metrische gegevens reeksen (zelfs verschillende typen) tegelijk, wat leidt tot minder waarschuwings regels om te beheren.
 
-De onderstaande json opslaan als advanceddynamicmetricalert.json ten behoeve van dit scenario.
+Sla de JSON hieronder op als advanceddynamicmetricalert. json voor het doel van deze procedure.
 
 ```json
 {
@@ -853,13 +853,13 @@ De onderstaande json opslaan als advanceddynamicmetricalert.json ten behoeve van
 }
 ```
 
-U kunt de bovenstaande sjabloon gebruiken samen met de parameter-bestand die hieronder. 
+U kunt de bovenstaande sjabloon gebruiken, samen met het parameter bestand dat hieronder wordt vermeld. 
 
-Opslaan en het wijzigen van de onderstaande json als advanceddynamicmetricalert.parameters.json ten behoeve van dit scenario.
+Sla de JSON hieronder op en wijzig deze als advanceddynamicmetricalert. para meters. json voor het doel van deze procedure.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -911,7 +911,7 @@ Opslaan en het wijzigen van de onderstaande json als advanceddynamicmetricalert.
 ```
 
 
-U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI in uw huidige werkmap maken
+U kunt de waarschuwing voor metrische gegevens maken met behulp van de sjabloon en het parameter bestand met behulp van Power shell of Azure CLI vanuit uw huidige werkmap
 
 Azure PowerShell gebruiken
 ```powershell
@@ -938,25 +938,25 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Hoewel de waarschuwing voor metrische gegevens kan worden gemaakt in een andere resourcegroep voor de doelresource, adviseren we met behulp van dezelfde resourcegroep bevinden als de doelresource.
+> Terwijl de metrische waarschuwing in een andere resource groep kan worden gemaakt naar de doel resource, raden we u aan dezelfde resource groep te gebruiken als de doel resource.
 
-## <a name="template-for-metric-alert-that-monitors-multiple-resources"></a>Sjabloon voor waarschuwing voor metrische gegevens die meerdere resources bewaakt
+## <a name="template-for-metric-alert-that-monitors-multiple-resources"></a>Sjabloon voor metrische waarschuwing waarmee meerdere bronnen worden bewaakt
 
-In de vorige secties beschreven voorbeeld van Azure Resource Manager-sjablonen voor het maken van metrische waarschuwingen die één resource bewaken. Azure Monitor biedt nu ondersteuning voor het bewaken van meerdere resources met een enkele waarschuwingsregel voor metrische gegevens. Deze preview-functie is momenteel alleen via Azure Resource Manager-sjablonen en REST-API beschikbaar en wordt alleen ondersteund voor virtuele Machines.
+In de vorige secties beschreven voor beelden van Azure Resource Manager sjablonen voor het maken van metrische waarschuwingen die één resource bewaken. Azure Monitor ondersteunt nu het bewaken van meerdere resources met één metrische waarschuwings regel. Deze functie wordt momenteel alleen ondersteund in de open bare Azure-Cloud en alleen voor virtuele machines en Databox edge-apparaten.
 
-Regel voor dynamisch drempelwaarden voor waarschuwingen kan ook helpen op maat gemaakte drempelwaarden voor honderden metrische reeks (zelfs in verschillende typen) maken op een tijdstip, wat tot minder waarschuwingsregels leidt beheren.
+Waarschuwings regel voor dynamische drempel waarden kan ook helpen bij het maken van aangepaste drempel waarden voor honderden metrische reeksen (zelfs verschillende typen) tegelijk, wat leidt tot minder waarschuwings regels om te beheren.
 
-In deze sectie wordt beschreven van Azure Resource Manager-sjablonen voor drie scenario's voor het bewaken van meerdere resources met een enkele regel.
+In deze sectie worden Azure Resource Manager sjablonen beschreven voor drie scenario's voor het bewaken van meerdere resources met één regel.
 
-- Bewaking van alle virtuele machines (in een Azure-regio) in een of meer resourcegroepen.
-- Bewaking van alle virtuele machines (in een Azure-regio) in een abonnement
-- Bewaking van een lijst met virtuele machines (in een Azure-regio) in een abonnement.
+- Alle virtuele machines (in één Azure-regio) bewaken in een of meer resource groepen.
+- Alle virtuele machines (in één Azure-regio) bewaken in een abonnement
+- Een lijst met virtuele machines (in één Azure-regio) bewaken in een abonnement.
 
-### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Waarschuwing voor statische drempelwaarde op alle virtuele machines in een of meer resourcegroepen
+### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Statische drempel waarschuwing voor alle virtuele machines in een of meer resource groepen
 
-Deze sjabloon maakt een statische drempelwaarde waarschuwingsregel voor metrische gegevens die Percentage CPU voor alle virtuele machines (in een Azure-regio bewaakt) in een of meer resourcegroepen.
+Met deze sjabloon wordt een regel voor een statische drempel waarde voor metrische gegevens gemaakt waarmee het percentage CPU voor alle virtuele machines (in één Azure-regio) in een of meer resource groepen wordt gecontroleerd.
 
-De onderstaande json opslaan als all-vms-in-resource-group-static.json ten behoeve van deze procedure.
+Sla de JSON hieronder op als alle-vm's-in-Resource-Group-static. json voor het doel van deze procedure.
 
 ```json
 {
@@ -1172,12 +1172,12 @@ De onderstaande json opslaan als all-vms-in-resource-group-static.json ten behoe
 }
 ```
 
-U kunt de bovenstaande sjabloon gebruiken met de parameterbestand hieronder.
-Opslaan en wijzigen van de onderstaande json als all-vms-in-resource-group-static.parameters.json ten behoeve van dit scenario.
+U kunt de bovenstaande sjabloon gebruiken met het onderstaande parameter bestand.
+Sla de JSON hieronder op en wijzig deze als alle-vm's-in-Resource-Group-static. para meters. json voor het doel van deze procedure.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1223,7 +1223,7 @@ Opslaan en wijzigen van de onderstaande json als all-vms-in-resource-group-stati
 }
 ```
 
-U kunt de statische waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI in uw huidige werkmap maken.
+U kunt de statische waarschuwing voor metrische gegevens maken met behulp van de sjabloon en het parameter bestand met Power shell of Azure CLI vanuit uw huidige werkmap.
 
 Azure PowerShell gebruiken
 
@@ -1248,11 +1248,11 @@ az group deployment create \
     --parameters @all-vms-in-resource-group-static.parameters.json
 ```
 
-### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Dynamische drempelwaarden waarschuwing op alle virtuele machines in een of meer resourcegroepen
+### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Waarschuwing voor dynamische drempel waarden voor alle virtuele machines in een of meer resource groepen
 
-Deze sjabloon maakt een dynamische drempelwaarden waarschuwingsregel voor metrische gegevens die Percentage CPU voor alle virtuele machines (in een Azure-regio bewaakt) in een of meer resourcegroepen.
+Met deze sjabloon wordt een regel voor metrische waarschuwingen voor dynamische drempel waarden gemaakt waarmee het percentage CPU voor alle virtuele machines (in één Azure-regio) in een of meer resource groepen wordt gecontroleerd.
 
-De onderstaande json opslaan als all-vms-in-resource-group-dynamic.json ten behoeve van deze procedure.
+Sla de JSON hieronder op als alle-vm's-in-Resource-Group-Dynamic. json voor deze procedure.
 
 ```json
 {
@@ -1489,12 +1489,12 @@ De onderstaande json opslaan als all-vms-in-resource-group-dynamic.json ten beho
 }
 ```
 
-U kunt de bovenstaande sjabloon gebruiken met de parameterbestand hieronder.
-Opslaan en wijzigen van de onderstaande json als all-vms-in-resource-group-dynamic.parameters.json ten behoeve van dit scenario.
+U kunt de bovenstaande sjabloon gebruiken met het onderstaande parameter bestand.
+Sla de JSON hieronder op en wijzig deze als alle-vm's-in-Resource-Group-Dynamic. para meters. json voor het doel van deze procedure.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1546,7 +1546,7 @@ Opslaan en wijzigen van de onderstaande json als all-vms-in-resource-group-dynam
 }
 ```
 
-U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI in uw huidige werkmap maken.
+U kunt de metrische waarschuwing maken met behulp van de sjabloon en het parameter bestand met behulp van Power shell of Azure CLI vanuit uw huidige werkmap.
 
 Azure PowerShell gebruiken
 
@@ -1571,11 +1571,11 @@ az group deployment create \
     --parameters @all-vms-in-resource-group-dynamic.parameters.json
 ```
 
-### <a name="static-threshold-alert-on-all-virtual-machines-in-a-subscription"></a>Waarschuwing voor statische drempelwaarde op alle virtuele machines in een abonnement
+### <a name="static-threshold-alert-on-all-virtual-machines-in-a-subscription"></a>Statische drempel waarschuwing voor alle virtuele machines in een abonnement
 
-Deze sjabloon maakt een statische drempelwaarde waarschuwingsregel voor metrische gegevens die Percentage CPU voor alle virtuele machines (in een Azure-regio bewaakt) in een abonnement.
+Met deze sjabloon wordt een regel voor een statische drempel waarde voor metrische gegevens gemaakt waarmee het percentage CPU voor alle virtuele machines (in één Azure-regio) in een abonnement wordt gecontroleerd.
 
-De onderstaande json opslaan als alle-VM's-in-abonnement-static.json ten behoeve van deze procedure.
+Sla de JSON hieronder op als alle vm's-in-abonnement-static. json voor het doel van deze procedure.
 
 ```json
 {
@@ -1791,12 +1791,12 @@ De onderstaande json opslaan als alle-VM's-in-abonnement-static.json ten behoeve
 }
 ```
 
-U kunt de bovenstaande sjabloon gebruiken met de parameterbestand hieronder.
-Opslaan en het wijzigen van de onderstaande json als alle-VM's-in-abonnement-static.parameters.json ten behoeve van dit scenario.
+U kunt de bovenstaande sjabloon gebruiken met het onderstaande parameter bestand.
+Sla de JSON hieronder op en wijzig deze als alle vm's-in-abonnement-static. para meters. json voor het doel van deze procedure.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1839,7 +1839,7 @@ Opslaan en het wijzigen van de onderstaande json als alle-VM's-in-abonnement-sta
 }
 ```
 
-U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI in uw huidige werkmap maken.
+U kunt de metrische waarschuwing maken met behulp van de sjabloon en het parameter bestand met behulp van Power shell of Azure CLI vanuit uw huidige werkmap.
 
 Azure PowerShell gebruiken
 
@@ -1864,11 +1864,11 @@ az group deployment create \
     --parameters @all-vms-in-subscription.parameters-static.json
 ```
 
-### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-a-subscription"></a>Dynamische drempelwaarden waarschuwing op alle virtuele machines in een abonnement
+### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-a-subscription"></a>Waarschuwing voor dynamische drempel waarden voor alle virtuele machines in een abonnement
 
-Deze sjabloon maakt u een dynamische drempelwaarden waarschuwingsregel voor metrische gegevens die Percentage CPU voor alle virtuele machines (in een Azure-regio) in een abonnement bewaakt.
+Met deze sjabloon wordt een regel voor metrische waarschuwingen voor dynamische drempel waarden gemaakt waarmee het percentage CPU voor alle virtuele machines (in één Azure-regio) in een abonnement wordt gecontroleerd.
 
-De onderstaande json opslaan als alle-VM's-in-abonnement-dynamic.json ten behoeve van deze procedure.
+Sla de JSON hieronder op als alle vm's-in-abonnement-Dynamic. json voor deze procedure.
 
 ```json
 {
@@ -2105,12 +2105,12 @@ De onderstaande json opslaan als alle-VM's-in-abonnement-dynamic.json ten behoev
 }
 ```
 
-U kunt de bovenstaande sjabloon gebruiken met de parameterbestand hieronder.
-Opslaan en het wijzigen van de onderstaande json als alle-VM's-in-abonnement-dynamic.parameters.json ten behoeve van dit scenario.
+U kunt de bovenstaande sjabloon gebruiken met het onderstaande parameter bestand.
+Sla de JSON hieronder op en wijzig deze als alle vm's-in-abonnement-Dynamic. para meters. json voor het doel van deze procedure.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2159,7 +2159,7 @@ Opslaan en het wijzigen van de onderstaande json als alle-VM's-in-abonnement-dyn
 }
 ```
 
-U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI in uw huidige werkmap maken.
+U kunt de metrische waarschuwing maken met behulp van de sjabloon en het parameter bestand met behulp van Power shell of Azure CLI vanuit uw huidige werkmap.
 
 Azure PowerShell gebruiken
 
@@ -2184,11 +2184,11 @@ az group deployment create \
     --parameters @all-vms-in-subscription-dynamic.parameter-dynamics.json
 ```
 
-### <a name="static-threshold-alert-on-a-list-of-virtual-machines"></a>Statische drempelwaarde voor waarschuwing voor een lijst met virtuele machines
+### <a name="static-threshold-alert-on-a-list-of-virtual-machines"></a>Statische drempel waarschuwing voor een lijst met virtuele machines
 
-Deze sjabloon maakt een statische drempelwaarde waarschuwingsregel voor metrische gegevens die Percentage CPU voor een lijst met virtuele machines (in een Azure-regio bewaakt) in een abonnement.
+Met deze sjabloon wordt een regel voor een statische drempel waarde voor metrische gegevens gemaakt waarmee het percentage CPU voor een lijst met virtuele machines (in één Azure-regio) in een abonnement wordt gecontroleerd.
 
-De onderstaande json opslaan als lijst-van-VM's-static.json ten behoeve van deze procedure.
+Sla de onderstaande JSON op als lijst-van vm's: static. json voor het doel van deze procedure.
 
 ```json
 {
@@ -2404,12 +2404,12 @@ De onderstaande json opslaan als lijst-van-VM's-static.json ten behoeve van deze
 }
 ```
 
-U kunt de bovenstaande sjabloon gebruiken met de parameterbestand hieronder.
-Opslaan en het wijzigen van de onderstaande json als lijst-van-VM's-static.parameters.json ten behoeve van dit scenario.
+U kunt de bovenstaande sjabloon gebruiken met het onderstaande parameter bestand.
+Sla de JSON hieronder op en wijzig deze in de lijst met vm's: static. para meters. json voor het doel van deze walkthrough.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2455,7 +2455,7 @@ Opslaan en het wijzigen van de onderstaande json als lijst-van-VM's-static.param
 }
 ```
 
-U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI in uw huidige werkmap maken.
+U kunt de metrische waarschuwing maken met behulp van de sjabloon en het parameter bestand met behulp van Power shell of Azure CLI vanuit uw huidige werkmap.
 
 Azure PowerShell gebruiken
 
@@ -2480,11 +2480,11 @@ az group deployment create \
     --parameters @list-of-vms-static.parameters.json
 ```
 
-### <a name="dynamic-thresholds-alert-on-a-list-of-virtual-machines"></a>Dynamische drempelwaarden voor een waarschuwing voor een lijst met virtuele machines
+### <a name="dynamic-thresholds-alert-on-a-list-of-virtual-machines"></a>Waarschuwing voor dynamische drempel waarden voor een lijst met virtuele machines
 
-Deze sjabloon maakt u een dynamische drempelwaarden waarschuwingsregel voor metrische gegevens die Percentage CPU voor een lijst met virtuele machines (in een Azure-regio) in een abonnement bewaakt.
+Met deze sjabloon wordt een regel voor metrische waarschuwingen voor dynamische drempel waarden gemaakt waarmee het percentage CPU voor een lijst met virtuele machines (in één Azure-regio) in een abonnement wordt gecontroleerd.
 
-De onderstaande json opslaan als lijst-van-VM's-dynamic.json ten behoeve van deze procedure.
+Sla de onderstaande JSON op als lijst-van vm's: Dynamic. json voor deze procedure.
 
 ```json
 {
@@ -2721,12 +2721,12 @@ De onderstaande json opslaan als lijst-van-VM's-dynamic.json ten behoeve van dez
 }
 ```
 
-U kunt de bovenstaande sjabloon gebruiken met de parameterbestand hieronder.
-Opslaan en het wijzigen van de onderstaande json als lijst-van-VM's-dynamic.parameters.json ten behoeve van dit scenario.
+U kunt de bovenstaande sjabloon gebruiken met het onderstaande parameter bestand.
+Sla de JSON hieronder op en wijzig deze in de lijst met vm's: Dynamic. para meters. json voor het doel van deze walkthrough.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2778,7 +2778,7 @@ Opslaan en het wijzigen van de onderstaande json als lijst-van-VM's-dynamic.para
 }
 ```
 
-U kunt de waarschuwing voor metrische gegevens met behulp van de sjabloon en parameters-bestand met behulp van PowerShell of Azure CLI in uw huidige werkmap maken.
+U kunt de metrische waarschuwing maken met behulp van de sjabloon en het parameter bestand met behulp van Power shell of Azure CLI vanuit uw huidige werkmap.
 
 Azure PowerShell gebruiken
 
@@ -2804,7 +2804,7 @@ az group deployment create \
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [waarschuwingen in Azure](alerts-overview.md)
-* Meer informatie over het [een actiegroep maken met Resource Manager-sjablonen](action-groups-create-resource-manager-template.md)
-* Zie voor de JSON-syntaxis en eigenschappen, [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) verwijzing naar de sjabloon.
+* Meer informatie over [waarschuwingen in azure](alerts-overview.md)
+* Meer informatie over het [maken van een actie groep met Resource Manager-sjablonen](action-groups-create-resource-manager-template.md)
+* Zie [micro soft. Insights/metricAlerts-](/azure/templates/microsoft.insights/metricalerts) sjabloon Naslag informatie voor de JSON-syntaxis en-eigenschappen.
 

@@ -1,54 +1,54 @@
 ---
-title: Aanbevelingen in Azure Database for MySQL voor prestaties
-description: In dit artikel beschrijft de functie prestaties aanbeveling in Azure Database for MySQL
+title: Aanbevelingen voor prestaties in Azure Database for MySQL
+description: In dit artikel wordt de functie aanbevolen prestatie aanbeveling in Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: af3c4482b1ce9e521d14a0e0c63de40625c25c73
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 87942ae8132c89c502bd6e0f4c8d5b5c81a0a14c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461783"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950374"
 ---
-# <a name="performance-recommendations-in-azure-database-for-mysql"></a>Aanbevelingen in Azure Database for MySQL voor prestaties
+# <a name="performance-recommendations-in-azure-database-for-mysql"></a>Aanbevelingen voor prestaties in Azure Database for MySQL
 
-**Van toepassing op:** Azure Database voor MySQL 5.7
+**Van toepassing op:** Azure Database for MySQL 5,7
 
-> [!NOTE]
-> Aanbevelingen voor prestaties is beschikbaar als preview.
+> [!IMPORTANT]
+> Aanbevelingen voor prestaties zijn een preview-versie.
 
-De functie voor aanbevelingen voor prestaties analyseert uw databases voor het maken van aangepaste suggesties voor betere prestaties. Voor het produceren van de aanbevelingen voor kijkt de analyse naar verschillende database-kenmerken, met inbegrip van schema. Schakel [Query Store](concepts-query-store.md) op uw server volledig gebruikmaken van de functie voor aanbevelingen voor prestaties. Als prestaties schema uitgeschakeld is, kunt u Query Store inschakelen performance_schema en een subset van de prestaties schema instrumenten vereist voor de functie. Na de implementatie van elke aanbeveling prestaties, moet u de prestaties voor het evalueren van de impact van deze wijzigingen testen.
+Met de functie voor prestatie verbeteringen worden uw data bases geanalyseerd om aangepaste suggesties te maken voor betere prestaties. Voor het produceren van de aanbevelingen kijken de analyse naar verschillende database kenmerken, waaronder schema. Schakel het [query archief](concepts-query-store.md) op de server in om de functie aanbevelingen voor prestaties volledig te benutten. Als het prestatie schema is uitgeschakeld, kunnen performance_schema en een subset van de prestatie schema-instrumenten die vereist zijn voor de functie, worden ingeschakeld in query Store. Nadat u een aanbevolen prestatie aanbeveling hebt geïmplementeerd, moet u de prestaties testen om de impact van deze wijzigingen te evalueren.
 
 ## <a name="permissions"></a>Machtigingen
 
 De machtigingen van **Eigenaar** of **Inzender** zijn vereist voor het uitvoeren van analyses met de functie Prestatieaanbevelingen.
 
-## <a name="performance-recommendations"></a>Aanbevelingen voor prestaties
+## <a name="performance-recommendations"></a>Prestatieaanbevelingen
 
 De functie [Prestatieaanbevelingen](concepts-performance-recommendations.md) analyseert workloads op de server om indexen te analyseren met de mogelijkheid om prestaties te verbeteren.
 
-Open **aanbevelingen voor prestaties** uit de **intelligente prestaties** sectie van de in de menubalk op de Azure portal-pagina voor uw MySQL-server.
+Open **prestatie aanbevelingen** van het gedeelte **intelligente prestaties** van de menu balk op de pagina Azure portal voor uw MySQL-server.
 
 ![Landingspagina van Prestatieaanbevelingen](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Selecteer **analyseren** en kiest u een database, die de analyse wordt gestart. De analyse kan enkele minuten duren, afhankelijk van uw workload. Wanneer de analyse is voltooid, verschijnt er een melding in de portal. Analyse voert een grondige onderzoek van de database. U wordt aangeraden dat u analyse uitvoeren tijdens daluren.
+Selecteer **analyseren** en kies een Data Base, waarmee de analyse wordt gestart. Afhankelijk van uw werk belasting kan het enkele minuten duren voordat de analyse is voltooid. Wanneer de analyse is voltooid, verschijnt er een melding in de portal. Analyse voert een grondige controle uit van uw data base. We raden u aan om analyses uit te voeren tijdens rustige Peri Oden.
 
-De **aanbevelingen** venster ziet u een lijst met aanbevelingen als een onderdelen en de gerelateerde query-ID die deze aanbeveling heeft gegenereerd. Met de query-ID, kunt u de [mysql.query_store](concepts-query-store.md#mysqlquery_store) weergeven voor meer informatie over de query.
+In het venster **aanbevelingen** wordt een lijst met aanbevelingen weer gegeven als deze zijn gevonden en de gerelateerde query-id die deze aanbeveling heeft gegenereerd. Met de query-ID kunt u de [mysql. query_store](concepts-query-store.md#mysqlquery_store) -weer gave gebruiken om meer te weten te komen over de query.
 
-![Nieuwe pagina voor prestatie-aanbevelingen](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+![Nieuwe pagina prestatie aanbevelingen](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-Aanbevelingen worden niet automatisch toegepast. Als u wilt de aanbeveling toepast, Kopieer de querytekst en uitvoeren vanaf de client naar keuze. Houd er rekening mee te testen en controleren om te evalueren van de aanbeveling.
+Aanbevelingen worden niet automatisch toegepast. Als u de aanbeveling wilt Toep assen, kopieert u de query tekst en voert u deze uit vanaf de client van uw keuze. Vergeet niet om te testen en te controleren om de aanbeveling te evalueren.
 
-## <a name="recommendation-types"></a>Aanbeveling typen
+## <a name="recommendation-types"></a>Aanbevelings typen
 
-Op dit moment alleen *Create Index* aanbevelingen worden ondersteund.
+Momenteel worden alleen aanbevelingen voor het *maken van indexen* ondersteund.
 
-### <a name="create-index-recommendations"></a>Aanbevelingen van Index maken
+### <a name="create-index-recommendations"></a>Aanbevelingen voor index maken
 
-*Index maken* aanbevelingen voorgesteld nieuwe indexen om de meest uitgevoerd of tijdrovende query's in de werkbelasting te versnellen. Dit type aanbeveling is vereist [Query Store](concepts-query-store.md) zijn ingeschakeld. Query Store querygegevens verzamelt en voorziet in de gedetailleerde query-runtime en de frequentie statistieken die de analyse gebruikt voor het maken van de aanbeveling.
+Bij het *maken van index* aanbevelingen worden nieuwe indexen voorgesteld om de meest frequente uitvoeringen of tijdrovende query's in de werk belasting te versnellen. Voor dit aanbevelings type moet het [query archief](concepts-query-store.md) worden ingeschakeld. In query Store worden query gegevens verzameld en worden de gedetailleerde query runtime en de frequentie statistieken beschreven die de analyse gebruikt om de aanbeveling te doen.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [bewaking en afstemming](concepts-monitoring.md) in Azure Database for MySQL.
+- Meer informatie over het [bewaken en afstemmen](concepts-monitoring.md) van Azure database for MySQL.

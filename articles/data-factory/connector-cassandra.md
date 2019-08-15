@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: d0e8881607fe4dc84a7d533855dc2b9c48e5366d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: b42313a83be413a9c34a45fca946ea165f8fc9a3
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726189"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967045"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Gegevens kopiëren van Cassandra met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
@@ -40,7 +40,9 @@ Deze Cassandra-connector ondersteunt met name:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u gegevens wilt kopiëren uit een Cassandra-data base die niet openbaar toegankelijk is, moet u een zelf-hostende Integration Runtime instellen. Zie [zelf-hostende Integration runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie. De Integration Runtime biedt een ingebouwd Cassandra-stuur programma, dus u hoeft niet hand matig een stuur programma te installeren bij het kopiëren van gegevens van/naar Cassandra.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+De Integration Runtime biedt een ingebouwd Cassandra-stuur programma, dus u hoeft niet hand matig een stuur programma te installeren bij het kopiëren van gegevens van/naar Cassandra.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -60,7 +62,7 @@ De volgende eigenschappen worden ondersteund voor Cassandra gekoppelde service:
 | authenticationType | Type verificatie dat wordt gebruikt om verbinding te maken met de Cassandra-data base.<br/>Toegestane waarden zijn: **Basis**en **anoniem**. |Ja |
 | username |Geef de gebruikers naam voor het gebruikers account op. |Ja, als authenticationType is ingesteld op Basic. |
 | password |Geef het wacht woord voor het gebruikers account op. Markeer dit veld als een SecureString om het veilig op te slaan in Data Factory, of [verwijs naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). |Ja, als authenticationType is ingesteld op Basic. |
-| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Meer informatie vindt u in de sectie [vereisten](#prerequisites) . Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 >[!NOTE]
 >Momenteel wordt geen verbinding met Cassandra met SSL ondersteund.
@@ -128,7 +130,7 @@ Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zij
 
 ### <a name="cassandra-as-source"></a>Cassandra als bron
 
-Als u gegevens wilt kopiëren uit Cassandra, stelt u het bron type in de Kopieer activiteit in op **CassandraSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
+Als u gegevens wilt kopiëren uit Cassandra, stelt u het bron type in de Kopieer activiteit in op **CassandraSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **source** sectie:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
@@ -174,17 +176,17 @@ Bij het kopiëren van gegevens uit Cassandra worden de volgende toewijzingen geb
 
 | Cassandra-gegevens type | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| ASCII |Reeks |
+| ASCII |Tekenreeks |
 | BIGINT |Int64 |
-| BLOBCACHE |Byte[] |
+| BLOB |Byte[] |
 | BOOLEAN |Boolean-waarde |
 | DECIMAL |Decimal |
-| DUBBELKLIK |Double |
+| DOUBLE |Double |
 | FLOAT |Single |
 | INET |Tekenreeks |
 | INT |Int32 |
 | TEXT |Tekenreeks |
-| TIMESTAMP |Datetime |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | MEE |Guid |
 | VARCHAR |Tekenreeks |
@@ -220,7 +222,7 @@ Het stuur programma genereert meerdere virtuele tabellen om deze afzonderlijke t
 
 De eerste virtuele tabel is de basis tabel met de naam ' ExampleTable ' wordt weer gegeven in de volgende tabel: 
 
-| pk_int | Waarde |
+| pk_int | Value |
 | --- | --- |
 | 1 |' voorbeeld waarde 1 ' |
 | 3 |"voorbeeld waarde 3" |

@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory reporting latenties | Microsoft Docs
-description: Meer informatie over de hoeveelheid tijd die nodig is voor rapportage gebeurtenissen worden weergegeven in uw Azure-portal
+title: Azure Active Directory rapportage latenties | Microsoft Docs
+description: Meer informatie over de hoeveelheid tijd die nodig is voor het rapporteren van gebeurtenissen om weer te geven in uw Azure Portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594013"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987909"
 ---
-# <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting latenties
+# <a name="azure-active-directory-reporting-latencies"></a>Vertragingen bij rapportage Azure Active Directory
 
-Latentie is de hoeveelheid tijd die nodig is voor Azure Active Directory (Azure AD) rapportagegegevens worden weergegeven in de [Azure-portal](https://portal.azure.com). In dit artikel geeft een lijst van de verwachte latentie voor de verschillende typen rapporten. 
+Latentie is de hoeveelheid tijd die nodig is voor het weer geven van Azure Active Directory (Azure AD)-rapportage gegevens in de [Azure Portal](https://portal.azure.com). In dit artikel wordt de verwachte latentie voor de verschillende typen rapporten weer gegeven. 
 
 ## <a name="activity-reports"></a>Activiteitsrapporten
 
-Er zijn twee soorten activiteitsrapporten:
+Er zijn twee soorten activiteiten rapporten:
 
-- [Aanmeldingen](concept-sign-ins.md) : bevat informatie over het gebruik van beheerde toepassingen en de gebruiker aanmeldingsactiviteiten
-- [Auditlogboeken](concept-audit-logs.md) -biedt systeeminformatie over systeemactiviteit van gebruikers en groepen, beheerde toepassingen en directory-activiteiten
+- [](concept-sign-ins.md) Aanmeldingen: bevat informatie over het gebruik van beheerde toepassingen en aanmeldings activiteiten voor gebruikers
+- [Audit logboeken](concept-audit-logs.md) : bevat informatie over de systeem activiteit over gebruikers en groepen, beheerde toepassingen en Directory-activiteiten
 
-De volgende tabel bevat de latentie-informatie voor activiteitenrapporten. 
+De volgende tabel bevat de latentie-informatie voor activiteiten rapporten. 
 
 > [!NOTE]
-> **Latentie (95e percentiel)** verwijst naar de tijd waarop 95% van de logboeken worden gerapporteerd, en **latentie (99%)** verwijst naar de tijd waarop 99% van de logboeken worden gerapporteerd. 
+> **Latentie (95e percentiel)** verwijst naar het tijdstip waarop 95% van de logboeken worden gerapporteerd en **latentie (99e percentiel)** verwijst naar het tijdstip waarop 99% van de logboeken worden gerapporteerd. 
 >
 
-| Rapport | Latentie (95e percentiel) |Latentie (99%)|
+| Rapport | Latentie (95e percentiel) |Latentie (99e percentiel)|
 | :-- | --- | --- |
-| Auditlogboeken | 2 minuten  | 5 minuten  |
+| Controlelogboeken | 2 minuten  | 5 minuten  |
 | Aanmeldingen | 2 minuten  | 5 minuten |
 
-### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hoe snel kan ik activiteiten gegevens zien nadat u een premium-licentie?
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hoe kan ik activiteiten gegevens weer geven na het verkrijgen van een Premium-licentie?
 
-Als u al gegevens van activiteiten met uw gratis licentie hebt, kunt klikt u vervolgens u zien deze onmiddellijk bij een upgrade. Als u geen gegevens, duurt het een of twee dagen voor de gegevens worden weergegeven in de rapporten na de upgrade naar een premium-licentie.
+Als u al activiteiten gegevens met uw gratis licentie hebt, kunt u deze direct na de upgrade bekijken. Als u geen gegevens hebt, duurt het één of twee dagen voordat de gegevens in de rapporten worden weer gegeven nadat u een upgrade hebt uitgevoerd naar een Premium-licentie.
 
 ## <a name="security-reports"></a>Beveiligingsrapporten
 
@@ -57,27 +57,27 @@ Er zijn twee typen beveiligingsrapporten:
 - [Riskante aanmeldingen](concept-risky-sign-ins.md) - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. 
 - [Gebruikers voor wie wordt aangegeven dat ze risico lopen](concept-user-at-risk.md) - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. 
 
-De volgende tabel bevat de latentie-informatie voor beveiligingsrapporten.
+De volgende tabel bevat de latentie-informatie voor beveiligings rapporten.
 
-| Rapport | Minimum | Gemiddeld | Maximum |
+| Rapport | Minimum | Average | Maximum |
 | :-- | --- | --- | --- |
 | Gebruikers die risico lopen          | 5 minuten   | 15 minuten  | 2 uur  |
 | Riskante aanmeldingen         | 5 minuten   | 15 minuten  | 2 uur  |
 
 ## <a name="risk-events"></a>Risicogebeurtenissen
 
-Azure AD maakt gebruik van adaptieve machine learning-algoritmes en -methodieken voor het detecteren van verdachte activiteit die is gekoppeld aan uw gebruikersaccounts. Elke gedetecteerde verdachte actie wordt opgeslagen in een record met de naam een **risicogebeurtenis**.
+Azure AD gebruikt adaptieve machine learning algoritmen en heuristiek om verdachte acties te detecteren die betrekking hebben op uw gebruikers accounts. Elke gedetecteerde verdachte actie wordt opgeslagen in een record met de naam **risico gebeurtenis**.
 
-De volgende tabel bevat de latentie-informatie voor risicogebeurtenissen.
+De volgende tabel bevat de latentie-informatie voor risico gebeurtenissen.
 
-| Rapport | Minimum | Gemiddeld | Maximum |
+| Rapport | Minimum | Average | Maximum |
 | :-- | --- | --- | --- |
 | Aanmeldingen vanaf anonieme IP-adressen |5 minuten |15 minuten |2 uur |
 | Aanmeldingen vanaf onbekende locaties |5 minuten |15 minuten |2 uur |
 | Gebruikers van wie de referenties zijn gelekt |2 uur |4 uur |8 uur |
 | Onmogelijke reis naar ongewone locaties |5 minuten |1 uur |8 uur  |
 | Aanmeldingen vanaf geïnfecteerde apparaten |2 uur |4 uur |8 uur  |
-| Aanmeldingen van IP-adressen met verdachte activiteit |2 uur |4 uur |8 uur  |
+| Aanmeldingen vanaf IP-adressen met verdachte activiteiten |2 uur |4 uur |8 uur  |
 
 
 ## <a name="next-steps"></a>Volgende stappen

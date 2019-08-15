@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 46850ad430aa5fb8ad25a71515bdd640855350c2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727261"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934692"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Aanbevolen procedures voor de beveiliging van Azure Identity Management en Access Control
 In dit artikel bespreken we een verzameling van de aanbevolen procedures voor het beheren van Azure-identiteits beheer en-toegangs beheer. Deze aanbevolen procedures zijn afgeleid van onze ervaring met [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) en de ervaringen van klanten, zoals uzelf.
@@ -84,8 +84,8 @@ Zie [wachtwoord hash synchronisatie implementeren met Azure AD Connect Sync](/az
 **Details**: Gebruik de juiste mogelijkheden om verificatie te ondersteunen:
 
   - Azure AD voor mede werkers
-  - [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/) voor gast gebruikers en externe partners
-  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) om te bepalen hoe klanten zich registreren, aanmelden en hun profielen beheren wanneer ze uw toepassingen gebruiken
+  - [Azure AD B2B](../../active-directory/b2b/index.yml) voor gast gebruikers en externe partners
+  - [Azure AD B2C](../../active-directory-b2c/index.yml) om te bepalen hoe klanten zich registreren, aanmelden en hun profielen beheren wanneer ze uw toepassingen gebruiken
 
 Organisaties die hun on-premises identiteit niet integreren met hun Cloud identiteit, kunnen meer overhead hebben bij het beheer van accounts. Deze overhead verhoogt de kans op fouten en schending van de beveiliging.
 
@@ -170,7 +170,7 @@ Organisaties die geen extra lagen van identiteits beveiliging toevoegen, zoals v
 ## <a name="use-role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer gebruiken
 Toegangs beheer voor cloud resources is van cruciaal belang voor alle organisaties die gebruikmaken van de Cloud. Met [op rollen gebaseerd toegangs beheer (RBAC)](/azure/role-based-access-control/overview)kunt u beheren wie toegang heeft tot Azure-resources, wat ze kunnen doen met deze resources en op welke gebieden ze toegang hebben.
 
-Het aanwijzen van groepen of afzonderlijke rollen die verantwoordelijk zijn voor specifieke functies in azure, helpt Verwar ring te voor komen die kan leiden tot mensen-en automatiserings fouten die beveiligings Risico's veroorzaken. Het beperken van de toegang op basis van [de beveiligings principes](https://en.wikipedia.org/wiki/Principle_of_least_privilege) van de [nood zaak om te kennen](https://en.wikipedia.org/wiki/Need_to_know) , is van cruciaal belang voor organisaties die beveiligings beleid voor gegevens toegang willen afdwingen.
+Het aanwijzen van groepen of afzonderlijke rollen die verantwoordelijk zijn voor specifieke functies in azure, helpt Verwar ring te voor komen die kan leiden tot mensen-en automatiserings fouten die beveiligings Risico's veroorzaken. Het beperken van de toegang op basis van de beveiligings principes [](https://en.wikipedia.org/wiki/Principle_of_least_privilege) van de [nood zaak om te kennen](https://en.wikipedia.org/wiki/Need_to_know) , is van cruciaal belang voor organisaties die beveiligings beleid voor gegevens toegang willen afdwingen.
 
 Uw beveiligings team moet inzicht hebben in uw Azure-resources om Risico's te kunnen beoordelen en oplossen. Als het beveiligings team operationele verantwoordelijkheden heeft, hebben ze extra machtigingen nodig om hun taken uit te voeren.
 
@@ -299,7 +299,7 @@ Een actief identiteits bewakings systeem kan snel verdacht gedrag detecteren en 
 **Aanbevolen procedure**: Een methode voor het identificeren van:
 
 - Er wordt geprobeerd om u aan te melden [zonder te worden](/azure/active-directory/active-directory-reporting-sign-ins-from-unknown-sources)getraceerd.
-- Beveiligings [aanvallen tegen](/azure/active-directory/active-directory-reporting-sign-ins-after-multiple-failures) een bepaald account.
+- [](/azure/active-directory/active-directory-reporting-sign-ins-after-multiple-failures) Beveiligings aanvallen tegen een bepaald account.
 - Probeert zich aan te melden vanaf meerdere locaties.
 - Aanmeldingen vanaf [geïnfecteerde apparaten](/azure/active-directory/active-directory-reporting-sign-ins-from-possibly-infected-devices).
 - Verdachte IP-adressen.

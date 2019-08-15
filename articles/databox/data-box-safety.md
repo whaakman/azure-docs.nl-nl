@@ -1,130 +1,130 @@
 ---
-title: De veiligheid van uw Azure Data Box | Microsoft Docs
-description: Veiligheid verdragen, richtlijnen en overwegingen beschreven en wordt uitgelegd hoe u veilig installeren en gebruiken van uw Azure Data Box.
+title: Beveiliging voor uw Azure Data Box | Microsoft Docs
+description: Hierin worden beveiligings conventies, richt lijnen en overwegingen beschreven en wordt uitgelegd hoe u uw Azure Data Box veilig kunt installeren en beheren.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953023"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985949"
 ---
-# <a name="safely-install-and-operate-your-azure-data-box"></a>Veilig installeren en gebruiken van uw Azure Data Box
-![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png)
-![lezen veiligheid kennisgeving pictogram](./media/data-box-safety/read_safety_and_health_information_icon.png) **meer veiligheid en de gezondheid van informatie**
+# <a name="safely-install-and-operate-your-azure-data-box"></a>Uw Azure Data Box veilig installeren en uitvoeren
+![Pictogram](./media/data-box-safety/warning_icon.png)
+![waarschuwingspictogramLees beveiliging **Lees de informatie over de veiligheid en de status** ](./media/data-box-safety/read_safety_and_health_information_icon.png)
 
-Lees de veiligheidsinformatie in dit artikel voordat u Azure Data Box. Volg de instructies is mislukt kan leiden tot brand, elektriciteit of andere beschadigingen of schade aan uw eigenschappen.
+Lees alle veiligheids informatie in dit artikel voordat u Azure Data Box gebruikt. Het volgen van instructies kan leiden tot brand, elektrische schokken of andere verwondingen of beschadiging van uw eigenschappen.
 
-## <a name="safety-icon-conventions"></a>Veiligheid pictogram conventies
-Hier volgen de pictogrammen dat u wanneer u de voorzorgsmaatregelen ziet moeten worden genomen bij het instellen en uitvoeren van uw Data Box bekijken.
+## <a name="safety-icon-conventions"></a>Conventies voor veiligheids pictogrammen
+Hier vindt u de pictogrammen die u zult vinden wanneer u de veiligheids maatregelen controleert die moeten worden waargenomen bij het instellen en uitvoeren van uw Data Box.
 
 | Pictogram | Description |
 |:--- |:--- |
-| ![Pictogram gevaar](./media/data-box-safety/warning_icon.png) **gevaar!** |Geeft aan dat een gevaarlijke situaties die, als er geen vermeden, in overlijden of ernstige schade resulteert. Dit woord signaal is beperkt tot de meest uitzonderlijke situaties. |
-| ![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) **waarschuwing!** |Geeft aan dat een gevaarlijke situaties die als niet voorkomen, tot overlijden of ernstige schade leiden kan. |
-| ![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) **Let op!** |Geeft aan dat een gevaarlijke situaties die als niet voorkomen, tot schade voor kleine of matige leiden kan. |
-| ![Let op het pictogram](./media/data-box-safety/notice_icon.png) **kennisgeving:** |Geeft aan dat beschouwd als belangrijk, maar niet op risico productspecifieke informatie. |
-| ![Pictogram elektrische schudt](./media/data-box-safety/electrical_shock_hazard_icon.png) **elektrische schudt gevaar** |Hoge spanning. |
-| ![Pictogram zware gewicht](./media/data-box-safety/heavy_weight_hazard_icon.png) **zware gewicht** | |
-| ![Er is geen gebruiker onderhouden pictogram delen](./media/data-box-safety/no_user_serviceable_parts_icon.png) **geen onderdelen voor het onderhouden van gebruiker** |Geen toegang tot tenzij goed zijn opgeleid. |
-| ![Veiligheid kennisgeving pictogram lezen](./media/data-box-safety/read_safety_and_health_information_icon.png) **eerst alle instructies lezen** | |
-| ![Gevaar tippictogram](./media/data-box-safety/tip_hazard_icon.png) **gevaar Tip** | |
+| ![Gevaar voor](./media/data-box-safety/warning_icon.png) risico pictogram **!** |Duidt op een gevaarlijke situatie die, indien dat niet wordt vermeden, leidt tot dood of ernstige schade. Dit signaal Word is beperkt tot de meest extreme situaties. |
+| ![Waarschuwing voor](./media/data-box-safety/warning_icon.png) waarschuwings pictogram **.** |Duidt op een gevaarlijke situatie die, indien dat niet wordt vermeden, kan leiden tot overlijden of ernstige schade. |
+| ![Waarschuwing voor](./media/data-box-safety/warning_icon.png) waarschuwings pictogram **!** |Duidt op een gevaarlijke situatie die, indien dat niet wordt vermeden, kan leiden tot kleine of gemiddelde schade. |
+| ![Meldings](./media/data-box-safety/notice_icon.png) pictogram **:** |Geeft aan dat de informatie die belang rijk is, maar niet met een risico is betrokken. |
+| ![Elektrisch schok-](./media/data-box-safety/electrical_shock_hazard_icon.png) pictogram **risico op elektrische schokken** |Hoge spanning. |
+| ![Pictogram](./media/data-box-safety/heavy_weight_hazard_icon.png) voor dik gewicht **dik gewicht** | |
+| ![Er zijn geen onderdelen](./media/data-box-safety/no_user_serviceable_parts_icon.png) die door de gebruiker kan worden onderhouden |Doe geen toegang tenzij het goed is getraind. |
+| ![Lees het pictogram](./media/data-box-safety/read_safety_and_health_information_icon.png) beveiligings melding **eerst alle instructies lezen** | |
+| ![Waarschuwings pictogram](./media/data-box-safety/tip_hazard_icon.png) Tip-risico | |
 
-## <a name="handling-precautions"></a>Afhandeling van voorzorgsmaatregelen
+## <a name="handling-precautions"></a>Voorzorgsmaatregelen verwerken
 
-![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) ![elektrische schudt pictogram](./media/data-box-safety/electrical_shock_hazard_icon.png)![geen gebruiker onderhouden pictogram delen](./media/data-box-safety/no_user_serviceable_parts_icon.png) **waarschuwing** 
+![Waarschuwings pictogram](./media/data-box-safety/warning_icon.png) ](./media/data-box-safety/electrical_shock_hazard_icon.png)![ lampje voor elektrische schok er is geen waarschuwing over](./media/data-box-safety/no_user_serviceable_parts_icon.png) onderdelen die door de gebruiker kan worden onderhouden ![ 
 
-* Inspecteer de *als ontvangen* apparaat voor schade. Als de apparaat-behuizing is beschadigd, moet u contact op met Microsoft Support voor een vervangende. Probeer niet functioneren van het apparaat. 
-* Het apparaat is uitgerust met fraudebestendig schroeven. Als u vermoedt dat het apparaat functioneert dat, neem dan contact op met Microsoft Support voor een vervangende. Probeer niet om het apparaat. 
-* Het apparaat bevat geen gebruiker onderhouden delen. Gevaarlijke spanning, huidige en energie niveaus zijn aanwezig zijn in. Niet openen. Het apparaat terug naar Microsoft voor onderhoud.
+* Inspecteer het apparaat voor *ontvangen* van schade. Als de behuizing van het apparaat is beschadigd, [neemt u contact op met Microsoft ondersteuning](data-box-disk-contact-microsoft-support.md) om een vervanging te verkrijgen. Probeer het apparaat niet te bedienen. 
+* Het apparaat is uitgerust met schroeven voor knoeien. Als u vermoedt dat het apparaat defect is, [neemt u contact op met Microsoft ondersteuning](data-box-disk-contact-microsoft-support.md) om een vervanging te verkrijgen. Probeer het apparaat niet te onderhouden. 
+* Het apparaat bevat geen onderdelen die door de gebruiker kan worden onderhouden. Er zijn schadelijke spannings-, stroom-en energie niveaus aanwezig in. Open niet. Het apparaat terug naar micro soft voor onderhoud.
 
-![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) ![zware gewicht pictogram](./media/data-box-safety/heavy_weight_hazard_icon.png) **waarschuwing!** 
+![Waarschuwing pictogram](./media/data-box-safety/warning_icon.png) ![pictogram voor zwaar](./media/data-box-safety/heavy_weight_hazard_icon.png) gewicht **.** 
 
-* Een volledig geconfigureerde behuizing wegen tot 22.7 kg (50 lbs); Probeer niet te deze zelf.
-* Voordat u de behuizing, altijd voor zorgen dat twee personen beschikbaar zijn voor het afhandelen van het gewicht. Let erop dat één persoon bij dit gewicht lift het bestand is tegen beschadigingen.
+* Een volledig geconfigureerde behuizing kan tot 22,7 kg (50 lbs) wegen. Probeer het niet zelf door te tillen.
+* Voordat u de behuizing verplaatst, moet u er altijd voor zorgen dat er twee personen beschikbaar zijn voor het afhandelen van het gewicht. Houd er rekening mee dat één persoon die dit gewicht probeert te halen, schade kan behalen.
 
 
-![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) ![gevaar Tippictogram](./media/data-box-safety/tip_hazard_icon.png) **waarschuwing!**
-* Plaats het apparaat op een vast, vaste en stabiele oppervlak om te voorkomen dat een mogelijke gevaar voor de tip.
-* Rek apparatuur is niet moet worden gebruikt als rekken of werk spaties. Plaats geen Data Box boven op het rek apparatuur. Elk type load toe te voegen aan een uitgebreide rek-eenheid, kunt een mogelijke gevaar voor de tip die tot schade, overlijden of product schade leiden kan maken.
+![Waarschuwing waarschuwings pictogram](./media/data-box-safety/tip_hazard_icon.png) Tip waarschuwings pictogram. ![](./media/data-box-safety/warning_icon.png)
+* Plaats het apparaat op een plat, hard en stabiel Opper vlak om een potentieel risico op de tip te voor komen.
+* Met een rek gekoppelde apparatuur kan niet worden gebruikt als rekken of werk ruimten. Plaats de Data Box niet boven op het rack gemonteerde apparaten. Het toevoegen van een wille keurig type belasting aan een uitgebreide rack eenheid kan een risico voor de tip veroorzaken dat kan leiden tot schade, dood of schade aan het product.
 
-![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) **waarschuwing!**
+![Waarschuwing voor](./media/data-box-safety/warning_icon.png) waarschuwings pictogram **.**
 
-* Instellen van het apparaat in een werkgebied voor voldoende lucht verkeer over het apparaat toestaan.
-* Installeren van het apparaat in een temperatuur binnenshuis gebied gratis geleidende contaminanten en voldoende lucht verkeer over het apparaat toestaan.
-* Het apparaat blijft weg van bronnen van liquid en uitzonderlijk vochtige omgevingen.
+* Het instellen van het apparaat in een werk ruimte, zodat het apparaat voldoende lucht omloop kan uitvoeren.
+* Installeer het apparaat in een gebied met door de Tempe ratuur beheerde Opper vlakte vrij van verontreinigingen en sta voldoende lucht omloop rond het apparaat toe.
+* Houd het apparaat weg van bronnen van vloei bare en buitensporig vochtige omgevingen.
 
 
 ## <a name="electrical-precautions"></a>Elektrische voorzorgsmaatregelen
 
-![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) ![elektrische schudt pictogram](./media/data-box-safety/electrical_shock_hazard_icon.png) **waarschuwing!**
+![Waarschuwing pictogram](./media/data-box-safety/warning_icon.png) ![waarschuwing voor elektrisch](./media/data-box-safety/electrical_shock_hazard_icon.png) schokken **!**
 
-* Geef een veilige elektrische earth-verbinding met het netsnoer van de levering. De AC-kabel heeft een drie-kabel basiskennis plug (een plug waarvoor een basiskennis pincode). Deze plug past een gevestigd AC stopcontact. Het doel van de pincode basiskennis niet verslaan.
-* Gezien het feit dat de plug op het netsnoer van de levering is de belangrijkste apparaat verbreken, zorg ervoor dat de socket-uitgangen bevinden zich in de buurt van het apparaat en zijn eenvoudig toegankelijk.
-* Koppel het netsnoer (door het binnenhalen van de plug, niet de kabel) en alle kabels verbreken als een van de volgende voorwaarden aanwezig zijn:
+* Geef een veilige verbinding voor de elektrische voeding met de stroom kabel op. De wisselstroom kabel heeft een plug-in met drie kabels (een stekker met een grond pincode). Deze stekker past alleen op een geaard AC-uitgang. Verslaan niet het doel van de massa pincode.
+* Gezien de stekker van de stroom kabel van de voeding is het belangrijkste apparaat voor het verbreken van de verbinding, zorg ervoor dat de sockets zich in de buurt van het apparaat bevinden en gemakkelijk toegankelijk zijn.
+* Ontkoppel het netsnoer (door de stekker en niet de kabel te halen) en Verbreek de verbinding met alle kabels als aan een van de volgende voor waarden wordt voldaan:
 
-    - Het netsnoer of plug wordt versleten of anderszins beschadigd.
-    - U worden iets gelekt naar het hoofdlettergebruik van het apparaat.
-    - Het apparaat wordt blootgesteld aan regen of overtollige vocht.
-    - Het apparaat is verwijderd en het hoofdlettergebruik van het apparaat is beschadigd.
-    - U denkt dat het apparaat moet of reparatie van de service.
-* De eenheid permanent verwijderen voordat u deze verplaatst of als u denkt dat deze beschadigd is op geen enkele manier.
-* Geef een geschikte voedingsbron elektrische overbelasting protection om te voldoen aan de volgende power-specificaties:
+    - De stroom kabel of de stekker wordt verzonken of anderszins beschadigd.
+    - U hebt iets gemorst in de behuizing van het apparaat.
+    - Het apparaat wordt blootgesteld aan regen of vocht.
+    - Het apparaat is verwijderd en de behuizing van het apparaat is beschadigd.
+    - U vermoedt dat het apparaat service of reparatie nodig heeft.
+* Ontkoppel de eenheid permanent voordat u deze verplaatst of als u denkt dat deze op enigerlei wijze beschadigd is geraakt.
+* Geef een geschikte voedings bron met elektrische overbelasting beveiliging op om te voldoen aan de volgende energie specificaties:
 
-    - Spanning: 100 V AC tot 240 V AC
-    - Huidige: 6 A, maximum
-    - Frequentie van: 50 / 60 Hz
+    - Verbruik 100 v AC tot 240 V AC
+    - VLOTT 6 A, maximum
+    - Ingang 50 Hz tot 60 Hz
 
-![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) **Let op:**
+![Waarschuwing voor](./media/data-box-safety/warning_icon.png) waarschuwings pictogram **:**
 
-* Dit apparaat bevat munt cel accu's. Probeer niet om het apparaat. Accu's in dit apparaat zijn niet gebruiker onderhouden. 
-* **Voor servicepersoneel**: Risico's van explosie als accu wordt vervangen door een onjuist type. Buitengebruikstelling van het gebruikte accu's op basis van instructies.
+* Dit apparaat bevat de accu's van de munt cellen. Probeer het apparaat niet te onderhouden. Accu's in dit apparaat zijn niet bewaart door gebruikers. 
+* **Alleen voor service personeel**: Risico op explosie als de accu wordt vervangen door een onjuist type. De gebruikte batterijen verwijderen volgens de instructies.
 
-![Let op het pictogram](./media/data-box-safety/notice_icon.png) **kennisgeving:**
+![Meldings](./media/data-box-safety/notice_icon.png) pictogram **:**
 
-Voor de goede werking van uw apparaat en om te voorkomen dat product schade:
+Voor de juiste werking van uw apparaat en om te voor komen dat het product wordt beschadigd:
 
-* Zorg ervoor dat de front-end en back-deuren volledig open terwijl het apparaat wordt uitgevoerd.
+* Zorg ervoor dat de deuren vooraan en achter volledig zijn geopend terwijl het apparaat actief is.
 
-## <a name="regulatory-information"></a>Wettelijke informatie
+## <a name="regulatory-information"></a>Reglementaire informatie
 
-In deze sectie bevat wettelijke informatie voor Azure Data Box, regelgevende modelnummer DB010.
+Deze sectie bevat informatie over de regelgeving voor Azure Data Box, regelgevings model nummer DB010.
 
 Dit apparaat is:
 
-- Als informatie technologie apparatuur (Itenaam), ontworpen om te werken in een typisch ruimte omgeving geëvalueerd. De geschiktheid van dit product voor andere omgevingen mogelijk verder evaluatie.
-- Ontworpen voor gebruik met NRTL vermeld (UL, CSA, ETL, enzovoort), en IEC/EN 60950-1 of IEC/EN 62368-1 compatibel (CE gemarkeerd) Information Technology-apparatuur.
-- Ontworpen om te werken in de volgende omgeving. 
-    - Temperatuur: 50° met 95° F (10° tot 35° C)
-    - Opslagtemperatuur: °-4 t/m F 122 ° (20 ° tot 50 ° C)
-    - Relatieve vochtigheid: 15 tot 85% (niet-condenserend) 
-    - Hoogte kan worden uitgevoerd: Getest tot 6500 meter 0 op 2000 meters
+- Beoordeeld als informatietechnologie apparatuur (ITECODE), ontworpen om te worden gebruikt in een typische omgeving voor gegevens opslag. Voor de geschiktheid van dit product voor andere omgevingen is mogelijk verdere evaluatie vereist.
+- Ontworpen voor gebruik met NRTL in de lijst (UL, CSA, ETL, enzovoort) en de IEC/EN 60950-1-of IEC/EN 62368-1 compliant (CE gemarkeerd) informatie technologie apparatuur.
+- Ontworpen om in de volgende omgeving te worden gebruikt. 
+    - Bedrijfs temperatuur: 50 ° tot 95 ° F (10 ° tot 35 ° C)
+    - Opslag temperatuur:-4 ° tot 122 ° F (-20 ° tot 50 ° C)
+    - Relatieve vochtigheid: 15% tot 85% (niet-condenserend) 
+    - Werkings hoogte: Getest tot 6500 meter (0 meter tot 2000 meter)
 
-Voor elektrische voeding classificaties, raadpleegt u het apparaat classificatie label voorzien van de eenheid. 
+Raadpleeg voor de classificatie van elektrische benodigdheden het label van de apparaats classificatie die is opgegeven bij de eenheid. 
 
-![Let op het pictogram](./media/data-box-safety/notice_icon.png) **kennisgeving:** 
+![Meldings](./media/data-box-safety/notice_icon.png) pictogram **:** 
 
-Wijzigingen of wijzigingen aangebracht aan het apparaat die niet uitdrukkelijk zijn goedgekeurd door Microsoft kunnen void-instantie van de gebruiker het apparaat werken.
+Wijzigingen of wijzigingen die zijn aangebracht aan het apparaat dat niet uitdrukkelijk door micro soft is goedgekeurd, kunnen de bevoegdheid van de gebruiker om het apparaat te bedienen, ongeldig maken.
 
-**CANADA en Verenigde Staten:**
+**CANADA en USA:**
 
-![Let op het pictogram](./media/data-box-safety/notice_icon.png) **kennisgeving:** 
+![Meldings](./media/data-box-safety/notice_icon.png) pictogram **:** 
 
-Dit materiaal is getest en om te voldoen aan de limieten voor digitale klasse A-apparaten, overeenkomstig onderdeel 15 van de regels FCC gevonden. Deze limieten zijn ontwikkeld voor redelijke bescherming tegen schadelijke interferentie wanneer de apparatuur wordt gebruikt in een commerciële omgeving. Dit materiaal genereert, wordt gebruikt, en kunt radiate radio frequentie energie en, als niet is geïnstalleerd en in overeenstemming met de handleiding gebruikt schadelijke interferentie te keuzerondje communicatie kan veroorzaken. Gebruik van deze apparatuur in een woonadres gebied is waarschijnlijk schadelijke interferentie in dat geval de gebruiker is vereist om op te lossen de storingen op hun eigen kosten veroorzaken.
+Dit apparaat is getest en er is vastgesteld dat het voldoet aan de limieten voor een digitaal apparaat van klasse A, conform deel 15 van de FCC-regels. Deze limieten zijn ontworpen om redelijke bescherming te bieden tegen schadelijke interferentie wanneer de apparatuur wordt geëxploiteerd in een commerciële omgeving. Met deze apparatuur worden radio frequentie-energie gegenereerd, gebruikt en gestroomd en, indien niet geïnstalleerd en gebruikt in overeenstemming met de instructie handleiding, kan schadelijk interferentie voor radio communicatie veroorzaken. Het functioneren van deze apparatuur in een woon gebied veroorzaakt waarschijnlijk schadelijke interferentie, in welk geval de gebruiker de interferentie op eigen kosten moet corrigeren.
 
-Dit apparaat voldoet aan onderdeel 15 van de FCC regels en de branche Canada licentie vrijgestelde RSS norm of normen. Bewerking is onderworpen aan de volgende twee omstandigheden: (1) Controleer of dit apparaat kan geen schadelijke interferentie veroorzaken en (2) Controleer of dit apparaat moet alle interferentie, met inbegrip van interferentie dat leiden ongewenste bewerking van het apparaat tot kan.
+Dit apparaat voldoet aan deel 15 van de FCC-regels en de bedrijfstak van de branche Canada-belaste RSS-norm (en). De bewerking is onderhevig aan de volgende twee voor waarden: (1) dit apparaat kan geen schadelijke interferentie veroorzaken, en (2) dit apparaat moet alle interferenties ontvangen, inclusief interferentie die een ongewenste werking van het apparaat kan veroorzaken.
 
 ![Canada](./media/data-box-safety/canada.png)
 
-CAN ICES-3(A)/NMB-3(A)
+KAN ICES-3 (A)/NMB-3 (A)
 
-Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
+Micro soft Corporation, One micro soft Way, Redmond, WA 98052, Verenigde Staten.
 
 Verenigde Staten: (800) 426-9400
 
@@ -132,25 +132,25 @@ Canada: (800) 933-4750
 
 **EUROPESE UNIE:**
 
-Een kopie van de EU conformiteitsverklaring is hier beschikbaar.
+[Vraag een kopie aan van de EU-verklaring van overeenstemming](mailto:CSI_Compliance@microsoft.com).
 
-![Waarschuwingspictogram](./media/data-box-safety/warning_icon.png) **waarschuwing:** 
+![Waarschuwings pictogram](./media/data-box-safety/warning_icon.png) **Waarschuwing:** 
 
-Dit is een klasse A-product. Dit product mogelijk in een omgeving met binnenlandse radiostoringen in welk geval de gebruiker kan worden verplicht passende maatregelen te nemen.
+Dit is een product klasse. In een binnenlandse omgeving kan dit product radio storingen veroorzaken in welk geval de gebruiker kan worden verplicht om passende maat regelen te nemen.
 
-**Verwijdering van afval accu's en elektrische en elektronische apparaten:**
+**Verwijdering van afval accu's en elektrische en elektronische apparatuur:**
 
-![Pictogram van buitengebruikstelling accu](./media/data-box-safety/battery_disposal_icon.png)
+![Pictogram batterij verwijdering](./media/data-box-safety/battery_disposal_icon.png)
 
-Dit symbool op het product of de accu of op de verpakking betekent dat dit product en elke accu's die deze bevat moeten niet worden verwijderd met de huishoudelijke verspilling. In plaats daarvan is het uw verantwoordelijkheid om deze naar een verzameling van toepassing voor het recyclen van accu's en elektrische en elektronische apparatuur. Deze afzonderlijke verzameling en recycling zal helpen besparen van natuurlijke bronnen en voorkomen van potentiële negatieve gevolgen voor de volksgezondheid en de omgeving, omdat de mogelijke aanwezigheid van gevaarlijke stoffen in accu's en elektrische en elektronische apparatuur, wordt door onjuiste verwijdering veroorzaakt mogelijk. Voor meer informatie over waar u wilt verwijderen uit de accu's en elektrische en elektronische verspilling, neem contact op met uw lokale plaats/gemeenteraad office, de verwijdering van huishoudelijke afval-service of de winkel waar u dit product hebt aangeschaft. Neem contact op met *erecycle\@microsoft.com* voor meer informatie over AEEA.
+Dit symbool op het product of de batterijen of het verpakkings materiaal houdt in dat dit product en eventuele accu's daarin niet mogen worden verwijderd met uw huishoudelijke afval. In plaats daarvan is het uw verantwoordelijkheid om deze over te dragen aan een toepasselijk verzamelings punt voor het recyclen van batterijen en elektrische en elektronische apparatuur. Met deze afzonderlijke verzameling en recycling kunnen natuurlijke bronnen worden bespaard en mogelijke negatieve gevolgen voor de gezondheid van de mens en het milieu worden voor komen als gevolg van de mogelijke aanwezigheid van gevaarlijke stoffen in accu's en elektrische en elektronische netwerken apparaten, die mogelijk worden veroorzaakt door een onjuiste verwijdering. Voor meer informatie over waar u uw batterijen en elektrische en elektronische afval stoffen weghaalt, neemt u contact op met uw lokale Office-woon plaats/gemeente, uw huisraad dienst voor onderhoud of de winkel waar u dit product hebt aangeschaft. Neem contact op met *erecycle\@Microsoft.com* voor meer informatie over AEEA.
 
-Dit product bevat munt cel battery(ies).
+Dit product bevat een munt batterij (s).
 
-Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
+Micro soft Ireland Sandyford ind est Dublin D18 KX32 IRL
 
-Telefoonnummer: +353 1 295 3826
+Telefoon nummer: + 353 1 295 3826
 
-Faxnummer: +353 1 706 4110 
+Faxnummer: + 353 1 706 4110 
 
 **Japan**
 
@@ -168,10 +168,10 @@ Faxnummer: +353 1 706 4110
 
 ![Taiwan](./media/data-box-safety/taiwan.png)-->
 
-Nadat u deze meldingen veiligheid hebt bekeken, kunt u instellen en uw apparaat bekabelen.
+Nadat u deze veiligheids kennisgevingen hebt gecontroleerd, kunt u uw apparaat instellen en bekabelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Bekabelen en verbinding maken met uw Data Box](data-box-deploy-set-up.md)
+* [Kabel en sluit uw Data Box](data-box-deploy-set-up.md)
 
 

@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4f2bf5c762b6f93c2d23714d860e8261f6756d1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: e7646330d9d89d5257a991b5095b7b6814aa3ba9
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847695"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966820"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning-service"></a>Een Keras-classificatie model trainen en registreren met Azure Machine Learning-service
 
@@ -207,3 +207,7 @@ In dit artikel hebt u een Keras-model getraind en geregistreerd bij Azure Machin
 
 > [!div class="nextstepaction"]
 > [Hoe en waar modellen moeten worden geïmplementeerd](how-to-deploy-and-where.md)
+* [Metrische gegevens over uitvoeren tijdens de training bijhouden](how-to-track-experiments.md)
+* [Afstemmen van hyperparameters](how-to-tune-hyperparameters.md)
+* [Een getraind model implementeren](how-to-deploy-and-where.md)
+* [Referentie architectuur voor gedistribueerde training van diep gaande lessen in azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

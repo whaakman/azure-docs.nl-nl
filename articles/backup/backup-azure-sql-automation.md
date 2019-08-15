@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6e1d1852660b598b8d780f3240edb3468010fb58
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: e078c75911a332c7e70f3a578723735729b9e6b6
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735494"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954487"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Back-up en herstel van SQL-data bases in azure Vm's met Power shell
 
@@ -247,7 +247,7 @@ Als u een nieuwe Db's niet hand matig wilt detecteren, kunt u ervoor kiezen om a
 
 Een gebruiker kan een back-up zodanig configureren dat alle Db's die in de toekomst worden toegevoegd, automatisch worden beveiligd met een bepaald beleid. Gebruik [Enable-AzRecoveryServicesBackupAutoProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) PS cmdlet om autobeveiliging in te scha kelen.
 
-Omdat de instructie is een back-up te maken van alle toekomstige Db's, wordt de bewerking uitgevoerd op een SQLInstance niveau.
+Omdat de instructie een back-up van alle toekomstige Db's maakt, wordt de bewerking uitgevoerd op een SQLInstance niveau.
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $targetVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"

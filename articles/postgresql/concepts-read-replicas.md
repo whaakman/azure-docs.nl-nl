@@ -1,87 +1,109 @@
 ---
-title: Lezen-replica's in Azure Database for PostgreSQL - één Server
-description: Dit artikel beschrijft de functie lezen replica in Azure Database voor PostgreSQL - één Server.
+title: Replica's lezen in Azure Database for PostgreSQL-één server
+description: In dit artikel wordt de functie voor het lezen van replica's in Azure Database for PostgreSQL-één server beschreven.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/14/2019
-ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.date: 08/12/2019
+ms.openlocfilehash: 928a85c9d03148198fe3e965636740812ce732f7
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147933"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976286"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Lezen-replica's in Azure Database for PostgreSQL - één Server
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Replica's lezen in Azure Database for PostgreSQL-één server
 
-De functie lezen replica kunt u voor het repliceren van gegevens uit een Azure Database for PostgreSQL-server met een alleen-lezen-server. U kunt vanaf de hoofd-server repliceren naar maximaal vijf replica's. Replica's worden asynchroon bijgewerkt met de systeemeigen Replicatietechnologie van de PostgreSQL-engine.
+Met de functie replica lezen kunt u gegevens van een Azure Database for PostgreSQL server repliceren naar een alleen-lezen server. U kunt van de hoofdserver naar maximaal vijf replica's repliceren. Replica's worden asynchroon bijgewerkt met de systeem eigen replicatie technologie van de PostgreSQL-engine.
 
-> [!IMPORTANT]
-> U kunt een lezen replica maken in dezelfde regio als de hoofd-server of in een andere Azure-regio van uw keuze. Regio-overschrijdende replicatie is momenteel in openbare preview.
-
-Replica's zijn nieuwe servers die u die vergelijkbaar is met normale Azure Database for PostgreSQL-servers beheert. Voor elke replica hebt gelezen en u wordt gefactureerd voor de ingerichte Computing in vCores en opslag in GB / maand.
+Replica's zijn nieuwe servers die u op dezelfde manier beheert als gewone Azure Database for PostgreSQL servers. Voor elke Lees replica wordt u gefactureerd voor de ingerichte Compute in vCores en Storage in GB/maand.
 
 Meer informatie over het [maken en beheren van replica's](howto-read-replicas-portal.md).
 
-## <a name="when-to-use-a-read-replica"></a>Wanneer u een replica lezen
-De functie lezen replica helpt bij het verbeteren van de prestaties en schaal van lees-intensieve werkbelastingen. Lezen workloads kunnen worden geïsoleerd voor de replica's, terwijl schrijven workloads kunnen worden omgeleid naar het hoofdniveau.
+## <a name="when-to-use-a-read-replica"></a>Wanneer moet u een lees replica gebruiken?
+De functie voor het lezen van replica's helpt bij het verbeteren van de prestaties en schaal baarheid van Lees bare werk belastingen. Lees werkbelastingen kunnen worden geïsoleerd voor de replica's, terwijl schrijf werkbelastingen kunnen worden omgeleid naar de Master.
 
-Een veelvoorkomend scenario is dat BI en analytische werkbelastingen gebruiken de lezen replica als de gegevensbron voor rapportage.
+Een veelvoorkomend scenario is om BI-en analytische werk belastingen de Lees replica te laten gebruiken als gegevens bron voor rapportage.
 
-Omdat de replica's zijn alleen-lezen, verlagen niet rechtstreeks schrijven-capaciteit Bezig te houden op de hoofddoelserver. Deze functie is niet gericht op schrijven-intensieve workloads.
+Omdat replica's alleen-lezen zijn, worden ze niet rechtstreeks op de Master gereduceerd. Deze functie is niet gericht op write-intensieve workloads.
 
-De functie lezen replica maakt gebruik van PostgreSQL asynchrone replicatie. De functie is niet bedoeld voor scenario's met synchrone replicatie. Er is een meetbare vertraging tussen het model en de replica. De gegevens op de replica wordt uiteindelijk consistent zijn met de gegevens op de hoofddoelserver. Gebruik deze functie voor workloads die deze vertraging aankan.
+De functie voor het lezen van replica's maakt gebruik van asynchrone PostgreSQL-replicatie. De functie is niet bedoeld voor synchrone replicatie scenario's. Er is een meet bare vertraging tussen het hoofd en de replica. De gegevens op de replica worden uiteindelijk consistent met de gegevens op de Master. Gebruik deze functie voor werk belastingen die deze vertraging kunnen bevatten.
 
-Lezen-replica's kunnen u uw plan voor herstel na noodgevallen verbeteren. U moet eerst een replica in een andere Azure-regio van het model hebben. Als zich een noodgeval regio, kunt u replicatie naar die replica beëindigen en uw werkbelasting omleiden naar deze. Replicatie stoppen kunt de replica om te beginnen met het accepteren van schrijfbewerkingen, evenals leest. Meer informatie in de [replicatie stoppen](#stop-replication) sectie. 
+## <a name="cross-region-replication"></a>Replicatie tussen regio's
+U kunt een lees replica maken in een andere regio dan de hoofd server. Replicatie tussen regio's kan handig zijn voor scenario's zoals het plannen van herstel na nood gevallen of gegevens dichter bij uw gebruikers te brengen.
+
+> [!IMPORTANT]
+> Replicatie tussen regio's is momenteel beschikbaar als open bare preview.
+
+U kunt een hoofd server in een [Azure database for PostgreSQL regio](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql)hebben.  Een hoofd server kan een replica hebben in het gekoppelde gebied of in de universele replica regio's.
+
+### <a name="universal-replica-regions"></a>Universele replica regio's
+U kunt altijd een lees replica maken in een van de volgende regio's, ongeacht waar uw master server zich bevindt. Dit zijn de universele replica regio's:
+
+Australië-oost, Australië-zuidoost, centraal VS, Azië-oost, VS-Oost, VS-Oost 2, Japan-Oost, Japan-West, Korea-centraal, Korea-zuid, Noord-Centraal VS, Europa-noord, Zuid-Centraal VS, Zuidoost-Azië, UK-zuid, UK-west, Europa-west, VS-West, VS-West 2.
+
+
+### <a name="paired-regions"></a>Gekoppelde regio's
+Naast de universele replica regio's, kunt u een lees replica maken in het gekoppelde Azure-gebied van uw hoofd server. Als u het paar van uw regio niet weet, kunt u meer informatie vinden in het [artikel gekoppelde regio's in azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Als u verschillende regio's replica's gebruikt voor het plannen van herstel na nood gevallen, raden we u aan om de replica in het gekoppelde gebied te maken in plaats van een van de andere regio's. Gekoppelde regio's vermijden gelijktijdige updates en geven geen prioriteiten voor fysieke isolatie en gegevens locatie.  
+
+Er zijn echter beperkingen om rekening mee te houden: 
+
+* Regionale beschikbaarheid: Azure Database for PostgreSQL is beschikbaar in VS-West 2, Frankrijk-centraal, UAE-noord en Duitsland-centraal. De gekoppelde regio's zijn echter niet beschikbaar.
+    
+* Uni-directionele paren: Sommige Azure-regio's zijn in slechts één richting gekoppeld. Deze regio's omvatten West-India, Brazilië-zuid en US Gov-Virginia. 
+   Dit betekent dat een master-server in West-India een replica kan maken in India-zuid. Een hoofd server in India-zuid kan echter geen replica maken in West-India. Dit komt doordat de secundaire regio van West-India India-zuid is, India-zuid maar de secundaire regio van het westen is niet West-India.
+
 
 ## <a name="create-a-replica"></a>Replica's maken
-De hoofd-server moet de `azure.replication_support` parameter ingesteld op **REPLICA**. Als deze parameter wordt gewijzigd, is een server opnieuw opstarten vereist voor de wijziging door te voeren. (De `azure.replication_support` parameter wordt toegepast op alleen de lagen algemeen gebruik en geoptimaliseerd voor geheugen).
+De `azure.replication_support` para meter moet zijn ingesteld op **replica**van de hoofd server. Als deze para meter wordt gewijzigd, moet de server opnieuw worden opgestart om de wijziging van kracht te laten worden. (De `azure.replication_support` para meter is alleen van toepassing op de lagen algemeen en geoptimaliseerd voor geheugen).
 
-Wanneer u de werkstroom van de replica maken start, wordt een lege Azure Database for PostgreSQL-server gemaakt. De nieuwe server is gevuld met de gegevens op de hoofd-server. De tijd voor het maken, is afhankelijk van de hoeveelheid gegevens op de hoofd- en de tijd sinds de laatste wekelijkse volledige back-up. De tijd kan variëren van enkele minuten tot enkele uren.
+Wanneer u de werk stroom voor het maken van de replica start, wordt er een lege Azure Database for PostgreSQL-server gemaakt. De nieuwe server wordt gevuld met de gegevens die zich op de hoofd server bevonden. De aanmaak tijd is afhankelijk van de hoeveelheid gegevens op de Master en de tijd sinds de laatste wekelijkse volledige back-up. De tijd kan variëren van een paar minuten tot enkele uren.
 
-Elke replica is ingeschakeld voor de opslag [automatisch vergroten](concepts-pricing-tiers.md#storage-auto-grow). De functie auto-grow kunt de replica om te blijven van de gegevens gerepliceerd naar deze, en te voorkomen dat een onderbreking in replicatie veroorzaakt door buiten Opslagfouten.
+Elke replica is ingeschakeld voor [automatische groei](concepts-pricing-tiers.md#storage-auto-grow)van opslag. Met de functie voor automatisch uitbreiden kan de replica de gegevens repliceren, en wordt voor komen dat de replicatie wordt onderbroken vanwege onvoldoende opslag fouten.
 
-De functie lezen replica maakt gebruik van PostgreSQL fysieke replicatie niet logische replicatie. Streaming-replicatie met behulp van replicatie sleuven is de standaardmodus voor de bewerking. Wanneer dat nodig is, wordt back-upfunctie gebruikt om te achterhalen.
+De functie voor het lezen van replica's maakt gebruik van fysieke PostgreSQL-replicatie, geen logische replicatie. Het streamen van replicatie via replicatie sleuven is de standaard bewerkings modus. Als dat nodig is, wordt de back-upfunctie voor logboek registratie gebruikt voor het bijwerken.
 
-Meer informatie over het [een lezen replica maken in Azure portal](howto-read-replicas-portal.md).
+Meer informatie over [het maken van een lees replica in de Azure Portal](howto-read-replicas-portal.md).
 
 ## <a name="connect-to-a-replica"></a>Verbinding maken met een replica
-Wanneer u een replica maakt, overnemen niet het van de firewall-regels of VNet-service-eindpunt van de hoofd-server. Deze regels moeten afzonderlijk worden ingesteld voor de replica.
+Wanneer u een replica maakt, neemt deze de firewall regels of het VNet-service-eind punt van de hoofd server niet over. Deze regels moeten onafhankelijk worden ingesteld voor de replica.
 
-De replica neemt het beheerdersaccount van de hoofd-server. Alle gebruikersaccounts op de hoofd-server worden gerepliceerd naar de lezen-replica's. U kunt alleen verbinding maken met een replica lezen met behulp van de gebruikersaccounts die beschikbaar op de hoofd-server zijn.
+De replica neemt het beheerders account over van de hoofd server. Alle gebruikers accounts op de hoofd server worden gerepliceerd naar de replica's die worden gelezen. U kunt alleen verbinding maken met een lees replica met behulp van de gebruikers accounts die beschikbaar zijn op de master server.
 
-U kunt verbinding maken met de replica met behulp van de hostnaam en een geldig gebruikersaccount, zoals u zou voor een gewone Azure Database voor PostgreSQL-server doen. Voor een server met de naam **mijn replica** met de gebruikersnaam van beheerder **myadmin**, u kunt verbinding maken met de replica met behulp van psql:
+U kunt verbinding maken met de replica door de hostnaam en een geldig gebruikers account te gebruiken, net zoals bij een gewone Azure Database for PostgreSQL-server. Voor een server met de naam **mijn replica** met de gebruikers naam **myadmin**, kunt u verbinding maken met de replica met behulp van psql:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
-Voer het wachtwoord voor het gebruikersaccount dat bij de prompt.
+Voer bij de prompt het wacht woord voor het gebruikers account in.
 
-## <a name="monitor-replication"></a>Monitor voor replicatie
-Azure Database voor PostgreSQL biedt twee metrische gegevens voor het bewaken van replicatie. De twee metrische gegevens zijn **maximale vertraging voor replica's** en **Replica Lag**. Zie voor informatie over het weergeven van deze metrische gegevens, de **bewaken van een replica** sectie van de [artikel met instructies replica lezen](howto-read-replicas-portal.md).
+## <a name="monitor-replication"></a>Replicatie controleren
+Azure Database for PostgreSQL biedt twee metrische gegevens voor het controleren van replicatie. De twee meet waarden zijn de **maximale vertraging voor replica's** en **replica vertraging**. Zie voor meer informatie over het weer geven van deze metrische gegevens het gedeelte **een replica bewaken** in het [artikel Lees-en replica-instructies](howto-read-replicas-portal.md).
 
-De **maximale vertraging voor replica's** ziet u de vertraging in bytes tussen de hoofd- en de meeste achtergebleven-replica. Met deze metriek is beschikbaar op de hoofdserver.
+De **maximale vertraging** voor de metrische gegevens van replica's toont de vertraging in bytes tussen het hoofd en de meest bewaarde replica. Deze metriek is alleen beschikbaar op de hoofd server.
 
-De **Replica Lag** metrische gegevens geeft de tijd sinds de laatste replay transactie. Als er geen transacties plaatsvinden op de hoofd-server, geeft de metriek deze vertraging. Met deze metriek is beschikbaar voor replica-servers. Replica Lag wordt berekend op basis van de `pg_stat_wal_receiver` weergeven:
+De metriek van de **replica vertraging** toont de tijd sinds de laatste geplayte trans actie. Als er geen trans acties worden uitgevoerd op de hoofd server, wordt deze tijds vertraging door de metriek aangegeven. Deze metriek is alleen beschikbaar voor replica servers. Replica vertraging wordt berekend op basis `pg_stat_wal_receiver` van de weer gave:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
-Stel een waarschuwing om u te informeren wanneer de vertraging replica een waarde die niet acceptabel voor uw workload is bereikt. 
+Stel een waarschuwing in om u te informeren wanneer de replica vertraging een waarde bereikt die niet geschikt is voor uw werk belasting. 
 
-Query uitvoeren op de hoofd-server rechtstreeks voor de vertraging van replicatie in bytes op alle replica's voor meer inzicht.
+Voor meer inzicht moet u rechtstreeks een query uitvoeren op de hoofd server om de replicatie vertraging in bytes op alle replica's te verkrijgen.
 
-In de PostgreSQL-versie 10:
+In PostgreSQL versie 10:
 
 ```SQL
 select pg_wal_lsn_diff(pg_current_wal_lsn(), stat.replay_lsn) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
-In PostgreSQL versie 9,6 en eerdere versies:
+In PostgreSQL versie 9,6 en lager:
 
 ```SQL
 select pg_xlog_location_diff(pg_current_xlog_location(), stat.replay_location) 
@@ -89,48 +111,48 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
 > [!NOTE]
-> Als een hoofd-server of meer replica's opnieuw is opgestart, wordt de tijd die nodig zijn om te starten en alle weerspiegeld in de Replica Lag metrische gegevens.
+> Als een hoofd server of een lees bewerking van de replica opnieuw wordt gestart, wordt de tijd die nodig is om opnieuw op te starten en weer te starten in de metrische gegevens van de replica vertraging.
 
 ## <a name="stop-replication"></a>Replicatie stoppen
-U kunt replicatie tussen een hoofd- en een replica stoppen. De actie bij stoppen zorgt ervoor dat de replica opnieuw te starten en te verwijderen van de replicatie-instellingen. Nadat de replicatie tussen een hoofd-server en een lezen replica is gestopt, wordt de replica een zelfstandige server. De gegevens in de zelfstandige server zijn de gegevens die beschikbaar zijn op de replica is op het moment dat de opdracht stop-replicatie is gestart. De zelfstandige server actueel met de hoofd-server niet.
+U kunt de replicatie tussen een Master en een replica stoppen. De actie stoppen zorgt ervoor dat de replica opnieuw wordt opgestart en de replicatie-instellingen worden verwijderd. Nadat de replicatie tussen een hoofd server en een lees replica is gestopt, wordt de replica een zelfstandige server. De gegevens op de zelfstandige server zijn de gegevens die beschikbaar zijn op de replica op het moment dat de opdracht stop-replicatie werd gestart. De zelfstandige server is niet actief bij de hoofd server.
 
 > [!IMPORTANT]
-> De zelfstandige server kan niet opnieuw worden gemaakt in een replica.
-> Voordat u replicatie op een replica lezen stoppen, controleert u of de replica de gegevens die u nodig hebt.
+> De zelfstandige server kan niet opnieuw in een replica worden gemaakt.
+> Voordat u de replicatie op een lees replica stopt, moet u ervoor zorgen dat de replica over alle gegevens beschikt die u nodig hebt.
 
-Wanneer u replicatie stopt, verliest de replica alle koppelingen naar de vorige hoofd- en andere replica's. Er is geen automatische failover tussen een model en de replica. 
+Wanneer u de replicatie stopt, verliest de replica alle koppelingen naar het vorige hoofd en andere replica's. Er is geen automatische failover tussen een hoofd database en een replica. 
 
-Meer informatie over het [stop de replicatie naar een replica](howto-read-replicas-portal.md).
+Meer informatie over het [stoppen van replicatie naar een replica](howto-read-replicas-portal.md).
 
 
 ## <a name="considerations"></a>Overwegingen
 
-In deze sectie bevat een overzicht van de overwegingen over de functie lezen replica.
+In deze sectie vindt u een overzicht van de overwegingen voor de functie replica lezen.
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u een replica lezen, maken de `azure.replication_support` parameter moet worden ingesteld op **REPLICA** op de hoofd-server. Als deze parameter wordt gewijzigd, is een server opnieuw opstarten vereist voor de wijziging door te voeren. De `azure.replication_support` parameter wordt toegepast op alleen de lagen algemeen gebruik en geoptimaliseerd voor geheugen.
+Voordat u een lees replica maakt, moet `azure.replication_support` de para meter worden ingesteld op **replica** op de hoofd server. Als deze para meter wordt gewijzigd, moet de server opnieuw worden opgestart om de wijziging van kracht te laten worden. De `azure.replication_support` para meter is alleen van toepassing op de lagen algemeen en geoptimaliseerd voor geheugen.
 
-### <a name="new-replicas"></a>Nieuwe replica 's
-Een lezen replica wordt gemaakt als een nieuwe Azure Database for PostgreSQL-server. Een bestaande server kan niet worden gemaakt in een replica. U kunt een replica van een andere lezen replica kan niet maken.
+### <a name="new-replicas"></a>Nieuwe replica's
+Er wordt een lees replica gemaakt als een nieuwe Azure Database for PostgreSQL-server. Een bestaande server kan niet worden gemaakt in een replica. Het is niet mogelijk om een replica van een andere Lees replica te maken.
 
-### <a name="replica-configuration"></a>Configuratie van de replica
-Een replica wordt gemaakt met behulp van de configuratie van de dezelfde server als het model. Nadat een replica is gemaakt, verschillende instellingen van de hoofdserver onafhankelijk van elkaar kunnen worden gewijzigd: compute genereren, vCores, opslag en back-up bewaarperiode. De prijscategorie kan ook afzonderlijk worden gewijzigd met uitzondering van of naar de Basic-laag.
+### <a name="replica-configuration"></a>Replica configuratie
+Een replica wordt gemaakt met behulp van dezelfde server configuratie als de Master. Nadat een replica is gemaakt, kunnen verschillende instellingen onafhankelijk van de hoofd server worden gewijzigd: generatie van compute, vCores, opslag en back-up van Bewaar periode. De prijs categorie kan ook onafhankelijk worden gewijzigd, met uitzonde ring van of van de Basic-laag.
 
 > [!IMPORTANT]
-> Werk de configuratie van de replica op gelijke of grotere waarden voordat een hoofd-server-configuratie is bijgewerkt met nieuwe waarden. Deze actie zorgt ervoor dat de replica kunt houden met eventuele wijzigingen in het model.
+> Voordat een configuratie van een hoofd server wordt bijgewerkt naar nieuwe waarden, moet u de replica configuratie bijwerken naar de waarden gelijk of hoger. Met deze actie zorgt u ervoor dat de replica alle wijzigingen kan aanbrengen die in de master zijn aangebracht.
 
-PostgreSQL vereist dat de waarde van de `max_connections` parameter voor de lezen-replica moet groter zijn dan of gelijk zijn aan de hoofd-waarde; anders wordt de replica niet start. In Azure Database for PostgreSQL, de `max_connections` parameterwaarde is gebaseerd op de SKU. Zie voor meer informatie, [limieten in Azure Database for PostgreSQL](concepts-limits.md). 
+PostgreSQL vereist dat de waarde van `max_connections` de para meter op de Lees replica groter dan of gelijk aan de Master waarde is. anders wordt de replica niet gestart. In azure database for PostgreSQL is de `max_connections` waarde van de para meter gebaseerd op de SKU. Zie [limieten in azure database for PostgreSQL](concepts-limits.md)voor meer informatie. 
 
-Als u probeert om de waarden van de server te werken, maar niet aan de beperkingen voldoen, ontvangt u een foutbericht.
+Als u de server waarden probeert bij te werken, maar niet aan de limieten voldoet, wordt er een fout bericht weer gegeven.
 
-### <a name="maxpreparedtransactions"></a>max_prepared_transactions
-[PostgreSQL vereist](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) de waarde van de `max_prepared_transactions` parameter voor de lezen-replica moet groter zijn dan of gelijk zijn aan de hoofd-waarde; anders wordt de replica niet start. Als u wilt wijzigen `max_prepared_transactions` op de hoofddoelserver eerst wijzigen op de replica's.
+### <a name="max_prepared_transactions"></a>max_prepared_transactions
+[Postgresql vereist](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) dat de waarde van `max_prepared_transactions` de para meter op de Lees replica groter dan of gelijk aan de Master waarde is. anders wordt de replica niet gestart. Als u wijzigingen wilt aanbrengen `max_prepared_transactions` op de Master, wijzigt u deze eerst op de replica's.
 
-### <a name="stopped-replicas"></a>Gestopte replica 's
-Als u replicatie tussen een hoofd-server en een lezen replica stopt, wordt de replica opnieuw wordt opgestart als de wijziging wilt toepassen. De gestopte replica wordt een zelfstandige server die zowel lees- en schrijfbewerkingen accepteert. De zelfstandige server kan niet opnieuw worden gemaakt in een replica.
+### <a name="stopped-replicas"></a>Gestopte replica's
+Als u de replicatie tussen een hoofd server en een lees replica stopt, wordt de replica opnieuw gestart om de wijziging toe te passen. De gestopte replica wordt een zelfstandige server die zowel lees-als schrijf bewerkingen accepteert. De zelfstandige server kan niet opnieuw in een replica worden gemaakt.
 
-### <a name="deleted-master-and-standalone-servers"></a>Verwijderde hoofd- en zelfstandige servers
-Wanneer een hoofd-server wordt verwijderd, worden alle bijbehorende lezen replica's zelfstandige servers. De replica's opnieuw worden gestart om deze wijziging weer te geven.
+### <a name="deleted-master-and-standalone-servers"></a>Verwijderde Master-en zelfstandige servers
+Wanneer een master-server wordt verwijderd, worden alle bijbehorende Lees replica's zelfstandige servers. De replica's worden opnieuw gestart om deze wijziging weer te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over het [maken en beheren van meer replica's in Azure portal](howto-read-replicas-portal.md).
+Meer informatie over [het maken en beheren van Lees replica's in de Azure Portal](howto-read-replicas-portal.md).

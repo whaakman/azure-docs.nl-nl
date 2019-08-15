@@ -1,31 +1,33 @@
 ---
-title: Dead-letter en beleid voor opnieuw proberen voor Azure Event Grid-abonnementen
-description: Beschrijft hoe u event Bezorgingsopties voor Event Grid aanpassen. Dead-letter uitvoeren voor doel ingesteld en geef op hoe lang levering opnieuw uit te voeren.
+title: Beleid voor onbestelbare berichten en nieuwe pogingen voor Azure Event Grid abonnementen
+description: Hierin wordt beschreven hoe u de bezorgings opties voor gebeurtenissen kunt aanpassen voor Event Grid. Stel een bestemming voor onbestelbare berichten in en geef op hoe lang de levering moet worden herhaald.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119566"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933360"
 ---
-# <a name="dead-letter-and-retry-policies"></a>Dead-letter en beleid voor opnieuw proberen
+# <a name="dead-letter-and-retry-policies"></a>Onbestelbare letter en beleid voor opnieuw proberen
 
-Bij het maken van een gebeurtenisabonnement, kunt u de instellingen voor de bezorging van gebeurtenissen kunt aanpassen. Dit artikel leest u hoe een dead-letter-locatie instellen en aanpassen van de instellingen voor opnieuw proberen. Zie voor meer informatie over deze functies [bezorging van berichten van Event Grid en probeer het opnieuw](delivery-and-retry.md).
+Bij het maken van een gebeurtenis abonnement kunt u de instellingen voor gebeurtenis levering aanpassen. In dit artikel wordt beschreven hoe u een locatie voor een onbestelbare letter instelt en hoe u de instellingen voor opnieuw proberen aanpast. Zie [Event grid aflevering van berichten en probeer het opnieuw](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="set-dead-letter-location"></a>Dead-letter uitvoeren voor locatie instellen
+## <a name="set-dead-letter-location"></a>Locatie van onbestelbare letter instellen
 
-Als u wilt een dead-letter-locatie instellen, moet u een opslagaccount voor de opslag van gebeurtenissen die naar een eindpunt kunnen niet worden bezorgd. De voorbeelden Haal de resource-ID van een bestaand opslagaccount. Ze maken een gebeurtenisabonnement die gebruikmaakt van een container in het storage-account voor het eindpunt dead-letter uitvoeren.
+Als u een locatie met een onbestelbare letter wilt instellen, hebt u een opslag account nodig voor het opslaan van gebeurtenissen die niet aan een eind punt kunnen worden geleverd. De voor beelden krijgen de resource-ID van een bestaand opslag account. Ze maken een gebeurtenis abonnement dat gebruikmaakt van een container in dat opslag account voor het eind punt voor onbestelbare berichten.
 
 > [!NOTE]
-> Maak een opslagaccount en een blob-container in de opslag voordat u opdrachten in dit artikel uitvoert.
+> - Maak een opslag account en een BLOB-container in de opslag voordat u de opdrachten in dit artikel uitvoert.
+> - De Event Grid-Service maakt blobs in deze container. De namen van de blobs hebben de naam van het Event Grid-abonnement met alle letters in hoofd letters. Als bijvoorbeeld de naam van het abonnement mijn-BLOB-abonnement is, hebben de namen van de onbestelbare letter-blobs de volgende BLOB-abonnement (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111 -111111111111. json). Dit gedrag is om te beschermen tegen verschillen bij het verwerken van het hoofdletter gebruik tussen Azure-Services.
+
 
 ### <a name="azure-cli"></a>Azure-CLI
 
@@ -42,7 +44,7 @@ az eventgrid event-subscription create \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
-Als u wilt uitschakelen onbestelbare, opnieuw de opdracht om het gebeurtenisabonnement te maken, maar geen waarde opgeeft voor `deadletter-endpoint`. U hoeft niet te verwijderen van het gebeurtenisabonnement.
+Als u onbestelbare berichten wilt uitschakelen, voert u de opdracht opnieuw uit om het gebeurtenis abonnement te maken, `deadletter-endpoint`maar geeft u geen waarde op voor. U hoeft het gebeurtenis abonnement niet te verwijderen.
 
 > [!NOTE]
 > Als u werkt met Azure CLI op uw lokale computer, gebruikt u Azure CLI versie 2.0.56 of hoger. Zie [De Azure CLI installeren](/cli/azure/install-azure-cli) voor instructies over het installeren van de meest recente versie van Azure CLI.
@@ -62,20 +64,20 @@ New-AzEventGridSubscription `
   -DeadLetterEndpoint "$storageid/blobServices/default/containers/$containername"
 ```
 
-Als u wilt uitschakelen onbestelbare, opnieuw de opdracht om het gebeurtenisabonnement te maken, maar geen waarde opgeeft voor `DeadLetterEndpoint`. U hoeft niet te verwijderen van het gebeurtenisabonnement.
+Als u onbestelbare berichten wilt uitschakelen, voert u de opdracht opnieuw uit om het gebeurtenis abonnement te maken, `DeadLetterEndpoint`maar geeft u geen waarde op voor. U hoeft het gebeurtenis abonnement niet te verwijderen.
 
 > [!NOTE]
-> Als u van Azure PowerShell op uw lokale computer gebruikmaakt, gebruikt u Azure PowerShell versie 1.1.0 of hoger. Download en installeer de nieuwste Azure PowerShell via [Azure downloads](https://azure.microsoft.com/downloads/).
+> Als u Azure Poweshell gebruikt op uw lokale computer, gebruikt u Azure PowerShell versie 1.1.0 of hoger. Down load en installeer de nieuwste Azure PowerShell van [Azure down loads](https://azure.microsoft.com/downloads/).
 
-## <a name="set-retry-policy"></a>Set-beleid voor opnieuw proberen
+## <a name="set-retry-policy"></a>Beleid voor opnieuw proberen instellen
 
-Bij het maken van een Event Grid-abonnement, kunt u waarden voor hoe lang Event Grid proberen moet te leveren van de gebeurtenis instellen. Standaard probeert Event Grid voor 24 uur (1440 minuten) of 30 keer beter. U kunt een van deze waarden instellen voor uw event grid-abonnement. De waarde voor time-to-live-gebeurtenis moet een geheel getal tussen 1 en 1440 liggen. De waarde voor maximale aantal pogingen moet een geheel getal tussen 1 en 30.
+Wanneer u een Event Grid-abonnement maakt, kunt u waarden instellen voor hoe lang Event Grid moet proberen de gebeurtenis te leveren. Event Grid probeert standaard 24 uur (1440 minuten) of 30 keer. U kunt een van deze waarden instellen voor uw event grid-abonnement. De waarde voor de gebeurtenis time-to-Live moet een geheel getal tussen 1 en 1440 zijn. De waarde voor het maximum aantal nieuwe pogingen moet een geheel getal tussen 1 en 30 zijn.
 
-U kunt geen configureren de [opnieuw plannen](delivery-and-retry.md#retry-schedule-and-duration).
+U kunt het [schema voor opnieuw proberen](delivery-and-retry.md#retry-schedule-and-duration)niet configureren.
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-Om in te stellen de gebeurtenis time-to-live naar een andere waarde dan 1440 minuten, gebruikt u:
+Als u de time-to-Live van de gebeurtenis wilt instellen op een andere waarde dan 1440 minuten, gebruikt u:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -86,7 +88,7 @@ az eventgrid event-subscription create \
   --event-ttl 720
 ```
 
-Om in te stellen het maximale aantal pogingen op een andere waarde dan 30, gebruikt u:
+Als u het maximum aantal nieuwe pogingen wilt instellen op een andere waarde dan 30, gebruikt u:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -97,11 +99,11 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Als u zowel `event-ttl` en `max-deliver-attempts`, Event Grid maakt gebruik van de eerste verlopen om te bepalen bij het stoppen van de bezorging van gebeurtenissen.
+Als u zowel `event-ttl` als als `max-deliver-attempts`hebt ingesteld, gebruikt Event grid de eerste om te verloopt om te bepalen wanneer de gebeurtenis levering moet worden gestopt.
 
 ### <a name="powershell"></a>PowerShell
 
-Om in te stellen de gebeurtenis time-to-live naar een andere waarde dan 1440 minuten, gebruikt u:
+Als u de time-to-Live van de gebeurtenis wilt instellen op een andere waarde dan 1440 minuten, gebruikt u:
 
 ```azurepowershell-interactive
 $topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
@@ -113,7 +115,7 @@ New-AzEventGridSubscription `
   -EventTtl 720
 ```
 
-Om in te stellen het maximale aantal pogingen op een andere waarde dan 30, gebruikt u:
+Als u het maximum aantal nieuwe pogingen wilt instellen op een andere waarde dan 30, gebruikt u:
 
 ```azurepowershell-interactive
 $topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
@@ -125,11 +127,11 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Als u zowel `EventTtl` en `MaxDeliveryAttempt`, Event Grid maakt gebruik van de eerste verlopen om te bepalen bij het stoppen van de bezorging van gebeurtenissen.
+Als u zowel `EventTtl` als als `MaxDeliveryAttempt`hebt ingesteld, gebruikt Event grid de eerste om te verloopt om te bepalen wanneer de gebeurtenis levering moet worden gestopt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een voorbeeldtoepassing die gebruikmaakt van een Azure-functie-app dead-letter om gebeurtenissen te verwerken, [Azure Event Grid Dead-Letter-voorbeelden voor .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
+* Zie [Azure Event grid dead letter-voor beelden voor .net](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/)voor een voorbeeld toepassing die gebruikmaakt van een Azure function-app voor het verwerken van Dead-letter-gebeurtenissen.
 * Voor informatie over de bezorging van gebeurtenissen en nieuwe pogingen, [bezorging van berichten van Event Grid en probeer het opnieuw](delivery-and-retry.md).
 * Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
 * Als u wilt snel aan de slag met Event Grid, Zie [aangepaste gebeurtenissen maken en routeren met Azure Event Grid](custom-event-quickstart.md).

@@ -5,30 +5,30 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/28/2018
-ms.author: adgera
+ms.date: 08/12/2019
+ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: e81b8fb06240d566e46ca0b45a0910e014dee329
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fa88bf7f8db9b4fea63429dbfd18f84ee84ccda1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176669"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012109"
 ---
-Op rollen gebaseerd toegangsbeheer is een strategie voor beveiliging op basis van de overname voor het beheren van toegang, machtigingen en rollen. Onderliggende functies overnemen machtigingen van bovenliggende rollen. Machtigingen kunnen ook worden toegewezen zonder wordt overgenomen van een bovenliggende rol. Ze kunnen ook worden toegewezen aan een rol aanpassen, indien nodig.
+Op rollen gebaseerd toegangs beheer is een overname strategie voor het beheren van de toegang, machtigingen en rollen. Onderliggende rollen nemen machtigingen over van bovenliggende rollen. Machtigingen kunnen ook worden toegewezen zonder dat ze worden overgenomen van een bovenliggende rol. Ze kunnen ook worden toegewezen om een rol zo nodig aan te passen.
 
-Een beheerder van de ruimte moet mogelijk globale toegang tot alle bewerkingen voor een opgegeven ruimte worden uitgevoerd. Toegang tot bevat alle knooppunten onder of in de ruimte. Het installatieprogramma van een apparaat moet mogelijk alleen *lezen* en *bijwerken* machtigingen voor apparaten en sensoren.
+Een ruimte beheerder kan bijvoorbeeld globale toegang nodig hebben om alle bewerkingen voor een opgegeven ruimte uit te voeren. De toegang omvat alle knoop punten onder of in de ruimte. Het installatie programma van een apparaat heeft mogelijk alleen *Lees* -en *Update* -machtigingen nodig voor apparaten en Sens oren.
 
-In elk geval functies worden verleend *precies en niet langer zijn dan de vereiste toegang* om te voldoen aan hun taken per het principe van minimale bevoegdheden. Op basis van dit principe een identiteit die wordt verleend *alleen*:
+In elk geval worden rollen precies toegekend *en niet meer dan de toegang* die is vereist om aan hun taken te voldoen volgens het principe van minimale bevoegdheden. Volgens dit principe wordt een identiteit *alleen*verleend:
 
-* De mate van toegang die nodig zijn om de taak te voltooien.
-* Een rol geschikt en zijn beperkt tot de taak is uitgevoerd.
+* De hoeveelheid toegang die nodig is om de taak te volt ooien.
+* Een rol die geschikt en beperkt is om de taak uit te voeren.
 
 >[!IMPORTANT]
-> Voer altijd het principe van minimale bevoegdheden.
+> Volg altijd het principe van minimale bevoegdheden.
 
-Twee andere belangrijke op rollen gebaseerde toegang besturingselement procedures te volgen:
+Twee andere belang rijke op rollen gebaseerde toegangs beheer procedures:
 
 > [!div class="checklist"]
-> * Controleer regelmatig de roltoewijzingen om te controleren dat elke rol de juiste machtigingen heeft.
-> * Opschonen van rollen en -toewijzingen wanneer personen rollen of toewijzingen wijzigen.
+> * Controleer regel matig de roltoewijzingen om te controleren of elke rol over de juiste machtigingen beschikt.
+> * Rollen en toewijzingen opschonen wanneer individuen rollen of toewijzingen wijzigen.

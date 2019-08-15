@@ -1,6 +1,6 @@
 ---
-title: Veilig opslaan van geheime toepassingsinstellingen voor een web-App - Azure Key Vault | Microsoft Docs
-description: Hoe veilig opslaan geheime toepassingsinstellingen, zoals Azure-referenties of van derden, API-sleutels met behulp van ASP.NET core Key Vault-Provider, gebruiker geheim of .NET 4.7.1 builders van configuratie
+title: Instellingen voor geheime toepassingen veilig opslaan voor een webtoepassing-Azure Key Vault | Microsoft Docs
+description: Veilig opslaan van geheime toepassings instellingen, zoals Azure-referenties of API-sleutels van derden, met behulp van ASP.NET core Key Vault provider, gebruikers geheim of .NET 4.7.1-configuratie bouwers
 services: visualstudio
 author: cawaMS
 manager: paulyuk
@@ -9,48 +9,48 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506427"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934375"
 ---
-# <a name="securely-save-secret-application-settings-for-a-web-application"></a>Geheime toepassingsinstellingen voor een webtoepassing veilig opslaan
+# <a name="securely-save-secret-application-settings-for-a-web-application"></a>Instellingen voor geheime toepassingen veilig opslaan voor een webtoepassing
 
 ## <a name="overview"></a>Overzicht
-In dit artikel wordt beschreven hoe u veilig opslaan geheime toepassing configuratie-instellingen voor Azure-toepassingen.
+In dit artikel wordt beschreven hoe u veilig configuratie-instellingen voor een geheime toepassing opslaat voor Azure-toepassingen.
 
-Alle webservers traditioneel Toepassingsconfiguratie instellingen worden opgeslagen in de configuratiebestanden zoals Web.config. Met deze procedure leidt tot het inchecken van geheime instellingen zoals cloudreferenties naar openbare bronbeheersystemen zoals GitHub. Ondertussen kan het lastig zijn om te volgen best practice bij beveiliging wordt vanwege de overhead vereist voor het wijzigen van de broncode en opnieuw configureren van instellingen voor het ontwikkelen.
+Doorgaans worden alle configuratie-instellingen van de webtoepassing opgeslagen in configuratie bestanden zoals web. config. Deze praktijk leidt ertoe dat geheime instellingen, zoals Cloud referenties, in de open bare broncode beheer systemen zoals GitHub, worden gecontroleerd. Ondertussen kan het lastig zijn om de beveiliging te volgen best practice vanwege de overhead die nodig is om de bron code te wijzigen en de ontwikkelings instellingen opnieuw te configureren.
 
-Hulpprogramma's en framework-bibliotheken worden om er zeker van te zijn ontwikkelingsproces is beveiligd, om op te slaan geheime toepassingsinstellingen veilig met minimale of geen wijziging in de code gegevensbron gemaakt.
+Om ervoor te zorgen dat het ontwikkel proces veilig is, worden hulp middelen en Framework bibliotheken gemaakt om de instellingen voor toepassings geheim veilig op te slaan met minimale of geen bron code wijziging.
 
-## <a name="aspnet-and-net-core-applications"></a>ASP.NET en .NET core-toepassingen
+## <a name="aspnet-and-net-core-applications"></a>ASP.NET-en .NET core-toepassingen
 
-### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Geheime instellingen opslaan in archief geheim van de gebruiker die buiten de bron-versiebeheermap
-Als u een snelle prototype uitvoert of u geen toegang tot internet hebt, kunt u beginnen met het verplaatsen van de geheime instellingen buiten de bron-versiebeheermap naar gebruiker geheim store. Geheime archief van de gebruiker is een bestand opgeslagen onder de map gebruiker profiler, zodat de geheimen zijn niet ingecheckt met resourcebeheer. Het volgende diagram laat zien hoe [gebruiker geheim](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) werkt.
+### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Bewaar geheime instellingen in het geheime archief van de gebruiker die zich buiten de map voor broncode beheer bevindt
+Als u een snel prototype uitvoert of als u geen toegang hebt tot internet, start u met het verplaatsen van de geheime instellingen buiten de map voor het opslaan van gebruikers naar het geheime archief van de gebruiker. Geheim archief van de gebruiker is een bestand dat is opgeslagen in de map gebruikers Profiler, waardoor geheimen niet zijn ingecheckt bij broncode beheer. In het volgende diagram ziet u hoe [gebruikers geheimen](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) werkt.
 
-![Geheim van de gebruiker blijft geheime instellingen buiten het besturingselement](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
+![Gebruikers geheim houdt geheime instellingen buiten broncode beheer](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
-Als u .NET core-consoletoepassing uitvoert, moet u Key Vault gebruiken voor het veilig opslaan van uw geheim.
+Als u een .NET core-console toepassing uitvoert, gebruikt u Key Vault om uw geheim veilig op te slaan.
 
-### <a name="save-secret-settings-in-azure-key-vault"></a>Geheime instellingen opslaan in Azure Key Vault
-Als u hebt voor het veilig delen van de broncode en het ontwikkelen van een project, gebruikt u [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+### <a name="save-secret-settings-in-azure-key-vault"></a>Geheime instellingen in Azure Key Vault opslaan
+Als u een project ontwikkelt en de bron code veilig moet delen, gebruikt u [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-1. Maak een Key Vault in uw Azure-abonnement. Vul alle vereiste velden in de gebruikersinterface en op *maken* aan de onderkant van de blade
+1. Maak een Key Vault in uw Azure-abonnement. Vul alle vereiste velden in de gebruikers interface in en klik onder aan de Blade op *maken* .
 
     ![Azure Key Vault maken](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Verlenen u en uw teamleden toegang tot de Key Vault. Als u een grote team hebt, kunt u een [Azure Active Directory-groep](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) en toevoegen van die groepstoegang tot de Key Vault. In de *geheime machtigingen* vervolgkeuzelijst selectievakje *ophalen* en *lijst* onder *geheim beheerbewerkingen*.
+2. Ken u en uw team leden toegang tot de Key Vault. Als u een groot team hebt, kunt u een [Azure Active Directory groep](../active-directory/active-directory-groups-create-azure-portal.md) maken en die beveiligings groep toevoegen aan de Key Vault. Selecteer in de vervolg keuzelijst *geheime machtigingen* de optie *ophalen* en *weer geven* onder *geheime beheer bewerkingen*.
 
-    ![Key Vault-toegangsbeleid toevoegen](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
+    ![Key Vault toegangs beleid toevoegen](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-3. Uw geheim toevoegen aan Key Vault in Azure portal. Voor geneste configuratie-instellingen, vervangt u ':' met '--', zodat de naam van de Key Vault-geheim ongeldig is. ':' is niet toegestaan om te worden van de naam van een Key Vault secret.
+3. Voeg uw geheim toe aan Key Vault op Azure Portal. Voor geneste configuratie-instellingen vervangt u ': ' door '--' zodat de naam van het Key Vault geheim geldig is. ': ' mag niet de naam van een Key Vault geheim hebben.
 
-    ![Key Vault-geheim toevoegen](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
+    ![Key Vault geheim toevoegen](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > Voor Visual Studio 2017 V15.6 gebruikte we raden aan de verificatie van Azure-Services-extensie voor Visual Studio installeren. Maar deze is afgeschaft nu de funcionality is geïntegreerd in de Visual Studio. Dus als u van een oudere versie van visual Studio 2017 gebruikmaakt, het is raadzaam u moet ten minste bijwerken naar Visual Studio 2017 15.6 of omhoog zodat u kunt deze functionaliteit systeemeigen gebruiken en toegang de sleutelkluis tot met behulp van de Visual Studio aanmelden identiteit, zelf.
+    > Voorafgaand aan Visual Studio 2017 V 15,6 is het raadzaam om de Azure Services-verificatie-extensie voor Visual Studio te installeren. Maar het is nu afgeschaft omdat de funcionality is geïntegreerd in de Visual Studio. Als u een oudere versie van Visual Studio 2017 gebruikt, wordt u aangeraden om een update uit te brengen naar ten minste VS 2017 15,6 of hoger, zodat u deze functionaliteit systeem eigen kunt gebruiken en toegang krijgt tot de sleutel kluis via de aanmeldings identiteit van Visual Studio zelf.
     >
  
 4. Voeg de volgende NuGet-pakketten toe aan uw project:
@@ -58,7 +58,7 @@ Als u hebt voor het veilig delen van de broncode en het ontwikkelen van een proj
     ```
     Microsoft.Azure.Services.AppAuthentication
     ```
-5. Voeg de volgende code naar het bestand Program.cs:
+5. Voeg de volgende code toe aan het Program.cs-bestand:
 
     ```csharp
     public static IWebHost BuildWebHost(string[] args) =>
@@ -81,26 +81,26 @@ Als u hebt voor het veilig delen van de broncode en het ontwikkelen van een proj
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. De URL voor Key Vault aan launchsettings.json bestand toevoegen. Naam van de omgevingsvariabele *KEYVAULT_ENDPOINT* is gedefinieerd in de code die u in stap 6 hebt toegevoegd.
+6. Voeg uw Key Vault URL toe aan het bestand launchsettings. json. De naam van de omgevings variabele *KEYVAULT_ENDPOINT* wordt gedefinieerd in de code die u in stap 6 hebt toegevoegd.
 
-    ![URL voor Key Vault als een omgevingsvariabele project toevoegen](./media/vs-secure-secret-appsettings/add-keyvault-url.png)
+    ![Key Vault URL toevoegen als een project omgevings variabele](./media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-7. Het project voor de foutopsporing starten. Het moet is uitgevoerd.
+7. Start de fout opsporing van het project. Het moet worden uitgevoerd.
 
 ## <a name="aspnet-and-net-applications"></a>ASP.NET en .NET-toepassingen
 
-.NET 4.7.1 ondersteunt builders van de configuratie van Key Vault en -geheim, die garandeert dat geheimen kunnen worden verplaatst buiten de bron-versiebeheermap zonder codewijzigingen.
-Om door te gaan, [.NET 4.7.1 downloaden](https://www.microsoft.com/download/details.aspx?id=56115) en migreren van uw toepassing als een oudere versie van .NET framework wordt gebruikt.
+.NET 4.7.1 ondersteunt Key Vault en geheime configuratie bouwers, waardoor geheimen kunnen worden verplaatst buiten de map voor broncode beheer zonder code wijzigingen.
+Als u wilt door gaan, kunt u [.net 4.7.1 downloaden](https://www.microsoft.com/download/details.aspx?id=56115) en uw toepassing migreren als deze gebruikmaakt van een oudere versie van .NET Framework.
 
-### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>Geheime instellingen opslaan in een geheime bestand die buiten de bron-versiebeheermap
-Als u een snelle prototype ontwikkelt en niet wilt dat voor het inrichten van Azure-resources, gaat u met deze optie.
+### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>Bewaar geheime instellingen in een geheim bestand dat zich buiten de map voor broncode beheer bevindt
+Als u een snel prototype schrijft en Azure-resources niet wilt inrichten, gaat u naar deze optie.
 
-1. Het volgende NuGet-pakket installeren voor uw project
+1. Het volgende NuGet-pakket installeren op uw project
     ```
     Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
-2. Maak een bestand dat vergelijkbaar is met de volgende. Sla het op een locatie buiten de projectmap.
+2. Maak een bestand dat er ongeveer als volgt uitziet. Sla het bestand op onder een locatie buiten de projectmap.
 
     ```xml
     <root>
@@ -111,7 +111,7 @@ Als u een snelle prototype ontwikkelt en niet wilt dat voor het inrichten van Az
     </root>
     ```
 
-3. Definieer het geheime bestand om te worden van een opbouwfunctie voor configuratie in het Web.config-bestand. In deze sectie voordat u put *appSettings* sectie.
+3. Definieer het geheime bestand als Configuration builder in het bestand Web. config. Plaats deze sectie voor de sectie *appSettings* .
 
     ```xml
     <configBuilders>
@@ -123,7 +123,7 @@ Als u een snelle prototype ontwikkelt en niet wilt dat voor het inrichten van Az
     </configBuilders>
     ```
 
-4. Geef sectie appSettings met behulp van de opbouwfunctie voor geheime configuratie. Zorg ervoor dat er een vermelding voor de geheime instelling met een dummy-waarde.
+4. De sectie appSettings opgeven maakt gebruik van de functie voor het maken van geheime configuratie. Zorg ervoor dat er een vermelding voor de geheime instelling met een dummy waarde is.
 
     ```xml
         <appSettings configBuilders="Secrets">
@@ -135,17 +135,17 @@ Als u een snelle prototype ontwikkelt en niet wilt dat voor het inrichten van Az
         </appSettings>
     ```
 
-5. Fouten opsporen in uw app. Het moet is uitgevoerd.
+5. Fouten opsporen in uw app. Het moet worden uitgevoerd.
 
-### <a name="save-secret-settings-in-an-azure-key-vault"></a>Geheime instellingen opslaan in een Azure Key Vault
-Volg de instructies van ASP.NET core sectie om te configureren van een Key Vault voor uw project.
+### <a name="save-secret-settings-in-an-azure-key-vault"></a>Geheime instellingen in een Azure Key Vault opslaan
+Volg de instructies in de sectie ASP.NET-kern om een Key Vault voor uw project te configureren.
 
-1. Het volgende NuGet-pakket installeren voor uw project
+1. Het volgende NuGet-pakket installeren op uw project
    ```
    Microsoft.Configuration.ConfigurationBuilders.UserSecrets
    ```
 
-2. Opbouwfunctie voor Key Vault-configuratie definiëren in Web.config. In deze sectie voordat u put *appSettings* sectie. Vervang *vaultName* moet de naam van de Key Vault als uw Key Vault in openbare Azure, of de volledige URI als u van onafhankelijke Clouds gebruikmaakt.
+2. Definieer Key Vault Configuration builder in web. config. Plaats deze sectie voor de sectie *appSettings* . Vervang de kluisnaam door de Key Vault naam als uw Key Vault zich in open bare Azure of volledige URI bevindt als u een soevereine Cloud gebruikt.
 
     ```xml
     <configSections>
@@ -157,7 +157,7 @@ Volg de instructies van ASP.NET core sectie om te configureren van een Key Vault
         </builders>
     </configBuilders>
     ```
-3. Geef de sectie appSettings met behulp van de opbouwfunctie voor Key Vault-configuratie. Zorg ervoor dat er een vermelding voor de geheime instelling met een dummy-waarde.
+3. De sectie appSettings opgeven maakt gebruik van de Key Vault Configuration Builder. Zorg ervoor dat er een vermelding voor de geheime instelling met een dummy waarde is.
 
    ```xml
    <appSettings configBuilders="AzureKeyVault">
@@ -169,4 +169,4 @@ Volg de instructies van ASP.NET core sectie om te configureren van een Key Vault
    </appSettings>
    ```
 
-4. Het project voor de foutopsporing starten. Het moet is uitgevoerd.
+4. Start de fout opsporing van het project. Het moet worden uitgevoerd.

@@ -1,9 +1,9 @@
 ---
-title: Veelgestelde vragen over Azure Active Directory-rapporten | Microsoft Docs
-description: Veelgestelde quesitons rond Azure Active Directory-rapporten.
+title: Veelgestelde vragen over Azure Active Directory rapporten | Microsoft Docs
+description: Vaak gestelde quesitons rond Azure Active Directory-rapporten.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
@@ -13,55 +13,55 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09270d89ecaff02716d9916527d21ba2c5d30716
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a9b1144e3ef1f1a49c39d694f465653da5881cb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107536"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987930"
 ---
-# <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Veelgestelde vragen over Azure Active Directory-rapporten
+# <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Veelgestelde vragen over Azure Active Directory rapporten
 
-In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directory (Azure AD) rapportage. Zie [Azure Active Directory-rapportage](overview-reports.md) voor meer informatie. 
+In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Active Directory-rapportage (Azure AD). Zie [Azure Active Directory-rapportage](overview-reports.md) voor meer informatie. 
 
 ## <a name="getting-started"></a>Aan de slag 
 
-**V: Ik momenteel gebruiken de `https://graph.windows.net/<tenant-name>/reports/` eindpunt API's voor het pull-Azure AD-controle en gebruik van de geïntegreerde toepassing via een programma in ons systeem reporting-rapporten. Wat moet ik overschakelen naar?**
+**V: Ik gebruik momenteel de `https://graph.windows.net/<tenant-name>/reports/` api's van het eind punt om Azure AD-controle en rapporten over het gebruik van toepassingen te verzamelen in onze rapportage systemen via een programma. Waar moet ik naar overschakelen?**
 
-**A:** Controleren of de [API-verwijzing](https://developer.microsoft.com/graph/) om te zien hoe u kunt [de API's gebruiken voor toegang tot activiteitenrapporten](concept-reporting-api.md). Dit eindpunt heeft twee rapporten (**Audit** en **aanmeldingen**) Hier vindt u alle gegevens die u hebt verkregen in het oude API-eindpunt. Dit nieuwe eindpunt heeft ook een rapport-aanmeldingen met de Azure AD Premium-licentie die u gebruiken kunt om app-gebruik, gebruik van het apparaat en aanmelding bij gebruikersgegevens te verkrijgen.
-
----
-
-**V: Ik momenteel gebruiken de `https://graph.windows.net/<tenant-name>/reports/` eindpunt API's voor het ophalen van de Azure AD-beveiligingsrapporten (specifieke typen detectie, zoals de referenties zijn gelekt of aanmeldingen vanaf anonieme IP-adressen) via een programma in onze reporting systemen. Wat moet ik overschakelen naar?**
-
-**A:** U kunt de [risicogebeurtenissen Identity Protection API](../identity-protection/graph-get-started.md) naar beveiligingsdetecties toegang via Microsoft Graph. Deze nieuwe indeling biedt meer flexibiliteit in hoe u van gegevens, met Geavanceerd filteren, mapselectie en meer opvragen kunt, en risicogebeurtenissen standaardiseert in één type voor eenvoudiger integratie met siem's en andere hulpmiddelen voor het verzamelen van gegevens. Omdat de gegevens zich in een andere indeling, kunt u een nieuwe query voor uw oude query's niet vervangen. Echter, [de nieuwe API maakt gebruik van Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), dit is de Microsoft-standaard voor deze API's als Office 365 of Azure AD. U begint de overgang naar deze nieuwe standard-platform, zodat het werk vereist kunt uitbreiden van uw huidige investeringen in MS Graph of de help.
+**A:** Zoek de [API-verwijzing](https://developer.microsoft.com/graph/) om te zien hoe u [de api's kunt gebruiken voor toegang tot activiteiten rapporten](concept-reporting-api.md). Dit eind punt heeft twee rapporten (**controle** en aanmeldingen) die alle gegevens leveren die u hebt ontvangen in het oude API-eind punt. Dit nieuwe eind punt heeft ook een aanmeldings rapport met de Azure AD Premium licentie die u kunt gebruiken om het gebruik van de app, het gebruik van het apparaat en de aanmeldings gegevens van gebruikers te verkrijgen.
 
 ---
 
-**V: Hoe krijg ik een premium-licentie?**
+**V: Ik gebruik momenteel de `https://graph.windows.net/<tenant-name>/reports/` endpoint api's om Azure AD-beveiligings rapporten (specifieke typen detecties, zoals gelekte referenties of aanmeldingen vanaf anonieme IP-adressen), via een programma te halen in onze rapportage systemen. Waar moet ik naar overschakelen?**
+
+**A:** U kunt de [API](../identity-protection/graph-get-started.md) voor risico gebeurtenissen voor identiteits beveiliging gebruiken voor toegang tot beveiligings detecties via Microsoft Graph. Deze nieuwe indeling biedt meer flexibiliteit in de manier waarop u gegevens kunt opvragen, met geavanceerde filters, veld selectie en meer, en risico gebeurtenissen in één type worden gestandardization voor een eenvoudige integratie in Siem's en andere hulpprogram ma's voor het verzamelen van gegevens. Omdat de gegevens een andere indeling hebben, kunt u geen nieuwe query vervangen door uw oude query's. [De nieuwe API maakt echter gebruik van Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent). Dit is de micro soft-norm voor dergelijke Api's als O365 of Azure AD. Het werk vereist dus om uw huidige micro soft Graph-investeringen uit te breiden of om u te helpen bij het starten van de overgang naar dit nieuwe standaard platform.
+
+---
+
+**V: Hoe kan ik een Premium-licentie aanschaffen?**
 
 **A:** Zie [Aan de slag met Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) om uw versie van Azure Active Directory te upgraden.
 
 ---
 
-**V: Hoe snel moet ik activiteiten gegevens zien nadat u een premium-licentie?**
+**V: Hoe binnenkort moeten er activiteiten gegevens worden weer gegeven na het verkrijgen van een Premium-licentie?**
 
-**A:** Als u al gegevens hebt die activiteiten als een gratis licentie, kunt u deze meteen zien. Als u geen gegevens, duurt het een of twee dagen voor de gegevens worden weergegeven in de rapporten.
-
----
-
-**V: Kan ik van afgelopen maand gegevens zien nadat u een Azure AD premium-licentie?**
-
-**A:** Als u hebt onlangs is overgeschakeld naar een premiumversie (met inbegrip van een evaluatieversie), u kunt gegevens van 7 dagen in eerste instantie zien. Wanneer gegevens worden bij elkaar opgeteld, ziet u gegevens voor de afgelopen 30 dagen.
+**A:** Als u al activiteiten gegevens als een gratis licentie hebt, kunt u deze direct weer geven. Als u geen gegevens hebt, duurt het één of twee dagen voordat de gegevens in de rapporten worden weer gegeven.
 
 ---
 
-**V: Moet ik een globale beheerder om te zien van de activiteit aanmeldingen bij de Azure portal of het opvragen van gegevens via de API?**
+**V: Kan ik de gegevens van de afgelopen maand zien na het ophalen van een Azure AD Premium-licentie?**
 
-**A:** Nee, u kunt ook toegang tot de rapportagegegevens via de portal of via de API als u een **Beveiligingslezer** of **beveiligingsbeheerder** voor de tenant. Natuurlijk **globale beheerders** hebben ook toegang tot deze gegevens.
+**A:** Als u onlangs hebt overgeschakeld naar een Premium-versie (met inbegrip van een proef versie), kunt u in eerste instantie de gegevens weer geven tot 7 dagen. Wanneer gegevens worden verzameld, kunt u de gegevens weer geven voor de afgelopen 30 dagen.
+
+---
+
+**V: Moet ik een globale beheerder zijn om de aanmeldingen voor activiteiten te zien voor de Azure Portal of om gegevens op te halen via de API?**
+
+**A:** Nee, u kunt ook toegang krijgen tot de rapport gegevens via de portal of via de API als u een **beveiligings lezer** of **beveiligings beheerder** voor de Tenant bent. **Globale beheerders** hebben natuurlijk ook toegang tot deze gegevens.
 
 ---
 
@@ -69,65 +69,65 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 ## <a name="activity-logs"></a>Activiteitenlogboeken
 
 
-**V: Wat is de bewaarperiode voor activiteitenlogboeken (Audit en -aanmeldingen) in Azure portal?** 
+**V: Wat is de gegevens retentie voor activiteiten Logboeken (controle en aanmeldingen) in het Azure Portal?** 
 
-**A:** De volgende tabel bevat de bewaarperiode voor activiteitenlogboeken. Zie voor meer informatie, [bewaarbeleid voor gegevens voor Azure AD-rapporten](reference-reports-data-retention.md).
+**A:** De volgende tabel bevat de Bewaar periode voor gegevens voor activiteiten Logboeken. Zie voor meer informatie [beleid voor gegevens retentie voor Azure AD-rapporten](reference-reports-data-retention.md).
 
 | Rapport                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
-| Auditlogboeken             | 7 dagen        | 30 dagen             | 30 dagen             |
+| Controlelogboeken             | 7 dagen        | 30 dagen             | 30 dagen             |
 | Aanmeldingen               | N/A           | 30 dagen             | 30 dagen             |
-| Azure MFA Usage        | 30 dagen       | 30 dagen             | 30 dagen             |
+| Gebruik van Azure MFA        | 30 dagen       | 30 dagen             | 30 dagen             |
 
 ---
 
-**V: Hoe lang duurt het tot ik de activiteitsgegevens zien kan nadat ik mijn taak hebt voltooid?**
+**V: Hoe lang duurt het voordat ik de activiteit gegevens kan zien nadat ik mijn taak heb voltooid?**
 
-**A:** Auditlogboeken hebben een latentie, variërend van 15 minuten tot een uur. Aanmelden activiteitenlogboeken kunnen tot maximaal twee uur voor sommige records tussen 15 minuten duren.
-
----
-
-**V: Kan ik Office 365-activiteitenlogboekinformatie via Azure portal krijgen?**
-
-**A:** Hoewel Office 365-activiteit en Azure AD-activiteit logboeken delen veel directoryresources, als u wilt dat een volledig overzicht van de Office 365-activiteitenlogboeken moet gaat u naar de [Microsoft 365-beheercentrum](https://admin.microsoft.com) om op te halen van Office 365-activiteitenlogboek informatie.
+**A:** Audit logboeken hebben een latentie van 15 minuten tot een uur. Logboeken voor aanmeldings activiteiten kunnen vijf tien minuten tot Maxi maal 2 uur duren voor sommige records.
 
 ---
 
-**V: Welke API's gebruik ik voor informatie over Office 365-activiteitenlogboeken?**
+**V: Kan ik informatie over het activiteiten logboek van Office 365 krijgen via de Azure Portal?**
 
-**A:** Gebruik de [Management API's van Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) voor toegang tot de Office 365-activiteitenlogboeken via een API.
+**A:** Hoewel Office 365-activiteiten en activiteiten logboeken van Azure AD een groot aantal Directory bronnen delen. Als u een volledige weer gave van de activiteiten logboeken van Office 365 wilt, gaat u naar het [Microsoft 365-beheer centrum](https://admin.microsoft.com) om informatie over het activiteiten logboek van Office 365 op te halen.
 
 ---
 
-**V: Het aantal records ik kunt downloaden vanuit Azure portal?**
+**V: Welke Api's gebruik ik om informatie over activiteiten logboeken van Office 365 te verkrijgen?**
 
-**A:** U kunt maximaal 5000 records downloaden vanuit de Azure-portal. De records worden gesorteerd op *meest recente* en standaard, krijgt u de meest recente 5000 records.
+**A:** Gebruik de [office 365-beheer-api's](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) om toegang te krijgen tot de activiteiten logboeken van Office 365 via een API.
+
+---
+
+**V: Hoeveel records kan ik van Azure Portal downloaden?**
+
+**A:** U kunt maximaal 5000 records downloaden vanuit de Azure-portal. De records worden gesorteerd op de *meest recente* en standaard worden de meest recente 5000 records weer geven.
 
 ---
 
 ## <a name="risky-sign-ins"></a>Riskante aanmeldingen
 
-**V: Er is een risicogebeurtenis in Identity Protection, maar ik zie niet bijbehorende aanmelden in het rapport-aanmeldingen. Is dit verwacht?**
+**V: Er is sprake van een risico gebeurtenis in identiteits beveiliging, maar ik zie geen corresponderende aanmelding in het rapport met aanmeldingen. Wordt dit verwacht?**
 
-**A:** Ja, evalueert Identity Protection risico's voor alle verificatiestromen of interactieve of niet-interactieve. Alleen rapport voor alle aanmeldingen wordt echter alleen de interactieve aanmeldingen.
-
----
-
-**V: Hoe weet ik waarom een aanmelding bij of een gebruiker is gemarkeerd riskante in Azure portal?**
-
-**A:** Als u hebt een **Azure AD Premium** abonnement, u kunt meer informatie over de onderliggende risicogebeurtenissen door het selecteren van de gebruiker in **gebruikers die zijn gemarkeerd voor risico's** of door te selecteren van een record in de **riskant aanmeldingen** rapport. Als u hebt een **gratis** of **Basic** abonnement, dan hebt u de gebruikers op risico's en rapporten over riskante aanmeldingen kunt weergeven, maar kunt u de onderliggende gegevens van risicogebeurtenissen niet zien.
+**A:** Ja, identiteits beveiliging evalueert Risico's voor alle verificatie stromen, ongeacht of deze interactief of niet-interactief zijn. Het rapport alle aanmeldingen alleen bevat alleen de interactieve aanmeldingen.
 
 ---
 
-**V: Hoe worden de IP-adressen in de aanmeldingen en het rapport riskante aanmeldingen berekend?**
+**V: Hoe kan ik weet u waarom een aanmelding of een gebruiker een risico heeft gevlagd in de Azure Portal?**
 
-**A:** IP-adressen worden uitgegeven zodanig dat er is geen definitieve verbinding tussen een IP-adres en waar de computer met dit adres zich fysiek bevindt. Toewijzing van IP-adressen is nog gecompliceerder door factoren zoals mobiele providers en VPN's uitgeven van IP-adressen uit de centrale pools vaak zeer ver ligt waar het client-apparaat daadwerkelijk wordt gebruikt. In Azure AD-rapporten is IP-adres converteren naar een fysieke locatie momenteel een best-effort op basis van traceringen, register, omgekeerde zoekopdrachten en andere gegevens. 
+**A:** Als u een **Azure AD Premium** -abonnement hebt, kunt u meer te weten komen over de onderliggende risico gebeurtenissen door de gebruiker te selecteren in gebruikers die zijn **gemarkeerd voor risico** of door een record te selecteren in het rapport **Risk ante** aanmeldingen. Als u een **gratis** of **basis** abonnement hebt, kunt u de gebruikers weer geven die risico lopen en rapporten met Risk ante aanmeldingen, maar u kunt de gegevens van de onderliggende risico gebeurtenis niet zien.
 
 ---
 
-**V: Wat doet de risicogebeurtenis "Aanmelden met extra risico gedetecteerd" overheen?**
+**V: Hoe worden IP-adressen berekend in het rapport aanmeldingen en Risk ante aanmeldingen?**
 
-**A:** Om u te bieden inzicht in alle riskante aanmeldingen in uw omgeving, 'Aanmelden met extra risico gedetecteerd' functies als tijdelijke aanduiding voor aanmeldingen voor detecties die uitsluitend tot de Azure AD Identity Protection-abonnees behoren.
+**A:** IP-adressen worden zodanig uitgegeven dat er geen definitieve verbinding is tussen een IP-adres en waar de computer met dat adres zich fysiek bevindt. Het toewijzen van IP-adressen is nog complexer door factoren zoals mobiele providers en Vpn's die IP-adressen uit centrale Pools uitgeven, vaak van belang voor de daad werkelijke gebruik van het client apparaat. Op dit moment in azure AD-rapporten is het converteren van een IP-adres naar een fysieke locatie een beste werk op basis van traceringen, register gegevens, het terugdraaien van de ups en andere informatie. 
+
+---
+
+**V: Wat betekent de risico gebeurtenis ' Aanmelden met extra risico '?**
+
+**A:** Om u inzicht te geven in alle Risk ante aanmeldingen in uw omgeving, wordt ' Aanmelden met extra risico ' functions als tijdelijke aanduiding voor aanmeldingen voor detecties die exclusief zijn voor Azure AD Identity Protection-abonnees.
 
 ---
 
@@ -135,37 +135,37 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 **V: Wat is er nieuw in deze functie?**
 
-**A:** Klanten kunnen nu beleidsregels voor voorwaardelijke toegang via alle aanmeldingen rapport oplossen. Klanten kunnen de status voor voorwaardelijke toegang en informatie over de details van het beleid toegepast op de aanmelding en het resultaat voor elk beleid te lezen.
+**A:** Klanten kunnen nu het beleid voor voorwaardelijke toegang in het rapport van alle aanmeldingen oplossen. Klanten kunnen de status van de voorwaardelijke toegang controleren en de Details bekijken van de beleids regels die zijn toegepast op de aanmelding en het resultaat van elk beleid.
 
-**V: Hoe ga ik aan de slag?**
+**V: Hoe kan ik aan de slag?**
 
-**A:** Aan de slag gaan:
+**A:** Aan de slag:
 
-* Navigeer naar het rapport aanmeldingen in de [Azure-portal](https://portal.azure.com).
+* Navigeer naar het rapport aanmeldingen in de [Azure Portal](https://portal.azure.com).
 * Klik op de aanmelding die u wilt oplossen.
-* Navigeer naar de **voorwaardelijke toegang** tabblad. Hier vindt u alle beleidsregels die invloed hebben de aanmelding en het resultaat voor elk beleid. 
+* Navigeer naar het tabblad **voorwaardelijke toegang** . Hier kunt u alle beleids regels weer geven die van invloed zijn op de aanmelding en het resultaat van elk beleid. 
     
-**V: Wat zijn alle mogelijke waarden voor de status voor voorwaardelijke toegang?**
+**V: Wat zijn de mogelijke waarden voor de status van de voorwaardelijke toegang?**
 
-**A:** Status van voorwaardelijke toegang kan de volgende waarden hebben:
+**A:** De status van voorwaardelijke toegang kan de volgende waarden hebben:
 
-* **Niet toegepast**: Dit betekent dat er geen CA-beleid met de gebruiker en de app binnen het bereik is. 
-* **Geslaagd**: Dit betekent dat er een CA-beleid met de gebruiker en de app binnen het bereik is en CA-beleid is voldaan. 
-* **Fout**: Dit betekent dat er een CA-beleid met de gebruiker en de app binnen het bereik is en CA-beleid niet wordt voldaan. 
+* **Niet toegepast**: Dit betekent dat er geen CA-beleid met de gebruiker en de app in het bereik is. 
+* **Succes**: Dit betekent dat er een CA-beleid met de gebruiker en de app in het bereik en het CA-beleid is voldaan. 
+* **Fout**: Dit betekent dat er geen CA-beleid was met de gebruiker en de app in het bereik en het CA-beleid niet is voldaan. 
     
-**V: Wat zijn alle mogelijke waarden voor het resultaat van de beleid voor voorwaardelijke toegang?**
+**V: Wat zijn de mogelijke waarden voor het resultaat van het beleid voor voorwaardelijke toegang?**
 
-**A:** Beleid voor voorwaardelijke toegang kan hebben de volgende resultaten:
+**A:** Een beleid voor voorwaardelijke toegang kan de volgende resultaten hebben:
 
-* **Geslaagd**: Het beleid is is voldaan aan.
-* **Fout**: Het beleid is niet voldaan aan.
-* **Niet toegepast**: Dit komt mogelijk omdat het niet voldeed aan de voorwaarden van het beleid.
-* **Niet ingeschakeld**: Dit komt door het beleid is uitgeschakeld. 
+* **Succes**: Er is aan het beleid voldaan.
+* **Fout**: Er is niet aan het beleid voldaan.
+* **Niet toegepast**: Dit kan zijn omdat de beleids voorwaarden niet voldoen aan het beleid.
+* **Niet ingeschakeld**: Dit wordt veroorzaakt door het beleid in uitgeschakelde status. 
     
-**V: De naam van het beleid in het rapport voor alle aanmelden komt niet overeen met de naam van het beleid in de CA. Waarom is dat?**
+**V: De beleids naam in het rapport alle aanmeldingen komt niet overeen met de naam van het beleid in de CA. Waarom is dat?**
 
-**A:** De naam van het beleid in het rapport voor alle aanmelden is gebaseerd op de naam van de CA-beleid op het moment van de aanmelding. Dit kan niet consistent met de naam van het beleid in de CA zijn, als u de beleidsnaam later, dat wil zeggen, na de aanmelding bijgewerkt.
+**A:** De naam van het beleid in het rapport alle aanmeldingen is gebaseerd op de naam van het CA-beleid op het moment van de aanmelding. Dit kan inconsistent zijn met de beleids naam in CA als u de beleids naam later hebt bijgewerkt, dat wil zeggen, na het aanmelden.
 
-**V: De aanmelding is geblokkeerd vanwege een beleid voor voorwaardelijke toegang, maar het rapport van aanmeldingsactiviteiten bevat of de aanmelding is geslaagd. Waarom is dat?**
+**V: Mijn aanmelding is geblokkeerd vanwege een beleid voor voorwaardelijke toegang, maar in het rapport voor de aanmeldings activiteit is aangegeven dat de aanmelding is geslaagd. Waarom is dat?**
 
-**A:** Het rapport mogelijk nauwkeurige resultaten voor scenario's voor Exchange ActiveSync momenteel niet weergegeven wanneer voorwaardelijke toegang wordt toegepast. Kunnen er gevallen wanneer het resultaat aanmelden in het rapport een geslaagde aanmelding bevat, maar de aanmelding daadwerkelijk is mislukt vanwege een beleid voor voorwaardelijke toegang. 
+**A:** Het aanmeldings rapport geeft momenteel mogelijk geen accurate resultaten weer voor Exchange ActiveSync-scenario's wanneer voorwaardelijke toegang wordt toegepast. Er kunnen gevallen zijn wanneer het aanmeldings resultaat in het rapport een geslaagde aanmelding bevat, maar de aanmelding is mislukt als gevolg van een beleid voor voorwaardelijke toegang. 

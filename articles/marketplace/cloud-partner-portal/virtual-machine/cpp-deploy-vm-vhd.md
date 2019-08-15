@@ -1,35 +1,35 @@
 ---
-title: Een VM implementeren vanaf uw VHD's voor de Azure Marketplace
-description: Wordt uitgelegd over het registreren van een virtuele machine van een VHD voor Azure zijn geïmplementeerd.
+title: Een VM implementeren vanaf uw Vhd's voor Azure Marketplace
+description: Hierin wordt uitgelegd hoe u een virtuele machine registreert vanuit een door Azure geïmplementeerde VHD.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/08/2019
+ms.author: evansma
+ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938294"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934971"
 ---
-# <a name="deploy-a-vm-from-your-vhds"></a>Een VM implementeren vanaf uw VHD 's
+# <a name="deploy-a-vm-from-your-vhds"></a>Een VM implementeren vanaf uw Vhd's
 
-Deze sectie wordt uitgelegd hoe u een virtuele machine (VM) implementeren van een Azure-geïmplementeerd virtuele harde schijf (VHD).  Geeft de hulpprogramma's die nodig zijn en hoe u kunt gebruiken voor het maken van een gebruiker VM-installatiekopie, en vervolgens implementeren op Azure met behulp van PowerShell-scripts.
+In deze sectie wordt uitgelegd hoe u een virtuele machine (VM) implementeert vanuit een door Azure geïmplementeerde virtuele harde schijf (VHD).  De lijst bevat de vereiste hulpprogram ma's en hoe u deze kunt gebruiken om een VM-installatie kopie van een gebruiker te maken en deze vervolgens te implementeren in azure met behulp van Power shell-scripts.
 
-Nadat u uw virtuele harde schijven (VHD's) hebt geüpload, het besturingssysteem gegeneraliseerde VHD en nul of meer gegevens schijf VHD's, naar uw Azure storage-account, kunt u deze registreren als een gebruiker VM-installatiekopie. Vervolgens kunt u die afbeelding testen. Omdat de VHD van het besturingssysteem is gegeneraliseerd, kunt u de virtuele machine niet rechtstreeks implementeren door op te geven van de VHD-URL.
+Nadat u de virtuele harde schijven (Vhd's), de gegeneraliseerde VHD van het besturings systeem en nul of meer gegevens schijf-Vhd's hebt geüpload, kunt u ze registreren als een VM-installatie kopie van een gebruiker. Vervolgens kunt u de installatie kopie testen. Omdat de VHD van het besturings systeem generaliseert, kunt u de virtuele machine niet rechtstreeks implementeren door de URL van de VHD op te geven.
 
-Zie voor meer informatie over VM-installatiekopieën, de volgende blogberichten:
+Voor meer informatie over VM-installatie kopieën raadpleegt u de volgende blog berichten:
 
-- [VM-installatiekopie](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [VM Image PowerShell 'Het'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [VM-installatie kopie](https://azure.microsoft.com/blog/vm-image-blog-post/)
+- [VM-installatie kopie Power shell ' How to '](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisite-install-the-necessary-tools"></a>Voorwaarde: Installeer de benodigde hulpprogramma 's
+## <a name="prerequisite-install-the-necessary-tools"></a>Voor waarde: Installeer de benodigde hulpprogram ma's
 
-Als u hebt nog niet gedaan, installeert u Azure PowerShell en Azure CLI, met behulp van de volgende instructies:
+Als u dit nog niet hebt gedaan, installeert u Azure PowerShell en de Azure CLI met behulp van de volgende instructies:
 
 - [Azure PowerShell installeren](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 - [Azure-CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli)
@@ -37,50 +37,50 @@ Als u hebt nog niet gedaan, installeert u Azure PowerShell en Azure CLI, met beh
 
 ## <a name="deployment-steps"></a>Implementatiestappen
 
-U wilt de volgende stappen uit om te maken en implementeren van een gebruiker VM-installatiekopie gebruiken:
+U gaat als volgt te werk om een VM-installatie kopie van een gebruiker te maken en te implementeren:
 
-1. De gebruiker VM-installatiekopie, die inhoudt vast te leggen en de installatiekopie van het generaliseren maken. 
-2. Certificaten maken en op te slaan in een nieuwe Azure Key Vault. Er is een certificaat vereist voor het tot stand brengen van een beveiligde WinRM-verbinding met de virtuele machine.  Een Azure Resource Manager-sjabloon en een Azure PowerShell-script worden geleverd. 
-3. Implementeer de VM op basis van een gebruiker VM-installatiekopie met behulp van de opgegeven sjabloon en het script.
+1. Maak de VM-installatie kopie van de gebruiker, waarmee de installatie kopie kan worden vastgelegd en gegeneraliseerd. 
+2. Certificaten maken en opslaan in een nieuwe Azure Key Vault. Er is een certificaat vereist voor het tot stand brengen van een beveiligde WinRM-verbinding met de virtuele machine.  Er worden een Azure Resource Manager sjabloon en een Azure PowerShell script gegeven. 
+3. Implementeer de virtuele machine op basis van een VM-installatie kopie van een gebruiker met behulp van de meegeleverde sjabloon en het opgegeven script.
 
-Nadat de virtuele machine is geïmplementeerd, bent u klaar om [certificeren van uw VM-installatiekopie](./cpp-certify-vm.md).
+Nadat uw virtuele machine is geïmplementeerd, bent u klaar om [uw VM-installatie kopie te certificeren](./cpp-certify-vm.md).
 
-1. Klik op **nieuw** en zoek naar de **sjabloonimplementatie**en selecteer vervolgens **bouw uw eigen sjabloon in de Editor**.  <br/>
-   ![Sjabloon van de VHD-implementatie in Azure portal maken](./media/publishvm_021.png)
+1. Klik op **Nieuw** en zoek naar **sjabloon implementatie**en selecteer vervolgens **uw eigen sjabloon bouwen in de editor**.  <br/>
+   ![VHD-implementatie sjabloon maken in Azure Portal](./media/publishvm_021.png)
 
-1. Kopieer en plak dit [JSON-sjabloon](./cpp-deploy-json-template.md) in de editor en klik op **opslaan**. <br/>
-   ![VHD-implementatiesjabloon opslaan in Azure portal](./media/publishvm_022.png)
+1. Kopieer en plak deze [JSON-sjabloon](./cpp-deploy-json-template.md) in de editor en klik op **Opslaan**. <br/>
+   ![VHD-implementatie sjabloon opslaan in Azure Portal](./media/publishvm_022.png)
 
-1. Geef de parameterwaarden voor de weergegeven **aangepaste implementatie** eigenschappenpagina's.
+1. Geef de parameter waarden op voor de weer gegeven eigenschappen pagina's met **aangepaste implementatie** .
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
    |  **Parameter**              |   **Beschrijving**                                                            |
    |  -------------              |   ---------------                                                            |
-   | Gebruikersnaam van het Storage-Account   | Naam van het opslagaccount waar de gegeneraliseerde VHD zich bevindt                    |
-   | Gebruikersnaam van het Storage-Container | Naam van de container waar de gegeneraliseerde VHD zich bevindt                          |
-   | DNS-naam voor het openbare IP-adres      | Openbare IP-DNS-naam                                                           |
-   | De naam van de gebruiker met beheerdersrechten             | Gebruikersnaam van de Administrator-account voor de nieuwe virtuele machine                                  |
-   | Beheerderswachtwoord              | Wachtwoord van de Administrator-account voor de nieuwe virtuele machine                                  |
-   | Type besturingssysteem                     | VM-besturingssysteem: `Windows` \| `Linux`                                    |
+   | Account naam voor gebruikers opslag   | De naam van het opslag account waarin de gegeneraliseerde VHD zich bevindt                    |
+   | Container naam voor gebruikers opslag | Container naam waar de gegeneraliseerde VHD zich bevindt                          |
+   | DNS-naam voor openbaar IP-adres      | De naam van het open bare IP-adres. De DNS-naam is van de virtuele machine. u definieert deze in azure Portal zodra de aanbieding is geïmplementeerd.  |
+   | De naam van de gebruiker met beheerdersrechten             | Gebruikers naam van beheerders account voor nieuwe VM                                  |
+   | Beheerderswachtwoord              | Wacht woord van beheerders account voor nieuwe VM                                  |
+   | Type besturingssysteem                     | VM-besturings systeem `Windows` : \|`Linux`                                    |
    | Abonnements-id             | Id van het geselecteerde abonnement                                      |
-   | Locatie                    | Geografische locatie van de implementatie                                        |
-   | VM-grootte                     | [Azure VM-grootte](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), bijvoorbeeld `Standard_A2` |
-   | Naam openbare IP-adres      | Naam van uw openbare IP-adres                                               |
-   | VM-naam                     | Naam van de nieuwe virtuele machine                                                           |
-   | Virtuele-netwerknaam        | Naam van het virtuele netwerk dat wordt gebruikt door de virtuele machine                                   |
-   | Naam van de Bronnetwerkadapter                    | Naam van de netwerkinterfacekaart met het virtuele netwerk               |
-   | VHD-URL                     | Volledige URL van de Besturingssysteemschijf VHD                                                     |
+   | Location                    | Geografische locatie van de implementatie                                        |
+   | VM-grootte                     | [Azure VM-grootte](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), bijvoorbeeld`Standard_A2` |
+   | Naam van openbaar IP-adres      | Naam van uw open bare IP-adres                                               |
+   | VM-naam                     | De naam van de nieuwe virtuele machine                                                           |
+   | Virtuele-netwerknaam        | De naam van het virtuele netwerk dat wordt gebruikt door de virtuele machine                                   |
+   | NIC-naam                    | De naam van de netwerk interface kaart met het virtuele netwerk               |
+   | URL VOOR VHD                     | Volledige VHD-URL van de besturingssysteem schijf                                                     |
    |  |  |
             
-1. Nadat u deze waarden opgeven, klikt u op **aankoop**. 
+1. Nadat u deze waarden hebt opgegeven, klikt u op **kopen**. 
 
-Azure wordt begint met implementeren: een nieuwe virtuele machine wordt gemaakt met de opgegeven niet-beheerde VHD in het pad van het opgegeven opslagaccount.  U kunt de voortgang volgen in Azure portal door te klikken op **virtuele Machines** aan de linkerkant van de portal.  Wanneer de virtuele machine is gemaakt, de status wordt gewijzigd van `Starting` naar `Running`. 
+Azure begint met de implementatie: er wordt een nieuwe virtuele machine gemaakt met de opgegeven onbeheerde VHD in het opgegeven pad van het opslag account.  U kunt de voortgang van de Azure Portal volgen door op **virtual machines** aan de linkerkant van de portal te klikken.  Wanneer de virtuele machine is gemaakt, wordt de status gewijzigd van `Starting` in `Running`. 
 
 
-### <a name="deploy-a-vm-from-powershell"></a>Implementeren van een virtuele machine via PowerShell
+### <a name="deploy-a-vm-from-powershell"></a>Een VM implementeren vanuit Power shell
 
-Gebruik de volgende cmdlets voor het implementeren van een grote virtuele machine via de gegeneraliseerde VM-installatiekopie zojuist hebt gemaakt.
+Gebruik de volgende cmdlets om een grote virtuele machine te implementeren vanuit de gegeneraliseerde VM-installatie kopie die u zojuist hebt gemaakt.
 
 ``` powershell
     $img = Get-AzureVMImage -ImageName "myVMImage"
@@ -93,5 +93,5 @@ Gebruik de volgende cmdlets voor het implementeren van een grote virtuele machin
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Vervolgens wordt u [maken van een gebruiker VM-installatiekopie](cpp-create-user-image.md) voor uw oplossing.
+Vervolgens [maakt u een VM-installatie kopie](cpp-create-user-image.md) van de gebruiker voor uw oplossing.
 

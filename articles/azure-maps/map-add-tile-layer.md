@@ -1,6 +1,6 @@
 ---
 title: Een tegel laag toevoegen aan Azure Maps | Microsoft Docs
-description: Een laag voor een tegel toevoegen aan de Java script-kaart
+description: Een tegel laag toevoegen aan de Azure Maps Web-SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d872cd78b3fd04512fcaee706e54bffa1cf9fcc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882090"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976459"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Een tegel laag aan een kaart toevoegen
 
@@ -40,16 +40,24 @@ De tegel-URL die wordt door gegeven aan een tegel laag moet een HTTP/HTTPS-URL z
 
 ## <a name="add-a-tile-layer"></a>Een titellaag toevoegen
 
- Dit voor beeld laat zien hoe u een tegel laag maakt die verwijst naar een set tegels die gebruikmaken van het systeem x, y en zoomen. De bron van deze tegel laag is een weers radar-overlay van de [Iowa Environment Mesonet van de Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+ Dit voor beeld laat zien hoe u een tegel laag maakt die verwijst naar een set tegels die gebruikmaken van het systeem x, y en zoomen. De bron van deze tegel laag is een weers radar-overlay van de [Iowa Environment Mesonet van de Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Bij het weer geven van radar gegevens kunnen gebruikers in het ideale geval duidelijk de labels van steden zien wanneer ze door de kaart navigeren. Dit kan worden gedaan door de laag `labels` van de tegel onder de laag in te voegen.
+
+```javascript
+//Create a tile layer and add it to the map below the label layer.
+//Weather radar tiles from Iowa Environmental Mesonet of Iowa State University.
+map.layers.add(new atlas.layer.TileLayer({
+    tileUrl: 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png',
+    opacity: 0.8,
+    tileSize: 256
+}), 'labels');
+```
+
+Hieronder ziet u het volledige programma voor het uitvoeren van code van de bovenstaande functionaliteit.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Tegel laag met X, Y en Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Bekijk de laag met de tegels van de pen <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>met X, Y en Z</a> per Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-In de bovenstaande code maakt het eerste code blok een kaart object. U kunt [een overzicht maken](./map-create.md) voor instructies.
-
-In het tweede code blok wordt een [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) gemaakt door een opgemaakte URL door te geven aan een tegel service, de tegel grootte en een dekking om deze semi-transparant te maken. Wanneer u de laag van de tegel toevoegt aan de kaart, wordt deze toegevoegd onder `labels` de laag zodat de labels nog steeds zichtbaar zijn.
 
 ## <a name="customize-a-tile-layer"></a>Een laag voor een tegel aanpassen
 

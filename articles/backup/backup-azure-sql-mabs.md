@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: dacurwin
-ms.openlocfilehash: 5e91d63f4479d0677c57342cb1b726e33a45bb86
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 72de5857786f284bfc4afda1db093d5343bd7a43
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689087"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954481"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Back-ups maken van SQL Server naar Azure met Azure Backup Server
 Dit artikel leidt u door de configuratie stappen voor het maken van back-ups van SQL Server-data bases met behulp van Microsoft Azure Backup-Server (MABS).
@@ -44,7 +44,7 @@ Voordat u begint, moet u ervoor zorgen dat u [de Azure backup server hebt geïns
     ![Methode voor gegevens beveiliging-korte termijn schijf & online Azure](./media/backup-azure-backup-sql/pg-name.png)
 7. In het scherm doelen voor de **korte termijn opgeven** , neemt u de benodigde invoer op om back-uppunten te maken op schijf.
 
-    Hier ziet u dat het **Bewaar bereik** is ingesteld op *5 dagen*, wordt de **synchronisatie frequentie** elke *15 minuten* ingesteld op de frequentie waarmee back-ups worden gemaakt. **Snelle volledige back-up** is ingesteld op *8:00 P. M*.
+    Hier ziet u dat het **Bewaar bereik** is ingesteld op *5 dagen*, wordt de **synchronisatie frequentie** elke *15 minuten*ingesteld op de frequentie waarmee back-ups worden gemaakt. **Snelle volledige back-up** is ingesteld op *8:00 P. M*.
 
     ![Doelen voor de korte termijn](./media/backup-azure-backup-sql/pg-shortterm.png)
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0f9c2d1d2081ec22898ed3a4fbc73305ff0995e3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689276"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954671"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Problemen met Azure Backup Server oplossen
 
@@ -25,7 +25,7 @@ U wordt aangeraden de onderstaande validatie uit te voeren voordat u begint met 
 
 - [Controleren of de MARS-agent (Microsoft Azure Recovery Services) up-to-date is](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Zorg ervoor dat er netwerkverbinding is tussen de MARS-agent en Azure](https://aka.ms/AB-A4dp50)
-- Controleer of Microsoft Azure Recovery Services wordt uitgevoerd (in Service-console). Indien nodig opnieuw opstarten en de bewerking opnieuw uitvoeren
+- Controleer of Microsoft Azure Recovery Services wordt uitgevoerd (in Service-console). Start indien nodig opnieuw op en voer de bewerking opnieuw uit
 - [Zorg ervoor dat er 5-10% ruimte vrij is op de locatie van de scratch-map](https://aka.ms/AB-AA4dwtt)
 - Als de registratie mislukt, controleert u of de server waarop u wilt installeren Azure Backup Server nog niet is geregistreerd bij een andere kluis
 - Als een push-installatie mislukt, controleert u of de DPM-agent al aanwezig is. Zo ja, verwijdert u de agent en start u de installatie opnieuw
@@ -61,7 +61,7 @@ U wordt aangeraden de onderstaande validatie uit te voeren voordat u begint met 
 
 | Bewerking | Details van fout | Tijdelijke oplossing |
 | --- | --- | --- |
-| Back-up | Taken voor het maken van online herstel punten voor VMware VM mislukken. Er is in DPM een fout opgetreden in VMware tijdens het ophalen van change tracking-gegevens. Error code-FileFaultFault (ID 33621) |  <ol><li> Stel de CTK op VMware opnieuw in voor de betrokken Vm's.</li> <li>Controleer of de onafhankelijke schijf niet aanwezig is op VMware.</li> <li>Stop de beveiliging van de betrokken Vm's en beveilig deze opnieuw met de knop **vernieuwen** . </li><li>Voer een CC uit voor de betrokken Vm's.</li></ol>|
+| Back-up | Taken voor het maken van online herstel punten voor VMware VM mislukken. Er is in DPM een fout opgetreden in VMware tijdens het ophalen van change tracking-gegevens. Error code-FileFaultFault (ID 33621) |  <ol><li> Stel de CTK op VMware opnieuw in voor de betrokken Vm's.</li> <li>Controleer of de onafhankelijke schijf niet aanwezig is op VMware.</li> <li>Stop de beveiliging van de betrokken Vm's en beveilig de gegevens opnieuw met de knop **vernieuwen** . </li><li>Voer een CC uit voor de betrokken Vm's.</li></ol>|
 
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>De agent bewerking is mislukt vanwege een communicatie fout met de service DPM agent Coordinator op de server
@@ -102,7 +102,7 @@ U wordt aangeraden de onderstaande validatie uit te voeren voordat u begint met 
 | Back-up | Er is een onverwachte fout opgetreden bij het uitvoeren van de taak. Het apparaat is niet gereed. | **Als de aanbevolen actie die wordt weer gegeven in het product niet werkt, voert u de volgende stappen uit:** <br> <ul><li>Stel de opslag ruimte voor schaduw kopieën in op onbeperkt op de items in de beveiligings groep en voer de consistentie controle uit.<br></li> OF <li>Probeer de bestaande beveiligings groep te verwijderen en meerdere nieuwe groepen te maken. Elke nieuwe beveiligings groep moet een afzonderlijk item bevatten.</li></ul> |
 | Back-up | Als u een back-up maakt van alleen een systeem status, controleert u of er voldoende beschik bare ruimte op de beveiligde computer is om de systeem status back-up op te slaan. | <ol><li>Controleer of Windows Server Back-up is geïnstalleerd op de beveiligde computer.</li><li>Controleer of er voldoende ruimte beschikbaar is op de beveiligde computer voor de systeem status. De eenvoudigste manier om dit te controleren is door naar de beveiligde computer te gaan, Windows Server Back-up te openen, door te klikken op de selecties en vervolgens BMR te selecteren. De gebruikers interface geeft vervolgens aan hoeveel ruimte er nodig is. **WSB** >  > back- > upschema voor lokale back-up openen selecteer**volledige server** voor backup-configuratie (grootte wordt weer gegeven). >  Gebruik deze grootte voor verificatie.</li></ol>
 | Back-up | Back-up van fout voor BMR | Als de grootte van de BMR groot is, verplaatst u enkele toepassings bestanden naar het station van het besturings systeem en probeert u het opnieuw. |
-| Back-up | De optie om een virtuele VMware-machine opnieuw te beveiligen op een nieuwe Microsoft Azure Backup-Server, wordt niet weer gegeven als beschikbaar voor toevoegen. | VMware-eigenschappen worden gepuntd op een oud, buiten gebruik gesteld exemplaar van Microsoft Azure Backup Server. Los dit probleem als volgt op:<br><ol><li>Ga in VCenter naar het tabblad **Summary** en klik vervolgens op **Custom Attributes**.</li>  <li>Verwijder de oude naam van de Microsoft Azure Backup-Server uit de waarde **DPMServer** .</li>  <li>Ga terug naar de nieuwe Microsoft Azure Backup-Server en wijzig de pagina.  Nadat u de knop **vernieuwen** hebt geselecteerd, wordt de VM weer gegeven met een selectie vakje dat kan worden toegevoegd aan de beveiliging.</li></ol> |
+| Back-up | De optie om een virtuele VMware-machine opnieuw te beveiligen op een nieuwe Microsoft Azure Backup-Server, wordt niet weer gegeven als beschikbaar om toe te voegen. | VMware-eigenschappen worden gepuntd op een oud, buiten gebruik gesteld exemplaar van Microsoft Azure Backup Server. Los dit probleem als volgt op:<br><ol><li>Ga in VCenter naar het tabblad **Summary** en klik vervolgens op **Custom Attributes**.</li>  <li>Verwijder de oude naam van de Microsoft Azure Backup-Server uit de waarde **DPMServer** .</li>  <li>Ga terug naar de nieuwe Microsoft Azure Backup-Server en wijzig de pagina.  Nadat u de knop **vernieuwen** hebt geselecteerd, wordt de VM weer gegeven met een selectie vakje dat kan worden toegevoegd aan de beveiliging.</li></ol> |
 | Back-up | Fout bij het openen van bestanden/gedeelde mappen | Wijzig de antivirus instellingen zoals aanbevolen in het TechNet-artikel [Voer antivirus software op de DPM-server uit](https://technet.microsoft.com/library/hh757911.aspx).|
 
 

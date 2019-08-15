@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 5a3800cfdf36bdc2e042eec860310a508204ba11
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876438"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965119"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serie: een Hybrid Cloud Storage oplossing
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Overzicht
 Welkom bij Microsoft Azure StorSimple, een geïntegreerde opslag oplossing voor het beheer van opslag taken tussen on-premises apparaten en Microsoft Azure Cloud opslag. StorSimple is een efficiënte, rendabele en eenvoudig te beheren Storage Area Network oplossing (SAN) waarmee veel van de problemen en kosten die zijn gekoppeld aan ondernemings opslag en gegevens bescherming, worden geëlimineerd. De oplossing maakt gebruik van het eigen StorSimple 8000 Series-apparaat, integreert met Cloud Services en biedt een aantal beheer hulpprogramma's voor een naadloze weer gave van alle bedrijfs opslag, waaronder Cloud opslag. (De StorSimple-implementatie gegevens die op de Microsoft Azure-website worden gepubliceerd, is alleen van toepassing op apparaten met StorSimple 8000-serie. Als u een StorSimple 5000/7000-serie apparaat gebruikt, gaat u naar [StorSimple Help](http://onlinehelp.storsimple.com/).)
 
@@ -96,7 +99,7 @@ De StorSimple Cloud Appliance is beschikbaar in twee modellen: het 8010-apparaat
 
 Ga voor meer informatie over de StorSimple Cloud Appliance naar [een StorSimple Cloud Appliance in azure implementeren en beheren](storsimple-8000-cloud-appliance-u2.md).
 
-## <a name="storsimple-device-manager-service"></a>StorSimple-apparaatbeheerfunctie
+## <a name="storsimple-device-manager-service"></a>StorSimple-apparaatbeheerservice
 Microsoft Azure StorSimple biedt een webinterface (de StorSimple Apparaatbeheer-service) waarmee u Data Center-en Cloud opslag centraal kunt beheren. U kunt de StorSimple Apparaatbeheer-service gebruiken om de volgende taken uit te voeren:
 
 * Systeem instellingen voor StorSimple-apparaten configureren.
@@ -207,15 +210,15 @@ Hieronder vindt u een overzicht van de ondersteunde StorSimple-workloads.
 
 | Scenario | Workload | Ondersteund | Beperkingen | Version |
 | --- | --- | --- | --- | --- |
-| Samenwerking |Bestanden delen |Ja | |Alle versies |
+| Samenwerking |Bestandsdeling |Ja | |Alle versies |
 | Samenwerking |Distributed File Sharing |Ja | |Alle versies |
 | Samenwerking |SharePoint |Ja* |Alleen ondersteund met lokaal vastgemaakte volumes |Update 2 en hoger |
 | Archivering |Eenvoudige bestands archivering |Ja | |Alle versies |
 | Virtualisatie |Virtuele machines |Ja* |Alleen ondersteund met lokaal vastgemaakte volumes |Update 2 en hoger |
 | Database |SQL |Ja* |Alleen ondersteund met lokaal vastgemaakte volumes |Update 2 en hoger |
 | Video bewaking |Video bewaking |Ja* |Ondersteund wanneer het StorSimple-apparaat alleen aan deze werk belasting is toegewezen |Update 2 en hoger |
-| Backup |Primaire doel back-up |Ja* |Ondersteund wanneer het StorSimple-apparaat alleen aan deze werk belasting is toegewezen |Update 3 en hoger |
-| Backup |Secundaire doel back-up |Ja* |Ondersteund wanneer het StorSimple-apparaat alleen aan deze werk belasting is toegewezen |Update 3 en hoger |
+| Back-up |Primaire doel back-up |Ja* |Ondersteund wanneer het StorSimple-apparaat alleen aan deze werk belasting is toegewezen |Update 3 en hoger |
+| Back-up |Secundaire doel back-up |Ja* |Ondersteund wanneer het StorSimple-apparaat alleen aan deze werk belasting is toegewezen |Update 3 en hoger |
 
 *Ja&#42; , de richt lijnen en beperkingen voor oplossingen moeten worden toegepast.*
 
@@ -226,7 +229,7 @@ De volgende werk belastingen worden niet ondersteund door apparaten uit de StorS
 * VDI
 * Oracle
 * SAP
-* Big Data
+* Big data
 * Inhouds distributie
 * Opstarten vanaf SCSI
 
@@ -244,7 +247,7 @@ Hier volgt een lijst van de StorSimple-ondersteunde infrastructuur onderdelen.
 
 Hieronder volgt een lijst met andere software die wordt gebruikt met StorSimple om oplossingen te bouwen.
 
-| Type werk belasting | Software die wordt gebruikt met StorSimple | Ondersteunde versies|Koppeling naar de oplossings handleiding| 
+| Type werkbelasting | Software die wordt gebruikt met StorSimple | Ondersteunde versies|Koppeling naar de oplossings handleiding| 
 | --- | --- | --- | --- |
 | Back-updoel |Veeam |Veeam v 9 en hoger |[StorSimple als een back-updoel met Veaam](storsimple-configure-backup-target-veeam.md)|
 | Back-updoel |Veritas Backup Exec |Backup Exec 16 en hoger |[StorSimple als back-updoel met Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
@@ -299,7 +302,7 @@ Voordat u uw Microsoft Azure StorSimple-oplossing implementeert, wordt u aangera
 | Solid-State Drive (SSD) |Een schijf die geen bewegende onderdelen bevat; bijvoorbeeld een flash station. |
 | opslagaccount |Een reeks toegangs referenties die zijn gekoppeld aan uw opslag account voor een bepaalde Cloud serviceprovider. |
 | StorSimple Adapter voor SharePoint |Een Microsoft Azure StorSimple onderdeel dat StorSimple opslag en gegevens bescherming transparant uitbreidt tot share Point-server farms. |
-| StorSimple-apparaatbeheerfunctie |Een uitbrei ding van de Azure Portal waarmee u uw Azure StorSimple on-premises en virtuele apparaten kunt beheren. |
+| StorSimple-apparaatbeheerservice |Een uitbrei ding van de Azure Portal waarmee u uw Azure StorSimple on-premises en virtuele apparaten kunt beheren. |
 | StorSimple Snapshot Manager |Een MMC-module (micro soft Management Console) voor het beheren van back-up-en herstel bewerkingen in Microsoft Azure StorSimple. |
 | back-up maken |Een functie waarmee de gebruiker een interactieve back-up van een volume kan maken. Het is een alternatieve manier om een hand matige back-up te maken van een volume, in tegens telling tot het maken van een automatische back-up via een gedefinieerd beleid. |
 | Thin Provisioning |Een methode voor het optimaliseren van de efficiëntie waarmee de beschik bare opslag ruimte wordt gebruikt in opslag systemen. Bij Thin Provisioning wordt de opslag toegewezen aan meerdere gebruikers op basis van de minimale ruimte die elke gebruiker op een bepaald moment nodig heeft. Zie ook *FAT-inrichting*. |

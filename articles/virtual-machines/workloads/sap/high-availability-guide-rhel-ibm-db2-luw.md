@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
 ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68348654"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
@@ -442,7 +442,7 @@ Als u Azure Load Balancer wilt configureren, is het raadzaam om de [Azure Standa
 
    b. Voer de naam in van de nieuwe front-end-IP-adres groep (bijvoorbeeld **Db2-verbinding**).
 
-   c. Stel de **toewijzing** in op **statisch**en voer het IP- **adres in** dat aan het begin is gedefinieerd.
+   c. Stel de **toewijzing** in op **statisch**en voer het IP- adres in dat aan het begin is gedefinieerd.
 
    d. Selecteer **OK**.
 

@@ -1,44 +1,44 @@
 ---
-title: Blobs toevoegen aan objecten in Azure, digitale dubbels | Microsoft Docs
-description: Informatie over het toevoegen van blobs op objecten in digitale dubbels van Azure.
+title: Blobs toevoegen aan objecten in azure Digital Apparaatdubbels | Microsoft Docs
+description: Meer informatie over het toevoegen van blobs aan objecten in azure Digital Apparaatdubbels.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c61544ce10c5a7d16b3ffc0009039e27f5feecb1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 61c09435606612377781fb382d2d31144e96b07b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670804"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965950"
 ---
-# <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Blobs toevoegen aan objecten in Azure, digitale dubbels
+# <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Blobs toevoegen aan objecten in azure Digital Apparaatdubbels
 
-BLOBs zijn niet-gestructureerde representaties van algemene bestandstypen, zoals afbeeldingen en Logboeken. BLOBs bijhouden wat voor soort gegevens die ze geven met behulp van een MIME-type (bijvoorbeeld: ' afbeelding/jpeg') en metagegevens (naam, beschrijving, type, enzovoort).
+Blobs zijn niet-gestructureerde representaties van algemene bestands typen, zoals afbeeldingen en Logboeken. Blobs volgen wat voor soort gegevens ze vertegenwoordigen door gebruik te maken van een MIME-type (bijvoorbeeld: ' afbeelding/JPEG ') en meta gegevens (naam, beschrijving, type, enzovoort).
 
-Azure ondersteunt het digitale dubbels blobs te koppelen aan apparaten, spaties en gebruikers. BLOBs kunnen bestaan uit een profielafbeelding voor een gebruiker, apparaat foto, een video, een kaart, een firmware-zip, JSON-gegevens, een logboek, enzovoort.
+Azure Digital Apparaatdubbels ondersteunt het koppelen van blobs aan apparaten, ruimten en gebruikers. Blobs kunnen een profiel afbeelding vertegenwoordigen voor een gebruiker, een foto van een apparaat, een video, een kaart, een firmware-zip, JSON-gegevens, een logboek, enzovoort.
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
-## <a name="uploading-blobs-overview"></a>Overzicht van de blobs uploaden
+## <a name="uploading-blobs-overview"></a>Overzicht van het uploaden van blobs
 
-Gedeeltelijk aanvragen kunt u blobs uploaden naar specifieke eindpunten en hun respectieve functionaliteiten.
+U kunt meerdelige aanvragen gebruiken om blobs te uploaden naar specifieke eind punten en hun respectieve functionaliteiten.
 
 [!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### <a name="blob-metadata"></a>De metagegevens van de blob
 
-Naast **Content-Type** en **Content-Disposition**, meerdelige blobaanvragen digitale dubbels Azure de juiste JSON-hoofdtekst moeten opgeven. Welke JSON-hoofdtekst om in te dienen, is afhankelijk van het type HTTP-aanvraagbewerking die wordt uitgevoerd.
+Naast het **inhouds type** en de **Content-dispositie**moeten door Azure Digital apparaatdubbels BLOB MEERDELIGE aanvragen de juiste JSON-hoofd tekst worden opgegeven. Welke JSON-hoofd tekst moet worden verzonden, is afhankelijk van het type HTTP-aanvraag bewerking dat wordt uitgevoerd.
 
-De vier belangrijkste JSON schema's zijn:
+De vier belangrijkste JSON-schema's zijn:
 
-[![JSON-schema](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
+[![JSON-schema's](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
 
-JSON-blob-metagegevens voldoet aan de volgende model:
+Meta gegevens van JSON-BLOB voldoen aan het volgende model:
 
 ```JSON
 {
@@ -53,28 +53,28 @@ JSON-blob-metagegevens voldoet aan de volgende model:
 
 | Kenmerk | type | Description |
 | --- | --- | --- |
-| **parentId** | Reeks | De bovenliggende entiteit te koppelen aan de blob (spaties, apparaten of gebruikers) |
-| **name** |Reeks | Een human-beschrijvende naam voor de blob |
-| **type** | Tekenreeks | Kan geen gebruik van het type van de blob - *type* en *typeId*  |
-| **typeId** | Geheel getal | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
-| **subtype** | Reeks | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
-| **subtypeId** | Geheel getal | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
-| **description** | Tekenreeks | Aangepaste beschrijving van de blob |
-| **sharing** | Tekenreeks | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
+| **parentId** | Tekenreeks | De bovenliggende entiteit waaraan de BLOB moet worden gekoppeld (spaties, apparaten of gebruikers) |
+| **name** |Tekenreeks | Een mensen vriendelijke naam voor de BLOB |
+| **type** | Tekenreeks | Het type Blob-kan *type* en *typeId* niet gebruiken  |
+| **typeId** | Geheel getal | De ID van het BLOB-type: *type* en *typeId* kunnen niet worden gebruikt |
+| **subtype** | Tekenreeks | Het subtype van de blob: kan subtype en *subtypeId* niet gebruiken |
+| **subtypeId** | Geheel getal | De subtype-ID voor de blob: kan *subtype* en *subtypeId* niet gebruiken |
+| **description** | Tekenreeks | Aangepaste beschrijving van de BLOB |
+| **sharing** | Tekenreeks | Hiermee wordt aangegeven of de BLOB gedeeld kan worden`None`: `Tree`Enum `Global`[,,] |
 
-Metagegevens van de BLOB wordt altijd opgegeven als de eerste chunk met **Content-Type** `application/json` of als een `.json` bestand. Gegevens uit een bestand is opgegeven in de tweede chunk en van alle ondersteunde MIME-type kan zijn.
+BLOB-meta gegevens worden altijd opgegeven als het eerste segment met het **inhouds type** `application/json` of `.json` als een bestand. Bestands gegevens worden opgegeven in het tweede segment en kunnen van elk ondersteund MIME-type zijn.
 
-De Swagger-documentatie beschreven deze model schema's in de volledige details.
+In de Swagger-documentatie worden deze model schema's volledig gedetailleerd beschreven.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
-Meer informatie over het gebruik van de naslagdocumentatie door te lezen [over het gebruik van Swagger](./how-to-use-swagger.md).
+Meer informatie over het gebruik van de referentie documentatie door [te lezen hoe u Swagger kunt gebruiken](./how-to-use-swagger.md).
 
 <div id="blobModel"></div>
 
-### <a name="blobs-response-data"></a>Antwoordgegevens voor blobs
+### <a name="blobs-response-data"></a>Reactie gegevens van blobs
 
-Afzonderlijk geretourneerde blobs voldoen aan de volgende JSON-schema:
+Individueel geretourneerde blobs voldoen aan het volgende JSON-schema:
 
 ```JSON
 {
@@ -110,26 +110,26 @@ Afzonderlijk geretourneerde blobs voldoen aan de volgende JSON-schema:
 
 | Kenmerk | type | Description |
 | --- | --- | --- |
-| **id** | Tekenreeks | De unieke id voor de blob |
-| **name** |Tekenreeks | Een human-beschrijvende naam voor de blob |
-| **parentId** | Tekenreeks | De bovenliggende entiteit te koppelen aan de blob (spaties, apparaten of gebruikers) |
-| **type** | Tekenreeks | Kan geen gebruik van het type van de blob - *type* en *typeId*  |
-| **typeId** | Geheel getal | Kan niet worden gebruikt door de ID van het type blob - *type* en *typeId* |
-| **subtype** | Tekenreeks | Kan niet worden gebruikt door het subtype van het blob - *subtype* en *subtypeId* |
-| **subtypeId** | Geheel getal | Kan niet worden gebruikt door de subtype-ID voor de blob - *subtype* en *subtypeId* |
-| **sharing** | Reeks | Of de blob kan worden gedeeld - enum [`None`, `Tree`, `Global`] |
-| **description** | Reeks | Aangepaste beschrijving van de blob |
-| **contentInfos** | Array | Hiermee geeft u de metagegevens van niet-gestructureerde gegevens met inbegrip van versie |
-| **fullName** | Tekenreeks | De volledige naam van de blob |
-| **spacePaths** | Tekenreeks | Het pad van de ruimte |
+| **id** | Tekenreeks | De unieke id voor de BLOB |
+| **name** |Tekenreeks | Een mensen vriendelijke naam voor de BLOB |
+| **parentId** | Tekenreeks | De bovenliggende entiteit waaraan de BLOB moet worden gekoppeld (spaties, apparaten of gebruikers) |
+| **type** | Tekenreeks | Het type Blob-kan *type* en *typeId* niet gebruiken  |
+| **typeId** | Geheel getal | De ID van het BLOB-type: *type* en *typeId* kunnen niet worden gebruikt |
+| **subtype** | Tekenreeks | Het subtype van de blob: kan subtype en *subtypeId* niet gebruiken |
+| **subtypeId** | Geheel getal | De subtype-ID voor de blob: kan *subtype* en *subtypeId* niet gebruiken |
+| **sharing** | Tekenreeks | Hiermee wordt aangegeven of de BLOB gedeeld kan worden`None`: `Tree`Enum `Global`[,,] |
+| **description** | Tekenreeks | Aangepaste beschrijving van de BLOB |
+| **contentInfos** | Array | Hiermee geeft u ongestructureerde meta gegevens op, inclusief versie |
+| **fullName** | Tekenreeks | De volledige naam van de BLOB |
+| **spacePaths** | Tekenreeks | Het pad naar de schijf |
 
-Metagegevens van de BLOB wordt altijd opgegeven als de eerste chunk met **Content-Type** `application/json` of als een `.json` bestand. Gegevens uit een bestand is opgegeven in de tweede chunk en van alle ondersteunde MIME-type kan zijn.
+BLOB-meta gegevens worden altijd opgegeven als het eerste segment met het **inhouds type** `application/json` of `.json` als een bestand. Bestands gegevens worden opgegeven in het tweede segment en kunnen van elk ondersteund MIME-type zijn.
 
-### <a name="blob-multipart-request-examples"></a>Voorbeelden van BLOB-multipart aanvraag
+### <a name="blob-multipart-request-examples"></a>Voor beelden van BLOB multi part-aanvragen
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Als u wilt een tekstbestand als een blob uploaden en deze koppelen aan een spatie, moet u een geverifieerde HTTP POST-aanvraag naar:
+Als u een tekst bestand als een BLOB wilt uploaden en dit aan een ruimte wilt koppelen, maakt u een geverifieerde HTTP POST-aanvraag:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs
@@ -159,11 +159,11 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Waarde | Vervangen door |
+| Value | Vervangen door |
 | --- | --- |
-| USER_DEFINED_BOUNDARY | De naam van een meerdelige inhoud grens |
+| USER_DEFINED_BOUNDARY | Een grens naam voor meerdelige inhoud |
 
-De volgende code is een .NET-implementatie van de dezelfde blob-upload, met behulp van de klasse [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
+De volgende code is een .NET-implementatie van dezelfde BLOB-upload, met behulp van de klasse [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
 ```csharp
 //Supply your metadata in a suitable format
@@ -181,7 +181,7 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
-Ten slotte [cURL](https://curl.haxx.se/) kunnen gebruikers aanvragen meerdelige formulier aanbrengen op dezelfde manier:
+Tot slot [](https://curl.haxx.se/) kunnen de gebruikers op dezelfde manier meerdelige formulier aanvragen maken:
 
 [![Apparaat-blobs](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
@@ -191,29 +191,29 @@ curl
  -H "Authorization: Bearer YOUR_TOKEN"
  -H "Accept: application/json"
  -H "Content-Type: multipart/form-data"
- -F "meta={\"ParentId\": \"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\": \"A well chosen description\", \"Sharing\": \"None\"};type=application/json"
+ -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json"
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
 | Value | Vervangen door |
 | --- | --- |
-| YOUR_TOKEN | Uw geldige OAuth 2.0-token |
-| YOUR_SPACE_ID | De ID van de ruimte moet het koppelen van de blob met |
-| PATH_TO_FILE | Het pad naar het tekstbestand |
+| YOUR_TOKEN | Uw geldige OAuth 2,0-token |
+| YOUR_SPACE_ID | De ID van de ruimte waaraan de BLOB moet worden gekoppeld |
+| PATH_TO_FILE | Het pad naar het tekst bestand |
 
-Een geslaagde bericht retourneert de ID van de nieuwe de blob (eerder zijn besproken in het rood).
+Een geslaagde POST retourneert de ID van de nieuwe BLOB (gemarkeerd in rood eerder).
 
-## <a name="api-endpoints"></a>API-eindpunten
+## <a name="api-endpoints"></a>API-eind punten
 
-De volgende secties beschrijven de core blob-gerelateerde API-eindpunten en hun functies.
+In de volgende secties worden de belangrijkste BLOB-API-eind punten en de functionaliteit ervan beschreven.
 
 ### <a name="devices"></a>Apparaten
 
-U kunt blobs koppelen aan apparaten. De volgende afbeelding toont de Swagger-referentiedocumentatie voor de beheer-API's. Het geeft API-eindpunten met betrekking tot apparaat voor gebruik van de blob en eventueel vereiste padparameters om door te geven in deze.
+U kunt blobs koppelen aan apparaten. De volgende afbeelding toont de Swagger-referentie documentatie voor uw beheer-Api's. Hiermee worden Device-gerelateerde API-eind punten opgegeven voor het BLOB-verbruik en eventueel vereiste para meters voor het pad.
 
 [![Apparaat-blobs](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
 
-Bijvoorbeeld, als u wilt bijwerken of een blob maken en koppelen van de blob aan een apparaat, moet u een geverifieerde vullen van de HTTP-aanvraag naar:
+Als u bijvoorbeeld een BLOB wilt bijwerken of maken en de BLOB aan een apparaat wilt koppelen, moet u een geverifieerde HTTP-PATCH aanvraag indienen voor het volgende:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -221,17 +221,17 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 | Parameter | Vervangen door |
 | --- | --- |
-| *YOUR_BLOB_ID* | De gewenste blob-ID |
+| *YOUR_BLOB_ID* | De gewenste BLOB-ID |
 
-Geslaagde aanvragen retourneert een JSON-object als [die eerder zijn beschreven](#blobModel).
+Voltooide aanvragen retour neren een JSON-object zoals [eerder beschreven](#blobModel).
 
-### <a name="spaces"></a>Opslagruimten
+### <a name="spaces"></a>Spaties
 
-U kunt ook blobs koppelen naar spaties. De volgende afbeelding geeft een lijst van alle ruimte API-eindpunten die verantwoordelijk is voor het verwerken van blobs. Het bevat ook een padparameters om door te geven in deze eindpunten.
+U kunt ook blobs koppelen aan ruimten. De volgende afbeelding geeft een lijst van alle Space-API-eind punten die verantwoordelijk zijn voor het verwerken van blobs. Het bevat ook een lijst met alle para meters die moeten worden door gegeven aan deze eind punten.
 
-[![Ruimte blobs](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
+[![Ruimte-blobs](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
 
-Bijvoorbeeld, als u wilt terugkeren van een blob die is gekoppeld aan een spatie, moet u een geverifieerde HTTP GET-aanvraag naar:
+Als u bijvoorbeeld een BLOB wilt retour neren die aan een ruimte is gekoppeld, maakt u een geverifieerde HTTP GET-aanvraag naar:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -239,19 +239,19 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 
 | Parameter | Vervangen door |
 | --- | --- |
-| *YOUR_BLOB_ID* | De gewenste blob-ID |
+| *YOUR_BLOB_ID* | De gewenste BLOB-ID |
 
-Geslaagde aanvragen retourneert een JSON-object als [die eerder zijn beschreven](#blobModel).
+Voltooide aanvragen retour neren een JSON-object zoals [eerder beschreven](#blobModel).
 
-Een PATCH-aanvraag naar hetzelfde eindpunt updates van metagegevens beschrijvingen en versies van de blob maakt. De HTTP-aanvraag wordt gedaan via de PATCH-methode, samen met eventuele vereiste metagegevens en meerdelige formuliergegevens.
+Met een PATCH-aanvraag voor hetzelfde eind punt worden meta gegevens beschrijvingen bijgewerkt en worden versies van de BLOB gemaakt. De HTTP-aanvraag wordt gedaan via de PATCH-methode, samen met alle benodigde meta gegevens en meerdelige formuliergegevens.
 
 ### <a name="users"></a>Gebruikers
 
-U kunt blobs koppelen aan de gebruiker-modellen (bijvoorbeeld om te koppelen van een profielfoto). De volgende afbeelding ziet u relevante gebruiker API-eindpunten en alle vereiste padparameters, zoals `id`:
+U kunt blobs koppelen aan gebruikers modellen (bijvoorbeeld om een profiel foto te koppelen). De volgende afbeelding toont de relevante gebruikers-API-eind punten en alle vereiste para `id`meters voor het pad, zoals:
 
-[![Gebruiker-blobs](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
+[![Gebruikers-blobs](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
 
-Bijvoorbeeld, om op te halen van een blob die is gekoppeld aan een gebruiker, moet u een geverifieerde HTTP GET-aanvraag met gegevens die vereiste formulier:
+Als u bijvoorbeeld een BLOB wilt ophalen die aan een gebruiker is gekoppeld, maakt u een geverifieerde HTTP GET-aanvraag met de vereiste formulier gegevens voor:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
@@ -259,13 +259,13 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 
 | Parameter | Vervangen door |
 | --- | --- |
-| *YOUR_BLOB_ID* | De gewenste blob-ID |
+| *YOUR_BLOB_ID* | De gewenste BLOB-ID |
 
-Geslaagde aanvragen retourneert een JSON-object als [die eerder zijn beschreven](#blobModel).
+Voltooide aanvragen retour neren een JSON-object zoals [eerder beschreven](#blobModel).
 
 ## <a name="common-errors"></a>Algemene fouten
 
-Een veelvoorkomende fout omvat niet de juiste headerinformatie te verstrekken:
+Een veelvoorkomende fout houdt in dat u de juiste header-informatie niet opgeeft:
 
 ```JSON
 {
@@ -276,15 +276,15 @@ Een veelvoorkomende fout omvat niet de juiste headerinformatie te verstrekken:
 }
 ```
 
-U kunt deze fout oplossen, controleren of de totale aanvraag een geschikte heeft **Content-Type** header:
+Om deze fout op te lossen, controleert u of de algemene aanvraag een juiste **Content-type-** header heeft:
 
 * `multipart/mixed`
 * `multipart/form-data`
 
-Controleer ook of elk meerdelige segment heeft een bijbehorende **Content-Type** indien nodig.
+Controleer ook of elk meerdelige segment een bijbehorend **inhouds type** heeft als dat nodig is.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Lees voor meer informatie over het Swagger-naslagdocumentatie voor Azure digitale dubbels [gebruik Azure digitale dubbele Swagger-](how-to-use-swagger.md).
+- Lees [use Azure Digital Apparaatdubbels Swagger](how-to-use-swagger.md)voor meer informatie over Swagger-referentie documentatie voor Azure Digital apparaatdubbels.
 
-- Als u wilt uploaden blobs via Postman, lezen [Postman configureren](./how-to-configure-postman.md).
+- Lees [hoe u postman kunt configureren](./how-to-configure-postman.md)om blobs te uploaden via postman.

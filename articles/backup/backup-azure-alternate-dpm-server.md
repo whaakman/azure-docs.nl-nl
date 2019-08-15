@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: e3d38e9b5e1b9b9f827476acf7e2e2ecab632424
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a6d1fd73d99cf15137e937dbfe2336d49a63d90
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688804"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955044"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Gegevens herstellen vanaf Azure Backup Server
 U kunt Azure Backup Server gebruiken om de gegevens te herstellen waarvan u een back-up hebt gemaakt naar een Recovery Services kluis. Het proces hiervoor is geïntegreerd in de Azure Backup Server-beheer console en is vergelijkbaar met de herstel werk stroom voor andere Azure Backup-onderdelen.
@@ -57,7 +57,7 @@ Gegevens herstellen vanaf een Azure Backup Server:
 8. Kies de optie met betrekking tot het maken van een **kopie**, **overs Laan**of **overschrijven**.
 
    * **Kopie maken** : maakt een kopie van het bestand als er sprake is van een naam conflict.
-   * **Overs Laan** : als er sprake is van een naam conflict, wordt het bestand dat het oorspronkelijke bestand verlaat, niet hersteld.
+   * **Overs Laan** : als er sprake is van een naam conflict, wordt het bestand niet hersteld, waardoor het oorspronkelijke bestand blijft.
    * **Overschrijven** : als er sprake is van een naam conflict, wordt de bestaande kopie van het bestand overschreven.
 
      Kies de juiste optie voor het herstellen van de **beveiliging**. U kunt de beveiligings instellingen van de doel computer waarop de gegevens worden hersteld of de beveiligings instellingen die van toepassing zijn op het product Toep assen op het moment dat het herstel punt werd gemaakt.

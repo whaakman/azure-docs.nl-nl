@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 04/19/2019
-ms.openlocfilehash: 1d5baf4b7f8a28638c5dbd50fb407035a5b9ea89
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566124"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967905"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevens versleuteling voor SQL Database en Data Warehouse
 
@@ -37,7 +37,7 @@ In Azure is de standaard instelling voor transparante gegevens versleuteling dat
 Micro soft verplaatst en beheert ook de sleutels naar behoefte voor geo-replicatie en herstel bewerkingen.
 
 > [!IMPORTANT]
-> Alle nieuw gemaakte SQL-data bases worden standaard versleuteld met behulp van door de service beheerde transparante gegevens versleuteling. Azure SQL Managed instance data bases, bestaande SQL-data bases die zijn gemaakt vóór 2017-en SQL-data bases die zijn gemaakt via Restore, geo-replicatie en database kopieën, worden niet standaard versleuteld.
+> Alle nieuw gemaakte SQL-data bases en beheerde exemplaar databases worden standaard versleuteld met behulp van door de service beheerde transparante gegevens versleuteling. Bestaande SQL-data bases die zijn gemaakt vóór 2017 en SQL-data bases die zijn gemaakt via Restore, geo-replicatie en database kopie, worden niet standaard versleuteld. Bestaande beheerde exemplaar databases die vóór februari 2019 zijn gemaakt, worden niet standaard versleuteld. Beheerde exemplaar databases die zijn gemaakt via Restore, nemen de versleutelings status over van de bron.
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Door de klant beheerde transparante gegevens versleuteling-Bring Your Own Key
 

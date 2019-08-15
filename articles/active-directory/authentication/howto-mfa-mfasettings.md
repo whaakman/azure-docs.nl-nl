@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7011025a1d94a5c99bf2338d9f80c683c2fd7b35
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 12fd08fa301cb22857470e3c81d7f4f7c1f04de9
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514970"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68948877"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -389,8 +389,7 @@ De functie _multi-factor Authentication onthouden_ voor apparaten en browsers di
 >[!IMPORTANT]
 >Als een account of apparaat is aangetast, kan de beveiliging worden beïnvloed door multi-factor Authentication voor vertrouwde apparaten. Als er een bedrijfs account wordt aangetast of een vertrouwd apparaat verloren is gegaan of wordt gestolen, moet u [multi-factor Authentication op alle apparaten herstellen](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->Met de herstel actie wordt de vertrouwde status van alle apparaten ingetrokken en de gebruiker moet de verificatie in twee stappen opnieuw uitvoeren. U kunt uw gebruikers ook instrueren om multi-factor Authentication op hun eigen apparaten te herstellen met de instructies in [uw instellingen beheren voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
->
+>Met de herstel actie wordt de vertrouwde status van alle apparaten ingetrokken en de gebruiker moet de verificatie in twee stappen opnieuw uitvoeren. U kunt uw gebruikers ook instrueren om multi-factor Authentication op hun eigen apparaten te herstellen met de instructies in [uw instellingen beheren voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Hoe de functie werkt
 

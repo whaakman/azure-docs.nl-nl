@@ -1,6 +1,6 @@
 ---
-title: Afdwingen van naamgeving van Groepsbeleid voor Office 365-groepen - Azure Active Directory | Microsoft Docs
-description: Over het instellen van het naamgevingsbeleid voor Office 365-groepen in Azure Active Directory
+title: Groeps naamgevings beleid afdwingen op Office 365-groepen-Azure Active Directory | Microsoft Docs
+description: Naamgevings beleid instellen voor Office 365-groepen in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,90 +15,90 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c13b95028975c5463217455c940bb84c3867899
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12bb01abadaf5bc9e7e1b221763ae38890922145
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734791"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013420"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Een naamgevingsbeleid op Office 365-groepen in Azure Active Directory afdwingen
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Een naamgevings beleid afdwingen voor Office 365-groepen in Azure Active Directory
 
-Als u wilt afdwingen consistente naamconventies voor Office 365-groepen gemaakt of bewerkt door uw gebruikers, instellen van een beleid voor naamgeving voor uw tenants in Azure Active Directory (Azure AD). Bijvoorbeeld, u kunt de naamgeving beleidsregel gebruiken om te communiceren van de functie van een groep, het lidmaatschap, de geografische regio of die de groep hebt gemaakt. U kunt ook het naamgevingsbeleid voor groepen in het adresboek categoriseren. U kunt het beleid moet worden geblokkeerd dat specifieke woorden worden gebruikt in de namen en aliassen.
+Voor het afdwingen van consistente naam conventies voor Office 365-groepen die door uw gebruikers zijn gemaakt of bewerkt, stelt u een groeps naamgevings beleid in voor uw tenants in Azure Active Directory (Azure AD). U kunt bijvoorbeeld het naamgevings beleid gebruiken voor het communiceren van de functie van een groep, lidmaatschap, geografische regio of het maken van de groep. U kunt ook het naamgevings beleid gebruiken om groepen in het adres boek te categoriseren. U kunt het beleid gebruiken om te voor komen dat specifieke woorden worden gebruikt in groeps namen en aliassen.
 
 > [!IMPORTANT]
-> Met behulp van Azure AD-naamgevingsbeleid voor Office 365-groepen vereist dat u bezit, maar niet per se toewijzen van een Azure Active Directory Premium P1-licentie of Azure AD Basic EDU voor elke unieke gebruiker die lid is van een of meer Office 365-groepen.
+> Voor het gebruik van Azure AD-naamgevings beleid voor Office 365-groepen moet u een Azure Active Directory Premium P1-licentie of Azure AD Basic EDU-licentie toewijzen voor elke unieke gebruiker die lid is van een of meer Office 365-groepen.
 
-Een naamgevingsbeleid wordt toegepast op het maken of bewerken van groepen die zijn gemaakt voor workloads (bijvoorbeeld Outlook, Microsoft Teams, SharePoint, Exchange of Planner). Deze wordt toegepast op de naam van groep en de groepsalias. Als u het naamgevingsbeleid in Azure AD instellen en u een bestaande Exchange-groep naamgevingsbeleid hebt, wordt de Azure AD naamgevingsbeleid afgedwongen in uw organisatie.
+Het naamgevings beleid wordt toegepast voor het maken of bewerken van groepen die zijn gemaakt in werk belastingen (bijvoorbeeld Outlook, micro soft teams, share point, Exchange of planner). Deze wordt toegepast op zowel de groeps naam als de groeps alias. Als u uw naamgevings beleid instelt in azure AD en u een bestaand naamgevings beleid voor de Exchange-groep hebt, wordt het Azure AD-naamgevings beleid afgedwongen in uw organisatie.
 
-## <a name="naming-policy-features"></a>Naamgeving van policy-functies
+## <a name="naming-policy-features"></a>Naamgeving van beleids functies
 
-U kunt naamgevingsbeleid voor groepen afdwingen op twee verschillende manieren:
+U kunt het naamgevings beleid voor groepen op twee verschillende manieren afdwingen:
 
-- **Voorvoegsel-achtervoegsel naamgevingsbeleid** kunt u de voorvoegsels of achtervoegsels die vervolgens automatisch worden toegevoegd om af te dwingen een naamgevingsconventie voor uw groepen definiëren (bijvoorbeeld in de naam van de ' groep\_JAPAN\_mijn groep\_ Technisch team", groep\_JAPAN\_ is het voorvoegsel en \_Engineering is het achtervoegsel). 
+- **Naamgevings beleid voor voegsel-achtervoegsel** U kunt voor voegsels of achtervoegsels definiëren die vervolgens automatisch worden toegevoegd om een naamgevings Conventie voor uw groepen af te dwingen (bijvoorbeeld in de groeps naam\_"\_GRP Japan\_mijn groeps techniek\_", GRP Japan\_ is het voor voegsel en \_technisch het achtervoegsel. 
 
-- **Aangepaste woorden geblokkeerd** kunt u een set van geblokkeerde woorden specifieke uploaden naar uw organisatie moeten worden geblokkeerd in groepen die zijn gemaakt door gebruikers (bijvoorbeeld "CEO, salarisadministratie, HR").
+- **Aangepaste geblokkeerde woorden** U kunt een set geblokkeerde woorden die specifiek zijn voor uw organisatie uploaden om te worden geblokkeerd in groepen die zijn gemaakt door gebruikers (bijvoorbeeld "CEO, Payroll, HR").
 
-### <a name="prefix-suffix-naming-policy"></a>Naamgevingsbeleid voorvoegsel-achtervoegsel
+### <a name="prefix-suffix-naming-policy"></a>Naamgevings beleid voor voegsel-achtervoegsel
 
-De algemene structuur van de naamconventie is 'Voorvoegsel [GroupName] achtervoegsel'. Terwijl u meerdere voorvoegsels en achtervoegsels definiëren kunt, kunt u slechts één exemplaar van de [GroupName] in de instelling hebben. De voorvoegsels of achtervoegsels kunnen worden opgelost tekenreeksen of gebruikerskenmerken, zoals \[afdeling\] die op basis van de gebruiker die het maken van de groep worden vervangen. Het totale aantal tekens in voor uw voorvoegsel en het achtervoegsel tekenreeksen gecombineerd is 53 tekens. 
+De algemene structuur van de naamgevings regels is ' voor voegsel [GroupName] achtervoegsel '. Hoewel u meerdere voor voegsels en achtervoegsels kunt definiëren, kunt u slechts één exemplaar van [GroupName] in de instelling hebben. De voor voegsels of achtervoegsels kunnen bestaan uit vaste teken reeksen of gebruikers kenmerken, \[zoals\] afdeling, die worden vervangen op basis van de gebruiker die de groep maakt. Het totaal aantal toegestane tekens voor uw voor voegsel en achtervoegsel teken reeksen is 53 tekens. 
 
-Voor- en achtervoegsels kunnen speciale tekens die worden ondersteund in de groepsnaam en groepsalias bevatten. Alle tekens in het voorvoegsel of achtervoegsel die worden niet ondersteund in de alias van de groep zijn nog steeds toegepast in de naam van de groep, maar verwijderd uit de alias van de groep. Vanwege deze beperking kunnen de voor- en achtervoegsels toegepast op de naam van de afwijken van de namen die zijn toegepast op de alias van de groep zijn. 
+Voor voegsels en achtervoegsels kunnen speciale tekens bevatten die worden ondersteund in groeps naam en groeps alias. Alle tekens in het voor voegsel of achtervoegsel dat niet wordt ondersteund in de groeps alias, worden nog steeds toegepast in de groeps naam, maar verwijderd uit de groeps alias. Vanwege deze beperking kunnen de voor voegsels en achtervoegsels die worden toegepast op de groeps naam afwijken van de voor waarden die zijn toegepast op de groeps alias. 
 
-#### <a name="fixed-strings"></a>Vaste tekenreeksen
+#### <a name="fixed-strings"></a>Vaste teken reeksen
 
-Tekenreeksen kunt u het eenvoudiger om te scannen en groepen in de globale adreslijst en in de navigatiebalk aan de linkerkant een koppeling van de groep werkbelastingen te onderscheiden. Some of the common prefixes are keywords like ‘Grp\_Name’ , ‘\#Name’, ‘\_Name’
+U kunt teken reeksen gebruiken om het gemakkelijker te maken om groepen te scannen en te onderscheiden in de algemene adres lijst en in de linker navigatie koppelingen van groeps werkbelastingen. Enkele veelvoorkomende voor voegsels zijn tref woorden zoals ' GRP\_name ', '\#name ', '\_name '
 
 #### <a name="user-attributes"></a>Gebruikerskenmerken
 
-U kunt de kenmerken waarmee u kunnen gebruiken en uw gebruikers identificeren welke afdeling, office of geografische regio waarvan de groep is gemaakt. Bijvoorbeeld, als u het naamgevingsbeleid als definiëren `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, en `User’s department = Engineering`, en vervolgens de groepsnaam van een afgedwongen mogelijk "Mijn groep groep Engineering." Ondersteunde Azure AD-kenmerken zijn \[afdeling\], \[bedrijf\], \[Office\], \[volgt\], \[CountryOrRegion \], \[Titel\]. Niet-ondersteunde gebruikerskenmerken worden behandeld als vaste tekenreeksen; bijvoorbeeld, "\[postcode\]'. Extensiekenmerken en aangepaste kenmerken worden niet ondersteund.
+U kunt kenmerken gebruiken waarmee u en uw gebruikers kunnen bepalen welke afdeling, kantoor of geografische regio waarvoor de groep is gemaakt. Als u bijvoorbeeld uw naamgevings beleid definieert als `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, en `User’s department = Engineering`, dan kan de naam van een afgedwongen groep ' groeps techniek ' zijn. Ondersteunde Azure AD-kenmerken \[zijn\]Department \[,\]Company \[,\]Office ,\[staatofprovincie\], CountryorRegion\[ \] ,\[Titel.\] Niet-ondersteunde gebruikers kenmerken worden beschouwd als vaste teken reeksen. bijvoorbeeld '\[post code\]'. Extensie kenmerken en aangepaste kenmerken worden niet ondersteund.
 
-U wordt aangeraden dat u kenmerken die waarden ingevuld voor alle gebruikers in uw organisatie en niet gebruikmaken van kenmerken die lang waarden hebben.
+U kunt het beste kenmerken gebruiken waarvoor waarden zijn ingevuld voor alle gebruikers in uw organisatie en geen kenmerken met lange waarden gebruiken.
 
-### <a name="custom-blocked-words"></a>Geblokkeerde dan speciale woorden
+### <a name="custom-blocked-words"></a>Aangepaste geblokkeerde woorden
 
-Een lijst met geblokkeerde woord is een door komma's gescheiden lijst van items moeten worden geblokkeerd in de namen en aliassen. Geen subtekenreeks zoekopdrachten worden uitgevoerd. Een exacte overeenkomst tussen de groepsnaam en een of meer van de aangepaste geblokkeerde woorden is vereist voor het activeren van een storing. Subtekenreeks zoeken wordt niet uitgevoerd, zodat gebruikers algemene woorden als 'Class' gebruiken kunnen, zelfs als 'klasse' een geblokkeerde woord is.
+Een geblokkeerde woorden lijst is een door komma's gescheiden lijst met zinsdelen die in groeps namen en aliassen worden geblokkeerd. Er worden geen Zoek opdrachten voor subtekenreeksen uitgevoerd. Er is een exacte overeenkomst tussen de groeps naam en een of meer aangepaste geblokkeerde woorden vereist om een fout te activeren. Zoeken in subtekenreeksen wordt niet uitgevoerd, zodat gebruikers algemene woorden als Class kunnen gebruiken, zelfs als ' Lass ' een geblokkeerd woord is.
 
-Geblokkeerde woord lijst met regels:
+Geblokkeerde woorden lijst regels:
 
-- Geblokkeerde woorden zijn niet hoofdlettergevoelig.
-- Wanneer een gebruiker moet een geblokkeerde woord als onderdeel van de naam van een groep invoeren, zien ze een foutbericht weergegeven met het geblokkeerde woord.
-- Er zijn geen tekenbeperkingen voor geblokkeerde woorden.
-- Er is een bovengrens van 5000 vermeldingen die kunnen worden geconfigureerd in de lijst met geblokkeerde woorden. 
+- Geblokkeerde woorden zijn niet hoofdletter gevoelig.
+- Wanneer een gebruiker een geblokkeerd woord als onderdeel van een groeps naam invoert, wordt een fout bericht met het geblokkeerde woord weer gegeven.
+- Er zijn geen teken beperkingen voor geblokkeerde woorden.
+- Er is een bovengrens van 5000-zinnen die in de lijst met geblokkeerde woorden kunnen worden geconfigureerd. 
 
-### <a name="administrator-override"></a>Onderdrukking van de beheerder
+### <a name="administrator-override"></a>Beheerder overschrijven
 
-Geselecteerde beheerders kunnen worden uitgesloten van deze beleidsregels voor alle werkbelastingen van de groep en eindpunten, zodat ze kunnen met behulp van geblokkeerde woorden groepen maken en met hun eigen naamconventies. Hieronder vindt u de lijst met uitgesloten van het beleid voor naamgeving beheerdersrollen.
+Geselecteerde beheerders kunnen worden uitgesloten van dit beleid, in alle werk belastingen en eind punten van groepen, zodat ze groepen kunnen maken met behulp van geblokkeerde woorden en met hun eigen naamgevings regels. Hieronder ziet u de lijst met beheerders rollen die zijn uitgesloten van het groeps naamgevings beleid.
 
 - Globale beheerder
-- Laag 1-ondersteuning voor partner
-- Laag 2-ondersteuning voor partner
-- Gebruikerbeheerder
-- Schrijvers van mappen
+- Ondersteuning voor partner Tier 1
+- Ondersteuning voor partner Tier 2
+- Gebruikersbeheerder
+- Adreslijstschrijvers
 
-## <a name="configure-naming-policy-in-azure-portal"></a>Naamgevingsbeleid configureren in Azure portal
+## <a name="configure-naming-policy-in-azure-portal"></a>Naamgevings beleid configureren in Azure Portal
 
-1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een administrator-account van gebruiker.
-1. Selecteer **groepen**en selecteer vervolgens **naamgevingsbeleid** de Naming beleid-pagina te openen.
+1. Meld u aan bij het [Azure AD-beheer centrum](https://aad.portal.azure.com) met een algemeen beheerders account.
+1. Selecteer **groepen**en selecteer vervolgens **naamgevings beleid** om de pagina naamgevings beleid te openen.
 
-    ![Open de pagina van de Naming-beleid in het beheercentrum](./media/groups-naming-policy/policy.png)
+    ![Open de pagina naamgevings beleid in het beheer centrum](./media/groups-naming-policy/policy.png)
 
-### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Weergeven of bewerken van het naamgevingsbeleid van voorvoegsel-achtervoegsel
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Het naamgevings beleid voor voegsel-achtervoegsels weer geven of bewerken
 
-1. Op de **naamgevingsbeleid** weergeeft, schakelt **naming groepsbeleid**.
-1. U kunt weergeven of bewerken van het huidige voorvoegsel of achtervoegsel naming beleid afzonderlijk door de kenmerken of tekenreeksen die u wilt afdwingen als onderdeel van het naamgevingsbeleid te selecteren.
-1. Als u wilt verwijderen een voorvoegsel of achtervoegsel in de lijst, selecteert u het voorvoegsel of achtervoegsel en vervolgens **verwijderen**. Meerdere items kunnen worden verwijderd op hetzelfde moment.
-1. Sla de wijzigingen voor het nieuwe beleid worden toegepast door het selecteren van **opslaan**.
+1. Selecteer op de pagina **naamgevings beleid** de optie **groeps naamgevings beleid**.
+1. U kunt het huidige naamgevings beleid voor voor voegsels of achtervoegsels afzonderlijk weer geven of bewerken door de kenmerken of teken reeksen te selecteren die u wilt afdwingen als onderdeel van het naamgevings beleid.
+1. Als u een voor voegsel of achtervoegsel uit de lijst wilt verwijderen, selecteert u het voor voegsel of achtervoegsel en selecteert u vervolgens **verwijderen**. Meerdere items kunnen tegelijkertijd worden verwijderd.
+1. Sla de wijzigingen op zodat het nieuwe beleid van kracht wordt door **Opslaan**te selecteren.
 
-### <a name="edit-custom-blocked-words"></a>Geblokkeerde dan speciale woorden bewerken
+### <a name="edit-custom-blocked-words"></a>Aangepaste geblokkeerde woorden bewerken
 
-1. Op de **naamgevingsbeleid** weergeeft, schakelt **woorden geblokkeerd**.
+1. Selecteer op de pagina **naamgevings beleid** de optie **geblokkeerde woorden**.
 
-    ![bewerken en uploaden van de lijst met geblokkeerde woorden voor de naamgeving van beleid](./media/groups-naming-policy/blockedwords.png)
+    ![de lijst met geblokkeerde woorden voor het naamgevings beleid bewerken en uploaden](./media/groups-naming-policy/blockedwords.png)
 
-1. Weergeven of bewerken van de huidige lijst met geblokkeerde dan speciale woorden hiervoor **downloaden**.
-1. Upload een nieuwe lijst met geblokkeerde dan speciale woorden door het bestandspictogram te selecteren.
-1. Sla de wijzigingen voor het nieuwe beleid worden toegepast door het selecteren van **opslaan**.
+1. De huidige lijst met aangepaste geblokkeerde woorden weer geven of bewerken door **downloaden**te selecteren.
+1. Upload de nieuwe lijst met aangepaste geblokkeerde woorden door het bestands pictogram te selecteren.
+1. Sla de wijzigingen op zodat het nieuwe beleid van kracht wordt door **Opslaan**te selecteren.
 
 ## <a name="install-powershell-cmdlets"></a>PowerShell-cmdlets installeren
 
@@ -117,11 +117,11 @@ Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Mod
    Install-Module AzureADPreview
    ```
 
-   Als u wordt gevraagd of u over het openen van een niet-vertrouwde opslagplaats, voert u **Y**. Het kan enkele minuten duren voordat de nieuwe module is geïnstalleerd.
+   Als u wordt gevraagd om toegang te krijgen tot een niet-vertrouwde opslag plaats, voert u **Y**in. Het kan enkele minuten duren voordat de nieuwe module is geïnstalleerd.
 
-## <a name="configure-naming-policy-in-powershell"></a>Naamgevingsbeleid configureren in PowerShell
+## <a name="configure-naming-policy-in-powershell"></a>Naamgevings beleid configureren in Power shell
 
-1. Open een Windows PowerShell-venster op uw computer. U kunt deze zonder verhoogde bevoegdheden te openen.
+1. Open een Windows Power shell-venster op de computer. U kunt deze openen zonder verhoogde bevoegdheden.
 
 1. Voer de volgende opdrachten uit als voorbereiding op het uitvoeren van de cmdlets.
   
@@ -136,7 +136,7 @@ Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Mod
 
 ### <a name="view-the-current-settings"></a>Huidige instellingen weergeven
 
-1. Ophalen van de huidige naamgevingsbeleid om de huidige instellingen weer te geven.
+1. Haal het huidige naamgevings beleid op om de huidige instellingen weer te geven.
   
    ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
@@ -148,7 +148,7 @@ Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Mod
    $Setting.Values
    ```
   
-### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Stel de naamgevingsbeleid en de geblokkeerde dan speciale woorden
+### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Het naamgevings beleid en aangepaste geblokkeerde woorden instellen
 
 1. Stel de voor- en achtervoegsels van de groepsnaam in in Azure AD PowerShell. [GroupName] moet in de instelling worden opgenomen om de functie goed te laten werken.
   
@@ -162,26 +162,26 @@ Verwijder een oudere versie van Azure Active Directory PowerShell voor Graph Mod
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
-1. Sla de instellingen voor het nieuwe beleid om door te gaan van kracht, zoals in het volgende voorbeeld.
+1. Sla de instellingen voor het nieuwe beleid op, zoals in het volgende voor beeld.
   
    ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-Dat is alles. U hebt het beleid voor naamgeving instellen en de geblokkeerde woorden toegevoegd.
+Dat is alles. U hebt uw naamgevings beleid ingesteld en uw geblokkeerde woorden toegevoegd.
 
-## <a name="export-or-import-custom-blocked-words"></a>Geblokkeerde dan speciale woorden importeren of exporteren
+## <a name="export-or-import-custom-blocked-words"></a>Aangepaste geblokkeerde woorden exporteren of importeren
 
-Zie voor meer informatie het artikel [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](groups-settings-cmdlets.md).
+Zie het artikel Azure Active Directory-cmdlets [voor het configureren van groeps instellingen](groups-settings-cmdlets.md)voor meer informatie.
 
-Hier volgt een voorbeeld van een PowerShell-script voor het exporteren van meerdere geblokkeerde woorden:
+Hier volgt een voor beeld van een Power shell-script voor het exporteren van meerdere geblokkeerde woorden:
 
 ``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
-Hier volgt een voorbeeld van PowerShell-script voor het importeren van meerdere geblokkeerde woorden:
+Hier volgt een voor beeld van een Power shell-script voor het importeren van meerdere geblokkeerde woorden:
 
 ``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
@@ -196,14 +196,14 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
-## <a name="remove-the-naming-policy"></a>Een naamgevingsbeleid verwijderen
+## <a name="remove-the-naming-policy"></a>Het naamgevings beleid verwijderen
 
-### <a name="remove-the-naming-policy-using-azure-portal"></a>Verwijder het naming beleid met behulp van Azure portal
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Verwijder het naamgevings beleid met behulp van Azure Portal
 
-1. Op de **naamgevingsbeleid** weergeeft, schakelt **beleid verwijderen**.
-1. Nadat u de verwijdering bevestigt, het naamgevingsbeleid wordt verwijderd, inclusief alle voorvoegsel-achtervoegsel naamgeving van beleid en eventuele aangepaste geblokkeerde woorden.
+1. Selecteer op de pagina **naamgevings beleid** de optie **beleid verwijderen**.
+1. Nadat u het verwijderen hebt bevestigd, wordt het naamgevings beleid verwijderd, met inbegrip van het naamgevings beleid voor voegsel en achtervoegsel en eventuele aangepaste geblokkeerde woorden.
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Een naamgevingsbeleid met behulp van Azure AD PowerShell verwijderen
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Het naamgevings beleid verwijderen met behulp van Azure AD Power shell
 
 1. Wis de voor- en achtervoegsels van de groepsnaam in Azure AD PowerShell.
   
@@ -223,42 +223,42 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Ervaring voor Office 365-apps
+## <a name="experience-across-office-365-apps"></a>Ervaring over Office 365-apps
 
-Nadat u een beleid voor naamgeving in Azure AD, wanneer een gebruiker een groep in een Office 365-app maakt, zien ze instellen:
+Nadat u een groeps naamgevings beleid hebt ingesteld in azure AD, zien ze wanneer een gebruiker een groep in een Office 365-app maakt, het volgende:
 
-- Een voorbeeld van de naam volgens het naamgevingsbeleid (met voorvoegsels en achtervoegsels) zo snel als de gebruiker typt in de naam van de
-- Als de gebruiker geblokkeerde woorden invoert, zien ze een foutbericht weergegeven, zodat ze de geblokkeerde woorden kunnen verwijderen.
+- Een voor beeld van de naam op basis van uw naamgevings beleid (met voor voegsels en achtervoegsels) zodra de gebruiker in de groeps naam typt
+- Als de gebruiker geblokkeerde woorden invoert, wordt een fout bericht weer gegeven zodat de geblokkeerde woorden kunnen worden verwijderd.
 
 Workload | Naleving
 ----------- | -------------------------------
-Azure Active Directory-Portal | De Azure AD-portal en de portal Toegangsvenster tonen de beleidsnaam van de naming afgedwongen wanneer de gebruiker in de naam van een groep maken of bewerken van een groep. Wanneer een gebruiker een aangepaste geblokkeerde woord invoert, wordt een foutbericht weergegeven met het geblokkeerde woord weergegeven zodat de gebruiker kan worden verwijderd.
-Outlook Web Access (OWA) | Outlook Web Access ziet u het naamgevingsbeleid afgedwongen naam wanneer de gebruiker een naam of groepsalias. Wanneer een gebruiker een aangepaste geblokkeerde woord invoert, wordt een foutbericht wordt weergegeven in de gebruikersinterface, samen met het geblokkeerde woord zodat de gebruiker kan worden verwijderd.
-Outlook Desktop | Groepen die zijn gemaakt in de Outlook-bureaublad die compatibel zijn met de instellingen voor naamgeving. Outlook-bureaublad-app geen nog weergegeven voor de Preview-versie van de naam van de afgedwongen en de geblokkeerde woord aangepaste fouten niet worden geretourneerd wanneer de gebruiker krijgt de naam van de groep. Echter het naamgevingsbeleid wordt automatisch toegepast tijdens het maken of bewerken van een groep, en gebruikers zien foutberichten worden weergegeven als er aangepaste geblokkeerde woorden in de naam of alias.
-Microsoft Teams | Microsoft Teams toont de naamgeving van de naam van beleid afgedwongen wanneer de gebruiker de teamnaam van een voert. Wanneer een gebruiker een aangepaste geblokkeerde woord invoert, wordt een foutbericht wordt weergegeven, samen met het geblokkeerde woord zodat de gebruiker kan worden verwijderd.
-SharePoint  |  SharePoint bevat de beleidsnaam van de naming afgedwongen wanneer de gebruiker typt een site een naam of een e-mailadres. Wanneer een gebruiker invoert voor een aangepaste geblokkeerde woord, een foutbericht wordt weergegeven, samen met het geblokkeerde woord zodat de gebruiker kan worden verwijderd.
-Microsoft Stream | Microsoft Stream toont de naamgeving van de naam van beleid afgedwongen wanneer de gebruiker een groepsnaam of een groep e-mailalias. Wanneer een gebruiker een aangepaste geblokkeerde woord invoert, wordt een foutbericht wordt weergegeven met het geblokkeerde woord, zodat de gebruiker kunt verwijderen.
-Outlook-iOS en Android-App | Groepen die zijn gemaakt in de Outlook-apps die compatibel zijn met het geconfigureerde beleid voor naamgeving. Mobiele app van Outlook nog de Preview-versie van de beleidsnaam van de naming afgedwongen niet wordt weergegeven, en geen aangepaste geblokkeerde woord fouten retourneert wanneer de gebruiker krijgt de naam van de groep. Echter het naamgevingsbeleid wordt automatisch toegepast op het maken/bewerken te klikken en gebruikers zien foutberichten worden weergegeven als er aangepaste geblokkeerde woorden in de naam of alias.
-Groepen mobiele app | Groepen die zijn gemaakt in de mobiele app van de groepen die compatibel zijn met het naamgevingsbeleid. Groepen mobiele app wordt niet weergegeven voor de Preview-versie van het beleid voor naamgeving en retourneert geen aangepaste geblokkeerde woord fouten als de gebruiker krijgt de naam van de groep. Maar het naamgevingsbeleid wordt automatisch toegepast tijdens het maken of bewerken van een groep en gebruikers wordt weergegeven met de juiste fouten als er aangepaste geblokkeerde woorden in de naam of alias.
-Planner | Planner is compatibel met het naamgevingsbeleid. Planner toont de naamgeving voor Preview-versie bij het invoeren van de naam van het plan. Wanneer een gebruiker een aangepaste geblokkeerde woord invoert, wordt een foutbericht wordt weergegeven bij het maken van het abonnement.
-Dynamics 365 for Customer Engagement | Dynamics 365 voor Customer Engagement is compatibel met het naamgevingsbeleid. Dynamics 365 ziet u de beleidsnaam van de naming afgedwongen wanneer de gebruiker een groepsnaam of een groep e-mailalias. Wanneer de gebruiker een aangepaste geblokkeerde woord invoert, wordt een foutbericht wordt weergegeven met het geblokkeerde woord zodat de gebruiker het kunt verwijderen.
-School Data Sync (SDS) | Groepen die zijn gemaakt via SDS in overeenstemming met het naamgevingsbeleid, maar het naamgevingsbeleid wordt niet automatisch toegepast. SDS-beheerders hebben de voor- en achtervoegsels toevoegen aan klassenamen waarvoor groepen moeten worden gemaakt en vervolgens geüpload naar SDS. Groep maken of bewerken, anders mislukken.
-Outlook Customer Manager (OCM) | Outlook Customer Manager is compatibel met het naamgevingsbeleid, automatisch op de groep hebt gemaakt in Outlook Customer Manager toegepast wordt. Als een aangepaste geblokkeerde woord wordt gedetecteerd, het maken van de groep in OCM is geblokkeerd en de gebruiker is geblokkeerd met behulp van de app OCM.
--App classroom | Groepen die zijn gemaakt in de app Classroom in overeenstemming met het naamgevingsbeleid, maar het naamgevingsbeleid wordt niet automatisch toegepast en de naamgeving voor Preview-versie wordt niet weergegeven aan de gebruikers bij het invoeren van de naam van een leslokaal-groep. Gebruikers moeten de naam van de groep afgedwongen leslokaal met voor- en achtervoegsels invoeren. Zo niet, in de classroom-groep maken of bewerken van de bewerking mislukt met fouten.
-Power BI | Power BI-werkruimten die compatibel zijn met het naamgevingsbeleid.    
-Yammer | Wanneer een gebruiker aangemeld bij Yammer met hun Azure Active Directory-account een groep maakt of bewerkt de naam van een groep, wordt de naam van de voldoen aan het naamgevingsbeleid. Dit geldt zowel voor Office 365 verbonden groepen en alle andere Yammer-groepen.<br>Als een verbonden Office 365-groep is gemaakt voordat het naamgevingsbeleid ingesteld is, wordt het naamgevingsbeleid niet automatisch volgt u de naam van de. Wanneer een gebruiker de naam van de bewerkt, wordt ze gevraagd om toe te voegen voor- en achtervoegsel.
-StaffHub  | StaffHub-teams Volg niet de naamgevingsbeleid, maar de onderliggende Office 365-groep heeft. Naam van StaffHub-team is niet van toepassing de voor- en achtervoegsels en controleert niet op geblokkeerde dan speciale woorden. Maar StaffHub geldt de voor- en achtervoegsels en geblokkeerde woorden verwijdert uit de onderliggende Office 365-groep.
-Exchange PowerShell | Exchange PowerShell-cmdlets zijn compatibel met het naamgevingsbeleid. Gebruikers ontvangen foutbericht verzonden met voorgestelde voor- en achtervoegsels en voor geblokkeerde dan speciale woorden als ze niet het naamgevingsbeleid in de naam van groep en de groepsalias (mailNickname) volgen.
-Azure Active Directory PowerShell-cmdlets | Azure Active Directory PowerShell-cmdlets zijn compatibel met het naamgevingsbeleid. Gebruikers ontvangen foutbericht verzonden met voorgestelde voor- en achtervoegsels en voor geblokkeerde dan speciale woorden als ze de naamconventie in namen van groepen en groepsalias niet volgen.
-Exchange-beheercentrum | Exchange-beheercentrum is compatibel met het naamgevingsbeleid. Gebruikers ontvangen foutbericht verzonden met voorgestelde voor- en achtervoegsels en voor geblokkeerde dan speciale woorden als ze de naamconventie in de naam van groep en de groepsalias niet volgen.
-Microsoft 365-beheercentrum | Microsoft 365-beheercentrum is compatibel met het naamgevingsbeleid. Wanneer een gebruiker maakt of bewerkingen groepsnamen naamgevingsbeleid wordt automatisch toegepast en gebruikers ontvangen het juiste fouten wanneer ze geblokkeerde dan speciale woorden invoeren. De Microsoft 365-beheercentrum nog een Preview-versie van het naamgevingsbeleid niet wordt weergegeven en geen aangepaste geblokkeerde woord fouten retourneert wanneer de gebruiker krijgt de naam van de groep.
+Azure Active Directory portals | De Azure AD-Portal en de toegangs venster Portal tonen het naamgevings beleid afgedwongen naam wanneer de gebruiker een groeps naam typt bij het maken of bewerken van een groep. Wanneer een gebruiker een aangepast geblokkeerd woord invoert, wordt een fout bericht met het geblokkeerde woord weer gegeven, zodat de gebruiker het kan verwijderen.
+Outlook Web Access (OWA) | Outlook Web Access toont het naamgevings beleid afgedwongen naam wanneer de gebruiker een groeps naam of groeps alias typt. Wanneer een gebruiker een aangepast geblokkeerd woord invoert, wordt een fout bericht weer gegeven in de gebruikers interface samen met het geblokkeerde woord, zodat de gebruiker het kan verwijderen.
+Outlook Desktop | Groepen die zijn gemaakt in Outlook Desktop, voldoen aan de naamgevings beleids instellingen. Outlook-bureau blad-app toont nog geen voor beeld van de afgedwongen groeps naam en retourneert geen aangepaste geblokkeerde Word-fouten wanneer de gebruiker de groeps naam invoert. Het naamgevings beleid wordt echter automatisch toegepast bij het maken of bewerken van een groep en gebruikers zien fout berichten als er aangepaste geblokkeerde woorden aanwezig zijn in de groeps naam of-alias.
+Microsoft Teams | Micro soft teams toont de naam van het groeps beleid afgedwongen wanneer de gebruiker een team naam invoert. Wanneer een gebruiker een aangepast geblokkeerd woord invoert, wordt er een fout bericht samen met het geblokkeerde woord weer gegeven, zodat de gebruiker het kan verwijderen.
+SharePoint  |  Share point toont het naamgevings beleid afgedwongen naam wanneer de gebruiker een site naam of groep e-mail adres typt. Wanneer een gebruiker een aangepast geblokkeerd woord invoert, wordt er een fout bericht weer gegeven, samen met het geblokkeerde woord, zodat de gebruiker het kan verwijderen.
+Microsoft Stream | Microsoft Stream wordt de naam van het groeps beleid afgedwongen weer gegeven wanneer de gebruiker een groeps naam of groep e-mail alias typt. Wanneer een gebruiker een aangepast geblokkeerd woord invoert, wordt er een fout bericht met het geblokkeerde woord weer gegeven, zodat de gebruiker het kan verwijderen.
+Outlook-app voor iOS en Android | Groepen die zijn gemaakt in Outlook-apps, zijn compatibel met het geconfigureerde naamgevings beleid. De mobiele app van Outlook toont nog geen de preview-versie van het naamgevings beleid en retourneert geen aangepaste geblokkeerde Word-fouten wanneer de gebruiker de groeps naam invoert. Het naamgevings beleid wordt echter automatisch toegepast op het klikken op maken/bewerken en gebruikers zien fout berichten als er aangepaste geblokkeerde woorden aanwezig zijn in de groeps naam of-alias.
+Mobiele app-groepen | Groepen die zijn gemaakt in de mobiele app voor groepen, voldoen aan het naamgevings beleid. Met mobiele app-groepen wordt de preview van het naamgevings beleid niet weer gegeven en worden geen aangepaste geblokkeerde woord fouten geretourneerd wanneer de gebruiker de groeps naam invoert. Het naamgevings beleid wordt echter automatisch toegepast bij het maken of bewerken van een groep en gebruikers worden gepresenteerd met de juiste fouten als er aangepaste geblokkeerde woorden aanwezig zijn in de groeps naam of-alias.
+Planner | Planner is compatibel met het naamgevings beleid. Planner toont de voorbeeld weergave van het naamgevings beleid bij het invoeren van de naam van het abonnement. Wanneer een gebruiker een aangepast geblokkeerd woord invoert, wordt een fout bericht weer gegeven bij het maken van het plan.
+Dynamics 365 for Customer Engagement | Dynamics 365 voor klant betrokkenheid is compatibel met het naamgevings beleid. Dynamics 365 toont het naamgevings beleid afgedwongen naam wanneer de gebruiker een groeps naam of groep e-mail alias typt. Wanneer de gebruiker een aangepast geblokkeerd woord invoert, wordt er een fout bericht met het geblokkeerde woord weer gegeven, zodat de gebruiker het kan verwijderen.
+School gegevens synchroniseren (SDS) | Groepen die zijn gemaakt via SDS, voldoen aan het naamgevings beleid, maar het naamgevings beleid wordt niet automatisch toegepast. SDS-beheerders moeten de voor voegsels en achtervoegsels toevoegen aan klassen namen waarvoor groepen moeten worden gemaakt en vervolgens naar SDS kunnen worden geüpload. Het maken of bewerken van een groep zou anders mislukken.
+Outlook-klanten beheer (OCM) | Outlook klanten beheer is compatibel met het naamgevings beleid, dat automatisch wordt toegepast op de groep die is gemaakt in Outlook Customer Manager. Als er een aangepast geblokkeerd woord wordt gedetecteerd, wordt het maken van een groep in OCM geblokkeerd en wordt de gebruiker geblokkeerd voor het gebruik van de OCM-app.
+Klas lokale app | Groepen die zijn gemaakt in de app leslokaal, voldoen aan het naamgevings beleid, maar het naamgevings beleid wordt niet automatisch toegepast en de voor beeld van een naamgevings beleid wordt niet weer gegeven voor gebruikers bij het invoeren van de naam van een leslokaal groep. Gebruikers moeten de naam van de afgedwongen leslokaal groep invoeren met voor voegsels en achtervoegsels. Als dat niet het geval is, mislukt de bewerking voor het maken of bewerken van de leslokaal groep met fouten.
+Power BI | Power BI-werk ruimten voldoen aan het naamgevings beleid.    
+Yammer | Wanneer een gebruiker die is aangemeld bij Yammer met hun Azure Active Directory-account een groep maakt of een groeps naam bewerkt, wordt de groeps naam in overeenstemming met het naamgevings beleid. Dit geldt zowel voor Office 365-verbonden groepen als voor alle andere Yammer-groepen.<br>Als er een met Office 365 verbonden groep is gemaakt voordat het naamgevings beleid aanwezig is, volgt de groeps naam niet automatisch het naamgevings beleid. Wanneer een gebruiker de groeps naam bewerkt, wordt u gevraagd het voor voegsel en achtervoegsel toe te voegen.
+StaffHub  | StaffHub teams volgen het naamgevings beleid niet, maar de onderliggende Office 365-groep wel. De StaffHub-team naam past de voor voegsels en achtervoegsels niet toe en controleert niet op aangepaste geblokkeerde woorden. Maar StaffHub past de voor voegsels en achtervoegsels toe en verwijdert geblokkeerde woorden uit de onderliggende Office 365-groep.
+Exchange Power shell | Exchange Power shell-cmdlets zijn compatibel met het naamgevings beleid. Gebruikers ontvangen de juiste fout berichten met suggesties voor voegsels en achtervoegsels en voor aangepaste geblokkeerde woorden als ze het naamgevings beleid niet volgen in de groeps naam en groeps alias (mailnickname).
+Azure Active Directory Power shell-cmdlets | Azure Active Directory Power shell-cmdlets zijn compatibel met het naamgevings beleid. Gebruikers ontvangen de juiste fout berichten met suggesties voor voegsels en achtervoegsels en voor aangepaste geblokkeerde woorden als ze niet voldoen aan de naamgevings conventies in groeps namen en groeps aliassen.
+Exchange-beheer centrum | Exchange-beheer centrum is compatibel met het naamgevings beleid. Gebruikers ontvangen de juiste fout berichten met suggesties voor voegsels en achtervoegsels en voor aangepaste geblokkeerde woorden als ze niet voldoen aan de naamgevings conventies in de groeps naam en groeps alias.
+Microsoft 365-beheer centrum | Microsoft 365-beheer centrum is compatibel met het naamgevings beleid. Wanneer een gebruiker groeps namen maakt of bewerkt, wordt het naamgevings beleid automatisch toegepast en ontvangen gebruikers de juiste fouten wanneer ze aangepaste geblokkeerde woorden invoeren. Het Microsoft 365-beheer centrum toont nog geen voor beeld van het naamgevings beleid en retourneert geen aangepaste geblokkeerde Word-fouten wanneer de gebruiker de groeps naam invoert.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Deze artikelen bevatten aanvullende informatie over Azure AD-groepen.
 
 - [Bestaande groepen weergeven](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Verloopbeleid voor Office 365-groepen](groups-lifecycle.md)
+- [Verloop beleid voor Office 365-groepen](groups-lifecycle.md)
 - [Instellingen van een groep beheren](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Leden van een groep beheren](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Lidmaatschappen van een groep beheren](../fundamentals/active-directory-groups-membership-azure-portal.md)

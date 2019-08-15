@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5fdbd8092abcc51fc03e8b00106b7e25ec4be905
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a152f32ef7d68686539b7d6edee57db8a5da9553
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839371"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976248"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Het Azure Maps kaart besturings element gebruiken
 
@@ -102,7 +102,7 @@ U kunt een kaart insluiten in een webpagina met behulp van de Map Control java s
     </script>
     ```
 
-    Zie [verificatie met Azure Maps](azure-maps-authentication.md) voor meer informatie.
+    Zie voor meer informatie de [verificatie met Azure Maps](azure-maps-authentication.md) document.
 
 6. U kunt eventueel de volgende metatag elementen toevoegen aan het hoofd van de pagina:
 
@@ -214,3 +214,11 @@ Meer informatie over het opmaken van een kaart:
 
 > [!div class="nextstepaction"]
 > [Een kaart stijl kiezen](choose-map-style.md)
+
+Meer gegevens toevoegen aan uw kaart:
+
+> [!div class="nextstepaction"]
+> [Een kaart maken](map-create.md)
+
+> [!div class="nextstepaction"]
+> [Codevoorbeelden](https://docs.microsoft.com/samples/browse/?products=azure-maps)

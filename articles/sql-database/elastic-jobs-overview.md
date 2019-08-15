@@ -1,6 +1,6 @@
 ---
-title: Taak voor Elastic Database voor Azure SQL-databases | Microsoft Docs
-description: Elastic Database taken configureren om Transact-SQL-scripts (T-SQL) uit te voeren in een set van een of meer Azure SQL-data bases
+title: Azure SQL Elastic Database-taken (preview) | Microsoft Docs
+description: Elastic Database taken (preview) configureren om Transact-SQL (T-SQL)-scripts uit te voeren in een set van een of meer Azure SQL-data bases
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 7c5905716c0aada4a5070b9968c330eafaffb741
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3a0aa6e28ea4c40d5cad5ba99edec344c7979acf
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561333"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935079"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Elastische taken maken, configureren en beheren
 

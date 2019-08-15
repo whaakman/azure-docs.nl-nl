@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 02/12/2019
+ms.date: 06/28/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 124f5c01b7718f729094de1c02391946ff50cef4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b4b050befe160d69fbc44b7f0a2ebbbbad3d705a
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176111"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015960"
 ---
-Lokaal redundante opslag (LRS) biedt ten minste 99,999999999% (11 nines) duurzaamheid van objecten in een bepaald jaar. LRS biedt de duurzaamheid van dit object door te repliceren van uw gegevens naar een opslagschaaleenheid. Een datacenter, zich in de regio waar u uw storage-account hebt gemaakt als host fungeert voor de eenheid voor opslag schalen. Een schrijfaanvraag naar een opslagaccount LRS retourneert is pas mogelijk nadat de gegevens worden geschreven naar alle replica's. Elke replica bevindt zich in afzonderlijke foutdomeinen en upgradedomeinen in een opslagschaaleenheid.
+Lokaal redundante opslag (LRS) voorziet in ten minste 99,999999999% (11 Nines) duurzaamheid van objecten in een bepaald jaar. LRS biedt deze object duurzaamheid door uw gegevens naar een opslag schaal eenheid te repliceren. Een Data Center, dat zich bevindt in de regio waar u uw opslag account hebt gemaakt, fungeert als host voor de opslag schaal eenheid. Een schrijf aanvraag naar een LRS-opslag account retourneert pas nadat de gegevens naar alle replica's zijn geschreven. Elke replica bevindt zich in afzonderlijke fout domeinen en upgrade domeinen binnen een opslag schaal eenheid.
 
-Een opslag-schaaleenheid is een verzameling van rekken opslagknooppunten. Een foutdomein (FD) is een groep van knooppunten die staan voor een fysieke eenheid van de fout. Een foutdomein beschouwen als die behoren tot hetzelfde fysieke rack-knooppunten. Een upgrade domain (UD) is een groep van knooppunten die samen zijn bijgewerkt tijdens het proces van een service-upgrade (implementatie). De replica's worden verdeeld over de ud's en FD's binnen een opslagschaaleenheid. Deze architectuur zorgt ervoor dat uw gegevens zijn beschikbaar als een hardwarefout is van invloed op een enkele rack of knooppunten worden bijgewerkt tijdens de upgrade van een service.
+Een schaal eenheid voor opslag is een verzameling van opslag knooppunten. Een fout domein (FD) is een groep knoop punten die een fysieke fout eenheid vertegenwoordigen. U kunt een fout domein beschouwen als knoop punten die deel uitmaken van hetzelfde fysieke rack. Een upgrade domein (UD) is een groep knoop punten die bij elkaar worden bijgewerkt tijdens het proces van een service-upgrade (implementatie). De replica's zijn verspreid over de UDs-en Fd's binnen één opslag schaal eenheid. Deze architectuur zorgt ervoor dat uw gegevens beschikbaar zijn als een hardwarefout van invloed is op één rek of wanneer er knoop punten zijn bijgewerkt tijdens een service-upgrade.
 
-LRS is de laagste kosten replicatie-optie en biedt de minste duurzaamheid in vergelijking met andere opties. Als een datacenter noodgevel op het niveau (bijvoorbeeld brand of overstroming), zijn alle replica's verloren of niet kan worden hersteld. Als u wilt dit risico te beperken, wordt aangeraden met behulp van de zone-redundante opslag (ZRS) of geografisch redundante opslag (GRS).
+LRS is de optie voor de laagste kosten replicatie en biedt de minste duurzaamheid ten opzichte van andere opties. Als er sprake is van een ramp op datacenter niveau (bijvoorbeeld brand of flooding), zijn alle replica's mogelijk verloren of kunnen deze niet meer worden hersteld. Om dit risico te beperken, raadt micro soft aan gebruik te maken van zone-redundante opslag (ZRS), geografisch redundante opslag (GRS) of geo-zone-redundante opslag (GZRS).
 
-* Als uw toepassing gegevens op die u kunt eenvoudig opnieuw worden samengesteld slaat als er gegevensverlies optreedt, kunt u kiezen voor LRS.
-* Sommige toepassingen zijn beperkt tot het repliceren van gegevens binnen een land/regio vanwege de vereisten voor gegevens. In sommige gevallen kunnen de gekoppelde regio's in die de gegevens worden gerepliceerd voor GRS-accounts worden in een ander land/regio. Zie voor meer informatie over gekoppelde regio's, [Azure-regio's](https://azure.microsoft.com/regions/).
+* Als uw toepassing gegevens opslaat die gemakkelijk kunnen worden geconstrueerd als er gegevens verlies optreedt, kunt u kiezen voor LRS.
+* Sommige toepassingen zijn beperkt tot het repliceren van gegevens in een land/regio als gevolg van vereisten voor gegevens beheer. In sommige gevallen kunnen de gekoppelde regio's waarvan de gegevens voor GRS-accounts worden gerepliceerd, zich in een ander land of een andere regio bevinden. Zie [Azure-regio's](https://azure.microsoft.com/regions/)voor meer informatie over gekoppelde regio's.

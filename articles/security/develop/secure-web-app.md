@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 0683c065285a6ddf8d966bbd3d22e88c39b34d5c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 640900458eccc36afe58cb148ffd7b94b43be879
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728805"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934917"
 ---
 # <a name="develop-a-secure-web-app"></a>Een beveiligde web-app ontwikkelen
 
@@ -52,16 +52,16 @@ De app is een typische toepassing met n-tier met drie lagen. De front-end, de ba
 
 De architectuur bestaat uit de volgende onderdelen:
 
-- [Azure-toepassing gateway](https://docs.microsoft.com/azure/application-gateway/). Biedt de gateway en Firewall voor onze toepassings architectuur.
-- [Azure web apps op Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro). Biedt de container runtime voor het uitvoeren van de python-app in een Linux-omgeving.
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). De geheimen van onze app worden opgeslagen en versleuteld en het maken van toegangs beleid wordt beheerd.
+- [Azure-toepassing gateway](../../application-gateway/index.yml). Biedt de gateway en Firewall voor onze toepassings architectuur.
+- [Azure web apps op Linux](../../app-service/containers/app-service-linux-intro.md). Biedt de container runtime voor het uitvoeren van de python-app in een Linux-omgeving.
+- [Azure Key Vault](../../key-vault/index.yml). De geheimen van onze app worden opgeslagen en versleuteld en het maken van toegangs beleid wordt beheerd.
 - [Azure database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). De gegevens van onze app veilig opslaan.
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/) en [Azure-toepassing Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Voorziet in bewaking en waarschuwingen over de werking van de app.
+- [Azure Security Center](../../security-center/index.yml) en [Azure-toepassing Insights](../../azure-monitor/app/app-insights-overview.md). Voorziet in bewaking en waarschuwingen over de werking van de app.
 
 ## <a name="threat-model"></a>Bedreigings model
 Bedreigings modellering is het proces van het identificeren van mogelijke beveiligings Risico's voor uw bedrijf en toepassing en zorgt ervoor dat er een goed risico op de juiste wijze wordt uitgevoerd.
 
-In dit voor beeld wordt de [Microsoft Threat Modeling tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) gebruikt voor het implementeren van bedreigings modellen voor de beveiligde voor beeld-app. Door de componenten en de gegevens stromen te ontwikkelen, kunt u problemen en bedreigingen vroegtijdig in het ontwikkelings proces identificeren. Dit bespaart tijd en geld later.
+In dit voor beeld wordt de [Microsoft Threat Modeling tool](threat-modeling-tool.md) gebruikt voor het implementeren van bedreigings modellen voor de beveiligde voor beeld-app. Door de componenten en de gegevens stromen te ontwikkelen, kunt u problemen en bedreigingen vroegtijdig in het ontwikkelings proces identificeren. Dit bespaart tijd en geld later.
 
 Dit is het bedreigings model voor de voor beeld-app:
 
@@ -349,19 +349,19 @@ $$ LANGUAGE PLPGSQL;
 ```
 
 
-Zie [SSL-connectiviteit configureren in azure database for PostgreSQL](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security)voor meer informatie over het instellen van SSL en verificatie van de certificerings instantie (CA) voor postgresql.
+Zie [SSL-connectiviteit configureren in azure database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security)voor meer informatie over het instellen van SSL en verificatie van de certificerings instantie (CA) voor postgresql.
 
 Een basis certificaat is opgenomen in de container. De stappen voor het verkrijgen van het certificaat zijn:
 
 1. Down load het certificaat bestand van de [certificerings instantie](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Down load en installeer openssl op uw computer](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
+2. [Down load en installeer openssl op uw computer](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 3. Uw certificaat bestand decoderen:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Meer informatie over het configureren van SSL-beveiliging voor PostgreSQL [CONFIGUREER SSL-verbindings beveiliging](https://docs.microsoft.com/en-gb/azure/postgresql/concepts-ssl-connection-security).
+Meer informatie over het configureren van SSL-beveiliging voor PostgreSQL [CONFIGUREER SSL-verbindings beveiliging](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Azure Web Apps implementeren in Linux
 U kunt eenvoudig Linux-Services op Azure App Service bouwen, omdat Azure een reeks vooraf ontwikkelde containers en installatie kopieën biedt voor veelgebruikte talen zoals python, Ruby, C#en Java. Azure biedt ook ondersteuning voor aangepaste containers, waardoor vrijwel alle programmeer talen kunnen worden uitgevoerd op het Azure App Service platform.

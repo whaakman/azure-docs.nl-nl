@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189e4f280e8aba28c4d1af449aa8a3428e303911
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298410"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987173"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Problemen met apparaten oplossen met behulp van de dsregcmd-opdracht
 
@@ -28,10 +28,10 @@ In deze sectie vindt u de para meters voor de status van de apparaten. In de vol
 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Apparaatstatus |
 | ---   | ---   | ---   | ---   |
-| KLIKT | NO | NO | Toegevoegd aan Azure AD |
-| NO | NO | KLIKT | Lid van domein |
-| KLIKT | NO | KLIKT | Lid van hybride AD |
-| NO | KLIKT | KLIKT | On-premises DRS toegevoegd |
+| JA | NO | NO | Toegevoegd aan Azure AD |
+| NO | NO | JA | Toegevoegd aan domein |
+| JA | NO | JA | Lid van hybride AD |
+| NO | JA | JA | On-premises DRS toegevoegd |
 
 > [!NOTE]
 > De status Workplace Join (geregistreerd bij Azure AD) wordt weer gegeven in de sectie gebruikers status
@@ -54,7 +54,7 @@ In deze sectie vindt u de para meters voor de status van de apparaten. In de vol
 +----------------------------------------------------------------------+
 ```
 
-## <a name="device-details"></a>Details van apparaat
+## <a name="device-details"></a>Apparaatdetails
 
 Alleen weer gegeven wanneer het apparaat is toegevoegd aan Azure AD of hybride Azure AD (niet geregistreerd voor Azure AD). In deze sectie vindt u informatie over apparaten die zijn opgeslagen in de Cloud.
 
@@ -295,6 +295,9 @@ In deze sectie wordt de uitvoer weer gegeven van Sanity controles die zijn uitge
 ## <a name="ngc-prerequisite-check"></a>NGC-vereisten controle
 
 In deze sectie worden de Perquisite controles uitgevoerd voor het inrichten van een NGC-sleutel. 
+
+> [!NOTE]
+> U ziet mogelijk geen details van de NGC-vereisten controle in dsregcmd/status als de gebruiker de NGC-referenties al correct heeft geconfigureerd.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Voorbeeld uitvoer van NGC-vereisten controle
 

@@ -12,10 +12,10 @@ ms.author: arib
 ms.reviewer: vanto
 ms.date: 04/16/2019
 ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68569513"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
@@ -58,7 +58,7 @@ Er kan een controle beleid worden gedefinieerd voor een specifieke data base of 
 
 - Als de controle van de *Server-blob is ingeschakeld*, *is deze altijd van toepassing op de data base*. De data base wordt gecontroleerd, ongeacht de controle-instellingen voor de data base.
 
-- Het inschakelen van BLOB auditing in de data base of het Data Warehouse, behalve het inschakelen op de server, *overschrijft of* wijzigt geen van de instellingen van de controle van de server-blob. Beide controles bestaan naast elkaar. Met andere woorden, de data base wordt twee keer parallel gecontroleerd. eenmaal door het Server beleid en eenmaal door het database beleid.
+- Het inschakelen van BLOB auditing in de data base of het Data Warehouse, behalve het inschakelen op de server, overschrijft of wijzigt geen van de instellingen van de controle van de server-blob. Beide controles bestaan naast elkaar. Met andere woorden, de data base wordt twee keer parallel gecontroleerd. eenmaal door het Server beleid en eenmaal door het database beleid.
 
    > [!NOTE]
    > Vermijd het inschakelen van zowel de controle van de server-BLOB als de samen voeging van de data base-blob, tenzij:

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: a0717785f4f9c1c21a18d081d157a6cdc8c12f18
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 3cdbb6587871b970c0188c0b8f510cc9f1f4fe07
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371184"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985184"
 ---
 # <a name="authorizing-access-to-azure-storage"></a>Toegang tot Azure Storage autoriseren
 
@@ -24,11 +24,11 @@ In de volgende tabel worden de opties beschreven die Azure Storage biedt om toeg
 
 |  |Gedeelde sleutel (sleutel van het opslag account)  |Shared Access Signature (SAS)  |Azure Active Directory (Azure AD)  |Anonieme open bare Lees toegang  |
 |---------|---------|---------|---------|---------|
-|Azure Blobs     |[Ondersteund](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Ondersteund](storage-dotnet-shared-access-signature-part-1.md)         |[Ondersteund](storage-auth-aad.md)         |[Ondersteund](../blobs/storage-manage-access-to-resources.md)         |
+|Azure Blobs     |[Ondersteund](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Ondersteund](storage-sas-overview.md)         |[Ondersteund](storage-auth-aad.md)         |[Ondersteund](../blobs/storage-manage-access-to-resources.md)         |
 |Azure Files (SMB)     |[Ondersteund](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |Niet ondersteund         |[Ondersteund, alleen met AAD Domain Services](../files/storage-files-active-directory-overview.md)         |Niet ondersteund         |
-|Azure Files (REST)     |[Ondersteund](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Ondersteund](storage-dotnet-shared-access-signature-part-1.md)         |Niet ondersteund         |Niet ondersteund         |
-|Azure-wachtrijen     |[Ondersteund](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Ondersteund](storage-dotnet-shared-access-signature-part-1.md)         |[Ondersteund](storage-auth-aad.md)         |Niet ondersteund         |
-|Azure-tabellen     |[Ondersteund](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Ondersteund](storage-dotnet-shared-access-signature-part-1.md)         |Niet ondersteund         |Niet ondersteund         |
+|Azure Files (REST)     |[Ondersteund](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Ondersteund](storage-sas-overview.md)         |Niet ondersteund         |Niet ondersteund         |
+|Azure-wachtrijen     |[Ondersteund](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Ondersteund](storage-sas-overview.md)         |[Ondersteund](storage-auth-aad.md)         |Niet ondersteund         |
+|Azure-tabellen     |[Ondersteund](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Ondersteund](storage-sas-overview.md)         |Niet ondersteund         |Niet ondersteund         |
 
 Elke autorisatie optie wordt hieronder beschreven:
 
@@ -37,7 +37,7 @@ Elke autorisatie optie wordt hieronder beschreven:
 - **Azure AD Domain Services (DS) Integration (preview)** voor bestanden. Azure Files ondersteunt verificatie op basis van identiteiten via Server Message Block (SMB) via Azure AD DS. Dit biedt RBAC voor nauw keurige controle over de toegang van een client tot bronnen in een opslag account. Voor meer informatie over Azure AD-integratie voor bestanden met Domain Services, Zie [overzicht van de verificatie ondersteuning voor Azure Files Azure Active Directory Domain Service (Aad DS) voor SMB-toegang (preview)](../files/storage-files-active-directory-overview.md).
 
 - **Gedeelde sleutel autorisatie** voor blobs, bestanden, wacht rijen en tabellen. Een client die een gedeelde sleutel gebruikt, geeft een header door elke aanvraag die is ondertekend met de toegangs sleutel voor het opslag account. Zie autoriseren [met gedeelde sleutel](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)voor meer informatie.
-- **Shared Access signatures** voor blobs, bestanden, wacht rijen en tabellen. Shared Access signatures (SAS) bieden beperkte gedelegeerde toegang tot resources in een opslag account. Door beperkingen toe te voegen aan het tijds interval waarvoor de hand tekening geldig is of op machtigingen die door deze worden verleend, biedt het beheer van de toegang flexibiliteit. Zie [using Shared Access signatures (SAS) (Engelstalig)](storage-dotnet-shared-access-signature-part-1.md)voor meer informatie.
+- **Shared Access signatures** voor blobs, bestanden, wacht rijen en tabellen. Shared Access signatures (SAS) bieden beperkte gedelegeerde toegang tot resources in een opslag account. Door beperkingen toe te voegen aan het tijds interval waarvoor de hand tekening geldig is of op machtigingen die door deze worden verleend, biedt het beheer van de toegang flexibiliteit. Zie [using Shared Access signatures (SAS) (Engelstalig)](storage-sas-overview.md)voor meer informatie.
 - **Anonieme open bare Lees toegang** voor containers en blobs. Autorisatie is niet vereist. Zie [Anonieme leestoegang tot containers en blobs beheren](../blobs/storage-manage-access-to-resources.md) voor meer informatie.  
 
 Standaard zijn alle resources in Azure Storage beveiligd en zijn ze alleen beschikbaar voor de eigenaar van het account. Hoewel u een van de hierboven beschreven verificatie strategieën kunt gebruiken om clients toegang te verlenen tot resources in uw opslag account, raadt micro soft aan om Azure AD zo mogelijk te gebruiken voor maximale beveiliging en gebruiks gemak. 
