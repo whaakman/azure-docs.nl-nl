@@ -20,10 +20,14 @@
       displayName: RBAC
     - name: Uw Automation Account verplaatsen naar een ander abonnement
       href: how-to/move-account.md
+    - name: Onboarden van Automation Services automatiseren
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
 - name: Procesautomatisering
   items:
     - name: Overzicht van Hybrid Runbook Worker
       href: automation-hybrid-runbook-worker.md
+    - name: Runbook-galerie
+      href: automation-runbook-gallery.md
     - name: Concepten
       items:
         - name: Runbooktypen
@@ -297,8 +301,6 @@
   items:
     - name: Een e-mailbericht vanuit een Runbook verzenden met SendGrid
       href: automation-send-email.md
-    - name: Runbook-galerie
-      href: automation-runbook-gallery.md
     - name: Runbooks bewaken met metrische waarschuwingen
       href: automation-alert-metric.md
     - name: Een runbook starten vanuit een Azure-waarschuwing

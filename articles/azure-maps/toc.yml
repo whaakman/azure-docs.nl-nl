@@ -25,6 +25,8 @@
       items:
         - name: Een geofence instellen
           href: tutorial-geofence.md
+        - name: Ruimtelijke analyse
+          href: tutorial-iot-hub-maps.md
 - name: Concepten
   items:
     - name: Verificatie met Azure Maps

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4df024f9ff37121df4d9be51ae1fa540028ddd3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727420"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934750"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Best practices voor gegevensbeveiliging en -versleuteling in Azure
 In dit artikel worden aanbevolen procedures beschreven voor gegevens beveiliging en-versleuteling.
@@ -97,7 +97,7 @@ Organisaties die geen gegevens versleuteling afdwingen, worden meer blootgesteld
 
 Het beveiligen van gegevens in transit moet een essentieel onderdeel zijn van uw strategie voor gegevens beveiliging. Omdat de gegevens naar een groot aantal locaties worden verplaatst, wordt u geadviseerd om altijd SSL/TLS-protocollen te gebruiken voor het uitwisselen van gegevens tussen verschillende locaties. In sommige gevallen wilt u mogelijk het volledige communicatie kanaal tussen uw on-premises en Cloud infrastructuren isoleren met behulp van een VPN.
 
-Als u gegevens wilt verplaatsen tussen uw on-premises infra structuur en Azure, moet u rekening houden met de juiste veiligheids maatregelen zoals HTTPS of VPN. Gebruik [Azure VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/)bij het verzenden van versleuteld verkeer tussen een virtueel Azure-netwerk en een on-premises locatie via het open bare Internet.
+Als u gegevens wilt verplaatsen tussen uw on-premises infra structuur en Azure, moet u rekening houden met de juiste veiligheids maatregelen zoals HTTPS of VPN. Gebruik [Azure VPN gateway](../../vpn-gateway/index.yml)bij het verzenden van versleuteld verkeer tussen een virtueel Azure-netwerk en een on-premises locatie via het open bare Internet.
 
 Hieronder vindt u aanbevolen procedures voor het gebruik van Azure VPN Gateway, SSL/TLS en HTTPS.
 
@@ -113,7 +113,7 @@ Hieronder vindt u aanbevolen procedures voor het gebruik van Azure VPN Gateway, 
 **Aanbevolen procedure**: Interactie met Azure Storage via de Azure Portal.   
 **Details**: Alle trans acties worden uitgevoerd via HTTPS. U kunt ook [opslag rest API](https://msdn.microsoft.com/library/azure/dd179355.aspx) over https gebruiken om te communiceren met [Azure Storage](https://azure.microsoft.com/services/storage/).
 
-Organisaties die gegevens in de overdracht niet kunnen [beveiligen, zijn](https://technet.microsoft.com/library/gg195641.aspx)gevoeliger voor [man-in-the-middle-aanvallen en het overnemen van](https://technet.microsoft.com/library/gg195821.aspx)sessies. Deze aanvallen kunnen de eerste stap zijn in het verkrijgen van toegang tot vertrouwelijke gegevens.
+Organisaties die gegevens in de overdracht niet kunnen beveiligen, zijn gevoeliger voor [man-in-the-middle-aanvallen en het overnemen van](https://technet.microsoft.com/library/gg195821.aspx)sessies. [](https://technet.microsoft.com/library/gg195641.aspx) Deze aanvallen kunnen de eerste stap zijn in het verkrijgen van toegang tot vertrouwelijke gegevens.
 
 ## <a name="secure-email-documents-and-sensitive-data"></a>Beveiligde e-mail, documenten en gevoelige gegevens
 
