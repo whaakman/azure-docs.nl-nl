@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab2aa4415345747a0e87b90ef0a7ee770ef3465
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e8095b4fa6e52b7c34cedaea35b129ab68dddc65
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608122"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532952"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Basislijn beleid: MFA vereisen voor Service beheer (preview-versie)
 
@@ -32,21 +32,21 @@ Het gebruik van Azure Resource Manager voor het beheren van uw services is een z
 
 Zodra dit beleid is ingeschakeld in een Tenant, worden alle gebruikers die zich aanmelden bij Azure-beheer resources, gevraagd met multi-factor Authentication. Als de gebruiker niet is geregistreerd voor MFA, moet de gebruiker zich registreren met behulp van de Microsoft Authenticator-app om door te gaan.
 
-Gebruik de cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) om interactief aanmelden met [Azure Power shell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)uit te voeren.
+Gebruik de cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) om interactief aanmelden met [Azure Power shell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)uit te voeren.
 
 ```PowerShell
 Connect-AzAccount
 ```
 
-Wanneer deze cmdlet wordt uitgevoerd, vertegenwoordigt deze een tokenreeks. Als u zich wilt aanmelden, kopieert u deze teken reeks [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)en plakt u  deze in een browser. Uw PowerShell-sessie wordt geverifieerd om verbinding te maken met Azure.
+Wanneer deze cmdlet wordt uitgevoerd, vertegenwoordigt deze een tokenreeks. Als u zich wilt aanmelden, kopieert u deze teken reeks [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) en plakt u deze in een browser. Uw PowerShell-sessie wordt geverifieerd om verbinding te maken met Azure.
 
-Voer de opdracht [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) uit om interactief aanmelden met behulp van [Azure cli](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)uit te voeren.
+Voer de opdracht [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) uit om interactief aanmelden met behulp van [Azure cli](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)uit te voeren.
 
 ```azurecli
 az login
 ```
 
-Als de CLI uw standaardbrowser kan openen, gebeurt dat ook en wordt er een aanmeldingspagina gedownload. Anders moet u een browser pagina openen en de instructies op de opdracht regel volgen om een autorisatie code in te voeren nadat u [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in uw browser hebt genavigeerd. Meld u vervolgens aan met uw account referenties in de browser.
+Als de CLI uw standaardbrowser kan openen, gebeurt dat ook en wordt er een aanmeldingspagina gedownload. Anders moet u een browser pagina openen en de instructies op de opdracht regel volgen om een autorisatie code in te voeren nadat u [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in uw browser hebt genavigeerd. Meld u vervolgens aan met uw account referenties in de browser.
 
 ## <a name="deployment-considerations"></a>Overwegingen bij de implementatie
 
@@ -58,11 +58,11 @@ Beleid voor **beleids basislijn: Vereisen dat MFA voor Service Management (previ
 
 Om dit beleid in te scha kelen en uw beheerders te beschermen:
 
-1. Meld u aan bij de **Azure Portal** als globale beheerder, beveiligings beheerder of beheerder van de voorwaardelijke toegang.
+1. Meld u aan bij de **Azure Portal** als globale beheerder, beveiligings beheerder of beheerder van de voorwaardelijke toegang.
 1. Blader naar **Azure Active Directory** > **voorwaardelijke toegang**.
 1. Selecteer **basislijn beleid in de lijst met beleids regels: MFA vereisen voor Service beheer (preview)** .
 1. Stel **beleid inschakelen** om **beleid direct te gebruiken**in.
-1. Klik op **Opslaan**.
+1. Klik op **Opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

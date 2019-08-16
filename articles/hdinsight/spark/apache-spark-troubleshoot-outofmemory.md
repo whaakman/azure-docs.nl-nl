@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: a8351f13f015ca53e72bbff41152e46690fdc7bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 08/15/2019
+ms.openlocfilehash: f6ff654b8e51dfaf2697df69c7f220d41346c2bc
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855735"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543478"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>OutOfMemoryError-uitzonde ringen voor Apache Spark in azure HDInsight
 
@@ -53,13 +53,13 @@ java.lang.OutOfMemoryError
 
 ### <a name="cause"></a>Oorzaak
 
-De meest waarschijnlijke oorzaak van deze uitzonde ring is onvoldoende geheugen op de opslag ruimte. Uw Spark-toepassing vereist voldoende JVM-heap-geheugen (Java Virtual Machines) wanneer u als uitvoerender of stuur programma wordt uitgevoerd.
+De meest waarschijnlijke oorzaak van deze uitzondering is dat niet voldoende heapgeheugen is toegewezen aan de Java virtual machines (JVMs). Deze JVMs worden als uitvoerende toepassingen of stuur Programma's geïntroduceerd als onderdeel van de Apache Spark toepassing.
 
 ### <a name="resolution"></a>Oplossing
 
 1. Bepaal de maximale grootte van de gegevens die de Spark-toepassing moet verwerken. Maak een schatting van de grootte op basis van het maximum van de invoer gegevens, de tussenliggende gegevens die worden geproduceerd door het transformeren van de invoer gegevens en de uitvoer gegevens die de tussenliggende gegevens hebben getransformeerd. Als de oorspronkelijke schatting niet voldoende is, verg root u de grootte en herhaalt u dit tot de geheugen fouten.
 
-1. Zorg ervoor dat het HDInsight-cluster dat u wilt gebruiken, over voldoende resources (geheugen en kernen) beschikt voor uitvoering van de Spark-toepassing. Raadpleeg om dit te bepalen het gedeelte Cluster Metrics in de YARN-gebruikersinterface van het cluster. Hier ziet u de waarden voor het gebruikte geheugen (Memory Used) versus het totale geheugen (Memory Total) en de waarden voor het aantal gebruikte kernen (VCores Used) versus het totale aantal kernen (VCores Total).
+1. Zorg ervoor dat het HDInsight-cluster dat u wilt gebruiken, over voldoende resources (geheugen en kernen) beschikt voor uitvoering van de Spark-toepassing. Dit kan worden bepaald door de sectie cluster metrieken van de garen-gebruikers interface van het cluster te bekijken voor de waarden van het **gebruikte geheugen** versus. **Totaal geheugen** en **VCores gebruikt** vs. **Totaal aantal VCores**.
 
     ![kern geheugen weergave van garen](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 

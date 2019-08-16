@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d85fc7ed16f397cb91232e9648df4e8741b37a
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705782"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533696"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Hardcoded koppelingen omleiden voor apps die zijn gepubliceerd met Azure AD-toepassingsproxy
 
@@ -30,13 +30,16 @@ Azure AD-toepassingsproxy maakt uw on-premises apps beschikbaar voor gebruikers 
 De beste manier om ervoor te zorgen dat koppelingen werken die zowel binnen als buiten uw bedrijfs netwerk zijn, is door de externe Url's van uw apps zo te configureren dat deze hetzelfde zijn als de interne Url's. Gebruik [aangepaste domeinen](application-proxy-configure-custom-domain.md) om uw externe url's te configureren voor de naam van uw bedrijfs domein in plaats van het standaard domein voor de toepassings proxy.
 
 
-Als u geen aangepaste domeinen in uw Tenant kunt gebruiken, zijn er enkele andere opties voor het bieden van deze functionaliteit. Al deze zijn ook compatibel met aangepaste domeinen en elkaar, zodat u zo nodig aangepaste domeinen en andere oplossingen kunt configureren. 
+Als u geen aangepaste domeinen in uw Tenant kunt gebruiken, zijn er enkele andere opties voor het bieden van deze functionaliteit. Al deze zijn ook compatibel met aangepaste domeinen en elkaar, zodat u zo nodig aangepaste domeinen en andere oplossingen kunt configureren.
+
+> [!NOTE]
+> Koppelings vertalingen worden niet ondersteund voor in code vastgelegde interne Url's die via Java script worden gegenereerd.
 
 **Optie 1: De Managed browser of micro soft Edge** gebruiken: deze oplossing is alleen van toepassing als u van plan bent om aan te bevelen of gebruikers toegang tot de toepassing te geven via de intune Managed browser of micro soft Edge-browser. Alle gepubliceerde Url's worden verwerkt. 
 
 **Optie 2: De MyApps-extensie** gebruiken: voor deze oplossing moeten gebruikers een browser extensie aan de client zijde installeren, maar alle gepubliceerde url's worden verwerkt en werkt met de meeste populaire browsers. 
 
-**Optie 3: Gebruik de instelling** voor het converteren van koppelingen: dit is een instelling aan de beheerder zijde die onzichtbaar is voor gebruikers. Er worden echter alleen Url's verwerkt in HTML en CSS. In code vastgelegde interne Url's die worden gegenereerd via Java script (bijvoorbeeld), werken niet.  
+**Optie 3: Gebruik de instelling** voor het converteren van koppelingen: dit is een instelling aan de beheerder zijde die onzichtbaar is voor gebruikers. Er worden echter alleen Url's verwerkt in HTML en CSS.   
 
 Deze drie functies zorgen ervoor dat uw koppelingen werken, ongeacht waar uw gebruikers zich bevinden. Wanneer u apps hebt die rechtstreeks naar interne eind punten of poorten verwijzen, kunt u deze interne Url's toewijzen aan de Url's van de gepubliceerde externe toepassings proxy. 
 
@@ -110,7 +113,7 @@ Daarnaast wordt het URL-kenmerk ook omgezet in CSS.
 
 ### <a name="how-do-apps-link-to-each-other"></a>Hoe maken apps verbinding met elkaar?
 
-Koppelings vertalingen zijn ingeschakeld voor elke toepassing, zodat u de gebruikers ervaring op het niveau per app kunt controleren. Schakel koppelings vertalingen voor een app in als u wilt dat de koppelingen *van* die app worden vertaald, en niet *naar die app* . 
+Koppelings vertalingen zijn ingeschakeld voor elke toepassing, zodat u de gebruikers ervaring op het niveau per app kunt controleren. Schakel koppelings vertalingen voor een app in als u wilt dat de koppelingen *van* die app worden vertaald, en niet naar die app. 
 
 Stel bijvoorbeeld dat u drie toepassingen hebt gepubliceerd via een toepassings proxy die helemaal aan elkaar is gekoppeld: Voor delen, kosten en reizen. Er is een vierde app, feedback die niet is gepubliceerd via de toepassings proxy.
 

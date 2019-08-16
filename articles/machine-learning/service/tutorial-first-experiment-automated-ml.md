@@ -5,23 +5,23 @@ description: Meer informatie over het trainen en implementeren van een classific
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 07/23/2019
-ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/14/2019
+ms.openlocfilehash: e53cd92a9dfd8f823918fb38e14c2b73c2ce071f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990077"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534422"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Zelfstudie: Automatische machine learning gebruiken om uw eerste classificatie model te trainen en te implementeren (preview)
+# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Zelfstudie: Uw eerste classificatie model maken met geautomatiseerde machine learning
 
-In deze zelf studie leert u hoe u uw eerste geautomatiseerde machine learning experiment maakt in de Azure Portal. In dit voor beeld wordt een classificatie model gemaakt om te voors pellen of een client zich abonneert op een termijn storting met de Bank.
+In deze zelf studie leert u hoe u uw eerste geautomatiseerde machine learning experiment maakt in de Azure Portal (preview) zonder dat u een regel code hoeft te schrijven. In dit voor beeld wordt een classificatie model gemaakt om te voors pellen of een client zich abonneert op een vaste termijn storting met een financiële instelling.
 
-Door gebruik te maken van de geautomatiseerde machine learning mogelijkheden van de service en de Azure Portal, begint u met het geautomatiseerde machine learning proces. De algoritme selectie en afstemming afstemming voor u worden uitgevoerd. De geautomatiseerde machine learning techniek doorloopt veel combi Naties van algoritmen en Hyper parameters totdat het beste model is gevonden op basis van uw criterium, zonder dat u slechts één regel code hoeft te schrijven.
+Door gebruik te maken van de geautomatiseerde machine learning mogelijkheden van de Azure Machine Learning-service en de Azure Portal, begint u met het geautomatiseerde machine learning proces. De algoritme selectie en afstemming afstemming voor u worden uitgevoerd. De techniek van geautomatiseerde machine learning doorloopt of itereert allerlei combinaties van algoritmen en hyperparameters totdat het beste model wordt gevonden op basis van uw criterium.
 
 In deze zelfstudie leert u het volgende:
 
@@ -36,7 +36,7 @@ In deze zelfstudie leert u het volgende:
 
 * Een Azure-abonnement. Als u geen Azure-abonnement hebt, maakt u een [gratis account](https://aka.ms/AMLFree).
 
-* Het **bankmarketing_train. CSV** -gegevens bestand. [Down load het](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+* Down load het gegevens bestand [ **bankmarketing_train. CSV** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . De **y** -kolom geeft aan of een klant zich heeft geabonneerd op een vaste termijn storting, die later wordt aangeduid als de doel kolom voor voor spellingen in deze zelf studie. 
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken
 
@@ -44,11 +44,14 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="create-an-experiment"></a>Een experiment maken
 
+In deze stappen wordt uitgelegd hoe u een experiment kunt instellen op basis van gegevens selectie om uw primaire metrische gegevens en het model type te kiezen. 
+
 1. Ga naar het linkerdeel venster van uw werk ruimte. Selecteer **automatische machine learning** in het gedeelte **ontwerpen (preview)** .
+U ziet het scherm **Welkom bij automatisch machine learning** , want dit is uw eerste experiment met automatische machine learning.
 
     ![Navigatie deel venster Azure Portal](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
 
-    Omdat dit uw eerste experiment met automatische Machine Learning is, ziet u het scherm **Welkom bij automatisch machine learning** . 
+
 
 1. Selecteer **experiment maken**. Voer vervolgens **mijn-1ste-automl-experiment** in als experiment naam.
 
@@ -64,7 +67,8 @@ In deze zelfstudie leert u het volgende:
 
     Wanneer het maken is voltooid, selecteert u de nieuwe reken kracht in de vervolg keuzelijst en selecteert u vervolgens **volgende**.
 
-1. Voor deze zelf studie gebruiken we het standaard opslag account en de container die zijn gemaakt met uw nieuwe reken proces. Deze worden automatisch ingevuld in het formulier.
+    >[!NOTE]
+    >Voor deze zelf studie gebruiken we het standaard opslag account en de container die zijn gemaakt met uw nieuwe reken proces. Deze worden automatisch ingevuld in het formulier.
 
 1. Selecteer **uploaden** en kies het bestand **bankmarketing_train. CSV** van uw lokale computer om het te uploaden naar de standaard container. Open bare preview ondersteunt alleen lokale bestands uploads en Azure Blob Storage-accounts. Wanneer het uploaden is voltooid, selecteert u het bestand in de lijst. 
 
@@ -116,7 +120,9 @@ Naarmate het experiment vordert, werkt het **detail scherm uitvoeren** het itera
 
 ## <a name="deploy-the-model"></a>Het model implementeren
 
-Voor dit experiment wordt **VotingEnsemble** beschouwd als het beste model, op basis van de **AUC_weighted** -metriek. Door automatische machine learning in het Azure Portal te gebruiken, kunnen we dit model als een webservice implementeren om te voors pellen op nieuwe gegevens. 
+Door gebruik te maken van geautomatiseerde machine learning in de Azure Portal kunnen we het beste model implementeren als een webservice om te voors pellen op nieuwe gegevens en mogelijke mogelijkheden voor verkoop kansen te identificeren. Voor dit experiment houdt dit in dat de financiële instelling nu een herhaalde en schaal bare oplossing heeft voor het identificeren van potentiële klanten met vaste termijn storting.
+
+In dit experiment wordt **VotingEnsemble** beschouwd als het beste model, op basis van de **AUC_weighted** -metriek.  We implementeren dit model, maar u wordt aangeraden de implementatie ongeveer 20 minuten te volt ooien.
 
 1. Selecteer op de pagina **detail gegevens uitvoeren** de knop **beste model implementeren** .
 
@@ -129,13 +135,13 @@ Voor dit experiment wordt **VotingEnsemble** beschouwd als het beste model, op b
     Score script| Automatisch genereren
     Omgevings script| Automatisch genereren
     
-1. Selecteer **Implementeren**. Het volt ooien van de implementatie duurt ongeveer 20 minuten.
+1. Selecteer **Implementeren**.
 
     Het volgende bericht wordt weer gegeven wanneer de implementatie is voltooid:
 
     ![Implementatie voltooid](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
     
-    Dat is alles. U hebt een Operational web service voor het genereren van voor spellingen.
+    U hebt nu een Operational web service voor het genereren van voor spellingen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -159,7 +165,10 @@ Verwijder alleen het implementatie-exemplaar van de Azure Portal als u de resour
 
 In deze zelf studie voor automatisch machine learning hebt u de Azure Portal gebruikt voor het maken en implementeren van een classificatie model. Zie deze artikelen voor meer informatie en volgende stappen:
 
-+ Meer informatie over het [gebruik van een webservice](how-to-consume-web-service.md).
+> [!div class="nextstepaction"]
+> [Een webservice gebruiken](how-to-consume-web-service.md)
+
+
 + Meer informatie over voor [verwerking](how-to-create-portal-experiments.md#preprocess).
 + Meer informatie over [gegevens profilering](how-to-create-portal-experiments.md#profile).
 + Meer informatie over [automatische machine learning](concept-automated-ml.md).

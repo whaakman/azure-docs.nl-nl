@@ -3,7 +3,7 @@ title: Tokens beheren (micro soft-verificatie bibliotheek) | Azure
 description: Meer informatie over het verkrijgen en caching van tokens met behulp van de micro soft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6148f6f9d449dc5aa55da2f041119a8b706491b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: d4f7914744073f82d8a35d3679a1c65459e10b2f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835096"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532900"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Tokens verkrijgen en cachen met behulp van MSAL
 Met [toegangs tokens](access-tokens.md) kunnen clients veilig Web-api's aanroepen die worden beveiligd door Azure. Er zijn veel manieren om een token te verkrijgen met behulp van micro soft Authentication Library (MSAL). Voor sommige manieren is interactie van de gebruiker vereist via een webbrowser. Voor sommige gebruikers interacties is geen interactie van de gebruiker vereist. Over het algemeen is het mogelijk om een token te verkrijgen, afhankelijk van of de toepassing een open bare-client toepassing (desktop-of mobiele app) of een vertrouwelijke client toepassing (Web-app, Web-API of daemon-toepassing, zoals een Windows-service) is.

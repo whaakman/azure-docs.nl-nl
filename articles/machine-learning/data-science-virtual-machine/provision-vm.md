@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: vijetaj
-ms.openlocfilehash: dfb3e9f6390d4c80b8f3c37b87f2659c671fa823
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 488dc7db01bd865268e143b68cdaccd989010912
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591819"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534930"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Een Windows-Data Science Virtual Machine inrichten in azure
 
@@ -48,6 +48,7 @@ De volgende hulpprogram ma's zijn opgenomen in een DSVM:
   * [Apache Drill](https://drill.apache.org/) -een SQL-query engine zonder schema voor Apache Hadoop-, NoSQL-en Cloud opslag. ODBC- en JDBC-interfaces worden ondersteund voor het uitvoeren van query's NoSQL en bestanden van standard BI-hulpprogramma's zoals Power BI, Microsoft Excel en Tableau.
 * Bibliotheken in R en Python voor gebruik in Azure Machine Learning en andere Azure-services
 * GIT, met inbegrip van Git Bash, om te werken met broncodeopslagplaatsen, zoals GitHub en DevOps met Azure. GIT biedt verschillende populaire Linux-opdrachtregelprogramma's die toegankelijk zijn zowel op Git Bash en een opdrachtprompt. Voorbeelden zijn awk, sed, perl, grep, zoeken, wget en curl.
+* Ontwikkelingsprogram ma's en editors (RStudio, PyCharm)
 
 ### <a name="about-data-science"></a>Over gegevens wetenschap
 

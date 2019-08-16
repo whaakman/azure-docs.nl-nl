@@ -7,16 +7,16 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839994"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558868"
 ---
 # <a name="what-are-azure-reservations"></a>Wat zijn Azure-reserveringen?
 
-Azure Reservations helpt u geld te besparen door vooraf te betalen voor virtuele machines van één of drie jaar, SQL Database reken capaciteit, Azure Cosmos DB door Voer of andere Azure-resources. Als u vooraf betaalt, kunt u een korting krijgen op de resources die u gebruikt. Met reserve ringen kunt u uw virtuele machine aanzienlijk verlagen, SQL database reken-, Azure Cosmos DB-of andere resource kosten tot 72% op prijzen voor betalen per gebruik. Reserve ringen bieden een facturerings korting en zijn niet van invloed op de runtime status van uw resources.
+Azure Reservations helpt u geld te besparen door vooraf te betalen voor virtuele machines van één of drie jaar, SQL Database reken capaciteit, Azure Cosmos DB door Voer of andere Azure-resources. Door vooraf te betalen krijgt u korting op de resources die u gebruikt. Met reserve ringen kunt u uw virtuele machine aanzienlijk verlagen, SQL database reken-, Azure Cosmos DB-of andere resource kosten tot 72% op prijzen voor betalen per gebruik. Reserve ringen bieden een facturerings korting en zijn niet van invloed op de runtime status van uw resources.
 
 U kunt een reserve ring kopen in de [Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
@@ -36,7 +36,7 @@ Voor virtuele Windows-machines en SQL Database, kunt u de licentie kosten met [A
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Wie komt in aanmerking voor aankoop van een reserve ring?
 
-Als u een plan wilt kopen, moet u een rol voor abonnements eigenaar hebben in een Enter prise (MS-AZR-0017P-of MS-AZR-0148P) of betalen per gebruik-abonnement (MS-AZR-003P of MS-AZR-0023P). Cloud solution providers kunnen de Azure portal of het [partner centrum](/partner-center/azure-reservations) gebruiken om Azure Reservations te kopen.
+Als u een plan wilt kopen, moet u een rol voor abonnements eigenaar hebben in een Enter prise (MS-AZR-0017P-of MS-AZR-0148P) of betalen per gebruik-abonnement (MS-AZR-0003P of MS-AZR-0023P). Cloud solution providers kunnen de Azure portal of het [partner centrum](/partner-center/azure-reservations) gebruiken om Azure Reservations te kopen.
 
 Enterprise Agreement (EA)-klanten kunnen aankopen beperken tot EA-beheerders door de optie **gereserveerde instanties toevoegen** uit te scha kelen in de EA-Portal. EA-beheerders moeten een eigenaar van het abonnement zijn voor ten minste één EA-abonnement voor het aanschaffen van een reserve ring. De optie is handig voor bedrijven die willen dat een gecentraliseerd team reserve ringen voor verschillende kosten plaatsen kan aanschaffen. Na de aankoop kunnen gecentraliseerde teams eigen aren van kosten plaatsen toevoegen aan de reserve ringen. Eigen aren kunnen vervolgens de reserve ring op hun abonnementen bereiken. Het centrale team hoeft geen eigenaar van het abonnement te hebben waar de reserve ring wordt aangeschaft.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 77bf284734428e9257b46d85296796e4051ace26
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 44bf3171f9da73dac17b29e86c80fc8f0d011498
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494828"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557934"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -72,7 +72,7 @@ Alle Azure Policy-voor beelden zijn Azure Policy-voor [beelden](../samples/index
 
 ## <a name="mode"></a>Modus
 
-De **modus** is geconfigureerd, afhankelijk van het beleid dat is gericht op een Azure Resource Manager eigenschap of een bron provider eigenschap.
+De **modus** is geconfigureerd, afhankelijk van of het beleid is gericht op een Azure Resource Manager eigenschap of een bron provider eigenschap.
 
 ### <a name="resource-manager-modes"></a>Resource Manager-modi
 
@@ -314,7 +314,7 @@ Voor waarden kunnen ook worden gevormd met behulp van een **waarde**. **waarde**
 
 #### <a name="value-examples"></a>Voor beelden van waarden
 
-In dit voor beeld van een beleids regel wordt de **waarde** gebruikt `resourceGroup()` om het resultaat van de functie en de  eigenschap geretourneerde `*netrg` **naam** te vergelijken met een like-voor waarde van. De regel weigert resources die niet van het `Microsoft.Network/*` **type** zijn in een resource groep waarvan de naam `*netrg`eindigt op.
+In dit voor beeld van een beleids regel wordt de **waarde** gebruikt `resourceGroup()` om het resultaat van de functie en de eigenschap geretourneerde `*netrg` **naam** te vergelijken met een like-voor waarde van. De regel weigert resources die niet van het `Microsoft.Network/*` **type** zijn in een resource groep waarvan de naam `*netrg`eindigt op.
 
 ```json
 {

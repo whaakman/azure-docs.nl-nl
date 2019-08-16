@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 8f180308133ffba12cc3bffb19130aa7a129da9f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952909"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543678"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob-opslag: dynamische, koele en archief toegangs lagen
 
@@ -80,6 +80,7 @@ Voor beelden van gebruiks scenario's voor de Access-laag voor archiveren zijn:
 ### <a name="blob-rehydration"></a>Rehydratatie van blobs
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
+Zie [BLOB-gegevens opnieuw inbreken van de archief laag](storage-blob-rehydration.md) voor meer informatie.  
 
 ## <a name="account-level-tiering"></a>Lagen op account niveau
 
@@ -164,11 +165,13 @@ In deze sectie worden de volgende scenario‘s toegelicht, waarbij gebruik wordt
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-1. Als u naar de BLOB in uw opslag account wilt gaan, selecteert u **alle resources**, selecteert u uw opslag account, selecteert u de container en selecteert u vervolgens uw blob.
+1. Als u naar de blob in uw opslagaccount wilt gaan, selecteert u achtereenvolgens Alle resources, uw opslagaccount, uw container en uw blob.
 
-1. Selecteer in de Blade **BLOB-eigenschappen** de vervolg keuzelijst **Access-laag** om de Access-laag **Hot**, **cool**of **Archive** te selecteren.
+1. Selecteer op de Blade **BLOB-eigenschappen** de knop **laag wijzigen** om de Blade laag te openen.
 
-1. Klik op **Opslaan** boven aan de blade.
+1. Selecteer de Access-laag **Hot**, **cool**of **Archive** . Als uw BLOB zich momenteel in het archief bevindt en u wilt opnieuw worden gehydrateerd naar een online-laag, kunt u ook een onhydrate prioriteit van **Standard** of **High**selecteren.
+
+1. Klik op **OK** onder aan de blade.
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 
@@ -245,6 +248,8 @@ Gegevens opslag en andere limieten worden ingesteld op account niveau en niet pe
 [De beschikbaarheid controleren van de dynamische, statische en archieflaag per regio](https://azure.microsoft.com/regions/#services)
 
 [De levens cyclus van Azure Blob-opslag beheren](storage-lifecycle-management-concepts.md)
+
+[Meer informatie over reactiveren BLOB-gegevens uit de laag archief](storage-blob-rehydration.md)
 
 [Gebruik van de huidige opslagaccounts evalueren door metrische gegevens voor Azure Storage in te schakelen](../common/storage-enable-and-view-metrics.md)
 

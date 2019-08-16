@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 49f46c09cfcfef2ab1e74ae7c08d9a54289293ac
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990482"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534840"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Zelfstudie: Geautomatiseerde machine learning gebruiken om uw regressiemodel te bouwen
 
@@ -42,36 +42,11 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorlopen, of gebruik de onderstaande instructies om het notebook op te halen en uit te voeren op Azure Notebooks of uw eigen notebookserver. U hebt het volgende nodig om het notebook uit te voeren:
+* Voltooi een deel van de [zelf studie voor gegevens voorbereiding](tutorial-data-prep.md).
 
-* [Voer de zelfstudie voor gegevensvoorbereiding uit](tutorial-data-prep.md).
-* Een Python 3.6 notebook-server met het volgende geïnstalleerd:
-    * De Azure Machine Learning-SDK voor Python met extra's voor `automl` en `notebooks`
-    * `matplotlib`
-* De zelfstudienotebook
-* Een machine learning-werkruimte
-* Het configuratiebestand voor de werkruimte in dezelfde directory als het notebook
+* Nadat u het deel één hebt voltooid, opent u de notebook **zelf studies/Regression-part2-Automated-ml. ipynb** met dezelfde notebook server.
 
-Haal al deze vereisten op uit een van de secties hieronder.
-
-* Een [Cloud notebook server gebruiken in uw werk ruimte](#azure)
-* [Uw eigen Notebook-server](#server) gebruiken
-
-### <a name="azure"></a>Een Cloud notebook server gebruiken in uw werk ruimte
-
-Het is eenvoudig om aan de slag te gaan met uw eigen cloud-gebaseerde Notebook server. De [Azure machine learning SDK voor python](https://aka.ms/aml-sdk) is al geïnstalleerd en geconfigureerd voor u nadat u deze Cloud resource hebt gemaakt.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Nadat u de webpagina voor het notitie blok hebt gestart, voert u de notebook **zelf studies/Regression-part2-Automated-ml. ipynb** uit.
-
-### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
-
-Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Zorg ervoor dat u installeert `matplotlib` en de `automl` en `notebooks` de extra's in uw omgeving.
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-Nadat u de stappen hebt uitgevoerd, voert u de notebook **tutorials/regression-part2-automated-ml.ipynb** uit.
+Deze zelf studie is ook beschikbaar op [github](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) als u deze wilt gebruiken in uw eigen [lokale omgeving](how-to-configure-environment.md#local).  Zorg ervoor dat u hebt `matplotlib` geïnstalleerd en `automl` de `notebooks` en de extra's van de Azure machine learning SDK.
 
 ## <a name="start"></a>De ontwikkelomgeving instellen
 

@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf063311e5559ddf5706df397ce744a726610000
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667347"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534703"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Oplossingen voor Updatebeheer, Wijzigingen bijhouden en inventaris inschakelen op meerdere Vm's
 
@@ -45,7 +45,7 @@ De lijst met virtuele machines wordt gefilterd om alleen de virtuele machines we
 
 ### <a name="resource-group-limit"></a>Beperkingen voor onboarding
 
-Het aantal resource groepen dat u voor onboarding kunt gebruiken, wordt beperkt door de [implementatie limieten van Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Implementaties van Resource Manager, niet te verwarren met update-implementaties, zijn beperkt tot 5 Resource groepen per implementatie. 2 van deze resource groepen zijn gereserveerd voor het configureren van de Log Analytics-werk ruimte, het Automation-account en gerelateerde resources om de integriteit van de onboarding te garanderen. U kunt drie resource groepen selecteren voor implementatie.
+Het aantal resource groepen dat u voor onboarding kunt gebruiken, wordt beperkt door de [implementatie limieten van Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Implementaties van Resource Manager, niet te verwarren met update-implementaties, zijn beperkt tot 5 Resource groepen per implementatie. 2 van deze resource groepen zijn gereserveerd voor het configureren van de Log Analytics-werk ruimte, het Automation-account en gerelateerde resources om de integriteit van de onboarding te garanderen. U kunt drie resource groepen selecteren voor implementatie. Deze limiet geldt alleen voor gelijktijdige onboarding, niet het aantal resource groepen dat kan worden beheerd door een Automation-oplossing.
 
 U kunt ook een runbook gebruiken voor onboarding. Zie voor meer informatie [onboard update en oplossingen voor het bijhouden van wijzigingen in azure Automation](automation-onboard-solutions.md).
 

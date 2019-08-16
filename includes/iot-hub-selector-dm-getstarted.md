@@ -4,12 +4,12 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 60c0c700dde5afda2ca93a92b334cbc4f0134043
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 239ea2eb4d5bc8d326d5ca503a18b149252dc1be
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667991"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558695"
 ---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
@@ -24,7 +24,9 @@ Back-end-apps kunnen gebruikmaken van Azure IoT Hub primitieven, zoals [dubbele]
 Gebruik een directe methode om acties voor Apparaatbeheer te initiëren (zoals opnieuw opstarten, fabrieks instellingen en firmware-update) van een back-end-app in de Cloud. Het apparaat is verantwoordelijk voor:
 
 * De methode aanvraag afhandelen die vanuit IoT Hub is verzonden.
+
 * De bijbehorende apparaatspecifieke actie op het apparaat starten.
+
 * Het leveren van status updates via gerapporteerde *Eigenschappen* aan IOT hub.
 
 U kunt een back-end-app in de Cloud gebruiken om Device-dubbele query's uit te voeren om te rapporteren over de voortgang van de acties voor Apparaatbeheer.

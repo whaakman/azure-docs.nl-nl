@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 08/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1361224fb59a32ca227c5ea1e6cc92a4b0fdff6e
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236356"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541809"
 ---
-# <a name="what-is-azure-data-box-disk"></a>Wat is Azure Data Box Disk?
+# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Veelgestelde vragen
 
 Met de cloudoplossing Microsoft Azure Data Box Disk kunt u terabytes aan gegevens op een snelle, goedkope en betrouwbare manier naar Azure verzenden. Hier vindt u antwoorden op vragen die u mogelijk hebt over het gebruik van Data Box-schijven in de Azure-portal. 
 
@@ -51,13 +51,13 @@ A.  Als u Azure Data Box-schijven wilt aanschaffen, meldt u zich aan bij Azure P
 A. Bij vijf schijven van 8 TB (7 TB aan bruikbare capaciteit), bedraagt de maximaal bruikbare capaciteit 35 TB. U kunt dus 35 TB aan gegevens in één keer overdragen. Als u meer gegevens wilt overdragen, moet u meer schijven bestellen.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>V. Hoe kan ik controleren of Data Box Disk in mijn regio beschikbaar is? 
-A.  Als u wilt zien waar de Data Box-schijven die momenteel beschikbaar zijn, gaat u naar de [beschikbaarheid in regio](data-box-disk-overview.md#region-availability).  
+A.  Als u wilt zien waar de Data Box schijven op dit moment beschikbaar zijn, gaat u naar de [Beschik baarheid](data-box-disk-overview.md#region-availability)van de regio.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>V. In welke regio's kan ik gegevens opslaan met Data Box Disk?
-A. Data Box-schijf wordt ondersteund voor alle regio's binnen de VS, Canada, Australië, West-Europa en Noord-Europa, Korea en Japan. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
+A. Data Box Disk wordt ondersteund voor alle regio's binnen de Verenigde Staten, Canada, Australië, Europa-west en Europa-noord, Korea en Japan. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
 
-### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>V. Wordt mijn Data Box-schijf cross-land randen tijdens verzending?
-A. Data Box-schijf in hetzelfde land als hun bestemming worden verzonden en wordt niet overschreden door een land. De enige uitzondering hierop is voor bestellingen in de Europese Unie (EU), waarbij schijven verzonden naar en van alle EU-landen worden kunnen.
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>V. Worden de land grenzen van mijn Data Box Disk tijdens de verzen ding?
+A. Data Box Disk worden verzonden vanuit hetzelfde land als hun bestemming en er worden geen internationale grenzen in rekening gebracht. De enige uitzonde ring hierop is voor orders in de Europese Unie (EU), waarbij schijven kunnen worden verzonden naar en naar elk land van de EU.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>V. Met wie moet ik contact opnemen als ik een probleem krijg met Data Box-schijven?
 A. Neem bij problemen met Data Box-schijven contact op met [Microsoft Ondersteuning](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -129,14 +129,14 @@ A.  Nee. Er wordt momenteel slechts één (algemeen of klassiek) opslagaccount o
 A. Er zijn drie hulpprogramma's beschikbaar voor Data Box Disk:
  - Het **ontgrendelingsprogramma voor Data Box Disk**: Gebruik dit hulpprogramma om de versleutelde schijven van Microsoft te ontgrendelen. Wanneer u schijven ontgrendelt met het hulpprogramma moet u een wachtwoordsleutel opgeven. Deze vindt u in de gegevens van de Data Box Disk-bestelling in de Azure-portal. 
  - **Het validatieprogramma van Data Box Disk**: Gebruik dit hulpprogramma voor het controleren van de grootte, de indeling en de blob-namen op basis van de Azure-naamconventies. Hiermee worden ook controlesommen voor de gekopieerde gegevens gemaakt. Deze worden vervolgens gebruikt voor het verifiëren van de gegevens die naar Azure worden geüpload.
- - **Het splits- en kopieerprogramma voor Data Box Disk**: U dit hulpprogramma gebruiken als u meerdere schijven gebruikt en u over een grote gegevensset beschikt die moet worden gesplitst en gekopieerd naar alle schijven. Dit hulpprogramma is momenteel beschikbaar voor Windows. Dit hulpprogramma wordt niet ondersteund met beheerde schijven. Dit hulpprogramma ook gevalideerd als de gegevens worden gekopieerd, daarom kunt u de validatiestap overslaan bij het gebruik van dit hulpprogramma.
+ - **Het splits- en kopieerprogramma voor Data Box Disk**: U dit hulpprogramma gebruiken als u meerdere schijven gebruikt en u over een grote gegevensset beschikt die moet worden gesplitst en gekopieerd naar alle schijven. Dit hulpprogramma is momenteel beschikbaar voor Windows. Dit hulp programma wordt niet ondersteund met Managed disks. Dit hulp programma valideert ook bij het kopiëren van de gegevens. Daarom kunt u de validatie stap overs Laan wanneer u dit hulp programma gebruikt.
 
 De set hulpprogramma's is beschikbaar voor zowel Windows als Linux. U kunt de set hulpprogramma's hier downloaden:
 - [Data Box Disk-toolset voor Windows downloaden](https://aka.ms/databoxdisktoolswin) 
 - [Data Box Disk-toolset voor Linux downloaden](https://aka.ms/databoxdisktoolslinux)
  
 ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>V. Kan ik Data Box Disk gebruiken om gegevens over te brengen naar Azure Files en vervolgens de gegevens gebruiken met Azure File Sync? 
-A. Azure Files met Data Box-schijf worden ondersteund, maar werkt niet goed met Azure File Sync. Metagegevens worden niet bewaard als de gegevens uit een bestand wordt gebruikt met Azure File Sync.
+A. Azure Files worden ondersteund met Data Box Disk, maar werken niet goed met Azure File Sync. Meta gegevens blijven niet behouden als de bestands gegevens worden gebruikt met Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Verifiëren en uploaden
@@ -145,7 +145,7 @@ A. Azure Files met Data Box-schijf worden ondersteund, maar werkt niet goed met 
 A.  Zodra de bestellingsstatus voor Gegevens kopiëren als voltooid is aangemerkt, hebt u weer toegang tot uw gegevens.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>V. Waar bevinden zich mijn gegevens in Azure na het uploaden?
-A.  Als u de gegevens onder de mappen *BlockBlob* en *PageBlob* op uw schijf kopieert, wordt er voor elke submap onder de mappen *BlockBlob* en *PageBlob* een container gemaakt in het Azure Storage-account. Als u de bestanden onder de mappen *BlockBlob* en *PageBlob* rechtstreeks hebt gekopieerd, bevinden deze zich in de standaardcontainer *$root* onder het Azure Storage-account. Wanneer u de gegevens kopieert naar een map onder *AzureFile* map, een bestandsshare is gemaakt.
+A.  Als u de gegevens onder de mappen *BlockBlob* en *PageBlob* op uw schijf kopieert, wordt er voor elke submap onder de mappen *BlockBlob* en *PageBlob* een container gemaakt in het Azure Storage-account. Als u de bestanden onder de mappen *BlockBlob* en *PageBlob* rechtstreeks hebt gekopieerd, bevinden deze zich in de standaardcontainer *$root* onder het Azure Storage-account. Wanneer u de gegevens naar een map onder *AzureFile* map kopieert, wordt een file share gemaakt.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>V. Ik heb gemerkt dat ik de naamgevingsvereisten voor Azure niet voor mijn containers heb gevolgd. Worden mijn gegevens niet naar Azure geüpload?
 A. Als de containernamen hoofdletters bevatten, worden deze automatisch naar kleine letters omgezet. Als de namen anderszins niet aan de vereisten voldoen (speciale tekens, andere taal, enzovoort), dan worden er geen gegevens geüpload. Ga voor meer informatie naar [Naamconventies](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
@@ -165,14 +165,14 @@ A. Ja. Als u besluit uw gegevens te valideren (aanbevolen), moet u de validatie 
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>V. Ik heb al mijn schijven gebruikt om gegevens over te dragen. Ik wil meer schijven bestellen. Kan ik dat op een snelle manier doen?
 A. U kunt een kloon maken van uw vorige bestelling. Hierdoor maakt u dezelfde bestelling als eerst en kunt u de details van de bestelling bewerken zonder dat u opnieuw uw adres, contactgegevens en meldingsinformatie hoeft te typen.
 
-### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>V. Kan ik gegevens naar ManagedDisk map gekopieerd. Ik zie niet alle beheerde schijven met de resourcegroep die is opgegeven voor beheerde schijven. Mijn gegevens geüpload naar Azure en hoe ik hem kunnen vinden?
-A. Ja. Uw gegevens is geüpload naar Azure, maar als er geen beheerde schijven met de opgegeven resource-groepen, is het waarschijnlijk omdat de gegevens niet geldig is. Als de pagina-blobs, blok-blobs, Azure Files, en beheerde schijven niet geldig zijn, zou deze gaat u naar de volgende mappen:
- - Pagina-blobs zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-pb -* .
- - Azure Files zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-af -* .
- - Beheerde schijven zou gaat u naar een blok-blob-container beginnen met *databoxdisk-ongeldige-md -* .
+### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>V. Ik heb gegevens gekopieerd naar de map ManagedDisk. Ik zie geen Managed disks met de resource groep die is opgegeven voor beheerde schijven. Zijn mijn gegevens geüpload naar Azure en hoe kan ik deze vinden?
+A. Ja. Uw gegevens zijn geüpload naar Azure, maar als u geen beheerde schijven met de opgegeven resource groepen ziet, is het waarschijnlijk dat de gegevens ongeldig zijn. Als de pagina-blobs, blok-blobs, Azure Files en Managed disks niet geldig zijn, gaan ze naar de volgende mappen:
+ - Pagina-blobs gaan naar een blok-BLOB-container die begint met *databoxdisk-ongeldig-PB*-.
+ - Azure Files gaat naar een blok-BLOB-container die begint met *databoxdisk-ongeldig-af-* .
+ - Beheerde schijven gaan naar een blok-BLOB-container, te beginnen met *databoxdisk-ongeldig-MD-* .
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Controleer de [Data Box-schijf systeemvereisten](data-box-disk-system-requirements.md).
+- Bekijk de [Data Box disk systeem vereisten](data-box-disk-system-requirements.md).
 - De [Limieten voor Data Box Disk](data-box-disk-limits.md) begrijpen.
 - Snel [Azure Data Box Disk](data-box-disk-quickstart-portal.md) in Azure Portal implementeren.

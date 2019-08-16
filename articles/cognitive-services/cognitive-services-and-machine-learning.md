@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/15/2019
 ms.author: diberry
-ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697927"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535215"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services en machine learning
 
@@ -79,7 +79,7 @@ Services die een volledig getraind model bieden, kunnen worden behandeld als een
 
 Met sommige services kunt u uw eigen gegevens meenemen en vervolgens een model trainen. Hierdoor kunt u het model uitbreiden met behulp van de gegevens en het algoritme van de service met uw eigen gegevens. De uitvoer komt overeen met uw behoeften. Wanneer u uw eigen gegevens meebrengt, moet u mogelijk de gegevens labelen op een manier die specifiek is voor de service. Als u bijvoorbeeld een model traint om bloemen aan te duiden, kunt u een catalogus van bloem afbeeldingen samen met de locatie van de bloem in elke afbeelding opgeven om het model te trainen. 
 
-Met een service _kunt u gegevens_ leveren om de eigen gegevens te verbeteren. Voor een service _moet_ u mogelijk gegevens opgeven. 
+Met een service kunt u gegevens leveren om de eigen gegevens te verbeteren. Voor een service _moet_ u mogelijk gegevens opgeven. 
 
 ### <a name="real-time-or-near-real-time-data-required"></a>Realtime of bijna realtime gegevens vereist
 
@@ -131,6 +131,10 @@ Cognitive Services die export modellen bieden voor andere machine learning-hulpp
 |--|--|
 |[Custom Vision](./custom-vision-service/home.md)|[Exporteren](./Custom-Vision-Service/export-model-python.md) voor tensor flow voor Android, CoreML voor IOS11, ONNX voor Windows ml|
 
+## <a name="learn-more"></a>Meer informatie
+
+* [Architectuur handleiding-wat zijn de machine learning producten van micro soft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Machine learning-Inleiding tot diep gaande informatie versus machine learning](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

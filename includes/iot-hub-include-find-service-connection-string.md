@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 07/16/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b6ca43616a2e7e7611b122bce5c95084e1fd5012
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 55cdd864d73ce084d994c64233e79d5a58b17def
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402408"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558495"
 ---
 <!-- This tells how to get the connection string for the service shared access policy of your IoT hub -->
 
 Voer de volgende stappen uit om de IoT Hub connection string voor het **service** beleid op te halen:
 
-1. Open uw IoT-hub in de [Azure Portal](https://portal.azure.com).  De eenvoudigste manier om uw IoT-hub te bereiken, is door **resource groepen**te selecteren, de resource groep te selecteren waar uw IOT-hub zich bevindt en vervolgens uw IOT-hub te selecteren in de lijst met resources.
+1. Selecteer **resource groepen**In het [Azure Portal](https://portal.azure.com). Selecteer de resource groep waar uw hub zich bevindt en selecteer vervolgens uw hub in de lijst met resources.
 
-2. Selecteer in het linkerdeel venster van uw IoT-hub het **beleid voor gedeelde toegang**.
+1. Selecteer in het linkerdeel venster van uw IoT-hub het **beleid voor gedeelde toegang**.
 
-3. Selecteer het **service** beleid in de lijst met beleids regels.
+1. Selecteer het **service** beleid in de lijst met beleids regels.
 
-4. Onder **gedeelde toegangs sleutels**selecteert u het Kopieer pictogram voor de **verbindings reeks--primaire sleutel** en slaat u de waarde op.
+1. Onder **gedeelde toegangs sleutels**selecteert u het Kopieer pictogram voor de **verbindings reeks--primaire sleutel** en slaat u de waarde op.
 
     ![Het ophalen van de verbindingsreeks](./media/iot-hub-include-find-service-connection-string/iot-hub-get-connection-string.png)
 

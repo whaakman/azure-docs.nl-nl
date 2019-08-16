@@ -5,21 +5,25 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e2e91dc91cf0fbe6827808785a4c3cc25b06542b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 93f6bc8533218af7f0e6dcd1c5f7be6fe8c00e29
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67175855"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69520830"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>Kan ik mijn eigen interne PKI basis-CA voor een punt-naar-site-verbinding gebruiken?
+### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Kan ik mijn eigen interne PKI-basis certificerings instantie gebruiken voor het genereren van certificaten voor punt-naar-site-connectiviteit?
 
 Ja. Voorheen konen alleen zelfondertekende basiscertificaten worden gebruikt. U kunt nog steeds 20 basiscertificaten uploaden.
+
+### <a name="can-i-use-certificates-from-azure-key-vault"></a>Kan ik certificaten van Azure Key Vault gebruiken?
+
+Nee.
 
 ### <a name="what-tools-can-i-use-to-create-certificates"></a>Welke hulpprogramma's kan ik gebruiken om certificaten te maken?
 
@@ -27,11 +31,11 @@ U kunt uw Enterprise PKI-oplossing (uw interne PKI), Azure PowerShell, MakeCert 
 
 ### <a name="certsettings"></a>Zijn er instructies voor het instellen van het certificaat en de parameters?
 
-* **Interne PKI/Enterprise PKI-oplossing:** Zie de stappen voor het [certificaten genereren](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Interne PKI/Enter prise PKI-oplossing:** Zie de stappen voor het [genereren van certificaten](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
-* **Azure PowerShell:** Zie de [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) artikel voor stappen.
+* **Azure PowerShell:** Raadpleeg het [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) -artikel voor stappen.
 
-* **MakeCert:** Zie de [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) artikel voor stappen.
+* **MakeCert:** Zie het artikel [makecert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) voor stappen.
 
 * **OpenSSL:** 
 

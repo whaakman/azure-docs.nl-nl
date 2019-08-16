@@ -1,6 +1,6 @@
 ---
-title: SAP HANA Azure virtuele machine opslagconfiguraties | Microsoft Docs
-description: Aanbevelingen voor opslag voor virtuele machine met SAP HANA in ze zijn geïmplementeerd.
+title: Opslag configuraties voor virtuele Azure-machines SAP HANA | Microsoft Docs
+description: Opslag aanbevelingen voor de virtuele machine waarop SAP HANA geïmplementeerd.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -13,83 +13,83 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/05/2019
+ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d062b6fff9693d5bda75edd65b8fe88d834eff57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b363c9da195794f6356539ffca46101edf431c2
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735509"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533871"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraties van SAP HANA in virtuele Azure-machineopslag
 
-Azure biedt verschillende typen opslag die geschikt zijn voor Azure-VM's waarop SAP HANA. De Azure storage-typen die kunnen worden overwogen om de lijst met de SAP HANA-implementaties, zoals: 
+Azure biedt verschillende soorten opslag die geschikt zijn voor Azure-Vm's met SAP HANA. De Azure Storage-typen die kunnen worden overwogen voor SAP HANA implementaties lijst zoals: 
 
-- Standaard SSD-schijven (SSD)
-- Premium Solid-State drives (SSD)
-- Ultra SSD in openbare preview en nog niet ondersteund met SAP-toepassingen voor productie
+- Standard-SSD schijf stations (SSD)
+- Premium Solid State-schijven (SSD)
+- [Ultra Disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-ultra-ssd) 
 
-Zie het artikel voor meer informatie over deze schijftypen, [een schijf selecteren](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
+Zie het artikel [een schijf type selecteren](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types) voor meer informatie over deze schijf typen.
 
-Azure biedt twee methoden voor het implementeren van VHD's op Azure Standard en Premium-opslag. Als de algehele scenario toestaat, profiteren van [Azure beheerde schijf](https://azure.microsoft.com/services/managed-disks/) implementaties. 
+Azure biedt twee implementatie methoden voor Vhd's op Azure Standard en Premium Storage. Als het algemene scenario toestaat, Profiteer dan van [Azure Managed Disk](https://azure.microsoft.com/services/managed-disks/) -implementaties. 
 
-Voor een lijst van opslagtypen en de bijbehorende Sla in IOP's en opslag doorvoer, raadpleegt u de [Azure-documentatie voor beheerde schijven](https://azure.microsoft.com/pricing/details/managed-disks/).
+Raadpleeg de [Azure-documentatie voor beheerde schijven](https://azure.microsoft.com/pricing/details/managed-disks/)voor een lijst met opslag typen en de bijbehorende SLA'S in IOPS en opslag doorvoer.
 
-**Aanbeveling: Azure Premium Storage gebruiken in combinatie met Azure Write Accelerator en gebruiken van Azure Managed Disks voor implementatie**
+**Advies Azure Premium Storage gebruiken in combi natie met Azure Write Accelerator en Azure Managed Disks gebruiken voor implementatie**
 
-In de wereld van de on-premises moest u zelden over de i/o-subsystemen en de mogelijkheden ervan. Reden is dat de leverancier van het apparaat nodig om ervoor te zorgen dat de minimale vereisten zijn voldaan voor SAP HANA. Als u de Azure-infrastructuur zelf maakt, moet u rekening houden met enkele van deze vereisten. Enkele van de kenmerken van de minimale doorvoer die wordt gevraagd worden de noodzaak om te leidt:
+In de on-premise wereld moest u zelden de I/O-subsystemen en de mogelijkheden ervan opdoen. Daarom moest de leverancier van het apparaat controleren of aan de minimale opslag vereisten wordt voldaan voor de SAP HANA. Wanneer u zelf de Azure-infra structuur bouwt, moet u rekening houden met een aantal van deze vereisten. Enkele van de minimale doorvoer kenmerken die worden gevraagd, zijn de volgende vereisten:
 
-- Inschakelen van lezen/schrijven op **/hana/log** van een 250 MB per seconde met i/o-groottes van 1 MB
-- Activiteit van ten minste 400 MB per seconde voor voor lezen inschakelen **/hana/gegevens** voor 16 en 64 MB i/o-grootten
-- Inschakelen van schrijfactiviteiten van minimaal 250 MB per seconde voor **/hana/gegevens** met 16 en 64 MB i/o-grootte
+- Lezen/schrijven inschakelen op **/Hana/log** van een 250 MB/sec. met 1 MB I/O-grootten
+- Lees activiteit van ten minste 400 MB/sec. voor **/Hana/data** met 16 mb en 64 MB I/O-grootte inschakelen
+- Schrijf activiteit van ten minste 250 MB per seconde voor **/Hana/data** met 16 mb en 64 MB I/O-grootte inschakelen
 
-Latentie is opgegeven die weinig opslagruimte essentieel voor DBMS-systemen, zelfs als het DBMS, zoals SAP HANA, blijven de gegevens in het geheugen. Het kritieke pad in de opslag is het meestal om de transactie logboek schrijven van de DBMS-systemen. Maar ook bewerkingen, zoals savepoints schrijven of gegevens in het geheugen laden na crashherstel kan essentieel zijn. Het is daarom **verplichte** gebruikmaken van Azure Premium-schijven voor **/hana/gegevens** en **/hana/log** volumes. Om de minimale doorvoer van te realiseren **/hana/log** en **/hana/gegevens** naar wens door SAP, moet u een RAID 0 bouwen met behulp van MDADM of LVM via meerdere Azure Premium Storage-schijven. En gebruik van de RAID-volumes als **/hana/gegevens** en **/hana/log** volumes. 
+Gezien de minimale opslag latentie is essentieel voor de DBMS-systemen, zelfs als DBMS, zoals SAP HANA, behoud gegevens in het geheugen. Het kritieke pad in de opslag ruimte is doorgaans rond de schrijf bewerkingen van het transactie logboek van de DBMS-systemen. Maar ook bewerkingen zoals het schrijven van opslag punten of het laden van gegevens in het geheugen nadat het herstel is gelukt, kunnen kritiek zijn. Daarom is het **verplicht** om gebruik te maken van Azure Premium-schijven voor **/Hana/data** -en **/Hana/log** -volumes. Om de minimale door Voer van **/Hana/log** en **/Hana/data** te bereiken, zoals gewenst door SAP, moet u een RAID 0 bouwen met MDADM of LVM via meerdere Azure Premium Storage-schijven. En gebruik de RAID-volumes als **/Hana/data** -en **/Hana/log** -volumes. 
 
-**Aanbeveling: Als stripe-voor de RAID 0 de aanbeveling grootten is om te gebruiken:**
+**Advies Als Stripe-groottes voor de RAID 0, moet u het volgende gebruiken:**
 
-- 64 KB of 128 KB voor   **/hana/gegevens**
-- 32 KB voor   **/hana/log**
+- 64 KB of 128 KB voor **/Hana/data**
+- 32 KB voor **/Hana/log**
 
 > [!NOTE]
-> U hoeft niet te configureren van een willekeurig redundantieniveau met behulp van RAID-softwarevolumes omdat Azure Premium en Standard-opslag drie kopieën van een VHD bewaren. Het gebruik van een RAID-volume is uitsluitend bedoeld voor het configureren van volumes die voldoende i/o-doorvoer.
+> U hoeft geen redundantie niveau te configureren met behulp van RAID-volumes, aangezien Azure Premium en standaard opslag drie installatie kopieën van een VHD behouden. Het gebruik van een RAID-volume is uitsluitend voor het configureren van volumes die voldoende I/O-door Voer bieden.
 
-Een aantal Azure-VHD's onder een RAID opgebouwd, is cumulatief vanaf een doorvoer IOP's en opslag. Dus als u een RAID 0 via 3 x P30 Azure Premium Storage-schijven, geeft dit u drie keer de IOPS en drie keer de opslagdoorvoer van één Azure Premium Storage P30-schijf.
+Het samen voegen van een aantal Azure-Vhd's onder een RAID, is cumulatief van een IOPS-en opslag doorvoer zijde. Als u dus een RAID 0 van meer dan 3 x P30 Azure Premium Storage-schijven plaatst, moet u het drie maal de IOPS en drie keer de opslag doorvoer van één Azure Premium Storage P30-schijf.
 
-De onderstaande aanbevelingen opslaan in cache wordt uitgegaan van de i/o-kenmerken voor SAP HANA die lijst, zoals:
+In de onderstaande aanbevelingen voor caching worden de I/O-kenmerken voor SAP HANA die lijst weer gegeven:
 
-- Er zijn nauwelijks lezen workloads op basis van de gegevensbestanden van HANA. Uitzonderingen zijn grote grootte i/o's na het opnieuw opstarten van de HANA-instantie of wanneer gegevens worden geladen in HANA. Een ander hoofdlettergebruik van grotere lezen dat i/o's op basis van bestanden met HANA databaseback-ups kunnen worden. Als gevolg hiervan moeten lezen vooral caching maakt geen zin omdat in de meeste gevallen, alle gegevensvolumes bestand volledig worden gelezen.
-- Schrijven op basis van de gegevensbestanden in pieken op basis van door HANA savepoints en HANA crashherstel optreedt. Schrijven savepoints is asynchroon en zijn niet in het bezit van gebruikerstransacties die. Schrijven van gegevens tijdens het crashherstel zijn prestaties kritieke om op te halen van het systeem reageert snel opnieuw. Crashherstel moeten echter in plaats van uitzonderlijke situaties
-- Er zijn bijna alle leesbewerkingen van de bestanden van HANA opnieuw uit. Uitzonderingen zijn grote i/o's bij het uitvoeren van transactielogboekback-ups, crashherstel, of in de fase opnieuw opstarten van een HANA-instantie.  
-- Belangrijkste belasting op basis van het logboekbestand voor opnieuw uitvoeren van SAP HANA wordt geschreven. Afhankelijk van de aard van de werkbelasting, kunt u i/o's hebben zo klein is als 4 KB of in andere gevallen i/o-grootte van 1 MB of meer. Schrijven latentie op basis van het logboek voor het opnieuw uitvoeren van SAP HANA is een essentiële prestaties.
-- Alle schrijfbewerkingen moeten worden opgeslagen op schijf op een betrouwbare manier
+- Er is nauwelijks Lees werk belasting voor de HANA-gegevens bestanden. Uitzonde ringen zijn grote I/O's na het opnieuw opstarten van het HANA-exemplaar of wanneer gegevens in HANA worden geladen. Een ander geval van grotere Lees-I/O's tegen gegevens bestanden kan HANA-data base-back-ups zijn. Als gevolg hiervan is het meestal niet zinvol om in de meeste gevallen alle volumes van het gegevens bestand volledig te lezen.
+- Het schrijven van de gegevens bestanden wordt uitgevoerd in bursts op basis van HANA opslag punten en HANA-crash herstel. Het schrijven van opslag punten is asynchroon en houdt geen gebruikers transacties in handen. Het schrijven van gegevens tijdens het crash herstel is van essentieel belang om het systeem weer snel te laten reageren. Crash herstel moet echter in plaats daarvan uitzonderlijke situaties
+- Er zijn nauwelijks Lees bewerkingen van de HANA-bestanden opnieuw. Uitzonde ringen zijn grote I/O's bij het uitvoeren van back-ups van transactie logboeken, crash herstel of in de fase voor het opnieuw opstarten van een HANA-exemplaar.  
+- Hoofd belasting op basis van het SAP HANA opnieuw uitvoeren van het logboek bestand wordt geschreven. Afhankelijk van de aard van de werk belasting, kunt u een I/O's-grootte hebben van Maxi maal 4 KB of in andere I/O-bewerkingen van 1 MB of meer. Schrijf latentie voor het SAP HANA opnieuw uitvoeren van het logboek is essentieel voor de prestaties.
+- Alle schrijf bewerkingen moeten op een betrouw bare manier op de schijf worden bewaard
 
-**Aanbeveling: Als gevolg van deze waargenomen i/o-patronen door SAP HANA, moet de in cache opslaan voor de verschillende volumes met behulp van Azure Premium Storage worden ingesteld, zoals:**
+**Advies Als gevolg van deze waargenomen I/O-patronen door SAP HANA, moet de cache voor de verschillende volumes met behulp van Azure Premium Storage als volgt worden ingesteld:**
 
-- **/ hana/gegevens** -geen caching
-- **/ hana/log** - geen caching - uitzondering voor M-serie (Zie verderop in dit document)
-- **/ hana/gedeelde** - lezen in cache opslaan
-
-
-Houd er ook de algehele VM i/o-doorvoer in rekening moet houden bij het vergroten en verkleinen of kiezen voor een virtuele machine. Totale doorvoer van VM-opslag wordt beschreven in het artikel [grootten van virtuele machines geoptimaliseerd voor geheugen](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
-
-## <a name="linux-io-scheduler-mode"></a>Linux-i/o-planner-modus
-Linux heeft verschillende i/o planning modi. Algemene aanbeveling via Linux-leveranciers en SAP wordt opnieuw configureren van de i/o-planner-modus voor schijfvolumes van de **cfq** modus naar de **NoOperation** modus. Meer informatie wordt verwezen in [SAP Opmerking #1984798](https://launchpad.support.sap.com/#/notes/1984787). 
+- **/Hana/data** -geen caching
+- **/Hana/log** -geen caching-uitzonde ring voor M-serie (zie verderop in dit document)
+- **/Hana/Shared** -cache lezen
 
 
-## <a name="production-storage-solution-with-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Oplossing voor productie met Azure Write Accelerator voor virtuele machines van Azure-M-serie
-Azure Write Accelerator is een functie die wordt ophalen uitgerold voor M-serie virtuele Azure-machines uitsluitend. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van i/o-latentie van schrijfbewerkingen ten opzichte van de Azure Premium Storage. Voor SAP HANA, Write Accelerator moet worden gebruikt voor de **/hana/log** alleen volume. Daarom de **/hana/gegevens** en **/hana/log** afzonderlijke volumes met de ondersteuning van Azure Write Accelerator de **/hana/log** alleen volume. 
+Houd ook rekening met de totale I/O-door Voer van de virtuele machine bij het aanpassen van de grootte of het kiezen van een virtuele machine. De totale opslag doorvoer voor de VM wordt beschreven in de grootte van het door het artikel [geoptimaliseerde virtuele machines](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
+
+## <a name="linux-io-scheduler-mode"></a>Scheduler-modus Linux I/O
+Linux heeft verschillende I/O-plannings modi. Algemene aanbeveling via Linux-leveranciers en SAP is om de I/O scheduler-modus voor schijf volumes van de modus **cfq** opnieuw te configureren in de modus **nooperation** . Er wordt naar Details verwezen in [SAP Note #1984798](https://launchpad.support.sap.com/#/notes/1984787). 
+
+
+## <a name="production-storage-solution-with-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Oplossing voor productie opslag met Azure Write Accelerator voor virtuele machines uit de M-serie van Azure
+Azure Write Accelerator is een functionaliteit die uitsluitend wordt geïmplementeerd voor Vm's uit de M-serie van Azure. Als de naam statussen is het doel van de functionaliteit om de I/O-latentie van schrijf bewerkingen te verbeteren voor de Azure-Premium Storage. Voor SAP HANA moet Write Accelerator alleen worden gebruikt voor het **/Hana/log** -volume. Daarom zijn de **/Hana/data** en **/Hana/log** afzonderlijke volumes met Azure write Accelerator alleen het **/Hana/log** -volume ondersteunen. 
 
 > [!IMPORTANT]
-> SAP HANA-certificering voor Azure-M-serie virtuele machines is uitsluitend in combinatie met Azure Write Accelerator voor de **/hana/log** volume. Als gevolg hiervan productie scenario-implementaties van SAP HANA op Azure M-serie virtuele machines worden verwacht kan worden geconfigureerd met Azure Write Accelerator voor de **/hana/log** volume.  
+> SAP HANA certificering voor virtuele machines uit de M-serie van Azure bestaat uitsluitend met Azure Write Accelerator voor het **/Hana/log** -volume. Als gevolg hiervan wordt het productie scenario SAP HANA implementaties op virtuele machines uit de d-serie van Azure M naar verwachting geconfigureerd met Azure Write Accelerator voor het **/Hana/log** -volume.  
 
 > [!NOTE]
-> Voor productiescenario's, controleert u of een bepaalde VM-type voor SAP HANA wordt ondersteund door SAP in de [SAP-documentatie voor IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+> Controleer voor productie scenario's of een bepaald VM-type wordt ondersteund voor SAP HANA door SAP in de [SAP-documentatie voor IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
-**Aanbeveling: De aanbevolen configuraties voor productiescenario's er als volgt uitzien:**
+**Advies De aanbevolen configuraties voor productie scenario's zien er als volgt uit:**
 
-| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | /hana/data | / hana/log | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
+| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | /hana/data | /hana/log | /hana/shared | /root volume | /usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | M32ts | 192 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
@@ -103,34 +103,34 @@ Azure Write Accelerator is een functie die wordt ophalen uitgerold voor M-serie 
 | M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
 | M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P50 |
 
-M416xx_v2 VM-typen worden niet nog beschikbaar gemaakt door Microsoft aan het publiek. Controleer of de opslagdoorvoer van de voor de verschillende voorgestelde volumes voldoet aan de werkbelasting die u wilt uitvoeren. Als de workload grotere volumes voor **/hana/gegevens** en **/hana/log**, moet u het aantal Azure Premium Storage-VHD's verhogen. Formaat van een volume met meer VHD's dan de vermelde verhoogt de IOPS-waarde, en i/o-doorvoer binnen de grenzen van het type virtuele machine van Azure.
+M416xx_v2 VM-typen zijn nog niet voor het publiek beschikbaar gemaakt door micro soft. Controleer of de opslag doorvoer voor de verschillende voorgestelde volumes voldoet aan de werk belasting die u wilt uitvoeren. Als voor de werk belasting hogere volumes zijn vereist voor **/Hana/data** en **/Hana/log**, moet u het aantal Azure Premium Storage vhd's verg Roten. Het formaat van een volume met meer Vhd's dan wordt weer gegeven, verhoogt de IOPS en I/O-door Voer binnen de limieten van het type virtuele machine van Azure.
 
-Azure Write Accelerator werkt alleen in combinatie met [Azure beheerde schijven](https://azure.microsoft.com/services/managed-disks/). Dus in ten minste de Azure Premium Storage-schijven die de **/hana/log** volume moet worden geïmplementeerd als beheerde schijven.
+Azure Write Accelerator werkt alleen in combi natie met [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Ten minste de Azure Premium Storage-schijven die het **/Hana/log** -volume vormen, moeten worden geïmplementeerd als managed disks.
 
-Er zijn beperkingen van Azure Premium Storage VHD's per virtuele machine die kan worden ondersteund door Azure Write Accelerator. De huidige limieten zijn:
+Er zijn limieten van Azure Premium Storage Vhd's per VM die door Azure Write Accelerator kunnen worden ondersteund. De huidige limieten zijn:
 
-- 16-VHD's voor een virtuele machine M128xx en M416xx
-- 8 VHD's voor een virtuele machine M64xx en M208xx
-- 4-VHD's voor een M32xx VM
+- 16 Vhd's voor een M128xx-en M416xx-VM
+- 8 Vhd's voor een M64xx-en M208xx-VM
+- 4 Vhd's voor een M32xx-VM
 
 Meer gedetailleerde instructies over het inschakelen van Azure Write Accelerator vindt u in het artikel [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
-Details en -beperkingen voor Azure Write Accelerator kunnen worden gevonden in de documentatie van dezelfde.
+Details en beperkingen voor Azure Write Accelerator zijn te vinden in dezelfde documentatie.
 
-**Aanbeveling: U moet Write Accelerator voor schijven die het volume /hana/log gebruiken**
+**Advies U moet Write Accelerator gebruiken voor schijven die het/Hana/log-volume vormen**
 
 
-## <a name="cost-conscious-azure-storage-configuration"></a>Kosten prijsbewuste Azure Storage-configuratie
-De volgende tabel toont een configuratie van VM-typen die klanten ook gebruiken met host SAP HANA op Azure Virtual machines. Er zijn enkele VM-typen die niet voldoet aan alle criteria voor minimale opslag voor SAP HANA of zijn niet officieel ondersteund met SAP HANA door SAP. Maar tot nu toe die virtuele machines is om uit te voeren prima voor niet-productiescenario's. De **/hana/gegevens** en **/hana/log** worden gecombineerd tot één volume. Als gevolg hiervan kan een beperking in termen van IOPS resulteren in het gebruik van Azure Write Accelerator.
-
-> [!NOTE]
-> Voor SAP ondersteund scenario's, controleert u of een bepaalde VM-type voor SAP HANA wordt ondersteund door SAP in de [SAP-documentatie voor IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+## <a name="cost-conscious-azure-storage-configuration"></a>Configuratie van kosten bewuste Azure Storage
+De volgende tabel toont een configuratie van VM-typen die klanten ook gebruiken om SAP HANA te hosten op virtuele machines van Azure. Mogelijk zijn er enkele VM-typen die mogelijk niet voldoen aan alle minimale opslag criteria voor SAP HANA of niet officieel worden ondersteund met SAP HANA door SAP. Maar tot nu toe leek deze Vm's prima voor niet-productie scenario's. De **/Hana/data** en **/Hana/log** worden gecombineerd tot één volume. Als gevolg hiervan kan het gebruik van Azure Write Accelerator een beperking zijn in de termen van IOPS.
 
 > [!NOTE]
-> Een verandering van vroegere aanbevelingen voor een oplossing van de kosten-bewust is om te verplaatsen van [Azure standaard harde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) tot het uitvoeren van betere en meer betrouwbare [Azure Standard-SSD-schijven](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd)
+> Controleer voor door SAP ondersteunde scenario's of een bepaald VM-type wordt ondersteund voor SAP HANA door SAP in de [SAP-documentatie voor IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+
+> [!NOTE]
+> Een wijziging ten opzichte van eerdere aanbevelingen voor een kostenbesparende oplossing is om van [azure Standard-HDD schijven](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) te verplaatsen naar betere prestaties en betrouwbaardere [Azure Standard-SSD-schijven](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd)
 
 
-| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | / hana/gegevens en/hana/log<br /> striped met LVM of MDADM | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
+| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | /Hana/data en/Hana/log<br /> Striped met LVM of MDADM | /hana/shared | /root volume | /usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 112 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
@@ -150,48 +150,50 @@ De volgende tabel toont een configuratie van VM-typen die klanten ook gebruiken 
 | M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
 
 
-M416xx_v2 VM-typen worden niet nog beschikbaar gemaakt door Microsoft aan het publiek. De schijven die zijn aanbevolen voor de kleinere virtuele machine van het type met 3 x P20 oversize de volumes met betrekking tot de aanbevelingen ruimte volgens de [technisch document over opslag voor SAP-TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Evenwel de keuze zoals weergegeven in de tabel is gemaakt voor schijfdoorvoer, met voldoende voor SAP HANA. Als u wijzigingen in de **/hana/back-up** volume, die is aangepast voor het bewaren van back-ups die twee keer het volume geheugen vertegenwoordigen, gerust om aan te passen.   
-Controleer of de opslagdoorvoer van de voor de verschillende voorgestelde volumes voldoet aan de werkbelasting die u wilt uitvoeren. Als de workload grotere volumes voor **/hana/gegevens** en **/hana/log**, moet u het aantal Azure Premium Storage-VHD's verhogen. Formaat van een volume met meer VHD's dan de vermelde verhoogt de IOPS-waarde, en i/o-doorvoer binnen de grenzen van het type virtuele machine van Azure. 
+M416xx_v2 VM-typen zijn nog niet voor het publiek beschikbaar gemaakt door micro soft. De schijven die worden aanbevolen voor de kleinere VM-typen met 3 x P20, oversizen de volumes met betrekking tot de ruimte aanbevelingen volgens het [technisch document SAP TDI-opslag](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). De keuze zoals die in de tabel wordt weer gegeven, is echter ingesteld om voldoende schijf doorvoer te bieden voor SAP HANA. Als u wijzigingen wilt aanbrengen aan het **/Hana/backup** -volume dat het formaat heeft gewijzigd voor het bewaren van back-ups die twee maal het geheugen volume vertegenwoordigen, hoeft u niet meer aan te passen.   
+Controleer of de opslag doorvoer voor de verschillende voorgestelde volumes voldoet aan de werk belasting die u wilt uitvoeren. Als voor de werk belasting hogere volumes zijn vereist voor **/Hana/data** en **/Hana/log**, moet u het aantal Azure Premium Storage vhd's verg Roten. Het formaat van een volume met meer Vhd's dan wordt weer gegeven, verhoogt de IOPS en I/O-door Voer binnen de limieten van het type virtuele machine van Azure. 
 
 > [!NOTE]
-> De bovenstaande configuraties niet veel voordeel hebben van [virtuele Azure-machine enkele VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) omdat deze maakt gebruik van een combinatie van Azure Premium Storage en Azure Standard-opslag. De selectie is echter gekozen om kosten te optimaliseren. U moet kiezen Premium-opslag voor alle schijven boven die worden vermeld als Azure Standard-opslag (Sxx) om te voldoen aan de Azure SLA voor één virtuele machine maken van de VM-configuratie.
+> De configuratie hierboven heeft geen voor deel van de SLA van de [virtuele Azure-machine](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) , omdat deze een combi natie van Azure Premium Storage en Azure Standard-opslag gebruikt. De selectie werd echter gekozen om de kosten te optimaliseren. U moet Premium Storage kiezen voor alle schijven hierboven die worden vermeld als Azure Standard-opslag (Sxx) om ervoor te zorgen dat de VM-configuratie compatibel is met de Azure-SLA voor één VM.
 
 
 > [!NOTE]
-> Vermeld aanbevelingen voor de configuratie van de schijf zijn die zijn gericht op minimumvereisten die SAP uitdrukking naar hun leveranciers van infrastructuur. In implementaties van echte klanten en -workloadscenario's, er zijn situaties waarin deze aanbevelingen nog steeds gaf geen voldoende mogelijkheden opgetreden. Dit kunnen zijn situaties waarin een klant een snellere opnieuw laden van de gegevens na het opnieuw opstarten HANA vereist of waarbij back-up maken van configuraties vereist meer bandbreedte naar de opslag. Andere gevallen opgenomen **/hana/log** waarbij 5000 IOP's zijn niet voldoende voor de specifieke werkbelasting. Dus nemen deze aanbevelingen als een punt en aan te passen op basis van de vereisten van de werkbelasting.
+> De opgegeven aanbevelingen voor schijf configuratie zijn gericht op minimale vereisten SAP is gericht op hun infrastructuur providers. In echte klant implementaties en werkbelasting scenario's zijn situaties aangetroffen waar deze aanbevelingen nog niet voldoende mogelijkheden hebben. Dit kunnen situaties zijn waarin een klant een snellere herstart van de gegevens vereist nadat een HANA opnieuw is opgestart of waarbij de back-upconfiguratie een hogere band breedte nodig heeft voor de opslag. Andere gevallen zijn opgenomen in **/Hana/log** waarbij 5000 IOPS niet voldoende was voor de specifieke werk belasting. Doe deze aanbevelingen dus als uitgangs punt en past zich aan op basis van de vereisten van de werk belasting.
 >  
 
-## <a name="azure-ultra-ssd-storage-configuration-for-sap-hana"></a>Configuratie voor Azure Ultra SSD-opslag voor SAP HANA
-Microsoft is momenteel de introductie van een nieuw Azure storage-type genoemd [Azure Ultra SSD](https://azure.microsoft.com/updates/ultra-ssd-new-azure-managed-disks-offering-for-your-most-latency-sensitive-workloads/). Het grote verschil tussen Azure-opslag die tot nu toe worden aangeboden en Ultra SSD is dat de mogelijkheden van de schijf niet aan de grootte van de schijf niet meer gebonden zijn. U kunt deze mogelijkheden voor Ultra SSD definiëren als een klant:
+## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Configuratie van de Azure Ultra Disk-opslag voor SAP HANA
+Micro soft is bezig met het implementeren van een nieuw Azure-opslag type met de naam [Azure Ultra Disk](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#ultra-disk). Het grote verschil tussen Azure Storage dat tot nu toe wordt aangeboden en ultra disk is dat de schijf mogelijkheden niet meer zijn gebonden aan de schijf grootte. Als klant kunt u deze mogelijkheden voor Ultra Disk definiëren:
 
-- Grootte van een schijf, variërend van 4 GiB in 65.536 GiB
-- IOPS het bereik van 100 IOPS 160 kB IOPS (maximum aantal is afhankelijk van de VM-typen)
-- Opslagdoorvoer van 300 MB per seconde naar 2.000 MB per seconde
+- De grootte van een schijf, variërend van 4 GiB tot 65.536 GiB
+- IOPS variëren van 100 IOPS tot 160K IOPS (maximum is ook afhankelijk van VM-typen)
+- Opslag doorvoer van 300 MB/sec tot 2.000 MB/sec.
 
-Zoek voor meer informatie het artikel [Ultra SSD aankondiging – de volgende generatie van de schijven van de Azure-technologie (preview)](https://azure.microsoft.com/blog/announcing-ultra-ssd-the-next-generation-of-azure-disks-technology-preview/)
+Ultra Disk biedt u de mogelijkheid om één schijf te definiëren die voldoet aan uw grootte, IOPS en bereik voor schijf doorvoer. In plaats van logische volume managers zoals LVM of MDADM boven op Azure Premium Storage te gebruiken om volumes te maken die voldoen aan de vereisten voor IOPS en opslag doorvoer. U kunt een configuratie mix uitvoeren tussen ultra disk en Premium Storage. Als gevolg hiervan kunt u het gebruik van ultra Disk beperken tot de essentiële/Hana/data-en/Hana/log-volumes en de andere volumes bedekken met Azure Premium Storage
 
-UltraSSD biedt u de mogelijkheid voor het definiëren van één schijf die voldoet aan uw grootte, IOPS en doorvoer bereik van schijf. In plaats van logische volume managers zoals LVM of MDADM boven op Azure Premium Storage om te maken van volumes die voldoen aan de IOPS en doorvoer van de opslagvereisten. U kunt een combinatie van de configuratie uitvoeren tussen UltraSSD en Premium-opslag. Als gevolg hiervan kunt u beperken van het gebruik van UltraSSD is op de prestaties van essentiële /hana/data en /hana/log volumes en betrekking hebben op de andere volumes met Azure Premium Storage
+> [!IMPORTANT]
+> Ultra disk is nog niet in alle Azure-regio's aanwezig en biedt nog geen ondersteuning voor alle VM-typen. Raadpleeg het artikel wat zijn de [schijf typen die beschikbaar zijn in azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#ultra-disk)voor meer informatie over hoe Ultra Disk beschikbaar is en welke VM-families worden ondersteund.
 
-| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | / hana/gegevensvolume | / hana/gegevens-i/o-doorvoer | /hana/data IOPS | / hana/logboekvolume | / hana/log i/o-doorvoer | /hana/log IOPS |
+| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | /Hana/data volume | I/O-door Voer van/Hana/data | /Hana/data IOPS | /Hana/log volume | I/O-door Voer van/Hana/log | /Hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
+| E64s_v3 | 432 GiB | 1\.200 MB/s | 600 GB | 700 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
 | M32ts | 192 GiB | 500 MB/s | 250 GB | 500 MBps | 7500 | 256 GB | 500 MBps  | 2000 |
 | M32ls | 256 GiB | 500 MB/s | 300 GB | 500 MBps | 7500 | 256 GB | 500 MBps  | 2000 |
 | M64ls | 512 GiB | 1000 MB/s | 600 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
-| M64s | 1000 GiB | 1000 MB/s |  1200 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
-| M64ms | 1750 GiB | 1000 MB/s | 2100 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
-| M128s | 2000 GiB | 2000 MB/s |2400 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 2000 | 
-| M128ms | 3800 GiB | 2000 MB/s | 4800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 2000 | 
-| M208s_v2 | 2850 GiB | 1000 MB/s | 3500 GB | 1000 MBps | 9000 | 512 GB | 500 MBps  | 2000 | 
-| M208ms_v2 | 5700 GiB | 1000 MB/s | 7200 GB | 1000 MBps | 9000 | 512 GB | 500 MBps  | 2000 | 
-| M416s_v2 | 5700 GiB | 2000 MB/s | 7200 GB | 1500 M Bps | 9000 | 512 GB | 800 MBps  | 2000 | 
-| M416ms_v2 | 11400 GiB | 2000 MB/s | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 2000 |   
+| M64s | 1000 GiB | 1\.000 MB/s |  1200 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
+| M64ms | 1750 GiB | 1\.000 MB/s | 2100 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
+| M128s | 2000 GiB | 2\.000 MB/s |2400 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 2000 | 
+| M128ms | 3800 GiB | 2\.000 MB/s | 4800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 2000 | 
+| M208s_v2 | 2850 GiB | 1\.000 MB/s | 3500 GB | 1000 MBps | 9000 | 512 GB | 500 MBps  | 2000 | 
+| M208ms_v2 | 5700 GiB | 1\.000 MB/s | 7200 GB | 1000 MBps | 9000 | 512 GB | 500 MBps  | 2000 | 
+| M416s_v2 | 5700 GiB | 2\.000 MB/s | 7200 GB | 1500M bps | 9000 | 512 GB | 800 MBps  | 2000 | 
+| M416ms_v2 | 11400 GiB | 2\.000 MB/s | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 2000 |   
 
-M416xx_v2 VM-typen worden niet nog beschikbaar gemaakt door Microsoft aan het publiek. De waarden in de lijst zijn bedoeld als een beginpunt en moeten worden geëvalueerd op basis van de echte eisen. Het voordeel van Azure Ultra SSD is dat de waarden voor IOPS en doorvoer kunnen worden aangepast zonder de noodzaak om de virtuele machine af te sluiten of stopgezet, kunt u de werkbelasting op het systeem toegepast.   
+M416xx_v2 VM-typen zijn nog niet voor het publiek beschikbaar gemaakt door micro soft. De vermelde waarden zijn bedoeld als uitgangs punt en moeten worden geëvalueerd op basis van de werkelijke vereisten. Het voor deel van Azure Ultra disk is dat de waarden voor IOPS en door Voer kunnen worden aangepast zonder de nood zaak om de virtuele machine af te sluiten of de werk belasting die op het systeem wordt toegepast, te onderbreken.   
 
 > [!NOTE]
-> Storage-momentopnamen met UltraSSD opslag tot nu toe is niet beschikbaar. Het gebruik van momentopnamen van de VM met Azure Backup-Services geblokkeerd
+> Tot nu toe is opslag momentopnamen met ultra Disk Storage niet beschikbaar. Hiermee wordt het gebruik van VM-moment opnamen met Azure Backup services geblokkeerd
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie:
 
-- [Hoge beschikbaarheid van SAP HANA-handleiding voor Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+- [SAP Hana hand leiding voor maximale Beschik baarheid voor virtuele machines van Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

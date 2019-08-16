@@ -11,12 +11,12 @@ ms.author: sihhu
 ms.reviewer: trbye
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 241c84212132ee90e71291758e094cb4a115f2e2
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: cc243fea67c479879f25e4f39e3cd1c5e0237869
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018085"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534362"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Zelfstudie: Gegevens voorbereiden voor regressiemodellering
 
@@ -35,40 +35,15 @@ In deze zelfstudie hebt u:
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorlopen, of gebruik de onderstaande instructies om het notebook op te halen en uit te voeren op Azure Notebooks of uw eigen notebookserver. U hebt het volgende nodig om het notebook uit te voeren:
+* U moet de [Zelfstudie: Ga aan de slag met het maken](tutorial-1st-experiment-sdk-setup.md) van uw eerste ml-experiment tot:
+    * Een werkruimte maken
+    * Een Cloud notebook server maken
+    * Het Jupyter notebook-dash board starten
 
-* Een Python 3.6 notebook-server met het volgende geïnstalleerd:
-    * Het `azureml-dataprep` pakket van de Azure machine learning SDK
-* Het notebook voor de zelfstudie
+* Nadat u het Jupyter notebook-dash board hebt gestart, opent u het notitie blok **zelf studies/Regression-part1-data-prep. ipynb** .
 
-* Een [Cloud notebook server gebruiken in uw werk ruimte](#azure) 
-* [Uw eigen Notebook-server](#server) gebruiken
+Deze zelf studie is ook beschikbaar op [github](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) als u deze wilt gebruiken in uw eigen [lokale omgeving](how-to-configure-environment.md#local).  Zorg ervoor dat u het `azureml-dataprep` pakket hebt geïnstalleerd vanuit de Azure machine learning SDK.
 
-### <a name="azure"></a>Een Cloud notebook server gebruiken in uw werk ruimte
-
-Het is eenvoudig om aan de slag te gaan met uw eigen cloud-gebaseerde Notebook server. De Azure Machine Learning SDK voor python is al geïnstalleerd en geconfigureerd voor u nadat u deze Cloud resource hebt gemaakt.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Nadat u de webpagina voor het notitie blok hebt gestart, voert u de notebook **zelf studies/Regression-part1-data-prep. ipynb** uit.
-
-### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
-
-Volg deze stappen om een lokale Jupyter Notebook-server te maken op uw computer.  Nadat u de stappen hebt uitgevoerd, voert u het notebook **tutorials/regression-part1-data-prep.ipynb** uit.
-
-1. Voltooi de installatie stappen in [Azure machine learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-1. Het `azureml-dataprep` pakket wordt automatisch geïnstalleerd tijdens de installatie van de SDK.
-1. Kloon [de GitHub-opslagplaats](https://aka.ms/aml-notebooks).
-
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Start de notebookserver vanuit de gekloonde map.
-
-    ```shell
-    jupyter notebook
-    ```
 
 ## <a name="start"></a>De ontwikkelomgeving instellen
 

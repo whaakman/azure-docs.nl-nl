@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: dbfa7aaccd513ffcf8ba3907911d8c49275b2ea6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 18b901b429ee675726ef0e36535f1f97f4cdd076
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967642"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542994"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Een antwoord krijgen met de GenerateAnswer-API en meta gegevens
 
@@ -228,6 +228,18 @@ U kunt zoeken in de gepubliceerde KB met `isTest=false`of in de test KB met. `is
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="common-http-errors"></a>Veelvoorkomende HTTP-fouten
+
+|Code|Uitleg|
+|:--|--|
+|2xx|Geslaagd|
+|400|de aanvraagparameters zijn onjuist wat betekent dat de vereiste parameters ontbreken, onjuist gevormd of te groot zijn|
+|400|de aanvraagtekst is onjuist wat betekent dat de JSON is ontbreekt, is onjuist gevormd of te groot|
+|401|Ongeldige sleutel|
+|403|Het is niet toegestaan - bent u niet gemachtigd juiste|
+|404|KB bestaat niet|
+|410|Deze API is afgeschaft en is niet meer beschikbaar|
 
 ## <a name="next-steps"></a>Volgende stappen
 

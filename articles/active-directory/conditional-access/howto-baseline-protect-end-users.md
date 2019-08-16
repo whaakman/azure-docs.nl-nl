@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608147"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532941"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Basislijn beleid: Beveiliging van eind gebruikers (preview-versie)
 
@@ -64,11 +64,11 @@ Beleid voor **beleids basislijn: De beveiliging van eind gebruikers (** preview)
 
 Om dit beleid in te scha kelen en uw gebruikers te beschermen:
 
-1. Meld u aan bij de **Azure Portal** als globale beheerder, beveiligings beheerder of beheerder van de voorwaardelijke toegang.
+1. Meld u aan bij de **Azure Portal** als globale beheerder, beveiligings beheerder of beheerder van de voorwaardelijke toegang.
 1. Blader naar **Azure Active Directory** > **voorwaardelijke toegang**.
 1. Selecteer **basislijn beleid in de lijst met beleids regels: Beveiliging van eind gebruikers (preview**-versie).
 1. Stel **beleid inschakelen** om **beleid direct te gebruiken**in.
-1. Klik op **Opslaan**.
+1. Klik op **Opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

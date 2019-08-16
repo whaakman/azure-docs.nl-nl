@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.openlocfilehash: 3f6eca30379eb8890695df946f1d7e697cb3f7d7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 0ff15c29fb7d71919b54cbcd73ead30a8673e0f7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979050"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543089"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Quickstart: Een bestaande MongoDB Node.js-web-app migreren naar Azure Cosmos DB 
 
@@ -100,13 +100,13 @@ Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md) m
 
 In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio Europa - west. Kies een unieke naam voor de resourcegroep.
 
-Als u van Azure Cloud Shell gebruikmaakt, klikt u op **Uitproberen**, volgt u de aanwijzingen op het scherm om u aan te melden en kopieert u de opdracht naar de opdrachtprompt.
+Als u Azure Cloud Shell gebruikt, selecteert u **try**-out, volgt u de aanwijzingen op het scherm om u aan te melden en kopieert u de opdracht naar de opdracht prompt.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-## <a name="create-an-azure-cosmos-db-account"></a>Een Azure Cosmos DB-account maken
+## <a name="create-an-azure-cosmos-db-account"></a>Maak een Azure Cosmos DB-account
 
 Maak een Cosmos-account met de opdracht [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create).
 
@@ -204,7 +204,7 @@ npm start
 
 Er verschijnt nu een consolebericht dat de ontwikkelomgeving gereed is voor gebruik. 
 
-Ga naar `http://localhost:3000` in een browser. Klik op **Registreren** in het bovenste menu en probeer twee fictieve gebruikers te maken. 
+Ga naar `http://localhost:3000` in een browser. Selecteer **registreren** in het bovenste menu en probeer twee dummy gebruikers te maken. 
 
 De MEAN.js-voorbeeldtoepassing slaat gebruikersgegevens op in de database. Als het lukt en MEAN.js automatisch aanmeldt met de gemaakte gebruiker, is uw Azure Cosmos DB-verbinding actief. 
 
@@ -216,7 +216,7 @@ Gegevens die zijn opgeslagen in een Cosmos-database kunnen via Azure Portal word
 
 Meld u aan bij de [Azure Portal](https://portal.azure.com) in uw webbrowser om de gebruikersgegevens die u in de vorige stap hebt gemaakt, te bekijken, query’s erop uit te voeren of andere taken ermee uit te voeren.
 
-Typ ‘Azure Cosmos DB’ in het bovenste vak Zoeken. Wanneer uw Cosmos-accountblade wordt geopend, selecteert u uw Cosmos-account. Klik in het linker navigatiegedeelte op Data Explorer. Vouw uw verzameling uit in het venster Verzamelingen. Dan kunt u de documenten in de verzameling zien, query’s op de gegevens uitvoeren en zelfs opgeslagen procedures, triggers en UDF’s maken en uitvoeren. 
+Voer **Azure Cosmos DB**in het bovenste zoekvak in. Wanneer uw Cosmos-accountblade wordt geopend, selecteert u uw Cosmos-account. Selecteer in de linkernavigatiebalk **Data Explorer**. Vouw uw verzameling uit in het venster Verzamelingen. Dan kunt u de documenten in de verzameling zien, query’s op de gegevens uitvoeren en zelfs opgeslagen procedures, triggers en UDF’s maken en uitvoeren. 
 
 ![Data Explorer in de Azure Portal](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 

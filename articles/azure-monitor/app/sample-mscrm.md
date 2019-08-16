@@ -1,6 +1,6 @@
 ---
-title: Microsoft Dynamics CRM en Azure Application Insights | Microsoft Docs
-description: Telemetrie ophalen uit Microsoft Dynamics CRM Online met behulp van Application Insights. Overzicht van de installatie, ophalen van gegevens, visualisatie en exporteren.
+title: Micro soft Dynamics CRM en Azure-toepassing Insights | Microsoft Docs
+description: Ontvang telemetrie van micro soft Dynamics CRM Online met behulp van Application Insights. Overzicht van Setup, gegevens ophalen, visualisatie en exporteren.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,109 +13,109 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 6119f1116d255f7cd2a2bfc20e86eeca9e5dfe82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 470f723782ca29409549e0df8e900edf86cd446e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60523283"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534296"
 ---
-# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Walkthrough: Telemetrie inschakelen voor Microsoft Dynamics CRM Online met behulp van Application Insights
-Dit artikel leest u hoe u aan de telemetriegegevens van [Microsoft Dynamics CRM Online](https://www.dynamics.com/) met behulp van [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Behandelen we het complete proces van het Application Insights-script toevoegen aan uw toepassing, het vastleggen van gegevens en gegevensvisualisatie.
+# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Walkthrough: Telemetrie inschakelen voor micro soft Dynamics CRM Online met behulp van Application Insights
+Dit artikel laat u zien hoe u telemetriegegevens van [micro soft Dynamics CRM Online](https://www.dynamics.com/) kunt ophalen met behulp van [Azure-toepassing Insights](https://azure.microsoft.com/services/application-insights/). Het volledige proces voor het toevoegen van Application Insights script aan uw toepassing, het vastleggen van gegevens en gegevens visualisatie wordt door lopen.
 
 > [!NOTE]
-> [De Voorbeeldoplossing Bladeren](https://dynamicsandappinsights.codeplex.com/).
+> [Blader door de voorbeeld oplossing](https://dynamicsandappinsights.codeplex.com/).
 > 
 > 
 
 ## <a name="add-application-insights-to-new-or-existing-crm-online-instance"></a>Application Insights toevoegen aan nieuwe of bestaande CRM Online-instantie
-Voor het bewaken van uw toepassing, kunt u een Application Insights-SDK toevoegen aan uw toepassing. De SDK telemetrie verzendt naar de [Application Insights-portal](https://portal.azure.com), kunt u onze krachtige analyse- en diagnostische hulpprogramma's gebruiken, of de gegevens naar opslag exporteren.
+Als u uw toepassing wilt bewaken, voegt u een Application Insights SDK toe aan uw toepassing. De SDK verzendt telemetrie naar de [Application Insights-Portal](https://portal.azure.com), waar u onze krachtige analyse-en diagnostische hulpprogram ma's kunt gebruiken of de gegevens exporteert naar opslag.
 
-### <a name="create-an-application-insights-resource-in-azure"></a>Een Application Insights-resource maken in Azure
-1. Ophalen [een account in Microsoft Azure](https://azure.com/pricing). 
-2. Meld u aan bij de [Azure-portal](https://portal.azure.com) en een nieuwe Application Insights-resource toevoegen. Dit is waar uw gegevens worden verwerkt en weergegeven.
+### <a name="create-an-application-insights-resource-in-azure"></a>Een Application Insights resource maken in azure
+1. [Een account in Microsoft Azure](https://azure.com/pricing)ophalen. 
+2. Meld u aan bij de [Azure Portal](https://portal.azure.com) en voeg een nieuwe Application Insights resource toe. Hier worden uw gegevens verwerkt en weer gegeven.
 
-    ![Klik op +, Ontwikkelaarsservices, Application Insights.](./media/sample-mscrm/01.png)
+    ![Klik op +, ontwikkelaars Services Application Insights.](./media/sample-mscrm/01.png)
 
     Kies ASP.NET als het toepassingstype.
-3. Volg de instructies voor [verkrijgen van de JavaScript SDK-script voor uw app](../../azure-monitor/app/javascript.md#set-up-application-insights-for-your-web-page), Kopieer het JavaScript-fragment en zorg ervoor dat u de Instrumentatiesleutel vervangen door de juiste waarde voor uw Application Insights-resource.
+3. Volg de instructies voor [het downloaden van het Java script SDK-script voor uw app](../../azure-monitor/app/javascript.md), kopieer het Java script-fragment en zorg ervoor dat u de instrumentatie sleutel vervangt door de juiste waarde voor uw Application Insights resource.
 
-### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Een JavaScript-webresource in Microsoft Dynamics CRM maken
-1. Open uw Online CRM-exemplaar en meld u aan met administratorbevoegdheden.
-2. Open Microsoft Dynamics CRM-instellingen, aanpassingen, aanpassen het systeem
+### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Een Java script-WebResource maken in micro soft Dynamics CRM
+1. Open uw CRM Online-exemplaar en meld u aan met beheerders bevoegdheden.
+2. Open micro soft Dynamics CRM-instellingen, aanpassingen, het systeem aanpassen
 
-    ![Microsoft Dynamics CRM-instellingen](./media/sample-mscrm/00001.png)
+    ![Micro soft Dynamics CRM-instellingen](./media/sample-mscrm/00001.png)
 
     ![Instellingen > aanpassingen](./media/sample-mscrm/00002.png)
 
-1. Een JavaScript-resource maken.
+1. Maak een Java script-resource.
 
-    ![Dialoogvenster voor een nieuwe Web-Resource](./media/sample-mscrm/07.png)
+    ![Dialoog venster nieuwe WebResource](./media/sample-mscrm/07.png)
 
-    Geef deze een naam, selecteer **Script (JScript)** en open de teksteditor.
+    Geef een naam op, selecteer **script (JScript)** en open de tekst editor.
 
-    ![Open de teksteditor](./media/sample-mscrm/00004.png)
-2. Kopieer de code uit de Application Insights JavaScript SDK waarin u de Instrumentatiesleutel voordat hebt geconfigureerd. Zorg dat u script-tags genegeerd tijdens het kopiëren. Raadpleeg de onderstaande schermafbeelding:
+    ![Open de tekst editor](./media/sample-mscrm/00004.png)
+2. Kopieer de code uit de Application Insights java script-SDK waarin u de instrumentatie sleutel eerder hebt geconfigureerd. Zorg ervoor dat u script tags negeert tijdens het kopiëren. Raadpleeg de onderstaande scherm afbeelding:
 
-    ![Stel de instrumentatiesleutel](./media/sample-mscrm/000005.png)
+    ![De instrumentatie sleutel instellen](./media/sample-mscrm/000005.png)
 
-    De code bevat de instrumentatiesleutel die de Application insights-resource identificeert.
+    De code bevat de instrumentatie sleutel die uw Application Insights-resource identificeert.
 3. Opslaan en publiceren.
 
     ![Opslaan en publiceren](./media/sample-mscrm/00006.png)
 
 ### <a name="instrument-forms"></a>Instrument formulieren
-1. Open het formulier Account in Microsoft CRM Online
+1. Open in micro soft CRM Online het account formulier
 
-    ![Accountformulier](./media/sample-mscrm/00007.png)
+    ![Formulier account](./media/sample-mscrm/00007.png)
 2. Open de eigenschappen van het formulier
 
-    ![Eigenschappen van formulier](./media/sample-mscrm/00008.png)
-3. Toevoegen van de JavaScript-webresource die u hebt gemaakt
+    ![Formulier eigenschappen](./media/sample-mscrm/00008.png)
+3. De Java script-WebResource toevoegen die u hebt gemaakt
 
     ![Menu Toevoegen](./media/sample-mscrm/13.png)
 
-4. Opslaan en publiceren van uw aanpassingen van formulieren.
+4. Sla de formulier aanpassingen op en publiceer deze.
 
-## <a name="metrics-captured"></a>Metrische gegevens vastgelegd
-U hebt nu telemetrie vastleggen voor het formulier ingesteld. Wanneer deze wordt gebruikt, worden de gegevens worden verzonden naar uw Application Insights-resource.
+## <a name="metrics-captured"></a>Vastgelegde metrische gegevens
+U hebt nu telemetrie-vastleggen ingesteld voor het formulier. Wanneer het wordt gebruikt, worden er gegevens naar uw Application Insights-bron verzonden.
 
-Hier vindt u voorbeelden van de gegevens die u ziet.
+Hier vindt u voor beelden van de gegevens die u ziet.
 
-#### <a name="application-health"></a>Status van de toepassing
-![Laadtijd voor voorbeeld](./media/sample-mscrm/15.png)
+#### <a name="application-health"></a>Toepassings status
+![Voorbeeld pagina laad tijd](./media/sample-mscrm/15.png)
 
-![Voorbeeld pagina weergaven grafiek](./media/sample-mscrm/16.png)
+![Grafiek met voorbeeld pagina weergaven](./media/sample-mscrm/16.png)
 
-Browseruitzonderingen:
+Browser uitzonderingen:
 
-![Grafiek met serveruitzonderingen klikken browser](./media/sample-mscrm/17.png)
+![Diagram van browser uitzonderingen](./media/sample-mscrm/17.png)
 
-Klik op de grafiek om meer details:
+Klik op de grafiek voor meer details:
 
-![Lijst met uitzonderingen](./media/sample-mscrm/18.png)
+![Lijst met uitzonde ringen](./media/sample-mscrm/18.png)
 
 #### <a name="usage"></a>Gebruik
-![Gebruikers, sessies en paginaweergaven](./media/sample-mscrm/19.png)
+![Gebruikers, sessies en pagina weergaven](./media/sample-mscrm/19.png)
 
-![Sessie-grafieken](./media/sample-mscrm/20.png)
+![Sessie grafieken](./media/sample-mscrm/20.png)
 
-![Browserversies](./media/sample-mscrm/21.png)
+![Browser versies](./media/sample-mscrm/21.png)
 
 #### <a name="browsers"></a>Browsers
-![Uitsplitsing van de laadtijd van browserpagina](./media/sample-mscrm/22.png)
+![Uitsplitsing van pagina laad tijd](./media/sample-mscrm/22.png)
 
-![Aantal sessies per browserversie](./media/sample-mscrm/23.png)
+![Aantal sessies per browser versie](./media/sample-mscrm/23.png)
 
 #### <a name="geolocation"></a>Geolocatie
 ![Aantal sessies per land](./media/sample-mscrm/24.png)
 
 ![Sessies en gebruikers per land](./media/sample-mscrm/25.png)
 
-#### <a name="inside-page-view-request"></a>Aanvraag voor binnen pagina weergeven
-![Overzicht van de pagina weergeven](./media/sample-mscrm/26.png)
+#### <a name="inside-page-view-request"></a>Weergave aanvraag binnen pagina
+![Samen vatting van pagina weergave](./media/sample-mscrm/26.png)
 
-![Zoeken op pagina-gebeurtenissen weergeven](./media/sample-mscrm/27.png)
+![Zoeken in pagina weergave gebeurtenissen](./media/sample-mscrm/27.png)
 
 ![Soortgelijke paginaweergaven](./media/sample-mscrm/28.png)
 
@@ -124,15 +124,15 @@ Klik op de grafiek om meer details:
 ![Pagina's per sessie](./media/sample-mscrm/30.png)
 
 ## <a name="sample-code"></a>Voorbeeldcode
-[De voorbeeldcode Bladeren](https://dynamicsandappinsights.codeplex.com/).
+[Blader door de voorbeeld code](https://dynamicsandappinsights.codeplex.com/).
 
 ## <a name="power-bi"></a>Power BI
-U kunt zelfs diepere analyse doen als u [exporteren van gegevens naar Microsoft Power BI](../../azure-monitor/app/export-power-bi.md ).
+U kunt zelfs een diepere analyse uitvoeren als u [de gegevens naar micro soft power bi exporteert](../../azure-monitor/app/export-power-bi.md ).
 
-## <a name="sample-microsoft-dynamics-crm-solution"></a>Voorbeeld van Microsoft Dynamics CRM-oplossing
-[Hier volgt de Voorbeeldoplossing geïmplementeerd in Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
+## <a name="sample-microsoft-dynamics-crm-solution"></a>Voor beeld van micro soft Dynamics CRM-oplossing
+[Hier volgt de voorbeeld oplossing die is geïmplementeerd in micro soft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## <a name="learn-more"></a>Meer informatie
 * [Wat is Application Insights?](../../azure-monitor/app/app-insights-overview.md)
-* [Application Insights voor webpagina 's](../../azure-monitor/app/javascript.md)
-* [Meer voorbeelden en walkthroughs](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights voor webpagina's](../../azure-monitor/app/javascript.md)
+* [Meer voor beelden en scenario's](../../azure-monitor/app/app-insights-overview.md)

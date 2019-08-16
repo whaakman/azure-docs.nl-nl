@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: c6a76f4188ecbf6ca778fdbcd23ac9fed2f60dde
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782291"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534659"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Problemen met Updatebeheer oplossen
 
@@ -22,6 +22,42 @@ In dit artikel worden oplossingen beschreven om problemen op te lossen die u kun
 Er is een agent probleem oplosser voor Hybrid Worker-agent om het onderliggende probleem te bepalen. Zie problemen [met Update agent oplossen](update-agent-issues.md)voor meer informatie over de probleem Oplosser. Zie de gedetailleerde informatie hieronder over mogelijke problemen voor alle andere problemen.
 
 ## <a name="general"></a>Algemeen
+
+### <a name="rp-register"></a>Omstandigheden Kan Automation-resource provider niet registreren voor abonnementen
+
+#### <a name="issue"></a>Probleem
+
+Mogelijk wordt de volgende fout weer gegeven wanneer u werkt met oplossingen in uw Automation-account.
+
+```error
+Error details: Unable to register Automation Resource Provider for subscriptions:
+```
+
+#### <a name="cause"></a>Oorzaak
+
+De resource provider voor Automation is niet geregistreerd in het abonnement.
+
+#### <a name="resolution"></a>Oplossing
+
+U kunt de resource providers voor automatisering registreren door de volgende stappen uit te voeren in de Azure Portal:
+
+1. Klik op **alle services** onder de lijst van de Azure-service en selecteer vervolgens **abonnementen** in de _algemene_ service groep.
+2. Selecteer uw abonnement.
+3. Klik op **bron providers** onder _instellingen_.
+4. Controleer in de lijst met resource providers of de resource provider **micro soft. Automation** is geregistreerd.
+5. Als de provider niet wordt weer gegeven, registreert u de provider **micro soft.** Automation [ ](/azure/azure-resource-manager/resource-manager-register-provider-errors)met de stappen die worden vermeld onder.
+
+### <a name="mw-exceeded"></a>Omstandigheden Het geplande update beheer is mislukt met de fout MaintenanceWindowExceeded
+
+#### <a name="issue"></a>Probleem
+
+Het standaard onderhouds venster voor updates is 120 minuten. U kunt het onderhouds venster verg Roten tot een maximum van zes (6) uur of 360 minuten.
+
+#### <a name="resolution"></a>Oplossing
+
+Bewerk eventuele mislukte geplande update-implementaties en verg root het onderhouds venster.
+
+Zie [updates installeren](../automation-update-management.md#install-updates)voor meer informatie over onderhouds Vensters.
 
 ### <a name="components-enabled-not-working"></a>Omstandigheden De onderdelen voor de oplossing ' Updatebeheer ' zijn ingeschakeld en nu wordt deze virtuele machine geconfigureerd
 
@@ -298,7 +334,31 @@ Als u een probleem met een patches niet kunt oplossen, maakt u een kopie van het
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
-### <a name="other"></a>Omstandigheden Mijn probleem komt niet hierboven voor in de lijst
+## <a name="patches-are-not-installed"></a>Patches zijn niet geïnstalleerd
+
+### <a name="machines-do-not-install-updates"></a>Machines installeren geen updates
+
+* Voer de updates rechtstreeks op de machine uit. Als de machine niet kan worden bijgewerkt, raadpleegt u de [lijst met potentiële fouten in de gids voor probleemoplossing](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+* Als updates lokaal worden uitgevoerd, verwijdert u de agent en installeert u deze opnieuw op de machine met behulp van de volgende instructies in [Een VM verwijderen uit Updatebeheer](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-for-update-management).
+
+### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>Ik weet dat er updates beschikbaar zijn, maar ze worden niet naar wens weer gegeven op mijn computers
+
+* Dit gebeurt vaak als machines zijn geconfigureerd voor updates van WSUS/SCCM, maar de updates niet door WSUS/SCCM zijn goedgekeurd.
+* U kunt controleren of machines voor WSUS/SCCM zijn geconfigureerd door [met de registersleutel 'UseWUServer' kruislings naar de registersleutels in de sectie 'Configuring Automatic Updates by Editing the Registry' (Automatische updates configureren door het register te bewerken) van dit document te verwijzen](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)
+
+### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>**Updates verschijnen na installatie maar ik kan ze niet vinden op mijn machine**
+
+* Updates worden vaak verdrongen door andere updates. Zie voor meer informatie ['Update is superseded' (Update wordt verdrongen) in de gids voor probleemoplossing van Windows Update](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+
+### <a name="installing-updates-by-classification-on-linux"></a>**Updates per classificatie installeren op Linux**
+
+* Het per classificatie implementeren van updates naar Linux ('Essentiële en beveiligingsupdates'), heeft belangrijke beperkingen, met name voor CentOS. Deze [beperkingen worden beschreven op de overzichtspagina Updatebeheer](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)
+
+### <a name="kb2267602-is-consistently--missing"></a>**KB2267602 ontbreekt consistent**
+
+* KB2267602 is de [definitie-update voor Windows Defender](https://www.microsoft.com/wdsi/definitions). Deze wordt dagelijks bijgewerkt.
+
+## <a name="other"></a>Omstandigheden Mijn probleem komt niet hierboven voor in de lijst
 
 ### <a name="issue"></a>Probleem
 

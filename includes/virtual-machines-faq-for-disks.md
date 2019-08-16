@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516064"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541454"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS-VM-schijven en beheerde en onbeheerde Premium-schijven
 
@@ -172,7 +172,7 @@ Misschien moet uw virtuele machine zich in een regio-en beschikbaarheids zone pa
 Nee, ultradraagbare schijven worden alleen ondersteund als gegevens schijven en worden alleen ondersteund als systeem eigen schijven van 4.000 kB.
 
 **Kan ik een bestaande schijf converteren naar een ultra schijf?**
-Nee, maar u kunt de datum van een bestaande schijf naar een ultra schijf migreren. Als u een bestaande schijf naar een ultra schijf wilt migreren, koppelt u beide schijven aan dezelfde VM en kopieert u de gegevens van de schijf van de ene schijf naar de andere en maakt u gebruik van een oplossing van derden voor gegevens migratie.
+Nee, maar u kunt de gegevens van een bestaande schijf naar een ultra schijf migreren. Als u een bestaande schijf naar een ultra schijf wilt migreren, koppelt u beide schijven aan dezelfde VM en kopieert u de gegevens van de schijf van de ene schijf naar de andere en maakt u gebruik van een oplossing van derden voor gegevens migratie.
 
 **Kan ik moment opnamen maken voor Ultra schijven?**
 Nee, moment opnamen zijn nog niet beschikbaar.

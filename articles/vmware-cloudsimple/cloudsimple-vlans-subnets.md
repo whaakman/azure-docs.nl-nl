@@ -1,19 +1,19 @@
 ---
-title: VLAN'S en subnetten in VMware-oplossing door CloudSimple-Azure
-description: Meer informatie over VLAN'S en subnetten in een CloudSimple-privécloud
+title: VLAN'S en subnetten in azure VMware-oplossing op CloudSimple
+description: Meer informatie over VLAN'S en subnetten in CloudSimple Private Cloud
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6659c50b79237907cf596d65e0ba9fb72113246
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812478"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543798"
 ---
 # <a name="vlans-and-subnets-overview"></a>Overzicht van VLAN'S en subnetten
 
@@ -23,7 +23,7 @@ CloudSimple biedt een netwerk per regio waar uw CloudSimple-service is geïmplem
 
 ## <a name="vlans"></a>Vlan's
 
-VLAN'S (Layer 2-netwerk) worden per privécloud gemaakt.  Het laag 2-verkeer blijft binnen de grenzen van een privécloud, zodat u het lokale verkeer binnen de privécloud kunt isoleren.  Een VLAN dat is gemaakt in de privécloud kan worden gebruikt om gedistribueerde poort groepen alleen in die privécloud te maken.  Een VLAN dat is gemaakt in een privécloud, wordt automatisch geconfigureerd op alle switches die zijn verbonden met de hosts van een privécloud.
+Voor elke Privécloud wordt een VLAN (Layer 2-netwerk) gemaakt.  Het laag 2-verkeer blijft binnen de grenzen van een Privécloud, zodat u het lokale verkeer binnen de Privécloud kunt isoleren.  Een VLAN dat is gemaakt in de Privécloud kan worden gebruikt om gedistribueerde poort groepen alleen in die Privécloud te maken.  Een VLAN dat is gemaakt in een Privécloud, wordt automatisch geconfigureerd op alle switches die zijn verbonden met de hosts van een Privécloud.
 
 ## <a name="subnets"></a>Subnetten
 
@@ -33,17 +33,17 @@ Alle subnetten kunnen standaard met elkaar communiceren, waardoor de configurati
 
 ## <a name="vspherevsan-subnets-cidr-range"></a>CIDR-bereik voor vSphere/vSAN-subnetten
 
-Een Privécloud wordt gemaakt als een geïsoleerde VMware-stack (ESXi hosts, vCenter, vSAN en NSX) die worden beheerd door een vCenter-Server.  Beheer onderdelen worden geïmplementeerd in het netwerk dat is geselecteerd voor **vSphere/vSAN-subnets CIDR**.  Het netwerk-CIDR-bereik is tijdens de implementatie onderverdeeld in verschillende subnetten.
+Een Privécloud wordt gemaakt als een geïsoleerde VMware-stack (ESXi hosts, vCenter, vSAN en NSX) die worden beheerd door een vCenter-Server.  Beheer onderdelen worden geïmplementeerd in het netwerk dat is geselecteerd voor vSphere/vSAN-subnets CIDR.  Het netwerk-CIDR-bereik is tijdens de implementatie onderverdeeld in verschillende subnetten.
 
-Mini maal vSphere/vSAN-subnetten voor voegsel CIDR-bereik: **/24** maximum aantal VSphere/vSAN-SUBNETten CIDR-bereik voor voegsel: **/21**
+* Minimum aantal vSphere/vSAN-subnetten CIDR-bereik voor voegsel: **/24**
+* Maximum aantal vSphere/vSAN-subnetten voor voegsel van CIDR-bereik: **/21**
 
-> [!CAUTION]
-> IP-adressen in het vSphere/vSAN CIDR-bereik zijn gereserveerd voor gebruik door een particuliere cloud infrastructuur. Gebruik geen IP-adres in dit bereik op een virtuele machine.
-
+> [!IMPORTANT]
+> IP-adressen in het vSphere/vSAN CIDR-bereik zijn gereserveerd voor gebruik door de infra structuur van de Privécloud.  Gebruik het IP-adres in dit bereik op geen enkele virtuele machine.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/vSAN subnetten CIDR-bereik limieten
 
-Het selecteren van de vSphere/vSAN-subnetten CIDR-bereik grootte heeft gevolgen voor de grootte van uw Privécloud.  In de onderstaande tabel ziet u het maximum aantal knoop punten dat u kunt hebben op basis van de grootte van de CIDR-vSphere/vSAN-subnetten.
+Het selecteren van de vSphere/vSAN-subnetten CIDR-bereik grootte heeft gevolgen voor de grootte van uw Privécloud.  In de volgende tabel ziet u het maximum aantal knoop punten dat u kunt hebben op basis van de grootte van de vSphere/vSAN-subnetten CIDR.
 
 | Opgegeven vSphere/vSAN-subnetten CIDR-voor voegsel lengte | Maximumaantal knooppunten |
 |---------------------------------------------------|-------------------------|
@@ -54,19 +54,19 @@ Het selecteren van de vSphere/vSAN-subnetten CIDR-bereik grootte heeft gevolgen 
 
 ### <a name="management-subnets-created-on-a-private-cloud"></a>Subnetten beheren die zijn gemaakt in een Privécloud
 
-De volgende subnetten met beheer worden gemaakt wanneer u een Privécloud maakt. 
+De volgende subnetten met beheer worden gemaakt wanneer u een Privécloud maakt.
 
-* **Systeem beheer** -VLAN en subnet voor ESXi hosts-beheer netwerk, DNS-server, vCenter-Server.
-* **VMotion** -VLAN en subnet voor ESXi van het netwerk van de host VMotion.
-* **VSAN** -VLAN en subnet voor ESXi hosts VSAN Network.
-* **NsxtEdgeUplink1** -VLAN en SUBNET voor VLAN-uplinks naar een extern netwerk.
-* **NsxtEdgeUplink2** -VLAN en SUBNET voor VLAN-uplinks naar een extern netwerk.
-* **NsxtEdgeTransport** -VLAN en subnet voor transport zones bepalen het bereik van laag 2-netwerken in NSX-T.
-* **NsxtHostTransport** : VLAN en subnet voor host-transport zone.
+* **Systeem beheer**. VLAN en subnet voor ESXi host-beheer netwerk, DNS-server, vCenter-Server.
+* **VMotion**. VLAN en subnet voor het ESXi-netwerk van de host.
+* **VSAN**. VLAN en subnet voor ESXi-hosts vSAN-netwerk.
+* **NsxtEdgeUplink1**. VLAN en subnet voor VLAN-uplinks naar een extern netwerk.
+* **NsxtEdgeUplink2**. VLAN en subnet voor VLAN-uplinks naar een extern netwerk.
+* **NsxtEdgeTransport**. VLAN en subnet voor transport zones bepalen het bereik van laag-2-netwerken in NSX-T.
+* **NsxtHostTransport**. VLAN en subnet voor host-transport zone.
 
 ### <a name="management-network-cidr-range-breakdown"></a>Specificatie van CIDR-bereik voor beheer netwerk
 
-het opgegeven CIDR-bereik voor vSphere/vSAN-subnetten is onderverdeeld in meerdere subnetten.  Onderstaande tabel ziet u een voor beeld van de uitsplitsing van toegestane voor voegsels.  In het voor beeld wordt **192.168.0.0** gebruikt als het CIDR-bereik.
+het opgegeven CIDR-bereik voor vSphere/vSAN-subnetten is onderverdeeld in meerdere subnetten.  De volgende tabel toont een voor beeld van de uitsplitsing van toegestane voor voegsels.  In het voor beeld wordt 192.168.0.0 gebruikt als het CIDR-bereik.
 
 Voorbeeld:
 
@@ -82,4 +82,4 @@ Voorbeeld:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [VLAN'S en subnetten maken en beheren](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
+* [VLAN'S en subnetten maken en beheren](create-vlan-subnet.md)

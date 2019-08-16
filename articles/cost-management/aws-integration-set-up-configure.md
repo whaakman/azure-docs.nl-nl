@@ -1,120 +1,120 @@
 ---
-title: Instellen en configureren van AWS-kosten en gebruik rapport-integratie met Azure Cost Management
-description: Dit artikel helpt u bij het instellen en configureren van AWS-kosten en gebruik rapport-integratie met Azure Cost Management.
+title: De integratie van AWS-en gebruiks rapporten instellen en configureren met Azure Cost Management
+description: Dit artikel begeleidt u bij het instellen en configureren van AWS voor de integratie van kosten-en gebruiks rapporten met Azure Cost Management.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 08/15/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 951178a82e0975f5f2af71bd48cf0f931246ae37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9664beca514abcbad4eca7c8f9dc1b494018802e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002130"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535187"
 ---
-# <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instellen en configureren van AWS-kosten en gebruik rapport-integratie
+# <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS voor kosten-en gebruiks rapporten instellen en configureren
 
-Met Amazon Web Services (AWS) rapport (huidig)-integratie, kosten en gebruik, die u kunt controleren en beheren van uw AWS-uitgaven in Azure Cost Management. Dankzij de integratie kunt één locatie in de Azure-portal waar u kunt controleren en de controle voor de uitgavelimiet voor zowel Azure als AWS. In dit artikel wordt uitgelegd hoe u de integratie instellen en configureren zodat u functies van Azure Cost Management gebruiken om kosten te analyseren en controleren van budgetten.
+Met Amazon Web Services (AWS)-integratie voor kosten-en gebruiks rapporten (CUR) kunt u uw AWS-uitgaven in Azure Cost Management bewaken en beheren. Met de integratie kunt u één locatie in het Azure Portal waar u de bestedingen bewaken en beheren voor Azure en AWS. In dit artikel wordt uitgelegd hoe u de integratie instelt en configureert zodat u Azure Cost Management functies kunt gebruiken om kosten te analyseren en budgetten te controleren.
 
-Kosten processen voor het AWS-kosten en gebruik rapport opgeslagen in een S3-bucket met behulp van uw AWS-referenties voor toegang te krijgen rapportdefinities en GZIP CSV-bestanden te downloaden.
+Cost Management verwerkt het AWS-kosten-en gebruiks rapport dat is opgeslagen in een S3-Bucket door gebruik te maken van uw AWS-toegangs referenties om rapport definities op te halen en rapport-GZIP CSV-bestanden te downloaden.
 
-## <a name="create-a-cost-and-usage-report-in-aws"></a>Maken van een rapport kosten en gebruik in AWS
+## <a name="create-a-cost-and-usage-report-in-aws"></a>Een kosten-en gebruiks rapport maken in AWS
 
-Met behulp van een rapport kosten en gebruik, is de AWS-aanbevolen manier om te verzamelen en verwerken van de kosten voor AWS. Zie voor meer informatie de [AWS kosten en gebruiksrapport](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) documentatie.
+Het gebruik van een kosten-en gebruiks rapport is de AWS-aanbevolen manier om AWS-kosten te verzamelen en te verwerken. Zie de documentatie over kosten- [en gebruiks rapporten van AWS](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) voor meer informatie.
 
-Gebruik de **kosten & gebruiksrapporten** pagina van de facturering en Cost Management console in AWS een rapport kosten en gebruik te maken met de volgende stappen uit:
+Gebruik de pagina **kosten & gebruiks rapporten** van de console facturering en Cost Management in AWS om een kosten-en gebruiks rapport te maken met de volgende stappen:
 
-1. Aanmelden bij de AWS-beheerconsole en open de [facturering en Cost Management console](https://console.aws.amazon.com/billing).
-2. Selecteer in het navigatiedeelvenster **kosten & gebruiksrapporten**.
+1. Meld u aan bij de AWS-beheer console en open de [console facturering en Cost Management](https://console.aws.amazon.com/billing).
+2. Selecteer in het navigatie deel venster **kosten & gebruiks rapporten**.
 3. Selecteer **rapport maken**.
-4. Voor **rapportnaam**, voer een naam in voor uw rapport.
-5. Voor **extra rapportdetails** , om op te nemen van de id's van elke resource in het rapport en selecteer **Resource-id's bevatten**.
-6. Voor **instellingen voor gegevensvernieuwing**, selecteert u of u wilt dat de kosten voor AWS en gebruik rapport vernieuwen als AWS restituties, tegoeden, toepassing of ondersteuning voor kosten op uw account na het voltooien van uw factuur. Wanneer een rapport wordt vernieuwd, wordt een nieuw rapport geüpload naar Amazon S3. Het verdient laat u deze instelling op.
-7. Selecteer **Next**.
-8. Voor **S3-bucket**, kiest u **configureren**.
-9. Doe het volgende in het dialoogvenster S3-Bucket configureren:
-    1. Selecteer een bestaande bucket in de vervolgkeuzelijst en kies **volgende**.
-    2. Voer een Bucketnaam en de regio waar u wilt maken van een nieuwe bucket en kies **volgende**.
-10. Selecteer die ik hebt vastgesteld dat dit beleid is gecorrigeerd en kiest u opslaan.
-11. (Optioneel) Voer het rapport pad-voorvoegsel dat u wilt dat prepended op de naam van uw rapport voor rapport padvoorvoegsel.
-Als u een voorvoegsel niet opgeeft, is het standaardvoorvoegsel de naam die u hebt opgegeven voor het rapport in stap 4 en het datumbereik voor het rapport in de volgende indeling: `/report-name/date-range/`
-12. Voor **tijdseenheid**, kiest u **per uur**.
-13. Voor **rapport versiebeheer**, kies of u elke versie van het rapport in de vorige versie van het rapport te overschrijven of naast de vorige versies worden geleverd.
-14. Voor **inschakelen data-integratie voor**, er is geen selectie is vereist.
-15. Voor **compressie**, selecteer **GZIP**.
-16. Selecteer **Next**.
-17. Nadat u deze de instellingen voor uw rapport hebt bekeken, selecteer **controleren en voltooien**.
+4. Voer bij **rapport naam**een naam in voor uw rapport.
+5. Onder **aanvullende rapport Details**selecteert u **resource-id's toevoegen**.
+6. Voor **instellingen voor gegevens vernieuwing**selecteert u of u het AWS-kosten-en gebruiks rapport wilt vernieuwen als AWS restituties, tegoeden of ondersteunings kosten voor uw account toepast nadat uw factuur is voltooid. Wanneer een rapport wordt vernieuwd, wordt een nieuw rapport geüpload naar Amazon S3. U wordt aangeraden de instelling geselecteerd te laten.
+7. Selecteer **Volgende**.
+8. Kies **configureren**voor **S3 Bucket**.
+9. Voer in het dialoog venster S3-Bucket configureren een van de volgende taken uit:
+    1. Selecteer een bestaande Bucket in de vervolg keuzelijst en kies **volgende**.
+    2. Voer de naam van een Bucket in en de regio waar u een nieuwe Bucket wilt maken en klik op **volgende**.
+10. Selecteer **Ik heb bevestigd dat dit beleid juist is**en klik vervolgens op **Opslaan**.
+11. Beschrijving Voer voor het voor voegsel van het rapport-pad het pad naar het rapport traject in dat u wilt toevoegen aan de naam van het rapport.
+Als u geen voor voegsel opgeeft, is het standaard voorvoegsel de naam die u voor het rapport hebt opgegeven. Het datum bereik heeft de `/report-name/date-range/` notatie.
+12. Voor **tijds eenheid**kiest u **elk uur**.
+13. Voor **rapport versie beheer**kiest u of u wilt dat elke versie van het rapport de vorige versie overschrijft, of dat u aanvullende nieuwe rapporten wilt.
+14. Voor het **inschakelen van gegevens integratie voor**is het niet nodig om te selecteren.
+15. Selecteer voor **compressie**de optie **gzip**.
+16. Selecteer **Volgende**.
+17. Nadat u de instellingen voor uw rapport hebt gecontroleerd, selecteert u **controleren en volt ooien**.
 
-    Noteer de rapportnaam. U gebruikt deze in latere stappen.
+    Noteer de naam van het rapport. U gebruikt deze in latere stappen.
 
-Het kan tot 24 uur voor AWS om te beginnen met het leveren van rapporten aan uw Amazon S3-bucket duren. Na levering wordt gestart, werkt AWS de AWS-kosten en gebruik rapportbestanden ten minste één keer per dag. U kunt doorgaan met het configureren van uw AWS-omgeving zonder te wachten op voor de levering om te starten.
+Het kan tot 24 uur duren voordat AWS rapporten aan uw Amazon S3-Bucket leveren. Nadat de levering is gestart, werkt AWS de AWS-kosten-en gebruiks rapport bestanden ten minste één keer per dag bij. U kunt door gaan met het configureren van uw AWS-omgeving zonder te wachten tot de levering wordt gestart.
 
-## <a name="create-a-role-and-policy-in-aws"></a>Maken van een rol en het beleid in AWS
+## <a name="create-a-role-and-policy-in-aws"></a>Een rol en beleid maken in AWS
 
-Azure Cost Management heeft toegang tot de S3-bucket waar de kosten en gebruik rapport zich meerdere keren per dag bevindt. De service moet toegang hebben tot de referenties te controleren of er nieuwe gegevens. U maakt een rol en het beleid in AWS om toe te staan van Cost Management om deze te openen.
+Azure Cost Management heeft toegang tot de S3-Bucket waar het kosten-en gebruiks rapport meerdere keren per dag is opgeslagen. De service moet toegang hebben tot referenties om te controleren op nieuwe gegevens. U maakt een rol en beleid in AWS om Cost Management toegang te geven.
 
-Als u wilt inschakelen op rollen gebaseerde toegang tot een AWS-account in Cost Management, is de rol gemaakt in de AWS-console. U moet beschikken over de _rol informatie_ en _externe ID_ vanuit de AWS-console. Later, u kunt het gebruiken voor de **een AWS-connector maken** pagina in Cost Management.
+Om op rollen gebaseerde toegang tot een AWS-account in Cost Management in te scha kelen, wordt de rol gemaakt in de AWS-console. U moet de _rol Arn_ en de _externe ID_ hebben in de AWS-console. Later kunt u ze gebruiken op de pagina **een AWS-connector maken** in cost management.
 
-Gebruik de wizard nieuwe rol maken:
+Gebruik de wizard een nieuwe rol maken:
 
-1. Aanmelden bij uw AWS-console en selecteer **Services**.
-2. Selecteer in de lijst met services, **IAM**.
+1. Meld u aan bij uw AWS-console en selecteer **Services**.
+2. Selecteer **iam**in de lijst met Services.
 3. Selecteer **rollen** en selecteer vervolgens **rol maken**.
-4. Selecteer op de volgende pagina **een andere AWS-account**.
-5. In **Account-ID**, voer **432263259397**.
-6. In **opties**, selecteer **externe ID (Best practice wanneer een derde partij wordt deze rol vervullen) vereisen**.
-7. In **externe ID**, geef de externe ID. De externe ID is een gedeelde code tussen de AWS-rol en Azure Cost Management. Dezelfde externe ID wordt ook gebruikt voor de **nieuwe Connector** pagina in Cost Management. Bijvoorbeeld, een externe ID lijkt op _Companyname1234567890123_.
+4. Selecteer op de volgende pagina **een ander AWS-account**.
+5. Voer in **account-ID** **432263259397**in.
+6. Selecteer in **Opties** **de optie externe ID vereisen (aanbevolen procedure wanneer een derde partij deze rol zal aannemen)** .
+7. Voer in **externe ID**de externe ID in. De externe ID is een gedeelde wachtwoord code tussen de AWS-functie en de Azure Cost Management. Dezelfde externe ID wordt ook gebruikt op de **nieuwe connector** pagina in cost management. Een externe ID lijkt bijvoorbeeld op _Companyname1234567890123_.
 
     > [!NOTE]
-    > De selectie voor niet te wijzigen **MFA vereisen**. Het apparaat moet blijven uitgeschakeld.
+    > Wijzig de selectie niet voor het **vereisen van MFA**. Deze moet leeg blijven.
 8. Selecteer **Volgende: Permissions**.
-9. Selecteer **beleid maken**. Er wordt een nieuw browsertabblad geopend. Dat is waar u een beleid maken.
-10. Selecteer **kiest u een service**.
+9. Selecteer **beleid maken**. Er wordt een nieuw browsertabblad geopend. Zo maakt u een beleid.
+10. Selecteer **een service kiezen**.
 
-Machtiging voor het rapport kosten en gebruik configureren:
+Machtiging voor het kosten-en gebruiks rapport configureren:
 
-1. Voer **kosten en gebruiksrapport**.
-2. Selecteer **toegangsniveau** > **lezen** > **DescribeReportDefinitions**. In deze stap kunt Cost Management om te lezen welke huidige rapporten zijn gedefinieerd en bepalen als ze overeenkomen met de vereiste van de definitie van rapport.
-3. Selecteer **aanvullende machtigingen**.
+1. Voer het **kosten-en gebruiks rapport**in.
+2. Selecteer **toegangs niveau** > **DescribeReportDefinitions** **lezen** > . Met deze stap kunt Cost Management lezen wat de huidige rapporten zijn gedefinieerd en bepalen of ze overeenkomen met de vereiste voor de rapport definitie.
+3. Selecteer **extra machtigingen toevoegen**.
 
-Machtiging voor de S3-bucket en objecten configureren:
+Machtiging voor uw S3-Bucket en-objecten configureren:
 
-1. Selecteer **kiest u een service**.
-2. Voer **S3**.
-3. Selecteer **toegangsniveau** > **lijst** > **ListBucket**. Deze actie wordt een lijst van objecten in de S3-Bucket opgehaald.
-4. Selecteer **toegangsniveau** > **lezen** > **GetObject**. Met deze actie kunt het downloaden van bestanden voor facturering.
-5. Selecteer **Resources**.
-6. Selecteer **bucket – informatie toevoegen**.
-7. In **Bucketnaam**, voer de bucket gebruikt voor het opslaan van de huidige bestanden.
-8. Selecteer **object – informatie toevoegen**.
-9. In **Bucketnaam**, voer de bucket gebruikt voor het opslaan van de huidige bestanden.
-10. In **objectnaam**, selecteer **eventuele**.
-11. Selecteer **aanvullende machtigingen**.
+1. Selecteer **een service kiezen**.
+2. Voer **S3**in.
+3. Selecteer **toegangs niveau** > **lijst** > **ListBucket**. Met deze actie wordt de lijst met objecten in de S3-Bucket opgehaald.
+4. Selecteer **toegangs niveau** > **GetObject** **lezen** > . Met deze actie kunnen facturerings bestanden worden gedownload.
+5. **Resources**selecteren.
+6. Selecteer **Bucket – Arn toevoegen**.
+7. Voer in **Bucket naam**de Bucket in die wordt gebruikt voor het opslaan van de gecurte bestanden.
+8. Selecteer **object – Arn toevoegen**.
+9. Voer in **Bucket naam**de Bucket in die wordt gebruikt voor het opslaan van de gecurte bestanden.
+10. Selecteer in **object naam** **een**.
+11. Selecteer **extra machtigingen toevoegen**.
 
-Machtiging voor kosten Explorer configureren:
+Machtiging voor de kosten Verkenner configureren:
 
-1. Selecteer **kiest u een service**.
-2. Voer **kosten Explorer-Service**.
-3. Selecteer **acties voor alle kosten Explorer-Service (ce:\*)** . Deze actie wordt gecontroleerd of de verzameling juist is.
-4. Selecteer **aanvullende machtigingen**.
+1. Selecteer **een service kiezen**.
+2. Voer de **service cost Explorer**in.
+3. **Alle service acties van kosten Verkenner (CE:\*)** selecteren. Met deze actie wordt gecontroleerd of de verzameling juist is.
+4. Selecteer **extra machtigingen toevoegen**.
 
-Machtiging voor AWS-organisaties toevoegen:
+Machtiging toevoegen voor AWS-organisaties:
 
-1. Voer **organisaties**.
-2. Selecteer **toegangsniveau** > **lijst** > **ListAccounts**. Deze actie worden de namen van de accounts opgehaald.
-3. In **Review Policy**, voer een naam in voor het nieuwe beleid. Controleer of u de juiste gegevens hebt ingevoerd, en selecteer vervolgens **beleid maken**.
-4. Ga terug naar het vorige tabblad en vernieuw de webpagina van uw browser. Op de zoekbalk typt, zoekt u het nieuwe beleid.
-5. Selecteer **Next: revisie**.
-6. Voer een naam voor de nieuwe rol. Controleer of u de juiste gegevens hebt ingevoerd, en selecteer vervolgens **rol maken**.
+1. Voer **organisaties**in.
+2. Selecteer **toegangs niveau** > **lijst** > **ListAccounts**. Met deze actie worden de namen van de accounts opgehaald.
+3. Voer in **beleid controleren**een naam in voor het nieuwe beleid. Controleer of u de juiste gegevens hebt ingevoerd en selecteer vervolgens **beleid maken**.
+4. Ga terug naar het vorige tabblad en vernieuw de webpagina van uw browser. Zoek op de zoek balk naar het nieuwe beleid.
+5. Selecteer **Volgende: Review**.
+6. Voer een naam in voor de nieuwe rol. Controleer of u de juiste gegevens hebt ingevoerd en selecteer **rol maken**.
 
-    Houd er rekening mee de rol van informatie en de externe ID gebruikt in de voorgaande stappen bij het maken van de rol. U hebt ze later gebruiken bij het instellen van de Azure Cost Management-connector.
+    Let op de functie ARN en de externe ID die in de voor gaande stappen worden gebruikt tijdens het maken van de rol. U gebruikt deze later bij het instellen van de Azure Cost Management-connector.
 
-De JSON van het beleid moet lijken op het volgende voorbeeld. Vervang _bucketname_ met de naam van de S3-bucket.
+De JSON van het beleid moet eruitzien als in het volgende voor beeld. Vervang _Bucket_ door de naam van uw S3-Bucket.
 
 ```JSON
 {
@@ -146,89 +146,89 @@ De JSON van het beleid moet lijken op het volgende voorbeeld. Vervang _bucketnam
 }
 ```
 
-## <a name="set-up-a-new-aws-connector-in-azure"></a>Een nieuwe AWS-connector in Azure instellen
+## <a name="set-up-a-new-aws-connector-in-azure"></a>Een nieuwe AWS-connector instellen in azure
 
-Gebruik de volgende informatie om te maken van een AWS-connector en beginnen met controleren van uw AWS-kosten:
+Gebruik de volgende informatie om een AWS-connector te maken en te beginnen met het bewaken van uw AWS-kosten:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Ga naar **kosten Management en facturering** > **kostenbeheer**.
-3. Onder **instellingen**, selecteer **connectors (Preview) in de Cloud**.  
-    ![Voorbeeld van de Cloud-connectors (Preview) instelling)](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
-4. Selecteer **+ toevoegen** aan de bovenkant van de pagina om een connector te maken.
-5. Op de **een AWS-connector maken** pagina **weergavenaam**, voer een naam in voor uw connector.  
-    ![Voorbeeld van de pagina voor het maken van een AWS-connector](./media/aws-integration-setup-configure/create-aws-connector01.png)
-6. (Optioneel) Selecteer de standaard-beheergroep. Alle gedetecteerde gekoppelde accounts worden opgeslagen. U kunt deze later instellen.
-7. In de **facturering** sectie, selecteer **automatisch kosten in rekening gebracht van de % 1 voor algemene beschikbaarheid** als u zorgen voor doorlopende werking wilt wanneer de Preview-versie is verlopen. Als u de automatische optie selecteert, moet u een abonnement voor facturering.
-8. Voor **rol informatie**, voer de waarde die u hebt gebruikt bij het instellen van de rol in AWS.
-9. Voor **externe ID**, voer de waarde die u hebt gebruikt bij het instellen van de rol in AWS.
-10. Voor **rapportnaam**, voer de naam die u hebt gemaakt in AWS.
+2. Ga naar **Cost Management en facturerings** > **Cost Management**.
+3. Selecteer onder **instellingen**de optie **Cloud connectors (preview)** .  
+    ![Voor beeld met de instelling voor Cloud connectors (](./media/aws-integration-setup-configure/cloud-connectors-preview01.png)preview)).
+4. Selecteer **+ toevoegen** boven aan de pagina om een connector te maken.
+5. Voer op de pagina **een AWS-connector maken** in **weergave naam**een naam in voor de connector.  
+    ![Voor beeld van de pagina voor het maken van een AWS-connector](./media/aws-integration-setup-configure/create-aws-connector01.png)
+6. Selecteer desgewenst de standaard beheer groep. Alle gedetecteerde gekoppelde accounts worden opgeslagen. U kunt deze later instellen.
+7. Selecteer in de sectie **facturering** **automatisch het bedrag van 1% bij algemene Beschik baarheid** als u een doorlopende werking wilt garanderen wanneer de preview-periode verloopt. Als u de automatische optie selecteert, moet u een facturerings abonnement selecteren.
+8. Voer voor **Role Arn**de waarde in die u hebt gebruikt bij het instellen van de functie in AWS.
+9. Voer voor **externe ID**de waarde in die u hebt gebruikt bij het instellen van de functie in AWS.
+10. Voer bij **rapport naam**de naam in die u hebt gemaakt in AWS.
 11. Selecteer **volgende** en selecteer vervolgens **maken**.
 
-Het duurt een paar uur voor de nieuwe scopes met AWS, de AWS geconsolideerde-account en gekoppelde AWS-accounts en hun kostengegevens worden weergegeven.
+Het kan enkele uren duren voordat de nieuwe AWS-scopes, het AWS geconsolideerde account, de AWS gekoppelde accounts en de bijbehorende kosten gegevens worden weer gegeven.
 
-Nadat u de connector hebt gemaakt, wordt u aangeraden dat u toegangsbeheer aan toewijzen. Gebruikers zijn machtigingen toegewezen aan de nieuwe gedetecteerde bereiken: AWS geconsolideerde-account en gekoppelde AWS-accounts. De gebruiker die de connector maakt, is de eigenaar van de connector, het samengevoegde account en alle gekoppelde accounts.
+Wanneer u de connector hebt gemaakt, wordt u aangeraden toegangs beheer aan toe te wijzen. Aan gebruikers zijn machtigingen toegewezen voor de nieuwe gedetecteerde bereiken: AWS geconsolideerde account en AWS gekoppelde accounts. De gebruiker die de connector maakt, is de eigenaar van de connector, het geconsolideerde account en alle gekoppelde accounts.
 
-Connector-machtigingen toewijzen aan gebruikers nadat er een detectie wordt uitgevoerd, geen machtigingen toewijzen aan de bestaande AWS-bereiken. In plaats daarvan zijn gekoppelde accounts alleen nieuwe machtigingen toegewezen.
+Het toewijzen van connector machtigingen aan gebruikers na detectie vindt geen machtigingen voor de bestaande AWS-bereiken. In plaats daarvan worden alleen aan nieuwe gekoppelde accounts machtigingen toegewezen.
 
-## <a name="take-additional-steps"></a>Neem bijkomende stappen
+## <a name="take-additional-steps"></a>Aanvullende stappen uitvoeren
 
-- [Instellen van beheergroepen](../governance/management-groups/index.md#initial-setup-of-management-groups), als u dat nog niet gedaan hebt.
-- Controleer dat nieuwe scopes worden toegevoegd aan de bereikskiezer. Selecteer **vernieuwen** om de meest recente gegevens weer te geven.
-- Op de **Cloud connectors** pagina, selecteert u de connector en selecteer **gaat u naar factureringsaccount** het gekoppelde account toewijzen aan beheergroepen.
+- [Stel beheer groepen](../governance/management-groups/index.md#initial-setup-of-management-groups)in, als u dat nog niet hebt gedaan.
+- Controleer of er nieuwe scopes zijn toegevoegd aan de bereik kiezer. Selecteer **vernieuwen** om de meest recente gegevens weer te geven.
+- Selecteer op de pagina **Cloud connectors** de connector en selecteer **naar facturerings account gaan** om het gekoppelde account aan beheer groepen toe te wijzen.
 
-## <a name="manage-cloud-connectors"></a>Beheren van cloud-connectors
+## <a name="manage-cloud-connectors"></a>Cloud-connectors beheren
 
-Wanneer u een connector selecteert op de **Cloud connectors** pagina die u kunt:
+Wanneer u een connector selecteert op de pagina **Cloud connectors** , kunt u het volgende doen:
 
-- Selecteer **gaat u naar factureringsaccount** geconsolideerd account om gegevens voor de AWS weer te geven.
-- Selecteer **Access Control** voor het beheren van de roltoewijzing voor de connector.
-- Selecteer **bewerken** om bij te werken van de connector. U kunt het aantal van AWS-account, niet wijzigen omdat deze wordt weergegeven in de rol van informatie. Maar u kunt een nieuwe connector maken.
-- Selecteer **controleren** de verificatietest om ervoor te zorgen dat Cost Management van gegevens verzamelen kunt met behulp van de connectorinstellingen opnieuw uit te voeren.
+- Selecteer **naar het facturerings account gaan** om informatie weer te geven voor het geconsolideerde AWS-account.
+- Selecteer **Access Control** om de roltoewijzing voor de connector te beheren.
+- Selecteer **bewerken** om de connector bij te werken. U kunt het AWS-account nummer niet wijzigen omdat het wordt weer gegeven in de functie ARN. U kunt echter wel een nieuwe connector maken.
+- Selecteer **verifiëren** om de verificatie test opnieuw uit te voeren om ervoor te zorgen dat Cost Management gegevens kan verzamelen met behulp van de connector instellingen.
 
-![Voorbeeld van de lijst met gemaakte AWS-connectors](./media/aws-integration-setup-configure/list-aws-connectors.png)
+![Voor beeld van een lijst met gemaakte AWS-connectors](./media/aws-integration-setup-configure/list-aws-connectors.png)
 
-## <a name="set-up-azure-management-groups"></a>Instellen van Azure-beheergroepen
+## <a name="set-up-azure-management-groups"></a>Azure-beheer groepen instellen
 
-Voor het maken van één plek om cross-cloudprovider informatie weer te geven, moet u uw Azure-abonnementen en gekoppelde AWS-accounts in dezelfde beheergroep plaatsen. Als u dit nog niet hebt al uw Azure-omgeving is geconfigureerd met beheergroepen, [voor de eerste installatie van beheergroepen](../governance/management-groups/index.md#initial-setup-of-management-groups).
+Plaats uw Azure-abonnementen en AWS gekoppelde accounts in dezelfde beheer groep om één locatie te maken waar u gegevens over de cross-Cloud provider kunt zien. Als u uw Azure-omgeving nog niet hebt geconfigureerd met beheer groepen, raadpleegt u de [eerste instellingen van beheer groepen](../governance/management-groups/index.md#initial-setup-of-management-groups).
 
-Als u wilt de afzonderlijke kosten, kunt u een beheergroep waarin de zojuist gekoppelde AWS-accounts maken.
+Als u kosten wilt scheiden, kunt u een beheer groep maken die alleen AWS gekoppelde accounts bevat.
 
-## <a name="set-up-an-aws-consolidated-account"></a>Stel een AWS geconsolideerd account
+## <a name="set-up-an-aws-consolidated-account"></a>Een geconsolideerd AWS-account instellen
 
-Het account AWS geconsolideerd combineert facturering en betaling voor meerdere AWS-accounts. Het fungeert ook als een gekoppelde AWS-account.
+Het geconsolideerde AWS-account combineert facturering en betaling voor meerdere AWS-accounts. Het fungeert ook als een AWS gekoppeld account.
 
-![Voorbeeld van de details voor een AWS geconsolideerd account](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
+![Voor beeld van Details voor een geconsolideerd AWS-account](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
 
 Op de pagina kunt u het volgende doen:
 
-- Selecteer **bijwerken** bulksgewijs bijwerken gekoppeld de koppeling van AWS-accounts met een beheergroep.
-- Selecteer **Access Control** om in te stellen van de roltoewijzing voor de scope.
+- Selecteer **bijwerken** om de koppeling van AWS gekoppelde accounts bij een beheer groep bulksgewijs bij te werken.
+- Selecteer **Access Control** om de roltoewijzing voor het bereik in te stellen.
 
-### <a name="permissions-for-an-aws-consolidated-account"></a>Machtigingen voor een AWS geconsolideerd account
+### <a name="permissions-for-an-aws-consolidated-account"></a>Machtigingen voor een geconsolideerd AWS-account
 
-Machtigingen voor een geconsolideerd AWS-account zijn standaard ingesteld bij het maken van het account op basis van de machtigingen van AWS-connector. De maker van de connector is de eigenaar.
+Machtigingen voor een AWS-geconsolideerd account worden standaard ingesteld op basis van de AWS-connector machtigingen. De maker van de connector is de eigenaar.
 
-U het toegangsniveau van de beheren met behulp van de **toegangsniveau** pagina van de AWS geconsolideerd account. Echter, AWS gekoppelde accounts machtigingen aan de geconsolideerde AWS-account niet overnemen.
+U beheert het toegangs niveau met behulp van de pagina **toegangs niveau** van het geconsolideerde AWS-account. AWS gekoppelde accounts nemen echter geen machtigingen over van het geconsolideerde AWS-account.
 
-## <a name="set-up-an-aws-linked-account"></a>Een gekoppelde AWS-account instellen
+## <a name="set-up-an-aws-linked-account"></a>Een AWS-gekoppeld account instellen
 
-De gekoppelde AWS-account is waar de AWS-resources worden gemaakt en beheerd. Een gekoppeld account fungeert ook als een beveiligingsgrens.
+Het gekoppelde AWS-account is waar AWS-resources worden gemaakt en beheerd. Een gekoppeld account fungeert ook als een beveiligings grens.
 
 Op deze pagina kunt u het volgende doen:
 
-- Selecteer **bijwerken** gekoppeld aan het bijwerken van de koppeling van een AWS-account met een beheergroep.
-- Selecteer **Access Control** om in te stellen van een roltoewijzing voor de scope.
+- Selecteer **bijwerken** om de koppeling van een AWS gekoppeld account bij een beheer groep bij te werken.
+- Selecteer **Access Control** om een roltoewijzing voor het bereik in te stellen.
 
-![Voorbeeld van de gekoppelde AWS-Account-pagina](./media/aws-integration-setup-configure/aws-linked-account01.png)
+![Voor beeld van de pagina gekoppeld AWS-account](./media/aws-integration-setup-configure/aws-linked-account01.png)
 
-### <a name="permissions-for-an-aws-linked-account"></a>Machtigingen voor een AWS-account gekoppeld
+### <a name="permissions-for-an-aws-linked-account"></a>Machtigingen voor een AWS gekoppeld account
 
-Machtigingen voor een gekoppelde AWS-account zijn standaard ingesteld nadat deze is gemaakt, op basis van de machtigingen van AWS-connector. De maker van de connector is de eigenaar. U het toegangsniveau van de beheren met behulp van de **toegangsniveau** pagina van de AWS-account gekoppeld. AWS gekoppelde accounts niet machtigingen overnemen van een geconsolideerd AWS-account.
+Standaard worden machtigingen voor een AWS gekoppeld account ingesteld bij het maken, op basis van de AWS-connector machtigingen. De maker van de connector is de eigenaar. U beheert het toegangs niveau met behulp van de pagina **toegangs niveau** van het gekoppelde AWS-account. AWS gekoppelde accounts nemen geen machtigingen over van een geconsolideerd AWS-account.
 
-AWS gekoppelde accounts altijd machtigingen overnemen van de beheergroep waarvan ze lid.
+AWS gekoppelde accounts nemen altijd machtigingen over van de beheer groep waarvan ze deel uitmaken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Nu dat u hebt ingesteld en integratie van AWS-kosten en gebruik rapport geconfigureerd, gaat u verder met [AWS beheren van kosten en het verbruik](aws-integration-manage.md).
-- Als u niet bekend met kostenanalyse bent, Zie [verkennen en analyseren van kosten met kostenanalyse](quick-acm-cost-analysis.md) Quick Start.
-- Als u niet bekend met budgetten in Azure bent, Zie [maken en beheren van Azure budgetten](tutorial-acm-create-budgets.md).
+- Nu u de integratie van de kosten en het gebruiks rapport van AWS hebt ingesteld en geconfigureerd, kunt u de [kosten en het gebruik van AWS blijven beheren](aws-integration-manage.md).
+- Als u niet bekend bent met cost analysis, raadpleegt u [kosten verkennen en analyseren met de Snelstartgids voor kosten analyse](quick-acm-cost-analysis.md) .
+- Zie [Azure-budgetten maken en beheren](tutorial-acm-create-budgets.md)als u niet bekend bent met budgetten in Azure.

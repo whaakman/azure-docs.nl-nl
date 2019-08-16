@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: ae809dd4841d6df8caabebfaded263b52f386834
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2359befc05bff867a8f8b17943ed67d906ff4971
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845044"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534337"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Een aangepaste domein naam configureren voor uw Azure-opslag account
 
@@ -27,7 +27,7 @@ U kunt een aangepast domein configureren voor toegang tot BLOB-gegevens in uw Az
 > Opslag accounts ondersteunen momenteel slechts één aangepaste domein naam per account. U kunt geen aangepaste domein naam toewijzen aan zowel de web-als blob service-eind punten.
 > 
 > [!NOTE]
-> De toewijzing werkt alleen voor subdomeinen (bijvoorbeeld www\.-contoso.com). Als u uw web-eind punt beschikbaar wilt stellen voor het hoofd domein (bijvoorbeeld contoso.com), moet u [Azure CDN gebruiken met aangepaste domeinen](storage-https-custom-domain-cdn.md)
+> De toewijzing werkt alleen voor subdomeinen (bijvoorbeeld www\.-contoso.com). Als u uw web-eind punt beschikbaar wilt stellen voor het hoofd domein (bijvoorbeeld contoso.com), moet u [een aangepast domein toevoegen aan uw Azure CDN-eind punt](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
 De volgende tabel bevat enkele voor beelden van Url's voor BLOB-gegevens die zich bevinden in een opslag account met de naam *mystorageaccount*. Het aangepaste subdomein dat is geregistreerd voor het opslag account is *www\.-contoso.com*:
 

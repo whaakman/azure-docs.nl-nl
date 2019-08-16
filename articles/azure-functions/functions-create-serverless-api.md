@@ -1,31 +1,30 @@
 ---
-title: Een serverloze API maken met behulp van Azure Functions | Microsoft Docs
-description: Een serverloze API maken met behulp van Azure Functions
-services: functions
+title: Een HTTP-eind punt in Azure Functions aanpassen
+description: Meer informatie over het aanpassen van een HTTP trigger-eind punt in Azure Functions
 author: mattchenderson
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 00aa55fe9f92358fd3a0e6f3065e5e2e69e405e1
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107276"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534629"
 ---
-# <a name="create-a-serverless-api-using-azure-functions"></a>Een serverloze API maken met behulp van Azure Functions
+# <a name="customize-an-http-endpoint-in-azure-functions"></a>Een HTTP-eind punt in Azure Functions aanpassen
 
-In deze zelfstudie leert u hoe u zeer schaalbare API's kunt bouwen met behulp van Azure Functions. Azure Functions wordt geleverd met een aantal ingebouwde HTTP-triggers en -bindingen waarmee u gemakkelijk een eindpunt in een groot aantal talen kunt maken, waaronder Node.JS, C# en meer. In deze zelfstudie past u een HTTP-trigger aan om specifieke acties in uw API-ontwerp af te handelen. Ook treft u voorbereidingen voor het uitbreiden van uw API door deze te integreren met Azure Functions-proxy's en mock-API's in te stellen. Dit doet u allemaal in de serverloze Functions-rekenomgeving, zodat u zich geen zorgen hoeft te maken over het schalen van resources: u hoeft zich alleen te richten op uw API-logica.
+In dit artikel leert u hoe u met Azure Functions uiterst schaal bare Api's kunt bouwen. Azure Functions wordt geleverd met een aantal ingebouwde HTTP-triggers en -bindingen waarmee u gemakkelijk een eindpunt in een groot aantal talen kunt maken, waaronder Node.JS, C# en meer. In dit artikel gaat u een HTTP-trigger aanpassen voor het verwerken van specifieke acties in het API-ontwerp. Ook treft u voorbereidingen voor het uitbreiden van uw API door deze te integreren met Azure Functions-proxy's en mock-API's in te stellen. Dit doet u allemaal in de serverloze Functions-rekenomgeving, zodat u zich geen zorgen hoeft te maken over het schalen van resources: u hoeft zich alleen te richten op uw API-logica.
 
 ## <a name="prerequisites"></a>Vereisten 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-De resulterende functie wordt gebruikt voor de rest van deze zelfstudie.
+De resulterende functie wordt gebruikt voor de rest van dit artikel.
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -182,7 +181,7 @@ Test uw mock-API door het `<YourProxyApp>.azurewebsites.net/api/users/{username}
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een API in Azure Functions ontwikkelt en aanpast. U hebt ook geleerd hoe u meerdere API's, inclusief mocks, kunt samenbrengen als een geïntegreerd API-gebied. U kunt deze technieken gebruiken om meer en minder complexe API's te ontwikkelen, die alle worden uitgevoerd op het serverloze rekenmodel dat wordt geleverd door Azure Functions.
+In dit artikel hebt u geleerd hoe u een API kunt bouwen en aanpassen op Azure Functions. U hebt ook geleerd hoe u meerdere API's, inclusief mocks, kunt samenbrengen als een geïntegreerd API-gebied. U kunt deze technieken gebruiken om meer en minder complexe API's te ontwikkelen, die alle worden uitgevoerd op het serverloze rekenmodel dat wordt geleverd door Azure Functions.
 
 De volgende informatiebronnen kunnen nuttig zijn als u uw API verder ontwikkelt:
 

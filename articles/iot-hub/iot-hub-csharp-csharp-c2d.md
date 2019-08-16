@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: f8ba9508bdbb7fd436d3b693e638f29bac5065bf
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5fb6b17bcbc39b4e7531f79b832853a4f1ed1fd5
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618653"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558688"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Berichten vanuit de Cloud naar uw apparaat verzenden met IoT Hub (.NET)
 
@@ -26,7 +26,7 @@ Azure IoT Hub is een volledig beheerde service die zorgt voor betrouw bare en ve
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Deze zelf studie is gebaseerd op het [verzenden van telemetrie van een apparaat naar een IOT-hub](quickstart-send-telemetry-dotnet.md). U ziet hoe u de volgende stappen uitvoert:
+Deze zelf studie is gebaseerd op het [verzenden van telemetrie van een apparaat naar een IOT-hub](quickstart-send-telemetry-dotnet.md). U ziet hoe u de volgende taken kunt uitvoeren:
 
 * Via de back-end van uw oplossing kunt u Cloud-naar-apparaat-berichten verzenden naar één apparaat via IoT Hub.
 
@@ -38,19 +38,19 @@ U kunt meer informatie vinden over Cloud-naar-apparaat-berichten in [D2C en C2D 
 
 Aan het einde van deze zelf studie voert u twee .NET-console-apps uit.
 
-* **SimulatedDevice**, een gewijzigde versie van de app die is gemaakt in telemetrie [verzenden van een apparaat naar een IOT-hub](quickstart-send-telemetry-dotnet.md), die verbinding maakt met uw IOT-hub en Cloud-naar-apparaat-berichten ontvangt.
+* **SimulatedDevice**. Met deze app wordt verbinding gemaakt met uw IoT-hub en worden Cloud-naar-apparaat-berichten ontvangen. Deze app is een gewijzigde versie van de app die is gemaakt in telemetrie [verzenden van een apparaat naar een IOT-hub](quickstart-send-telemetry-dotnet.md).
 
-* **SendCloudToDevice**, waarmee een Cloud-naar-apparaat-bericht naar de apparaat-app wordt verzonden via IOT hub, waarna de ontvangst bevestiging wordt ontvangen.
+* **SendCloudToDevice**. Deze app verzendt een Cloud-naar-apparaat-bericht naar de apparaat-app via IoT Hub en ontvangt vervolgens de ontvangst bevestiging.
 
 > [!NOTE]
-> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen (waaronder C, Java, python en Java script) via [Azure IOT-apparaat-sdk's](iot-hub-devguide-sdks.md). Raadpleeg de [IOT hub ontwikkelaars handleiding](iot-hub-devguide.md)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
+> IoT Hub heeft SDK-ondersteuning voor veel platformen en talen, waaronder C, Java, python en Java script, via een [Azure IOT-apparaat-sdk's](iot-hub-devguide-sdks.md). Raadpleeg de [IOT hub ontwikkelaars handleiding](iot-hub-devguide.md)voor stapsgewijze instructies voor het verbinden van uw apparaat met de code van deze zelf studie en over het algemeen tot Azure IOT hub.
 >
 
-Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
+Voor het voltooien van deze zelfstudie moet aan de volgende vereisten worden voldaan:
 
 * Visual Studio
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken.)
+* Een actief Azure-account. Als u geen account hebt, kunt u in slechts een paar minuten een [gratis account](https://azure.microsoft.com/pricing/free-trial/) maken.
 
 ## <a name="receive-messages-in-the-device-app"></a>Berichten ontvangen in de apparaat-app
 
@@ -77,21 +77,21 @@ In deze sectie wijzigt u de apparaat-app die u hebt gemaakt in telemetrie [verze
     }
    ```
 
-   De `ReceiveAsync` methode retourneert het ontvangen bericht asynchroon op het moment dat het wordt ontvangen door het apparaat. Het retourneert *Null* na een vooraf ingestelde time-outperiode (in dit geval wordt de standaard waarde van één minuut gebruikt). Wanneer de app een *Null-waarde*ontvangt, moet deze blijven wachten op nieuwe berichten. Deze vereiste is de reden voor de `if (receivedMessage == null) continue` regel.
-
-    De oproep om `CompleteAsync()` IOT hub dat het bericht is verwerkt. Het bericht kan veilig uit de wachtrij van het apparaat worden verwijderd. Als er iets is gebeurd waardoor de apparaat-app de verwerking van het bericht niet kan volt ooien, wordt het opnieuw door IoT Hub bezorgd. Het is dan belang rijk dat de logica voor bericht verwerking in de apparaat-app *idempotent*is, zodat hetzelfde bericht meerdere keren wordt ontvangen. 
-
-    Een toepassing kan ook tijdelijk een bericht afbreken, wat leidt tot een IoT-hub en het bericht in de wachtrij voor toekomstig gebruik behoudt. Of de toepassing kan een bericht afwijzen, waardoor het bericht definitief uit de wachtrij wordt verwijderd. Zie [D2C and C2D Messa ging with IOT hub](iot-hub-devguide-messaging.md)voor meer informatie over de levens cyclus van Cloud-naar-apparaat-berichten.
-
-   > [!NOTE]
-   > Wanneer u https gebruikt in plaats van MQTT of AMQP als Trans Port `ReceiveAsync` , retourneert de methode direct. Het ondersteunde patroon voor Cloud-naar-apparaat-berichten met HTTPS is op een regel matig verbonden apparaten die op berichten te controleren zijn (minder dan elke 25 minuten). Het uitgeven van meer HTTPS resulteert in IoT Hub het beperken van de aanvragen. Zie [D2C and C2D Messa ging with IOT hub](iot-hub-devguide-messaging.md)(Engelstalig) voor meer informatie over de verschillen tussen MQTT, AMQP en HTTPS-ondersteuning en IOT hub beperking.
-   >
-
-2. Voeg de volgende methode toe in de methode **Main** , rechts voor `Console.ReadLine()` de regel:
+1. Voeg de volgende methode toe in de methode **Main** , rechts voor `Console.ReadLine()` de regel:
 
    ```csharp
    ReceiveC2dAsync();
    ```
+
+De `ReceiveAsync` methode retourneert het ontvangen bericht asynchroon op het moment dat het wordt ontvangen door het apparaat. Het retourneert *Null* na een bepaalde time-outperiode. In dit voor beeld wordt de standaard waarde van één minuut gebruikt. Wanneer de app een *Null-waarde*ontvangt, moet deze blijven wachten op nieuwe berichten. Deze vereiste is de reden voor de `if (receivedMessage == null) continue` regel.
+
+De oproep om `CompleteAsync()` IOT hub dat het bericht is verwerkt. Het bericht kan veilig uit de wachtrij van het apparaat worden verwijderd. Als er iets is gebeurd waardoor de apparaat-app de verwerking van het bericht niet kan volt ooien, wordt het opnieuw door IoT Hub bezorgd. De logica voor bericht verwerking in de apparaat-app moet *idempotent*zijn, zodat hetzelfde bericht meerdere keren wordt ontvangen.
+
+Een toepassing kan ook tijdelijk een bericht afbreken, wat leidt tot een IoT-hub en het bericht in de wachtrij voor toekomstig gebruik behoudt. Of de toepassing kan een bericht afwijzen, waardoor het bericht definitief uit de wachtrij wordt verwijderd. Zie [D2C and C2D Messa ging with IOT hub](iot-hub-devguide-messaging.md)voor meer informatie over de levens cyclus van Cloud-naar-apparaat-berichten.
+
+   > [!NOTE]
+   > Wanneer u https gebruikt in plaats van MQTT of AMQP als Trans Port `ReceiveAsync` , retourneert de methode direct. Het ondersteunde patroon voor Cloud-naar-apparaat-berichten met HTTPS is op een regel matig verbonden apparaten die op berichten te controleren zijn (minder dan elke 25 minuten). Het uitgeven van meer HTTPS resulteert in IoT Hub het beperken van de aanvragen. Zie [D2C and C2D Messa ging with IOT hub](iot-hub-devguide-messaging.md)(Engelstalig) voor meer informatie over de verschillen tussen MQTT, AMQP en HTTPS-ondersteuning en IOT hub beperking.
+   >
 
 ## <a name="get-the-iot-hub-connection-string"></a>De IoT hub-connection string ophalen
 
@@ -103,32 +103,32 @@ In dit artikel maakt u een back-end-service om Cloud-naar-apparaat-berichten te 
 
 Nu schrijft u een .NET-console-app die Cloud-naar-apparaat-berichten naar de apparaat-app verzendt.
 
-1. Klik in de huidige Visual Studio-oplossing met de rechter muisknop op de oplossing en selecteer > nieuw project toevoegen. Selecteer **Windows Desktop** en vervolgens **console-app (.NET Framework)** . Geef het project de naam **SendCloudToDevice** en selecteer de meest recente versie van de .NET Framework en selecteer **OK** om het project te maken.
+1. Selecteer in de huidige Visual Studio-oplossing **bestand** > **Nieuw** > **project**. Selecteer in **een nieuw project maken de**optie **console-app (.NET Framework)** en selecteer vervolgens **volgende**.
 
-   ![Nieuw project in Visual Studio](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
+1. Geef het project de naam *SendCloudToDevice*. Selecteer onder **oplossing**de optie **toevoegen aan oplossing** en accepteer de meest recente versie van de .NET Framework. Selecteer **Maken** om het project te maken.
 
-2. Klik in Solution Explorer met de rechter muisknop op de oplossing en klik vervolgens op **NuGet-pakketten beheren voor oplossing...** .
+   ![Een nieuw project configureren in Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
-   Met deze actie wordt het venster **NuGet-pakketten beheren** geopend.
+1. Klik in Solution Explorer met de rechter muisknop op de nieuwe oplossing en selecteer vervolgens **NuGet-pakketten beheren**.
 
-3. Zoek naar **micro soft. Azure. devices**, selecteer het tabblad Bladeren. Wanneer u het pakket hebt gevonden, klikt u op **installeren**en gaat u akkoord met de gebruiks voorwaarden.
+1. Selecteer in **NuGet-pakketten beheren**de optie **Bladeren**, en zoek vervolgens naar **micro soft. Azure. devices**en selecteer deze. Selecteer **installeren**.
 
-   Hiermee wordt een verwijzing naar het [Azure IOT Service SDK NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Devices/)gedownload, geïnstalleerd en toegevoegd.
+   Met deze stap wordt een verwijzing naar het [Azure IOT Service SDK NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Devices/)gedownload, geïnstalleerd en toegevoegd.
 
-4. Voeg de volgende `using` instructie toe boven aan het **Program.cs** -bestand.
+1. Voeg de volgende `using` instructie toe boven aan het **Program.cs** -bestand.
 
    ``` csharp
    using Microsoft.Azure.Devices;
    ```
 
-5. Voeg de volgende velden toe aan de klasse **Program**: Vervang de waarde van de tijdelijke aanduiding door de IoT hub-connection string die u eerder hebt gekopieerd in [de IOT hub-Connection String ophalen](#get-the-iot-hub-connection-string).
+1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de waarde van de tijdelijke aanduiding door de IoT hub-connection string die u eerder hebt gekopieerd in [de IOT hub-Connection String ophalen](#get-the-iot-hub-connection-string).
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. Voeg de volgende methode toe aan de klasse **Program**. Stel de apparaatnaam in op de naam die u hebt gebruikt bij het definiëren van het apparaat in telemetrie [verzenden van een apparaat naar een IOT-hub](quickstart-send-telemetry-dotnet.md).
+1. Voeg de volgende methode toe aan de klasse **Program**. Stel de apparaatnaam in op de naam die u hebt gebruikt bij het definiëren van het apparaat in telemetrie [verzenden van een apparaat naar een IOT-hub](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -141,7 +141,7 @@ Nu schrijft u een .NET-console-app die Cloud-naar-apparaat-berichten naar de app
 
    Met deze methode wordt een nieuw Cloud-naar-apparaat-bericht naar het apparaat verzonden met `myFirstDevice`de id,. Wijzig deze para meter alleen als u deze hebt gewijzigd van de waarde die wordt gebruikt voor het verzenden van telemetrie [van een apparaat naar een IOT-hub](quickstart-send-telemetry-dotnet.md).
 
-7. Voeg ten slotte de volgende regels toe aan de methode **Main** .
+1. Voeg ten slotte de volgende regels toe aan de methode **Main** .
 
    ``` csharp
    Console.WriteLine("Send Cloud-to-Device message\n");
@@ -153,9 +153,11 @@ Nu schrijft u een .NET-console-app die Cloud-naar-apparaat-berichten naar de app
    Console.ReadLine();
    ```
 
-8. Klik in Visual Studio met de rechter muisknop op uw oplossing en selecteer vervolgens **opstart projecten instellen...** . Selecteer **meerdere opstart projecten**en selecteer vervolgens de actie **starten** voor **ReadDeviceToCloudMessages**, **SimulatedDevice**en **SendCloudToDevice**.
+1. Klik in Solution Explorer met de rechter muisknop op uw oplossing en selecteer vervolgens **opstart projecten instellen**.
 
-9. Druk op **F5**. Alle drie de toepassingen moeten worden gestart. Selecteer de Windows- **SendCloudToDevice** en druk op **Enter**. Het bericht dat wordt ontvangen door de apparaat-app wordt weer gegeven.
+1. Selecteer in **algemene eigenschappen** > **opstart project** **meerdere opstart projecten**en selecteer vervolgens de actie **starten** voor **ReadDeviceToCloudMessages**, **SimulatedDevice**en **SendCloudToDevice** . Selecteer **OK** om uw wijzigingen op te slaan.
+
+1. Druk op **F5**. Alle drie de toepassingen moeten worden gestart. Selecteer de Windows- **SendCloudToDevice** en druk op **Enter**. Het bericht dat wordt ontvangen door de apparaat-app wordt weer gegeven.
 
    ![App-ontvangst bericht](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
@@ -190,24 +192,24 @@ In deze sectie wijzigt u de **SendCloudToDevice** -app voor het aanvragen van fe
 
     Houd er rekening mee dat dit ontvangst patroon hetzelfde is als het ontvangen van Cloud-naar-apparaat-berichten van de apparaat-app.
 
-2. Voeg de volgende methode toe in de methode **Main** , direct na `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)` de regel.
+1. Voeg de volgende regel toe aan de methode **Main** , direct `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`na.
 
    ``` csharp
    ReceiveFeedbackAsync();
    ```
 
-3. Als u feedback wilt aanvragen voor het leveren van uw Cloud-naar-apparaat-bericht, moet u een eigenschap opgeven in de methode **SendCloudToDeviceMessageAsync** . Voeg de volgende regel toe, direct na `var commandMessage = new Message(...);` de regel.
+1. Als u feedback wilt aanvragen voor het leveren van uw Cloud-naar-apparaat-bericht, moet u een eigenschap opgeven in de methode **SendCloudToDeviceMessageAsync** . Voeg de volgende regel toe, direct na `var commandMessage = new Message(...);` de regel.
 
    ``` csharp
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-4. Voer de apps uit door op **F5**te drukken. U ziet dat alle drie de toepassingen worden gestart. Selecteer de Windows- **SendCloudToDevice** en druk op **Enter**. Het bericht dat wordt ontvangen door de app van het apparaat en na een paar seconden wordt weer gegeven, wordt het feedback bericht ontvangen door uw **SendCloudToDevice** -toepassing.
+1. Voer de apps uit door op **F5**te drukken. U ziet dat alle drie de toepassingen worden gestart. Selecteer de Windows- **SendCloudToDevice** en druk op **Enter**. Het bericht dat wordt ontvangen door de app van het apparaat en na een paar seconden wordt weer gegeven, wordt het feedback bericht ontvangen door uw **SendCloudToDevice** -toepassing.
 
    ![App-ontvangst bericht](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> Voor het gemak implementeert deze zelf studie geen beleid voor opnieuw proberen. In productie code moet u beleid voor opnieuw proberen implementeren (zoals exponentiële uitstel), zoals wordt voorgesteld in het artikel, [tijdelijke fout afhandeling](/azure/architecture/best-practices/transient-faults).
+> Voor het gemak implementeert deze zelf studie geen beleid voor opnieuw proberen. In productie code moet u beleid voor opnieuw proberen implementeren, zoals exponentiële uitstel, zoals wordt voorgesteld in [tijdelijke fout afhandeling](/azure/architecture/best-practices/transient-faults).
 >
 
 ## <a name="next-steps"></a>Volgende stappen

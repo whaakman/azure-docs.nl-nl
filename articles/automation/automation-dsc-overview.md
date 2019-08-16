@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c192a994ac5398d41e28a35267b922ba98b721cc
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69513617"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533469"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation status configuratie
 
@@ -126,15 +126,6 @@ Down load het [Azure Data Center IP-adres](https://www.microsoft.com/download/de
 >Er wordt wekelijks een bijgewerkt bestand geplaatst. Het bestand weerspiegelt de huidige geïmplementeerde bereiken en eventuele toekomstige wijzigingen in de IP-bereiken. Nieuwe bereiken die in het bestand worden weer gegeven, worden gedurende ten minste één week niet gebruikt in de data centers.
 >
 > Het is een goed idee om elke week het nieuwe XML-bestand te downloaden. Werk vervolgens uw site bij om de services die in Azure worden uitgevoerd, correct te identificeren. Gebruikers van Azure ExpressRoute moeten weten dat dit bestand wordt gebruikt om de Border Gateway Protocol (BGP)-advertentie van Azure Space bij te werken in de eerste week van elke maand.
-
-## <a name="introduction-video"></a>Introductievideo
-
-Wilt u liever kijken dan lezen? Bekijk de volgende video van mei 2015, wanneer Azure Automation status configuratie voor het eerst werd aangekondigd.
-
-> [!NOTE]
-> Hoewel de concepten en levens cyclus die in deze video worden besproken juist zijn, is de configuratie van de status van Azure Automation een hoop dat deze video is vastgelegd. Het is nu algemeen beschikbaar, heeft een veel uitgebreidere gebruikers interface in de Azure Portal en ondersteunt een groot aantal extra mogelijkheden.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Volgende stappen
 

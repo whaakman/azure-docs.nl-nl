@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: a24159a482c55496bb1e6031be951196258a6796
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 837231ca07abcfdbd6ce932bb24bd890d91506a8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565487"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541460"
 ---
 U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een grafiekdatabase te maken. 
 
-1. Klik op **Data Explorer** > **Nieuwe grafiek**.
+1. Selecteer **Data Explorer** > **nieuwe grafiek**.
 
     Uiterst rechts wordt het gebied **Grafiek toevoegen** weergegeven. Mogelijk moet u naar rechts scrollen om het te bekijken.
 
@@ -32,4 +32,4 @@ U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een grafi
     Grafiek-id|voorbeeldgrafiek|Voer *sample-graph* in als de naam voor uw nieuwe verzameling. Voor namen van grafieken gelden dezelfde tekenvereisten als voor database-id's.
     Partitiesleutel| /pk |Alle Cosmos DB-accounts hebben een partitie sleutel nodig om horizon taal te schalen. Meer informatie over het selecteren van een geschikte partitie sleutel in het [artikel grafiek gegevens partitioneren](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 
-3. Zodra het formulier is ingevuld, klikt u op **OK**.
+3. Wanneer het formulier is ingevuld, selecteert u **OK**.

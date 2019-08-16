@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 6cbddfc5e529bc48e08407796024e5232d1a22e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966376"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557863"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Gegevens uit Teradata kopiëren met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Selecteer de versie van Data Factory service die u gebruikt:"]
@@ -61,9 +61,9 @@ De gekoppelde Teradata-service ondersteunt de volgende eigenschappen:
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type moet worden ingesteld op **Teradata**. | Ja |
+| Type | De eigenschap type moet worden ingesteld op **Teradata**. | Ja |
 | connectionString | Hiermee geeft u de gegevens op die nodig zijn om verbinding te maken met het Teradata-data base-exemplaar Raadpleeg de volgende voor beelden.<br/>U kunt ook een wacht woord in azure Key Vault plaatsen en de `password` configuratie uit de Connection String halen. Raadpleeg [referenties opslaan in azure Key Vault](store-credentials-in-key-vault.md) met meer informatie. | Ja |
-| username | Geef een gebruikers naam op om verbinding te maken met de Teradata-data base. Van toepassing wanneer u Windows-verificatie gebruikt. | Nee |
+| userName | Geef een gebruikers naam op om verbinding te maken met de Teradata-data base. Van toepassing wanneer u Windows-verificatie gebruikt. | Nee |
 | password | Geef een wacht woord op voor het gebruikers account dat u hebt opgegeven voor de gebruikers naam. U kunt er ook voor kiezen om te [verwijzen naar een geheim dat is opgeslagen in azure Key Vault](store-credentials-in-key-vault.md). <br>Is van toepassing wanneer u Windows-verificatie gebruikt of een verwijzing naar een wacht woord in Key Vault voor basis verificatie. | Nee |
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Meer informatie vindt u in de sectie [vereisten](#prerequisites) . Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Ja |
 
@@ -141,7 +141,7 @@ Als u gegevens wilt kopiëren uit Teradata, worden de volgende eigenschappen ond
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de DataSet moet worden ingesteld op `TeradataTable`. | Ja |
+| Type | De eigenschap type van de DataSet moet worden ingesteld op `TeradataTable`. | Ja |
 | database | De naam van de Teradata-data base. | Nee (als 'query' in de activiteitbron is opgegeven) |
 | table | De naam van de tabel in de Teradata-data base. | Nee (als 'query' in de activiteitbron is opgegeven) |
 
@@ -195,7 +195,7 @@ Als u gegevens wilt kopiëren uit Teradata, worden de volgende eigenschappen ond
 
 | Eigenschap | Description | Vereist |
 |:--- |:--- |:--- |
-| type | De eigenschap type van de bron van de Kopieer activiteit moet worden `TeradataSource`ingesteld op. | Ja |
+| Type | De eigenschap type van de bron van de Kopieer activiteit moet worden `TeradataSource`ingesteld op. | Ja |
 | query | Gebruik de aangepaste SQL-query om gegevens te lezen. Een voorbeeld is `"SELECT * FROM MyTable"`.<br>Wanneer u gepartitioneerde belasting inschakelt, moet u alle bijbehorende ingebouwde partitie parameters in uw query koppelen. Zie de sectie [parallelle kopie van Teradata](#parallel-copy-from-teradata) voor voor beelden. | Nee (als de tabel in de gegevensset is opgegeven) |
 | partitionOptions | Hiermee geeft u de opties voor gegevens partities op die worden gebruikt voor het laden van gegevens uit Teradata. <br>Waarden voor toestaan zijn: **Geen** (standaard), **hash** en **DynamicRange**.<br>Wanneer een partitie optie is ingeschakeld (dat wil zeggen niet `None`), configureert u ook [`parallelCopies`](copy-activity-performance.md#parallel-copy) de instelling op de Kopieer activiteit. Hiermee bepaalt u de parallelle mate van het gelijktijdig laden van gegevens uit een Teradata-data base. U kunt dit bijvoorbeeld instellen op 4. | Nee |
 | partitionSettings | Geef de groep van de instellingen voor het partitioneren van gegevens op. <br>Toep assen als de partitie `None`optie niet is. | Nee |
@@ -299,7 +299,7 @@ Wanneer u gegevens uit Teradata kopieert, zijn de volgende toewijzingen van toep
 | Decimal |Decimal |
 | Double |Double |
 | Graphic |Wordt niet ondersteund. Expliciete cast Toep assen in bron query. |
-| Geheel getal |Int32 |
+| Integer |Int32 |
 | Interval dag |Wordt niet ondersteund. Expliciete cast Toep assen in bron query. |
 | Interval Day To Hour |Wordt niet ondersteund. Expliciete cast Toep assen in bron query. |
 | Interval Day To Minute |Wordt niet ondersteund. Expliciete cast Toep assen in bron query. |

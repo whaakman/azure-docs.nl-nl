@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: c58a36988e3aee9b122446e3ee3c4878a582b8ad
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871037"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535054"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Mogelijkheden en overwegingen voor commerciële Marketplace-trans acties
 
@@ -144,7 +144,7 @@ Deze optie moet worden geconfigureerd om via micro soft te worden verkocht en ka
 |Micro soft betaalt u 80% van uw licentie kosten <br> \*Micro soft betaalt u 90% van de licentie kosten voor alle gekwalificeerde SaaS-apps   |   $80,00 per maand <br> \*$90,00 per maand    |
 |Micro soft bewaart 20% van de licentie kosten <br> \*Micro soft houdt 10% van de licentie kosten voor alle gekwalificeerde SaaS-apps.  |  $20,00 per maand <br> \*$10,00     |
 
-* **Lagere kosten voor Marketplace-service:** Voor bepaalde SaaS-producten die u op onze commerciële Marketplace publiceert, verlaagt micro soft de service kosten voor Marketplace van 20% (zoals beschreven in de overeenkomst voor micro soft Publisher) tot 10%.  Om uw product in aanmerking te komen, moet u ten minste één van uw producten door micro soft worden aangewezen als een voor bereiding op het IP-adres of door de IP-mede-verkoop prioriteit. Om dit gereduceerde service-tarief voor de Marketplace voor de maand te ontvangen, moet aan de voor waarden voor het einde van deze kalender maand ten minste vijf (5) werk dagen worden voldaan aan de beschik baarheid. Lagere kosten voor Marketplace-service zijn niet van toepassing op Vm's, beheerde apps of andere producten die beschikbaar worden gesteld via onze commerciële Marketplace.  Dit lagere tarief voor Marketplace-Services is beschikbaar voor gekwalificeerde aanbiedingen, met licentie kosten die door micro soft zijn verzameld tussen 1 mei 2019 en 30 juni 2020.  Na deze periode wordt de service kosten voor de Marketplace teruggebracht naar de normale hoeveelheid.
+* **Lagere kosten voor Marketplace-service:** Voor bepaalde SaaS-producten die u op onze commerciële Marketplace publiceert, verlaagt micro soft de service kosten voor Marketplace van 20% (zoals beschreven in de overeenkomst voor micro soft Publisher) tot 10%.  Om uw product in aanmerking te komen, moet u ten minste één van uw producten door micro soft worden aangewezen als een voor bereiding op het IP-adres of door de IP-mede-verkoop prioriteit. Om dit gereduceerde service-tarief voor de Marketplace voor de maand te ontvangen, moet aan de voor waarden worden voldaan ten minste vijf (5) werk dagen vóór het einde van de vorige kalender maand. Lagere kosten voor Marketplace-service zijn niet van toepassing op Vm's, beheerde apps of andere producten die beschikbaar worden gesteld via onze commerciële Marketplace.  Dit lagere tarief voor Marketplace-Services is beschikbaar voor gekwalificeerde aanbiedingen, met licentie kosten die door micro soft zijn verzameld tussen 1 mei 2019 en 30 juni 2020.  Na deze periode wordt de service kosten voor de Marketplace teruggebracht naar de normale hoeveelheid.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Facturering, betaling, facturering en verzamelingen van klanten
 

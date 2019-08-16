@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/13/2019
 ms.author: dalek
-ms.openlocfilehash: abf23eda2474ecbcfcaf0dadb26327225213a9a6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4029a9e46b9c9bb7cbd677deff4a172d8fc982f8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989219"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534587"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Het gebruik en de kosten voor Application Insights beheren
 
@@ -92,7 +92,7 @@ U kunt een van de volgende opties gebruiken om te zien hoeveel gegevens uw app v
 Hier volgen enkele dingen die u kunt doen om uw gegevens volume te verminderen:
 
 * Gebruik [steek proeven](../../azure-monitor/app/sampling.md). Deze technologie vermindert uw gegevens verhouding zonder dat u uw metrieke waarden hoeft te hellen. U verliest niet de mogelijkheid om te navigeren tussen verwante items in de zoek opdracht. In server-apps werkt de steek proef automatisch.
-* [Beperk het aantal Ajax-aanroepen dat kan worden gerapporteerd](../../azure-monitor/app/javascript.md#detailed-configuration) in elke pagina weergave, of schakel de Ajax-rapportage uit.
+* [Beperk het aantal Ajax-aanroepen dat kan worden gerapporteerd](../../azure-monitor/app/javascript.md#configuration) in elke pagina weergave, of schakel de Ajax-rapportage uit.
 * [Bewerk ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) om verzamelings modules die u niet nodig hebt, uit te scha kelen. U kunt bijvoorbeeld besluiten dat prestatie meter items of afhankelijkheids gegevens inessentieel zijn.
 * Splits uw telemetrie over afzonderlijke instrumentatie sleutels. 
 * Vooraf samengestelde metrische gegevens. Als u aanroepen naar TrackMetric in uw app opneemt, kunt u het verkeer verminderen door gebruik te maken van de overbelasting die uw berekening van de gemiddelde en standaard afwijking van een batch metingen accepteert. U kunt ook een pakket met [vooraf aggregatie](https://www.myget.org/gallery/applicationinsights-sdk-labs)gebruiken.

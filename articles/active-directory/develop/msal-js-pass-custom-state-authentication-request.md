@@ -1,9 +1,9 @@
 ---
-title: Doorgeven van aangepaste status in verificatieaanvragen (Microsoft Authentication Library voor JavaScript) | Azure
-description: Leer hoe u een waarde van de parameter aangepaste status doorgeven in met behulp van de Microsoft Authentication Library voor JavaScript (MSAL.js) verificatieaanvraag voor.
+title: Aangepaste status door geven in verificatie aanvragen (micro soft-verificatie bibliotheek voor Java script) | Azure
+description: Meer informatie over het door geven van een aangepaste status parameter waarde in verificatie aanvraag met behulp van de micro soft-verificatie bibliotheek voor Java script (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/29/2019
-ms.author: nacanuma
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f29d84838ddb11ac359d7a04dbce8e39dd05ac01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2ae12624b3d897f05437f7795d1a1eee32ca37a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66420496"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532742"
 ---
-# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Aangepaste status in aanvragen voor authenticatie met behulp van MSAL.js doorgeven
-De *status* parameter, zoals gedefinieerd door de OAuth 2.0 is opgenomen in een verificatieaanvraag en wordt ook geretourneerd als in het token antwoord om te voorkomen dat de aanvraag voor cross-site kunnen worden vervalst aanvallen. Standaard Microsoft Authentication Library voor JavaScript (MSAL.js) geeft een willekeurig gegenereerde unieke *status* waarde voor de parameter in de verificatie-aanvragen.
+# <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Aangepaste status door geven in verificatie aanvragen met behulp van MSAL. js
+De para meter *State* , zoals gedefinieerd door OAuth 2,0, wordt opgenomen in een verificatie aanvraag en wordt ook geretourneerd in het token antwoord om vervalsing van aanvragen op meerdere sites te voor komen. Micro soft-verificatie bibliotheek voor Java script (MSAL. js) geeft standaard een wille keurige, gegenereerde unieke *status* parameter waarde in de verificatie aanvragen door.
 
-De parameter state kan ook worden gebruikt voor de gecodeerde gegevens van de status van de app voordat omleidings. U kunt de status van de gebruiker in de app, zoals de pagina of de weergave die ze al had geopend, als invoer voor deze parameter doorgeven. De bibliotheek MSAL.js kunt u uw aangepaste status doorgeven als de parameter state in de `Request` object:
+De para meter State kan ook worden gebruikt om informatie over de status van de app te coderen voordat deze wordt omgeleid. U kunt de status van de gebruiker in de app door geven, zoals de pagina of weer gave waarin deze zich bevonden, als invoer voor deze para meter. Met de MSAL. JS-bibliotheek kunt u uw aangepaste status door geven als para meter `Request` State in het object:
 
 ```javascript
 // Request type
@@ -57,7 +57,7 @@ let loginRequest = {
 myMSALObj.loginPopup(loginRequest);
 ```
 
-De status van de doorgegeven wordt toegevoegd aan de unieke GUID die is ingesteld door MSAL.js bij het verzenden van de aanvraag. Als het antwoord wordt geretourneerd, MSAL.js controleert op een status-overeenkomst en retourneert vervolgens het aangepaste doorgegeven in staat in de `Response` object als `accountState`.
+De door gegeven status wordt toegevoegd aan de unieke GUID die is ingesteld door MSAL. js wanneer de aanvraag wordt verzonden. Wanneer het antwoord wordt geretourneerd, controleert MSAL. js of de status overeenkomt en retourneert de aangepaste status in het `Response` object als. `accountState`
 
 ```javascript
 export type AuthResponse = {
@@ -73,4 +73,4 @@ export type AuthResponse = {
 };
 ```
 
-Lees voor meer informatie over [het bouwen van een toepassing met één pagina (SPA)](scenario-spa-overview.md) MSAL.js te gebruiken.
+Lees voor meer informatie over [het bouwen van een single-page-toepassing (Spa)](scenario-spa-overview.md) met behulp van MSAL. js.

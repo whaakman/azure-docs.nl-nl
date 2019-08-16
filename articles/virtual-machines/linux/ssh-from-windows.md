@@ -1,6 +1,6 @@
 ---
-title: SSH-sleutels gebruiken met Windows voor virtuele Linux-machines | Microsoft Docs
-description: Informatie over het genereren en het gebruik van SSH-sleutels op een Windows-computer verbinding maken met een virtuele Linux-machine in Azure.
+title: SSH-sleutels gebruiken met Windows voor Linux Vm's | Microsoft Docs
+description: Meer informatie over het genereren en gebruiken van SSH-sleutels op een Windows-computer om verbinding te maken met een virtuele Linux-machine in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,119 +15,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bd5eeb3bc3864dc0203c558228dce2f54dbaa79d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 157cc706da34281ec7bb36a9b9e16a4192b3bd96
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708809"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543874"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>SSH-sleutels gebruiken met Windows op Azure
 
-In dit artikel wordt beschreven hoe om te genereren en gebruiken *secure shell* (SSH)-sleutels op een Windows-computer om te maken en verbinding maken met een Linux virtuele machine (VM) in Azure. Zie voor het gebruik van SSH-sleutels van een client voor Linux of macOS, de [snelle](mac-create-ssh-keys.md) of [gedetailleerde](create-ssh-keys-detailed.md) richtlijnen.
+In dit artikel worden de manieren beschreven waarop u SSH-sleutels ( *Secure Shell* ) kunt genereren en gebruiken op een Windows-computer om een virtuele Linux-machine (VM) te maken en te verbinden in Azure. Als u SSH-sleutels wilt gebruiken vanuit een Linux-of macOS-client, raadpleegt u de [snelle](mac-create-ssh-keys.md) of [gedetailleerde](create-ssh-keys-detailed.md) richt lijnen.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="windows-packages-and-ssh-clients"></a>Windows-pakketten en SSH-clients
-U verbinding maken met en beheren van virtuele Linux-machines in Azure met een *SSH-client*. Computers met Linux of macOS meestal hebben een reeks opdrachten SSH te genereren en SSH-sleutels beheren en te maken van SSH-verbindingen. 
+U maakt verbinding met virtuele Linux-machines in Azure en beheert deze met behulp van een *SSH-client*. Computers met Linux of macOS hebben meestal een suite SSH-opdrachten voor het genereren en beheren van SSH-sleutels en het maken van SSH-verbindingen. 
 
-Windows-computers altijd geen vergelijkbare SSH opdrachten die zijn geïnstalleerd. Recente versies van Windows 10 bieden [OpenSSH-clientopdrachten](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) maken en beheren van SSH-sleutels en SSH-verbindingen vanaf een opdrachtprompt. Recente versies van Windows 10 bevat ook de [Windows-subsysteem voor Linux](https://docs.microsoft.com/windows/wsl/about) uitvoeren en toegang tot hulpprogramma's zoals een SSH-client systeemeigen binnen een Bash-shell. 
+Op Windows-computers zijn niet altijd vergelijk bare SSH-opdrachten geïnstalleerd. Recente versies van Windows 10 bieden [openssh-client opdrachten](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) voor het maken en beheren van SSH-sleutels en het maken van ssh-verbindingen vanaf een opdracht prompt. Recente Windows 10-versies omvatten ook het [Windows-subsysteem voor Linux](https://docs.microsoft.com/windows/wsl/about) voor het uitvoeren en openen van hulpprogram ma's zoals een SSH-client in een bash-shell. 
 
-Andere algemene Windows SSH-clients die kunt u lokaal installeren zijn opgenomen in de volgende pakketten:
+Andere veelgebruikte Windows SSH-clients die u lokaal kunt installeren, zijn opgenomen in de volgende pakketten:
 
 * [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
-* [GIT voor Windows](https://git-for-windows.github.io/)
+* [Git voor Windows](https://git-for-windows.github.io/)
 * [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
-U kunt ook de SSH-hulpprogramma's beschikbaar in Bash in de [Azure Cloud Shell](../../cloud-shell/overview.md). 
+U kunt de SSH-hulpprogram ma's die beschikbaar zijn in bash ook gebruiken in de [Azure Cloud shell](../../cloud-shell/overview.md). 
 
-* Toegang tot Cloud Shell in uw webbrowser op [ https://shell.azure.com ](https://shell.azure.com) of in de [Azure-portal](https://portal.azure.com). 
-* Toegang krijgen tot Cloud Shell als terminal in Visual Studio Code door het installeren van de [Azure-accountextensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
+* Open Cloud shell in uw webbrowser op [https://shell.azure.com](https://shell.azure.com) of in de [Azure Portal](https://portal.azure.com). 
+* Toegang Cloud Shell als een Terminal vanuit Visual Studio code door de extensie van het [Azure-account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)te installeren.
 
 ## <a name="create-an-ssh-key-pair"></a>Een SSH-sleutelpaar maken
-De volgende secties worden twee opties voor het maken van een SSH-sleutelpaar in Windows. U kunt een shell-opdracht gebruiken (`ssh-keygen`) of een GUI-hulpprogramma (PuTTYgen).
+In de volgende secties worden twee opties beschreven voor het maken van een SSH-sleutel paar in Windows. U kunt een shell opdracht gebruiken (`ssh-keygen`) of een GUI-hulp programma (PuTTYgen). Houd er ook rekening mee dat wanneer u Power shell gebruikt om een sleutel te maken, de open bare sleutel uploadt als SSH. com-indeling (SECSH). Wanneer u CLI gebruikt, moet u de sleutel converteren naar de OpenSSH-indeling voordat u deze uploadt. 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>SSH-sleutels maken met ssh-keygen
 
-Als u een opdrachtshell uitvoeren op Windows die ondersteuning biedt voor hulpprogramma's voor SSH-client (of u Azure Cloud Shell gebruiken), maakt u een SSH-sleutelpaar met behulp van de `ssh-keygen` opdracht. Typ de volgende opdracht en de hierom wordt gevraagd. Als een SSH-sleutelpaar in de gekozen locatie bestaat, worden deze bestanden overschreven. 
+Als u een opdracht shell uitvoert in Windows die ssh-client hulpprogramma's ondersteunt (of als u Azure Cloud shell gebruikt), maakt u een SSH- `ssh-keygen` sleutel paar met behulp van de opdracht. Typ de volgende opdracht en beantwoord de prompts. Als er een SSH-sleutel paar op de gekozen locatie bestaat, worden deze bestanden overschreven. 
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-Zie voor meer achtergrondinformatie en informatie, de [snelle](mac-create-ssh-keys.md) of [gedetailleerde](create-ssh-keys-detailed.md) stappen voor het maken van SSH-sleutels met behulp van `ssh-keygen`.
+Zie de volgende stappen voor meer informatie over [](mac-create-ssh-keys.md) het maken [](create-ssh-keys-detailed.md) van SSH-sleutels met behulp `ssh-keygen`van.
 
-### <a name="create-ssh-keys-with-puttygen"></a>SSH-sleutels met PuTTYgen maken
+### <a name="create-ssh-keys-with-puttygen"></a>SSH-sleutels maken met PuTTYgen
 
-Als u liever een GUI-hulpprogramma gebruiken om te maken van SSH-sleutels, kunt u de serversleutelgenerator PuTTYgen, opgenomen in de [PuTTY downloadpakket](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+Als u liever een GUI-hulp programma gebruikt om SSH-sleutels te maken, kunt u de PuTTYgen-sleutel generator gebruiken, opgenomen in het pakket voor het [downloaden](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)van putty. 
 
-Een SSH-RSA-sleutelpaar maken met PuTTYgen:
+Een SSH RSA-sleutel paar maken met PuTTYgen:
 
-1. Start PuTTYgen.
+1. PuTTYgen starten.
 
-2. Klik op **genereren**. Standaard genereert PuTTYgen een SSH-2 RSA 2048-bits sleutel.
+2. Klik op **genereren**. Standaard genereert PuTTYgen een RSA-sleutel van 2048 bits (SSH-2).
 
-4. Beweeg de muis in de lege ruimte voor aanvraaggrootte voor de sleutel.
+4. Beweeg de muis aanwijzer in het lege gebied om wille keurigheid voor de sleutel op te geven.
 
-5. (Optioneel) Voer nadat de openbare sleutel is gegenereerd, en een wachtwoordzin bevestigen. U wordt gevraagd naar de wachtwoordzin wanneer u met de virtuele machine met uw persoonlijke SSH-sleutel verifieert. Zonder een wachtwoordzin als iemand anders uw privésleutel, verkrijgt deze zich kan aanmelden bij een virtuele machine of service die gebruikmaakt van deze sleutel. U wordt aangeraden dat u een wachtwoordzin maken. Als u de wachtwoordzin vergeet, is er echter geen manier om deze te herstellen.
+5. Nadat de open bare sleutel is gegenereerd, voert u optioneel een wachtwoordzin in en bevestigt u deze. U wordt gevraagd om de wachtwoordzin wanneer u zich bij de virtuele machine verifieert met uw persoonlijke SSH-sleutel. Zonder een wachtwoordzin kunnen gebruikers zich aanmelden bij elke virtuele machine of service die gebruikmaakt van die sleutel als iemand uw persoonlijke sleutel verkrijgt. U wordt aangeraden een wachtwoordzin te maken. Als u de wachtwoordzin vergeet, is er echter geen manier om deze te herstellen.
 
-6. De openbare sleutel wordt aan de bovenkant van het venster weergegeven. U kunt kopiëren van deze volledige openbare sleutel en plak deze in Azure portal of een Azure Resource Manager-sjabloon bij het maken van een Linux-VM. U kunt ook selecteren **openbare sleutel opslaan** een kopie wilt opslaan op uw computer:
+6. De open bare sleutel wordt bovenaan het venster weer gegeven. U kunt deze volledige open bare sleutel kopiëren en deze vervolgens in de Azure Portal of een Azure Resource Manager sjabloon plakken wanneer u een virtuele Linux-machine maakt. U kunt ook **open bare sleutel opslaan** selecteren om een kopie op uw computer op te slaan:
 
-    ![PuTTY bestand voor de openbare sleutel opslaan](./media/ssh-from-windows/save-public-key.png)
+    ![Bestand met open bare sleutel voor PuTTy opslaan](./media/ssh-from-windows/save-public-key.png)
 
-7. Selecteer desgewenst om op te slaan de persoonlijke sleutel in de PuTTy persoonlijke sleutel indeling (ppk-bestand), **persoonlijke sleutel opslaan**. U moet het ppk-bestand later aan PuTTY gebruiken om een SSH-verbinding maken met de virtuele machine.
+7. Selecteer desgewenst **persoonlijke sleutel opslaan**om de persoonlijke sleutel op te slaan in de indeling van de persoonlijke sleutel voor putty (. ppk-bestand). U hebt het. ppk-bestand later nodig voor het gebruik van PuTTy om een SSH-verbinding met de virtuele machine te maken.
 
-    ![PuTTY bestand met persoonlijke sleutel opslaan](./media/ssh-from-windows/save-ppk-file.png)
+    ![Bestand met persoonlijke sleutel voor PuTTy opslaan](./media/ssh-from-windows/save-ppk-file.png)
 
-    Als u wilt de persoonlijke sleutel opslaan in de OpenSSH-indeling, selecteert u de persoonlijke sleutel indeling die wordt gebruikt door veel SSH-clients, **conversies** > **exporteren OpenSSH-sleutel**.
+    Als u de persoonlijke sleutel in de OpenSSH-indeling wilt opslaan, selecteert u in de indeling van de persoonlijke sleutel die door > veel SSH-clients wordt gebruikt, de**export OpenSSH-sleutel**conversies.
 
-## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Geef een openbare SSH-sleutel bij het implementeren van een virtuele machine
+## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Een open bare SSH-sleutel opgeven bij het implementeren van een virtuele machine
 
-Voor het maken van een Linux-VM die gebruikmaakt van SSH-sleutels voor verificatie, Geef uw openbare SSH-sleutel bij het maken van de virtuele machine met behulp van de Azure-portal of andere methoden.
+Als u een virtuele Linux-machine wilt maken die gebruikmaakt van SSH-sleutels voor verificatie, geeft u uw open bare SSH-sleutel op wanneer u de virtuele machine maakt met behulp van de Azure Portal of andere methoden
 
-Het volgende voorbeeld laat zien hoe u wilt kopiëren en plakken van deze openbare sleutel in Azure portal, bij het maken van een Linux-VM. De openbare sleutel wordt doorgaans vervolgens opgeslagen in de map ~/.ssh/authorized_key op uw nieuwe virtuele machine.
+In het volgende voor beeld ziet u hoe u deze open bare sleutel kopieert en plakt in de Azure Portal wanneer u een virtuele Linux-machine maakt. De open bare sleutel wordt normaal gesp roken opgeslagen in de map ~/.ssh/authorized_key op de nieuwe virtuele machine.
 
-   ![Openbare sleutel wordt gebruikt bij het maken van een VM in Azure portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
+   ![Open bare sleutel gebruiken bij het maken van een virtuele machine in de Azure Portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
 
 
 ## <a name="connect-to-your-vm"></a>Verbinding maken met uw VM
 
-Eén manier om u te maken van een SSH-verbinding met uw Linux-VM van Windows is het gebruik van een SSH-client. Dit is de aanbevolen methode hebt u een SSH-client geïnstalleerd op uw Windows-systeem, of als u de SSH-hulpprogramma's in Bash in Azure Cloud Shell. Als u liever een GUI-hulpprogramma, kunt u verbinding maken met PuTTY.  
+Een van de manieren om een SSH-verbinding met uw Linux-VM vanuit Windows te maken, is met behulp van een SSH-client. Dit is de aanbevolen methode als u een SSH-client op uw Windows-systeem hebt geïnstalleerd of als u de SSH-hulpprogram ma's in bash in Azure Cloud Shell gebruikt. Als u liever een GUI-hulp programma hebt, kunt u verbinding maken met PuTTy.  
 
 ### <a name="use-an-ssh-client"></a>Een SSH-client gebruiken
-Met de openbare sleutel die is geïmplementeerd op uw Azure-VM en de persoonlijke sleutel op uw lokale systeem, SSH verbinding met uw virtuele machine via het IP-adres of de DNS-naam van uw virtuele machine. Vervang *azureuser* en *myvm.westus.cloudapp.azure.com* in de volgende opdracht uit met de naam van de beheerder-gebruiker en de volledig gekwalificeerde domeinnaam (of IP-adres):
+Met de open bare sleutel die is geïmplementeerd op uw Azure-VM en de persoonlijke sleutel op uw lokale systeem, SSH naar uw virtuele machine met het IP-adres of de DNS-naam van uw virtuele machine. Vervang *azureuser* en *myvm.westus.cloudapp.Azure.com* in de volgende opdracht door de gebruikers naam van de beheerder en de Fully Qualified Domain Name (of het IP-adres):
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Als u tijdens het maken van uw sleutelpaar een wachtwoordzin hebt geconfigureerd, voert u de wachtwoordzin wanneer hierom wordt gevraagd tijdens het aanmelden.
+Als u tijdens het maken van uw sleutel paar een wachtwoordzin hebt geconfigureerd, voert u de wachtwoordzin in wanneer u hierom wordt gevraagd tijdens het aanmeldings proces.
 
-Als de virtuele machine wordt met behulp van het beleid voor just-in-time-toegang, moet u om toegang te vragen voordat u verbinding met de virtuele machine maken kunt. Zie voor meer informatie over het beleid voor just-in-time [beheer van de virtuele machine toegang met just in time-beleid](../../security-center/security-center-just-in-time.md).
+Als de virtuele machine gebruikmaakt van het just-in-time-toegangs beleid, moet u toegang aanvragen voordat u verbinding kunt maken met de virtuele machine. Zie [toegang tot virtuele machines beheren met de just-in-time-beleids regels](../../security-center/security-center-just-in-time.md)voor meer informatie over het just-in-time-beleid.
 
-### <a name="connect-with-putty"></a>Verbinding maken met PuTTY
+### <a name="connect-with-putty"></a>Verbinding maken met PuTTy
 
-Als u hebt geïnstalleerd het [PuTTY downloadpakket](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) en eerder gegenereerde een bestand PuTTY persoonlijke sleutel (.ppk), u kunt verbinding maken met een Linux-VM met PuTTY.
+Als u het putty- [Download pakket](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) hebt geïnstalleerd en eerder een putty persoonlijke sleutel bestand (. ppk) hebt gegenereerd, kunt u verbinding maken met een virtuele Linux-machine met PuTTY.
 
 1. Start PuTTy.
 
-2. Vul in de hostnaam of IP-adres van uw virtuele machine vanuit Azure portal:
+2. Vul de hostnaam of het IP-adres van uw virtuele machine in via de Azure Portal:
 
-    ![Nieuwe PuTTY verbinding openen](./media/ssh-from-windows/putty-new-connection.png)
+    ![Nieuwe PuTTy-verbinding openen](./media/ssh-from-windows/putty-new-connection.png)
 
-3. Selecteer de **verbinding** > **SSH** > **Auth** categorie. Blader naar en selecteer uw PuTTY persoonlijke sleutel (ppk-bestand):
+3. Selecteer de categorie **verbindings** > -**SSH** > -**verificatie** . Blader naar en selecteer uw persoonlijke sleutel voor PuTTy (. ppk-bestand):
 
-    ![Selecteer uw PuTTY persoonlijke sleutel voor verificatie](./media/ssh-from-windows/putty-auth-dialog.png)
+    ![Selecteer uw persoonlijke sleutel voor de validatie van de PuTTy](./media/ssh-from-windows/putty-auth-dialog.png)
 
-4. Klik op **Open** verbinding maken met uw virtuele machine.
+4. Klik op **openen** om verbinding te maken met uw virtuele machine.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor gedetailleerde stappen, opties en geavanceerde voorbeelden van het werken met SSH-sleutels, [gedetailleerde stappen voor het maken van SSH-sleutelparen](create-ssh-keys-detailed.md).
+* Zie voor gedetailleerde stappen, opties en geavanceerde voor beelden van het werken met SSH-sleutels [gedetailleerde stappen voor het maken van SSH-sleutel paren](create-ssh-keys-detailed.md).
 
-* U kunt ook PowerShell gebruiken in Azure Cloud Shell voor het SSH-sleutels genereren en SSH-verbinding maken met een virtuele Linux-machines. Zie de [PowerShell-snelstartgids](../../cloud-shell/quickstart-powershell.md#ssh).
+* U kunt Power shell ook in Azure Cloud Shell gebruiken om SSH-sleutels te genereren en SSH-verbindingen te maken met virtuele Linux-machines. Zie de [Power shell-Snelstartgids](../../cloud-shell/quickstart-powershell.md#ssh).
 
-* Als u problemen ondervindt bij het gebruik van SSH verbinding maken met uw virtuele Linux-machines, raadpleeg dan [oplossen SSH-verbindingen met een Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Zie [problemen met ssh-verbindingen met een virtuele machine van Azure Linux oplossen](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)als u problemen hebt met het gebruik van SSH om verbinding te maken met uw virtuele Linux-machines.

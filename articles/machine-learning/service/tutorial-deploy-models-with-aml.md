@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: c673fd43abe6808256eb74f435aad48ed8d41539
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a4395105c66756c4743373707309a88e2afa96b7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359841"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534811"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Zelfstudie: Een afbeeldingsclassificatiemodel implementeren in Azure Container Instances
 
@@ -38,10 +38,10 @@ Container Instances is een uitstekende oplossing voor het testen en inzicht krij
 > De code in dit artikel is getest met Azure Machine Learning SDK-versie 1.0.41.
 
 ## <a name="prerequisites"></a>Vereisten
-Ga naar [De ontwikkelomgeving instellen](#start) om door de notebook-stappen te lezen.  
 
-Als u het notebook wilt uitvoeren, moet u eerst het trainen van het model voltooien in [Zelfstudie (deel 1): Een model voor de classificatie van afbeeldingen trainen met de Azure Machine Learning Service](tutorial-train-models-with-aml.md).   Voer vervolgens de notebook **tutorials/img-classification-part2-deploy.ipynb** uit met behulp van dezelfde notebookserver.
+Als u het notebook wilt uitvoeren, moet u eerst het trainen van het model voltooien in [Zelfstudie (deel 1): Train een afbeeldings classificatie](tutorial-train-models-with-aml.md)model.   Open vervolgens het notebook **zelf studies/img-Classification-part2-Deploy. ipynb** met dezelfde notebook server.
 
+Deze zelf studie is ook beschikbaar op [github](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) als u deze wilt gebruiken in uw eigen [lokale omgeving](how-to-configure-environment.md#local).  Zorg ervoor dat u en `matplotlib` `scikit-learn` in uw omgeving hebt geïnstalleerd. 
 
 ## <a name="start"></a>Stel de omgeving in
 

@@ -3,17 +3,17 @@ title: Knoop punten inrichten voor VMware-oplossing door CloudSimple-Azure
 description: Meer informatie over het toevoegen van knoop punten aan uw VMWare met CloudSimple-implementatie
 author: dikamath
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 898b07d05abf3bfad644fb590d90c7a90c5a1c0d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2d5b2847109149701cb6453753e52fb671ba69d0
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883231"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533350"
 ---
 # <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Knoop punten inrichten voor VMware-oplossing door CloudSimple-Azure
 
@@ -22,7 +22,6 @@ Knoop punten inrichten in de Azure Portal. Vervolgens kunt u betalen naar gebrui
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
-
 
 ## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Een knoop punt toevoegen aan uw CloudSimple-privécloud
 

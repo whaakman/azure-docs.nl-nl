@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176137"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558811"
 ---
-## <a name="customize-and-extend-the-device-management-actions"></a>Aanpassen en uitbreiden van het apparaat beheeracties
+## <a name="customize-and-extend-the-device-management-actions"></a>De acties voor Apparaatbeheer aanpassen en uitbreiden
 
-Uw IoT-oplossingen kunnen uitbreiden van de gedefinieerde set apparaatbeheerpatronen of aangepaste patronen inschakelen met behulp van het dubbele apparaat en cloud-naar-apparaat methode primitieven. Andere voorbeelden van acties voor het beheer van apparaten zijn Fabrieksinstellingen terugzetten, firmware-update, software-update, energiebeheer, netwerk-en-connectiviteit en versleuteling van gegevens.
+Uw IoT-oplossingen kunnen de gedefinieerde set met Apparaatbeheer patronen uitbreiden of aangepaste patronen inschakelen met behulp van de twee-en Cloud-naar-Device-primitieve methoden van het apparaat. Andere voor beelden van acties voor Apparaatbeheer zijn de fabrieks instellingen, firmware-updates, software-updates, energie beheer, netwerk-en verbindings beheer en gegevens versleuteling.
 
-## <a name="device-maintenance-windows"></a>Onderhoudsvensters voor apparaat
+## <a name="device-maintenance-windows"></a>Onderhouds Vensters voor apparaten
 
-Meestal configureert u apparaten bewerkingen uit te voeren op een tijdstip dat onderbrekingen en uitvaltijd minimaliseert. Apparaat-onderhoudsvensters zijn een veelgebruikte patroon voor het definiëren van de tijd wanneer de configuratie ervan door een apparaat moet worden bijgewerkt. Uw back-end-oplossingen kunnen u de gewenste eigenschappen van het dubbele apparaat gebruiken om te definiëren en activeren van een beleid op uw apparaat waarmee een onderhoudsvenster. Wanneer een apparaat het onderhoud-venster-beleid ontvangt, kunt deze de gerapporteerde eigenschap van het dubbele apparaat gebruiken om de status van het beleid te rapporteren. De back-end-app kunt vervolgens apparaatdubbel-query's gebruiken om te bevestigen voor de naleving van apparaten en elk beleid.
+Normaal gesp roken configureert u apparaten voor het uitvoeren van acties op een moment dat onderbrekingen en downtime minimaliseert. Onderhouds Vensters voor apparaten zijn een veelgebruikt patroon voor het definiëren van de tijd waarop de configuratie van een apparaat moet worden bijgewerkt. Uw back-end-oplossingen kunnen de gewenste eigenschappen van het apparaat twee gebruiken om een beleid op uw apparaat te definiëren en te activeren waarmee een onderhouds venster wordt ingeschakeld. Wanneer een apparaat het onderhouds venster beleid ontvangt, kan dit de gerapporteerde eigenschap van het apparaat dubbele gebruiken om de status van het beleid te rapporteren. De back-end-app kan vervolgens Device-dubbele query's gebruiken om te voldoen aan de naleving van apparaten en elk beleid.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie gebruikt u een rechtstreekse methode voor het activeren van een extern opnieuw opstarten op een apparaat. U gebruikt de gerapporteerde eigenschappen voor het rapporteren van de laatste keer opnieuw opstarten van het apparaat en query uitgevoerd op het dubbele apparaat voor het detecteren van de laatste keer opnieuw opstarten van het apparaat vanuit de cloud.
+In deze zelf studie hebt u een directe methode gebruikt om een apparaat op afstand opnieuw op te starten. U hebt de gerapporteerde eigenschappen gebruikt voor het rapporteren van de tijd van de laatste keer opnieuw opstarten vanaf het apparaat en er is een query uitgevoerd op het apparaat tussen de laatste keer opnieuw opstarten van het apparaat in de Cloud.
 
-Om door te gaan aan de slag met IoT Hub en patronen voor Apparaatbeheer zoals het op afstand via de lucht firmware-update [hoe u doet een firmware-update](../articles/iot-hub/tutorial-firmware-update.md)
+Zie [een firmware-update uitvoeren](../articles/iot-hub/tutorial-firmware-update.md)als u wilt door gaan met IOT hub en patronen voor Apparaatbeheer, zoals extern via de Air firmware-update.
 
-Zie voor informatie over het uitbreiden van uw IoT-oplossing en schema-methode op meerdere apparaten roept, [taken plannen en uitzenden](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
+Zie [taken plannen en uitzenden](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)voor meer informatie over het uitbreiden van uw IOT-oplossing en het plannen van methode aanroepen op meerdere apparaten.

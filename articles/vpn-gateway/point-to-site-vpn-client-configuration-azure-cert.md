@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 624c1648bc709e1ca6ee9c4120350a606df67df5
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 79e7027d308d389aa672d164de91df61b1142e32
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035743"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534167"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>VPN-client configuratie bestanden maken en installeren voor systeem eigen Azure-certificaat verificatie P2S-configuraties
 
@@ -126,12 +126,12 @@ Als u nog geen certificaten hebt gegenereerd, gebruikt u de volgende stappen:
 
 ### <a name="install"></a>Installeren en configureren
 
-De volgende instructies zijn gemaakt via strongSwan 5.5.1 op Ubuntu 17.0.4. Ubuntu 16.0.10 biedt geen ondersteuning voor strongSwan-GUI. Als u Ubuntu 16.0.10 wilt gebruiken, moet u de [opdracht regel](#linuxinstallcli)gebruiken. De onderstaande voor beelden komen mogelijk niet overeen met de schermen die u ziet, afhankelijk van uw versie van Linux en strongSwan.
+De volgende instructies zijn gemaakt op Ubuntu 18.0.4. Ubuntu 16.0.10 biedt geen ondersteuning voor strongSwan-GUI. Als u Ubuntu 16.0.10 wilt gebruiken, moet u de [opdracht regel](#linuxinstallcli)gebruiken. De onderstaande voor beelden komen mogelijk niet overeen met de schermen die u ziet, afhankelijk van uw versie van Linux en strongSwan.
 
-1. Open de **Terminal** om **strongswan** en de bijbehorende netwerk beheerder te installeren door de opdracht in het voor beeld uit te voeren. Als u een fout melding krijgt die betrekking heeft op *libcharon-extra-invoeg toepassingen*, vervangt u deze door ' strongswan-plugin-EAP-MSCHAPv2 '.
+1. Open de **Terminal** om **strongswan** en de bijbehorende netwerk beheerder te installeren door de opdracht in het voor beeld uit te voeren.
 
    ```
-   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
+   sudo apt install network-manager-strongswan
    ```
 2. Selecteer het pictogram **netwerk beheerder** (pijl-omhoog en pijl-omlaag) en selecteer vervolgens **verbindingen bewerken**.
 

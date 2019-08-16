@@ -8,18 +8,18 @@ ms.service: search
 ms.topic: overview
 ms.date: 08/13/2019
 ms.author: heidist
-ms.openlocfilehash: eefa0eb5d1e15df34089d7baa3241cbbed4724c2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: MT
+ms.openlocfilehash: 0a254716acbcd51263680d421045788e8365ae8b
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034844"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533169"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
 
 Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. Met uw aangepaste code wordt gegevens opname (indexering) aangeroepen, worden query aanvragen uitgevoerd en worden antwoorden verwerkt. De zoek ervaring wordt gedefinieerd in uw client code met behulp van de functionaliteit van Azure Search, waarbij de query wordt uitgevoerd via een persistente index die u maakt, eigenaar en opslaat op Azure Search.
 
-![Azure Search architectuur](media/search-what-is-azure-search/azure-search-diagram.png "Azure Search architectuur")
+![Azure Search architectuur](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search architectuur")
 
 <!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
 + Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.

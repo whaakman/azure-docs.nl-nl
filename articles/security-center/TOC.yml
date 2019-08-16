@@ -6,8 +6,6 @@
       href: security-center-intro.md
     - name: Door Security Center ondersteunde platformen en functies
       href: security-center-os-coverage.md
-    - name: Evaluatie van eindpuntbeveiliging en aanbevelingen
-      href: security-center-endpoint-protection.md
 - name: Snelstartgidsen
   expanded: true
   items:
@@ -45,6 +43,24 @@
       href: security-center-incident-response.md
     - name: Beheer in meerdere tenants
       href: security-center-cross-tenant-management.md
+    - name: Waarschuwingen voor dreigingsdetectie
+      items:
+        - name: Overzicht van beveiligingswaarschuwingen
+          href: security-center-alerts-overview.md
+        - name: Detectie van bedreigingen voor VM's en servers
+          href: security-center-alerts-iaas.md
+        - name: Detectie van bedreigingen voor cloud-compute
+          href: security-center-alerts-compute.md
+        - name: Detectie van bedreigingen voor dataservices
+          href: security-center-alerts-data-services.md
+        - name: Detectie van bedreigingen voor Azure-servicelaag
+          href: security-center-alerts-service-layer.md
+        - name: Integratie met Azure Security-producten
+          href: security-center-alerts-integration.md
+        - name: Correlatie van Cloud Smart Alert (incidenten)
+          href: security-center-alerts-cloud-smart.md
+        - name: Waarschuwingen valideren (EICAR-testbestand)
+          href: security-center-alert-validation.md
 - name: Handleidingen
   items:
     - name: Uw secure score verbeteren
@@ -105,42 +121,16 @@
           href: security-center-file-integrity-monitoring.md
         - name: Adaptieve netwerkbeveiliging
           href: security-center-adaptive-network-hardening.md
-    - name: Waarschuwingen voor dreigingsdetectie
-      items:
-        - name: Overzicht van beveiligingswaarschuwingen
-          href: security-center-alerts-overview.md
-        - name: Detectie van bedreigingen voor VM's en servers
-          href: security-center-alerts-iaas.md
-        - name: Detectie van bedreigingen voor cloud-compute
-          href: security-center-alerts-compute.md
-        - name: Detectie van bedreigingen voor dataservices
-          href: security-center-alerts-data-services.md
-        - name: Detectie van bedreigingen voor Azure-servicelaag
-          href: security-center-alerts-service-layer.md
-        - name: Integratie met Azure Security-producten
-          href: security-center-alerts-integration.md
-        - name: Correlatie van Cloud Smart Alert (incidenten)
-          href: security-center-alerts-cloud-smart.md
-        - name: Waarschuwingen valideren (EICAR-testbestand)
-          href: security-center-alert-validation.md
     - name: Archiveren
       items:
         - name: Schijfversleuteling toepassen
           href: security-center-apply-disk-encryption.md
         - name: Systeemupdates toepassen
           href: security-center-apply-system-updates.md
-        - name: Versleuteling inschakelen voor opslagaccount
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: VM-agent inschakelen
-          href: security-center-enable-vm-agent.md
         - name: Eindpuntbeveiliging installeren
           href: security-center-install-endpoint-protection.md
         - name: Opnieuw opstarten na systeemupdates
           href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Beveiligingsconfiguraties herstellen
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Besturingssysteemversie bijwerken
-          href: security-center-update-os-version.md
         - name: Beoordeling van beveiligingslekken is niet geïnstalleerd
           href: security-center-vulnerability-assessment-recommendations.md
         - name: Een firewall voor webtoepassingen toevoegen
@@ -191,6 +181,8 @@
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Buitengebruikstelling van functies en API (juli 2019)
       href: security-center-features-retirement-july2019.md
+    - name: Evaluatie van eindpuntbeveiliging en aanbevelingen
+      href: security-center-endpoint-protection.md
 - name: Resources
   items:
     - name: Uw vaardigheden ontwikkelen met Microsoft Learn

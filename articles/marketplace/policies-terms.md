@@ -1,40 +1,40 @@
 ---
-title: Azure Marketplace-beleid en de voorwaarden | Azure
-description: Beleidsregels voor Microsoft Azure Marketplace en de voorwaarden van toepassing op alle uitgevers en het volledige aanbod op Microsoft Azure Marketplace.
-services: Azure, Marketplace, AppSource
+title: Beleid voor commerciële Marketplace en voor waarden | Azure
+description: Het beleid en de voor waarden van micro soft Commercial Marketplace zijn van toepassing op alle uitgevers en aanbiedingen in de Microsoft Azure Marketplace.
+services: Azure, Marketplace, AppSource, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 08/09/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c5041e9f7b19508480ff27311ba61d180f4a5a01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edee3224e32fd853ca2de836f5c4dc0e5e87a100
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937637"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543598"
 ---
-# <a name="azure-marketplace-policies-and-terms"></a>Beleidsregels en voorwaarden voor Azure Marketplace
+# <a name="commercial-marketplace-policies-and-terms"></a>Beleid en voor waarden voor commerciële Marketplace
 
 >[!Note]
->"Marketplace" of 'Azure Marketplace' betekent een eigendom zijn van Microsoft of beheerde-platform, maar met de naam, via welke aanbiedingen worden gepresenteerd aan of overgenomen door klanten. Tenzij anders vermeld, wordt Marketplace bevat de Azure Marketplace en AppSource de Marketplace van Azure Portal.
+>"Micro soft Commercial Marketplace" houdt in het bezit of geëxploiteerde platform van micro soft, met de naam, waarmee aanbiedingen kunnen worden aangeboden aan of aangeschaft door klanten. Tenzij anders vermeld, bevat de commerciële Marketplace de Microsoft Azure Marketplace en Microsoft AppSource.
 
-Hartelijk dank voor uw interesse in publiceren op Azure Marketplace-aanbiedingen. We ernaar samenwerking met u op het bouwen van een rijke bron van oplossingen voor cloudopslag en een line-of-business-aanbiedingen, die klanten wereldwijd Verras en informatie over het bouwen van uw bedrijf.
+Hartelijk dank voor uw interesse in het publiceren van aanbiedingen op de commerciële Marketplace. We streven ernaar om samen met u een uitgebreide bron van cloud oplossingen en een line-of-Business-aanbieding te maken, waardoor klanten over de hele wereld worden geholpen en u uw bedrijf kunt bouwen.
 
-Aanbiedingen op Marketplace moeten voldoen aan onze beleidsregels en de voorwaarden. Werken wij deze beleidsregels en de voorwaarden van tijd tot tijd om te waarborgen van een goede gebruikerservaring en partners bieden de mogelijkheid te voltooien. Als u feedback over onze beleidsregels of voorwaarden hebt, laat het ons weten door commentaar geven in de [forum van Azure Marketplace en AppSource](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
+Aanbiedingen op Marketplace moeten voldoen aan ons beleid en de voor waarden. We werken deze beleids regels en voor waarden van tijd tot tijd bij, zodat u een goede klant ervaring kunt garanderen en partners een kans kunt geven om te slagen. Als u feedback hebt over ons beleid of de voor waarden, laat het ons weten door commentaar te geven in het [Azure Marketplace-en AppSource-forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 
-## <a name="policies-and-terms"></a>Beleid en de voorwaarden
+## <a name="policies-and-terms"></a>Beleids regels en voor waarden
 
-* [Beleid voor certificering van Azure Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies)
+* [Beleid voor commerciële Marketplace-certificering](https://docs.microsoft.com/legal/marketplace/certification-policies)
 
-* [Beleidsregels voor deelname aan](https://docs.microsoft.com/legal/marketplace/participation-policy)
+* [Deelname beleid](https://docs.microsoft.com/legal/marketplace/participation-policy)
 
 * [Beleid voor classificatie en beoordeling](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
 
-* [Azure Marketplace-voorwaarden](https://docs.microsoft.com/legal/marketplace/terms)
+* [Azure Marketplace-voor waarden](https://docs.microsoft.com/legal/marketplace/terms)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar de [Azure Marketplace en AppSource publicatiehandleiding voor](./marketplace-publishers-guide.md) pagina.
+Ga naar de pagina voor de [publicatie handleiding voor Azure Marketplace en AppSource](./marketplace-publishers-guide.md) .
 
 ---

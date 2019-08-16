@@ -1,6 +1,6 @@
 ---
-title: Typeahead query's toevoegen aan een index - Azure Search
-description: Automatisch aangevulde Queryacties in Azure Search inschakelen door het maken van suggesties en aanvragen die aanroepen van automatisch aanvullen of autosuggested querytermen formuleren.
+title: Typeahead-query's toevoegen aan een index-Azure Search
+description: Schakel Type-Ahead query acties in Azure Search in door Voorst Ellen te maken en aanvragen te formuleren waarmee automatisch aanvullen of automatische suggestieve query termen worden aangeroepen.
 ms.date: 05/02/2019
 services: search
 ms.service: search
@@ -19,38 +19,38 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22b53000fa2eebdd8f9cf7fd9f1a2d00763c035b
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521889"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533203"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Suggesties toevoegen aan een index voor typeahead in Azure Search
 
-Een **suggestie** is een constructie in een [Azure Search-index](search-what-is-an-index.md) die ondersteuning biedt voor een 'search-als-u-type'-ervaring. Het bevat een lijst met velden waarvoor u wilt om in te schakelen typeahead query invoer. In een index, de dezelfde suggestie biedt ondersteuning voor een of beide van deze twee typeahead-varianten: *automatisch aanvullen* is voltooid de term of woordgroep die u hebt getypt, *suggesties* bevat een korte lijst met resultaten. 
+Een **suggestie** is een constructie in een [Azure search index](search-what-is-an-index.md) die ondersteuning biedt voor de functie voor zoeken naar een type. Het bevat een lijst met velden waarvoor u typeahead query-invoer wilt inschakelen. Binnen een index ondersteunt dezelfde Voorst Ellen een of beide van deze twee typeahead varianten: automatisch *aanvullen* voltooit de term of de woord groep die u typt. *suggesties* bieden een korte lijst met resultaten. 
 
-De volgende schermafbeelding ziet u beide functies typeahead. Op deze pagina van de zoekopdracht Xbox gaat de items automatisch aanvullen u naar een nieuwe pagina met zoekresultaten voor deze query, terwijl de suggesties worden de werkelijke resultaten naar een pagina voor die bepaalde spel. U kunt automatisch aanvullen naar één item in een zoekbalk beperken of geef een lijst op zoals hier weergegeven. Voor suggesties, kunt u een deel van een document die het beste het resultaat beschrijft surface.
+De volgende scherm afbeelding illustreert beide typeahead-functies. In deze Xbox-zoek pagina gaat u naar een nieuwe pagina met zoek resultaten voor deze query. de suggesties zijn de werkelijke resultaten waarmee u naar een pagina voor dat specifieke spel gaat. U kunt de functie voor automatisch aanvullen beperken tot één item in een zoek balk of een lijst opgeven zoals hier wordt weer gegeven. Voor suggesties kunt u elk deel van een document belichten dat het beste het resultaat beschrijft.
 
-![Visuele vergelijking van automatisch aanvullen en voorgestelde query's](./media/index-add-suggesters/visual-comparison-suggest-complete.png "visuele vergelijking van automatisch aanvullen en voorgestelde query's")
+![Visuele vergelijking van automatisch aanvullen en voorgestelde query's](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Visuele vergelijking van automatisch aanvullen en voorgestelde query's")
 
-Voor het implementeren van deze problemen in Azure Search, is er een index en query-onderdeel. 
+Voor het implementeren van deze gedragingen in Azure Search is er een index-en query onderdeel. 
 
-+ Het onderdeel van de index is een suggestie. U kunt de portal, REST-API of .NET SDK gebruiken om te maken van een suggestie. 
++ Het index onderdeel is een suggestie. U kunt de portal, REST API of .NET SDK gebruiken om een suggestie te maken. 
 
-+ Het queryonderdeel is een actie die is opgegeven in de queryaanvraag (actie die een suggestie of automatisch aanvullen). 
++ Het query onderdeel is een actie die is opgegeven voor de query aanvraag (een suggestie of een actie voor automatisch volt ooien). 
 
-Search-as-u-type ondersteuning is ingeschakeld op basis van per veld. Als u een ervaring die vergelijkbaar is met de aangegeven in de schermafbeelding wilt, kunt u beide gedrag typeahead binnen de dezelfde search-oplossing implementeren. Het doel van beide aanvragen de *documenten* verzameling van specifieke index en -antwoorden worden geretourneerd nadat een gebruiker ten minste een invoerreeks drie tekens heeft geleverd.
+De ondersteuning voor zoeken naar het type wordt per veld ingeschakeld. U kunt zowel typeahead-gedrag in dezelfde Zoek oplossing implementeren als u een vergelijk bare ervaring wilt hebben als de functie die wordt aangegeven in de scherm opname. Beide aanvragen zijn gericht op de verzameling *documenten* van een specifieke index en reacties worden geretourneerd nadat een gebruiker ten minste een invoer teken reeks van drie tekens heeft opgegeven.
 
 ## <a name="create-a-suggester"></a>Een suggester maken
 
-Hoewel een suggestie verschillende eigenschappen heeft, is voornamelijk een verzameling van velden waarvoor u een typeahead ervaring wilt inschakelen. Bijvoorbeeld, een reis-app mogelijk wilt inschakelen typeahead zoeken op bestemmingen, plaatsen en bezienswaardigheden. Alle drie de velden zou daarom gaat u in de Veldenverzameling.
+Hoewel een suggestie meerdere eigenschappen heeft, is het voornamelijk een verzameling velden waarvoor u een typeahead-ervaring inschakelt. Een reis-app kan bijvoorbeeld typeahead Search inschakelen op bestemmingen, steden en attractions. Als zodanig worden alle drie de velden in de verzameling velden.
 
-Voor het maken van een suggestie toevoegen aan een indexschema. U kunt een suggestie hebt in een index (met name een suggestie in de verzameling suggesties). 
+Als u een suggestie wilt maken, voegt u er een toe aan een index schema. U kunt één suggestie in een index hebben (met name één suggestie in de verzameling suggesties). 
 
 ### <a name="use-the-rest-api"></a>REST-API gebruiken
 
-In de REST-API, voegt u toe suggesties via [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) of [Index bijwerken](https://docs.microsoft.com/rest/api/searchservice/update-index). 
+In de REST API kunt u Voorst Ellen toevoegen via [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) of [update index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
 
   ```json
   {
@@ -70,11 +70,11 @@ In de REST-API, voegt u toe suggesties via [Create Index](https://docs.microsoft
     ]
   }
   ```
-Nadat een suggestie is gemaakt, voegt u toe de [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of [API automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in uw querylogica voor het aanroepen van de functie.
+Nadat u een suggestie hebt gemaakt, voegt u [](https://docs.microsoft.com/rest/api/searchservice/suggestions) de API Suggestions of de [api's voor automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in uw query logica toe om de functie aan te roepen.
 
 ### <a name="use-the-net-sdk"></a>De .NET SDK gebruiken
 
-In C#, definieert een [suggestie object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` is een verzameling, maar duurt slechts één item. 
+In C#definieert u een [suggestie object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters`is een verzameling, maar er kan slechts één item worden toegepast. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -95,43 +95,50 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-## <a name="property-reference"></a>Eigenschapverwijzing
+## <a name="property-reference"></a>Eigenschappen referentie
 
-Sleutel verwijst naar een kennisgeving over suggesties is dat er is een naam (suggesties wordt verwezen door de naam op een aanvraag), een searchMode (momenteel slechts één, "analyzingInfixMatching") en de lijst met velden waarvoor typeahead is ingeschakeld. 
+Belang rijke punten voor suggesties zijn dat er een naam (Voorst Ellen wordt verwezen door een naam op een aanvraag), een Search mode (momenteel alleen een ' analyzingInfixMatching ') en de lijst met velden waarvoor typeahead is ingeschakeld. 
 
-Eigenschappen die een suggestie bepalen omvatten het volgende:
+Eigenschappen die een voor stel definiëren, zijn onder meer het volgende:
 
 |Eigenschap      |Description      |
 |--------------|-----------------|
-|`name`        |De naam van de suggestie. U de naam van de suggestie gebruiken bij het aanroepen van de [suggesties REST-API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of [REST-API automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
-|`searchMode`  |De strategie gebruikt om te zoeken naar kandidaat zinnen. De enige modus die momenteel niet ondersteund is `analyzingInfixMatching`, die wordt uitgevoerd met het flexibele overeenkomende woordgroepen aan het begin of in het midden van zinnen.|
-|`sourceFields`|Een lijst met een of meer velden die de bron van de inhoud voor suggesties. Alleen de velden van het type `Edm.String` en `Collection(Edm.String)` mogelijk bronnen voor suggesties. Alleen velden waarvoor een aangepaste taalanalyse ingesteld niet kunnen worden gebruikt.<p/>Geef alleen de velden die voor een verwachte en het juiste antwoord lenen, of het is een voltooide tekenreeks in een zoekbalk of in een vervolgkeuzelijst weergegeven.<p/>De naam van een hotel is een goede kandidaat omdat er precisie. Er zijn uitgebreide velden, zoals beschrijvingen en opmerkingen te compacte. Op deze manier zijn terugkerende velden, zoals categorieën en -tags minder effectief. In de voorbeelden opnemen we 'categorie' toch om aan te tonen dat u meerdere velden kunt opnemen. |
+|`name`        |De naam van de suggestie. U gebruikt de naam van de suggestie bij het aanroepen van de [suggesties rest API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of [automatisch aanvullen rest API](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
+|`searchMode`  |De strategie die wordt gebruikt om te zoeken naar kandidaten zinsdelen. De enige modus die momenteel wordt `analyzingInfixMatching`ondersteund, is het uitvoeren van flexibele overeenkomende woord groepen aan het begin of in het midden van de zinnen.|
+|`sourceFields`|Een lijst met een of meer velden die de bron van de inhoud voor suggesties zijn. Alleen velden van het `Edm.String` type `Collection(Edm.String)` en kunnen bronnen voor suggesties zijn. Alleen velden waarvoor geen aangepaste taal analyseset is ingesteld, kunnen worden gebruikt.<p/>Geef alleen de velden op die aan een verwacht en passend antwoord worden uitgeleend, of het nu gaat om een voltooide teken reeks in een zoek balk of vervolg keuzelijst.<p/>De naam van een hotel is een goede kandidaat omdat deze precisie heeft. Uitgebreide velden, zoals beschrijvingen en opmerkingen, zijn te dicht bij. Zo zijn herhalende velden, zoals categorieën en tags, minder effectief. In de voor beelden bevatten we ' categorie ' om aan te tonen dat u meerdere velden kunt bevatten. |
 
-## <a name="when-to-create-a-suggester"></a>Wanneer u een suggestie
+#### <a name="analysis-of-sourcefields-in-a-suggester"></a>Analyse van SourceFields in een suggestie
 
-Om te voorkomen dat het opnieuw opbouwen van een index, een suggestie en de velden die zijn opgegeven `sourceFields` moet worden gemaakt op hetzelfde moment.
+Azure Search analyseert de veld inhoud om query's op afzonderlijke voor waarden mogelijk te maken. Voorst Ellen moeten voor voegsels worden geïndexeerd naast de volledige voor waarden. dit vereist extra analyse over de bron velden. Aangepaste analyse configuraties kunnen elk van de verschillende tokenizers en filters combi neren, vaak op manieren die het maken van de Voorst Ellen van de voor voegsels zouden veroorzaken. Daarom **kan Azure Search voor komen dat velden met aangepaste analyse functies in een suggestie worden opgenomen**.
 
-Als u een suggestie aan een bestaande index toevoegt, waarbij bestaande velden zijn opgenomen in `sourceFields`, de definitie van het veld fundamenteel wijzigen en opnieuw opbouwen is vereist. Zie voor meer informatie, [het opnieuw opbouwen van een Azure Search-index](search-howto-reindex.md).
+> [!NOTE] 
+>  De aanbevolen benadering voor het omzeilen van de bovenstaande beperking is het gebruik van twee afzonderlijke velden voor dezelfde inhoud. Hiermee kan een van de velden suggesties geven en kan de andere worden ingesteld met een aangepaste analyse configuratie.
 
-## <a name="how-to-use-a-suggester"></a>Het gebruik van een suggestie
+## <a name="when-to-create-a-suggester"></a>Wanneer maakt u een suggestie
 
-Zoals eerder vermeld, kunt u een suggestie voor voorgestelde query's, automatisch aanvullen, of beide. 
+Om te voor komen dat een index opnieuw wordt opgebouwd, moeten een suggestie `sourceFields` en de velden die zijn opgegeven in op hetzelfde moment worden gemaakt.
 
-Een suggestie wordt verwezen in de aanvraag, samen met de bewerking. Geef bijvoorbeeld op een GET REST-aanroep, een `suggest` of `autocomplete` op de verzameling documenten. Rest, nadat een suggestie is gemaakt, gebruiken de [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of de [API automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in uw querylogica.
+Als u een suggestie toevoegt aan een bestaande index, waarbij bestaande velden zijn opgenomen in, `sourceFields`wordt de veld definitie op basis van wijzigingen en een heropbouw vereist. Zie [een Azure search index opnieuw samen stellen](search-howto-reindex.md)voor meer informatie.
 
-Voor .NET, gebruiken [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) of [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet).
+## <a name="how-to-use-a-suggester"></a>Een suggestie gebruiken
 
-Zie voor een demonstratie van beide aanvragen voorbeeld [voorbeeld voor het toevoegen van automatisch aanvullen en suggesties in Azure Search](search-autocomplete-tutorial.md).
+Zoals eerder is vermeld, kunt u een suggestie gebruiken voor voorgestelde query's, automatisch aanvullen of beide. 
+
+Er wordt in de aanvraag samen met de bewerking naar een suggestie verwezen. Geef `suggest` bijvoorbeeld in een Get rest-aanroep een of `autocomplete` op in de verzameling documenten. Gebruik voor REST, na het maken van een suggestie, de [suggesties API](https://docs.microsoft.com/rest/api/searchservice/suggestions) of de [API voor automatisch aanvullen](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in uw query logica.
+
+Voor .NET gebruikt u [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) of [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet).
+
+Voor een voor beeld van beide aanvragen, Zie [voor beeld voor het toevoegen van AutoAanvullen en suggesties in azure Search](search-autocomplete-tutorial.md).
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
-De [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) voorbeeld bevat zowel C# en Java-code, en ziet u een suggestie constructie, voorgestelde query's, automatisch aanvullen en facet navigatie. 
+Het [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) -voor beeld C# bevat zowel java-code als een voor stel voor de constructie van een suggestie, aanbevolen query's, automatisch aanvullen en facet navigatie. 
 
-Het maakt gebruik van een sandbox met Azure Search-service en een index vooraf geladen, zodat u alle hoeft te doen is druk op F5 uit te voeren. Er is geen abonnement of aanmelding nodig.
+Er wordt gebruikgemaakt van een sandbox Azure Search-service en een vooraf geladen index. u hoeft alleen op F5 te drukken om de app uit te voeren. Geen abonnement of aanmelden nood zakelijk.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U wordt aangeraden het volgende voorbeeld om te zien hoe de aanvragen worden geformuleerd.
+Het volgende voor beeld wordt aangeraden om te zien hoe de aanvragen worden geformuleerd.
 
 > [!div class="nextstepaction"]
-> [Suggesties en voorbeelden van automatisch aanvullen](search-autocomplete-tutorial.md) 
+> [Suggesties en voor beelden van automatisch aanvullen](search-autocomplete-tutorial.md) 

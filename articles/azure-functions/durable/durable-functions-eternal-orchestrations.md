@@ -1,6 +1,6 @@
 ---
-title: Oneindige indelingen in duurzame functies - Azure
-description: Informatie over het implementeren van oneindige indelingen met behulp van de extensie duurzame functies voor Azure Functions.
+title: Eeuwige-integratie in Durable Functions-Azure
+description: Meer informatie over het implementeren van eeuwige-integratie met behulp van de Durable Functions-extensie voor Azure Functions.
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -10,33 +10,33 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 99eabf3bc91887ff19b3a0bc9cf6647d32fa6750
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 352fd16d98e6f376e230d2112a9b94b66ccc1b5a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787569"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542728"
 ---
-# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Oneindige indelingen in duurzame functies (Azure Functions)
+# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eeuwige-integraties in Durable Functions (Azure Functions)
 
-*Oneindige indelingen* orchestrator-functies die nooit eindigen zijn. Ze zijn handig als u wilt gebruiken [duurzame functies](durable-functions-overview.md) voor lezers en elk scenario waarvoor een oneindige lus.
+*Eeuwige* -indelingen zijn Orchestrator-functies die nooit eindigen. Ze zijn handig wanneer u [Durable functions](durable-functions-overview.md) wilt gebruiken voor aggregators en elk scenario waarvoor een oneindige lus is vereist.
 
 ## <a name="orchestration-history"></a>Orchestration-geschiedenis
 
-Zoals uitgelegd in [plaatsen van controlepunten en herhaling](durable-functions-checkpointing-and-replay.md), het duurzame taak Framework houdt van de geschiedenis van elke functie-indeling. Dit overzicht groeit voortdurend, mits de orchestrator-functie nog steeds nieuwe werk plannen. Als de orchestrator-functie in een oneindige lus gaat en continu wordt gepland werk, kan deze geschiedenis zeer groot en leiden tot prestatieproblemen ondervinden. De *eeuwige orchestration* concept is ontworpen om dit soort problemen voor toepassingen waarvoor een oneindige lus.
+Zoals beschreven in [controle punten en herhalingen](durable-functions-checkpointing-and-replay.md), houdt het duurzame taak raamwerk de geschiedenis bij van elke functie indeling. Deze geschiedenis neemt voortdurend toe zolang de Orchestrator-functie blijft werken om nieuwe werkzaamheden te plannen. Als de Orchestrator-functie een oneindige lus doorloopt en voortdurend schema's werken, kan deze geschiedenis kritiek toenemen en aanzienlijke prestatie problemen veroorzaken. Het *eeuwige-Orchestration* -concept is ontworpen om dit soort problemen te verhelpen voor toepassingen die oneindige lussen nodig hebben.
 
-## <a name="resetting-and-restarting"></a>Opnieuw in te stellen en opnieuw starten
+## <a name="resetting-and-restarting"></a>Opnieuw instellen en opnieuw starten
 
-In plaats van oneindige lus, orchestrator-functies hun status herstellen door het aanroepen van de [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) methode. Deze methode heeft één JSON-geserialiseerd parameter, die de nieuwe invoer voor de volgende generatie van de orchestrator-functie wordt.
+In plaats van een oneindige lus te gebruiken, wordt de status van Orchestrator-functies opnieuw ingesteld door de [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) -methode aan te roepen. Deze methode heeft één JSON-Serializable-para meter, die de nieuwe invoer wordt voor de volgende Orchestrator-functie generatie.
 
-Wanneer `ContinueAsNew` wordt aangeroepen, de enqueues exemplaar van een bericht naar zichzelf voordat deze wordt afgesloten. Het bericht opnieuw wordt opgestart met het exemplaar met de nieuwe waarde voor de invoer. De dezelfde exemplaar-ID wordt bewaard, maar de geschiedenis van de orchestrator-functie effectief is afgekapt.
+Wanneer `ContinueAsNew` wordt aangeroepen, in het exemplaar een bericht naar zichzelf voordat het wordt afgesloten. Het bericht start het exemplaar opnieuw met de nieuwe invoer waarde. Dezelfde exemplaar-ID wordt bewaard, maar de geschiedenis van de Orchestrator-functie wordt in feite afgekapt.
 
 > [!NOTE]
-> Het duurzame taak Framework onderhoudt de dezelfde exemplaar-ID, maar intern maakt u een nieuwe *uitvoerings-ID* voor de orchestrator-functie die opnieuw wordt ingesteld door `ContinueAsNew`. Deze uitvoerings-ID in het algemeen niet beschikbaar is extern, maar mogelijk handig om te weten over het opsporen van fouten in indeling kan worden uitgevoerd.
+> Het duurzame taak raamwerk houdt dezelfde exemplaar-ID bij, maar maakt intern een nieuwe *uitvoerings-id* voor de Orchestrator-functie die `ContinueAsNew`opnieuw wordt ingesteld door. Deze uitvoerings-ID wordt over het algemeen niet extern weer gegeven, maar het kan nuttig zijn om te weten wanneer de uitvoering van een fout in de Orchestration is opgetreden.
 
-## <a name="periodic-work-example"></a>Voorbeeld van de periodieke werk
+## <a name="periodic-work-example"></a>Voor beeld van periodieke werk
 
-Een use-case voor oneindige indelingen is code die moet periodiek om werk te doen voor onbepaalde tijd.
+Een use-case voor eeuwige-indelingen is code die voor onbepaalde tijd periodiek moet worden uitgevoerd.
 
 ### <a name="c"></a>C#
 
@@ -45,7 +45,7 @@ Een use-case voor oneindige indelingen is code die moet periodiek om werk te doe
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    await context.CallActivityAsync("DoCleanup");
+    await context.CallActivityAsync("DoCleanup", null);
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
@@ -55,7 +55,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (werkt alleen 2.x)
+### <a name="javascript-functions-2x-only"></a>Java script (alleen functies 2. x)
 
 ```javascript
 const df = require("durable-functions");
@@ -72,15 +72,15 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Het verschil tussen het volgende voorbeeld en een timer geactiveerde-functie is dat opschonen trigger tijden hier niet zijn gebaseerd op een schema. Bijvoorbeeld een CRON-planning die wordt uitgevoerd van een functie elk uur wordt uitgevoerd om 1:00 uur, 2:00 uur, 3:00 enz. en kan mogelijk overlappende problemen ondervindt. In dit voorbeeld, echter, als het opruimen van de 30 minuten in beslag neemt vervolgens wordt gepland om 1:00 uur, 2:30, 4:00, enz. en er is geen kans van elkaar overlappen.
+Het verschil tussen dit voor beeld en een door een timer geactiveerde functie is dat hier niet op basis van een schema wordt geactiveerd. Zo kan een CRON-schema waarmee een functie elk uur wordt uitgevoerd, worden uitgevoerd op 1:00, 2:00, 3:00 enz. Dit kan mogelijk worden uitgevoerd in overlappende problemen. Als het opschonen echter 30 minuten duurt, wordt het gepland op 1:00, 2:30, 4:00 enzovoort. er is geen kans op overlap ping.
 
-## <a name="exit-from-an-eternal-orchestration"></a>Afsluiten van een oneindige indeling
+## <a name="exit-from-an-eternal-orchestration"></a>Afsluiten vanuit een eeuwige-indeling
 
-Als een orchestrator-functie moet worden uiteindelijk is voltooid, dan hoeft u alleen maar *niet* aanroepen `ContinueAsNew` en laat u de functie exit.
+Als een Orchestrator-functie uiteindelijk moet worden voltooid, hoeft u *niet* te bellen `ContinueAsNew` en kunt u de functie niet afsluiten.
 
-Als een orchestrator-functie in een oneindige lus en moet worden gestopt, gebruikt u de [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) methode om deze te stoppen. Zie voor meer informatie, [Instantiebeheer](durable-functions-instance-management.md).
+Als een Orchestrator-functie zich in een oneindige lus bevindt en moet worden gestopt, gebruikt u de methode [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) om deze te stoppen. Zie [instance Management](durable-functions-instance-management.md)(Engelstalig) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over het implementeren van enkelvoudige indelingen](durable-functions-singletons.md)
+> [Meer informatie over het implementeren van Singleton-indelingen](durable-functions-singletons.md)

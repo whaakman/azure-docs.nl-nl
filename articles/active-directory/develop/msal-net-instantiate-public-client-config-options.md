@@ -1,9 +1,9 @@
 ---
-title: Exemplaar maken van een openbare client-app met opties (Microsoft Authentication Library voor .NET) | Azure
-description: Informatie over het instantiëren van een openbare client-toepassing met configuratie-opties met behulp van de Microsoft Authentication Library voor .NET (MSAL.NET).
+title: Een open bare client-app instantiëren met opties (micro soft Authentication Library voor .NET) | Azure
+description: Meer informatie over het instantiëren van een open bare client toepassing met configuratie opties met behulp van de micro soft Authentication Library voor .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,30 +13,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 125bbf9aed54fb00f039aeffddd5cc1aad3360a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1311e047b63cc9b5cccc785fbcd118db29f7c4bd
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544406"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532610"
 ---
-# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Het instantiëren van een openbare client-toepassing met configuratie-opties met behulp van MSAL.NET
+# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Een open bare client toepassing instantiëren met configuratie opties met behulp van MSAL.NET
 
-In dit artikel wordt beschreven hoe u exemplaar maken van een [openbare clienttoepassing](msal-client-applications.md) met behulp van Microsoft Authentication Library voor .NET (MSAL.NET).  De toepassing wordt gestart met configuratie-opties die zijn gedefinieerd in een bestand met instellingen.
+In dit artikel wordt beschreven hoe u een [open bare client toepassing](msal-client-applications.md) kunt instantiëren met micro soft Authentication Library voor .net (MSAL.net).  De toepassing wordt geïnstantieerd met configuratie opties die zijn gedefinieerd in een instellingen bestand.
 
-Voordat u het initialiseren van een toepassing, moet u eerst [registreren](quickstart-register-app.md) deze zodat uw app kan worden geïntegreerd met het Microsoft identity-platform. Na de registratie moet u mogelijk de volgende informatie (die kan worden gevonden in de Azure-portal):
+Voordat u een toepassing initialiseert, moet u deze eerst [registreren](quickstart-register-app.md) , zodat uw app kan worden geïntegreerd met het micro soft Identity-platform. Na de registratie hebt u mogelijk de volgende informatie nodig (die kan worden gevonden in de Azure Portal):
 
-- De client-ID (een tekenreeks die een GUID)
-- De URL van de id-provider (met de naam van het exemplaar) en de doelgroep aanmelden voor uw toepassing. Deze twee parameters bekend staan als de instantie.
-- De tenant-ID als u een line-of-business-toepassing uitsluitend voor uw organisatie (ook met de naam één tenant toepassing ontwikkelt).
-- Voor web-apps, en soms voor openbare client-apps (met name wanneer uw app nodig heeft om te gebruiken een broker), hebt u instellen de redirectUri waar de id-provider contact op met back-uw toepassing met de beveiligingstokens.
+- De client-ID (een teken reeks die een GUID vertegenwoordigt)
+- De URL van de identiteits provider (de naam van het exemplaar) en de aanmeldings doel groep voor uw toepassing. Deze twee para meters worden gezamenlijk bekend als de-instantie.
+- De Tenant-ID als u alleen een line-of-Business-toepassing schrijft voor uw organisatie (ook wel een toepassing met één Tenant genoemd).
+- Voor web-apps en soms voor open bare client-apps (met name wanneer uw app een Broker moet gebruiken), moet u ook de redirectUri instellen waar de ID-provider verbinding maakt met uw toepassing met de beveiligings tokens.
 
 
-Een .NET Core-consoletoepassing kan hebben de volgende *appsettings.json* configuratiebestand:
+Een .NET core-console toepassing kan het volgende bestand *appSettings. json* configureren:
 
 ```json
 {
@@ -52,7 +52,7 @@ Een .NET Core-consoletoepassing kan hebben de volgende *appsettings.json* config
 }
 ```
 
-De volgende code leest dit bestand met .NET framework-configuratie:
+Met de volgende code wordt dit bestand gelezen met behulp van het .NET-configuratie raamwerk:
 
 ```csharp
 public class SampleConfiguration
@@ -94,7 +94,7 @@ public class SampleConfiguration
 }
 ```
 
-De volgende code wordt gemaakt van uw toepassing, met behulp van de configuratie van het bestand met instellingen:
+Met de volgende code wordt uw toepassing gemaakt met behulp van de configuratie uit het instellingen bestand:
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");

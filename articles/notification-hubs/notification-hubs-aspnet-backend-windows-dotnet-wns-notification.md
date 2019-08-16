@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4949b12076ea7cdbbf882d199279410da95e005
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874204"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558644"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Zelfstudie: Meldingen verzenden naar specifieke gebruikers met behulp van Azure Notification Hubs
 
@@ -31,7 +31,7 @@ ms.locfileid: "60874204"
 In deze zelfstudie wordt uitgelegd hoe u met Azure Notification Hubs pushmeldingen kunt verzenden naar een specifieke app-gebruiker op een specifiek apparaat. Er wordt een ASP.NET WebAPI-back-end gebruikt om clients te verifiëren. Wanneer de back-end de gebruiker van een clienttoepassing verifieert, wordt er automatisch een tag aan de registratie van de melding toegevoegd. De back-end gebruikt deze tag om meldingen te verzenden naar de specifieke gebruiker.
 
 > [!NOTE]
-> De volledige code voor deze zelfstudie vindt u op [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+> De volledige code voor deze zelfstudie vindt u op [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
 In deze zelfstudie voert u de volgende stappen uit:
 
@@ -53,13 +53,13 @@ Deze zelfstudie bouwt voort op de Notification Hub die en het Visual Studio-proj
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="update-the-code-for-the-uwp-client"></a>De code bijwerken voor de UWP-client
+## <a name="update-the-code-for-the-uwp-client"></a>De code voor de UWP-client bijwerken
 
 In deze sectie werkt u de code bij in het project dat u hebt gemaakt voor de [Zelfstudie: Meldingen verzenden naar Universeel Windows-platform-apps met behulp van Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Het project moet al zijn gekoppeld aan de Windows Store. Bovendien moet het project zijn geconfigureerd voor het gebruik van uw Notification Hub. In dit gedeelte voegt u code toe voor het aanroepen van de nieuwe WebAPI-back-end en gebruikt u deze voor het registreren en verzenden van meldingen.
 
 1. Open in Visual Studio de oplossing die u hebt gemaakt voor de [Zelfstudie: Meldingen verzenden naar Universeel Windows-platform-apps met behulp van Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-2. Klik in Solution Explorer met de rechtermuisknop op het project Universal Windows Platform (UWP) en klik vervolgens op **NuGet-pakketten beheren**.
-3. Selecteer aan de linkerkant **Bladeren**.
+2. Klik in Solution Explorer met de rechter muisknop op het project Universeel Windows-platform (UWP) en klik vervolgens op **NuGet-pakketten beheren**.
+3. Klik aan de linkerkant op **Bladeren**.
 4. Typ **Http Client** in **het zoekvak**.
 5. Klik in de lijst met resultaten op **System.Net.Http** en vervolgens op **Installeren**. Voltooi de installatie.
 6. Typ nu **Json.net** in **het zoekvak** van NuGet. Installeer het pakket **Newtonsoft.json** en sluit het venster NuGet Package Manager.
@@ -116,7 +116,7 @@ In deze sectie werkt u de code bij in het project dat u hebt gemaakt voor de [Ze
         </StackPanel>
     </Grid>
     ```
-9. Open in Solution Explorer het bestand `MainPage.xaml.cs` voor de projecten **(Windows 8.1)** en **(Windows Phone 8.1)**. Voeg de volgende `using`-instructies toe aan het begin van beide bestanden:
+9. Open in Solution Explorer het bestand `MainPage.xaml.cs` voor de projecten **(Windows 8.1)** en **(Windows Phone 8.1)** . Voeg de volgende `using`-instructies toe aan het begin van beide bestanden:
 
     ```csharp
     using System.Net.Http;
@@ -131,7 +131,7 @@ In deze sectie werkt u de code bij in het project dat u hebt gemaakt voor de [Ze
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
-11. Voeg de volgende code toe aan de klasse MainPage in `MainPage.xaml.cs` voor de projecten **(Windows 8.1)** en **(Windows Phone 8.1)**.
+11. Voeg de volgende code toe aan de klasse MainPage in `MainPage.xaml.cs` voor de projecten **(Windows 8.1)** en **(Windows Phone 8.1)** .
 
     De methode `PushClick` is de handler voor de knop **Send Push**. De methode roept de back-end aan om een melding te triggeren naar alle apparaten met een gebruikersnaam-tag die overeenkomt met de parameter `to_tag`. De melding wordt als JSON-inhoud verzonden in de aanvraagtekst.
 

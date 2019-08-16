@@ -1,6 +1,6 @@
 ---
-title: Ondersteuning voor meerdere token verleners in een OWIN-webtoepassing-Azure Active Directory B2C
-description: Meer informatie over het inschakelen van een .NET-webtoepassing voor het ondersteunen van tokens die zijn uitgegeven door meerdere domeinen.
+title: OWIN-based web-Api's migreren naar b2clogin.com-Azure Active Directory B2C
+description: Meer informatie over het inschakelen van een .NET-Web-API voor het ondersteunen van tokens die zijn uitgegeven door meerdere token verleners terwijl u uw toepassingen migreert naar b2clogin.com.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,21 +10,23 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 31ab19b8b3adbef1f0ea573af13b98750d278db8
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a8a6b4f90fe3f1e60341cc59e7d81870c82e843b
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716730"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533761"
 ---
-# <a name="support-multiple-token-issuers-in-an-owin-based-web-application"></a>Meerdere token verleners in een OWIN-webtoepassing ondersteunen
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Een op OWIN gebaseerde web-API migreren naar b2clogin.com
 
-In dit artikel wordt een techniek beschreven voor het inschakelen van ondersteuning voor meerdere token verleners in web-apps en Api's die de [open web interface voor .net (OWIN)](http://owin.org/)implementeren. Het ondersteunen van meerdere token-eind punten is handig wanneer u Azure Active Directory-toepassingen (Azure AD) migreert van *login.microsoftonline.com* naar *b2clogin.com*.
+In dit artikel wordt een techniek beschreven voor het inschakelen van ondersteuning voor meerdere token verleners in Web-Api's die de [open web interface voor .net (OWIN)](http://owin.org/)implementeren. Het ondersteunen van meerdere token-eind punten is handig wanneer u Azure Active Directory B2C (Azure AD B2C) Api's en hun toepassingen migreert van *login.microsoftonline.com* naar *b2clogin.com*.
 
-De volgende secties bevatten een voor beeld van het inschakelen van meerdere verleners in een webtoepassing en de bijbehorende Web-API die gebruikmaakt van de [micro soft OWIN][katana] middleware Components (Katana). Hoewel de code voorbeelden specifiek zijn voor de micro soft OWIN-middleware, moet de algemene techniek van toepassing zijn op andere OWIN-bibliotheken.
+Door ondersteuning toe te voegen aan uw API voor het accepteren van tokens die zijn uitgegeven door zowel b2clogin.com als login.microsoftonline.com, kunt u uw webtoepassingen op een gefaseerde manier migreren voordat u ondersteuning voor login.microsoftonline.com-uitgegeven tokens uit de API verwijdert.
+
+De volgende secties bevatten een voor beeld van het inschakelen van meerdere verleners in een web-API die gebruikmaakt van de [micro soft OWIN][katana] middleware Components (Katana). Hoewel de code voorbeelden specifiek zijn voor de micro soft OWIN-middleware, moet de algemene techniek van toepassing zijn op andere OWIN-bibliotheken.
 
 > [!NOTE]
-> Dit artikel is bedoeld voor Azure AD B2C klanten met momenteel geïmplementeerde toepassingen die `login.microsoftonline.com` verwijzen naar en die naar het aanbevolen `b2clogin.com` eind punt willen migreren. Als u een nieuwe toepassing wilt instellen, gebruikt u [b2clogin.com](b2clogin.md) als gestuurde.
+> Dit artikel is bedoeld voor Azure AD B2C klanten met geïmplementeerde api's en toepassingen die verwijzen `login.microsoftonline.com` naar en die naar het aanbevolen `b2clogin.com` eind punt willen migreren. Als u een nieuwe toepassing wilt instellen, gebruikt u [b2clogin.com](b2clogin.md) als gestuurde.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -34,7 +36,7 @@ U hebt de volgende Azure AD B2C resources nodig om door te gaan met de stappen i
 
 ## <a name="get-token-issuer-endpoints"></a>Eind punten van token Uitgever ophalen
 
-U moet eerst de eind punt-Uri's van de token Uitgever ophalen voor elke verlener die u wilt ondersteunen in uw toepassing. Als u de *b2clogin.com* -en *login.microsoftonline.com* -eind punten wilt ophalen die worden ondersteund door uw Azure AD B2C-Tenant, gebruikt u de volgende procedure in de Azure Portal.
+U moet eerst de eind punt-Uri's van de token Uitgever ophalen voor elke verlener die u wilt ondersteunen in uw API. Als u de *b2clogin.com* -en *login.microsoftonline.com* -eind punten wilt ophalen die worden ondersteund door uw Azure AD B2C-Tenant, gebruikt u de volgende procedure in de Azure Portal.
 
 Begin met het selecteren van een van uw bestaande gebruikers stromen:
 

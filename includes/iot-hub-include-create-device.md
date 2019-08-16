@@ -8,31 +8,30 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d70544866b9e321d98acd3978da145276e036025
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e93f78cf07cd4815e5b17ffd3953db121adb6535
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176134"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558752"
 ---
 <!-- put the ## header in the file that includes this file -->
 
-In deze sectie maakt u een apparaat-id in het id-register in uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie voor meer informatie de sectie 'id-register van de [Ontwikkelaarshandleiding voor IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md) 
+In deze sectie maakt u een apparaat-id in het identiteits register van uw IoT-hub. Een apparaat kan geen verbinding maken met een hub, tenzij het een vermelding bevat in het identiteits register. Zie de sectie identiteits register van de [IOT hub-ontwikkelaars handleiding](../articles/iot-hub/iot-hub-devguide-identity-registry.md)voor meer informatie.
 
-1. Open in uw IoT hub-navigatiemenu **IoT-apparaten**en selecteer vervolgens **toevoegen** een nieuw apparaat registreren in uw IoT-hub.
+1. In het navigatie menu van de IoT-hub opent u **IOT-apparaten**en selecteert u vervolgens **Nieuw** om een apparaat toe te voegen aan uw IOT-hub.
 
-    ![Apparaat-id in de portal maken](./media/iot-hub-include-create-device/create-identity-portal.png)
+    ![Apparaat-id maken in de portal](./media/iot-hub-include-create-device/create-identity-portal-vs2019.png)
 
-1. Geef een naam voor het nieuwe apparaat, zoals **myDeviceId**, en selecteer **opslaan**. Deze actie wordt een nieuwe apparaat-id voor uw IoT-hub gemaakt.
+1. In **een apparaat maken**geeft u een naam op voor het nieuwe apparaat, zoals **myDeviceId**, en selecteert u **Opslaan**. Met deze actie maakt u een apparaat-id voor uw IoT-hub.
 
-   ![Een nieuw apparaat toevoegen](./media/iot-hub-include-create-device/create-a-device.png)
+   ![Een nieuw apparaat toevoegen](./media/iot-hub-include-create-device/create-a-device-vs2019.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
+1. Nadat het apparaat is gemaakt, opent u het apparaat in de lijst in het deel venster **IOT-apparaten** . Kopieer de **primaire verbindings reeks** om deze later te gebruiken.
 
-1. Nadat het apparaat is gemaakt, opent u het apparaat uit de lijst in de **IoT-apparaten** deelvenster. Kopieer de **Connection string---primaire sleutel** voor later gebruik.
-
-    ![Apparaat-verbindingsreeks](./media/iot-hub-include-create-device/device-details.png)
+    ![Apparaat connection string](./media/iot-hub-include-create-device/device-details-vs2019.png)
 
 > [!NOTE]
-> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Zie voor meer informatie, [Ontwikkelaarshandleiding voor IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Zie [IOT hub ontwikkelaars handleiding](../articles/iot-hub/iot-hub-devguide-identity-registry.md)voor meer informatie.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381947"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533518"
 ---
 # <a name="aks-troubleshooting"></a>AKS problemen oplossen
 
@@ -86,10 +86,12 @@ Deze fout treedt op wanneer clusters een mislukte status om meerdere redenen inv
 
 *Deze probleemoplossings hulp wordt omgeleid van https://aka.ms/aks-pending-upgrade*
 
-Cluster bewerkingen zijn beperkt wanneer actieve upgrade bewerkingen plaatsvinden of als er een upgrade is uitgevoerd, maar vervolgens is mislukt. Om de uitvoering `az aks show -g myResourceGroup -n myAKSCluster -o table` van het probleem vast te stellen om de gedetailleerde status van het cluster op te halen. Op basis van het resultaat:
+Het bijwerken en schalen van bewerkingen op een cluster met een groep met één knoop punt of een cluster met [meerdere knooppunt Pools](use-multiple-node-pools.md) sluiten elkaar wederzijds uit. U kunt geen cluster-of knooppunt groep tegelijkertijd bijwerken en schalen. In plaats daarvan moet elk bewerkings type worden voltooid voor de doel resource vóór de volgende aanvraag op dezelfde resource. Als gevolg hiervan zijn bewerkingen beperkt wanneer actieve upgrade of schaal bewerkingen worden uitgevoerd of geprobeerd en vervolgens worden mislukt. 
 
-* Als het cluster actief wordt bijgewerkt, wacht u totdat de bewerking wordt beëindigd. Als de bewerking is geslaagd, probeert u het opnieuw.
-* Als het upgraden van het cluster is mislukt, volgt u de stappen die hierboven worden beschreven
+Om het probleem `az aks show -g myResourceGroup -n myAKSCluster -o table` op te lossen en de gedetailleerde status van het cluster op te halen. Op basis van het resultaat:
+
+* Als het cluster actief wordt bijgewerkt, wacht u totdat de bewerking wordt beëindigd. Als deze is geslaagd, voert u de bewerking opnieuw uit.
+* Als het upgraden van het cluster is mislukt, volgt u de stappen in de vorige sectie.
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kan ik mijn cluster verplaatsen naar een ander abonnement of mijn abonnement met mijn cluster naar een nieuwe Tenant?
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 025e45b86fa3a6020652ae9756ceace5b51daa55
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: d2d52d2faf9122b7dc87f71ac7b1be53eaa99878
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516200"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534981"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Een IP-beperkings regel configureren met een Web Application Firewall voor de Azure front-deur service
 In dit artikel wordt beschreven hoe u IP-beperkings regels configureert in een Web Application Firewall (WAF) voor de Azure front-deur-service met behulp van de Azure CLI, Azure PowerShell of een Azure Resource Manager sjabloon.
@@ -56,7 +56,7 @@ In de volgende voor beelden:
 -  Vervang *IPAllowPolicyExampleCLI* door uw unieke beleid dat u eerder hebt gemaakt.
 -  Vervang *IP-adres bereik-1*, *IP-adres-Range-2* door uw eigen bereik.
 
-Maak eerst een regel voor IP-invoer voor het beleid dat u in de vorige stap hebt gemaakt. Opmerking **--defer** is vereist omdat een regel een match-voor waarde moet hebben om in de volgende stap te worden toegevoegd.
+Maak eerst een regel voor IP-invoer voor het beleid dat u in de vorige stap hebt gemaakt. Opmerking **--defer** is vereist omdat een regel ten minste één match-voor waarde moet bevatten. 
 
 ```azurecli
 az network front-door waf-policy rule create \

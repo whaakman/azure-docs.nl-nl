@@ -7,16 +7,18 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881820"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543511"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Gast configuratie beleidsregels maken
 
 Gast configuratie maakt gebruik van een resource module voor [desired state Configuration](/powershell/dsc) (DSC) om de configuratie voor de controle van de virtuele Azure-machines te maken. De DSC-configuratie definieert de voor waarde dat de virtuele machine moet zijn. Als de evaluatie van de configuratie mislukt, wordt de **controle** van het beleids effect geactiveerd en wordt de virtuele machine beschouwd als **niet-compatibel**.
+
+[Azure Policy-gast configuratie](/azure/governance/policy/concepts/guest-configuration) kan alleen worden gebruikt voor het controleren van instellingen in virtuele machines. Het herstellen van de instellingen binnen de virtuele machines is nog niet beschikbaar.
 
 Gebruik de volgende acties om uw eigen configuratie te maken voor het valideren van de status van een virtuele machine van Azure.
 

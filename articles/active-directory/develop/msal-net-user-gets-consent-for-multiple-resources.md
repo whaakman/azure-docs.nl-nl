@@ -1,9 +1,9 @@
 ---
-title: Er toestemming voor verschillende resources (Microsoft Authentication Library voor .NET) | Azure
-description: Ontdek hoe een gebruiker vooraf toestemming voor verschillende resources met behulp van de Microsoft Authentication Library voor .NET (MSAL.NET) kan ontvangen.
+title: Toestemming vragen voor verschillende bronnen (micro soft Authentication Library voor .NET) | Azure
+description: Meer informatie over hoe een gebruiker vooraf toestemming kan krijgen voor verschillende bronnen met behulp van de micro soft Authentication Library voor .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8bd9a86d5ec0d39a7f1c26adac52f41e6420283
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ded7a6fc465b4cfc98d26f65195f89de8381ac6
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121974"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532376"
 ---
-# <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Gebruiker toestemming voor verschillende resources met behulp van MSAL.NET opgehaald
-Het eindpunt van de Microsoft identity platform staat niet toe dat u een token verkrijgen voor meerdere resources tegelijk. Wanneer u de Microsoft Authentication Library voor .NET (MSAL.NET), moet de parameter bereiken in de ophalen-tokenmethode bereiken voor één resource alleen bevatten. Echter, u kunt vooraf toestemming voor de verschillende resources vooraf door op te geven aanvullende bereiken met behulp van de `.WithExtraScopeToConsent` builder-methode.
+# <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Gebruiker krijgt toestemming voor verschillende resources met behulp van MSAL.NET
+Met het micro soft Identity platform-eind punt kunt u geen token voor meerdere resources tegelijk ophalen. Wanneer u de micro soft Authentication Library voor .NET (MSAL.NET) gebruikt, mag de para meter scopes in de methode Acquire token alleen scopes voor één resource bevatten. U kunt echter vooraf toestemming geven voor verschillende bronnen door extra bereiken op te stellen met behulp van `.WithExtraScopeToConsent` de Builder-methode.
 
 > [!NOTE]
-> Ophalen van toestemming voor verschillende bronnen werken voor Microsoft identity-platform, maar niet voor Azure AD B2C. Azure AD B2C ondersteunt alleen beheerderstoestemming, niet de toestemming van de gebruiker.
+> Het verkrijgen van toestemming voor verschillende bronnen werkt voor micro soft Identity platform, maar niet voor Azure AD B2C. Azure AD B2C ondersteunt alleen beheerders toestemming en geen toestemming van de gebruiker.
 
-Bijvoorbeeld, hebt u twee resources met scopes 2 elk:
+Als u bijvoorbeeld twee resources hebt die elk 2 bereiken hebben:
 
-- https:\//mytenant.onmicrosoft.com/customerapi (met 2 scopes `customer.read` en `customer.write`)
-- https:\//mytenant.onmicrosoft.com/vendorapi (met 2 scopes `vendor.read` en `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (met 2 `customer.read` bereiken en `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (met 2 `vendor.read` bereiken en `vendor.write`)
 
-Moet u de `.WithExtraScopeToConsent` modifier waarvoor de *extraScopesToConsent* parameter zoals wordt weergegeven in het volgende voorbeeld:
+U moet de `.WithExtraScopeToConsent` modificator met de para meter *extraScopesToConsent* gebruiken, zoals wordt weer gegeven in het volgende voor beeld:
 
 ```csharp
 string[] scopesForCustomerApi = new string[]
@@ -56,7 +56,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-Hiermee verkrijgt u een toegangstoken voor de eerste web-API. Wanneer u nodig hebt voor toegang tot de tweede web-API kunt u vervolgens op de achtergrond het token uit de cache-token verkrijgen:
+Hiermee krijgt u een toegangs token voor de eerste web-API. Wanneer u vervolgens toegang tot de tweede Web-API nodig hebt, kunt u het token op de achtergrond verkrijgen via de token cache:
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

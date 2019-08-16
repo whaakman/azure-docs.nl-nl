@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 7deb9d2cf16aa82de7ce4ea163652c2936819063
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489793"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533238"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Quickstart: Een Azure Search-index maken in Java
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ In de volgende lijst worden de bestanden beschreven die relevant zijn voor dit v
 Voor alle REST API-aanroepen in Azure Search is vereist dat u de service `api-key`-URL en een. 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik in de snelbalk op de **Search-service** om alle Azure Search-services weer te geven die zijn ingericht voor uw abonnement.
+2. Selecteer in de balk Zoeken de optie **Zoek service** om alle Azure Search Services weer te geven die zijn ingericht voor uw abonnement.
 3. Selecteer de service die u wilt gebruiken.
 4. Op het servicedashboard worden tegels weergegeven voor essentiële informatie. Daarnaast wordt het sleutelpictogram voor toegang tot de beheersleutels weergegeven.
    
@@ -69,20 +69,20 @@ Voor alle REST API-aanroepen in Azure Search is vereist dat u de service `api-ke
 
 ## <a name="download-the-sample-files"></a>De voorbeeldbestanden downloaden
 1. Ga naar [search-java-indexeerfunctie-demo](https://github.com/Azure-Samples/search-java-indexer-demo) op GitHub.
-2. Klik op **Download ZIP** (ZIP downloaden), sla het zip-bestand op naar de schijf en pak vervolgens alle bestanden in het zip-bestand uit. U kunt de bestanden eventueel uitpakken naar uw Java-werkruimte, zodat u het project later eenvoudig kunt terugvinden.
+2. Selecteer **zip downloaden**, sla het zip-bestand op schijf op en pak alle bestanden uit. U kunt de bestanden eventueel uitpakken naar uw Java-werkruimte, zodat u het project later eenvoudig kunt terugvinden.
 3. De voorbeeldbestanden hebben het kenmerk alleen -lezen Klik met de rechtermuisknop op de mapeigenschappen en verwijder het kenmerk alleen-lezen.
 
 Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor de bestanden in deze map.  
 
 ## <a name="import-project"></a>Project importeren
-1. Klik in Eclipse achtereenvolgens op **File** >  (Bestand)**Import** (Importeren) > **General** (Algemeen) > **Existing Projects into Workspace** (Bestaand project naar werkruimte).
+1. Selecteer in eclips de **optie bestand** > **algemene** >  > bestaande projecten importeren in de werk ruimte.
    
     ![Scherm afbeelding die laat zien hoe u een bestaand project importeert][4]
 2. Blader in **Select root directory** (Hoofddirectory selecteren) naar de map met de voorbeeldbestanden. Selecteer de map die de map .project bevat. Het project moet worden weergegeven in de lijst **Projects** (Projecten) als een geselecteerd item.
    
     ![Scherm opname van de lijst met projecten in het venster projecten importeren][12]
-3. Klik op **Voltooien**.
-4. Gebruik **Projectverkenner** om de bestanden weer te geven en te bewerken. Als Projectverkenner nog niet is geopend, klikt u op **Window** (Venster) > **Show View** (Weergaven tonen) > **Projectverkenner** of gebruik de snelkoppeling om Projectverkenner te openen.
+3. Selecteer **Finish**.
+4. Gebruik **Projectverkenner** om de bestanden weer te geven en te bewerken. Als deze nog niet is geopend, selecteert u **venster** > weer**geven** > **project Verkenner** of gebruikt u de snelkoppeling om het te openen.
 
 ## <a name="configure-the-service-url-and-api-key"></a>Configureer de service-URL en`api-key`
 1. Dubbel klik in **project Verkenner**op **config. Properties** om de configuratie-instellingen te bewerken die de server naam `api-key`en bevatten.
@@ -96,19 +96,19 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 2. Selecteer **Dynamic Web Module** (Dynamische webmodule), **Java** en **JavaScript**.
    
     ![Scherm afbeelding die laat zien hoe u de project facetten voor uw project selecteert][6]
-3. Klik op **Toepassen**.
+3. Selecteer **Toepassen**.
 4. Selecteer **Window** (Venster) > **Preferences** (Voorkeuren) > **Server** > **Runtime Environments** (Runtime-omgevingen) > **Add..** (Toevoegen).
 5. Vouw Apache uit en selecteer de versie van de Apache Tomcat-server die u eerder hebt geïnstalleerd. Op ons systeem hebben we versie 8 geïnstalleerd.
    
     ![Scherm opname die laat zien waar u in het venster van de runtime omgeving uw versie van Apache Tomcat kunt selecteren][7]
 6. Geef op de volgende pagina de Tomcat-installatiedirectory op. Op een Windows-computer is dit waarschijnlijk C:\Program Files\Apache Software Foundation\Tomcat *versie*.
-7. Klik op **Voltooien**.
+7. Selecteer **Finish**.
 8. Selecteer **Window** (Venster) > **Preferences** (Voorkeuren) > **Java** > **Installed JREs**(Geïnstalleerde JRE's) > **Add** (Toevoegen).
 9. Selecteer in het venster **Add JRE** (JRE toevoegen) de optie **Standard VM** (Standaard-VM).
-10. Klik op **Volgende**.
-11. Klik in JRE Definition (JRE-definitie), in JRE home (JRE-startpagina), op **Directory**.
+10. Selecteer **Volgende**.
+11. Selecteer in jre-definitie in JRE Home de optie **Directory**.
 12. Navigeer naar **Program Files** > **Java** en selecteer de JDK die u eerder hebt geïnstalleerd. Het is belangrijk dat JDK als de JRE wordt geselecteerd.
-13. Kies bij Installed JREs (Geïnstalleerd JRE's) de optie **JDK**. Uw instellingen zijn vergelijkbaar met de volgende schermopname.
+13. Selecteer in geïnstalleerde Jres (de **jdk**. Uw instellingen zijn vergelijkbaar met de volgende schermopname.
     
     ![Scherm afbeelding die laat zien hoe u JDK selecteert als geïnstalleerde JRE][9]
 14. Selecteer eventueel **Window** (Venster) > **Web Browser** (Webbrowser) > **Internet Explorer** om de toepassing te openen in een extern browservenster. Het gebruik van de externe browser biedt een betere gebruikservaring voor de webtoepassing.
@@ -118,10 +118,10 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 U hebt de configuratie nu voltooid. Vervolgens kunt u het project bouwen en uitvoeren.
 
 ## <a name="build-the-project"></a>Het project bouwen
-1. Klik in Projectverkenner met de rechtermuisknop op de projectnaam en kies **Uitvoeren als** > **Maven build...** (Maven-build) om het project te configureren.
+1. Klik in Project Verkenner met de rechter muisknop op de naam van het project en selecteer **uitvoeren als** > **maven-build** om het project te configureren.
    
-    ![Scherm afbeelding die laat zien hoe u maven build kiest in het venster Project Verkenner][10]
-2. Ga naar Edit Configuration (Configuratie bewerken), typ bij Goals (Doelen) 'clean install' en klik vervolgens op **Run** (Uitvoeren).
+    ![Scherm afbeelding die laat zien hoe u maven build selecteert in het venster Project Verkenner][10]
+2. Voer in configuratie bewerken in doel stellingen de optie ' schone installatie ' in en selecteer vervolgens **uitvoeren**.
 
 Statusberichten worden uitgevoerd naar het consolevensters. Als het goed is wordt de tekst BUILD SUCCESS weergegeven. Hiermee wordt aangegeven dat het project zonder fouten is gebouwd.
 
@@ -131,19 +131,19 @@ In deze laatste stap voert u de toepassing uit in de runtime-omgeving van een lo
 Als u nog geen serverruntime-omgeving hebt opgegeven in Eclipse, moet u dat eerst doen.
 
 1. Vouw in Projectverkenner **WebContent** uit.
-2. Klik met de rechtermuisknop op **Search.jsp** > **Run As** (Uitvoeren als) > **Run on Server** (Uitvoeren op server). Selecteer de Apache Tomcat-server en klik vervolgens op **Uitvoeren**.
+2. Klik met de rechtermuisknop op **Search.jsp** > **Run As** (Uitvoeren als) > **Run on Server** (Uitvoeren op server). Selecteer de Apache Tomcat-server en selecteer vervolgens **uitvoeren**.
 
 > [!TIP]
-> Als u geen standaardwerkruimte hebt gebruikt om uw project op te slaan, moet u **Run Configuration** (Configuratie uitvoeren) wijzigen om naar de locatie van het project te wijzen, zodat er geen opstartfout voor de server optreedt. Klik in Projectverkenner met de rechtermuisknop op **Search.jsp** > **Uitvoeren als** > **Configuratie uitvoeren**. Selecteer de Apache Tomcat-server. Klik op **Argumenten**. Klik op **Werkruimte** of **Bestandssysteem** om de map in te stellen die het project bevat.
+> Als u geen standaardwerkruimte hebt gebruikt om uw project op te slaan, moet u **Run Configuration** (Configuratie uitvoeren) wijzigen om naar de locatie van het project te wijzen, zodat er geen opstartfout voor de server optreedt. Klik in Projectverkenner met de rechtermuisknop op **Search.jsp** > **Uitvoeren als** > **Configuratie uitvoeren**. Selecteer de Apache Tomcat-server. Selecteer **argumenten**. Selecteer de **werk ruimte** of het **Bestands systeem** om de map met het project in te stellen.
 > 
 > 
 
 Wanneer u de toepassing uitvoert, ziet u een browservenster met een zoekvak waarin u termen kunt opgeven.
 
-Wacht ongeveer een minuut voordat u op **Zoeken** klikt om de service de tijd te geven om de index te maken en te laden. Als er een HTTP 404-fout optreedt, moet u alleen iets langer wachten voordat u het opnieuw probeert.
+Wacht ongeveer één minuut voordat u **zoeken** selecteert om de service tijd te geven om de index te maken en te laden. Als er een HTTP 404-fout optreedt, moet u alleen iets langer wachten voordat u het opnieuw probeert.
 
 ## <a name="search-on-usgs-data"></a>Zoeken in USGS-gegevens
-De USGS-gegevensset bevat records die relevant zijn voor de staat Rhode Island. Als u op **Search** (Zoeken) klikt terwijl het zoekvak leeg is, worden de bovenste 50 vermeldingen weergegeven. Dit is de standaardinstelling.
+De USGS-gegevensset bevat records die relevant zijn voor de staat Rhode Island. Als u **zoeken** selecteert in een leeg zoekvak, worden de belangrijkste 50-vermeldingen weer geven. Dit is de standaard instelling.
 
 Als u een zoekterm invoert, geeft u de zoekmachine iets om mee te werken. Voer een regionale naam in. 'Roger Williams' was de eerste gouverneur van Rhode Island. Er zijn verschillende parken, gebouwen en scholen naar hem vernoemd.
 

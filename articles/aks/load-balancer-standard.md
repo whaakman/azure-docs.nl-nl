@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 68968c1f846a1052600a8ed108f4d40fd9d8f2cb
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032249"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534730"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Preview: gebruik een standaard SKU-load balancer in azure Kubernetes service (AKS)
 
@@ -92,11 +92,11 @@ De volgende beperkingen zijn van toepassing wanneer u AKS-clusters maakt en behe
 
 * Wanneer u de *standaard* -SKU voor een Load Balancer gebruikt, moet u open bare adressen toestaan en voor komen dat Azure Policy die IP-aanmaak, worden gemaakt. Het AKS-cluster maakt automatisch een open bare *standaard* -SKU-IP in dezelfde resource groep die is gemaakt voor het AKS-cluster, die meestal met *MC_* aan het begin wordt genoemd. AKS wijst het open bare IP-adres toe aan de *standaard* -SKU Load Balancer. Het open bare IP-adres is vereist voor het toestaan van uitgaand verkeer van het AKS-cluster. Dit open bare IP-adres is ook vereist voor het onderhouden van de connectiviteit tussen het besturings vlak en de agent knooppunten, en voor het behoud van de compatibiliteit met eerdere versies van AKS.
 * Wanneer u de *standaard* -SKU voor een Load Balancer gebruikt, moet u Kubernetes-versie 1.13.5 of hoger gebruiken.
-* Als u de [open bare IP-functie van het knoop punt](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) met standaard load balancers gebruikt, kunt u een regel voor een uitgaande SLB of een openbaar IP-adres voor het knoop punt instellen. U moet een van de twee selecteren, omdat één virtuele machine niet tegelijkertijd kan worden gekoppeld aan een SLB-uitgaande regel en een openbaar IP-adres.
 
 Hoewel deze functie in preview is, zijn de volgende extra beperkingen van toepassing:
 
 * Wanneer u de *standaard* -SKU gebruikt voor een load BALANCER in AKS, kunt u uw eigen open bare IP-adres niet instellen voor uitgaand verkeer voor de Load Balancer. U moet het IP-adres AKS gebruiken dat wordt toegewezen aan uw load balancer.
+* Dit kan niet worden gebruikt met de [open bare IP-functie van het knoop punt](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 

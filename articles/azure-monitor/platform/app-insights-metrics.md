@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: d4b7a214af23d69f1217d84e9401de230cd358b0
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877361"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535034"
 ---
 # <a name="application-insights-log-based-metrics"></a>Metrische gegevens op basis van het logboek Application Insights
 
@@ -36,7 +36,7 @@ Wanneer u dezelfde metriek in Metrics [Explorer](metrics-getting-started.md)uitz
 
 - Alle geselecteerde **filter** dimensies worden vertaald in aanvullende *where* -componenten.
 
-- De geselecteerde dimensie voor gesplitste **grafieken** wordt vertaald naar een extra samenvattings eigenschap. Als u bijvoorbeeld uw grafiek op *locatie*splitst en uitgeeft met een tijd granulatie van 5 minuten, wordt *de component* samenvatten samenvatten *... per bak (tijds tempel, 5 m), locatie*.
+- De geselecteerde dimensie voor gesplitste **grafieken** wordt vertaald naar een extra samenvattings eigenschap. Als u bijvoorbeeld uw grafiek op *locatie*splitst en uitgeeft met een tijd granulatie van 5 minuten, wordt de component samenvatten samenvatten *... per bak (tijds tempel, 5 m), locatie*.
 
 > [!NOTE]
 > Als u geen ervaring hebt met de Kusto-query taal, kunt u beginnen met het kopiëren en plakken van Kusto-instructies in het query deel venster Log Analytics zonder dat u wijzigingen hoeft aan te brengen. Klik op **uitvoeren** om de basis grafiek weer te geven. U begint met het maken van de syntaxis van de query taal, maar u kunt nu kleine wijzigingen aanbrengen en de gevolgen van de wijziging bekijken. Het verkennen van uw eigen gegevens is een uitstekende manier om te beginnen met het realiseren van de volledige kracht van [log Analytics](../../azure-monitor/log-query/get-started-portal.md) en [Azure monitor](../../azure-monitor/overview.md).
@@ -48,7 +48,7 @@ Met metrische gegevens in de beschikbaarheids categorie kunt u de status van uw 
 ### <a name="availability-availabilityresultsavailabilitypercentage"></a>Beschik baarheid (availabilityResults/availabilityPercentage)
 De metrische *beschikbaarheids* gegevens tonen het percentage van de webtest-runs waarvoor geen problemen zijn gedetecteerd. De laagst mogelijke waarde is 0, wat aangeeft dat alle uitvoeringen van de webtest zijn mislukt. De waarde van 100 betekent dat alle webtest uitvoeringen de validatie criteria heeft door gegeven.
 
-|Meeteenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
 |---|---|---|---|---|---|
 |Percentage|Average|Uitvoerings locatie, naam van test|
 
@@ -62,7 +62,7 @@ availabilityResults
 
 De metrische gegevens voor de *beschikbaarheids test* geven aan hoe lang het duurt voordat de webtest wordt uitgevoerd. Voor de webtests met [meerdere stappen](../../azure-monitor/app/availability-multistep.md)weerspiegelt de metriek de totale uitvoerings tijd van alle stappen.
 
-|Meeteenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
 |---|---|---|---|---|---|
 |Milliseconden|Gemiddeld, min, Max|Uitvoerings locatie, naam van test, resultaat van test
 
@@ -78,7 +78,7 @@ availabilityResults
 
 De metrische *beschikbaarheids tests* weerspiegelt het aantal van de webtests dat wordt uitgevoerd door Azure monitor.
 
-|Meeteenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
 |---|---|---|---|---|---|
 |Count|Count|Uitvoerings locatie, naam van test, resultaat van test|
 
@@ -93,11 +93,11 @@ availabilityResults
 De metrische gegevens van de browser worden verzameld door de Application Insights java script SDK van echte gebruikers browsers. Ze bieden fantastische inzichten in de ervaring van uw gebruikers met uw web-app. De metrische gegevens van de browser worden doorgaans niet bemonsterd. Dit betekent dat ze een grotere nauw keurigheid van de gebruiks cijfers bieden ten opzichte van metrische gegevens aan de server zijde die kunnen worden schuingetrokken door steek proeven.
 
 > [!NOTE]
-> Als u metrische gegevens voor de browser wilt verzamelen, moet uw toepassing worden geinstrumenteerd met het [Application Insights java script SDK-fragment](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
+> Als u metrische gegevens voor de browser wilt verzamelen, moet uw toepassing worden geinstrumenteerd met de [Application Insights java script SDK](../../azure-monitor/app/javascript.md).
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Laad tijd van browser pagina (browserTimings/totalDuration)
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
 |---|---|---|
 |Milliseconden|Gemiddeld, min, Max|Geen|
 
@@ -113,7 +113,7 @@ browserTimings
 
 ### <a name="client-processing-time-browsertimingprocessingduration"></a>Verwerkings tijd van client (browserTiming/processingDuration)
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
 |---|---|---|
 |Milliseconden|Gemiddeld, min, Max|Geen|
 
@@ -129,7 +129,7 @@ browserTimings
 
 ### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>Netwerk verbindings tijd voor laden van pagina (browserTimings/networkDuration)
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
 |---|---|---|
 |Milliseconden|Gemiddeld, min, Max|Geen|
 
@@ -145,7 +145,7 @@ browserTimings
 
 ### <a name="receiving-response-time-browsertimingsreceiveduration"></a>Reactie tijd van ontvangen (browserTimings/receiveDuration)
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
 |---|---|---|
 |Milliseconden|Gemiddeld, min, Max|Geen|
 
@@ -161,7 +161,7 @@ browserTimings
 
 ### <a name="send-request-time-browsertimingssendduration"></a>Verzend aanvraag tijd (browserTimings/sendDuration)
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|
 |---|---|---|
 |Milliseconden|Gemiddeld, min, Max|Geen|
 
@@ -183,7 +183,7 @@ De metrische gegevens in **fouten** tonen problemen met verwerkings aanvragen, a
 
 Deze metriek weerspiegelt het aantal uitzonde ringen dat is veroorzaakt door de toepassings code die in de browser wordt uitgevoerd. Alleen uitzonde ringen die worden bijgehouden ```trackException()``` met een Application Insights-API-aanroep, zijn opgenomen in de metrische gegevens.
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
 |---|---|---|---|
 |Count|Count|Geen|Bij versie op basis van een logboek functie worden **Sum** -aggregatie gebruikt|
 
@@ -198,7 +198,7 @@ exceptions
 
 Het aantal mislukte afhankelijkheids aanroepen.
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
 |---|---|---|---|
 |Count|Count|Geen|Bij versie op basis van een logboek functie worden **Sum** -aggregatie gebruikt|
 
@@ -213,7 +213,7 @@ dependencies
 
 Telkens wanneer u een uitzonde ring registreert op Application Insights, wordt er een aanroep naar de [methode trackException ()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) van de SDK. De metriek uitzonde ringen toont het aantal geregistreerde uitzonde ringen.
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
 |---|---|---|---|
 |Count|Count|Rolnaam van Cloud, instantie van Cloud-rol, apparaattype|Bij versie op basis van een logboek functie worden **Sum** -aggregatie gebruikt|
 
@@ -227,7 +227,7 @@ exceptions
 
 Het aantal bijgehouden server aanvragen dat is gemarkeerd als *mislukt*. Standaard markeert de Application Insights SDK automatisch elke server aanvraag die de 5xx of 4xx van HTTP-antwoorden als een mislukte aanvraag heeft geretourneerd. U kunt deze logica aanpassen door de eigenschap *success* van het aanvraag-telemetrie in een aangepaste telemetrie- [initialisatie functie](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)te wijzigen.
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
 |---|---|---|---|
 |Count|Count|Cloud rolinstantie, naam van Cloud functie, reëel of synthetisch verkeer, prestaties aanvragen, respons code|Bij versie op basis van een logboek functie worden **Sum** -aggregatie gebruikt|
 
@@ -242,7 +242,7 @@ requests
 
 Met deze metriek wordt het aantal server uitzonderingen weer gegeven.
 
-|Meeteenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
+|Maateenheid|Ondersteunde aggregaties|Vooraf samengestelde dimensies|Opmerkingen|
 |---|---|---|---|
 |Count|Count|Rolnaam van Cloud, instantie van Cloud-rol|Bij versie op basis van een logboek functie worden **Sum** -aggregatie gebruikt|
 
@@ -311,9 +311,9 @@ performanceCounters
 
 De metriek laat zien hoeveel van de totale processor capaciteit wordt verbruikt door het proces dat als host fungeert voor uw bewaakte app.
 
-|Meeteenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
 |---|---|---|
-|Percentage|Gemiddeld, min, Max|Cloud rolinstantie
+|Percentage|Gemiddeld, min, Max|Cloudrolinstantie
 
 ```Kusto
 performanceCounters
@@ -325,9 +325,9 @@ performanceCounters
 
 ### <a name="process-io-rate-performancecountersprocessiobytespersecond"></a>I/o-frequentie van processen (Performance Counters/processIOBytesPerSecond)
 
-|Meeteenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
 |---|---|---|
-|Bytes per seconde|Gemiddeld, min, Max|Cloud rolinstantie
+|Bytes per seconde|Gemiddeld, min, Max|Cloudrolinstantie
 
 ```Kusto
 performanceCounters
@@ -341,9 +341,9 @@ performanceCounters
 
 De hoeveelheid niet-gedeeld geheugen die het bewaakte proces voor de gegevens heeft toegewezen.
 
-|Meeteenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
 |---|---|---|
-|Bytes|Gemiddeld, min, Max|Cloud rolinstantie
+|Bytes|Gemiddeld, min, Max|Cloudrolinstantie
 
 ```Kusto
 performanceCounters
@@ -357,9 +357,9 @@ performanceCounters
 
 CPU-gebruik door *alle* processen die worden uitgevoerd op het bewaakte Server exemplaar.
 
-|Meeteenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
+|Maateenheid|Ondersteunde aggregaties|Ondersteunde dimensies|
 |---|---|---|
-|Percentage|Gemiddeld, min, Max|Cloud rolinstantie
+|Percentage|Gemiddeld, min, Max|Cloudrolinstantie
 
 >[!NOTE]
 > De metrische processor tijd is niet beschikbaar voor de toepassingen die worden gehost in Azure-app Services. Gebruik de [CPU](#process-cpu-performancecountersprocesscpupercentage) -metriek van het proces om het CPU-gebruik bij te houden van de webtoepassingen die worden gehost in app Services.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326448"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534618"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Afhankelijkheden bijhouden in Azure-toepassing Insights 
 
@@ -86,11 +86,11 @@ Als u uw code met een assembly die u niet zelf schrijft maken, kunt u bijvoorbee
 
 U kunt ook uitbreidings `StartOperation` `StopOperation` methoden [](custom-operations-tracking.md#outgoing-dependencies-tracking) bieden die kunnen worden gebruikt voor het hand matig bijhouden van afhankelijkheden, zoals hier wordt weer `TelemetryClient` gegeven
 
-Als u de standaard tracerings module voor afhankelijkheden wilt uitschakelen, verwijdert u de verwijzing naar DependencyTrackingTelemetryModule in [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) voor ASP.NET-toepassingen. Volg [de instructies in](asp-net-core.md#configuring-or-removing-default-telemetrymodules)voor ASP.net core toepassingen.
+Als u de standaard tracerings module voor afhankelijkheden wilt uitschakelen, verwijdert u de verwijzing naar DependencyTrackingTelemetryModule in [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) voor ASP.NET-toepassingen. Volg de instructies in voor ASP.NET Core [](asp-net-core.md#configuring-or-removing-default-telemetrymodules)toepassingen.
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>AJAX-aanroepen bijhouden vanaf webpagina's
 
-Voor webpagina's worden Application Insights java script SDK automatisch AJAX-aanroepen verzameld als afhankelijkheden, zoals [hier](javascript.md#ajax-performance)wordt beschreven. Dit document richt zich op afhankelijkheden van Server onderdelen.
+Voor webpagina's worden Application Insights java script SDK automatisch AJAX-aanroepen verzameld als afhankelijkheden.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Geavanceerde SQL-tracking voor het verkrijgen van een volledige SQL-query
 
@@ -113,7 +113,7 @@ In de bovenstaande gevallen wordt de juiste methode voor het valideren van de in
 
 * [Overzicht van de toepassing](app-map.md) worden gevisualiseerd met afhankelijkheden tussen uw app en door in aangrenzende onderdelen.
 * In [transactie diagnostiek](transaction-diagnostics.md) worden Unified, gecorreleerde Server gegevens weer gegeven.
-* Op het [tabblad browsers](javascript.md#ajax-performance) worden Ajax-aanroepen weer gegeven in de browser van uw gebruikers.
+* Op het [tabblad browsers](javascript.md) worden Ajax-aanroepen weer gegeven in de browser van uw gebruikers.
 * Klik van trage of mislukte aanvragen om de afhankelijkheids aanroepen te controleren.
 * [Analytics](#logs-analytics) kan worden gebruikt om gegevens van de afhankelijkheid opvragen.
 
@@ -145,7 +145,7 @@ Ga naar het tabblad **fouten** aan de linkerkant en klik vervolgens op het tabbl
 
 ![Klik op de grafiek van mislukte aanvragen](./media/asp-net-dependencies/4-fail.png)
 
-Hier ziet u het aantal mislukte afhankelijkheden. Als u meer informatie wilt over een mislukt voorval, klikt u op de naam van een afhankelijkheid in de onderste tabel. U kunt op de knop met **** blauwe afhankelijkheden rechtsonder aan de rechter kant klikken om de end-to-end-transactie gegevens op te halen.
+Hier ziet u het aantal mislukte afhankelijkheden. Als u meer informatie wilt over een mislukt voorval, klikt u op de naam van een afhankelijkheid in de onderste tabel. U kunt op de knop met blauwe afhankelijkheden rechtsonder aan de rechter kant klikken om de end-to-end-transactie gegevens op te halen.
 
 ## <a name="logs-analytics"></a>Logboeken (Analytics)
 

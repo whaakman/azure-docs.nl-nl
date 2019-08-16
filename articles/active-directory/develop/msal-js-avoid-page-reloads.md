@@ -1,9 +1,9 @@
 ---
-title: Vermijd van pagina laadt (Microsoft Authentication Library voor JavaScript) | Azure
-description: Informatie over het voorkomen van pagina laadt te verkrijgen en vernieuwd tokens op de achtergrond met behulp van de Microsoft Authentication Library voor JavaScript (MSAL.js).
+title: Pagina opnieuw laden voor komen (micro soft-verificatie bibliotheek voor Java script) | Azure
+description: Meer informatie over het voor komen van het opnieuw laden van pagina's bij het op de achtergrond ophalen en vernieuwen van tokens met behulp van de micro soft-verificatie bibliotheek voor Java script (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,35 +13,35 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/29/2019
-ms.author: nacanuma
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 162811221e6dde89ad11f358b2ec8f32f3c82522
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c382c78cf631def74272768b78ee489e49820d04
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66420466"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532833"
 ---
-# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Pagina laadt te verkrijgen en vernieuwd tokens op de achtergrond met behulp van MSAL.js voorkomen
-Microsoft Authentication Library voor JavaScript (MSAL.js) maakt gebruik van verborgen `iframe` elementen voor het verkrijgen en tokens op de achtergrond op de achtergrond vernieuwen. Azure AD stuurt het token terug naar de geregistreerde redirect_uri opgegeven in het token aan te vragen (standaard is deze pagina van de hoofdmap van de app). Omdat het antwoord een 302 is, dit resulteert in de HTML-code die overeenkomt met de `redirect_uri` geladen de `iframe`. Meestal van de app `redirect_uri` is de pagina hoofdmap en dit ervoor zorgt dat deze opnieuw te laden.
+# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Pagina opnieuw laden voor komen bij het op de achtergrond ophalen en vernieuwen van tokens met behulp van MSAL. js
+Micro soft Authentication Library voor Java script (MSAL. js) `iframe` gebruikt verborgen elementen voor het op de achtergrond verkrijgen en vernieuwen van tokens. Azure AD retourneert het token terug naar de geregistreerde redirect_uri die is opgegeven in de token aanvraag (standaard is dit de hoofd pagina van de app). Omdat het antwoord een 302 is, resulteert dit in de HTML-code die `redirect_uri` overeenkomt met de `iframe`geladen in de. Normaal gesp roken `redirect_uri` is de app de hoofd pagina, waardoor deze opnieuw wordt geladen.
 
-In andere gevallen, als te navigeren naar pagina van de hoofdmap van de app moet worden geverifieerd, dit kan leiden tot geneste `iframe` elementen of `X-Frame-Options: deny` fout.
+Als er in andere gevallen verificatie is vereist voor het navigeren naar de hoofd pagina van de app, kan dit `iframe` leiden tot `X-Frame-Options: deny` geneste elementen of fouten.
 
-Aangezien MSAL.js de 302 dat is uitgegeven door Azure AD kan niet worden verwijderd en vereist voor het proces van het geretourneerde token is, niet het voorkomen dat de `redirect_uri` van geladen de `iframe`.
+Omdat MSAL. js de 302 die is uitgegeven door Azure ad niet kan negeren en is vereist voor het verwerken van het geretourneerde `redirect_uri` token, kan niet worden `iframe`voor komen dat het wordt geladen in de.
 
-Om te voorkomen dat de hele app opnieuw laden of andere fouten als gevolg hiervan, volgt u deze oplossingen.
+Volg deze tijdelijke oplossingen om te voor komen dat de volledige app opnieuw wordt geladen of andere fouten die zijn veroorzaakt door dit probleem.
 
-## <a name="specify-different-html-for-the-iframe"></a>Geef verschillende HTML-code voor het iframe
+## <a name="specify-different-html-for-the-iframe"></a>Geef een andere HTML-code voor het iframe op
 
-Stel de `redirect_uri` eigenschap op configuratie naar een eenvoudige pagina, waarvoor geen verificatie vereist is. U hebt om ervoor te zorgen dat deze met overeenkomt de `redirect_uri` geregistreerd in Azure portal. Dit heeft geen invloed op de ervaring van gebruiker aanmelden als de startpagina van MSAL worden opgeslagen wanneer de gebruiker begint de aanmeldingsprocedure en wordt omgeleid naar de exacte locatie nadat de aanmelding is voltooid.
+Stel de `redirect_uri` eigenschap in op de configuratie van een eenvoudige pagina waarvoor geen verificatie is vereist. U moet ervoor zorgen dat deze overeenkomt met de `redirect_uri` registratie in azure Portal. Dit heeft geen invloed op de aanmeldings ervaring van de gebruiker, omdat MSAL de start pagina opslaat wanneer het aanmeldings proces door de gebruiker wordt gestart en teruggeleid naar de exacte locatie nadat de aanmelding is voltooid.
 
-## <a name="initialization-in-your-main-app-file"></a>Initialisatie in uw belangrijkste app-bestand
+## <a name="initialization-in-your-main-app-file"></a>Initialisatie in het hoofd bestand van de app
 
-Als uw app is gestructureerd zodat er één, centrale Javascript-bestand dat de initialisatie van de app is, Routering en andere dingen definieert, kunt u voorwaardelijk laden uw app-modules op basis van of de app wordt geladen een `iframe` of niet. Bijvoorbeeld:
+Als uw app zodanig is gestructureerd dat er één centraal Java script-bestand is dat de initialisatie, route ring en andere zaken van de app definieert, kunt u uw app-modules voorwaardelijk laden op basis van het feit of `iframe` de app in een of niet wordt geladen. Bijvoorbeeld:
 
-In de AngularJS: app.js
+In AngularJS: app. js
 
 ```javascript
 // Check that the window is an iframe and not popup
@@ -78,7 +78,7 @@ else {
 }
 ```
 
-In Angular: app.module.ts
+In hoek: app. module. TS
 
 ```javascript
 // Imports...
@@ -150,4 +150,4 @@ export class MsalComponent {
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over [het bouwen van een toepassing met één pagina (SPA)](scenario-spa-overview.md) MSAL.js te gebruiken.
+Meer informatie over [het bouwen van een single-page-toepassing (Spa)](scenario-spa-overview.md) met behulp van MSAL. js.

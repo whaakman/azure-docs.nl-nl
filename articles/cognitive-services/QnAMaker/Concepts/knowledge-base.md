@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 022b16669791b9b9cce066b3dd17c70b33569cc0
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8cd63913c0e96d496aa617369601c1dd121b4b46
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955235"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542843"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Wat is er een basis voor kennis van QnA Maker?
 
@@ -59,6 +59,70 @@ Het proces wordt uitgelegd in de volgende tabel:
 
 De functies die worden gebruikt, zijn, maar zijn niet beperkt tot semantiek op woord niveau, urgentie op term niveau in een verzameling en diep opgedane semantische modellen om de gelijkenis en relevantie tussen twee teken reeksen te bepalen.
 
+## <a name="http-request-and-response-with-endpoint"></a>HTTP-aanvraag en-antwoord met een eind punt
+Wanneer u uw Knowledge Base publiceert, maakt de service een op REST gebaseerd HTTP- **eind punt** dat kan worden geïntegreerd in uw toepassing, meestal een chat-bot. 
+
+### <a name="the-user-query-request-to-generate-an-answer"></a>De aanvraag van de gebruikers query voor het genereren van een antwoord
+
+Een **gebruikers query** is de vraag of de eind gebruiker de Knowledge Base vraagt, zoals, `How do I add a collaborator to my app?`. De query is vaak in een natuurlijke taal of enkele tref woorden die de vraag vertegenwoordigen, zoals, `help with collaborators`. De query wordt naar uw kennis verzonden vanuit een HTTP- **aanvraag** in uw client toepassing.
+
+```json
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "isTest": true,
+    "scoreThreshold": 20,
+    "strictFilters": [
+    {
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
+}
+```
+
+U bepaalt het antwoord door eigenschappen zoals [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [Top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)en [stringFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags)in te stellen.
+
+Gebruik [gesprek inhoud](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) met de [functionaliteit voor meerdere](../how-to/multiturn-conversation.md) keren om te zorgen dat de conversatie de vragen en antwoorden verfijnt, om het juiste en laatste antwoord te vinden.
+
+### <a name="the-response-from-a-call-to-generate-answer"></a>Het antwoord van een aanroep voor het genereren van een antwoord
+
+Het HTTP- **antwoord** is het antwoord dat is opgehaald uit de Knowledge Base, op basis van de beste overeenkomst voor een bepaalde gebruikers query. Het antwoord bevat het antwoord en de Voorspellings Score. Als u om meer dan één bovenste antwoord hebt gevraagd, krijgt `top` u met de eigenschap meer dan een bovenste antwoord, elk met een score. 
+
+```json
+{
+    "answers": [
+        {
+            "questions": [
+                "What is the closing time?"
+            ],
+            "answer": "10.30 PM",
+            "score": 100,
+            "id": 1,
+            "source": "Editorial",
+            "metadata": [
+                {
+                    "name": "restaurant",
+                    "value": "paradise"
+                },
+                {
+                    "name": "location",
+                    "value": "secunderabad"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### <a name="test-and-production-knowledge-base"></a>Test-en productie Knowledge Base
+Een kennisdatabase is de opslagplaats van vragen en antwoorden die zijn gemaakt, onderhouden en via de QnA Maker gebruikt. Elke laag QnA Maker kan worden gebruikt voor meerdere Knowledge bases.
+
+Een kennisdatabase heeft twee statussen - Test en gepubliceerd. 
+
+De **test kennis basis** is de versie die wordt bewerkt, opgeslagen en getest op nauw keurigheid en volledige reacties. De eindgebruiker van uw toepassing/chatbot niet van invloed op wijzigingen in de test knowledge base. De test kennis basis staat bekend als `test` in de HTTP-aanvraag. 
+
+De **gepubliceerde kennis database** is de versie die wordt gebruikt in uw chat-bot/-toepassing. De actie van de publicatie van een kennisdatabase wordt de inhoud van de Test knowledge base geplaatst in de gepubliceerde versie van de knowledge base. Omdat de gepubliceerde knowledge base de versie die gebruikmaakt van de toepassing via het eindpunt is, moet zorgvuldig worden uitgevoerd om ervoor te zorgen dat de inhoud correct en goed geteste is. De gepubliceerde kennis database staat bekend als `prod` in de HTTP-aanvraag. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -68,3 +132,11 @@ De functies die worden gebruikt, zijn, maar zijn niet beperkt tot semantiek op w
 ## <a name="see-also"></a>Zie ook
 
 [Overzicht van QnA Maker](../Overview/overview.md)
+
+Knowledge Base maken en bewerken met: 
+* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.NET-SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+
+Antwoord genereren met: 
+* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.NET-SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

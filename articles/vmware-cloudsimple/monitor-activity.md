@@ -8,15 +8,15 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8c17bd203b7843de64734a74e7e41a22e42e3501
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ddb3741c987e839fafb8bc222231547988d72f01
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990999"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543758"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>VMware-oplossing op CloudSimple-activiteit bewaken
- 
+
 CloudSimple-activiteiten logboeken bieden inzicht in de bewerkingen die worden uitgevoerd op de CloudSimple-Portal.  De lijst bevat waarschuwingen, gebeurtenissen, taken en controle.  Gebruik de activiteiten Logboeken om te bepalen wie, wanneer en welke bewerkingen zijn uitgevoerd.  De activiteiten logboeken bevatten geen lees bewerkingen die door een gebruiker worden uitgevoerd.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
@@ -38,19 +38,19 @@ Als u details over een van de activiteiten op de pagina activiteit wilt weer gev
 Klik op de kolomkop om de weer gave te sorteren.  U kunt kolommen filteren op specifieke waarden om weer te geven.  Down load het activiteiten rapport door te klikken op **downloaden als CSV** -pictogram.
 
 ## <a name="alerts"></a>Waarschuwingen
- 
+
 Waarschuwingen zijn meldingen van belang rijke activiteiten in uw CloudSimple-omgeving.  Waarschuwingen bevatten gebeurtenissen die van invloed zijn op facturering of gebruikers toegang.
 
-Als u waarschuwingen wilt bevestigen en wilt verwijderen uit de lijst, selecteert u een of meer in de lijst en klikt u op **bevestigen**. 
+Als u waarschuwingen wilt bevestigen en wilt verwijderen uit de lijst, selecteert u een of meer in de lijst en klikt u op **bevestigen**.
 
 De volgende kolommen met informatie zijn beschikbaar voor waarschuwingen. Klik op **kolommen bewerken** en selecteer de kolommen die u wilt weer geven.
 
-| Kolom | Description | 
------------- | ------------- | 
+| Kolom | Description |
+------------ | ------------- |
 | Waarschuwings type | Categorie van de waarschuwing.|
 | Time | Tijdstip waarop de waarschuwing is opgetreden. |
 | Severity | Significantie van de waarschuwing.|
-| Resourcenaam | De naam die is toegewezen aan de resource, zoals de naam van de Privécloud. | 
+| Resourcenaam | De naam die is toegewezen aan de resource, zoals de naam van de Privécloud. |
 | Resourcetype | Resource categorie: Privécloud, Cloud rack. |
 | Resource-ID | De id van de resource. |
 | Description | Beschrijving van de trigger van de waarschuwing. |
@@ -58,27 +58,27 @@ De volgende kolommen met informatie zijn beschikbaar voor waarschuwingen. Klik o
 
 ## <a name="events"></a>Events
 
-Gebeurtenissen tonen gebruikers-en systeem activiteiten in de CloudSimple-Portal. Op de pagina gebeurtenissen wordt een lijst weer gegeven met de activiteit die is gekoppeld aan een specifieke resource en de ernst van de impact. 
+Gebeurtenissen tonen gebruikers-en systeem activiteiten in de CloudSimple-Portal. Op de pagina gebeurtenissen wordt een lijst weer gegeven met de activiteit die is gekoppeld aan een specifieke resource en de ernst van de impact.
 
 De volgende kolommen met informatie zijn beschikbaar voor waarschuwingen. Klik op **kolommen bewerken** en selecteer de kolommen die u wilt weer geven.
 
-| Kolom | Description | 
------------- | ------------- | 
+| Kolom | Description |
+------------ | ------------- |
 | Time | De datum en tijd waarop de gebeurtenis heeft plaatsgevonden. |
 | Gebeurtenistype | Numerieke code waarmee de gebeurtenis wordt aangeduid. |
 | Severity | Ernst van gebeurtenis.|
-| Resourcenaam | De naam die is toegewezen aan de resource, zoals de naam van de Privécloud. | 
+| Resourcenaam | De naam die is toegewezen aan de resource, zoals de naam van de Privécloud. |
 | Resourcetype | Resource categorie: Privécloud, Cloud rack. |
 | Description | Beschrijving van de trigger van de waarschuwing. |
 
 ## <a name="tasks"></a>Taken
 
-Taken zijn activiteiten in particuliere Clouds waarvan wordt verwacht dat deze 30 seconden of langer duren. (Activiteiten die naar verwachting minder dan 30 seconden duren, worden alleen gerapporteerd als gebeurtenissen.) Open de pagina taken om de voortgang van taken voor uw Privécloud bij te houden. 
+Taken zijn activiteiten in particuliere Clouds waarvan wordt verwacht dat deze 30 seconden of langer duren. (Activiteiten die naar verwachting minder dan 30 seconden duren, worden alleen gerapporteerd als gebeurtenissen.) Open de pagina taken om de voortgang van taken voor uw Privécloud bij te houden.
 
 De volgende kolommen met informatie zijn beschikbaar voor waarschuwingen. Klik op **kolommen bewerken** en selecteer de kolommen die u wilt weer geven.
 
-| Kolom | Description | 
------------- | ------------- | 
+| Kolom | Description |
+------------ | ------------- |
 | Taak-id | De unieke id voor de taak. |
 | Bewerking | De actie die door de taak wordt uitgevoerd. |
 | Gebruiker | De gebruiker is toegewezen om de taak te volt ooien. |
@@ -93,12 +93,12 @@ De volgende kolommen met informatie zijn beschikbaar voor waarschuwingen. Klik o
 
 ## <a name="audit"></a>Controleren
 
-Controle logboeken houden de activiteiten van gebruikers bij. U kunt controle Logboeken gebruiken om de gebruikers activiteit voor alle gebruikers te bewaken. 
+Controle logboeken houden de activiteiten van gebruikers bij. U kunt controle Logboeken gebruiken om de gebruikers activiteit voor alle gebruikers te bewaken.
 
 De volgende kolommen met informatie zijn beschikbaar voor waarschuwingen. Klik op **kolommen bewerken** en selecteer de kolommen die u wilt weer geven.
 
-| Kolom | Description | 
------------- | ------------- | 
+| Kolom | Description |
+------------ | ------------- |
 | Time | Tijd van de controle vermelding. |
 | Bewerking | De actie die door de taak wordt uitgevoerd. |
 | Gebruiker | De gebruiker is toegewezen aan de taak. |

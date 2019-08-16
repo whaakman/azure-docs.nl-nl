@@ -4,15 +4,15 @@ description: Vind antwoorden op veelgestelde vragen over het werken met Apache S
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: troubleshooting
+ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4dc7293c00097c7a5752e29bf7c9a203cbb31a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88136fee7a75b8f3b8e504b1ff1e6673a31bcf7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721148"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543177"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Apache Spark oplossen met behulp van Azure HDInsight
 
@@ -22,7 +22,7 @@ Meer informatie over de meest voorkomende problemen en hun oplossingen als u wer
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-Spark-configuratiewaarden kunnen worden afgestemd te voorkomen dat u een Apache Spark-toepassing OutofMemoryError uitzondering. De volgende stappen ziet standaard de configuratiewaarden van Spark in Azure HDInsight: 
+Spark-configuratie waarden kunnen worden afgestemd om te voor komen dat een Apache Spark uitzonde ring voor OutofMemoryError-toepassingen. In de volgende stappen worden standaard waarden voor Spark-configuratie in azure HDInsight weer gegeven: 
 
 1. Selecteer in de lijst met clusters, **Spark2**.
 
@@ -84,13 +84,13 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van een Jupyter-notebook op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark moeten configuraties worden ingesteld en naar welke waarden, zien wat een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt.
+1. Als u wilt bepalen welke Spark-configuraties moeten worden ingesteld en op welke waarden, raadpleegt u wat resulteert in een Apache Spark uitzonde ring op de toepassing OutofMemoryError.
 
 2. In de eerste cel van de Jupyter-notebook nadat de **%% configureren** richtlijn, geeft u de Spark-configuraties in geldige JSON-indeling. De werkelijke waarden zo nodig wijzigen:
 
@@ -98,14 +98,14 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van Apache Livy op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark moeten configuraties worden ingesteld en naar welke waarden, zien wat een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt. 
+1. Als u wilt bepalen welke Spark-configuraties moeten worden ingesteld en op welke waarden, raadpleegt u wat resulteert in een Apache Spark uitzonde ring op de toepassing OutofMemoryError. 
 
 2. De Spark-toepassing naar Livy indienen met behulp van een REST-client, zoals cURL. Een vergelijkbaar met de volgende opdracht gebruiken. De werkelijke waarden zo nodig wijzigen:
 
@@ -115,13 +115,13 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>Hoe configureer ik een Apache Spark-toepassing met behulp van spark-submit op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark moeten configuraties worden ingesteld en naar welke waarden, zien wat een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt.
+1. Als u wilt bepalen welke Spark-configuraties moeten worden ingesteld en op welke waarden, raadpleegt u wat resulteert in een Apache Spark uitzonde ring op de toepassing OutofMemoryError.
 
 2. Spark-shell met behulp van een vergelijkbaar met de volgende opdracht start. De werkelijke waarde van de configuraties zo nodig wijzigen: 
 
@@ -131,93 +131,18 @@ Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven w
 
 ### <a name="additional-reading"></a>Meer lezen
 
-[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Apache Spark op HDInsight-clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
+## <a name="next-steps"></a>Volgende stappen
 
-## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Een Apache Spark-toepassing OutofMemoryError uitzondering veroorzaakt?
+Als u het probleem niet ziet of als u het probleem niet kunt oplossen, gaat u naar een van de volgende kanalen voor meer ondersteuning:
 
-### <a name="detailed-description"></a>Gedetailleerde beschrijving
+* [Overzicht van Spark-geheugen beheer](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-De Spark-toepassing mislukt, met de volgende typen niet-onderschepte uitzonderingen:
+* [Fout opsporing van Spark-toepassing op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
 
-```apache
-ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439) 
+* Krijg antwoorden van Azure-experts via de [ondersteuning van Azure Community](https://azure.microsoft.com/support/community/).
 
-java.lang.OutOfMemoryError 
-    at java.io.ByteArrayOutputStream.hugeCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.grow(Unknown Source) 
-    at java.io.ByteArrayOutputStream.ensureCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.write(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject0(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject(Unknown Source) 
-    at org.apache.spark.serializer.JavaSerializationStream.writeObject(JavaSerializer.scala:44) 
-    at org.apache.spark.serializer.JavaSerializerInstance.serialize(JavaSerializer.scala:101) 
-    at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:239) 
-    at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) 
-    at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) 
-    at java.lang.Thread.run(Unknown Source) 
-```
+* Maak verbinding [@AzureSupport](https://twitter.com/azuresupport) met-het officiële Microsoft Azure account voor het verbeteren van de gebruikers ervaring. Verbinding maken met de Azure-community met de juiste resources: antwoorden, ondersteuning en experts.
 
-```apache
-ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker-0,5,main] 
-
-java.lang.OutOfMemoryError 
-    at java.io.ByteArrayOutputStream.hugeCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.grow(Unknown Source) 
-    at java.io.ByteArrayOutputStream.ensureCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.write(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject0(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject(Unknown Source) 
-    at org.apache.spark.serializer.JavaSerializationStream.writeObject(JavaSerializer.scala:44) 
-    at org.apache.spark.serializer.JavaSerializerInstance.serialize(JavaSerializer.scala:101) 
-    at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:239) 
-    at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) 
-    at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) 
-    at java.lang.Thread.run(Unknown Source) 
-```
-
-### <a name="probable-cause"></a>Mogelijke oorzaak
-
-De meest waarschijnlijke oorzaak van deze uitzondering is dat niet voldoende heapgeheugen is toegewezen aan de Java virtual machines (JVMs). Deze JVMs worden gestart als uitvoerder of stuurprogramma's als onderdeel van de Spark-toepassing. 
-
-### <a name="resolution-steps"></a>Oplossingen
-
-1. Bepaal de maximale grootte van de gegevens van de Spark toepassing verwerkt. U kunt een schatting op basis van de maximale grootte van de ingevoerde gegevens, de tussentijdse gegevens die wordt geproduceerd door de ingevoerde gegevens transformeren en de uitvoergegevens die wordt gemaakt wanneer de toepassing meer de tussentijdse gegevens transformeert. Dit proces is een iteratief als u een initiële formele schatting niet maken. 
-
-2. Zorg ervoor dat het HDInsight-cluster dat u gaat gebruiken onvoldoende bronnen in termen van geheugen en kernen heeft voor de Spark-toepassing. U kunt dit vaststellen door te bekijken van de sectie cluster metrische gegevens van de gebruikersinterface van YARN voor de waarden van **geheugen gebruikt** vs. **Totaal geheugen**, en **VCores gebruikt** vs. **Totaal aantal VCores**.
-
-3. De volgende Spark-configuraties instellen op de juiste waarden, dit mag niet meer dan 90% van het beschikbare geheugen en kernen. De waarden moeten binnen de geheugenvereisten van de Spark-toepassing: 
-
-    ```apache
-    spark.executor.instances (Example: 8 for 8 executor count) 
-    spark.executor.memory (Example: 4g for 4 GB) 
-    spark.yarn.executor.memoryOverhead (Example: 384m for 384 MB) 
-    spark.executor.cores (Example: 2 for 2 cores per executor) 
-    spark.driver.memory (Example: 8g for 8GB) 
-    spark.driver.cores (Example: 4 for 4 cores)   
-    spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
-    ```
-
-    Voor het berekenen van de totale hoeveelheid geheugen die wordt gebruikt door alle Executor: 
-    
-    ```apache
-    spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
-    ```
-   Voor het berekenen van de totale hoeveelheid geheugen die wordt gebruikt door het stuurprogramma:
-    
-    ```apache
-    spark.driver.memory + spark.yarn.driver.memoryOverhead
-    ```
-
-### <a name="additional-reading"></a>Meer lezen
-
-- [Overzicht van Apache Spark geheugen](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Fouten opsporen in een Apache Spark-toepassing op een HDInsight-cluster](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
-
-
-### <a name="see-also"></a>Zie ook
-[Problemen oplossen met behulp van Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+* Als u meer hulp nodig hebt, kunt u een ondersteunings aanvraag indienen via de [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecteer **ondersteuning** in de menu balk of open de hub **Help en ondersteuning** . Lees [hoe u een ondersteunings aanvraag voor Azure kunt maken](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)voor meer informatie. De toegang tot abonnementen voor abonnements beheer en facturering is inbegrepen bij uw Microsoft Azure-abonnement en technische ondersteuning wordt geleverd via een van de ondersteunings [abonnementen voor Azure](https://azure.microsoft.com/support/plans/).

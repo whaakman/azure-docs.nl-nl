@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663902"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559088"
 ---
 # <a name="personalizer-settings"></a>Persoonlijke instellingen
 
@@ -86,6 +86,7 @@ Bekijk in het gedeelte resource beheer voor **model en beleid**het maken van het
 ## <a name="import-and-export-learning-policy"></a>Leer beleid importeren en exporteren
 
 Importeer vanuit het gedeelte resource beheer voor **model en beleid**een nieuw trainings beleid of Exporteer het huidige leer beleid.
+U kunt Learning-beleids bestanden van eerdere export aanvragen of de geoptimaliseerde beleids regels downloaden die zijn gedetecteerd tijdens offline-evaluaties. Het maken van hand matige wijzigingen in deze bestanden is van invloed op machine learning prestaties en nauw keurigheid van offline-evaluaties, en micro soft kan niet op de nauw keurigheid van machine learning en evaluaties of service-uitzonde ringen die het gevolg zijn van hand matig bewerkings beleid
 
 ## <a name="next-steps"></a>Volgende stappen
 

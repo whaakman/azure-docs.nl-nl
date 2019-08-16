@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e30bd940d3312a16f2dd30b175deb6622cb8c01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834747"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532405"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Uitleg over de OAuth2 impliciete toekennings stroom in Azure Active Directory (AD)
 
@@ -35,7 +35,7 @@ De impliciete OAuth2-toekenning wordt Notorious om te worden toegekend aan de la
 
 De Quintessential [OAuth2-autorisatie code subsidie](https://tools.ietf.org/html/rfc6749#section-1.3.1) is de autorisatie toekenning die gebruikmaakt van twee afzonderlijke eind punten. Het autorisatie-eind punt wordt gebruikt voor de interactie fase van de gebruiker, wat resulteert in een autorisatie code. Het token-eind punt wordt vervolgens gebruikt door de client voor het uitwisselen van de code voor een toegangs token en vaak ook een vernieuwings token. Webtoepassingen moeten hun eigen toepassings referenties voor het token-eind punt presen teren, zodat de autorisatie server de client kan verifiëren.
 
-De [impliciete OAuth2-subsidie](https://tools.ietf.org/html/rfc6749#section-1.3.2) is een variant van andere autorisatie subsidies. Hiermee kan een client een toegangs token (en id_token, wanneer [OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html)) rechtstreeks vanuit het autorisatie-eind punt wordt gebruikt, zonder contact op te nemen met het token-eind punt of de client te verifiëren. Deze variant is ontworpen voor toepassingen op basis van Java script die worden uitgevoerd in een webbrowser: in de oorspronkelijke OAuth2-specificatie worden tokens geretourneerd in een URI-fragment. Hierdoor worden de token-bits beschikbaar voor de Java script-code in de client, maar wordt gegarandeerd dat ze niet worden opgenomen in omleidingen naar de server. Tokens worden geretourneerd via browser omleidingen rechtstreeks vanuit het autorisatie-eind punt. Het biedt ook het voor deel van het elimineren van eventuele vereisten voor cross-Origin-aanroepen, wat nodig is als de Java script-toepassing vereist is om contact op te nemen met het eind punt van de token.
+De [impliciete OAuth2-subsidie](https://tools.ietf.org/html/rfc6749#section-1.3.2) is een variant van andere autorisatie subsidies. Hiermee kan een client een toegangs token (en id_token, wanneer [OpenID Connect Connect](https://openid.net/specs/openid-connect-core-1_0.html)) rechtstreeks vanuit het autorisatie-eind punt wordt gebruikt, zonder contact op te nemen met het token-eind punt of de client te verifiëren. Deze variant is ontworpen voor toepassingen op basis van Java script die worden uitgevoerd in een webbrowser: in de oorspronkelijke OAuth2-specificatie worden tokens geretourneerd in een URI-fragment. Hierdoor worden de token-bits beschikbaar voor de Java script-code in de client, maar wordt gegarandeerd dat ze niet worden opgenomen in omleidingen naar de server. In OAuth2 impliciete toekenning verleent het autorisatie-eind punt toegangs tokens rechtstreeks aan de client met behulp van een omleidings-URI die eerder is opgegeven. Het biedt ook het voor deel van het elimineren van eventuele vereisten voor cross-Origin-aanroepen, wat nodig is als de Java script-toepassing vereist is om contact op te nemen met het eind punt van de token.
 
 Een belang rijk kenmerk van de impliciete OAuth2-subsidie is het feit dat dergelijke stromen nooit vernieuwings tokens retour neren naar de client. In de volgende sectie ziet u hoe dit niet nodig is en zou u een beveiligings probleem moeten voordoen.
 

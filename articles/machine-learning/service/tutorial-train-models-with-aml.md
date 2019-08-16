@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6725bbc1978109d2b690a98e2cf98cc8c8c25141
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033009"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534798"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Zelfstudie: Beeld classificatie modellen trainen met MNIST-gegevens en scikit-meer informatie met behulp van Azure Machine Learning
 
@@ -40,33 +40,15 @@ Als u nog geen Azure-abonnement hebt, maakt u een gratis account voordat u begin
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ga naar [De ontwikkelomgeving instellen](#start) om de notebook-stappen te doorlopen, of gebruik de onderstaande instructies om het notebook op te halen en uit te voeren op Azure Notebooks of uw eigen notebookserver.  U hebt het volgende nodig om het notebook uit te voeren:
+* U moet de [Zelfstudie: Ga aan de slag met het maken](tutorial-1st-experiment-sdk-setup.md) van uw eerste ml-experiment tot:
+    * Een werkruimte maken
+    * Een Cloud notebook server maken
+    * Het Jupyter notebook-dash board starten
 
-* Een Python 3.6 notebook-server met het volgende geïnstalleerd:
-    * De Azure Machine Learning-SDK voor Python
-    * `matplotlib` en `scikit-learn`
-* De zelfstudie notitieblok en het bestands **utils.py**
-* Een machine learning-werkruimte
-* Het configuratiebestand voor de werkruimte in dezelfde directory als het notebook
+* Nadat u het Jupyter notebook-dash board hebt gestart, opent u het notitie blok **zelf studies/img-Classification-part1-training. ipynb** .
 
-Haal al deze vereisten op uit een van de secties hieronder.
+De zelf studie en het bijbehorende **utils.py** -bestand zijn ook beschikbaar op [github](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) als u het wilt gebruiken in uw eigen [lokale omgeving](how-to-configure-environment.md#local).  Zorg ervoor dat u en `matplotlib` `scikit-learn` in uw omgeving hebt geïnstalleerd.
 
-* Een [Cloud notebook server gebruiken in uw werk ruimte](#azure)
-* [Uw eigen Notebook-server](#server) gebruiken
-
-### <a name="azure"></a>Een Cloud notebook server gebruiken in uw werk ruimte
-
-Het is eenvoudig om aan de slag te gaan met uw eigen cloud-gebaseerde Notebook server. De [Azure machine learning SDK voor python](https://aka.ms/aml-sdk) is al geïnstalleerd en geconfigureerd voor u nadat u deze Cloud resource hebt gemaakt.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Nadat u de webpagina voor het notitie blok hebt gestart, opent u het notitie blok **zelf studies/img-Classification-part1-training. ipynb** .
-
-### <a name="server"></a>Uw eigen Jupyter Notebook-server gebruiken
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
- Nadat u de stappen hebt voltooid, voert u de notebook **zelf studies/img-Classification-part1-training. ipynb** uit vanuit uw gekloonde map.
 
 ## <a name="start"></a>De ontwikkelomgeving instellen
 

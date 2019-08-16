@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.date: 08/15/2019
+ms.author: v-mohabe
+ms.openlocfilehash: df4f51f97798048b28c0193dbc61e07fc55c9adc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662478"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535070"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Beveiligings configuraties van besturings systemen in Azure Security Center aanpassen (buiten gebruik gesteld)
 
@@ -317,4 +317,4 @@ In dit artikel wordt beschreven hoe u evaluaties van de besturingssysteem beveil
 
 - [Algemene configuratie-id's en basislijn regels Security Center](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
 - Security Center maakt gebruik van algemene configuratie-inventarisatie (CCE) om unieke id's toe te wijzen aan configuratie regels. Zie [CCE](https://nvd.nist.gov/config/cce/index)voor meer informatie.
-- Zie [beveiligings configuraties herstellen](security-center-remediate-os-vulnerabilities.md)voor meer informatie over het oplossen van beveiligings problemen wanneer de configuratie van uw besturings systeem niet overeenkomt met de aanbevolen beveiligings configuratie regels.
+- Zie [beveiligings configuraties herstellen](security-center-virtual-machine-protection.md)voor meer informatie over het oplossen van beveiligings problemen wanneer de configuratie van uw besturings systeem niet overeenkomt met de aanbevolen beveiligings configuratie regels.

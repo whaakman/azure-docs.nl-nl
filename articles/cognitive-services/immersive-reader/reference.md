@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 1d9fc20055fe3adb571b5a77330cc6537998cb5f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688318"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534481"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Naslag Gids voor insluitende lezers SDK
 
@@ -73,6 +73,7 @@ Bevat de inhoud die in de insluitende lezer moet worden weer gegeven.
 | --------- | ----------- |
 | tekst/zonder opmaak | Tekst zonder opmaak. |
 | Application/MathML + XML | MathML (wiskundige Markup Language). [Meer informatie](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/vnd. openxmlformats-officedocument. WordprocessingML. document | Micro soft Word. docx-indelings document.
 
 ### <a name="options"></a>Opties
 
@@ -104,7 +105,8 @@ Bevat informatie over de fout.
 | ---- | ----------- |
 | BadArgument | Het opgegeven argument is ongeldig. `message` Zie voor meer informatie. |
 | Time-out | De insluitende lezer kan niet worden geladen binnen de opgegeven time-out. |
-| TokenExpired| Het opgegeven token is verlopen. |
+| TokenExpired | Het opgegeven token is verlopen. |
+| Beperkt | De limiet voor de aanroep frequentie is overschreden. |
 
 ## <a name="launching-the-immersive-reader"></a>De insluitende lezer starten
 

@@ -1,26 +1,19 @@
 ---
 title: Aan de slag-hand leiding voor Azure IT-Opera tors | Microsoft Docs
 description: Aan de slag-hand leiding voor Azure IT-Opera tors
-services: ''
-documentationcenter: ''
-author: themichaelbender-ms
-manager: timlt
-editor: tysonn
+author: RicksterCDN
+ms.author: rclaus
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
-ms.devlang: ''
 ms.topic: overview
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.author: mibender
-ms.openlocfilehash: b6f5534bc4127e11d7be4b1a52b92a22b75cbb5a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828090"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543425"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag met Azure IT-Opera tors
 
@@ -129,7 +122,7 @@ Services voor netwerken in Azure en tussen Azure en on-premises data centers:
 
 - Azure Virtual Network
 
-- Azure ExpressRoute
+- ExpressRoute van Azure
 
 - Azure-provided DNS
 
@@ -395,7 +388,7 @@ Omdat een file storage-share een standaard SMB-bestands share is, hebben toepass
 
 Zie aan de [slag met Azure file storage in Windows](../../storage/files/storage-how-to-use-files-windows.md) of [Azure File Storage gebruiken met Linux](../../storage/files/storage-how-to-use-files-linux.md)voor meer informatie.
 
-#### <a name="table-storage"></a>Tabelopslag
+#### <a name="table-storage"></a>Table Storage
 
 Azure Table Storage is een service waarmee gestructureerde NoSQL-gegevens worden opgeslagen in de cloud. Table Storage is een sleutel/kenmerk Archief met een schema-minder ontwerp. Omdat tabel opslag een schema is, is het eenvoudig om uw gegevens aan te passen aan de ontwikkeling van uw toepassing. De toegang tot gegevens verloopt snel en kostenefficiënt voor alle soorten toepassingen. Table Storage is doorgaans aanzienlijk goedkoper dan traditionele SQL voor vergelijkbare gegevensvolumes.
 

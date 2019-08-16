@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/06/2019
-ms.openlocfilehash: 8368ebfca4cdd72c5c455a04e29b6c0cb44938ea
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/14/2019
+ms.openlocfilehash: 6d729d9303326dd43f3bc5ae943d6ab788c818f3
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935404"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534436"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master (HMaster) kan niet worden gestart in azure HDInsight
 
@@ -25,13 +25,17 @@ Onverwachte bestanden geïdentificeerd tijdens het opstart proces.
 
 ### <a name="cause"></a>Oorzaak
 
-Tijdens het opstart proces voert HMaster veel initialisatie stappen uit, waaronder het verplaatsen van gegevens uit een nieuwe map (. tmp) naar de map Data. HMaster controleert ook de map WALs (write-Ahead Logboeken) om te zien of er dode regio servers zijn. In al deze situaties wordt een eenvoudige `list` opdracht voor deze mappen. Als er op elk gewenst moment een onverwacht bestand in een van deze mappen wordt weer gave, wordt er een uitzonde ring gegenereerd en kan deze niet worden gestart.
+Tijdens het opstart proces voert HMaster veel initialisatie stappen uit, waaronder het verplaatsen van gegevens uit een nieuwe map (. tmp) naar de map Data. HMaster controleert ook de map write-Ahead logs (WAL) om te zien of er niet-reagerende regio servers zijn.
+
+HMaster voert een elementaire lijst opdracht uit in de WAL-mappen. Als er op elk moment HMaster een onverwacht bestand in een van deze mappen ziet, wordt er een uitzonde ring gegenereerd en start niet.
 
 ### <a name="resolution"></a>Oplossing
 
-Controleer in een dergelijke situatie de aanroep stack om te zien welke map het probleem veroorzaakt (bijvoorbeeld WALs map of. tmp-map). Ga vervolgens via Cloud Explorer of via hdfs opdrachten naar het probleem bestand. Het probleem bestand is doorgaans een `*-renamePending.json` bestand (een logboek bestand dat wordt gebruikt voor het implementeren van een Atomic-naamswijziging in het WASB-stuur programma). Als gevolg van fouten in deze implementatie kunnen dergelijke bestanden overblijven in geval van proces storingen. Dit bestand geforceerd verwijderen via Cloud Explorer. Daarnaast kan er een tijdelijk bestand zijn met de aard $ op deze locatie. Het bestand kan niet worden weer gegeven via Cloud Explorer en alleen `ls` via de opdracht hdfs. U kunt de opdracht `hdfs dfs -rm //\$\$\$.\$\$\$` hdfs gebruiken om dit bestand te verwijderen.
+Controleer de aanroep stack en probeer te bepalen welke map het probleem veroorzaakt (bijvoorbeeld omdat het de map WAL of de map. tmp kan zijn). Probeer vervolgens in Cloud Explorer of met HDFS-opdrachten het probleem bestand te vinden. Normaal gesp roken is dit `*-renamePending.json` een bestand. (Het `*-renamePending.json` bestand is een logboek bestand dat wordt gebruikt voor het implementeren van de Atomic-naam bewerking in het WASB-stuur programma. Als gevolg van fouten in deze implementatie kunnen deze bestanden overblijven nadat het proces is vastgelopen, enzovoort.) Force-Hiermee kunt u dit bestand in Cloud Verkenner of met HDFS-opdrachten verwijderen.
 
-Zodra het probleem bestand is verwijderd, moet HMaster onmiddellijk worden opgestart.
+Soms kan er ook een tijdelijk bestand zijn `$$$.$$$` met de naam iets op deze locatie. U moet de HDFS `ls` -opdracht gebruiken om dit bestand te bekijken. u kunt het bestand niet zien in Cloud Explorer. Als u dit bestand wilt verwijderen, gebruikt u `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`de opdracht HDFS.
+
+Nadat u deze opdrachten hebt uitgevoerd, moet HMaster onmiddellijk worden gestart.
 
 ---
 
@@ -39,7 +43,7 @@ Zodra het probleem bestand is verwijderd, moet HMaster onmiddellijk worden opges
 
 ### <a name="issue"></a>Probleem
 
-In HMaster-Logboeken wordt een fout bericht weer gegeven dat vergelijkbaar is met ' geen server adres vermeld in hbase: meta voor regio xxx '.
+Mogelijk wordt er een bericht weer gegeven dat aangeeft `hbase: meta` dat de tabel niet online is. Als `hbck` u dit `hbase: meta table replicaId 0 is not found on any region.` rapport uitvoert, ziet u mogelijk het volgende bericht in de HMaster `No server address listed in hbase: meta for region hbase: backup <region name>`-logboeken:.  
 
 ### <a name="cause"></a>Oorzaak
 
@@ -47,20 +51,20 @@ HMaster kan niet worden geïnitialiseerd na het opnieuw opstarten van HBase.
 
 ### <a name="resolution"></a>Oplossing
 
-1. Voer de volgende opdrachten uit in de HBase-shell (werkelijke waarden wijzigen indien van toepassing):
+1. Voer in de HBase-shell de volgende opdrachten in (werkelijke waarden wijzigen indien van toepassing):
 
-    ```
+    ```hbase
     scan 'hbase:meta'
-    delete 'hbase:meta','hbase:backup <region name>','<column name>' 
+    delete 'hbase:meta','hbase:backup <region name>','<column name>'
     ```
 
-1. De vermelding van hbase: naam ruimte verwijderen als dezelfde fout kan worden gerapporteerd tijdens het scannen van hbase: naam ruimte tabel.
+1. Verwijder de `hbase: namespace` vermelding. Dit item is mogelijk dezelfde fout die wordt gerapporteerd wanneer de `hbase: namespace` tabel wordt gescand.
 
 1. Start de actieve HMaster van de Ambari-gebruikers interface opnieuw op om HBase in de actieve staat te brengen.
 
-1. Voer de volgende opdracht uit in HBase shell om alle offline tabellen te openen:
+1. Voer in de HBase-shell de volgende opdracht uit om alle offline tabellen te openen:
 
-    ```
+    ```hbase
     hbase hbck -ignorePreCheckPermission -fixAssignments
     ```
 
@@ -70,29 +74,29 @@ HMaster kan niet worden geïnitialiseerd na het opnieuw opstarten van HBase.
 
 ### <a name="issue"></a>Probleem
 
-HMaster is een time-out met `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`een onherstelbare uitzonde ring zoals.
+HMaster keer een time-out met een onherstelbare uitzonde ring op: `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`.
 
 ### <a name="cause"></a>Oorzaak
 
-De time-out is een bekend defect met HMaster. Algemene opstart taken van het cluster kunnen veel tijd in beslag nemen. HMaster wordt afgesloten als de naam ruimte tabel nog niet is toegewezen. De langdurige opstart taken worden uitgevoerd, waarbij een grote hoeveelheid niet-geflushe gegevens bestaat en een time-out van vijf minuten niet voldoende is.
+Dit probleem kan optreden als u veel tabellen en regio's hebt die niet zijn leeg gemaakt wanneer u uw HMaster-services opnieuw opstart. De time-out is een bekend defect met HMaster. Algemene opstart taken van het cluster kunnen veel tijd in beslag nemen. HMaster wordt afgesloten als de naam ruimte tabel nog niet is toegewezen. De langdurige opstart taken worden uitgevoerd, waarbij een grote hoeveelheid niet-geflushe gegevens bestaat en een time-out van vijf minuten niet voldoende is.
 
 ### <a name="resolution"></a>Oplossing
 
-1. Toegang tot de Ambari-gebruikers interface, gaat u naar HBase-> `hbase-site.xml` -configuraties. in aangepaste voegt u de volgende instelling toe:
+1. Ga vanuit de Apache Ambari-gebruikers interface naar **HBase** > -**configuraties**. Voeg in het `hbase-site.xml` aangepaste bestand de volgende instelling toe:
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
     ```
 
-1. De vereiste services opnieuw opstarten (voornamelijk HMaster en mogelijk andere HBase-Services).
+1. Start de vereiste services (HMaster en mogelijk andere HBase-Services) opnieuw op.
 
 ---
 
-## <a name="scenario-frequent-regionserver-restarts"></a>Scenario: Frequente regionserver opnieuw opstarten
+## <a name="scenario-frequent-region-server-restarts"></a>Scenario: Server voor frequente regio's wordt opnieuw opgestart
 
 ### <a name="issue"></a>Probleem
 
-Knoop punten worden periodiek opnieuw opgestart. In de regionserver-logboeken ziet u mogelijk vermeldingen die vergelijkbaar zijn met:
+Knoop punten worden periodiek opnieuw opgestart. In de regio server logboeken ziet u mogelijk vermeldingen die vergelijkbaar zijn met:
 
 ```
 2017-05-09 17:45:07,683 WARN  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 31000ms
@@ -102,15 +106,15 @@ Knoop punten worden periodiek opnieuw opgestart. In de regionserver-logboeken zi
 
 ### <a name="cause"></a>Oorzaak
 
-Lange regionserver JVM GC-onderbreking. De onderbreking zorgt ervoor dat regionserver niet meer reageert en geen harte slag kan verzenden naar HMaster binnen de time-out van de ZK-sessie 40s. HMaster gaat ervan uit dat regionserver dood is en de regionserver afbreekt en opnieuw wordt opgestart.
+Lange `regionserver` JVM °c pauzeren. De onderbreking `regionserver` reageert niet meer en kan geen harte slag verzenden naar HMaster binnen de time-out van de ZK-sessie 40s. HMaster is van `regionserver` mening dat het `regionserver` inactief is en afbreekt en opnieuw wordt gestart.
 
 ### <a name="resolution"></a>Oplossing
 
-Wijzig de time-out van de Zookeeper-sessie, niet `zookeeper.session.timeout` alleen hbase-site-instelling, `maxSessionTimeout` maar ook Zookeeper Zoo. cfg-instelling moet worden gewijzigd.
+Wijzig de time-out van de Zookeeper `hbase-site` -sessie, niet `zoo.cfg` alleen `maxSessionTimeout` instelling `zookeeper.session.timeout` , maar ook de instelling Zookeeper moet worden gewijzigd.
 
 1. Open de Ambari-gebruikers interface, ga naar **HBase-> configuraties-> instellingen**in de sectie time-outs, wijzig de waarde van Zookeeper sessietime time-out.
 
-1. Toegang tot de Ambari-gebruikers interface, gaat u naar **Zookeeper->-configuratie-> aangepaste** Zoo. cfg, toevoegen/wijzigen van de volgende instelling. Zorg ervoor dat de waarde gelijk is aan hbase `zookeeper.session.timeout`.
+1. Toegang tot de Ambari-gebruikers interface, gaat u naar **Zookeeper-> configs-> aangepast** `zoo.cfg`, voegt u de volgende instelling toe of wijzigt u deze. Zorg ervoor dat de waarde gelijk is aan HBase `zookeeper.session.timeout`.
 
     ```
     Key: maxSessionTimeout Value: 120000  

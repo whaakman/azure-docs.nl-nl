@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 5e38684500520d4565835456b94200aea399c938
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814113"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543017"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Self-service uitwisselingen en terugstortingen voor Azure Reservations
 
@@ -60,11 +60,6 @@ De oorspronkelijke factuur wordt geannuleerd en er wordt een nieuwe factuur gema
 
 Azure heeft de volgende beleids regels voor annuleringen, uitwisselingen en restituties.
 
-**Annulerings beleid**
-
-- Als u een reserve ring annuleert, kunnen er 12% openstaande ontslag kosten in rekening worden gebracht.
-- De terugbetaling die u voor een annulering ontvangt, is het resterende Pro-nominale saldo min de kosten voor de vroege beëindiging van 12%. Als u wilt annuleren, gaat u naar de reserve ring in het Azure Portal en selecteert u **terugbetaling**.
-
 **Exchange-beleid**
 
 - U kunt meerdere bestaande reserve ringen retour neren om een nieuwe reserve ring van hetzelfde type aan te schaffen. U kunt geen reserve ringen van het ene type uitwisselen voor een andere. U kunt bijvoorbeeld geen VM-reserve ring retour neren om een SQL-reserve ring aan te schaffen.
@@ -77,10 +72,12 @@ Azure heeft de volgende beleids regels voor annuleringen, uitwisselingen en rest
 - Er zijn geen boeten of jaarlijkse limieten voor uitwisselingen.
 
 **Restitutie beleid**
+- Als u een reserve ring annuleert, kunnen er 12% openstaande ontslag kosten in rekening worden gebracht.
+- De terugbetaling die u voor een annulering ontvangt, is het resterende Pro-nominale saldo min de kosten voor de vroege beëindiging van 12%. Als u wilt annuleren, gaat u naar de reserve ring in het Azure Portal en selecteert u **terugbetaling**.
 - Uw totale restitutie bedrag mag niet groter zijn dan $50.000 USD in een voortschrijdende periode van 12 maanden.
 - De restituties worden berekend op basis van de laagste prijs van de aanschaf prijs of de huidige prijs van de reserve ring.
 - Alleen eigen aars van reserve ringen kunnen een terugbetaling verwerken. [Meer informatie over het toevoegen of wijzigen van gebruikers die een reserve ring kunnen beheren](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Micro soft behoudt zich het recht voor om een boete van 12% voor elke retour waarde in rekening te brengen, hoewel de sanctie momenteel niet in rekening wordt gebracht.
+- Micro soft behoudt zich het recht voor om een boete van 12% voor eventuele retouren te berekenen. Er worden momenteel geen kosten in rekening gebracht, maar deze worden in de toekomst in rekening gebracht.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Niet-Premium-opslag uitwisselen voor Premium-opslag
 

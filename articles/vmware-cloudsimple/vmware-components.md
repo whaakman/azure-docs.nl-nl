@@ -3,17 +3,17 @@ title: Azure VMware-oplossing door CloudSimple-Private Cloud VMware-onderdelen
 description: Hierin wordt beschreven hoe VMware-onderdelen worden geïnstalleerd in de privécloud
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bc9c07ae74da1a4269a505627a7626e478ef99
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812192"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543719"
 ---
 # <a name="private-cloud-vmware-components"></a>VMware-onderdelen van de privécloud
 
@@ -47,11 +47,11 @@ vCenter Server-apparaat (VCSA) biedt de functies voor verificatie, beheer en Orc
 
 ### <a name="vcenter-single-sign-on"></a>eenmalige aanmelding via vCenter
 
-De controller van de embedded platform Services op VCSA is gekoppeld aan een **vCenter-domein met eenmalige aanmelding**.  De domein naam is **cloudsimple. local**.  Er wordt een **CloudOwner@cloudsimple.com** standaard gebruiker voor toegang tot vCenter gemaakt.  U kunt uw on-premises/Azure Active Directory- [identiteits bronnen voor vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/)toevoegen.
+De controller van de embedded platform Services op VCSA is gekoppeld aan een **vCenter-domein met eenmalige aanmelding**.  De domein naam is **cloudsimple. local**.  Er wordt een **CloudOwner@cloudsimple.com** standaard gebruiker voor toegang tot vCenter gemaakt.  U kunt uw on-premises/Azure Active Directory- [identiteits bronnen voor vCenter](set-vcenter-identity.md)toevoegen.
 
 ## <a name="vsan-storage"></a>vSAN-opslag
 
-Persoonlijke Clouds worden gemaakt met volledig geconfigureerde alle Flash vSAN-opslag, lokaal naar het cluster.  Er zijn mini maal drie knoop punten van dezelfde SKU vereist voor het maken van een vSphere-cluster met vSAN-gegevens opslag.  Ontdubbeling en compressie zijn standaard ingeschakeld op de vSAN-gegevens opslag.  Op elk knoop punt van het vSphere-cluster worden twee schijf groepen gemaakt. Elke schijf groep bevat één cache schijf en drie capaciteits schijven.
+Persoonlijke Clouds worden gemaakt met volledig geconfigureerde alle Flash vSAN-opslag, lokaal naar het cluster.  Er zijn mini maal drie knoop punten van dezelfde SKU vereist voor het maken van een vSphere-cluster met vSAN-gegevens opslag.  De-duplicatie en compressie zijn standaard ingeschakeld op de vSAN-gegevens opslag.  Op elk knoop punt van het vSphere-cluster worden twee schijf groepen gemaakt. Elke schijf groep bevat één cache schijf en drie capaciteits schijven.
 
 Er wordt een standaard vSAN-opslag beleid gemaakt op het vSphere-cluster en toegepast op het vSAN-gegevens archief.  Dit beleid bepaalt hoe de VM-opslag objecten worden ingericht en toegewezen in de gegevens opslag om het vereiste service niveau te garanderen.  Het opslag beleid definieert de **fouten die moeten worden toegestaan (FTT)** en de **fout tolerantie methode**.  U kunt nieuwe opslag beleidsregels maken en deze Toep assen op de Vm's. Als u SLA wilt onderhouden, moet er een capaciteit van 25% worden behouden op de vSAN-gegevens opslag.  
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608183"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533068"
 ---
 # <a name="what-are-baseline-policies"></a>Wat zijn basislijn beleidsregels?
 
@@ -41,7 +41,7 @@ Deze vier van deze beleids regels zijn van invloed op oudere verificatie stromen
 
 Als gevolg van de kracht en toegang die beheerders accounts hebben, moet u deze met speciale zorg behandelen. Een gemeen schappelijke methode voor het verbeteren van de beveiliging van geprivilegieerde accounts is om een sterkere vorm van account verificatie te vereisen wanneer deze worden gebruikt om u aan te melden. In Azure Active Directory kunt u een sterkere account verificatie verkrijgen door te vereisen dat beheerders zich registreren voor en Azure multi-factor Authentication gebruiken.
 
-[MFA vereisen voor beheerders (preview)](howto-baseline-protect-administrators.md) is een basislijn beleid waarvoor multi-factor Authentication (MFA) is vereist voor de volgende Directory rollen, gezien als de meest privilegede Azure AD-rollen:
+[MFA vereisen voor beheerders (preview)](howto-baseline-protect-administrators.md) is een basislijn beleid waarvoor multi-factor Authentication (MFA) is vereist voor de volgende Directory rollen, gezien als de meest Privilegede Azure AD-rollen:
 
 * Globale beheerder
 * SharePoint-beheerder
@@ -52,7 +52,7 @@ Als gevolg van de kracht en toegang die beheerders accounts hebben, moet u deze 
 * Factureringsbeheerder
 * Gebruikersbeheerder
 
-Als uw organisatie deze accounts in gebruik heeft in scripts of code, kunt u overwegen deze te vervangen door [beheerde identiteiten](../managed-identities-azure-resources/overview.md).
+Als uw organisatie deze accounts in gebruik heeft in scripts of code, kunt u overwegen deze te vervangen door [beheerde identiteiten](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Beveiliging van eind gebruikers (preview-versie)
 
@@ -87,11 +87,11 @@ Voor het beveiligen van geprivilegieerde acties moet voor het beleid **MFA voor 
 
 Een basislijn beleid inschakelen:
 
-1. Meld u aan bij de **Azure Portal** als globale beheerder, beveiligings beheerder of beheerder van de voorwaardelijke toegang.
+1. Meld u aan bij de **Azure Portal** als globale beheerder, beveiligings beheerder of beheerder van de voorwaardelijke toegang.
 1. Blader naar **Azure Active Directory** > **voorwaardelijke toegang**.
 1. Selecteer in de lijst met beleids regels een basislijn beleid dat u wilt inschakelen.
 1. Stel **beleid inschakelen** op aan **in**.
-1. Klik op opslaan.
+1. Klik op Opslaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
