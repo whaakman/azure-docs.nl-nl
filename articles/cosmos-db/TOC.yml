@@ -648,6 +648,8 @@
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Problemen met Azure Cosmos DB-triggers oplossen
           href: troubleshoot-changefeed-functions.md
+        - name: Starttijd van verwerker van wijzigingenfeed
+          href: how-to-configure-change-feed-start-time.md
     - name: Ingebouwde analyse met Apache Spark
       items:
         - name: Spark-connector voor Azure Databricks

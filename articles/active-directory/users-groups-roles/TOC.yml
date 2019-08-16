@@ -10,7 +10,7 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Licenties toewijzen aan gebruikers
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Een rol toewijzen met resourcebereik
+    - name: Machtiging verlenen voor onbeperkte app-registraties
       href: roles-quickstart-app-registration-limits.md
     - name: Verlooptijd van groepen instellen
       href: groups-quickstart-expiration.md

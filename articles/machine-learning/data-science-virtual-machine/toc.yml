@@ -2,6 +2,7 @@
   href: index.yml
   items: null
 - name: Overzicht
+  expanded: true
   items:
     - name: Wat is de Data Science VM?
       href: overview.md
@@ -12,15 +13,15 @@
 - name: Snelstartgidsen
   expanded: true
   items:
-    - name: Een Windows Data Science VM maken
+    - name: Een Windows-DSVM maken
       href: provision-vm.md
-    - name: Een Ubuntu Data Science VM maken
+    - name: Een Ubuntu-DSVM maken
       href: dsvm-ubuntu-intro.md
-    - name: Een CentOS Data Science VM maken
+    - name: Een CentOS-DSVM maken
       href: linux-dsvm-intro.md
     - name: Een Deep Learning VM maken
       href: provision-deep-learning-dsvm.md
-    - name: Een Geo AI Data Science VM maken
+    - name: Een Geo AI-DSVM maken
       href: provision-geo-ai-dsvm.md
 - name: Concepten
   items:
@@ -28,45 +29,43 @@
       href: dsvm-tools-overview.md
     - name: Deep Learning en AI-frameworks
       href: dsvm-deep-learning-ai-frameworks.md
-    - name: Hulpprogramma's voor ML en data science
-      href: dsvm-ml-data-science-tools.md
-    - name: Talen
+    - name: Programmeertalen
       href: dsvm-languages.md
     - name: Ontwikkelhulpprogramma’s
       href: dsvm-tools-development.md
+    - name: Hulpprogramma's voor ML en data science
+      href: dsvm-ml-data-science-tools.md
+    - name: Gegevensplatforms
+      href: dsvm-data-platforms.md
     - name: Gegevensopnamehulpprogramma's
       href: dsvm-tools-ingestion.md
     - name: Hulpprogramma's voor exploratie en visualisatie van gegevens
       href: dsvm-tools-explore-and-visualize.md
-    - name: Gegevensplatforms
-      href: dsvm-data-platforms.md
-    - name: Voorbeelden en stapsgewijze handleidingen
-      href: dsvm-samples-and-walkthroughs.md
+    - name: Enterprisebeveiliging en richtlijnen
+      href: dsvm-enterprise-overview.md
+- name: Voorbeelden
+  href: dsvm-samples-and-walkthroughs.md
 - name: Handleidingen
   items:
-    - name: Een Windows Data Science VM gebruiken
+    - name: Een Windows-DSVM gebruiken
       href: vm-do-ten-things.md
-    - name: Een Linux Data Science VM gebruiken
+    - name: Een Linux-DSVM gebruiken
       href: linux-dsvm-walkthrough.md
     - name: Een Deep Learning VM gebruiken
       href: use-deep-learning-dsvm.md
-    - name: Een Geo AI Data Science VM gebruiken
+    - name: Een Geo AI-DSVM gebruiken
       href: use-geo-ai-dsvm.md
-    - name: Richtlijnen voor bedrijven
-      items:
-        - name: Overzicht
-          href: dsvm-enterprise-overview.md
-        - name: Schalen
-          href: dsvm-pools.md
-        - name: Active Directory-integratie
-          href: dsvm-common-identity.md
-        - name: Referenties voor resourcetoegang beveiligen
-          href: dsvm-secure-access-keys.md
+    - name: Automatisch geschaalde DSVM-pool maken
+      href: dsvm-pools.md
+    - name: Integratie met Active Directory
+      href: dsvm-common-identity.md
+    - name: Referenties voor resourcetoegang beveiligen
+      href: dsvm-secure-access-keys.md
 - name: Resources
   items:
-    - name: R-ontwikkelaarsgids
-      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
     - name: MSDN-forum
       href: 'https://social.microsoft.com/Forums/home?forum=dsvm'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=dsvm'
+    - name: R-ontwikkelaarsgids
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context

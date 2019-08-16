@@ -79,10 +79,12 @@
           href: batch-pool-vm-sizes.md
         - name: Toegang tot rekenknooppunten configureren
           href: pool-endpoint-configuration.md
-        - name: Een pool maken met een aangepaste installatiekopie
+        - name: Een groep maken met de Shared Image Gallery
           href: batch-custom-images.md
         - name: Een pool in een virtueel netwerk maken
           href: batch-virtual-network.md
+        - name: Een virtueel bestandssysteem koppelen
+          href: virtual-file-mount.md
         - name: Azure-bestandsshare koppelen
           href: pool-file-shares.md
         - name: RDMA- of GPU-exemplaren gebruiken

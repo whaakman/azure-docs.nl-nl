@@ -388,7 +388,7 @@
           items:
             - name: Write Accelerator inschakelen
               href: how-to-enable-write-accelerator.md
-            - name: Ultra SSD inschakelen
+            - name: Ultraschijven gebruiken
               href: disks-enable-ultra-ssd.md
             - name: Een benchmark-test uitvoeren op een schijf
               href: disks-benchmarks.md

@@ -13,7 +13,7 @@
       items:
         - name: Een index maken en gebruiken
           href: search-get-started-portal.md
-        - name: Verrijken met AI (cognitief zoeken)
+        - name: Verrijken met cognitieve zoekopdrachten (AI)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       href: search-get-started-dotnet.md
@@ -59,6 +59,8 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp'
     - name: Java-voorbeelden
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java'
+    - name: JavaScript-voorbeelden
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript'
     - name: Python-voorbeelden
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python'
     - name: REST-voorbeelden
