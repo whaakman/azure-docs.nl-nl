@@ -71,7 +71,7 @@ Als u een CNAME-record wilt maken, moet u een nieuwe vermelding toevoegen aan de
 
      Sla de domein naam op die wordt gebruikt in de URL die wordt geretourneerd door een van beide methoden, zoals u deze nodig hebt bij het maken van een CNAME-record.
 2. Meld u aan bij de website van uw DNS-domein registratie en ga naar de pagina voor het beheren van DNS. Zoek naar koppelingen of gebieden van de site met het label **domein naam**, **DNS**of **naam server beheer**.
-3. Nu kunt u de locatie van een CNAME selecteren of invoeren. Mogelijk moet u het record type selecteren in een vervolg keuzelijst of naar een pagina met geavanceerde instellingen gaan. U moet de woorden **CNAME**, **alias**of subdomeins zoeken.
+3. Nu kunt u de locatie van een CNAME selecteren of invoeren. Mogelijk moet u het record type selecteren in een vervolg keuzelijst of naar een pagina met geavanceerde instellingen gaan. U moet de woorden **CNAME**, **alias**of subdomeinszoeken.
 4. U moet ook de alias van het domein of subdomein voor de CNAME opgeven, zoals **www** als u een alias voor **www\.-customdomain.com**wilt maken. Als u een alias voor het hoofd domein wilt maken, wordt deze mogelijk vermeld als het symbool ' **\@** ' in de DNS-hulpprogram ma's van uw registratie service.
 5. Vervolgens moet u een canonieke hostnaam opgeven. Dit is het **cloudapp.net** -domein van uw toepassing in dit geval.
 

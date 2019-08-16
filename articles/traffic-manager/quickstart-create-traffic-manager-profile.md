@@ -40,13 +40,13 @@ Voor deze quickstart moeten twee exemplaren van een webtoepassing worden geïmpl
 1. In **een web-app maken**typt of selecteert u de volgende waarden op het tabblad **basis beginselen** :
 
    - **Abonnement** > **Resourcegroep**: Selecteer **nieuwe maken** en typ vervolgens **myResourceGroupTM1**.
-   - ****  > **Naam**van instantie Details: Typ *myWebAppEastUS*.
+   -  > **Naam**van instantie Details: Typ *myWebAppEastUS*.
    - **Details van instantie** **publiceren:**  >  Selecteer **code**.
-   - ****  > **Runtime stack**van instantie Details: **ASP.net v 4.7** selecteren
-   - ****  > **Besturings systeem**voor exemplaar Details: Selecteer **Windows**.
+   -  > **Runtime stack**van instantie Details: **ASP.net v 4.7** selecteren
+   -  > **Besturings systeem**voor exemplaar Details: Selecteer **Windows**.
    - **Exemplaar Details** > **regio**:  Selecteer **US - oost**.
-   - ****  > **Windows-abonnement app service plan (VS-Oost)** : Selecteer **nieuwe maken** en typ vervolgens **myAppServicePlanEastUS**
-   - ****  > **SKU en grootte**van het app service plan: Selecteer **standaard S1**.
+   -  > **Windows-abonnement app service plan (VS-Oost)** : Selecteer **nieuwe maken** en typ vervolgens **myAppServicePlanEastUS**
+   -  > **SKU en grootte**van het app service plan: Selecteer **standaard S1**.
    
 3. Selecteer het tabblad **bewaking** of selecteer **volgende: bewaken**.  Stel onder **bewaking**in **Application Insights** > Application Insights op **Nee**in te**scha kelen** .
 

@@ -709,7 +709,7 @@ Belang rijke informatie:
     De volgende waarden zijn beschikbaar voor de optie **relatief op** :
   - **Hoofdmap**: Geeft aan dat het URL-vergelijkings punt direct na de CDN-hostnaam begint.
 
-    Bijvoorbeeld: http:\//WPC.0001.&lt; domein&gt; **** 800001/myorigin/MyFolder/index.htm/
+    Bijvoorbeeld: http:\//WPC.0001.&lt; domein&gt; 800001/myorigin/MyFolder/index.htm/
 
   - **Oorsprong**: Geeft aan dat het URL-vergelijkings punt begint na het inhouds toegangs punt (bijvoorbeeld/000001 of/800001/myorigin). Omdat azureedge.net CNAME wordt gemaakt ten opzichte van de bronmap op de hostnaam van het Verizon CDN standaard, moeten Azure CDN gebruikers de waarde Origin gebruiken. \* 
 
@@ -793,7 +793,7 @@ Belang rijke informatie:
    Deze optie kan de volgende waarden hebben:
      - **Hoofdmap**: Geeft aan dat het URL-vergelijkings punt direct na de CDN-hostnaam begint.
 
-       Bijvoorbeeld: http:\//WPC.0001.&lt; domein&gt; **** 800001/myorigin/MyFolder/index.htm/
+       Bijvoorbeeld: http:\//WPC.0001.&lt; domein&gt; 800001/myorigin/MyFolder/index.htm/
 
      - **Oorsprong**: Geeft aan dat het URL-vergelijkings punt begint na het inhouds toegangs punt (bijvoorbeeld/000001 of/800001/myorigin). Omdat azureedge.net CNAME wordt gemaakt ten opzichte van de bronmap op de hostnaam van het Verizon CDN standaard, moeten Azure CDN gebruikers de waarde Origin gebruiken. \* 
 

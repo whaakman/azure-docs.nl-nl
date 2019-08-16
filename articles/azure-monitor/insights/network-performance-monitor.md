@@ -129,7 +129,7 @@ Netwerkprestatiemeter maakt gebruik van synthetische trans acties voor het bewak
     
 De bewaking voor deze circuits en peerings is in eerste instantie uitgeschakeld. Selecteer elke resource die u wilt bewaken en configureer de bewaking voor deze resources vanuit de detail weergave aan de rechter kant. Selecteer **Opslaan** om de configuratie op te slaan. Zie het artikel ' ExpressRoute-controle configureren ' voor meer informatie. 
 
-Nadat de installatie is voltooid, duurt het 30 minuten tot een uur voordat de gegevens worden ingevuld. Terwijl de oplossing gegevens van uw netwerk samenvoegt, is voor de bericht *oplossing aanvullende configuratie vereist* op de **overzichts** tegel Netwerkprestatiemeter. Nadat de gegevens zijn verzameld en geïndexeerd, wordt  de overzichts tegel gewijzigd en wordt u in een samen vatting geïnformeerd over uw netwerk status. U kunt vervolgens de bewaking bewerken van de knoop punten waarop Log Analytics agents zijn geïnstalleerd, evenals de subnetten die zijn gedetecteerd vanuit uw omgeving.
+Nadat de installatie is voltooid, duurt het 30 minuten tot een uur voordat de gegevens worden ingevuld. Terwijl de oplossing gegevens van uw netwerk samenvoegt, is voor de bericht *oplossing aanvullende configuratie vereist* op de **overzichts** tegel Netwerkprestatiemeter. Nadat de gegevens zijn verzameld en geïndexeerd, wordt de overzichts tegel gewijzigd en wordt u in een samen vatting geïnformeerd over uw netwerk status. U kunt vervolgens de bewaking bewerken van de knoop punten waarop Log Analytics agents zijn geïnstalleerd, evenals de subnetten die zijn gedetecteerd vanuit uw omgeving.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Bewakings instellingen voor subnetten en knoop punten bewerken 
 

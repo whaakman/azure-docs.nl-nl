@@ -78,7 +78,7 @@ Als u wilt dat de Load Balancer de status van uw app bewaken, gebruikt u een sta
     | Name | Enter *myHealthProbe*. |
     | Protocol | Selecteer **http**. |
     | Port | Voer *80*in.|
-    | Interval | Geef *15* op voor het **** aantal seconden tussen de test pogingen. |
+    | Interval | Geef *15* op voor het aantal seconden tussen de test pogingen. |
     | Drempel waarde voor onjuiste status | Selecteer **2** voor het aantal **foutieve drempel waarden** of opeenvolgende test fouten die moeten optreden voordat een VM wordt beschouwd als beschadigd.|
     | | |
 4. Selecteer **OK**.
@@ -130,8 +130,8 @@ Standard Load Balancer ondersteunt alleen Vm's met standaard-IP-adressen in de b
    - **Abonnement** > **Resourcegroep**: Selecteer **myResourceGroupSLB**.
    - **Instantiedetails** > **Naam van virtuele machine**: Typ *myVM1*.
    - **Exemplaar Details** > **regio** > Selecteer **Europa-West**.
-   - ****  > Opties voor de**Beschik baarheid** van instantie Details > **beschikbaarheids zones**selecteren. 
-   - ****  > **Beschik baarheid** van instantie Details zone > Selecteer **1**.
+   -  > Opties voor de**Beschik baarheid** van instantie Details > **beschikbaarheids zones**selecteren. 
+   -  > **Beschik baarheid** van instantie Details zone > Selecteer **1**.
    - **Beheerders account**> Geef de **gebruikers naam**, het **wacht woord** en het **wacht woord** op.
    - Selecteer het tabblad **Netwerken** of selecteer **Volgende: Schijven** en vervolgens **Volgende: Netwerken**.
   
