@@ -3,7 +3,7 @@ title: Aan de slag met Azure Storage en met Visual Studio verbonden services (pr
 description: Aan de slag met Azure Table Storage in een Azure WebJobs-project in Visual Studio nadat u verbinding hebt gemaakt met een opslag account met behulp van Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 8875f680c8bb83c2375d6fe767f376cbb35d5a0a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260747"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510666"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Aan de slag met Azure Storage (projecten van Azure webtaaks)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -32,7 +32,7 @@ Sommige code fragmenten bevatten het **tabel** kenmerk dat wordt gebruikt in fun
 ## <a name="how-to-add-entities-to-a-table"></a>Entiteiten toevoegen aan een tabel
 Als u entiteiten wilt toevoegen aan een tabel, gebruikt u het kenmerk **Table** met een **ICollector\<t >** of **IAsyncCollector\<t >** para meter waarbij **T** het schema aangeeft van de entiteiten die u wilt toevoegen. De kenmerk-constructor heeft een teken reeks parameter waarmee de naam van de tabel wordt opgegeven.
 
-In het volgende code voorbeeld **worden entiteits** entiteiten toegevoegd aan een tabel met *de naam*inkomend verkeer.
+In het volgende code voorbeeld worden entiteits entiteiten toegevoegd aaneen tabel met de naam inkomend verkeer.
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -98,7 +98,7 @@ In het volgende code voorbeeld worden alle rijen uit de **ingangs** tabel geleze
 ### <a name="how-to-read-a-single-entity-from-a-table"></a>Een afzonderlijke entiteit uit een tabel lezen
 Er is een **Table** -kenmerk constructie met twee extra para meters waarmee u de partitie sleutel en de rij-sleutel kunt opgeven wanneer u wilt binden aan een enkele tabel entiteit.
 
-In het volgende code voorbeeld wordt een tabelrij gelezen voor  een persoons entiteit op basis van de waarden van de partitie sleutel en de rijwaarden die zijn ontvangen in een wachtrij bericht:  
+In het volgende code voorbeeld wordt een tabelrij gelezen voor een persoons entiteit op basis van de waarden van de partitie sleutel en de rijwaarden die zijn ontvangen in een wachtrij bericht:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,

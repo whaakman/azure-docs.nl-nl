@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 07/05/2019
-ms.openlocfilehash: 3b9a9f4ac1cf0722ab7d3838f0b0c4c12b47dc74
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566808"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515280"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverloze (preview-versie)
 
@@ -281,7 +281,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Bronlimieten
 
-Zie Serverloze COMPUTE- [laag](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier) voor resource limieten
+Zie Serverloze COMPUTE- [laag](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)voor resource limieten.
 
 ## <a name="billing"></a>Billing
 
@@ -324,4 +324,4 @@ De compute-laag zonder server is wereld wijd beschikbaar, met uitzonde ring van 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Als u aan de slag [wilt gaan, raadpleegt u Quick Start: Maak met behulp van de Azure Portal](sql-database-single-database-get-started.md)een enkele data base in Azure SQL database.
-- Zie resource limieten voor [serverloze Compute-lagen](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)voor resource limieten.
+- Zie resource limieten voor [serverloze Compute-lagen](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)voor resource limieten.

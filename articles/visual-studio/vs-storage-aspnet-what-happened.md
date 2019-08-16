@@ -1,9 +1,9 @@
 ---
 title: Wat is er gebeurd met mijn ASP.NET-project? | Microsoft Docs
-description: Hierin wordt beschreven wat er gebeurt nadat Azure Storage toe te voegen aan een ASP.NET-project met behulp van Visual Studio services verbonden
+description: Beschrijft wat er gebeurt nadat Azure Storage toe te voegen aan een ASP.NET-project met Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: e1fe1b6d-4e3d-476d-8b2f-f7ade050515e
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,17 +12,17 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: e0e065b23581f297ee4ae2288a6e437da461a19f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 74db2e1e15c282f4393715c67561b2ed61bbcdfb
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362098"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512068"
 ---
-# <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>Wat is er gebeurd met mijn ASP.NET-project (Visual Studio Azure Storage verbonden service)?
-## <a name="references-added"></a>Verwijzingen die zijn toegevoegd
-Het Azure Storage NuGet-pakket is toegevoegd aan uw Visual Studio-project.  
-Dit pakket voegt de volgende .NET verwijzingen toe:
+# <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>Wat is er gebeurd met mijn ASP.NET-project (Visual Studio Azure Storage Connected service)?
+## <a name="references-added"></a>Toegevoegde verwijzingen
+Het NuGet-pakket van Azure Storage is toegevoegd aan uw Visual Studio-project.  
+Dit pakket voegt de volgende .NET-verwijzingen toe:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -33,8 +33,8 @@ Dit pakket voegt de volgende .NET verwijzingen toe:
 * **System.Data**
 * **System.Spatial**
 
-## <a name="connection-string-for-azure-storage-added"></a>Verbindingsreeks voor Azure Storage is toegevoegd
-Een element is in het bestand web.config van uw project gemaakt met de verbindingsreeks en de sleutel van het geselecteerde opslagaccount.
+## <a name="connection-string-for-azure-storage-added"></a>Verbindings reeks voor toegevoegde Azure Storage
+In het web. config-bestand van uw project is een element gemaakt met de connection string en sleutel van het geselecteerde opslag account.
 
-Zie voor meer informatie, [ASP.NET](https://www.asp.net).
+Zie [ASP.net](https://www.asp.net)voor meer informatie.
 

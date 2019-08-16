@@ -1,22 +1,22 @@
 ---
 title: Selecteer een schijf type voor virtuele machines van Azure IaaS Linux-Managed disks
-description: Meer informatie over de beschik bare Azure-schijf typen voor virtuele Linux-machines, waaronder Ultra Ssd's, Premium Ssd's, Standard Ssd's en Standard Hdd's.
+description: Meer informatie over de beschik bare Azure-schijf typen voor virtuele Linux-machines, waaronder Ultra schijven, Premium Ssd's, Standard Ssd's en Standard Hdd's.
 author: roygara
 ms.author: rogarana
-ms.date: 05/10/2019
+ms.date: 08/15/2019
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: d0acd49b6f1545ab6020adf498c683a28850730b
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 39231e364ab6be9ecf7ad032684dd9e217dbe088
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695828"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516031"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-Als u met ultra Ssd's wilt beginnen, raadpleegt u ons artikel over het onderwerp: [Azure Ultra Ssd's inschakelen](disks-enable-ultra-ssd.md).
+Zie het artikel over het onderwerp voor meer informatie over het gebruik van ultra disks: [Met behulp van Azure Ultra disks](disks-enable-ultra-ssd.md).
 
 [!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 

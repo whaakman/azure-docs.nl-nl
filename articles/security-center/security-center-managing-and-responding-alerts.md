@@ -13,13 +13,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
-ms.author: rkarlin
-ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 39849514d772f128434daad590de22f941245af7
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235766"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516110"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center
 Dit document bevat informatie over het gebruik van Azure Security Center om beveiligingswaarschuwingen te beheren en hierop te reageren.
@@ -51,32 +51,32 @@ U kunt uw huidige waarschuwingen controleren met de tegel **Beveiligingswaarschu
 
 Onder aan deze pagina ziet u de details voor elke waarschuwing. Als u wilt sorteren, klikt u op de kolom waarop u wilt sorteren. Hieronder volgt de definitie voor elke kolom:
 
-* **Beschrijving**: Een korte beschrijving van de waarschuwing.
-* **Aantal**: Een lijst van alle waarschuwingen van dit specifieke type die zijn gedetecteerd op een specifieke dag.
-* **Gedetecteerd door**: De service die verantwoordelijk is voor de waarschuwing wordt geactiveerd.
+* **Beschrijving**: Een korte uitleg van de waarschuwing.
+* **Aantal**: Een lijst met alle waarschuwingen van dit specifieke type die zijn gedetecteerd op een specifieke dag.
+* **Gedetecteerd door**: De service die verantwoordelijk is voor het activeren van de waarschuwing.
 * **Datum**: De datum waarop de gebeurtenis heeft plaatsgevonden.
-* **status**: De huidige status voor deze waarschuwing. Er zijn twee soorten statussen:
-  * **Actieve**: De beveiligingswaarschuwing is gedetecteerd.
-  * **Gesloten**: De beveiligingswaarschuwing is door de gebruiker is gesloten. Deze status wordt meestal gebruikt voor waarschuwingen die zijn onderzocht en zijn verholpen of niet moet een werkelijke aanval.
-* **Ernst**: De ernst kan hoog, Gemiddeld of laag zijn.
+* **Status**: De huidige status van de waarschuwing. Er zijn twee soorten statussen:
+  * **Actief**: De beveiligings waarschuwing is gedetecteerd.
+  * **Gesloten**: De beveiligings waarschuwing is door de gebruiker genegeerd. Deze status wordt doorgaans gebruikt voor waarschuwingen die zijn onderzocht en die zijn verholpen of die geen echte aanval kunnen zijn.
+* **Ernst**: Het Ernst niveau, dat hoog, gemiddeld of laag kan zijn.
 
 > [!NOTE]
 > Beveiligingswaarschuwingen die door Security Center worden gegenereerd, worden ook weergegeven onder het Azure-activiteitenlogboek. Zie [Activiteitenlogboeken bekijken om de acties op resources te controleren](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) voor meer informatie over toegang tot het Azure-activiteitenlogboek.
 >
 
 
-### <a name="alert-severity"></a>Ernst van waarschuwing
+### <a name="alert-severity"></a>Ernst van waarschuwingen
 
--   **Hoge**: Er is een hoge kans dat de resource is aangetast. U ziet in het meteen. Security Center heeft een hoge betrouwbaarheid in zowel de kwade bedoelingen en in de bevindingen gebruikt voor het uitgeven van de waarschuwing. Bijvoorbeeld, een waarschuwing die wordt gedetecteerd tijdens de uitvoering van een bekende schadelijke hulpprogramma zoals Mimikatz, een veelgebruikt hulpprogramma gebruikt voor de diefstal van referenties. 
--   **Gemiddeld**: Dit is waarschijnlijk een verdachte activiteit die aangeven mogelijk dat een resource is aangetast.
-Vertrouwen in de analytische of zoeken van Security Center is normaal en het vertrouwen van de kwade bedoelingen gemiddeld in hoog is. Dit zijn meestal machine learning- of afwijkingen op basis van detecties. Bijvoorbeeld, een teken in poging vanaf een afwijkende locatie.
--   **Lage**: Dit is mogelijk een goedaardig positief of een geblokkeerde-aanval. 
-    - Security Center is niet zeker genoeg dat de bedoeling schadelijke is en mogelijk is de activiteit onschuldig uitziet. Logboek wissen is bijvoorbeeld een actie die optreden kan als een aanvaller wil verbergen hun sporen te wissen, maar in veel gevallen is een routine-bewerking uitgevoerd door beheerders.
-    - Security Center niet meestal laat u weten wanneer aanvallen is geblokkeerd, tenzij het een interessante geval is dat we raden dat u kijken. 
--   **Informatief**: U ziet alleen informatieve waarschuwingen als u inzoomen op een beveiligingsincident, of als u de REST-API gebruiken met een specifieke waarschuwing-ID. Een incident is normaal gesproken bestaat uit een aantal waarschuwingen, waarvan sommige kunnen worden weergegeven op hun eigen worden alleen ter informatie, maar in de context van de andere waarschuwingen mogelijk daling van nader bekijken.  
+-   **Hoog**: Er is een hoge waarschijnlijkheid dat uw resource is aangetast. U ziet het meteen. Security Center heeft hoge betrouw baarheid in zowel de schadelijke intentie als de bevindingen die worden gebruikt voor het uitgeven van de waarschuwing. Een waarschuwing waarmee de uitvoering van een bekend schadelijk hulp programma, zoals Mimikatz, wordt gedetecteerd, is een algemeen hulp programma dat wordt gebruikt voor referentie diefstal. 
+-   **Gemiddeld**: Dit is waarschijnlijk een verdachte activiteit die kan erop wijzen dat een bron is aangetast.
+Het vertrouwen van Security Center in het analyse programma of het zoeken is gemiddeld en het vertrouwen van de schadelijke intentie is gemiddeld voor hoog. Deze worden doorgaans machine learning en detecties op basis van anomalieën. Bijvoorbeeld een aanmeldings poging vanaf een afwijkende locatie.
+-   **Laag**: Dit kan een goed aardige positieve of een geblokkeerde aanval zijn. 
+    - Security Center niet zeker weet dat de intentie schadelijk is en de activiteit mogelijk onschuld is. Logboek wissen is bijvoorbeeld een actie die zich kan voordoen wanneer een aanvaller hun tracks probeert te verbergen, maar in veel gevallen is een routine bewerking door beheerders uitgevoerd.
+    - Security Center vertelt u doorgaans niet wanneer er aanvallen zijn geblokkeerd, tenzij dit een interessant geval is. 
+-   **Ter informatie**: Er worden alleen informatieve waarschuwingen weer geven wanneer u inzoomt op een beveiligings incident of als u de REST API met een specifieke waarschuwings-ID gebruikt. Een incident bestaat doorgaans uit een aantal waarschuwingen, wat soms alleen ter informatie kan worden weer gegeven, maar in de context van de andere waarschuwingen kan het een betrouw bare zijn.  
 
 > [!NOTE]
-> Als u de **2015-06-01-preview** API-versie, en er verschillen in welke alarm ernst typen worden toegepast op welke scenario's zijn, van wat wordt weergegeven boven.  
+> Als u de API **-versie 2015-06-01-preview** gebruikt, zijn er verschillen waarbij alarm code typen worden toegepast op welke scenario's, van wat hierboven wordt vermeld.  
 
 ### <a name="filtering-alerts"></a>Waarschuwingen filteren
 U kunt waarschuwingen filteren op basis van datum, status en ernst. Het filteren van waarschuwingen kan nuttig zijn wanneer u minder beveiligingswaarschuwingen wilt weergeven. U kunt u bijvoorbeeld concentreren op de beveiligingswaarschuwingen van de afgelopen 24 uur, omdat u een mogelijke inbreuk in het systeem onderzoekt.
@@ -94,9 +94,9 @@ In dit geval verwijzen de geactiveerde waarschuwingen naar verdachte RDP-activit
 
 ![Suggesties voor wat u kunt doen bij beveiligingswaarschuwingen in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-Het veld **Beschrijving** bevat meer informatie over deze gebeurtenis. Deze aanvullende informatie biedt inzicht in wat de beveiligingswaarschuwing heeft geactiveerd, de doelresource, eventueel het bron-IP-adres en aanbevelingen voor het herstellen.  In sommige gevallen zal het bron-IP-adres leeg zijn (niet beschikbaar), omdat niet alle Windows-logboeken voor beveiligingsgebeurtenissen het IP-adres bevatten.
+In het veld **Beschrijving** vindt u meer informatie over deze gebeurtenis. Deze aanvullende informatie biedt inzicht in wat de beveiligingswaarschuwing heeft geactiveerd, de doelresource, eventueel het bron-IP-adres en aanbevelingen voor het herstellen.  In sommige gevallen zal het bron-IP-adres leeg zijn (niet beschikbaar), omdat niet alle Windows-logboeken voor beveiligingsgebeurtenissen het IP-adres bevatten.
 
-Het herstel dat door Security Center wordt voorgesteld, verschilt per beveiligingswaarschuwing. In sommige gevallen moet u wellicht andere Azure-mogelijkheden gebruiken om het aanbevolen herstel te implementeren. Als herstel voor deze aanval moet bijvoorbeeld het IP-adres op een zwarte lijst worden gezet dat door de aanval is gegenereerd. Hiervoor is de regel van een [netwerk-ACL](../virtual-network/virtual-networks-acl.md) of een [netwerkbeveiligingsgroep](../virtual-network/security-overview.md#security-rules) nodig. Lees voor meer informatie over de verschillende typen waarschuwingen [Beveiligingswaarschuwingen per type in Azure Security Center](security-center-alerts-type.md).
+Het herstel dat door Security Center wordt voorgesteld, verschilt per beveiligingswaarschuwing. In sommige gevallen moet u wellicht andere Azure-mogelijkheden gebruiken om het aanbevolen herstel te implementeren. Het herstel voor deze aanval is bijvoorbeeld het IP-adres waarmee deze aanval wordt gegenereerd, niet toe te staan met behulp van een [netwerk toegangs beheer lijst](../virtual-network/virtual-networks-acl.md) of een regel voor een [netwerk beveiligings groep](../virtual-network/security-overview.md#security-rules) . Lees de [typen beveiligings waarschuwingen](security-center-alerts-overview.md#security-alert-types)voor meer informatie over de verschillende typen waarschuwingen.
 
 > [!NOTE]
 > Security Center heeft een nieuwe set detecties vrijgegeven voor beperkte preview. Deze detecties maken gebruik van controlerecords, een gemeenschappelijk controleframework, voor het detecteren van de schadelijke gedragingen op Linux-machines. [Stuur ons een e-mail](mailto:ASC_linuxdetections@microsoft.com) met uw abonnement-id's om deel te nemen aan de preview.

@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 1e85cb5c06f36e0f8c105ece2c012cfe7cb77bf4
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: c2dbfa5f6c9d679582a1834f2ff645c5ff79c51e
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226034"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515700"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>De toewijzing van het voor beeld van het PCI-DSS v 3.2.1-blauw druk
 
@@ -25,7 +25,7 @@ De volgende toewijzingen zijn de **PCI-DSS v 3.2.1:2018** -besturings elementen.
 
 Deze blauw druk helpt u bij het beheren en best uren van netwerken door [Azure Policy](../../../policy/overview.md) definities toe te wijzen waarmee netwerk beveiligings groepen met strikte regels worden bewaakt. Het kan zijn dat te beperken regels mogelijk onbedoelde netwerk toegang toestaan en moeten worden gecontroleerd. Deze blauw druk wijst een Azure Policy definities toe waarmee onbeveiligde eind punten, toepassingen en opslag accounts worden bewaakt. Eind punten en toepassingen die niet zijn beveiligd door een firewall en opslag accounts met onbeperkte toegang, kunnen onbedoelde toegang tot gegevens in het informatie systeem toestaan.
 
-- Onbeperkte netwerk toegang tot opslag accounts controleren
+- Onbeperkte netwerktoegang tot opslagaccounts controleren
 - Toegang via Internet gericht eind punt moet worden beperkt
 
 ## <a name="34a-41-41g-41h-and-653-cryptographic-protection"></a>3.4. a, 4,1, 4.1. g, 4.1. h en 6.5.3 cryptografische bescherming
@@ -34,22 +34,22 @@ Deze blauw druk helpt u bij het afdwingen van uw beleid met het gebruik van cryp
 
 - Functie-App moet alleen toegankelijk zijn via HTTPS
 - Web-App moet alleen toegankelijk zijn via HTTPS
-- De API-app mag alleen toegankelijk zijn via HTTPS
-- Niet-versleutelde SQL database in Azure Security Center bewaken
+- API-app mag alleen toegankelijk zijn via HTTPS
+- Transparent Data Encryption voor SQL-data bases moet zijn ingeschakeld
 - Schijf versleuteling moet worden toegepast op virtuele machines
 - De variabelen van het Automation-account moeten worden versleuteld
 - Alleen beveiligde verbindingen met uw Redis Cache moeten worden ingeschakeld
 - Beveiligde overdracht naar opslag accounts moet zijn ingeschakeld
 - Voor Service Fabric clusters moet de eigenschap ClusterProtectionLevel zijn ingesteld op EncryptAndSign
 - Transparent Data Encryption voor SQL-data bases moet zijn ingeschakeld
-- Transparante gegevens versleuteling van SQL DB implementeren
+- Transparante gegevensversleuteling in SQL DB implementeren
 
 ## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5,1, 6,2, 6,6 en 11.2.1 beveiligings problemen met scannen en systeem updates
 
 Deze blauw druk helpt u bij het beheren van beveiligings problemen met informatie systemen door [Azure Policy](../../../policy/overview.md) definities toe te wijzen waarmee ontbrekende systeem updates, besturingssysteem problemen met het besturings systeem, SQL-beveiligings problemen en beveiligings problemen met virtuele machines in Azure worden bewaakt Security Center. Azure Security Center biedt rapportage mogelijkheden waarmee u real-time inzicht kunt krijgen in de beveiligings status van geïmplementeerde Azure-resources.
 
-- Ontbrekende Endpoint Protection in Azure Security Center controleren
-- Standaard micro soft IaaSAntimalware-extensie voor Windows Server implementeren
+- Ontbrekende Endpoint Protection bewaken in Azure Security Center
+- Microsoft IaaSAntimalware-standaarduitbreiding voor Windows Server implementeren
 - Detectie van bedreigingen op SQL-servers implementeren
 - Systeem updates moeten worden geïnstalleerd op uw computers
 - Beveiligings problemen in de beveiligings configuratie op uw computers moeten worden hersteld
@@ -75,7 +75,7 @@ Onderzoeksservices.
 - MFA moet zijn ingeschakeld voor accounts met schrijf machtigingen voor uw abonnement
 - MFA moet zijn ingeschakeld voor accounts met lees machtigingen voor uw abonnement
 - Een Azure Active Directory beheerder moet worden ingericht voor SQL-servers
-- Gebruik van aangepaste RBAC-regels controleren
+- Het gebruik van aangepaste RBAC-regels controleren
 
 ## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>versie 8.1.2-en 8.1.5-minimale bevoegdheid en beoordeling van gebruikers toegangs rechten
 
@@ -110,9 +110,9 @@ Deze blauw druk helpt u sterke wacht woorden af te dwingen door [Azure Policy](.
 Deze blauw druk helpt u om ervoor te zorgen dat systeem gebeurtenissen worden vastgelegd door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die logboek instellingen op Azure-resources controleren.
 Diagnostische logboeken bieden inzicht in bewerkingen die zijn uitgevoerd in azure-resources. Azure-logboeken zijn afhankelijk van gesynchroniseerde interne klokken voor het maken van een tijdgebonden record met gebeurtenissen in resources.
 
-- Niet-gecontroleerde SQL-servers in Azure Security Center bewaken
+- Controle moet worden ingeschakeld voor geavanceerde instellingen voor gegevens beveiliging op SQL Server
 - Diagnostische instelling voor controleren
-- Controle-instellingen op SQL server-niveau controleren
+- Instellingen voor SQL-controle op serverniveau
 - Controle op SQL-servers implementeren
 - Opslag accounts moeten worden gemigreerd naar nieuwe Azure Resource Manager-resources
 - Virtuele machines moeten worden gemigreerd naar nieuwe Azure Resource Manager-resources
@@ -122,7 +122,7 @@ Diagnostische logboeken bieden inzicht in bewerkingen die zijn uitgevoerd in azu
 Deze blauw druk helpt u bij het beheren en bepalen van uw netwerk door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die de acceptabele netwerk locaties controleren en de goedgekeurde bedrijfs producten die voor de omgeving zijn toegestaan. Deze kunnen door elk bedrijf worden aangepast via de beleids parameters in elk van deze beleids regels.
 
 - Toegestane locaties
-- Toegestane locaties voor resource groepen
+- Toegestane locaties voor resourcegroepen
 
 ## <a name="next-steps"></a>Volgende stappen
 

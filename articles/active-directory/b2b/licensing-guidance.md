@@ -1,41 +1,44 @@
 ---
-title: B2B-samenwerking richtlijnen - Azure Active Directory-licentieverlening | Microsoft Docs
-description: Azure Active Directory B2B collaboration niet vereist-betaalde Azure AD-licenties, maar u kunt ook ophalen betaalde functies voor gastgebruikers voor B2B
+title: Hulp bij B2B-samen werking Licensing-Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B-samen werking vereist geen betaalde Azure AD-licenties, maar u kunt ook betaalde functies voor B2B-gast gebruikers ontvangen.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df98966b69250d31f2a741411aea6e5554f9ed6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 081061eae07fa3765d032ad155e59ebf5aa3cbc9
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112854"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512556"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Licentierichtlijnen voor B2B-samenwerking van Azure Active Directory
 
-Met business-to-business (B2B)-samenwerking van Azure Active Directory (Azure AD), kunt u uitnodigen externe gebruikers (of "gastgebruikers") met uw betaalde Azure AD-services. Voor elke Azure AD-licentie die u aan een gebruiker betaalde toewijst, kunt u maximaal vijf gastgebruikers ook kunnen onder de aftrek van de externe gebruiker uitnodigen.
+Met Azure Active Directory (Azure AD) Collaborate Business-to-Business (B2B)-samen werking kunt u externe gebruikers (of "gast gebruikers") uitnodigen om uw betaalde Azure AD-services te gebruiken. Sommige functies zijn gratis, maar voor elke betaalde Azure AD-functie kunt u Maxi maal vijf gast gebruikers uitnodigen voor elke Azure AD-licentie die u hebt voor een werk nemer of een niet-gast gebruiker in uw Tenant.
 
-Gebruikerslicenties voor B2B-Gast wordt automatisch berekend en gerapporteerd op basis van de hoogte-breedteverhouding 1:5. Het is momenteel niet mogelijk om toe te wijzen B2B Gast gebruikerslicenties rechtstreeks naar gastgebruikers.
+> [!NOTE]
+> Raadpleeg de [Azure Active Directory prijzen](https://azure.microsoft.com/pricing/details/active-directory/) voor meer informatie over Azure ad-prijzen en B2B-samenwerkings functies.
 
-Bovendien gratis Gast kunnen gebruikers met Azure AD-functies met geen aanvullende licentievereisten te voldoen. Gastgebruikers hebben toegang tot Azure AD-functies gratis, zelfs als u geen hebt betaalde Azure AD-licenties. 
+B2B gast gebruikers licenties worden automatisch berekend en gerapporteerd op basis van de verhouding van 1:5. Op dit moment is het niet mogelijk om B2B-gebruikers licenties rechtstreeks aan gast gebruikers toe te wijzen.
 
-## <a name="examples-calculating-guest-user-licenses"></a>Voorbeelden: Berekenen van de Gast-gebruikerslicenties
-Zodra u hoeveel gastgebruikers nodig bepalen voor toegang tot uw betaalde Azure AD-services, zorg ervoor dat u hebt voldoende Azure AD betaalde licenties voor gastgebruikers ook kunnen in de vereiste 1:5-verhouding. Hier volgen enkele voorbeelden:
+Bovendien kunnen gast gebruikers gratis Azure AD-functies gebruiken zonder aanvullende licentie vereisten. Gast gebruikers hebben toegang tot gratis Azure AD-functies, zelfs als u geen betaalde Azure AD-licenties hebt. 
 
-- U wilt uitnodigen 100 gastgebruikers ook kunnen aan uw Azure AD-apps of services, en u wilt toewijzen, toegangsbeheer en inrichting voor alle gastgebruikers. U wilt ook vereisen dat MFA en voorwaardelijke toegang voor deze gastgebruikers 50. Hebt u voor deze combinatie van 10 licenties voor Azure AD Basic en 10 licenties voor Azure AD Premium P1 nodig. Als u van plan bent te Identity Protection-functies met uw gastgebruikers ook kunnen gebruiken, moet u Azure AD Premium P2-licenties in de dezelfde 1:5-verhouding tussen het betrekking hebben op de gastgebruikers.
-- U wilt uitnodigen 60 gastgebruikers die alle MFA, vereist dus u moet ten minste 12 Azure AD Premium P1-licenties hebt. Hebt u 10 werknemers met Azure AD Premium P1-licenties kunnen maximaal 50 gastgebruikers ook kunnen onder de 1:5 verhouding-licentieverlening. U moet twee extra Premium P1-licenties voor 10 extra Gastgebruikers ook kunnen kopen.
+## <a name="examples-calculating-guest-user-licenses"></a>Voorbeelden: Licenties voor gast gebruikers worden berekend
+Wanneer u hebt vastgesteld hoeveel gast gebruikers toegang nodig hebben tot uw betaalde Azure AD-Services, moet u ervoor zorgen dat u over voldoende betaalde licenties voor Azure AD beschikt om gast gebruikers te voorzien van de vereiste verhouding van 1:5. Hier volgen enkele voorbeelden:
+
+- U wilt 100 gast gebruikers uitnodigen voor uw Azure AD-apps of-services en u wilt toegangs beheer en inrichting toewijzen aan alle gast gebruikers. U wilt ook MFA en voorwaardelijke toegang vereisen voor 50 van deze gast gebruikers. U hebt 10 Azure AD Basic licenties en 10 Azure AD Premium P1-licenties nodig om deze combi natie te kunnen behandelen. Als u van plan bent om functies voor identiteits beveiliging te gebruiken voor uw gast gebruikers, hebt u voor de gast gebruikers Azure AD Premium P2-licenties in dezelfde 1:5-verhouding nodig.
+- U wilt 60 gast gebruikers uitnodigen die alle MFA vereisen, dus u moet ten minste 12 Azure AD Premium P1-licenties hebben. U hebt 10 werk nemers met Azure AD Premium P1-licenties, waardoor Maxi maal 50 gast gebruikers de 1:5-licentie verhouding kunnen hebben. U moet twee extra Premium P1-licenties aanschaffen om 10 extra gast gebruikers te kunnen behandelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende bronnen op Azure AD B2B-samenwerking:
+Raadpleeg de volgende bronnen in azure AD B2B-samen werking:
 
-* [Prijzen voor Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory prijzen](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
 * [Veelgestelde vragen over Azure Active Directory B2B-samenwerking](faq.md)

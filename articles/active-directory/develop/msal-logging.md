@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09590fbd340ac3945f05346f99254ec0b76dcd76
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 475b692a29edf5cdd05552e7b5c3dc5fde210275
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834991"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512520"
 ---
 # <a name="logging"></a>Logboekregistratie
 Micro soft Authentication Library (MSAL)-apps voor het genereren van logboek berichten die u kunnen helpen bij het vaststellen van problemen en informatie te geven. Een app kan logboek registratie met een paar regels code configureren en aangepaste controle hebben over het detail niveau en bepalen of persoonlijke en organisatie gegevens worden vastgelegd. U kunt het beste een call back van MSAL-logboek registratie instellen en gebruikers een manier bieden om logboeken te verzenden wanneer ze verificatie problemen ondervinden.
@@ -40,6 +40,10 @@ Met de logboek registratie van MSAL kunnen meerdere detail niveaus worden vastge
 Standaard worden in de MSAL-logger geen zeer gevoelige persoonlijke of bedrijfs gegevens vastgelegd. De bibliotheek biedt u de mogelijkheid om logboek registratie van persoonlijke en organisatie gegevens in te scha kelen als u dit besluit.
 
 ## <a name="logging-in-msalnet"></a>Aanmelden MSAL.NET
+
+ > [!NOTE]
+ > Bekijk de [MSAL.net-wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)voor meer informatie over MSAL.net. Bekijk voor beelden van MSAL.NET-logboek registratie en meer. 
+ 
 In MSAL 3. x wordt logboek registratie per toepassing ingesteld bij het maken van de `.WithLogging` app met behulp van de opbouw functie voor Builder. Deze methode accepteert optionele para meters:
 
 - *Niveau* kunt u bepalen welk registratie niveau u wilt. Als u deze instelt op fouten, worden er alleen fouten opgehaald

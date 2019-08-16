@@ -1,35 +1,32 @@
 ---
-title: Geef een toegangs token door via een gebruikers stroom naar uw toepassing-Azure Active Directory B2C | Microsoft Docs
-description: Meer informatie over hoe u een toegangs token voor OAuth 2.0-id-providers kunt door geven als een claim in een gebruikers stroom in Azure Active Directory B2C.
+title: Geef een toegangs token door via een gebruikers stroom naar uw toepassing-Azure Active Directory B2C
+description: Meer informatie over het door geven van een toegangs token voor OAuth 2,0-id-providers als een claim in een gebruikers stroom in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8e9019699d8a81d31d2b20f674fd76fcb70021d6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 66b3dc4aba5d1b29cc0c6190877fbd6b26a11f0c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846829"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510106"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Geef een toegangs token door via een gebruikers stroom naar uw toepassing in Azure Active Directory B2C
 
-> [!NOTE]
-> Deze functie is momenteel beschikbaar als openbare preview-versie.
-
-Een [gebruikers stroom](active-directory-b2c-reference-policies.md) in azure Active Directory (Azure AD) B2C biedt gebruikers van uw toepassing de mogelijkheid zich aan te melden of zich aan te melden met een id-provider. Wanneer de rit wordt gestart, ontvangt Azure AD B2C een [toegangs token](active-directory-b2c-reference-tokens.md) van de ID-provider. Azure AD B2C gebruikt dat token om informatie over de gebruiker op te halen. U schakelt een claim in uw gebruikers stroom in om het token door te geven aan de toepassingen die u registreert in Azure AD B2C.
+Een [gebruikers stroom](active-directory-b2c-reference-policies.md) in Azure Active Directory B2C (Azure AD B2C) biedt gebruikers van uw toepassing de mogelijkheid zich aan te melden of zich aan te melden met een id-provider. Wanneer de rit wordt gestart, ontvangt Azure AD B2C een [toegangs token](active-directory-b2c-reference-tokens.md) van de ID-provider. Azure AD B2C gebruikt dat token om informatie over de gebruiker op te halen. U schakelt een claim in uw gebruikers stroom in om het token door te geven aan de toepassingen die u registreert in Azure AD B2C.
 
 Azure AD B2C biedt momenteel alleen ondersteuning voor het door geven van het toegangs token van [OAuth 2,0](active-directory-b2c-reference-oauth-code.md) -id-providers, zoals [Facebook](active-directory-b2c-setup-fb-app.md) en [Google](active-directory-b2c-setup-goog-app.md). Voor alle andere id-providers wordt de claim leeg geretourneerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Uw toepassing moet een v2- [gebruikers stroom](user-flow-versions.md)gebruiken.
-- Uw gebruikers stroom is geconfigureerd met een OAuth 2,0-ID-provider.
+* Uw toepassing moet een v2- [gebruikers stroom](user-flow-versions.md)gebruiken.
+* Uw gebruikers stroom is geconfigureerd met een OAuth 2,0-ID-provider.
 
 ## <a name="enable-the-claim"></a>Claim inschakelen
 

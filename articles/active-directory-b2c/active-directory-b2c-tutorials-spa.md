@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6884cb7b10da3996977f2aea7693625bc45c3139
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 8683169e0f8464cdcf52600968f67f3622e61445
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369570"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509590"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Zelfstudie: Verificatie inschakelen in een webtoepassing met één pagina met behulp van Azure Active Directory B2C
 
@@ -49,8 +49,8 @@ Daarnaast hebt u het volgende nodig in uw lokale ontwikkel omgeving:
 In de tweede zelf studie die u als onderdeel van de vereisten hebt voltooid, hebt u een webtoepassing geregistreerd in Azure AD B2C. Om te communiceren met het voorbeeld in deze zelfstudie, moet u een omleidings-URI toevoegen aan de toepassing in Azure AD B2C.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-1. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
-1. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
+1. Zorg ervoor dat u de map gebruikt die uw Azure AD B2C Tenant bevat door het filter voor **mappen en abonnementen** te selecteren in het bovenste menu en de map te kiezen die uw Tenant bevat.
+1. Selecteer **alle services** in de linkerbovenhoek van de Azure Portal, zoek naar en selecteer **Azure AD B2C**.
 1. Selecteer **Toepassingen** en selecteer vervolgens de toepassing *webapp1*.
 1. Voeg onder **Antwoord-URL** `http://localhost:6420` toe.
 1. Selecteer **Opslaan**.
@@ -109,23 +109,23 @@ Nu u het voor beeld hebt verkregen, werkt u de code bij met de naam van uw Azure
     Listening on port 6420...
     ```
 
-1. `http://localhost:6420` Ga in uw browser naar om de toepassing weer te geven.
+1. Ga naar `http://localhost:6420` in uw browser om de toepassing weer te geven.
 
 Het voorbeeld biedt ondersteuning voor registratie, aanmelding, het bewerken van een profiel en het opnieuw instellen van een wachtwoord. In deze zelfstudie leest u hoe gebruikers zich kunnen registreren met behulp van een e-mailadres.
 
 ### <a name="sign-up-using-an-email-address"></a>Aanmelden met een e-mailadres
 
-1. Klik op **Aanmelden** om de *B2C_1_signupsignin1* -gebruikers stroom te initiëren die u in een eerdere stap hebt opgegeven.
-1. Azure AD B2C toont een aanmeldingspagina met een koppeling voor registratie. Omdat u nog geen account hebt, klikt u op de koppeling **nu registreren** .
+1. Selecteer **Aanmelden** om de *B2C_1_signupsignin1* -gebruikers stroom te initiëren die u in een eerdere stap hebt opgegeven.
+1. Azure AD B2C toont een aanmeldingspagina met een koppeling voor registratie. Omdat u nog geen account hebt, selecteert u de koppeling **nu registreren** .
 1. Tijdens de aanmeldingswerkstroom wordt een pagina weergegeven waarmee de identiteit wordt opgehaald en gecontroleerd van de gebruiker die een e-mailadres heeft gebruikt. Tijdens de aanmeldingswerkstroom worden ook het wachtwoord van de gebruiker en de aangevraagde kenmerken opgehaald die in de gebruikersstroom zijn gedefinieerd.
 
     Gebruik een geldig e-mailadres en voer de verificatie uit met de verificatiecode. Stel een wachtwoord in. Geef waarden voor de aangevraagde kenmerken op.
 
     ![Registratie pagina die wordt weer gegeven door de gebruikers stroom aanmelden/registreren](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
-1. Klik op **Maken** om een lokaal account te maken in de Azure AD B2C-directory.
+1. Selecteer **maken** om een lokaal account te maken in de Azure AD B2C Directory.
 
-Wanneer u op **maken**klikt, wordt de pagina registreren gesloten en wordt de aanmeldings pagina opnieuw weer gegeven.
+Wanneer u maken selecteert, wordt de pagina registreren gesloten en wordt de aanmeldings pagina **opnieuw**weer gegeven.
 
 U kunt nu uw e-mail adres en wacht woord gebruiken om u aan te melden bij de toepassing.
 

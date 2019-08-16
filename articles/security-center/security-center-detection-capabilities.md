@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ac3d1a55a707349873132befb25a38358b563138
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bb54221dedc3bfd5ddc84098d5309d26abcfa305
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875558"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515578"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Detectiemogelijkheden van Azure Security Center
 Dit document bevat informatie over de geavanceerde detectie mogelijkheden van Azure Security Center, waarmee u actieve bedreigingen kunt identificeren die gericht zijn op uw Microsoft Azure resources, zowel Windows als Linux, en waarmee u de inzichten hebt die nodig zijn om snel te reageren.
@@ -47,7 +47,7 @@ Security Center maakt gebruik van geavanceerde beveiligingsanalyses die veel ver
 * **Gedragsanalyses**: er worden bekende patronen toegepast om kwaadwillend gedrag te detecteren.
 * **Afwijkingsdetectie**: er wordt gebruikgemaakt van statistische profilering om een historische basislijn op te stellen. Er wordt een waarschuwing gegeven bij afwijkingen van vastgestelde basislijnen die aan een mogelijke aanvalsvector voldoen.
 
-### <a name="threat-intelligence"></a>Informatie over bedreigingen
+### <a name="threat-intelligence"></a>Bedreigingsinformatie
 Microsoft heeft een gigantische hoeveelheid informatie over wereldwijde bedreigingen. Telemetrie komt binnen uit meerdere bronnen, zoals Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, de Microsoft Digital Crimes Unit (DCU) en Microsoft Security Response Center (MSRC). Onderzoekers ontvangen ook informatie over bedreigingen die wordt gedeeld tussen de primaire cloudserviceproviders en abonnementen op feeds met informatie over bedreigingen van derden. Azure Security Center kan deze informatie gebruiken om u te waarschuwen over bedreigingen van bekende beveiligingsrisico’s. Voorbeelden zijn:
 
 * **Uitgaande communicatie met een schadelijk IP-adres**: uitgaand verkeer naar een bekend botnet of darknet duidt waarschijnlijk op dat uw bron is aangetast en dat een aanvaller probeert opdrachten uit te voeren op die systeem-of exfiltreren-gegevens. Azure Security Center vergelijkt netwerkverkeer met de wereldwijde bedreigingsdatabase van Microsoft en waarschuwt u als communicatie met een schadelijk IP-adres wordt gedetecteerd.
@@ -83,7 +83,7 @@ In dit document hebt u kunnen lezen hoe de detectiemogelijkheden in Azure Securi
 
 * [Plannings- en bedieningsgids voor Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Beveiligingswaarschuwingen per type in Azure Security Center](security-center-alerts-type.md)
+* [Beveiligings waarschuwingen in Azure Security Center](security-center-alerts-overview.md)
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md): meer informatie over het bewaken van de status van uw Azure-resources.
 * [Partneroplossingen bewaken met Azure Security Center](security-center-partner-solutions.md): leer hoe u de integriteitsstatus van uw partneroplossingen kunt bewaken.
 * [Azure Security Center FAQ](security-center-faq.md): raadpleeg veelgestelde vragen over het gebruik van de service.

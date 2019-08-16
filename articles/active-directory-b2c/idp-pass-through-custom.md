@@ -1,5 +1,5 @@
 ---
-title: Geef een toegangs token door via een aangepast beleid voor uw toepassing in Azure Active Directory B2C | Microsoft Docs
+title: Geef een toegangs token door via een aangepast beleid voor uw toepassing in Azure Active Directory B2C
 description: Meer informatie over hoe u een toegangs token kunt door geven voor OAuth 2.0-id-providers als een claim via een aangepast beleid voor uw toepassing in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,27 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2253e9f6331662f0ead0251f9affd7996e02aa31
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b6795af0829a288c36cad5b848fed50a99dc1bfc
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846878"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510125"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Geef een toegangs token door via een aangepast beleid voor uw toepassing in Azure Active Directory B2C
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
-Een [aangepast beleid](active-directory-b2c-get-started-custom.md) in azure Active Directory (Azure AD) B2C biedt gebruikers van uw toepassing de mogelijkheid zich aan te melden of zich aan te melden met een id-provider. Als dit gebeurt, ontvangt Azure AD B2C een [toegangs token](active-directory-b2c-reference-tokens.md) van de ID-provider. Azure AD B2C gebruikt dat token om informatie over de gebruiker op te halen. U voegt een claim type en uitvoer claim toe aan uw aangepaste beleid om het token door te geven aan de toepassingen die u registreert in Azure AD B2C.
+Een [aangepast beleid](active-directory-b2c-get-started-custom.md) in Azure Active Directory B2C (Azure AD B2C) biedt gebruikers van uw toepassing de mogelijkheid zich aan te melden of zich aan te melden met een id-provider. Als dit gebeurt, ontvangt Azure AD B2C een [toegangs token](active-directory-b2c-reference-tokens.md) van de ID-provider. Azure AD B2C gebruikt dat token om informatie over de gebruiker op te halen. U voegt een claim type en uitvoer claim toe aan uw aangepaste beleid om het token door te geven aan de toepassingen die u registreert in Azure AD B2C.
 
 Azure AD B2C ondersteunt het door geven van het toegangs token van [OAuth 2,0](active-directory-b2c-reference-oauth-code.md) -en [OpenID Connect Connect](active-directory-b2c-reference-oidc.md) -id-providers. Voor alle andere id-providers wordt de claim leeg geretourneerd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Het aangepaste beleid is geconfigureerd met een OAuth 2,0-of OpenID Connect Connect-ID-provider.
+* Het aangepaste beleid is geconfigureerd met een OAuth 2,0-of OpenID Connect Connect-ID-provider.
 
 ## <a name="add-the-claim-elements"></a>De claim elementen toevoegen
 
@@ -86,19 +84,19 @@ Bij het testen van uw toepassingen in azure AD B2C kan het nuttig zijn om het Az
 ### <a name="upload-the-files"></a>De bestanden uploaden
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Zorg ervoor dat u de map gebruikt met uw Azure AD B2C-tenant door te klikken op het **Map- en abonnementsfilter** in het bovenste menu en de map te kiezen waarin uw tenant zich bevindt.
+2. Zorg ervoor dat u de map gebruikt die uw Azure AD B2C Tenant bevat door te klikken op het filter **Directory + abonnement** in het bovenste menu en de map te kiezen die uw Tenant bevat.
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer een **Framework voor identiteits ervaring**.
 5. Klik op het tabblad Aangepaste beleids regels op **beleid uploaden**.
 6. Selecteer **het beleid overschrijven als dit bestaat**, en zoek en selecteer het bestand *TrustframeworkExtensions. XML* .
-7. Klik op **Uploaden**.
+7. Selecteer **Uploaden**.
 8. Herhaal stap 5 tot en met 7 voor het Relying Party bestand, zoals *SignUpOrSignIn. XML*.
 
 ### <a name="run-the-policy"></a>Het beleid uitvoeren
 
 1. Open het beleid dat u hebt gewijzigd. Bijvoorbeeld *B2C_1A_signup_signin*.
 2. Selecteer voor **toepassing**de toepassing die u eerder hebt geregistreerd. Voor een overzicht van het token in het onderstaande voor beeld moet de antwoord `https://jwt.ms`- **URL** worden weer gegeven.
-3. Klik op **Nu uitvoeren**.
+3. Selecteer **nu uitvoeren**.
 
     Het volgende voor beeld ziet er ongeveer uit:
 
@@ -106,4 +104,4 @@ Bij het testen van uw toepassingen in azure AD B2C kan het nuttig zijn om het Az
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over tokens in de [Azure Active Directory-token verwijzing](active-directory-b2c-reference-tokens.md).
+Meer informatie over tokens in de [Azure Active Directory B2C-token verwijzing](active-directory-b2c-reference-tokens.md).

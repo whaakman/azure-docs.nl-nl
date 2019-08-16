@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 8fac70e7e5125ae86b2b5ce13041bbf1fd067bbe
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07fa7f3df5274ae88c93deac75093ead3f32f036
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642070"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509099"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Verificatie tussen het REGI ster in een ACR-taak met behulp van een door Azure beheerde identiteit 
 
@@ -76,7 +76,7 @@ Met de stappen in deze sectie maakt u een taak en schakelt u een door de gebruik
 
 ### <a name="create-task"></a>Taak maken
 
-Maak de taak *helloworldtask* door de volgende [AZ ACR Task Create][az-acr-task-create] -opdracht uit te voeren. De taak context is het lokale systeem en de opdracht verwijst naar het bestand `helloworldtask.yaml` in de werkmap. De `--assign-identity` para meter geeft de resource-id van de door de gebruiker toegewezen identiteit door. 
+Maak de taak *helloworldtask* door de volgende [AZ ACR Task Create][az-acr-task-create] -opdracht uit te voeren. De taak wordt uitgevoerd zonder een bron code context en de opdracht verwijst naar het `helloworldtask.yaml` bestand in de werkmap. De `--assign-identity` para meter geeft de resource-id van de door de gebruiker toegewezen identiteit door. 
 
 ```azurecli
 az acr task create \
@@ -95,7 +95,7 @@ Met de stappen in deze sectie maakt u een taak en schakelt u een door het systee
 
 ### <a name="create-task"></a>Taak maken
 
-Maak de taak *helloworldtask* door de volgende [AZ ACR Task Create][az-acr-task-create] -opdracht uit te voeren. De taak context is het lokale systeem en de opdracht verwijst naar het bestand `helloworldtask.yaml` in de werkmap. Met `--assign-identity` de para meter zonder waarde kan de door het systeem toegewezen identiteit voor de taak worden ingeschakeld. 
+Maak de taak *helloworldtask* door de volgende [AZ ACR Task Create][az-acr-task-create] -opdracht uit te voeren. De taak wordt uitgevoerd zonder een bron code context en de opdracht verwijst naar het `helloworldtask.yaml` bestand in de werkmap. Met `--assign-identity` de para meter zonder waarde kan de door het systeem toegewezen identiteit voor de taak worden ingeschakeld. 
 
 ```azurecli
 az acr task create \

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
-ms.openlocfilehash: 78c75e69be5521660937e34da0d7261dba1de385
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a3e1853e587f2f1632641cbb896eba59f8dc9455
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955349"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515768"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Gegevensbronnen voor QnA Maker-inhoud
 
@@ -133,9 +133,21 @@ Vragen en antwoorden supereenvoudig in de vorm van gestructureerde *.txt*, *.tsv
 
 Eventuele extra kolommen in het bronbestand worden genegeerd.
 
+### <a name="example-of-structured-excel-file"></a>Voor beeld van een gestructureerd Excel-bestand
+
 Hieronder volgt een voorbeeld van een gestructureerde QnA *xls* bestand met de HTML-inhoud:
 
  ![Voorbeeld van een kennisdatabase gestructureerde QnA in excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Voor beeld van alternatieve vragen voor één antwoord in een Excel-bestand
+
+Hieronder ziet u een voor beeld van een gestructureerd QnA *. xls* -bestand, met verschillende alternatieve vragen voor één antwoord:
+
+ ![Voor beeld van alternatieve vragen voor één antwoord in een Excel-bestand](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+Nadat het bestand is geïmporteerd, bevindt het vraag-en antwoord paar zich in de Knowledge Base, zoals hieronder wordt weer gegeven:
+
+ ![Scherm afbeelding van alternatieve vragen voor één antwoord dat in de Knowledge Base wordt geïmporteerd](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## <a name="structured-data-format-through-import"></a>Indeling van gestructureerde gegevens via importeren
 

@@ -3,7 +3,7 @@ title: Aan de slag met Queue Storage en Visual Studio Connected Services (projec
 description: Hoe u aan de slag gaat met Azure Queue Storage in een Webtaak-project nadat u verbinding hebt gemaakt met een opslag account met behulp van Visual Studio Connected Services.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248964"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510802"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Queue Storage en Visual Studio Connected Services (project taak)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -44,8 +44,8 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Naast **teken reeksen**kan de para meter een byte matrix, een **CloudQueueMessage** -object of een poco die u definieert.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(onbewerkt oud CLR-object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in wachtrij
-In het volgende voor beeld bevat het wachtrij bericht JSON voor een **BlobInformation** -object dat een **** eigenschap blobnaam bevat. De SDK deserialiseren automatisch het object.
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO [(onbewerkt oud CLR-object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in wachtrij
+In het volgende voor beeld bevat het wachtrij bericht JSON voor een **BlobInformation** -object dat een eigenschap blobnaam bevat. De SDK deserialiseren automatisch het object.
 
 ```csharp
 public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
@@ -88,7 +88,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Typen het kenmerk Queue trigger werkt met
 U kunt **Queue trigger** gebruiken met de volgende typen:
 
-* **Tekenreeks**
+* **string**
 * Een POCO-type geserialiseerd als JSON
 * **byte[]**
 * **CloudQueueMessage**
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(onbewerkt oud CLR-object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in wachtrij
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO [(onbewerkt oud CLR-object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in wachtrij
 Als u een wachtrij bericht wilt maken dat een POCO bevat in plaats van een teken reeks, geeft u het type POCO door als een uitvoer parameter voor de constructor van de **wachtrij** kenmerk.
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(onbewerkt oud CLR-object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in wachtrij
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO [(onbewerkt oud CLR-object](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) berichten in wachtrij
 Voor een POCO die is opgeslagen als JSON in het wachtrij bericht, kunt u tijdelijke aanduidingen gebruiken die de naam eigenschappen van het object in de para meter **blobPath** van het **wachtrij** kenmerk hebben. U kunt ook eigenschaps namen van meta gegevens in de wachtrij als tijdelijke aanduidingen gebruiken. Zie [meta gegevens van wachtrij of wachtrij bericht ophalen](#get-queue-or-queue-message-metadata).
 
 In het volgende voor beeld wordt een BLOB naar een nieuwe BLOB gekopieerd met een andere extensie. Het bericht in de wachtrij is een **BlobInformation** -object dat **BLOB** -en **BlobNameWithoutExtension** -eigenschappen bevat. De eigenschapnamen worden gebruikt als tijdelijke aanduidingen in het BLOB-pad voor de **BLOB** -kenmerken.

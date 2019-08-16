@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: c738b2d44c5faca1ef95b2da8fd1f90a1b3af919
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: a7950d80bd5aa21b26a7724845f10515a65c033d
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371025"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512704"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Quickstart: Een .NET-console-app bouwen om Azure Cosmos DB SQL-API-resources te beheren
 
@@ -165,6 +165,8 @@ Zie [werken met data bases, containers en items in azure Cosmos DB](databases-co
 * [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet): deze methode maakt (als deze niet bestaat) of haalt (als deze al bestaat) een container als een asynchrone bewerking. U kunt de status code van het antwoord controleren om te bepalen of de container nieuw is gemaakt (201) of dat een bestaande container is geretourneerd (200). 
 * [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) : met deze methode maakt u een item in de container. 
 
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) : met deze methode maakt u een item in de container als deze nog niet bestaat of vervangt u het item als dit al bestaat. 
+
 * [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
 ) : met deze methode maakt u een query voor items onder een container in een Azure Cosmos-data base met behulp van een SQL-instructie met geparametriseerde waarden. 
 
@@ -294,7 +296,7 @@ public class Program
 
 ### <a name="create-a-database"></a>Een database maken 
 
-Definieer de `CreateDatabaseAsync` methode in de `program.cs` klasse. Met deze methode maakt `FamilyDatabase` u de als deze nog niet bestaat. 
+Definieer de `CreateDatabaseAsync` methode in de `program.cs` klasse. Met deze methode maakt `FamilyDatabase` u de als deze nog niet bestaat.
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -322,7 +324,7 @@ private async Task CreateContainerAsync()
 
 ### <a name="create-an-item"></a>Een item maken
 
-Maak een familie-item door de `AddItemsToContainerAsync` -methode toe te voegen met de volgende code:
+Maak een familie-item door de `AddItemsToContainerAsync` -methode toe te voegen met de volgende code. U kunt de `CreateItemAsync` methoden of `UpsertItemAsync` gebruiken om een item te maken:
 
 ```csharp
 private async Task AddItemsToContainerAsync()

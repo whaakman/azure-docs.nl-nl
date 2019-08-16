@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967585"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509076"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Een ACR-taak uitvoeren volgens een gedefinieerd schema
 
@@ -48,9 +48,9 @@ Als eenvoudig voor beeld wordt met de volgende opdracht de `hello-world` install
 az acr task create \
   --name mytask \
   --registry myregistry \
-  --context /dev/null \
   --cmd hello-world \
-  --schedule "0 21 * * *"
+  --schedule "0 21 * * *" \
+  --context /dev/null
 ```
 
 Voer de opdracht [AZ ACR Task show][az-acr-task-show] uit om te zien dat de timer trigger is geconfigureerd. De trigger voor het bijwerken van de basis installatie kopie is standaard ook ingeschakeld.
@@ -176,11 +176,11 @@ Elk veld kan een van de volgende typen waarden hebben:
 
 |type  |Voorbeeld  |Wanneer geactiveerd  |
 |---------|---------|---------|
-|Een specifieke waarde |<nobr>"5 * * * *"</nobr>|elk uur om 5 minuten na het hele uur|
-|Alle waarden (`*`)|<nobr>"* 5 * * *"</nobr>|elke minuut van het uur vanaf 5:00 UTC (60 keer per dag)|
-|Een bereik (`-` operator)|<nobr>"0 1-3 * * *"</nobr>|3 keer per dag, om 1:00, 2:00 en 3:00 UTC|
-|Een reeks waarden (`,` operator)|<nobr>"20, 30, 40 * * * *"</nobr>|3 keer per uur, om 20 minuten, 30 minuten en 40 minuten na het hele uur|
-|Een interval waarde (`/` operator)|<nobr>"*/10 * * * *"</nobr>|6 keer per uur, 10 minuten, 20 minuten, enzovoort, na het hele uur
+|Een specifieke waarde |<nobr>`"5 * * * *"`</nobr>|elk uur om 5 minuten na het hele uur|
+|Alle waarden (`*`)|<nobr>`"* 5 * * *"`</nobr>|elke minuut van het uur vanaf 5:00 UTC (60 keer per dag)|
+|Een bereik (`-` operator)|<nobr>`"0 1-3 * * *"`</nobr>|3 keer per dag, om 1:00, 2:00 en 3:00 UTC|
+|Een reeks waarden (`,` operator)|<nobr>`"20,30,40 * * * *"`</nobr>|3 keer per uur, om 20 minuten, 30 minuten en 40 minuten na het hele uur|
+|Een interval waarde (`/` operator)|<nobr>`"*/10 * * * *"`</nobr>|6 keer per uur, 10 minuten, 20 minuten, enzovoort, na het hele uur
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -198,6 +198,8 @@ Elk veld kan een van de volgende typen waarden hebben:
 
 
 ## <a name="next-steps"></a>Volgende stappen
+
+Zie [automatisch installatie kopieën verwijderen uit een Azure container Registry](container-registry-auto-purge.md)voor een voor beeld van het gebruik van een geplande taak om opslag plaatsen in een REGI ster op te schonen.
 
 Bekijk de [zelf studie over ACR-taken](container-registry-tutorial-quick-task.md)voor voor beelden van taken die worden geactiveerd door bron code door voeren of updates van de basis installatie kopie.
 

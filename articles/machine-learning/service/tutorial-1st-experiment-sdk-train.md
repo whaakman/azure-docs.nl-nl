@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Train uw eerste model.'
+title: 'Zelfstudie: Uw eerste ML model trainen'
 titleSuffix: Azure Machine Learning service
 description: In deze zelf studie leert u de Foundational ontwerp patronen in Azure Machine Learning-service en traint u een eenvoudig scikit-leer model op basis van de diabetes-gegevensset.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: a3db70925d59f9d0e2793b04824b2e8606719dd4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 17fee1f01bf883aa2a9845fe4f2817fb806056dd
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934238"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516238"
 ---
-# <a name="tutorial-train-your-first-model"></a>Zelfstudie: Uw eerste model trainen
+# <a name="tutorial-train-your-first-ml-model"></a>Zelfstudie: Uw eerste ML model trainen
 
 Deze zelfstudie is **deel twee van een tweedelige reeks**. In de vorige zelf studie hebt u [een werk ruimte gemaakt en een ontwikkel omgeving gekozen](tutorial-1st-experiment-sdk-setup.md). In deze zelf studie leert u de Foundational ontwerp patronen in Azure Machine Learning-service en traint u een eenvoudig scikit-leer model op basis van de diabetes-gegevensset. Na het volt ooien van deze zelf studie beschikt u over de praktische kennis van de SDK voor het uitbreiden van meer complexe experimenten en werk stromen.
 

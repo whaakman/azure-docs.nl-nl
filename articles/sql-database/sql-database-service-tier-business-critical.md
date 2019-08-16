@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 208224e10c3acfb17bc5fd89d2d66152943811dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 48cde2f96083779bdeb13ba5f39b68c18b395045
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566748"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515377"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Bedrijfskritiek laag-Azure SQL Database
 
@@ -48,7 +48,7 @@ Bedrijfskritiek servicelaag is ontworpen voor de toepassingen die antwoorden met
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zoek bron kenmerken (aantal kernen, i/o, geheugen) van Bedrijfskritiek-laag in [beheerde instantie](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), afzonderlijke data base in [VCore model](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) of [DTU-model](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), of elastische pool in [vCore model](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) en [DTU-model](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Zoek bron kenmerken (aantal kernen, i/o, geheugen) van Bedrijfskritiek-laag in [beheerde instantie](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), afzonderlijke data base in [VCore model](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) of [DTU-model](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), of elastische pool in [vCore model](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) en [DTU-model](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Meer informatie over [Algemeen](sql-database-service-tier-general-purpose.md) -en [grootschalige](sql-database-service-tier-hyperscale.md) -lagen.
 - Meer informatie over [service Fabric](../service-fabric/service-fabric-overview.md).
 - Zie [bedrijfs continuïteit](sql-database-business-continuity.md)voor meer opties voor hoge Beschik baarheid en herstel na nood gevallen.

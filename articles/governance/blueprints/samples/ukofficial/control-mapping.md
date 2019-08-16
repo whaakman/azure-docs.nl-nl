@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 945898105aab7261ee494a86aeff10337599feb3
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 7da31e09157b8877db4d36d0f061f29433d02d11
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226012"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515629"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controle van de toewijzing van de voor beelden van het Verenigd Konink rijk en UK NHS blauw drukken
 
@@ -33,13 +33,13 @@ De blauw druk helpt u ervoor te zorgen dat de overdracht van gegevens met Azure-
 Deze blauw druk helpt u bij het afdwingen van uw beleid voor het gebruik van cryptograph-besturings elementen door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die specifieke cryptograph-besturings elementen afdwingen en het gebruik van zwakke cryptografische instellingen te controleren.
 Als u wilt weten waar uw Azure-resources mogelijk niet-optimale cryptografische configuraties hebben, kunt u corrigerende maat regelen nemen om ervoor te zorgen dat bronnen worden geconfigureerd in overeenstemming met uw informatie beveiligings beleid. Met name de beleids regels die door deze blauw drukken worden toegewezen, vereisen versleuteling voor data Lake Storage-accounts. transparante gegevens versleuteling vereisen voor SQL-data bases; ontbrekende versleuteling controleren voor opslag accounts, SQL-data bases, schijven van virtuele machines en Automation-account variabelen; Controleer onbeveiligde verbindingen met opslag accounts en Redis Cache; de zwakke versleuteling van het wacht woord van de virtuele machine controleren; en niet-versleutelde Service Fabric communicatie controleren.
 
-- Niet-versleutelde SQL-data bases in Azure Security Center bewaken
+- Transparent Data Encryption voor SQL-data bases moet zijn ingeschakeld
 - Schijf versleuteling moet worden toegepast op virtuele machines
 - De variabelen van het Automation-account moeten worden versleuteld
 - Beveiligde overdracht naar opslag accounts moet zijn ingeschakeld
 - Voor Service Fabric clusters moet de eigenschap ClusterProtectionLevel zijn ingesteld op EncryptAndSign
 - Transparent Data Encryption voor SQL-data bases moet zijn ingeschakeld
-- Transparante gegevens versleuteling van SQL DB implementeren
+- Transparante gegevensversleuteling in SQL DB implementeren
 - Versleuteling vereisen voor Data Lake Store accounts
 - Toegestane locaties (is vastgelegd in "UK-Zuid" en "UK-WEST")
 - Toegestane locaties voor resource groepen (is vastgelegd in "UK-Zuid" en "UK-WEST")
@@ -48,7 +48,7 @@ Als u wilt weten waar uw Azure-resources mogelijk niet-optimale cryptografische 
 
 Deze blauw druk helpt u bij het beheren van beveiligings problemen met informatie systemen door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die ontbrekende eindpunt beveiliging controleren, ontbrekende systeem updates, kwets bare besturings systemen, SQL-beveiligings problemen en virtuele computer lekken. Deze inzichten bieden real-time informatie over de beveiligings status van uw geïmplementeerde resources en kunnen u helpen bij het bepalen van herstel acties.
 
-- Ontbrekende Endpoint Protection in Azure Security Center controleren
+- Ontbrekende Endpoint Protection bewaken in Azure Security Center
 - Systeem updates moeten worden geïnstalleerd op uw computers
 - Beveiligings problemen in de beveiligings configuratie op uw computers moeten worden hersteld
 - Beveiligings problemen voor uw SQL-data bases moeten worden hersteld
@@ -58,9 +58,9 @@ Deze blauw druk helpt u bij het beheren van beveiligings problemen met informati
 
 Deze blauw druk helpt u bij het beveiligen van informatie systeem assets door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die beschermende bewaking bieden op onbeperkte toegang, white list-activiteit en bedreigingen.
 
-- Onbeperkte netwerk toegang tot opslag accounts controleren
+- Onbeperkte netwerktoegang tot opslagaccounts controleren
 - Adaptieve toepassings besturings elementen moeten worden ingeschakeld op virtuele machines
-- Detectie van bedreigingen op SQL-servers implementeren
+- Detectie van bedreigingen implementeren op SQL-servers
 - Standaard micro soft IaaS anti-malware-extensie voor Windows Server implementeren
 
 ## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 veilig gebruikers beheer/10 identiteit en verificatie
@@ -111,13 +111,13 @@ Met deze blauw druk kunt u ook de toegang tot Azure-resources beheren door Azure
 - \[Voor\]beeld: Virtuele Linux-machines controleren die externe verbindingen van accounts zonder wacht woorden toestaan
 - Opslag accounts moeten worden gemigreerd naar nieuwe Azure Resource Manager-resources
 - Virtuele machines moeten worden gemigreerd naar nieuwe Azure Resource Manager-resources
-- Virtuele machines controleren die geen beheerde schijven gebruiken
+- Controleer virtuele machines die niet gebruikmaken van beheerde schijven
 
 ## <a name="11-external-interface-protection"></a>11 externe interface beveiliging
 
 Behalve met het gebruik van meer dan 25 beleids regels voor het juiste veilige gebruikers beheer, kunt u met deze blauw druk Service interfaces beveiligen tegen onbevoegde toegang door een [Azure Policy](../../../policy/overview.md) definitie toe te wijzen waarmee onbeperkte opslag accounts worden bewaakt. Opslag accounts met onbeperkte toegang kunnen onbedoelde toegang tot gegevens in het informatie systeem toestaan. Deze blauw druk wijst ook een beleid toe dat adaptieve toepassings besturings elementen op virtuele machines mogelijk maakt.
 
-- Onbeperkte netwerk toegang tot opslag accounts controleren
+- Onbeperkte netwerktoegang tot opslagaccounts controleren
 - Adaptieve toepassings besturings elementen moeten worden ingeschakeld op virtuele machines
 
 ## <a name="12-secure-service-administration"></a>12 beheer van beveiligde services
@@ -151,12 +151,12 @@ Deze blauw druk wijst ook een Azure Policy definitie toe waarmee de machtigingen
 
 Deze blauw druk helpt u om ervoor te zorgen dat systeem gebeurtenissen worden vastgelegd door [Azure Policy](../../../policy/overview.md) definities toe te wijzen die logboek instellingen op Azure-resources controleren. Een toegewezen beleid controleert ook of de virtuele machines geen logboeken verzenden naar een opgegeven log Analytics-werk ruimte.
 
-- Niet-gecontroleerde SQL-servers in Azure Security Center bewaken
+- Controle moet worden ingeschakeld voor geavanceerde instellingen voor gegevens beveiliging op SQL Server
 - Diagnostische instelling voor controleren
-- Controle-instellingen op SQL server-niveau controleren
+- Instellingen voor SQL-controle op serverniveau
 - \[Voor\]beeld: Log Analytics-agent voor Linux-Vm's implementeren
 - \[Voor\]beeld: Log Analytics-agent voor Windows-Vm's implementeren
-- Network Watcher implementeren bij het maken van virtuele netwerken
+- Network Watcher implementeren wanneer er virtuele netwerken worden gemaakt
 
 ## <a name="next-steps"></a>Volgende stappen
 

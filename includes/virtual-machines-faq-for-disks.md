@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843182"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516064"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS-VM-schijven en beheerde en onbeheerde Premium-schijven
 
@@ -143,7 +143,48 @@ GPT-partitionering kan alleen worden gebruikt op gegevens schijven, niet op best
 
 **Welke schijf typen ondersteunen moment opnamen?**
 
-Moment opnamen van Premium-SSD, Standard SSD en Standard HDD-ondersteuning. Voor deze drie schijf typen worden moment opnamen ondersteund voor alle schijf grootten (inclusief schijven tot 32 TiB groot). Ultra Ssd's bieden geen ondersteuning voor moment opnamen.
+Moment opnamen van Premium-SSD, Standard SSD en Standard HDD-ondersteuning. Voor deze drie schijf typen worden moment opnamen ondersteund voor alle schijf grootten (inclusief schijven tot 32 TiB groot). Ultra disks bieden geen ondersteuning voor moment opnamen.
+
+## <a name="ultra-disks"></a>Ultra schijven
+
+**Welke regio's ondersteunen momenteel Ultra schijven?**
+- US - oost 2
+- Zuidoost-Azië
+- Europa - noord
+
+**Welke VM-serie ondersteunt momenteel Ultra schijven?**
+- ESv3
+- DSv3
+
+**Hoe stel ik mijn Ultra Disk-door Voer in op?**
+Als u niet zeker weet wat uw schijf doorvoer moet instellen, raden we u aan om te beginnen met een i/o-grootte van 16 KiB en de prestaties van daar aan te passen terwijl u uw toepassing bewaakt. De formule is: Door Voer in MBps = aantal IOPS * 16/1000.
+
+**Ik heb mijn schijf geconfigureerd voor 40000 IOPS, maar ik zie alleen 12800 IOPS, waarom worden de prestaties van de schijf niet weer gegeven?**
+Naast de schijf beperking is er sprake van een IO-beperking die wordt opgelegd op het niveau van de virtuele machine. Zorg ervoor dat de grootte van de virtuele machine die u gebruikt, de niveaus kan ondersteunen die op uw schijven zijn geconfigureerd. Zie [grootten voor virtuele Windows-machines in azure](../articles/virtual-machines/windows/sizes.md)voor meer informatie over de i/o-limieten die door uw virtuele machine worden opgelegd.
+
+**Kan ik cache niveaus gebruiken met een ultra schijf?**
+Nee, Ultra disks bieden geen ondersteuning voor de verschillende cache methoden die op andere schijf typen worden ondersteund. Stel de schijf cache in op geen.
+
+**Kan ik een ultra schijf koppelen aan mijn bestaande VM?**
+Misschien moet uw virtuele machine zich in een regio-en beschikbaarheids zone paar bevinden dat ondersteuning biedt voor Ultra schijven. Zie [aan de slag met ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) voor meer informatie.
+
+**Kan ik een ultra schijf gebruiken als de besturingssysteem schijf voor mijn VM?**
+Nee, ultradraagbare schijven worden alleen ondersteund als gegevens schijven en worden alleen ondersteund als systeem eigen schijven van 4.000 kB.
+
+**Kan ik een bestaande schijf converteren naar een ultra schijf?**
+Nee, maar u kunt de datum van een bestaande schijf naar een ultra schijf migreren. Als u een bestaande schijf naar een ultra schijf wilt migreren, koppelt u beide schijven aan dezelfde VM en kopieert u de gegevens van de schijf van de ene schijf naar de andere en maakt u gebruik van een oplossing van derden voor gegevens migratie.
+
+**Kan ik moment opnamen maken voor Ultra schijven?**
+Nee, moment opnamen zijn nog niet beschikbaar.
+
+**Is Azure Backup beschikbaar voor Ultra schijven?**
+Nee, Azure Backup-ondersteuning is nog niet beschikbaar.
+
+**Kan ik een ultra schijf koppelen aan een virtuele machine die wordt uitgevoerd in een beschikbaarheidsset?**
+Nee, dit wordt nog niet ondersteund.
+
+**Kan ik Azure Site Recovery (ASR) inschakelen voor Vm's met ultra schijven?**
+Nee, ASR wordt nog niet ondersteund voor Ultra disks.
 
 ## <a name="standard-ssd-disks"></a>Standard-SSD schijven
 

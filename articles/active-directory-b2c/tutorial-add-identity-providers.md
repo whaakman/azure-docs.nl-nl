@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5710ccfe5d6450714e029827a795b484b1bcd2b4
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: eee881e6d4e446e07867261545a90dfacaa93712
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716651"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512212"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Zelfstudie: Voeg id-providers toe aan uw toepassingen in Azure Active Directory B2C
 
@@ -98,7 +98,7 @@ Nadat u de toepassing hebt gemaakt voor de ID-provider die u wilt toevoegen, voe
 1. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 1. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
 1. Voer een **naam**in. Voer bijvoorbeeld *Contoso Azure AD*in.
-1. Selecteer een **ID-provider type**, selecteer **OpenID Connect Connect (preview)** en klik vervolgens op **OK**.
+1. Selecteer een **ID-provider type**, selecteer **OpenID Connect Connect**en klik vervolgens op **OK**.
 1. Klik op **Deze id-provider instellen**
 1. Voor **meta gegevens-URL**voert u de volgende URL `your-AD-tenant-domain` in, waarbij u vervangt door de domein naam van uw Azure AD-Tenant.
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 24ad0f2e917420c327577851cabc9e5bdbad2825
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640277"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515672"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Sink-trans formatie voor een gegevens stroom
 
@@ -79,13 +79,16 @@ Bestands namen instellen:
 
 Data base-instellingen kiezen:
 
+![Het tabblad instellingen met de SQL-Sink-opties](media/data-flow/alter-row2.png "SQL-opties")
+
 * **Update methode**: De standaard instelling is invoegen toestaan. Schakel **Invoegen toestaan** uit als u wilt stoppen met het invoegen van nieuwe rijen uit uw bron. Als u rijen wilt bijwerken, upsert of verwijderen, moet u eerst een trans formatie met gewijzigde rijen toevoegen aan de labels voor deze acties. 
 * **Tabel opnieuw maken**: De doel tabel neerzetten of maken voordat de gegevens stroom is voltooid.
 * **Tabel afkappen**: Verwijder alle rijen uit de doel tabel voordat de gegevens stroom is voltooid.
 * **Batch grootte**: Voer een getal in om schrijf bewerkingen naar segmenten te buckeren. Gebruik deze optie voor het laden van grote hoeveel heden gegevens. 
 * **Fase ring inschakelen**: Gebruik poly base wanneer u Azure data warehouse als uw Sink-gegevensset laadt.
+* **SQL-scripts vooraf en na**: Voer SQL-scripts met meerdere regels in die worden uitgevoerd vóór (vóór verwerking) en nadat (na verwerking) gegevens naar uw Sink-Data Base zijn geschreven
 
-![Het tabblad instellingen met de SQL-Sink-opties](media/data-flow/alter-row2.png "SQL-opties")
+![scripts voor SQL-verwerking vooraf en na](media/data-flow/prepost1.png "SQL") -verwerkings scripts
 
 > [!NOTE]
 > In gegevens stroom kunt u Data Factory omleiden om een nieuwe tabel definitie in de doel database te maken. Als u de tabel definitie wilt maken, stelt u een gegevensset in de Sink-trans formatie in die een nieuwe tabel naam heeft. Selecteer in de SQL-gegevensset onder de tabel naam **bewerken** en voer een nieuwe tabel naam in. Schakel vervolgens in de Sink-trans formatie **Allow schema drift toestaan**in. Stel **import schema** in op **geen**.

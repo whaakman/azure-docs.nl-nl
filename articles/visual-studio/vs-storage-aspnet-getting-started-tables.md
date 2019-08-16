@@ -1,9 +1,9 @@
 ---
-title: Aan de slag met Azure table storage en Visual Studio verbonden Services (ASP.NET) | Microsoft Docs
-description: Aan de slag met behulp van Azure-tabelopslag nadat u verbinding met een opslagaccount met behulp van Visual Studio Connected Services in een ASP.NET-project in Visual Studio
+title: Aan de slag met Azure Table Storage en Visual Studio Connected Services (ASP.NET) | Microsoft Docs
+description: Aan de slag met Azure Table Storage in een ASP.NET-project in Visual Studio nadat u verbinding hebt gemaakt met een opslag account met behulp van Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,21 +12,21 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f0858d3c2e3f79dda58710031c105e83418058e
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122979"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511163"
 ---
-# <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure table storage en Visual Studio verbonden Services (ASP.NET)
+# <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure Table Storage en Visual Studio Connected Services (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Overzicht
 
-Azure Table storage kunt u voor het opslaan van grote hoeveelheden gestructureerde gegevens. De service is een NoSQL-gegevensarchief die geverifieerde aanroepen uit binnen en buiten de Azure-cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens.
+Met Azure-tabel opslag kunt u grote hoeveel heden gestructureerde gegevens opslaan. De service is een NoSQL-gegevens opslag die geverifieerde aanroepen binnen en buiten de Azure-Cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens.
 
-Deze zelfstudie laat zien hoe u ASP.NET-code voor enkele algemene scenario's met behulp van Azure table storage-entiteiten te schrijven. Deze scenario's omvatten het maken van een tabel en toe te voegen, opvragen en tabelentiteiten verwijderen. 
+In deze zelf studie leert u hoe u ASP.NET-code kunt schrijven voor een aantal algemene scenario's die gebruikmaken van Azure Table storage-entiteiten. Deze scenario's zijn onder andere het maken van een tabel en het toevoegen, opvragen en verwijderen van tabel entiteiten. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -39,21 +39,21 @@ Deze zelfstudie laat zien hoe u ASP.NET-code voor enkele algemene scenario's met
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-### <a name="create-an-mvc-controller"></a>Maken van een MVC-controller 
+### <a name="create-an-mvc-controller"></a>Een MVC-controller maken 
 
-1. In de **Solution Explorer**, met de rechtermuisknop op **Controllers**, en selecteer in het contextmenu **Add -> Controller**.
+1. In de **Solution Explorer**, klikt u met de rechter muisknop op **controllers**en selecteert u in het context menu de optie **Add-> controller**.
 
-    ![Een domeincontroller toevoegen aan een ASP.NET MVC-app](./media/vs-storage-aspnet-getting-started-tables/add-controller-menu.png)
+    ![Een controller toevoegen aan een ASP.NET MVC-app](./media/vs-storage-aspnet-getting-started-tables/add-controller-menu.png)
 
-1. Op de **Add Scaffold** dialoogvenster, selecteer **MVC 5 Controller - leeg**, en selecteer **toevoegen**.
+1. Selecteer in het dialoog venster **steigers toevoegen** de optie **MVC 5 controller-empty**en selecteer **toevoegen**.
 
-    ![MVC-controller opgeven](./media/vs-storage-aspnet-getting-started-tables/add-controller.png)
+    ![MVC-controller type opgeven](./media/vs-storage-aspnet-getting-started-tables/add-controller.png)
 
-1. Op de **Controller toevoegen** dialoogvenster, de naam van de controller *TablesController*, en selecteer **toevoegen**.
+1. Geef in het dialoog venster **controller toevoegen** de naam van de controller *TablesController*en selecteer **toevoegen**.
 
-    ![De naam van de MVC-controller](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
+    ![De MVC-controller een naam](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
 
-1. Voeg de volgende *met behulp van* instructies aan het `TablesController.cs` bestand:
+1. Voeg het volgende toe *met behulp van* de instructies in het `TablesController.cs` bestand:
 
     ```csharp
     using Microsoft.Azure;
@@ -62,21 +62,21 @@ Deze zelfstudie laat zien hoe u ASP.NET-code voor enkele algemene scenario's met
     using Microsoft.WindowsAzure.Storage.Table;
     ```
 
-### <a name="create-a-model-class"></a>Een modelklasse maken
+### <a name="create-a-model-class"></a>Een model klasse maken
 
-Veel van de voorbeelden in dit artikel gebruik een **TableEntity**-afgeleide klasse met de naam **CustomerEntity**. De volgende stappen begeleiden u bij deze klasse als een modelklasse te declareren:
+Veel van de voor beelden in dit artikel gebruiken een met **TableEntity**afgeleid klasse met de naam **CustomerEntity**. De volgende stappen begeleiden u bij het declareren van deze klasse als een model klasse:
 
-1. In de **Solution Explorer**, met de rechtermuisknop op **modellen**, en selecteer in het contextmenu **toevoegen -> Class**.
+1. Klik in de **Solution Explorer**met de rechter muisknop op **modellen**en selecteer in het context menu de **klasse add->** .
 
-1. Op de **Add New Item** dialoogvenster, de naam van de klasse **CustomerEntity**.
+1. Geef in het dialoog venster **Nieuw item toevoegen** de klasse de naam **CustomerEntity**.
 
-1. Open de `CustomerEntity.cs` bestand en voeg de volgende **met behulp van** richtlijn:
+1. Open het `CustomerEntity.cs` bestand en voeg het volgende toe **met** de instructie:
 
     ```csharp
     using Microsoft.WindowsAzure.Storage.Table;
     ```
 
-1. De klasse zodanig aanpassen dat, wanneer u klaar bent, de klasse is gedeclareerd als in de volgende code. De klasse declareert een entiteitsklasse die met de naam **CustomerEntity** die de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel gebruikt.
+1. Wijzig de klasse zodat de klasse na voltooiing wordt gedeclareerd als in de volgende code. De klasse declareert een entiteits klasse met de naam **CustomerEntity** die de voor naam van de klant als de rij-en achternaam als de partitie sleutel gebruikt.
 
     ```csharp
     public class CustomerEntity : TableEntity
@@ -95,15 +95,15 @@ Veel van de voorbeelden in dit artikel gebruik een **TableEntity**-afgeleide kla
 
 ## <a name="create-a-table"></a>Een tabel maken
 
-De volgende stappen laten zien hoe u een tabel maken:
+De volgende stappen laten zien hoe u een tabel maakt:
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u hebt de stappen in [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen. 
 
 1. Open het `TablesController.cs`-bestand.
 
-1. Voeg de methode met de naam **CreateTable** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **CreateTable** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult CreateTable()
@@ -114,42 +114,42 @@ De volgende stappen laten zien hoe u een tabel maken:
     }
     ```
 
-1. Binnen de **CreateTable** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **CreateTable** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Krijgen een **CloudTableClient** object vertegenwoordigt een tabel-service-client.
+1. Een **CloudTableClient** -object ophalen vertegenwoordigt een Table service-client.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Krijgen een **CloudTable** -object met een verwijzing naar de naam van de gewenste tabel. De **CloudTableClient.GetTableReference** methode maakt een aanvraag indient voor table-opslag. De verwijzing wordt geretourneerd, ongeacht of de tabel bestaat of niet. 
+1. Haal een **CloudTable** -object op dat een verwijzing naar de gewenste tabel naam vertegenwoordigt. De methode **CloudTableClient. GetTableReference** maakt geen aanvraag voor tabel opslag. De verwijzing wordt geretourneerd, ongeacht of de tabel bestaat. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Roep de **CloudTable.CreateIfNotExists** methode voor het maken van de tabel als deze nog niet bestaat. De **CloudTable.CreateIfNotExists** methode retourneert **waar** als de tabel niet bestaat en is gemaakt. Anders **false** wordt geretourneerd.    
+1. Roep de methode **CloudTable. CreateIfNotExists** aan om de tabel te maken als deze nog niet bestaat. De methode **CloudTable. CreateIfNotExists** retourneert **True** als de tabel niet bestaat en is gemaakt. Anders wordt **False** geretourneerd.    
 
     ```csharp
     ViewBag.Success = table.CreateIfNotExists();
     ```
 
-1. Update de **ViewBag** met de naam van de tabel.
+1. Werk de **ViewBag** bij met de naam van de tabel.
 
     ```csharp
     ViewBag.TableName = table.Name;
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **tabellen**, en selecteer in het contextmenu **Add -> weergave**.
+1. Vouw in de **Solution Explorer**de map **weer gaven** uit, klik met de rechter muisknop op **tabellen**en selecteer in het context menu de optie **toevoegen-> weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **CreateTable** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **CreateTable** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `CreateTable.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `CreateTable.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @{
@@ -161,38 +161,38 @@ De volgende stappen laten zien hoe u een tabel maken:
     Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **Create table** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **tabel maken** om de resultaten te bekijken die vergelijkbaar zijn met de volgende scherm afbeelding:
   
     ![Tabel maken](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    Zoals eerder vermeld de **CloudTable.CreateIfNotExists** methode retourneert **waar** alleen wanneer de tabel bestaat niet en is gemaakt. Dus als u de app uitvoert wanneer de tabel bestaat, retourneert de methode **false**. Als u wilt de app meerdere keren uitvoeren, moet u de tabel verwijderen voordat u de app nogmaals uit te voeren. Verwijderen van de tabel kan worden gedaan de **CloudTable.Delete** methode. U kunt ook verwijderen voor de tabel met de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Zoals eerder vermeld, retourneert de methode **CloudTable. CreateIfNotExists** alleen **True** als de tabel niet bestaat en wordt gemaakt. Als u de app uitvoert wanneer de tabel bestaat, retourneert de methode daarom **False**. Als u de app meerdere keren wilt uitvoeren, moet u de tabel verwijderen voordat u de app opnieuw uitvoert. Het verwijderen van de tabel kan worden uitgevoerd via de methode **CloudTable. Delete** . U kunt de tabel ook verwijderen met behulp van de [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-an-entity-to-a-table"></a>Een entiteit toevoegen aan een tabel
 
-*Entiteiten* toewijzen aan C\# objecten met behulp van een aangepaste klasse die is afgeleid van **TableEntity**. Als u een entiteit wilt toevoegen aan een tabel, maakt u een klasse die de eigenschappen van uw entiteit definieert. In deze sectie ziet u hoe u definieert een entiteitsklasse die gebruikmaakt van de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel. De partitie- en rijsleutel van een entiteit vormen samen de unieke id van de entiteit in de tabel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitiesleutels, maar het gebruik van verschillende partitiesleutels maakt een grotere schaalbaarheid van parallelle bewerkingen mogelijk. Voor elke eigenschap die moet worden opgeslagen in de table-service, moet de eigenschap een openbare eigenschap van een ondersteund type zijn die wordt aangegeven dat instellen en ophalen van waarden.
-De entiteitsklasse *moet* declareren van een openbare parameterloze constructor bevatten.
+*Entiteiten* worden toegewezen aan\# C-objecten met behulp van een aangepaste klasse die is afgeleid van **TableEntity**. Als u een entiteit wilt toevoegen aan een tabel, maakt u een klasse die de eigenschappen van uw entiteit definieert. In deze sectie ziet u hoe u een entiteits klasse definieert die de voor naam van de klant gebruikt als de rij-en achternaam als partitie sleutel. De partitie- en rijsleutel van een entiteit vormen samen de unieke id van de entiteit in de tabel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitiesleutels, maar het gebruik van verschillende partitiesleutels maakt een grotere schaalbaarheid van parallelle bewerkingen mogelijk. Voor elke eigenschap die in de tabel service moet worden opgeslagen, moet de eigenschap een open bare eigenschap van een ondersteund type zijn waarmee waarden voor het instellen en ophalen worden weer gegeven.
+De entiteits klasse *moet* een open bare constructor zonder para meters declareren.
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u hebt de stappen in [de ontwikkelomgeving instellen](#set-up-the-development-environment).
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen.
 
 1. Open het `TablesController.cs`-bestand.
 
-1. De volgende instructie toevoegen zodat de code in de `TablesController.cs` bestand heeft toegang tot de **CustomerEntity** klasse:
+1. Voeg de volgende instructie toe zodat de code in het `TablesController.cs` bestand toegang kan krijgen tot de klasse **CustomerEntity** :
 
     ```csharp
     using StorageAspnet.Models;
     ```
 
-1. Voeg de methode met de naam **AddEntity** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **AddEntity** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult AddEntity()
@@ -203,56 +203,56 @@ De entiteitsklasse *moet* declareren van een openbare parameterloze constructor 
     }
     ```
 
-1. Binnen de **AddEntity** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **AddEntity** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Krijgen een **CloudTableClient** object vertegenwoordigt een tabel-service-client.
+1. Een **CloudTableClient** -object ophalen vertegenwoordigt een Table service-client.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Krijgen een **CloudTable** -object met een verwijzing naar de tabel waarnaar u wilt toevoegen van de nieuwe entiteit. 
+1. Haal een **CloudTable** -object op dat een verwijzing naar de tabel vertegenwoordigt waaraan u de nieuwe entiteit gaat toevoegen. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Exemplaar maken en initialiseren de **CustomerEntity** klasse.
+1. Maak een exemplaar van de **CustomerEntity** -klasse en Initialiseer deze.
 
     ```csharp
     CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
     customer1.Email = "Walter@contoso.com";
     ```
 
-1. Maak een **TableOperation** object die de klantentiteit kan worden ingevoegd.
+1. Maak een **TableOperation** -object waarmee de klant entiteit wordt ingevoegd.
 
     ```csharp
     TableOperation insertOperation = TableOperation.Insert(customer1);
     ```
 
-1. De bewerking insert uitvoeren door het aanroepen van de **CloudTable.Execute** methode. U kunt het resultaat van de bewerking controleren door het inspecteren van de **TableResult.HttpStatusCode** eigenschap. Statuscode 2xx geeft aan dat de actie die is aangevraagd door de client met succes is verwerkt. Bijvoorbeeld, heeft geslaagde invoegingen van nieuwe entiteiten leidt tot een HTTP-statuscode 204, wat betekent dat de bewerking is verwerkt en de server geen inhoud geretourneerd.
+1. Voer de INSERT-bewerking uit door de methode **CloudTable. Execute** aan te roepen. U kunt het resultaat van de bewerking controleren door de eigenschap **TableResult. http status code** te controleren. Een status code van 2xx geeft aan dat de actie die door de client is aangevraagd, is verwerkt. Geslaagde invoegingen van nieuwe entiteiten resulteren bijvoorbeeld in een HTTP-status code van 204, wat inhoudt dat de bewerking is verwerkt en dat de server geen inhoud heeft geretourneerd.
 
     ```csharp
     TableResult result = table.Execute(insertOperation);
     ```
 
-1. Update de **ViewBag** met de naam van de tabel en de resultaten van de bewerking insert.
+1. Werk de **ViewBag** bij met de tabel naam en de resultaten van de invoeg bewerking.
 
     ```csharp
     ViewBag.TableName = table.Name;
     ViewBag.Result = result.HttpStatusCode;
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **tabellen**, en selecteer in het contextmenu **Add -> weergave**.
+1. Vouw in de **Solution Explorer**de map **weer gaven** uit, klik met de rechter muisknop op **tabellen**en selecteer in het context menu de optie **toevoegen-> weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **AddEntity** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **AddEntity** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `AddEntity.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `AddEntity.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @{
@@ -263,31 +263,31 @@ De entiteitsklasse *moet* declareren van een openbare parameterloze constructor 
 
     Insert of entity into @ViewBag.TableName @(ViewBag.Result == 204 ? "succeeded" : "failed")
     ```
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **entiteit toevoegen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **entiteit toevoegen** om resultaten te zien die vergelijkbaar zijn met de volgende scherm afbeelding:
   
     ![Entiteit toevoegen](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
-    U kunt controleren of de entiteit is toegevoegd met de volgende stappen in de sectie [één entiteit ophalen](#get-a-single-entity). U kunt ook de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) om alle entiteiten voor uw tabellen weer te geven.
+    U kunt controleren of de entiteit is toegevoegd door de stappen in de sectie te volgen, [een afzonderlijke entiteit ophalen](#get-a-single-entity). U kunt ook de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) gebruiken om alle entiteiten voor uw tabellen weer te geven.
 
-## <a name="add-a-batch-of-entities-to-a-table"></a>Een batch entiteiten toevoegen aan een tabel
+## <a name="add-a-batch-of-entities-to-a-table"></a>Een batch-entiteit toevoegen aan een tabel
 
-Naast het [een entiteit toevoegen aan een tabel één bewerking tegelijk](#add-an-entity-to-a-table), u kunt ook entiteiten toevoegen in batch. Entiteiten toevoegen in batch vermindert het aantal retourbewerkingen tussen uw code en de Azure table-service. De volgende stappen laten zien hoe u meerdere entiteiten aan een tabel met één bewerking invoegen toevoegen:
+U kunt niet alleen [een entiteit toevoegen aan een tabel per keer](#add-an-entity-to-a-table), maar ook entiteiten toevoegen in batch. Als entiteiten in batch worden toegevoegd, wordt het aantal retouren tussen uw code en de Azure Table-service verminderd. De volgende stappen laten zien hoe u meerdere entiteiten kunt toevoegen aan een tabel met één invoeg bewerking:
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u hebt de stappen in [de ontwikkelomgeving instellen](#set-up-the-development-environment).
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen.
 
 1. Open het `TablesController.cs`-bestand.
 
-1. Voeg de methode met de naam **AddEntities** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **AddEntities** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult AddEntities()
@@ -298,26 +298,26 @@ Naast het [een entiteit toevoegen aan een tabel één bewerking tegelijk](#add-a
     }
     ```
 
-1. Binnen de **AddEntities** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **AddEntities** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Krijgen een **CloudTableClient** object vertegenwoordigt een tabel-service-client.
+1. Een **CloudTableClient** -object ophalen vertegenwoordigt een Table service-client.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Krijgen een **CloudTable** -object met een verwijzing naar de tabel waarnaar u wilt toevoegen van de nieuwe entiteiten. 
+1. Haal een **CloudTable** -object op dat een verwijzing naar de tabel vertegenwoordigt waaraan u de nieuwe entiteiten gaat toevoegen. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Maken van een klantobjecten op basis van de **CustomerEntity** modelklasse weergegeven in de sectie [een entiteit toevoegen aan een tabel](#add-an-entity-to-a-table).
+1. Maak een exemplaar van sommige klant objecten op basis van de model klasse **CustomerEntity** die in de sectie wordt weer gegeven. [Voeg een entiteit toe aan een tabel](#add-an-entity-to-a-table).
 
     ```csharp
     CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
@@ -327,36 +327,36 @@ Naast het [een entiteit toevoegen aan een tabel één bewerking tegelijk](#add-a
     customer2.Email = "Ben@contoso.com";
     ```
 
-1. Krijgen een **TableBatchOperation** object.
+1. Een **TableBatchOperation** -object ophalen.
 
     ```csharp
     TableBatchOperation batchOperation = new TableBatchOperation();
     ```
 
-1. Entiteiten toevoegen aan het batch insert-bewerking object.
+1. Entiteiten toevoegen aan het bewerkings object voor batch invoegen.
 
     ```csharp
     batchOperation.Insert(customer1);
     batchOperation.Insert(customer2);
     ```
 
-1. De batch insert-bewerking niet uitvoeren door het aanroepen van de **CloudTable.ExecuteBatch** methode.   
+1. Voer de batch INSERT-bewerking uit door de methode **CloudTable. ExecuteBatch** aan te roepen.   
 
     ```csharp
     IList<TableResult> results = table.ExecuteBatch(batchOperation);
     ```
 
-1. De **CloudTable.ExecuteBatch** methode retourneert een lijst van **TableResult** objecten waar elke **TableResult** object kan worden gecontroleerd om te bepalen van het slagen of mislukken van elke afzonderlijke bewerking. Voor dit voorbeeld wordt de lijst doorgeven aan een weergave en laat de weergave de resultaten van elke bewerking weergeven. 
+1. De methode **CloudTable. ExecuteBatch** retourneert een lijst met **TableResult** -objecten waarbij elk **TableResult** -object kan worden onderzocht om het slagen of mislukken van elke afzonderlijke bewerking te bepalen. Voor dit voor beeld geeft u de lijst door aan een weer gave en laat u de resultaten van elke bewerking weer geven. 
  
     ```csharp
     return View(results);
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **tabellen**, en selecteer in het contextmenu **Add -> weergave**.
+1. Vouw in de **Solution Explorer**de map **weer gaven** uit, klik met de rechter muisknop op **tabellen**en selecteer in het context menu de optie **toevoegen-> weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **AddEntities** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **AddEntities** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `AddEntities.cshtml`, en dit zodanig aanpassen dat er uitziet.
+1. Open `AddEntities.cshtml`en wijzig deze zodat deze er als volgt uitziet.
 
     ```csharp
     @model IEnumerable<Microsoft.WindowsAzure.Storage.Table.TableResult>
@@ -383,31 +383,31 @@ Naast het [een entiteit toevoegen aan een tabel één bewerking tegelijk](#add-a
     </table>
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **entiteiten toevoegen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **entiteiten toevoegen** om resultaten te zien die vergelijkbaar zijn met de volgende scherm afbeelding:
   
     ![Entiteiten toevoegen](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
-    U kunt controleren of de entiteit is toegevoegd met de volgende stappen in de sectie [één entiteit ophalen](#get-a-single-entity). U kunt ook de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) om alle entiteiten voor uw tabellen weer te geven.
+    U kunt controleren of de entiteit is toegevoegd door de stappen in de sectie te volgen, [een afzonderlijke entiteit ophalen](#get-a-single-entity). U kunt ook de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) gebruiken om alle entiteiten voor uw tabellen weer te geven.
 
-## <a name="get-a-single-entity"></a>Één entiteit ophalen
+## <a name="get-a-single-entity"></a>Eén entiteit ophalen
 
-In deze sectie ziet u hoe u één entiteit ophalen uit een tabel met behulp van de entiteit rijsleutel en partitiesleutel. 
+In deze sectie wordt beschreven hoe u één entiteit uit een tabel kunt ophalen met behulp van de rij-en partitie sleutel van de entiteit. 
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u hebt de stappen in [de ontwikkelomgeving instellen](#set-up-the-development-environment), en maakt gebruik van gegevens uit [een batch entiteiten toevoegen aan een tabel](#add-a-batch-of-entities-to-a-table). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen en gebruikt gegevens uit het [toevoegen van een batch met entiteiten aan een tabel](#add-a-batch-of-entities-to-a-table). 
 
 1. Open het `TablesController.cs`-bestand.
 
-1. Voeg de methode met de naam **GetSingle** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **GetSingle** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult GetSingle()
@@ -418,48 +418,48 @@ In deze sectie ziet u hoe u één entiteit ophalen uit een tabel met behulp van 
     }
     ```
 
-1. Binnen de **GetSingle** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **GetSingle** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Krijgen een **CloudTableClient** object vertegenwoordigt een tabel-service-client.
+1. Een **CloudTableClient** -object ophalen vertegenwoordigt een Table service-client.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Krijgen een **CloudTable** -object met een verwijzing naar de tabel waaruit u de entiteit ophalen. 
+1. Een **CloudTable** -object ophalen dat een verwijzing vertegenwoordigt naar de tabel van waaruit u de entiteit ophaalt. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Maakt een ophalen-bewerking object waarmee een entiteitsobject die is afgeleid van **TableEntity**. De eerste parameter is de *partitionKey*, en de tweede parameter is de *rowKey*. Met behulp van de **CustomerEntity** klasse en gegevens die zijn gepresenteerd in de sectie [een batch entiteiten toevoegen aan een tabel](#add-a-batch-of-entities-to-a-table), het volgende codefragment query's in de tabel voor een **CustomerEntity**entiteit met een *partitionKey* waarde van 'Smith' en een *rowKey* waarde van 'Ben':
+1. Maak een object voor ophalen dat een entiteits object gebruikt dat is afgeleid van **TableEntity**. De eerste para meter is de *partitionKey*en de tweede para meter is de *rowKey*. Met behulp van de **CustomerEntity** -klasse en de gegevens die in de sectie worden weer gegeven, [voegt u een batch entiteit toe aan een tabel](#add-a-batch-of-entities-to-a-table). het volgende code fragment voert een query uit op de tabel voor een **CustomerEntity** -entiteit met de *partitionKey* -waarde "Smith" en een  *rowKey* waarde van ' ben ':
 
     ```csharp
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
     ```
 
-1. Voer de bewerking ophalen.   
+1. De ophaal bewerking uitvoeren.   
 
     ```csharp
     TableResult result = table.Execute(retrieveOperation);
     ```
 
-1. Het resultaat doorgeven aan de weergave om weer te geven.
+1. Het resultaat wordt door gegeven aan de weer gave voor weer gave.
 
     ```csharp
     return View(result);
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **tabellen**, en selecteer in het contextmenu **Add -> weergave**.
+1. Vouw in de **Solution Explorer**de map **weer gaven** uit, klik met de rechter muisknop op **tabellen**en selecteer in het context menu de optie **toevoegen-> weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **GetSingle** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **GetSingle** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `GetSingle.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `GetSingle.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -485,29 +485,29 @@ In deze sectie ziet u hoe u één entiteit ophalen uit een tabel met behulp van 
     </table>
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **één ophalen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **Eén** om resultaten weer te geven die vergelijkbaar zijn met de volgende scherm afbeelding:
   
-    ![Één ophalen](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
+    ![Eén ophalen](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
 ## <a name="get-all-entities-in-a-partition"></a>Alle entiteiten in een partitie ophalen
 
-Zoals vermeld in de sectie [een entiteit toevoegen aan een tabel](#add-an-entity-to-a-table), de combinatie van een partitie en een rijsleutel unieke identificatie van een entiteit in een tabel. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitiesleutels. In deze sectie ziet u hoe u query's van een tabel met alle entiteiten van een opgegeven partitie.  
+Zoals vermeld in de sectie, [voegt u een entiteit toe aan een tabel](#add-an-entity-to-a-table), de combi natie van een partitie en een rijlabel sleutel om een entiteit in een tabel uniek te identificeren. Entiteiten met dezelfde partitie sleutel kunnen sneller worden opgevraagd dan entiteiten met verschillende partitie sleutels. In deze sectie wordt beschreven hoe u een tabel voor alle entiteiten uit een opgegeven partitie kunt opvragen.  
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u hebt de stappen in [de ontwikkelomgeving instellen](#set-up-the-development-environment), en maakt gebruik van gegevens uit [een batch entiteiten toevoegen aan een tabel](#add-a-batch-of-entities-to-a-table). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen en gebruikt gegevens uit het [toevoegen van een batch met entiteiten aan een tabel](#add-a-batch-of-entities-to-a-table). 
 
 1. Open het `TablesController.cs`-bestand.
 
-1. Voeg de methode met de naam **GetPartition** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **GetPartition** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult GetPartition()
@@ -518,26 +518,26 @@ Zoals vermeld in de sectie [een entiteit toevoegen aan een tabel](#add-an-entity
     }
     ```
 
-1. Binnen de **GetPartition** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **GetPartition** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Krijgen een **CloudTableClient** object vertegenwoordigt een tabel-service-client.
+1. Een **CloudTableClient** -object ophalen vertegenwoordigt een Table service-client.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Krijgen een **CloudTable** -object met een verwijzing naar de tabel waaruit u de entiteiten worden opgehaald. 
+1. Een **CloudTable** -object ophalen dat een verwijzing vertegenwoordigt naar de tabel van waaruit u de entiteiten ophaalt. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Exemplaar maken van een **TableQuery** object op te geven van de query in de **waar** component. Met behulp van de **CustomerEntity** klasse en gegevens die zijn gepresenteerd in de sectie [een batch entiteiten toevoegen aan een tabel](#add-a-batch-of-entities-to-a-table), het volgende codefragment query's in de tabel voor alle entiteiten waarin de **PartitionKey**  (achternaam van de klant) heeft een waarde van 'Smith':
+1. Maak een instantie van een **TableQuery** -object dat de query in de component **where** opgeeft. Met behulp van de **CustomerEntity** -klasse en de gegevens die in de sectie worden weer gegeven, [voegt u een batch-entiteit toe aan een tabel](#add-a-batch-of-entities-to-a-table). het volgende code fragment voert een query uit op de tabel voor alle entiteiten waar de **PartitionKey** (achternaam van de klant) de waarde Smith heeft:
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -545,7 +545,7 @@ Zoals vermeld in de sectie [een entiteit toevoegen aan een tabel](#add-an-entity
         .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
     ```
 
-1. Aanroepen in een For-lus, de **CloudTable.ExecuteQuerySegmented** methode doorgeven van de query-object dat u in de vorige stap hebt gemaakt.  De **CloudTable.ExecuteQuerySegmented** methode retourneert een **TableContinuationToken** -object als **null** -geeft aan dat er geen entiteiten meer om op te halen. Binnen de lus, moet u een andere lus gebruiken om te herhalen van de geretourneerde entiteiten. In het volgende codevoorbeeld wordt elke geretourneerde entiteit toegevoegd aan een lijst. Wanneer de lus-ends, de lijst wordt doorgegeven aan een weergave om weer te geven: 
+1. Binnen een lus roept u de methode **CloudTable. ExecuteQuerySegmented** aan waarmee het query-object wordt door gegeven dat u in de vorige stap hebt geïnstantieerd.  De methode **CloudTable. ExecuteQuerySegmented** retourneert een **TableContinuationToken** -object dat-wanneer **Null** -geeft aan dat er geen entiteiten meer zijn om op te halen. Gebruik in de lus een andere lus om de geretourneerde entiteiten te herhalen. In het volgende code voorbeeld wordt elke geretourneerde entiteit toegevoegd aan een lijst. Zodra de lus is beëindigd, wordt de lijst door gegeven aan een weer gave voor weer gave: 
 
     ```csharp
     List<CustomerEntity> customers = new List<CustomerEntity>();
@@ -564,11 +564,11 @@ Zoals vermeld in de sectie [een entiteit toevoegen aan een tabel](#add-an-entity
     return View(customers);
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **tabellen**, en selecteer in het contextmenu **Add -> weergave**.
+1. Vouw in de **Solution Explorer**de map **weer gaven** uit, klik met de rechter muisknop op **tabellen**en selecteer in het context menu de optie **toevoegen-> weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **GetPartition** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **GetPartition** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `GetPartition.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `GetPartition.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @model IEnumerable<StorageAspnet.Models.CustomerEntity>
@@ -595,29 +595,29 @@ Zoals vermeld in de sectie [een entiteit toevoegen aan een tabel](#add-an-entity
     </table>
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **partitie ophalen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **partitie ophalen** om de resultaten te bekijken die vergelijkbaar zijn met de volgende scherm afbeelding:
   
     ![Partitie ophalen](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
 ## <a name="delete-an-entity"></a>Een entiteit verwijderen
 
-In deze sectie ziet u hoe u een entiteit verwijderen uit een tabel.
+In deze sectie wordt beschreven hoe u een entiteit uit een tabel verwijdert.
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u hebt de stappen in [de ontwikkelomgeving instellen](#set-up-the-development-environment), en maakt gebruik van gegevens uit [een batch entiteiten toevoegen aan een tabel](#add-a-batch-of-entities-to-a-table). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen en gebruikt gegevens uit het [toevoegen van een batch met entiteiten aan een tabel](#add-a-batch-of-entities-to-a-table). 
 
 1. Open het `TablesController.cs`-bestand.
 
-1. Voeg de methode met de naam **DeleteEntity** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **DeleteEntity** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult DeleteEntity()
@@ -628,49 +628,49 @@ In deze sectie ziet u hoe u een entiteit verwijderen uit een tabel.
     }
     ```
 
-1. Binnen de **DeleteEntity** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **DeleteEntity** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Krijgen een **CloudTableClient** object vertegenwoordigt een tabel-service-client.
+1. Een **CloudTableClient** -object ophalen vertegenwoordigt een Table service-client.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Krijgen een **CloudTable** -object met een verwijzing naar de tabel waaruit u de entiteit wilt verwijderen. 
+1. Een **CloudTable** -object ophalen dat een verwijzing naar de tabel vertegenwoordigt waaruit u de entiteit verwijdert. 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Maakt een verwijderen bewerking-object waarmee een entiteitsobject die is afgeleid van **TableEntity**. In dit geval gebruiken we de **CustomerEntity** klasse en gegevens die zijn gepresenteerd in de sectie [een batch entiteiten toevoegen aan een tabel](#add-a-batch-of-entities-to-a-table). Van de entiteit **ETag** moet worden ingesteld op een geldige waarde.  
+1. Maak een delete-bewerkings object dat een entiteits object gebruikt dat is afgeleid van **TableEntity**. In dit geval gebruiken we de **CustomerEntity** -klasse en de gegevens die in de sectie worden gepresenteerd, [een batch-entiteit toevoegen aan een tabel](#add-a-batch-of-entities-to-a-table). De **ETAG** van de entiteit moet worden ingesteld op een geldige waarde.  
 
     ```csharp
     TableOperation deleteOperation = 
         TableOperation.Delete(new CustomerEntity("Smith", "Ben") { ETag = "*" } );
     ```
 
-1. Voer de verwijderbewerking.   
+1. Voer de Verwijder bewerking uit.   
 
     ```csharp
     TableResult result = table.Execute(deleteOperation);
     ```
 
-1. Het resultaat doorgeven aan de weergave om weer te geven.
+1. Het resultaat wordt door gegeven aan de weer gave voor weer gave.
 
     ```csharp
     return View(result);
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **tabellen**, en selecteer in het contextmenu **Add -> weergave**.
+1. Vouw in de **Solution Explorer**de map **weer gaven** uit, klik met de rechter muisknop op **tabellen**en selecteer in het context menu de optie **toevoegen-> weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **DeleteEntity** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **DeleteEntity** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `DeleteEntity.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `DeleteEntity.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -695,20 +695,20 @@ In deze sectie ziet u hoe u een entiteit verwijderen uit een tabel.
 
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **entiteit verwijderen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **entiteit verwijderen** om de resultaten te zien die vergelijkbaar zijn met de volgende scherm afbeelding:
   
-    ![Één ophalen](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
+    ![Eén ophalen](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk meer functiehandleidingen voor informatie over aanvullende mogelijkheden voor het opslaan van gegevens in Azure.
 
-  * [Aan de slag met Azure blob storage en Visual Studio verbonden Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Aan de slag met Azure queue storage en Visual Studio verbonden Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
+  * [Aan de slag met Azure Blob Storage en Visual Studio Connected Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
+  * [Aan de slag met Azure Queue Storage en Visual Studio Connected Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)

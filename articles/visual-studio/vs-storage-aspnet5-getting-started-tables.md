@@ -1,9 +1,9 @@
 ---
-title: Aan de slag met table storage en Visual Studio verbonden services (ASP.NET Core) | Microsoft Docs
-description: Aan de slag met Azure Table storage in een ASP.NET Core-project in Visual Studio nadat u verbinding met een opslagaccount met behulp van Visual Studio verbonden services
+title: Aan de slag met table Storage en Visual Studio Connected Services (ASP.NET Core) | Microsoft Docs
+description: Hoe kunt u aan de slag gaan met Azure Table Storage in een ASP.NET Core-project in Visual Studio nadat u verbinding hebt gemaakt met een opslag account met Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: c3c451d1-71ff-4222-a348-c41c98a02b85
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,30 +12,30 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 1f90ce71084ba3acbf5a0aec5c7b8e9683323766
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ac610e96d84568b7973f288623730ea1677ceac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362115"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510920"
 ---
-# <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Aan de slag met Azure Table storage en Visual Studio verbonden services
+# <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Aan de slag met Azure Table Storage en Visual Studio Connected Services
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-In dit artikel wordt beschreven hoe u aan de slag met Azure Table storage in Visual Studio nadat u hebt gemaakt of een Azure storage-account in een ASP.NET Core-project waarnaar wordt verwezen door het gebruik van de Visual Studio **Connected Services** functie. De **Connected Services** bewerking installeert de juiste NuGet-pakketten voor toegang tot Azure storage in uw project en voegt de connectiestring voor het opslagaccount toe aan uw project-configuratiebestanden. (Zie [documentatie voor Storage](https://azure.microsoft.com/documentation/services/storage/) voor algemene informatie over Azure Storage.)
+In dit artikel wordt beschreven hoe u aan de slag gaat met Azure Table Storage in Visual Studio nadat u een Azure-opslag account in een ASP.NET Core project hebt gemaakt of hiernaar wordt verwezen met behulp van de functie voor **verbonden services** van Visual Studio. De **Connected Services** bewerking installeert de juiste NuGet-pakketten voor toegang tot Azure storage in uw project en voegt de connectiestring voor het opslagaccount toe aan uw project-configuratiebestanden. (Zie [opslag documentatie](https://azure.microsoft.com/documentation/services/storage/) voor algemene informatie over Azure Storage.)
 
-De Azure Table storage-service kunt u voor het opslaan van grote hoeveelheden gestructureerde gegevens. De service is een NoSQL-gegevensarchief die geverifieerde aanroepen uit binnen en buiten de Azure-cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens. Zie voor meer algemene informatie over het gebruik van Azure Table storage [aan de slag met Azure Table storage met .NET](../storage/storage-dotnet-how-to-use-tables.md).
+Met de Azure Table Storage-service kunt u grote hoeveel heden gestructureerde gegevens opslaan. De service is een NoSQL-gegevens archief dat geverifieerde aanroepen binnen en buiten de Azure-Cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens. Zie [aan de slag met Azure Table Storage met .net](../storage/storage-dotnet-how-to-use-tables.md)voor meer algemene informatie over het gebruik van Azure Table Storage.
 
-Als u wilt beginnen, moet u eerst een tabel maken in uw storage-account. In dit artikel wordt weergegeven over het maken van een tabel in C# en hoe u eenvoudige tabelbewerkingen zoals het toevoegen, wijzigen, lezen en verwijderen van vermeldingen uit te voeren.  De code gebruikt de Azure Storage-clientbibliotheek voor .NET. Zie voor meer informatie over ASP.NET [ASP.NET](https://www.asp.net).
+Maak eerst een tabel in uw opslag account om aan de slag te gaan. In dit artikel wordt uitgelegd hoe u een tabel maakt C# in en hoe u elementaire tabel bewerkingen uitvoert, zoals het toevoegen, wijzigen, lezen en verwijderen van tabel items.  De code maakt gebruik van de Azure Storage-client bibliotheek voor .NET. Zie [ASP.net](https://www.asp.net)voor meer informatie over ASP.net.
 
 Enkele van de Azure Storage-API's zijn asynchroon en de code in dit artikel gaat ervan uit dat async-methoden worden gebruikt. Zie [asynchrone programmering](https://docs.microsoft.com/dotnet/csharp/async) voor meer informatie.
 
-## <a name="access-tables-in-code"></a>Toegang tot tabellen in code
+## <a name="access-tables-in-code"></a>Access-tabellen in code
 
-Voor toegang tot tabellen in ASP.NET Core-projecten, moet u de volgende items naar de C# bronbestanden die toegang hebben tot Azure-tabelopslag opnemen.
+Als u toegang wilt krijgen tot tabellen in ASP.NET Core projecten, moet u de volgende items C# toevoegen aan bron bestanden die toegang hebben tot Azure-tabel opslag.
 
-1. Toevoegen van de benodigde `using` instructies:
+1. De benodigde `using` instructies toevoegen:
 
     ```csharp
     using Microsoft.WindowsAzure.Storage;
@@ -43,7 +43,7 @@ Voor toegang tot tabellen in ASP.NET Core-projecten, moet u de volgende items na
     using System.Threading.Tasks;
     ```
 
-1. Maak een `CloudStorageAccount` -object met gegevens van uw opslagaccount. Gebruik de volgende code, met de naam van uw opslagaccount en de accountsleutel, die u in de verbindingsreeks voor opslag in appSettings.json vinden kunt:
+1. Maak een `CloudStorageAccount` -object met gegevens van uw opslagaccount. Gebruik de volgende code met behulp van de naam van uw opslag account en de account sleutel, die u in de opslag connection string in appSettings. json kunt vinden:
 
     ```csharp
         CloudStorageAccount storageAccount = new CloudStorageAccount(
@@ -51,14 +51,14 @@ Voor toegang tot tabellen in ASP.NET Core-projecten, moet u de volgende items na
                 "<name>", "<account-key>"), true);
     ```
 
-1. Krijgen een `CloudTableClient` object om te verwijzen naar de tabelobjecten in uw storage-account:
+1. Een `CloudTableClient` object ophalen om te verwijzen naar de tabel objecten in uw opslag account:
 
     ```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. Krijgen een `CloudTable` reference-object om te verwijzen naar een specifieke tabel- en entiteiten:
+1. Een `CloudTable` referentie object ophalen om te verwijzen naar een specifieke tabel en entiteiten:
 
     ```csharp
     // Get a reference to a table named "peopleTable"
@@ -67,7 +67,7 @@ Voor toegang tot tabellen in ASP.NET Core-projecten, moet u de volgende items na
 
 ## <a name="create-a-table-in-code"></a>Een tabel in code maken
 
-Voor het maken van de Azure-tabel maken van een asynchrone methode en roep locatiemogelijkheid `CreateIfNotExistsAsync()`:
+Als u de Azure-tabel wilt maken, maakt u een async-methode `CreateIfNotExistsAsync()`en roept u deze aan:
 
 ```csharp
 async void CreatePeopleTableAsync()
@@ -79,7 +79,7 @@ async void CreatePeopleTableAsync()
     
 ## <a name="add-an-entity-to-a-table"></a>Een entiteit toevoegen aan een tabel
 
-Als u wilt een entiteit toevoegen aan een tabel, maakt u een klasse die de eigenschappen van uw entiteit definieert. De volgende code definieert een entiteitsklasse die met de naam `CustomerEntity` die de voornaam van de klant als de rijsleutel en de achternaam als de partitiesleutel gebruikt.
+Als u een entiteit wilt toevoegen aan een tabel, maakt u een klasse waarmee de eigenschappen van uw entiteit worden gedefinieerd. `CustomerEntity` Met de volgende code wordt een entiteit klasse gedefinieerd met de naam die de voor naam van de klant als de rij-en achternaam als de partitie sleutel gebruikt.
 
 ```csharp
 public class CustomerEntity : TableEntity
@@ -98,7 +98,7 @@ public class CustomerEntity : TableEntity
 }
 ```
 
-Tabelbewerkingen entiteiten gebruiken met betrekking tot de `CloudTable` object u eerder hebt gemaakt in [toegang tot tabellen in de code](#access-tables-in-code). De `TableOperation` object vertegenwoordigt de bewerking moet worden uitgevoerd. Het volgende codevoorbeeld toont het maken van een `CloudTable` object en een `CustomerEntity` object. Voor het voorbereiden van de bewerking wordt een `TableOperation` voor het invoegen van de klantentiteit in de tabel is gemaakt. Ten slotte wordt de bewerking is uitgevoerd door het aanroepen van `CloudTable.ExecuteAsync`.
+Tabel bewerkingen waarbij entiteiten worden gebruikt `CloudTable` , maken gebruik van het object dat u eerder hebt gemaakt in [Access-tabellen in code](#access-tables-in-code). Het `TableOperation` object vertegenwoordigt de bewerking die moet worden uitgevoerd. In het volgende code voorbeeld ziet u hoe u `CloudTable` een object en `CustomerEntity` een object maakt. Voor het voorbereiden van de bewerking `TableOperation` wordt een gemaakt om de klant entiteit in de tabel in te voegen. Ten slotte wordt de bewerking uitgevoerd door aan `CloudTable.ExecuteAsync`te roepen.
 
 ```csharp
 // Create a new customer entity.
@@ -115,7 +115,7 @@ await peopleTable.ExecuteAsync(insertOperation);
 
 ## <a name="insert-a-batch-of-entities"></a>Een batch entiteiten invoegen
 
-U kunt meerdere entiteiten invoegen in een tabel in een enkele schrijfbewerking. Het volgende codevoorbeeld maakt twee entiteitsobjecten ('Jeff Smith' en 'Ben Smith'), voegt deze toe aan een `TableBatchOperation` object met de `Insert` methode, en start de bewerking door het aanroepen van `CloudTable.ExecuteBatchAsync`.
+U kunt in één schrijf bewerking meerdere entiteiten invoegen in een tabel. Het volgende code voorbeeld maakt twee entiteits objecten ("Jeff Smith" en "ben Smith"), voegt deze toe `TableBatchOperation` aan een object `Insert` met behulp van de-methode en start `CloudTable.ExecuteBatchAsync`de bewerking door aan te roepen.
 
 ```csharp
 // Create the batch operation.
@@ -141,7 +141,7 @@ await peopleTable.ExecuteBatchAsync(batchOperation);
 
 ## <a name="get-all-of-the-entities-in-a-partition"></a>Alle entiteiten in een partitie ophalen
 
-Gebruiken om een tabel voor alle entiteiten in een partitie, een `TableQuery` object. Het volgende codevoorbeeld geeft een filter voor entiteiten waarbij 'Smith' de partitiesleutel is. In dit voorbeeld worden de velden van elke entiteit in de queryresultaten naar de console afgedrukt.
+Gebruik een `TableQuery` -object om een tabel voor alle entiteiten in een partitie op te vragen. Het volgende codevoorbeeld geeft een filter voor entiteiten waarbij 'Smith' de partitiesleutel is. In dit voorbeeld worden de velden van elke entiteit in de queryresultaten naar de console afgedrukt.
 
 ```csharp
 // Construct the query operation for all customer entities where PartitionKey="Smith".
@@ -162,9 +162,9 @@ do
 } while (token != null);
 ```
 
-## <a name="get-a-single-entity"></a>Één entiteit ophalen
+## <a name="get-a-single-entity"></a>Eén entiteit ophalen
 
-U kunt een query voor het ophalen van één specifieke entiteit schrijven. De volgende code gebruikt een `TableOperation` object om een klant 'Ben Smith' met de naam te geven. De methode retourneert één entiteit in plaats van een verzameling en de geretourneerde waarde in `TableResult.Result` is een `CustomerEntity` object. Partitie-en recordsleutels op te geven in een query is de snelste manier om op te halen van een enkele entiteit op basis van de `Table` service.
+U kunt een query schrijven om één specifieke entiteit te verkrijgen. De volgende code gebruikt een `TableOperation` -object om een klant met de naam ' ben Smith ' op te geven. De methode retourneert slechts één entiteit, in plaats van een verzameling, en de geretourneerde `TableResult.Result` waarde in `CustomerEntity` is een object. Het opgeven van zowel de partitie-als de rijwaarden in een query is de snelste manier om één entiteit `Table` uit de service op te halen.
 
 ```csharp
 // Create a retrieve operation that takes a customer entity.
@@ -182,7 +182,7 @@ else
 
 ## <a name="delete-an-entity"></a>Een entiteit verwijderen
 
-U kunt een entiteit verwijderen nadat u deze vinden. De volgende code zoekt en verwijdert een klantentiteit met de naam 'Ben Smith':
+U kunt een entiteit verwijderen nadat u deze hebt gevonden. Met de volgende code wordt een klant entiteit met de naam ' ben Smith ' gezocht en verwijderd:
 
 ```csharp
 // Create a retrieve operation that expects a customer entity.

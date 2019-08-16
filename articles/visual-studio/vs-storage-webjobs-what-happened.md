@@ -1,9 +1,9 @@
 ---
-title: Wat is er gebeurd met mijn WebJob-project (Visual Studio Azure Storage verbonden service)? | Microsoft Docs
-description: Hierin wordt beschreven wat er gebeurd in een Azure WebJob-project nadat de verbinding te maken met een opslagaccount met behulp van Visual Studio verbonden services
+title: Wat is er gebeurd met mijn Webtaak-project (Visual Studio Azure Storage Connected service)? | Microsoft Docs
+description: Beschrijft wat er is gebeurd in een Azure-webproject nadat verbinding is gemaakt met een opslag account met behulp van Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 36ae7ff7-c22c-47eb-b220-049d61618c74
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,17 +12,17 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: fa152d8b88254a35d00b91537bf1001ea1130e57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c54214e0b919ddaa60403a1c986a144100143577
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60722600"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510469"
 ---
-# <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>Wat is er gebeurd met mijn WebJob-project (Visual Studio Azure Storage verbonden service)?
-## <a name="references-added"></a>Verwijzingen die zijn toegevoegd
-Het Azure Storage NuGet-pakket is toegevoegd aan of bijgewerkt in Visual Studio-project.  
-Dit pakket voegt de volgende .NET verwijzingen toe:
+# <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>Wat is er gebeurd met mijn Webtaak-project (Visual Studio Azure Storage Connected service)?
+## <a name="references-added"></a>Toegevoegde verwijzingen
+Het NuGet-pakket van Azure Storage is toegevoegd aan of bijgewerkt in uw Visual Studio-project.  
+Dit pakket voegt de volgende .NET-verwijzingen toe:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -33,8 +33,8 @@ Dit pakket voegt de volgende .NET verwijzingen toe:
 * **System.Data**
 * **System.Spatial**
 
-## <a name="connection-string-for-azure-storage-added"></a>Verbindingsreeks voor Azure Storage is toegevoegd
-In het bestand App.config van uw project, de **AzureWebJobsStorage** en **AzureWebJobsDashboard** vermeldingen zijn bijgewerkt met de verbindingsreeks en de sleutel van het geselecteerde opslagaccount.
+## <a name="connection-string-for-azure-storage-added"></a>Verbindings reeks voor toegevoegde Azure Storage
+In het bestand app. config van uw project zijn de **AzureWebJobsStorage** -en **AzureWebJobsDashboard** -vermeldingen bijgewerkt met de Connection String en sleutel van het geselecteerde opslag account.
 
-Zie voor meer informatie, [documentatiebronnen voor Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).
+Zie [Azure WebJobs documentation resources](https://go.microsoft.com/fwlink/?linkid=390226)(Engelstalig) voor meer informatie.
 

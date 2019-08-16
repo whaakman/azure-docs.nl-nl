@@ -7,20 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 58c6d1b032f5b492c5641ff51da80426124069b1
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 46755cb8d0383d166b10d50854eb476b676a6ee4
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716770"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509740"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Aanmelden instellen voor een specifieke Azure Active Directory organisatie in Azure Active Directory B2C
-
->[!NOTE]
-> Deze functie is beschikbaar voor openbare preview. Gebruik niet de functie in productie omgevingen.
 
 Als u een Azure Active Directory (Azure AD) als een [ID-provider](active-directory-b2c-reference-oauth-code.md) in azure AD B2C wilt gebruiken, moet u een toepassing maken waarin deze wordt vertegenwoordigd. In dit artikel leest u hoe u aanmelden kunt inschakelen voor gebruikers van een specifieke Azure AD-organisatie met behulp van een gebruikers stroom in Azure AD B2C.
 
@@ -54,7 +51,7 @@ Als u het aanmelden voor gebruikers van een specifieke Azure AD-organisatie wilt
 2. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 3. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.
 4. Voer een **naam**in. Geef bijvoorbeeld `Contoso Azure AD` op.
-5. Selecteer een **ID-provider type**, selecteer **OpenID Connect Connect (preview)** en klik vervolgens op **OK**.
+5. Selecteer een **ID-provider type**, selecteer **OpenID Connect Connect**en klik vervolgens op **OK**.
 6. Selecteer **Deze id-provider instellen**
 7. Voor **meta gegevens-URL**voert u de volgende `your-AD-tenant-domain` URL in die wordt vervangen door de domein naam van uw Azure AD-Tenant. Bijvoorbeeld `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 

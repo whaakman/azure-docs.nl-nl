@@ -7,12 +7,12 @@ ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d49ef19d763ea3ae643a9c7bbbbb620ae414c664
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7be9a208f82dd9a487c1794a7996f9bb11bb09d8
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816816"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515431"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>De toewijzing van het ISO 27001 blauw druk-voor beeld bepalen
 
@@ -118,13 +118,13 @@ Als u wilt weten waar uw Azure-resources mogelijk niet-optimale cryptografische 
 - \[Voor\]beeld: Ontbrekende blobversleuteling voor opslagaccounts controleren
 - \[Voor\]beeld: VM-extensie implementeren om te controleren of Windows VM wacht woorden niet kan opslaan met behulp van omkeer bare versleuteling
 - \[Voor\]beeld: Controleren of Windows VM wacht woorden niet kan opslaan met behulp van omkeer bare versleuteling
-- \[Voor\]beeld: Niet-versleutelde SQL database in Azure Security Center bewaken
 - \[Voor\]beeld: Niet-versleutelde VM-schijven bewaken in Azure Security Center
 - Inschakelen van versleuteling van Automation-accountvariabelen controleren
 - Inschakelen van uitsluitend beveiligde verbindingen met Redis Cache controleren
 - Veilige overdracht naar opslagaccounts controleren
 - Controle op de instelling van de eigenschap ClusterProtectionLevel op EncryptAndSign in Service Fabric
 - Controlestatus van transparante gegevensversleuteling
+- Transparent Data Encryption voor SQL-data bases moet zijn ingeschakeld
 
 ## <a name="a1241-event-logging"></a>A. 12.4.1 gebeurtenis logboek registratie
 
@@ -135,9 +135,9 @@ Diagnostische logboeken bieden inzicht in bewerkingen die zijn uitgevoerd in azu
 - \[Voor\]beeld: Controleren Dependency Agent implementatie in VMSS-VM-installatie kopie (OS) niet vermeld
 - \[Voor\]beeld: Implementatie van Log Analytics agent controleren-VM-installatie kopie (OS) niet vermeld
 - \[Voor\]beeld: Log Analytics agent implementatie controleren in VMSS-VM-installatie kopie (OS) niet vermeld
-- \[Voor\]beeld: Ongecontroleerde SQL database in Azure Security Center bewaken
 - Diagnostische instelling voor controleren
 - Instellingen voor SQL-controle op serverniveau
+- Controle moet worden ingeschakeld voor geavanceerde instellingen voor gegevens beveiliging op SQL Server
 
 ## <a name="a1243-administrator-and-operator-logs"></a>Een. 12.4.3-beheerder en-operator logboeken
 
@@ -147,9 +147,9 @@ Deze blauw druk helpt u om ervoor te zorgen dat systeem gebeurtenissen worden ge
 - \[Voor\]beeld: Controleren Dependency Agent implementatie in VMSS-VM-installatie kopie (OS) niet vermeld
 - \[Voor\]beeld: Implementatie van Log Analytics agent controleren-VM-installatie kopie (OS) niet vermeld
 - \[Voor\]beeld: Log Analytics agent implementatie controleren in VMSS-VM-installatie kopie (OS) niet vermeld
-- \[Voor\]beeld: Ongecontroleerde SQL database in Azure Security Center bewaken
 - Diagnostische instelling voor controleren
 - Instellingen voor SQL-controle op serverniveau
+- Controle moet worden ingeschakeld voor geavanceerde instellingen voor gegevens beveiliging op SQL Server
 
 ## <a name="a1244-clock-synchronization"></a>Een. 12.4.4-klok synchronisatie
 
@@ -159,9 +159,9 @@ Deze blauw druk helpt u om ervoor te zorgen dat systeem gebeurtenissen worden ge
 - \[Voor\]beeld: Controleren Dependency Agent implementatie in VMSS-VM-installatie kopie (OS) niet vermeld
 - \[Voor\]beeld: Implementatie van Log Analytics agent controleren-VM-installatie kopie (OS) niet vermeld
 - \[Voor\]beeld: Log Analytics agent implementatie controleren in VMSS-VM-installatie kopie (OS) niet vermeld
-- \[Voor\]beeld: Ongecontroleerde SQL database in Azure Security Center bewaken
 - Diagnostische instelling voor controleren
 - Instellingen voor SQL-controle op serverniveau
+- Controle moet worden ingeschakeld voor geavanceerde instellingen voor gegevens beveiliging op SQL Server
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>A. 12.5.1 installatie van software op operationele systemen
 

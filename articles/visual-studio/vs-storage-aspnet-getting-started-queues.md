@@ -1,9 +1,9 @@
 ---
-title: Aan de slag met Azure queue storage en Visual Studio verbonden Services (ASP.NET) | Microsoft Docs
-description: Aan de slag met behulp van Azure-wachtrijopslag nadat u verbinding met een opslagaccount met behulp van Visual Studio Connected Services in een ASP.NET-project in Visual Studio
+title: Aan de slag met Azure Queue Storage en Visual Studio Connected Services (ASP.NET) | Microsoft Docs
+description: Aan de slag met Azure Queue Storage in een ASP.NET-project in Visual Studio nadat u verbinding hebt gemaakt met een opslag account met behulp van Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19cf2dd912968d0a5df8743c1e720776b8a949f0
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110482"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515984"
 ---
-# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure queue storage en Visual Studio verbonden Services (ASP.NET)
+# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Aan de slag met Azure Queue Storage en Visual Studio Connected Services (ASP.NET)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Overzicht
 
-Azure queue storage biedt cloudberichtuitwisseling tussen toepassingscomponenten. Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald. Queue Storage biedt asynchrone uitwisseling van berichten voor communicatie tussen toepassingsonderdelen, of deze nu worden uitgevoerd in de cloud, op een desktopcomputer, op een on-premises server of op een mobiel apparaat. Queue Storage biedt daarnaast ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
+Azure Queue-opslag biedt Cloud berichten tussen toepassings onderdelen. Bij het ontwerpen van schaalbare toepassingen worden toepassingsonderdelen vaak ontkoppeld, zodat ze onafhankelijk van elkaar kunnen worden geschaald. Queue Storage biedt asynchrone uitwisseling van berichten voor communicatie tussen toepassingsonderdelen, of deze nu worden uitgevoerd in de cloud, op een desktopcomputer, op een on-premises server of op een mobiel apparaat. Queue Storage biedt daarnaast ondersteuning voor het beheren van asynchrone taken en het samenstellen van proceswerkstromen.
 
-Deze zelfstudie laat zien hoe u ASP.NET-code voor enkele algemene scenario's met behulp van Azure queue storage-entiteiten te schrijven. Deze scenario's omvatten algemene taken, zoals het maken van een Azure-wachtrij en toevoegen, wijzigen, lezen en verwijderen van Wachtrijberichten.
+In deze zelf studie leert u hoe u ASP.NET-code kunt schrijven voor een aantal algemene scenario's die gebruikmaken van Azure queue storage-entiteiten. Deze scenario's bevatten algemene taken, zoals het maken van een Azure-wachtrij, het toevoegen, wijzigen, lezen en verwijderen van wachtrij berichten.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,21 +40,21 @@ Deze zelfstudie laat zien hoe u ASP.NET-code voor enkele algemene scenario's met
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-### <a name="create-an-mvc-controller"></a>Maken van een MVC-controller 
+### <a name="create-an-mvc-controller"></a>Een MVC-controller maken 
 
-1. In de **Solution Explorer**, met de rechtermuisknop op **Controllers**, en selecteer in het contextmenu **Add -> Controller**.
+1. In de **Solution Explorer**, klikt u met de rechter muisknop op **controllers**en selecteert u in het context menu de optie **Add-> controller**.
 
-    ![Een domeincontroller toevoegen aan een ASP.NET MVC-app](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
+    ![Een controller toevoegen aan een ASP.NET MVC-app](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
 
-1. Op de **Add Scaffold** dialoogvenster, selecteer **MVC 5 Controller - leeg**, en selecteer **toevoegen**.
+1. Selecteer in het dialoog venster **steigers toevoegen** de optie **MVC 5 controller-empty**en selecteer **toevoegen**.
 
-    ![MVC-controller opgeven](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
+    ![MVC-controller type opgeven](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
 
-1. Op de **Controller toevoegen** dialoogvenster, de naam van de controller *QueuesController*, en selecteer **toevoegen**.
+1. Geef in het dialoog venster **controller toevoegen** de naam van de controller *QueuesController*en selecteer **toevoegen**.
 
-    ![De naam van de MVC-controller](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
+    ![De MVC-controller een naam](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
 
-1. Voeg de volgende *met behulp van* instructies aan het `QueuesController.cs` bestand:
+1. Voeg het volgende toe *met behulp van* de instructies in het `QueuesController.cs` bestand:
 
     ```csharp
     using Microsoft.Azure;
@@ -64,15 +64,15 @@ Deze zelfstudie laat zien hoe u ASP.NET-code voor enkele algemene scenario's met
     ```
    ## <a name="create-a-queue"></a>Een wachtrij maken
 
-De volgende stappen laten zien hoe u een wachtrij maken:
+De volgende stappen laten zien hoe u een wachtrij maakt:
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen. 
 
 1. Open het `QueuesController.cs`-bestand. 
 
-1. Voeg de methode met de naam **CreateQueue** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **CreateQueue** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult CreateQueue()
@@ -83,41 +83,41 @@ De volgende stappen laten zien hoe u een wachtrij maken:
     }
     ```
 
-1. Binnen de **CreateQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **CreateQueue** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Krijgen een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.
+1. Een **CloudQueueClient** -object ophalen vertegenwoordigt een Queue service-client.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
-1. Krijgen een **CloudQueue** object op dat een verwijzing naar de gewenste wachtrijnaam vertegenwoordigt. De **CloudQueueClient.GetQueueReference** methode maakt een aanvraag indient voor queue-opslag. De verwijzing wordt geretourneerd, ongeacht of de wachtrij bestaat of niet. 
+1. Haal een **CloudQueue** -object op dat een verwijzing naar de gewenste wachtrij naam vertegenwoordigt. De methode **CloudQueueClient. GetQueueReference** maakt geen aanvraag voor de wachtrij opslag. De verwijzing wordt geretourneerd, ongeacht of de wachtrij bestaat. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.CreateIfNotExists** methode voor het maken van de wachtrij als deze nog niet bestaat. De **CloudQueue.CreateIfNotExists** methode retourneert **waar** als de wachtrij niet bestaat en is gemaakt. Anders **false** wordt geretourneerd.    
+1. Roep de methode **CloudQueue. CreateIfNotExists** aan om de wachtrij te maken als deze nog niet bestaat. De methode **CloudQueue. CreateIfNotExists** retourneert **True** als de wachtrij niet bestaat en is gemaakt. Anders wordt **False** geretourneerd.    
 
     ```csharp
     ViewBag.Success = queue.CreateIfNotExists();
     ```
 
-1. Update de **ViewBag** met de naam van de wachtrij.
+1. Werk de **ViewBag** bij met de naam van de wachtrij.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **Add -> weergave**.
+1. In de **Solution Explorer**vouwt u de map **views** uit, klikt u met de rechter muisknop op **wacht rijen**en selecteert u in het context menu de optie **toevoegen > weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **CreateQueue** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **CreateQueue** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `CreateQueue.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `CreateQueue.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @{
@@ -129,31 +129,31 @@ De volgende stappen laten zien hoe u een wachtrij maken:
     Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **wachtrij maken** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **wachtrij maken** om de resultaten te bekijken die vergelijkbaar zijn met de volgende scherm afbeelding:
   
     ![Wachtrij maken](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Zoals eerder vermeld de **CloudQueue.CreateIfNotExists** methode retourneert **waar** alleen wanneer de wachtrij bestaat niet en is gemaakt. Dus als u de app uitvoert wanneer de wachtrij bestaat, retourneert de methode **false**. Als u wilt de app meerdere keren uitvoeren, moet u de wachtrij verwijderen voordat u de app nogmaals uit te voeren. Verwijderen van de wachtrij kan worden gedaan de **CloudQueue.Delete** methode. U kunt ook verwijderen de wachtrij met behulp van de [Azure-portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Zoals eerder vermeld, retourneert de methode **CloudQueue. CreateIfNotExists** alleen **True** als de wachtrij niet bestaat en is gemaakt. Als u de app uitvoert wanneer de wachtrij bestaat, retourneert de methode daarom **False**. Als u de app meerdere keren wilt uitvoeren, moet u de wachtrij verwijderen voordat u de app opnieuw uitvoert. Het verwijderen van de wachtrij kan worden uitgevoerd via de methode **CloudQueue. Delete** . U kunt de wachtrij ook verwijderen met behulp van de [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
-## <a name="add-a-message-to-a-queue"></a>Een bericht toevoegen aan een wachtrij
+## <a name="add-a-message-to-a-queue"></a>Een bericht aan een wachtrij toevoegen
 
-Nadat u hebt [een wachtrij gemaakt](#create-a-queue), u kunt berichten naar die wachtrij toevoegen. In deze sectie helpt u bij het toevoegen van een bericht naar een wachtrij *test-wachtrij*. 
+Wanneer u [een wachtrij hebt gemaakt](#create-a-queue), kunt u berichten toevoegen aan die wachtrij. In deze sectie wordt uitgelegd hoe u een bericht aan een *test wachtrij*voor een wachtrij toevoegt. 
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen. 
 
 1. Open het `QueuesController.cs`-bestand.
 
-1. Voeg de methode met de naam **AddMessage** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **AddMessage** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult AddMessage()
@@ -164,49 +164,49 @@ Nadat u hebt [een wachtrij gemaakt](#create-a-queue), u kunt berichten naar die 
     }
     ```
  
-1. Binnen de **AddMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **AddMessage** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Krijgen een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.
+1. Een **CloudQueueClient** -object ophalen vertegenwoordigt een Queue service-client.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Krijgen een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Een **CloudQueueContainer** -object ophalen dat een verwijzing naar de wachtrij vertegenwoordigt. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Maak de **CloudQueueMessage** -object als het bericht dat u wilt toevoegen aan de wachtrij. Een **CloudQueueMessage** object kan worden gemaakt op basis van een tekenreeks (in UTF-8-indeling) of een bytematrix.
+1. Maak het **CloudQueueMessage** -object dat het bericht vertegenwoordigt dat u wilt toevoegen aan de wachtrij. U kunt een **CloudQueueMessage** -object maken op basis van een teken reeks (in UTF-8-indeling) of een byte matrix.
 
     ```csharp
     CloudQueueMessage message = new CloudQueueMessage("Hello, Azure Queue Storage");
     ```
 
-1. Roep de **CloudQueue.AddMessage** methode de messaged toevoegen aan de wachtrij.
+1. Roep de methode **CloudQueue. AddMessage** aan om het bericht aan de wachtrij toe te voegen.
 
     ```csharp
     queue.AddMessage(message);
     ```
 
-1. Maken en instellen van een aantal **ViewBag** eigenschappen voor weergave in de weergave.
+1. Maak en stel een aantal **ViewBag** -eigenschappen in voor weer gave in de weer gave.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **Add -> weergave**.
+1. In de **Solution Explorer**vouwt u de map **views** uit, klikt u met de rechter muisknop op **wacht rijen**en selecteert u in het context menu de optie **toevoegen > weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **AddMessage** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **AddMessage** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `AddMessage.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `AddMessage.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @{
@@ -218,31 +218,31 @@ Nadat u hebt [een wachtrij gemaakt](#create-a-queue), u kunt berichten naar die 
     The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **bericht toevoegen** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **bericht toevoegen** om resultaten te zien die vergelijkbaar zijn met de volgende scherm afbeelding:
   
     ![Bericht toevoegen](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
-De twee secties - [een bericht zonder deze te verwijderen uit een wachtrij gelezen](#read-a-message-from-a-queue-without-removing-it) en [lezen en verwijderen van een bericht van een wachtrij](#read-and-remove-a-message-from-a-queue) -laten zien hoe u berichten in een wachtrij gelezen.    
+De twee secties: [een bericht uit een wachtrij lezen zonder dit te verwijderen](#read-a-message-from-a-queue-without-removing-it) en [een bericht uit een wachtrij te lezen en verwijderen](#read-and-remove-a-message-from-a-queue) : Hiermee wordt uitgelegd hoe u berichten uit een wachtrij kunt lezen.    
 
-## <a name="read-a-message-from-a-queue-without-removing-it"></a>Een bericht in een wachtrij gelezen zonder deze te verwijderen
+## <a name="read-a-message-from-a-queue-without-removing-it"></a>Een bericht uit een wachtrij lezen zonder het te verwijderen
 
-In deze sectie ziet u hoe u kunt bekijken van een bericht in de wachtrij (het eerste bericht lezen zonder deze te verwijderen).  
+In deze sectie wordt beschreven hoe u een bericht in de wachtrij bekijkt (Lees het eerste bericht zonder het te verwijderen).  
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen. 
 
 1. Open het `QueuesController.cs`-bestand.
 
-1. Voeg de methode met de naam **PeekMessage** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **PeekMessage** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult PeekMessage()
@@ -253,43 +253,43 @@ In deze sectie ziet u hoe u kunt bekijken van een bericht in de wachtrij (het ee
     }
     ```
  
-1. Binnen de **PeekMessage** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **PeekMessage** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Krijgen een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.
+1. Een **CloudQueueClient** -object ophalen vertegenwoordigt een Queue service-client.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Krijgen een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Een **CloudQueueContainer** -object ophalen dat een verwijzing naar de wachtrij vertegenwoordigt. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.PeekMessage** methode voor het lezen van het eerste bericht in de wachtrij zonder deze te verwijderen uit de wachtrij. 
+1. Roep de methode **CloudQueue. PeekMessage** aan om het eerste bericht in de wachtrij te lezen zonder het uit de wachtrij te verwijderen. 
 
     ```csharp
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Update de **ViewBag** met twee waarden: naam van de wachtrij en het bericht dat is gelezen. De **CloudQueueMessage** object beschrijft de twee eigenschappen voor het ophalen van de waarde van het object: **CloudQueueMessage.AsBytes** en **CloudQueueMessage.AsString**. **AsString** (gebruikt in dit voorbeeld) retourneert een tekenreeks, terwijl **AsBytes** retourneert een matrix van bytes.
+1. Werk de **ViewBag** bij met twee waarden: de wachtrij naam en het bericht dat is gelezen. Het **CloudQueueMessage** -object toont twee eigenschappen voor het ophalen van de waarde van het object: **CloudQueueMessage. AsBytes** en **CloudQueueMessage. AsString**. **AsString** (gebruikt in dit voor beeld) retourneert een teken reeks, terwijl **AsBytes** een byte matrix retourneert.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **Add -> weergave**.
+1. In de **Solution Explorer**vouwt u de map **views** uit, klikt u met de rechter muisknop op **wacht rijen**en selecteert u in het context menu de optie **toevoegen > weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **PeekMessage** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **PeekMessage** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `PeekMessage.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `PeekMessage.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @{
@@ -304,29 +304,29 @@ In deze sectie ziet u hoe u kunt bekijken van een bericht in de wachtrij (het ee
     </table>    
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **message Peek** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **bericht bekijken** om de resultaten te bekijken die vergelijkbaar zijn met de volgende scherm afbeelding:
   
     ![Bericht bekijken](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
-## <a name="read-and-remove-a-message-from-a-queue"></a>Lezen en verwijderen van een bericht van een wachtrij
+## <a name="read-and-remove-a-message-from-a-queue"></a>Een bericht uit een wachtrij lezen en verwijderen
 
-In deze sectie leert u hoe u om te lezen en verwijderen van een bericht van een wachtrij.   
+In deze sectie leert u hoe u een bericht uit een wachtrij leest en verwijdert.   
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen. 
 
 1. Open het `QueuesController.cs`-bestand.
 
-1. Voeg de methode met de naam **gelezenBericht** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **ReadMessage** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult ReadMessage()
@@ -337,50 +337,50 @@ In deze sectie leert u hoe u om te lezen en verwijderen van een bericht van een 
     }
     ```
  
-1. Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **ReadMessage** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Krijgen een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.
+1. Een **CloudQueueClient** -object ophalen vertegenwoordigt een Queue service-client.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Krijgen een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Een **CloudQueueContainer** -object ophalen dat een verwijzing naar de wachtrij vertegenwoordigt. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.GetMessage** methode voor het lezen van het eerste bericht in de wachtrij. De **CloudQueue.GetMessage** methode wordt het bericht onzichtbaar gedurende 30 seconden (standaard) voor andere codes die berichten lezen zodat er geen andere code kunt wijzigen of verwijderen van het bericht tijdens de verwerking. Als u wilt wijzigen van de hoeveelheid tijd die het bericht onzichtbaar is, wijzig de **visibilityTimeout** parameter die wordt doorgegeven aan de **CloudQueue.GetMessage** methode.
+1. Roep de methode **CloudQueue. GetMessage** aan om het eerste bericht in de wachtrij te lezen. De methode **CloudQueue. GetMessage** maakt het bericht 30 seconden (standaard) onzichtbaar voor andere code die berichten leest, zodat geen enkele andere code het bericht kan wijzigen of verwijderen tijdens de verwerking. Als u de hoeveelheid tijd wilt wijzigen die het bericht onzichtbaar is, wijzigt u de **visibilityTimeout** -para meter die wordt door gegeven aan de methode **CloudQueue. GetMessage** .
 
     ```csharp
     // This message will be invisible to other code for 30 seconds.
     CloudQueueMessage message = queue.GetMessage();     
     ```
 
-1. Roep de **CloudQueueMessage.Delete** methode voor het verwijderen van het bericht uit de wachtrij.
+1. Roep de methode **CloudQueueMessage. Delete** aan om het bericht uit de wachtrij te verwijderen.
 
     ```csharp
     queue.DeleteMessage(message);
     ```
 
-1. Update de **ViewBag** met het bericht is verwijderd, en de naam van de wachtrij.
+1. Werk de **ViewBag** bij met het bericht dat is verwijderd en de naam van de wachtrij.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Message = message.AsString;
     ```
  
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **Add -> weergave**.
+1. In de **Solution Explorer**vouwt u de map **views** uit, klikt u met de rechter muisknop op **wacht rijen**en selecteert u in het context menu de optie **toevoegen > weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **gelezenBericht** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **ReadMessage** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `ReadMessage.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `ReadMessage.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @{
@@ -395,29 +395,29 @@ In deze sectie leert u hoe u om te lezen en verwijderen van een bericht van een 
     </table>
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **lezen/verwijderen bericht** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **bericht lezen/verwijderen** om de resultaten te bekijken die vergelijkbaar zijn met de volgende scherm afbeelding:
   
-    ![Lezen en verwijderen van bericht](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
+    ![Bericht lezen en verwijderen](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
 ## <a name="get-the-queue-length"></a>Lengte van de wachtrij ophalen
 
-In deze sectie ziet u hoe u aan de lengte van de wachtrij (aantal berichten). 
+In deze sectie ziet u hoe u de lengte van de wachtrij kunt ophalen (aantal berichten). 
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen. 
 
 1. Open het `QueuesController.cs`-bestand.
 
-1. Voeg de methode met de naam **GetQueueLength** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **GetQueueLength** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult GetQueueLength()
@@ -428,49 +428,49 @@ In deze sectie ziet u hoe u aan de lengte van de wachtrij (aantal berichten).
     }
     ```
  
-1. Binnen de **gelezenBericht** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **ReadMessage** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Krijgen een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.
+1. Een **CloudQueueClient** -object ophalen vertegenwoordigt een Queue service-client.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Krijgen een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Een **CloudQueueContainer** -object ophalen dat een verwijzing naar de wachtrij vertegenwoordigt. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.FetchAttributes** methode voor het ophalen van de wachtrij-kenmerken (met inbegrip van de lengte ervan). 
+1. Roep de methode **CloudQueue. FetchAttributes** aan om de kenmerken van de wachtrij op te halen (inclusief de lengte). 
 
     ```csharp
     queue.FetchAttributes();
     ```
 
-1. Toegang tot de **CloudQueue.ApproximateMessageCount** eigenschap lengte van de wachtrij ophalen.
+1. Open de eigenschap **CloudQueue. ApproximateMessageCount** om de lengte van de wachtrij op te halen.
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;
     ```
 
-1. Update de **ViewBag** met de naam van de wachtrij en de lengte ervan.
+1. Werk de **ViewBag** bij met de naam van de wachtrij en de lengte.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ViewBag.Length = nMessages;
     ```
  
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **Add -> weergave**.
+1. In de **Solution Explorer**vouwt u de map **views** uit, klikt u met de rechter muisknop op **wacht rijen**en selecteert u in het context menu de optie **toevoegen > weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **GetQueueLength** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **GetQueueLength** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `GetQueueLengthMessage.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `GetQueueLengthMessage.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @{
@@ -482,29 +482,29 @@ In deze sectie ziet u hoe u aan de lengte van de wachtrij (aantal berichten).
     The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **ophalen wachtrijlengte** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **wachtrij lengte ophalen** om resultaten te zien die vergelijkbaar zijn met de volgende scherm afbeelding:
   
-    ![Lengte van de wachtrij ophalen](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
+    ![Wachtrij lengte ophalen](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
 
 ## <a name="delete-a-queue"></a>Een wachtrij verwijderen
-In deze sectie ziet u hoe u een wachtrij verwijderen. 
+In deze sectie wordt beschreven hoe u een wachtrij verwijdert. 
 
 > [!NOTE]
 > 
-> In deze sectie wordt ervan uitgegaan dat u de stappen hebt voltooid [de ontwikkelomgeving instellen](#set-up-the-development-environment). 
+> In deze sectie wordt ervan uitgegaan dat u de stappen hebt uitgevoerd om [de ontwikkel omgeving](#set-up-the-development-environment)in te stellen. 
 
 1. Open het `QueuesController.cs`-bestand.
 
-1. Voeg de methode met de naam **DeleteQueue** die retourneert een **ActionResult**.
+1. Voeg een methode toe met de naam **Delete Queue** die een **ActionResult**retourneert.
 
     ```csharp
     public ActionResult DeleteQueue()
@@ -515,42 +515,42 @@ In deze sectie ziet u hoe u een wachtrij verwijderen.
     }
     ```
  
-1. Binnen de **DeleteQueue** methode, krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen van de verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service: (Wijziging  *&lt;storage-account-name >* op de naam van de Azure-opslagaccount u toegang wilt krijgen tot.)
+1. In de methode **Delete Queue** haalt u een **Cloud Storage account** -object op dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van de opslag connection string en het opslag account op te halen uit de configuratie van de Azure-service: (Wijzig  *&lt;de naam van het opslag account >* in de naam van het Azure Storage-account dat u wilt openen.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
    
-1. Krijgen een **CloudQueueClient** object vertegenwoordigt een queue-serviceclient.
+1. Een **CloudQueueClient** -object ophalen vertegenwoordigt een Queue service-client.
    
     ```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
 
-1. Krijgen een **CloudQueueContainer** -object met een verwijzing naar de wachtrij. 
+1. Een **CloudQueueContainer** -object ophalen dat een verwijzing naar de wachtrij vertegenwoordigt. 
    
     ```csharp
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Roep de **CloudQueue.Delete** methode voor het verwijderen van de wachtrij die wordt vertegenwoordigd door de **CloudQueue** object.
+1. Roep de **CloudQueue. Delete** -methode aan om de wachtrij te verwijderen die door het **CloudQueue** -object wordt vertegenwoordigd.
 
     ```csharp
     queue.Delete();
     ```
 
-1. Update de **ViewBag** met de naam van de wachtrij en de lengte ervan.
+1. Werk de **ViewBag** bij met de naam van de wachtrij en de lengte.
 
     ```csharp
     ViewBag.QueueName = queue.Name;
     ```
  
-1. In de **Solution Explorer**, vouw de **weergaven** map met de rechtermuisknop op **wachtrijen**, en selecteer in het contextmenu **Add -> weergave**.
+1. In de **Solution Explorer**vouwt u de map **views** uit, klikt u met de rechter muisknop op **wacht rijen**en selecteert u in het context menu de optie **toevoegen > weer geven**.
 
-1. Op de **weergave toevoegen** dialoogvenster Voer **DeleteQueue** voor de weergavenaam en selecteer **toevoegen**.
+1. Voer in het dialoog venster **weer gave toevoegen** **Delete Queue** in als weergave naam en selecteer **toevoegen**.
 
-1. Open `DeleteQueue.cshtml`, en dit zodanig aanpassen dat het ziet als het volgende codefragment eruit:
+1. Open `DeleteQueue.cshtml`en wijzig de waarde zodat deze eruitziet als in het volgende code fragment:
 
     ```csharp
     @{
@@ -562,20 +562,20 @@ In deze sectie ziet u hoe u een wachtrij verwijderen.
     @ViewBag.QueueName deleted.
     ```
 
-1. In de **Solution Explorer**, vouw de **weergaven -> gedeelde** map en open `_Layout.cshtml`.
+1. Vouw in de **Solution Explorer**de **weer gaven-> gedeelde** map uit en open `_Layout.cshtml`.
 
-1. Na de laatste **Html.ActionLink**, voeg de volgende **Html.ActionLink**:
+1. Voeg na de laatste **HTML. ActionLink**de volgende **HTML. ActionLink**toe:
 
     ```html
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Voer de toepassing uit en selecteer **ophalen wachtrijlengte** om te zien van de resultaten die vergelijkbaar is met de volgende schermafbeelding:
+1. Voer de toepassing uit en selecteer **wachtrij lengte ophalen** om resultaten te zien die vergelijkbaar zijn met de volgende scherm afbeelding:
   
     ![Wachtrij verwijderen](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Bekijk meer functiehandleidingen voor informatie over aanvullende mogelijkheden voor het opslaan van gegevens in Azure.
 
-  * [Aan de slag met Azure blob storage en Visual Studio verbonden Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Aan de slag met Azure table storage en Visual Studio verbonden Services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Aan de slag met Azure Blob Storage en Visual Studio Connected Services (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
+  * [Aan de slag met Azure Table Storage en Visual Studio Connected Services (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)

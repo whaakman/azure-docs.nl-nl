@@ -1,9 +1,9 @@
 ---
-title: Aan de slag met blob storage en Visual Studio verbonden services (webtaak projecten) | Microsoft Docs
-description: Aan de slag met behulp van Blob-opslag in een project webtaak nadat u verbinding met een Azure-opslag met behulp van Visual Studio verbonden services.
+title: Aan de slag met Blob Storage en Visual Studio Connected Services (project taak) | Microsoft Docs
+description: Aan de slag met het gebruik van Blob Storage in een Webtaak-project nadat verbinding is gemaakt met een Azure-opslag met behulp van Visual Studio Connected Services.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,26 +12,26 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e951fde7e47ccfcce5f64db4ef27ac767d63480
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122920"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510649"
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (webtaak projecten)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Aan de slag met Azure Blob Storage en Visual Studio Connected Services (project taak)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Overzicht
-Dit artikel bevat een C#-codevoorbeelden die laten hoe een proces wordt geactiveerd zien wanneer een Azure-blob wordt gemaakt of bijgewerkt. De code-voorbeelden gebruiken de [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) versie 1.x. Wanneer u een opslagaccount toevoegt aan een WebJob-project met behulp van de Visual Studio **Connected Services toevoegen** dialoogvenster, de juiste Azure Storage NuGet-pakket is geïnstalleerd, de juiste .NET-verwijzingen worden toegevoegd aan het project en verbindingsreeksen voor de storage-account worden bijgewerkt in het bestand App.config.
+In dit artikel C# vindt u voor beelden van code die laten zien hoe u een proces kunt activeren wanneer een Azure-Blob wordt gemaakt of bijgewerkt. De code voorbeelden gebruiken de [Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) versie 1. x. Wanneer u een opslag account toevoegt aan een project taak met behulp van het dialoog venster **verbonden services toevoegen** van Visual Studio, wordt het juiste Azure Storage NuGet-pakket geïnstalleerd, worden de relevante .net-verwijzingen toegevoegd aan het project en worden verbindings reeksen voor de het opslag account wordt bijgewerkt in het bestand app. config.
 
-## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Hoe u een functie wordt geactiveerd wanneer een blob wordt gemaakt of bijgewerkt
-In deze sectie ziet u hoe u de **BlobTrigger** kenmerk.
+## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Een functie activeren wanneer een BLOB wordt gemaakt of bijgewerkt
+In deze sectie wordt uitgelegd hoe u het kenmerk **sjabloon blobtrigger** gebruikt.
 
- **Opmerking:** De WebJobs SDK scant logboekbestanden om te bekijken voor nieuwe of gewijzigde blobs. Dit proces is inherent traag; een functie mogelijk niet ophalen geactiveerd totdat enkele minuten of langer nadat de blob is gemaakt.  Als uw toepassing nodig heeft om blobs te verwerken onmiddellijk, de aanbevolen methode is het maken van een wachtrijbericht wanneer u de blob maken en gebruiken de **QueueTrigger** kenmerk in plaats van de **BlobTrigger** kenmerk van de functie waarmee de blob wordt verwerkt.
+ **Opmerking:** Met de webjobs SDK worden logboek bestanden gescand om te bekijken of er nieuwe of gewijzigde blobs zijn. Dit proces is inherent traag; een functie wordt mogelijk pas na een paar minuten of langer geactiveerd nadat de blob is gemaakt.  Als uw toepassing blobs onmiddellijk moet verwerken, is de aanbevolen methode om een wachtrij bericht te maken wanneer u de BLOB maakt en het kenmerk **Queue trigger** in plaats van het kenmerk **sjabloon blobtrigger** te gebruiken voor de functie die de BLOB verwerkt .
 
-### <a name="single-placeholder-for-blob-name-with-extension"></a>Enkele tijdelijke aanduiding voor de blobnaam van de met de extensie
-Het volgende codevoorbeeld kopieert tekst blobs die worden weergegeven in de *invoer* container naar de *uitvoer* container:
+### <a name="single-placeholder-for-blob-name-with-extension"></a>Enkele tijdelijke aanduiding voor de BLOB-naam met de extensie
+In het volgende code voorbeeld wordt tekst-blobs die in de *invoer* container worden weer gegeven, gekopieerd naar de *uitvoer* container:
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("output/{name}")] out string output)
@@ -39,9 +39,9 @@ Het volgende codevoorbeeld kopieert tekst blobs die worden weergegeven in de *in
             output = input.ReadToEnd();
         }
 
-De kenmerk-constructor tekenreeksparameter een die Hiermee geeft u de containernaam van de en een tijdelijke aanduiding voor de blob-naam. In dit voorbeeld als een blob met de naam *Blob1.txt* wordt gemaakt in de *invoer* container, een blob met de naam wordt gemaakt van de functie *Blob1.txt* in de *uitvoer* container.
+De kenmerk-constructor neemt een teken reeks parameter op die de container naam en een tijdelijke aanduiding voor de naam van de BLOB opgeeft. Als in dit voor beeld een blob met de naam *Blob1. txt* wordt gemaakt in de *invoer* container, maakt de functie een blob met de naam *Blob1. txt* in de *uitvoer* container.
 
-U kunt een patroon voor de met tijdelijke aanduiding voor blob opgeven zoals wordt weergegeven in het volgende codevoorbeeld:
+U kunt een naam patroon opgeven met de tijdelijke aanduiding voor de BLOB-naam, zoals wordt weer gegeven in het volgende code voorbeeld:
 
         public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
             [Blob("output/copy-{name}")] out string output)
@@ -49,20 +49,20 @@ U kunt een patroon voor de met tijdelijke aanduiding voor blob opgeven zoals wor
             output = input.ReadToEnd();
         }
 
-Deze code wordt alleen blobs die namen die beginnen met 'oorspronkelijke--' hebt gekopieerd. Bijvoorbeeld, *oorspronkelijke Blob1.txt* in de *invoer* container wordt gekopieerd naar *kopie Blob1.txt* in de *uitvoer* container.
+Met deze code worden alleen blobs gekopieerd met namen die beginnen met ' origineel-'. *Original-Blob1. txt* in de *invoer* container wordt bijvoorbeeld gekopieerd naar *copy-Blob1. txt* in de *uitvoer* container.
 
-Als u nodig hebt om op te geven van een naampatroon voor blob-namen die accolades in de naam hebben, dubbelklikt u de accolades. Bijvoorbeeld, als u wilt zoeken blobs in de *installatiekopieën* container met namen als volgt:
+Als u een naam patroon wilt opgeven voor BLOB-namen met accolades in de naam, verdubbelt u de accolades. Als u bijvoorbeeld blobs in de container *installatie kopieën* wilt zoeken die namen als volgt hebben:
 
         {20140101}-soundfile.mp3
 
-Gebruik deze optie voor het patroon:
+Gebruik deze voor uw patroon:
 
         images/{{20140101}}-{name}
 
-In het voorbeeld wordt de *naam* aanduidingswaarde zou worden *soundfile.mp3*.
+In het voor beeld is de *naam* van de tijdelijke aanduiding *soundfile. mp3*.
 
-### <a name="separate-blob-name-and-extension-placeholders"></a>Aparte blob-naam en extensie tijdelijke aanduidingen
-Het volgende codevoorbeeld de bestandsextensie wijzigt, worden gekopieerd blobs die worden weergegeven in de *invoer* container naar de *uitvoer* container. De code registreert de uitbreiding van de *invoer* blob en stelt u de uitbreiding van de *uitvoer* -blob naar *.txt*.
+### <a name="separate-blob-name-and-extension-placeholders"></a>Afzonderlijke aanduidingen voor de BLOB-naam en-extensie
+In het volgende code voorbeeld wordt de bestands extensie gewijzigd, omdat de blobs die in de *invoer* container worden weer gegeven, worden gekopieerd naar de *uitvoer* container. Met de code wordt de extensie van de *invoer* -BLOB vastgelegd en wordt de extensie van de *uitvoer* -BLOB ingesteld op *. txt*.
 
         public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
             [Blob("output/{name}.txt")] out string output,
@@ -75,21 +75,21 @@ Het volgende codevoorbeeld de bestandsextensie wijzigt, worden gekopieerd blobs 
             output = input.ReadToEnd();
         }
 
-## <a name="types-that-you-can-bind-to-blobs"></a>Typen die u met blobs verbinden kunt
-U kunt de **BlobTrigger** kenmerk voor de volgende typen:
+## <a name="types-that-you-can-bind-to-blobs"></a>Typen die u aan blobs kunt binden
+U kunt het kenmerk **sjabloon blobtrigger** gebruiken voor de volgende typen:
 
-* **Tekenreeks**
+* **string**
 * **TextReader**
 * **Stream**
 * **ICloudBlob**
 * **CloudBlockBlob**
 * **CloudPageBlob**
-* Andere typen gedeserialiseerd door [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
+* Andere typen die worden gedeserialiseerd door [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
 
-Als u werken rechtstreeks met de Azure storage-account wilt, kunt u ook toevoegen een **CloudStorageAccount** parameter aan de methodehandtekening.
+Als u rechtstreeks met het Azure-opslag account wilt werken, kunt u ook een **Cloud Storage account** -para meter toevoegen aan de methode handtekening.
 
-## <a name="getting-text-blob-content-by-binding-to-string"></a>Ophalen van blob tekstinhoud binding met de tekenreeks
-Als u tekst blobs worden verwacht, **BlobTrigger** kan worden toegepast op een **tekenreeks** parameter. Het volgende codevoorbeeld wordt gebonden een tekst-blob naar een **tekenreeks** parameter met de naam **logMessage**. De functie maakt gebruik van deze parameter de inhoud van de blob schrijven naar het dashboard van de WebJobs SDK.
+## <a name="getting-text-blob-content-by-binding-to-string"></a>Tekst blob-inhoud ophalen door te binden aan de teken reeks
+Als er tekst-blobs worden verwacht, kan **sjabloon blobtrigger** worden toegepast op een **teken reeks** parameter. Het volgende code voorbeeld bindt een tekst-blob aan een **teken reeks** parameter met de naam **logMessage**. De functie gebruikt die para meter om de inhoud van de BLOB naar het SDK-dash board van webjobs te schrijven.
 
         public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
             string name,
@@ -100,8 +100,8 @@ Als u tekst blobs worden verwacht, **BlobTrigger** kan worden toegepast op een *
              logger.WriteLine(logMessage);
         }
 
-## <a name="getting-serialized-blob-content-by-using-icloudblobstreambinder"></a>Blobinhoud ophalen geserialiseerd met behulp van ICloudBlobStreamBinder
-Het volgende codevoorbeeld maakt gebruik van een klasse die **ICloudBlobStreamBinder** om in te schakelen de **BlobTrigger** kenmerk voor het binden van een blob naar de **WebImage** type.
+## <a name="getting-serialized-blob-content-by-using-icloudblobstreambinder"></a>Geserialiseerde blob-inhoud ophalen met behulp van ICloudBlobStreamBinder
+In het volgende code voorbeeld wordt een klasse gebruikt die **ICloudBlobStreamBinder** implementeert om het kenmerk **sjabloon blobtrigger** in te scha kelen om een BLOB te binden aan het type webimage.
 
         public static void WaterMark(
             [BlobTrigger("images3/{name}")] WebImage input,
@@ -120,7 +120,7 @@ Het volgende codevoorbeeld maakt gebruik van een klasse die **ICloudBlobStreamBi
             output = input.Resize(width, height);
         }
 
-De **WebImage** bindingcode vindt u in een **WebImageBinder** klasse die is afgeleid van **ICloudBlobStreamBinder**.
+De webafbeeldings binding code wordt gegeven in een **WebImageBinder** -klasse die is afgeleid van **ICloudBlobStreamBinder**.
 
         public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
         {
@@ -137,20 +137,20 @@ De **WebImage** bindingcode vindt u in een **WebImageBinder** klasse die is afge
             }
         }
 
-## <a name="how-to-handle-poison-blobs"></a>Beheer van onverwerkbare blobs verwerken
-Wanneer een **BlobTrigger** functie mislukt, de SDK-aanroepen van het opnieuw als de fout is veroorzaakt door een tijdelijke fout. Als de fout wordt veroorzaakt door de inhoud van de blob, mislukt de functie telkens wanneer er wordt geprobeerd om te verwerken van de blob. Standaard roept de SDK een functie maximaal 5 keer voor een bepaalde blob. Als het vijfde mislukt probeert, de SDK een bericht toevoegt aan een wachtrij met de naam *webjobs-blobtrigger-poison*.
+## <a name="how-to-handle-poison-blobs"></a>Poison-blobs verwerken
+Wanneer een **sjabloon blobtrigger** -functie mislukt, wordt deze opnieuw aangeroepen wanneer de fout is veroorzaakt door een tijdelijke fout. Als de fout wordt veroorzaakt door de inhoud van de blob, mislukt de functie elke keer dat er wordt geprobeerd om de BLOB te verwerken. Standaard roept de SDK een functie op tot vijf keer voor een bepaalde blob. Als de vijfde poging mislukt, voegt de SDK een bericht toe aan een wachtrij met de naam *webjobs-sjabloon blobtrigger-Poison*.
 
-Het maximum aantal nieuwe pogingen worden geconfigureerd. Dezelfde **MaxDequeueCount** instelling wordt gebruikt voor het beheer van onverwerkbare blob verwerking en de afhandeling van wachtrij voor beheer van Onverwerkbare berichten.
+Het maximum aantal nieuwe pogingen kan worden geconfigureerd. Dezelfde **MaxDequeueCount** -instelling wordt gebruikt voor de verwerking van verontreinigde BLOB-verwerking en verontreinigde wachtrij berichten.
 
-Bericht uit de wachtrij voor beheer van onverwerkbare blobs is een JSON-object met de volgende eigenschappen:
+Het wachtrij bericht voor verontreinigde blobs is een JSON-object dat de volgende eigenschappen bevat:
 
-* FunctionId (in de indeling *{naam van een webtaak}* . Functies. *{Functienaam}* , bijvoorbeeld: WebJob1.Functions.CopyBlob)
+* FunctionId (in de indeling *{naam van Webtaak}* ). Vervullen. *{Functie naam}* , bijvoorbeeld: WebJob1. functions. CopyBlob)
 * BlobType ("BlockBlob" of "PageBlob")
 * ContainerName
 * BlobName
-* ETag (een blob versie-id, bijvoorbeeld: "0x8D1DC6E70A277EF")
+* ETag (een BLOB-versie-id, bijvoorbeeld: "0x8D1DC6E70A277EF")
 
-In het volgende codevoorbeeld wordt de **CopyBlob** functie heeft code die ervoor zorgt deze dat niet telkens wanneer deze wordt aangeroepen. Nadat de SDK deze voor het maximum aantal nieuwe pogingen roept, een bericht op het beheer van onverwerkbare blob-wachtrij wordt gemaakt en dat bericht is verwerkt door de **LogPoisonBlob** functie.
+In het volgende code voorbeeld bevat de functie **CopyBlob** code die ervoor zorgt dat het mislukt elke keer dat deze wordt aangeroepen. Nadat de SDK het heeft aangeroepen voor het maximum aantal nieuwe pogingen, wordt er een bericht gemaakt in de BLOB-wachtrij voor verontreinigde berichten. dit bericht wordt verwerkt door de functie **LogPoisonBlob** .
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("textblobs/output-{name}")] out string output)
@@ -170,7 +170,7 @@ In het volgende codevoorbeeld wordt de **CopyBlob** functie heeft code die ervoo
             logger.WriteLine("ETag: {0}", message.ETag);
         }
 
-De SDK gedeserialiseerd automatisch het JSON-bericht. Hier volgt de **PoisonBlobMessage** klasse:
+De SDK deserialiseren automatisch het JSON-bericht. Dit is de **PoisonBlobMessage** -klasse:
 
         public class PoisonBlobMessage
         {
@@ -181,41 +181,41 @@ De SDK gedeserialiseerd automatisch het JSON-bericht. Hier volgt de **PoisonBlob
             public string ETag { get; set; }
         }
 
-### <a name="blob-polling-algorithm"></a>BLOB polling-algoritme
-De WebJobs SDK scant alle containers die zijn opgegeven door **BlobTrigger** kenmerken aan begin van de toepassing. In een grote opslagaccount deze scan kan enige tijd duren, zodat het mogelijk even voordat nieuwe blobs worden gevonden en **BlobTrigger** functies worden uitgevoerd.
+### <a name="blob-polling-algorithm"></a>Algoritme voor BLOB-polling
+De webjobs SDK scant alle containers die zijn opgegeven door **sjabloon blobtrigger** -kenmerken bij het starten van de toepassing. In een groot opslag account kan deze scan enige tijd duren, dus het kan een tijdje zijn voordat er nieuwe blobs worden gevonden en **sjabloon blobtrigger** -functies worden uitgevoerd.
 
-Voor het detecteren van nieuwe of gewijzigde blobs na de start van toepassing, leest de SDK periodiek uit de logboeken van de blob-opslag. De logboeken van de blob in een buffer opgeslagen en alleen fysiek elke 10 minuten geschreven of dus, dus er mogelijk aanzienlijke vertraging optreden nadat een blob wordt gemaakt of voordat de bijbehorende bijgewerkt **BlobTrigger** functie wordt uitgevoerd.
+Om nieuwe of gewijzigde blobs te detecteren nadat de toepassing is gestart, leest de SDK regel matig de logboeken van de Blob-opslag. De BLOB-logboeken worden gebufferd en worden alleen om de 10 minuten fysiek geschreven, waardoor er een aanzienlijke vertraging kan optreden nadat een blob is gemaakt of bijgewerkt voordat de bijbehorende functie **sjabloon blobtrigger** wordt uitgevoerd.
 
-Er is een uitzondering voor blobs die u met behulp van maakt de **Blob** kenmerk. Wanneer de WebJobs SDK een nieuwe blob maakt, wordt de nieuwe blob onmiddellijk doorgegeven aan alle overeenkomende **BlobTrigger** functies. Daarom hebt u een keten van blob-invoer en uitvoer, kan de SDK verwerken deze efficiënt. Maar als u lage latentie uitvoeren van uw blob verwerking functions voor blobs die zijn gemaakt of bijgewerkt op een andere manier wilt, wordt u aangeraden **QueueTrigger** in plaats van **BlobTrigger**.
+Er is een uitzonde ring voor blobs die u maakt met behulp van het kenmerk **BLOB** . Wanneer de webjobs SDK een nieuwe BLOB maakt, wordt de nieuwe BLOB onmiddellijk door gegeven aan alle overeenkomende **sjabloon blobtrigger** -functies. Als u een keten van BLOB-invoer en-uitvoer hebt, kan de SDK deze daarom efficiënt verwerken. Maar als u wilt dat uw BLOB-verwerkings functies worden uitgevoerd voor blobs die op een andere manier worden gemaakt of bijgewerkt, raden we u aan **Queue trigger** te gebruiken in plaats van **sjabloon blobtrigger**.
 
-### <a name="blob-receipts"></a>BLOB-ontvangsten
-De WebJobs SDK zorgt ervoor dat er geen **BlobTrigger** functie wordt meerdere keren aangeroepen voor de dezelfde nieuwe of bijgewerkte blob. Dit gebeurt door het onderhouden van *blob-ontvangsten* om te bepalen als een bepaalde blob-versie is verwerkt.
+### <a name="blob-receipts"></a>BLOB-ontvangst bewijzen
+De webjobs SDK zorgt ervoor dat er geen functie **sjabloon blobtrigger** meer dan één keer wordt aangeroepen voor dezelfde nieuwe of bijgewerkte blob. Dit doet u door *BLOB-ontvangst* te onderhouden om te bepalen of een bepaalde BLOB-versie is verwerkt.
 
-BLOB ontvangstbevestigingen worden opgeslagen in een container met de naam *azure-webtaken-hosts* in de Azure storage-account dat is opgegeven door de verbindingstekenreeks AzureWebJobsStorage. De ontvangst van een blob bevat de volgende informatie:
+BLOB-ontvangstsen worden opgeslagen in een container met de naam *Azure-webjobs-hosts* in het Azure Storage-account dat is opgegeven door de AzureWebJobsStorage-Connection String. Een BLOB-ontvangst heeft de volgende informatie:
 
-* De functie is aangeroepen voor de blob (" *{naam van een webtaak}* . Functies. *{Functienaam}* ', bijvoorbeeld: "WebJob1.Functions.CopyBlob")
-* De containernaam van de
-* Het blobtype ("BlockBlob" of "PageBlob")
-* Naam van de blob
-* De ETag (een blob versie-id, bijvoorbeeld: "0x8D1DC6E70A277EF")
+* De functie die is aangeroepen voor de BLOB ( *{naam van Webtaak}* ). Vervullen. *{Functie naam}* , bijvoorbeeld: "WebJob1. functions. CopyBlob")
+* De container naam
+* Het BLOB-type ("BlockBlob" of "PageBlob")
+* De BLOB-naam
+* De ETag (een BLOB-versie-id, bijvoorbeeld: "0x8D1DC6E70A277EF")
 
-Als u afdwingen dat opnieuw verwerken van een blob wilt, kunt u handmatig de ontvangst van de blob voor die blob uit verwijderen de *azure-webtaken-hosts* container.
+Als u het opnieuw verwerken van een BLOB wilt forceren, kunt u de BLOB-ontvangst voor die BLOB hand matig verwijderen uit de container *Azure-webjobs-hosts* .
 
-## <a name="related-topics-covered-by-the-queues-article"></a>Verwante onderwerpen wordt gedekt door het artikel wachtrijen
-Scenario's die niet specifiek zijn voor blob-verwerking, Zie voor informatie over het afhandelen van de blob-verwerking geactiveerd door een wachtrijbericht of voor WebJobs SDK [Azure queue storage gebruiken met de WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+## <a name="related-topics-covered-by-the-queues-article"></a>Verwante onderwerpen die worden behandeld in het artikel wacht rijen
+Zie [Azure Queue Storage gebruiken met de Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)voor meer informatie over het verwerken van BLOB-verwerking die wordt geactiveerd door een wachtrij bericht of voor webjobs SDK-scenario's die niet specifiek zijn voor BLOB-verwerking.
 
-Verwante onderwerpen in dit artikel besproken omvatten het volgende:
+Verwante onderwerpen in dit artikel zijn onder andere:
 
 * Async-functies
 * Meerdere exemplaren
 * Correct afsluiten
-* Kenmerken in de hoofdtekst van de functie WebJobs SDK gebruiken
-* De SDK-verbindingsreeksen instellen in code.
-* Stel waarden voor WebJobs SDK parameters van constructor in code
-* Configureer **MaxDequeueCount** voor het beheer van onverwerkbare blob verwerken.
-* Een functie handmatig activeren
-* Schrijven Logboeken
+* De SDK-kenmerken van webjobs in de hoofd tekst van een functie gebruiken
+* De SDK-verbindings reeksen instellen in de code.
+* Waarden voor de para meters van de SDK voor webjobs in code instellen
+* Configureer **MaxDequeueCount** voor de verwerking van verontreinigde blobs.
+* Een functie hand matig activeren
+* Logboeken schrijven
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel is codevoorbeelden die laten hoe u algemene scenario's zien voor het werken met Azure-blobs worden opgegeven. Zie voor meer informatie over het gebruik van Azure WebJobs en de WebJobs SDK [documentatiebronnen voor Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).
+In dit artikel vindt u code voorbeelden die laten zien hoe u veelvoorkomende scenario's kunt afhandelen voor het werken met Azure-blobs. Zie [Azure WebJobs documentation resources](https://go.microsoft.com/fwlink/?linkid=390226)(Engelstalig) voor meer informatie over het gebruik van Azure WebJobs en de webjobs SDK.
 

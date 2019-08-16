@@ -200,6 +200,8 @@
       href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
+    - name: Veelgestelde vragen
+      href: kafka-faq.md
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Hulp op het forum

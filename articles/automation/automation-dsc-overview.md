@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3f6d15e67122afcbea3cc294c803a302e961bdbd
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: c192a994ac5398d41e28a35267b922ba98b721cc
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372549"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69513617"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Overzicht van Azure Automation status configuratie
 
@@ -57,6 +57,8 @@ Voor knoop punten waarop Windows worden uitgevoerd, worden de volgende versies o
 - Windows 10
 - Windows 8.1
 - Windows 7
+
+De [micro soft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) zelfstandige product-SKU bevat geen implementatie van de gewenste status cumuleren zodat deze niet kan worden beheerd door de configuratie van de Power shell DSC of de Azure Automation status.
 
 Voor knoop punten waarop Linux wordt uitgevoerd, worden de volgende distributies/versies ondersteund:
 

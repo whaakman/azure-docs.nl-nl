@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met verificatie voor Mobile Apps in Xamarin Forms-app | Microsoft Docs
-description: Informatie over het gebruik van Mobile Apps om gebruikers van uw Xamarin Forms-app via een groot aantal id-providers, met inbegrip van AAD, Google, Facebook, Twitter en Microsoft te verifiëren.
+description: Meer informatie over het gebruik van Mobile Apps voor het verifiëren van gebruikers van uw Xamarin Forms-app via verschillende id-providers, waaronder AAD, Google, Facebook, Twitter en micro soft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -15,65 +15,64 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: f1777fcb5a4e7899da982bd9d1d35905cb408ad2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67446310"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Verificatie toevoegen aan uw Xamarin Forms-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center investeert in nieuwe en geïntegreerde services centraal staat in de ontwikkeling van mobiele Apps. Ontwikkelaars kunnen gebruikmaken van **bouwen**, **Test** en **verdelen** services voor het instellen van de pijplijn voor continue integratie en levering. Zodra de app is geïmplementeerd, ontwikkelaars controleren de status en het gebruik van het gebruik van de app de **Analytics** en **Diagnostics** -services en Communiceer met gebruikers met behulp van de **Push** de service. Ontwikkelaars kunnen ook gebruikmaken van **Auth** om hun gebruikers te verifiëren en **gegevens** service behouden en synchroniseren van app-gegevens in de cloud. Bekijk [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) vandaag nog.
+> Visual Studio App Center is investeren in nieuwe en geïntegreerde services die in de ontwikkeling van mobiele apps kunnen worden ontwikkeld. Ontwikkel aars kunnen services **bouwen**, **testen** en **distribueren** om een continue integratie-en leverings pijplijn in te stellen. Zodra de app is geïmplementeerd, kunnen ontwikkel aars de status en het gebruik van hun app bewaken met behulp van de **analyse** -en **diagnose** Services en gebruikers benaderen met behulp van de **Push** service. Ontwikkel aars kunnen ook gebruikmaken van **auth** voor het verifiëren van hun gebruikers en **gegevens** service om app-gegevens in de Cloud op te slaan en te synchroniseren. Bekijk [app Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) vandaag nog.
 >
 
 ## <a name="overview"></a>Overzicht
-Dit onderwerp ziet u hoe u verifieert gebruikers van een App Service Mobile App van uw clienttoepassing. In deze zelfstudie, kunt u verificatie toevoegen aan de Xamarin Forms Quick Start-project met behulp van een id-provider die wordt ondersteund door App Service. Nadat wordt is geverifieerd en geautoriseerd door uw mobiele App, de waarde van de gebruiker-ID wordt weergegeven en kunt u zich voor toegang tot gegevens in een tabel met beperkte toegang.
+In dit onderwerp wordt beschreven hoe u gebruikers van een mobiele app van App Service kunt verifiëren vanuit uw client toepassing. In deze zelf studie voegt u verificatie toe aan het Quick start-project van Xamarin-formulieren met behulp van een id-provider die wordt ondersteund door App Service. Nadat de verificatie is voltooid en geautoriseerd door uw mobiele app, wordt de waarde voor de gebruikers-ID weer gegeven en kunt u toegang krijgen tot beperkte tabel gegevens.
 
 ## <a name="prerequisites"></a>Vereisten
-Voor het beste resultaat met deze zelfstudie, het beste voert u de [een Xamarin Forms-app maken][1] zelfstudie. Nadat u deze zelfstudie hebt voltooid, hebt u een Xamarin Forms-project dat is een TodoList-app voor meerdere platforms.
+Voor het beste resultaat met deze zelf studie raden wij u aan eerst de zelf studie [een Xamarin Forms-app maken][1] uit te voeren. Nadat u deze zelf studie hebt voltooid, hebt u een Xamarin-formulier project dat een multi-platform TodoList-app is.
 
-Als u het gedownloade quick start-serverproject niet gebruikt, moet u het pakket voor verificatie-extensie toevoegen aan uw project. Zie voor meer informatie over het server-extensiepakketten [werken met de .NET back-endserver SDK voor Azure Mobile Apps][2].
+Als u het gedownloade Quick Start Server-project niet gebruikt, moet u het uitbreidings pakket voor verificatie toevoegen aan uw project. Zie [werken met de .net back-end server SDK voor Azure Mobile apps][2]voor meer informatie over server extensie pakketten.
 
-## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Uw app registreren voor verificatie en App-Services configureren
+## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Uw app registreren voor verificatie en App Services configureren
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Uw app toevoegen aan de toegestane externe Omleidings-URL 's
+## <a name="redirecturl"></a>Uw app toevoegen aan de toegestane externe omleidings-Url's
 
-Veilige verificatie is vereist dat u een nieuwe URL-schema voor uw app definiëren. Hiermee kunt het verificatiesysteem terug te keren naar uw app nadat het verificatieproces voltooid is. In deze zelfstudie gebruiken we het URL-schema _appname_ in. U kunt echter een URL-schema dat u kiest. Deze moet uniek zijn voor uw mobiele App. De omleiding op de server inschakelen:
+Voor beveiligde verificatie moet u een nieuw URL-schema definiëren voor uw app. Hierdoor kan het verificatie systeem terugkeren naar uw app nadat het verificatie proces is voltooid. In deze zelf studie gebruiken we het URL-schema _AppName_ in. U kunt echter elk gewenst URL-schema gebruiken. Deze moet uniek zijn voor uw mobiele toepassing. De omleiding aan de server zijde inschakelen:
 
-1. In de [Azure-portal][8], selecteert u uw App Service.
+1. Selecteer uw App Service in de [Azure Portal][8].
 
-2. Klik op de **verificatie / autorisatie** menu-optie.
+2. Klik op de menu optie voor **verificatie/autorisatie** .
 
-3. In de **toegestane externe Omleidings-URL's**, voer `url_scheme_of_your_app://easyauth.callback`.  De **url_scheme_of_your_app** in deze reeks wordt het URL-schema voor uw mobiele toepassing.  Het moet normale URL-specificatie voor een protocol (Gebruik letters en cijfers alleen en beginnen met een letter) volgen.  U moet een notitie van de tekenreeks die u kiest, aangezien u nodig hebt om aan te passen van de code van uw mobiele toepassing met de URL-schema op verschillende plaatsen.
+3. Voer`url_scheme_of_your_app://easyauth.callback`in de **toegestane externe**omleidings-url's in.  De **url_scheme_of_your_app** in deze teken reeks is het URL-schema voor uw mobiele toepassing.  De standaard URL-specificatie voor een protocol moet volgen (alleen letters en cijfers gebruiken en beginnen met een letter).  U moet een notitie maken van de teken reeks die u kiest, omdat u de code van uw mobiele toepassing moet aanpassen aan het URL-schema op verschillende locaties.
 
 4. Klik op **OK**.
 
 5. Klik op **Opslaan**.
 
-## <a name="restrict-permissions-to-authenticated-users"></a>Machtigingen beperken voor geverifieerde gebruikers
+## <a name="restrict-permissions-to-authenticated-users"></a>Machtigingen voor geverifieerde gebruikers beperken
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-## <a name="add-authentication-to-the-portable-class-library"></a>Verificatie toevoegen aan de draagbare klassebibliotheek
-Mobile Apps maken gebruik van de [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
-uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. Voor een betere ervaring voor eindgebruikers in uw app in productie, moet u rekening houden in plaats daarvan [Client beheerde verificatie][6].
+## <a name="add-authentication-to-the-portable-class-library"></a>Verificatie toevoegen aan de draag bare klassen bibliotheek
+Mobile Apps maakt gebruik van de [LoginAsync][3] -extensie methode op de [mobileserviceclient te maken][4] om zich aan te melden bij een gebruiker met app service-verificatie. In dit voor beeld wordt een door de server beheerde verificatie stroom gebruikt waarmee de aanmeldings interface van de provider in de app wordt weer gegeven. Zie voor meer informatie [Server-beheerde verificatie][5]. Als u een betere gebruikers ervaring in uw productie-app wilt bieden, kunt u overwegen een door [client beheerde verificatie][6]te gebruiken.
 
-Als u wilt verifiëren met een project Xamarin Forms, definieert een **IAuthenticate** interface in de draagbare klassenbibliotheek vormt voor de app. Voeg een **aanmelden** knop aan de gebruikersinterface is gedefinieerd in de draagbare klassenbibliotheek, die u op te starten verificatie. Gegevens worden geladen vanuit de mobiele back-end na een geslaagde authenticatie.
+Als u wilt verifiëren met een Xamarin Forms-project, definieert u een **IAuthenticate** -interface in de draag bare klassen bibliotheek voor de app. Voeg vervolgens een **aanmeldings** knop toe aan de gebruikers interface die is gedefinieerd in de draag bare klassen bibliotheek, waarop u kunt klikken om de verificatie te starten. De gegevens worden vanaf de back-end van de mobiele app geladen nadat de verificatie is geslaagd.
 
-Implementeer de **IAuthenticate** interface voor elk platform wordt ondersteund door uw app.
+Implementeer de **IAuthenticate** -interface voor elk platform dat wordt ondersteund door uw app.
 
-1. Open in Visual Studio of Xamarin Studio App.cs uit het project met **draagbare** in de naam, die Portable Class Library-project, voegt u de volgende `using` instructie:
+1. Open in Visual Studio of Xamarin Studio app.CS van het project met een **draag bare** naam, een draagbaar Class Library-project en voeg de volgende `using` instructie toe:
 
         using System.Threading.Tasks;
-2. In App.cs, voeg de volgende `IAuthenticate` interface definition direct voor de `App` klassedefinitie.
+2. Voeg in app.cs de volgende `IAuthenticate` interface definitie direct voor de `App` klassedefinitie toe.
 
         public interface IAuthenticate
         {
             Task<bool> Authenticate();
         }
-3. Voor het initialiseren van de interface met een platform-specifieke implementatie, de volgende statische leden toevoegen aan de **App** klasse.
+3. Als u de interface wilt initialiseren met een platformspecifieke implementatie, voegt u de volgende statische leden toe aan de **app** -klasse.
 
         public static IAuthenticate Authenticator { get; private set; }
 
@@ -81,17 +80,17 @@ Implementeer de **IAuthenticate** interface voor elk platform wordt ondersteund 
         {
             Authenticator = authenticator;
         }
-4. TodoList.xaml openen vanuit het project draagbare klassenbibliotheek, voeg de volgende **knop** -element in de *buttonsPanel* lay-out-element, na de bestaande knop:
+4. Open TodoList. xaml vanuit het Portable Class Library-project, voeg het volgende **knop** element toe in het element *buttonsPanel* layout, na de bestaande knop:
 
           <Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30"
             Clicked="loginButton_Clicked"/>
 
-    Deze knop wordt verificatie server beheerd met de back-end van uw mobiele app geactiveerd.
-5. TodoList.xaml.cs openen vanuit het project draagbare klassenbibliotheek, en vervolgens het volgende veld toevoegen aan de `TodoList` klasse:
+    Met deze knop wordt door de server beheerde verificatie door de back-end van uw mobiele app geactiveerd.
+5. Open TodoList.xaml.cs uit het Portable Class Library-project en voeg het volgende veld toe aan `TodoList` de klasse:
 
         // Track whether the user has authenticated.
         bool authenticated = false;
-6. Vervang de **OnAppearing** methode met de volgende code:
+6. Vervang de methode **OnAppearing** door de volgende code:
 
         protected override async void OnAppearing()
         {
@@ -109,8 +108,8 @@ Implementeer de **IAuthenticate** interface voor elk platform wordt ondersteund 
             }
         }
 
-    Deze code zorgt ervoor dat gegevens alleen worden vernieuwd vanuit de service nadat u hebt geverifieerd.
-7. Voeg de volgende-handler voor de **op wordt geklikt** gebeurtenis om de **TodoList** klasse:
+    Met deze code zorgt u ervoor dat de gegevens van de service alleen worden vernieuwd nadat u bent geverifieerd.
+7. Voeg de volgende handler voor de gebeurtenis geklikt toe aan de klasse **TodoList** :
 
         async void loginButton_Clicked(object sender, EventArgs e)
         {
@@ -121,21 +120,21 @@ Implementeer de **IAuthenticate** interface voor elk platform wordt ondersteund 
             if (authenticated == true)
                 await RefreshItems(true, syncItems: false);
         }
-8. Uw wijzigingen opslaan en opnieuw maken van het draagbare klassebibliotheek project zonder fouten controleren.
+8. Sla uw wijzigingen op en bouw het Portable Class Library-project opnieuw op zonder fouten te controleren.
 
 ## <a name="add-authentication-to-the-android-app"></a>Verificatie toevoegen aan de Android-app
-Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface in het Android-app-project. Deze sectie overslaan als u geen ondersteuning voor Android-apparaten bieden.
+In deze sectie wordt uitgelegd hoe u de **IAuthenticate** -interface in het Android-app-project implementeert. Sla deze sectie over als u geen Android-apparaten ondersteunt.
 
-1. In Visual Studio of Xamarin Studio, met de rechtermuisknop op de **droid** project, klikt u vervolgens **Set as StartUp Project**.
-2. Druk op F5 om het project in het foutopsporingsprogramma start en vervolgens controleren of dat een niet-verwerkte uitzondering met een statuscode 401 (niet-gemachtigd) wordt gegenereerd na de app wordt gestart. De 401 code wordt gemaakt, omdat toegang op de back-end beperkt tot alleen geautoriseerde gebruikers is.
-3. Open MainActivity.cs in het Android-project en voeg de volgende `using` instructies:
+1. Klik in Visual Studio of Xamarin Studio met de rechter muisknop op het **Droid** -project en stel dit in **als opstart project**.
+2. Druk op F5 om het project in het fout opsporingsprogramma te starten en controleer vervolgens of er een niet-verwerkte uitzonde ring met de status code 401 (niet toegestaan) optreedt nadat de app is gestart. De 401-code wordt gemaakt, omdat de toegang op de back-end alleen is beperkt tot gemachtigde gebruikers.
+3. Open MainActivity.cs in het Android-project en voeg de `using` volgende-instructies toe:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
-4. Update de **MainActivity** klasse voor het implementeren van de **IAuthenticate** interface, als volgt:
+4. Werk de **MainActivity** -klasse voor het implementeren van de **IAuthenticate** -interface als volgt bij:
 
         public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
-5. Update de **MainActivity** klasse door toe te voegen een **MobileServiceUser** veld en een **verifiëren** methode, die vereist wordt door de **IAuthenticate** interface, als volgt:
+5. Werk de **MainActivity** -klasse bij door een **MobileServiceUser** -veld toe te voegen en een methode voor **authenticatie** , die wordt vereist door de **IAuthenticate** -interface, als volgt:
 
         // Define an authenticated user.
         private MobileServiceUser user;
@@ -170,9 +169,9 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
             return success;
         }
 
-    Als u van een id-provider dan Facebook gebruikmaakt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider][7].
+    Als u een andere ID-provider dan Facebook gebruikt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider][7].
 
-6. Update de **AndroidManifest.xml** bestand door toe te voegen van de volgende XML-code binnen de `<application>` element:
+6. Werk het bestand **AndroidManifest. XML** bij door de volgende XML in het `<application>` element toe te voegen:
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
@@ -184,34 +183,34 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
       </intent-filter>
     </activity>
     ```
-    Vervang `{url_scheme_of_your_app}` met uw URL-schema.
-7. Voeg de volgende code aan de **OnCreate** -methode van de **MainActivity** klasse voordat de aanroep van `LoadApplication()`:
+    Vervang `{url_scheme_of_your_app}` door het URL-schema.
+7. Voeg de volgende code toe aan de methode **OnCreate** van de klasse **MainActivity** voordat u de `LoadApplication()`aanroep naar:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
-    Deze code zorgt ervoor dat de verificator wordt geïnitialiseerd voordat de belasting voor de app.
-8. Opnieuw opbouwen van de app, uitvoeren en meld u aan met de verificatieprovider die u hebt gekozen en controleer of u kunt toegang tot gegevens als een geverifieerde gebruiker.
+    Deze code zorgt ervoor dat de verificator wordt geïnitialiseerd voordat de app wordt geladen.
+8. Bouw de app opnieuw op, voer deze uit en meld u aan met de verificatie provider die u hebt gekozen en controleer of u toegang hebt tot gegevens als geverifieerde gebruiker.
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
-**De toepassing is vastgelopen met `Java.Lang.NoSuchMethodError: No static method startActivity`**
+**De toepassing is vastgelopen met`Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-In sommige gevallen, veroorzaakt een conflict in de voor ondersteuningspakketten die weergegeven als slechts een waarschuwing in de Visual studio, maar het vastlopen van de toepassing met deze uitzondering tijdens runtime. In dit geval moet u ervoor zorgen dat alle ondersteuningspakketten waarnaar wordt verwezen in uw project beschikt over dezelfde versie. Het [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs`-afhankelijkheid voor het Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuningspakketten, moet u dit pakket met de vereiste versie rechtstreeks installeren om conflicten te voorkomen.
+In sommige gevallen worden conflicten in de ondersteunings pakketten als alleen een waarschuwing in Visual Studio weer gegeven, maar wordt de toepassing tijdens runtime vastlopen met deze uitzonde ring. In dat geval moet u ervoor zorgen dat alle ondersteunings pakketten die in uw project worden verwezen, dezelfde versie hebben. Het [Azure Mobile Apps NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) heeft `Xamarin.Android.Support.CustomTabs`-afhankelijkheid voor het Android-platform, dus als uw project gebruikmaakt van nieuwere ondersteuningspakketten, moet u dit pakket met de vereiste versie rechtstreeks installeren om conflicten te voorkomen.
 
 ## <a name="add-authentication-to-the-ios-app"></a>Verificatie toevoegen aan de iOS-app
-Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface in het iOS-app-project. Als u iOS-apparaten niet ondersteunt, kunt u deze sectie overslaan.
+In deze sectie wordt uitgelegd hoe u de **IAuthenticate** -interface in het IOS-app-project implementeert. Sla deze sectie over als u geen iOS-apparaten ondersteunt.
 
-1. In Visual Studio of Xamarin Studio, met de rechtermuisknop op de **iOS** project, klikt u vervolgens **Set as StartUp Project**.
-2. Druk op F5 om het project in het foutopsporingsprogramma start en vervolgens controleren of dat een niet-verwerkte uitzondering met een statuscode 401 (niet-gemachtigd) wordt gegenereerd na de app wordt gestart. De 401-respons is gemaakt, omdat toegang op de back-end beperkt tot alleen geautoriseerde gebruikers is.
-3. Open AppDelegate.cs in het iOS-project en voeg de volgende `using` instructies:
+1. Klik in Visual Studio of Xamarin Studio met de rechter muisknop op het **IOS** -project en stel dit in **als opstart project**.
+2. Druk op F5 om het project in het fout opsporingsprogramma te starten en controleer vervolgens of er een niet-verwerkte uitzonde ring met de status code 401 (niet toegestaan) optreedt nadat de app is gestart. Het 401-antwoord wordt gemaakt, omdat de toegang op de back-end alleen is beperkt tot gemachtigde gebruikers.
+3. Open AppDelegate.cs in het IOS-project en voeg de `using` volgende-instructies toe:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
-4. Update de **AppDelegate** klasse voor het implementeren van de **IAuthenticate** interface, als volgt:
+4. Werk de **AppDelegate** -klasse voor het implementeren van de **IAuthenticate** -interface als volgt bij:
 
         public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
-5. Update de **AppDelegate** klasse door toe te voegen een **MobileServiceUser** veld en een **verifiëren** methode, die vereist wordt door de **IAuthenticate** interface, als volgt:
+5. Werk de **AppDelegate** -klasse bij door een **MobileServiceUser** -veld toe te voegen en een methode voor **authenticatie** , die wordt vereist door de **IAuthenticate** -interface, als volgt:
 
         // Define an authenticated user.
         private MobileServiceUser user;
@@ -248,42 +247,42 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
             return success;
         }
 
-    Als u van een id-provider dan Facebook gebruikmaakt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider].
+    Als u een andere ID-provider dan Facebook gebruikt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider].
     
-6. Update de **AppDelegate** klasse door toe te voegen de **OpenUrl** methode overbelasten als volgt:
+6. Werk de **AppDelegate** -klasse bij door de **OpenUrl** -methode overload als volgt toe te voegen:
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
    
-7. Voeg de volgende regel code aan de **FinishedLaunching** methode voordat de aanroep van `LoadApplication()`:
+7. Voeg de volgende regel code toe aan de methode **FinishedLaunching** vóór de aanroep `LoadApplication()`:
 
         App.Init(this);
 
-    Deze code zorgt ervoor dat de verificator is geïnitialiseerd voordat de app wordt geladen.
+    Deze code zorgt ervoor dat de verificator wordt geïnitialiseerd voordat de app wordt geladen.
 
-8. Open de Info.plist en voeg een **URL-Type**. Instellen de **id** naar een naam van uw keuze, de **URL-schema's** naar de URL-schema voor uw app en de **rol** op None.
+8. Open info. plist en voeg een **URL-type**toe. Stel de **id** in op een naam van uw keuze, de **URL-SCHEMA'S** naar het URL-schema voor uw app en de **rol** op geen.
 
-9. Opnieuw opbouwen van de app, uitvoeren en meld u aan met de verificatieprovider die u hebt gekozen en controleer of u kunt toegang tot gegevens als een geverifieerde gebruiker.
+9. Bouw de app opnieuw op, voer deze uit en meld u aan met de verificatie provider die u hebt gekozen en controleer of u toegang hebt tot gegevens als geverifieerde gebruiker.
 
-## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Verificatie toevoegen aan projecten voor apps van Windows 10 (inclusief Phone)
-Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface in de Windows 10-app-projecten. De stappen die gelden voor Universal Windows Platform (UWP)-projecten, maar met behulp van de **UWP** project (met de vermelde wijzigingen). Deze sectie overslaan als Windows-apparaten worden niet ondersteund.
+## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Verificatie toevoegen aan Windows 10 (inclusief telefoon)-app-projecten
+In deze sectie wordt uitgelegd hoe u de **IAuthenticate** -interface implementeert in de projecten van Windows 10-apps. Dezelfde stappen zijn van toepassing op UWP-projecten (Universeel Windows-platform), maar met behulp van het **UWP** -project (met de genoteerde wijzigingen). Sla deze sectie over als u geen Windows-apparaten ondersteunt.
 
-1. In Visual Studio met de rechtermuisknop op de **UWP** project, klikt u vervolgens **Set as StartUp Project**.
-2. Druk op F5 om het project in het foutopsporingsprogramma start en vervolgens controleren of dat een niet-verwerkte uitzondering met een statuscode 401 (niet-gemachtigd) wordt gegenereerd na de app wordt gestart. De 401-respons komt doordat de toegang tot de back-end is beperkt tot alleen geautoriseerde gebruikers.
-3. MainPage.xaml.cs openen voor het Windows-app-project en voeg de volgende `using` instructies:
+1. Klik in Visual Studio met de rechter muisknop op het project **UWP** en stel dit in **als opstart project**.
+2. Druk op F5 om het project in het fout opsporingsprogramma te starten en controleer vervolgens of er een niet-verwerkte uitzonde ring met de status code 401 (niet toegestaan) optreedt nadat de app is gestart. Het 401-antwoord treedt op omdat de toegang op de back-end alleen is beperkt tot gemachtigde gebruikers.
+3. Open MainPage.xaml.CS voor het Windows-app-project en voeg `using` de volgende-instructies toe:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
         using Windows.UI.Popups;
         using <your_Portable_Class_Library_namespace>;
 
-    Vervang `<your_Portable_Class_Library_namespace>` met de naamruimte voor uw draagbare klassenbibliotheek vormt.
-4. Update de **MainPage** klasse voor het implementeren van de **IAuthenticate** interface, als volgt:
+    Vervang `<your_Portable_Class_Library_namespace>` door de naam ruimte voor uw Portable Class-bibliotheek.
+4. Werk de **Mainpage** -klasse voor het implementeren van de **IAuthenticate** -interface als volgt bij:
 
         public sealed partial class MainPage : IAuthenticate
-5. Update de **MainPage** klasse door toe te voegen een **MobileServiceUser** veld en een **verifiëren** methode, die vereist wordt door de **IAuthenticate**interface, als volgt:
+5. Werk de **Mainpage** -klasse bij door een **MobileServiceUser** -veld toe te voegen en een methode voor **authenticatie** , die wordt vereist door de **IAuthenticate** -interface, als volgt:
 
         // Define an authenticated user.
         private MobileServiceUser user;
@@ -319,16 +318,16 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
             return success;
         }
 
-    Als u van een id-provider dan Facebook gebruikmaakt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider][7].
+    Als u een andere ID-provider dan Facebook gebruikt, kiest u een andere waarde voor [MobileServiceAuthenticationProvider][7].
 
-1. Voeg de volgende regel code toe in de constructor voor het **MainPage** klasse voordat de aanroep van `LoadApplication()`:
+1. Voeg de volgende regel code toe aan de constructor voor de klasse **Mainpage** voordat u de aanroep naar `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         <your_Portable_Class_Library_namespace>.App.Init(this);
 
-    Vervang `<your_Portable_Class_Library_namespace>` met de naamruimte voor uw draagbare klassenbibliotheek vormt.
+    Vervang `<your_Portable_Class_Library_namespace>` door de naam ruimte voor uw Portable Class-bibliotheek.
 
-3. Als u **UWP**, voeg de volgende **OnActivated** methode overschrijven naar de **App** klasse:
+3. Als u **UWP**gebruikt, voegt u de volgende **OnActivated** -methode onderdrukking toe aan de **app** -klasse:
 
        protected override void OnActivated(IActivatedEventArgs args)
        {
@@ -341,19 +340,19 @@ Deze sectie wordt beschreven hoe u implementeert de **IAuthenticate** interface 
             }
        }
 
-3. Open Package.appxmanifest en voeg een **Protocol** declaratie. Stelt de **weergavenaam** naar een naam van uw keuze, en de **naam** naar de URL-schema van uw app.
+3. Open Package. appxmanifest en voeg een **protocol** declaratie toe. Stel de **weergave naam** in op de naam van uw keuze en de **naam** van het URL-schema voor uw app.
 
-4. Opnieuw opbouwen van de app, uitvoeren en meld u aan met de verificatieprovider die u hebt gekozen en controleer of u kunt toegang tot gegevens als een geverifieerde gebruiker.
+4. Bouw de app opnieuw op, voer deze uit en meld u aan met de verificatie provider die u hebt gekozen en controleer of u toegang hebt tot gegevens als geverifieerde gebruiker.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u basisverificatie-zelfstudie hebt voltooid, kunt u doorgaan naar een van de volgende zelfstudies:
+Nu u deze basis verificatie-zelf studie hebt voltooid, kunt u door gaan met een van de volgende zelf studies:
 
 * [Pushmeldingen toevoegen aan uw app](app-service-mobile-xamarin-forms-get-started-push.md)
 
   Informatie over het toevoegen van ondersteuning van pushmeldingen aan uw app en het configureren van de backend voor mobiele apps voor gebruik van Azure Notification Hubs voor het verzenden van pushmeldingen.
 * [Offlinesynchronisatie voor uw app inschakelen](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 
-  Informatie over het toevoegen van offlineondersteuning aan uw app met een back-end voor mobiele apps. Offlinesynchronisatie kunnen eindgebruikers om te communiceren met een mobiele app - weergeven, toevoegen of wijzigen van gegevens -, zelfs wanneer er geen netwerkverbinding.
+  Informatie over het toevoegen van offlineondersteuning aan uw app met een back-end voor mobiele apps. Met offline synchronisatie kunnen eind gebruikers communiceren met een mobiele app-gegevens weer geven, toevoegen of wijzigen, zelfs wanneer er geen netwerk verbinding is.
 
 <!-- Images. -->
 

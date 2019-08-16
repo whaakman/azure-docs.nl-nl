@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 6aa729e4f32769ec50632bea582c8b69c7c0ce91
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bcaf2918c92ec7b8223d394290a1d7c624fc451c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642135"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509241"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Externe authenticatie in een ACR-taak met behulp van een door Azure beheerde identiteit 
 
@@ -107,7 +107,7 @@ Met de stappen in deze sectie maakt u een taak en schakelt u een door de gebruik
 
 ### <a name="create-task"></a>Taak maken
 
-Maak de taak *dockerhubtask* door de volgende [AZ ACR Task Create][az-acr-task-create] -opdracht uit te voeren. De taak context is het lokale systeem en de opdracht verwijst naar het bestand `dockerhubtask.yaml` in de werkmap. De `--assign-identity` para meter geeft de resource-id van de door de gebruiker toegewezen identiteit door. 
+Maak de taak *dockerhubtask* door de volgende [AZ ACR Task Create][az-acr-task-create] -opdracht uit te voeren. De taak wordt uitgevoerd zonder een bron code context en de opdracht verwijst naar het `dockerhubtask.yaml` bestand in de werkmap. De `--assign-identity` para meter geeft de resource-id van de door de gebruiker toegewezen identiteit door. 
 
 ```azurecli
 az acr task create \
@@ -126,7 +126,7 @@ Met de stappen in deze sectie maakt u een taak en schakelt u een door het systee
 
 ### <a name="create-task"></a>Taak maken
 
-Maak de taak *dockerhubtask* door de volgende [AZ ACR Task Create][az-acr-task-create] -opdracht uit te voeren. De taak context is het lokale systeem en de opdracht verwijst naar het bestand `dockerhubtask.yaml` in de werkmap.  Met `--assign-identity` de para meter zonder waarde kan de door het systeem toegewezen identiteit voor de taak worden ingeschakeld.  
+Maak de taak *dockerhubtask* door de volgende [AZ ACR Task Create][az-acr-task-create] -opdracht uit te voeren. De taak wordt uitgevoerd zonder een bron code context en de opdracht verwijst naar het `dockerhubtask.yaml` bestand in de werkmap. Met `--assign-identity` de para meter zonder waarde kan de door het systeem toegewezen identiteit voor de taak worden ingeschakeld.  
 
 ```azurecli
 az acr task create \

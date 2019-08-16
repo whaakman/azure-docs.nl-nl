@@ -1,9 +1,9 @@
 ---
-title: Aan de slag met blob storage en Visual Studio verbonden services (cloudservices) | Microsoft Docs
-description: Aan de slag met Azure Blob-opslag in een cloud service-project in Visual Studio nadat u verbinding met een opslagaccount met behulp van Visual Studio verbonden services
+title: Aan de slag met Blob Storage en Visual Studio Connected Services (Cloud Services) | Microsoft Docs
+description: Aan de slag met Azure Blob Storage in een Cloud service project in Visual Studio nadat u verbinding hebt gemaakt met een opslag account met behulp van Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,69 +12,69 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 9f1ef06e0275954343c548d0f6937b9c6fbcfd18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56aceb4c782c15f69c7994df787b4b950523e8b5
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122937"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510705"
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Aan de slag met Azure Blob Storage en Visual Studio verbonden services (cloudserviceprojecten)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Aan de slag met Azure Blob Storage en met Visual Studio verbonden services (Cloud Services-projecten)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Overzicht
-In dit artikel wordt beschreven hoe u aan de slag met Azure Blob Storage, nadat u hebt gemaakt of een Azure Storage-account waarnaar wordt verwezen door het gebruik van de Visual Studio **Connected Services toevoegen** dialoogvenster in een Visual Studio-cloud services-project. We laten u hoe u toegang tot en blob-containers maken en hoe u veelvoorkomende taken uitvoeren zoals uploaden, weergeven en downloaden van blobs. De voorbeelden zijn geschreven in C\# en gebruik de [Microsoft Azure Storage-clientbibliotheek voor .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+In dit artikel wordt beschreven hoe u aan de slag gaat met Azure Blob Storage nadat u een Azure Storage-account hebt gemaakt of ernaar hebt verwezen met behulp van het dialoog venster **verbonden services toevoegen** in een Visual Studio-Cloud Services-project. We laten u zien hoe u toegang krijgt tot BLOB-containers en hoe u veelvoorkomende taken kunt uitvoeren, zoals het uploaden, vermelden en downloaden van blobs. De voor beelden zijn geschreven in\# C en gebruiken de [Microsoft Azure Storage-client bibliotheek voor .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Azure Blob-opslag is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens die kunnen worden benaderd vanaf elke locatie ter wereld via HTTP of HTTPS. Een enkele blob kan elke grootte zijn. Blobs kunnen items zijn zoals afbeeldingen, audio en video-bestanden, onbewerkte gegevens en bestanden.
+Azure Blob Storage is een service voor het opslaan van grote hoeveel heden ongestructureerde gegevens die overal ter wereld toegankelijk zijn via HTTP of HTTPS. Een enkele blob kan elke grootte zijn. Blobs kunnen items zijn zoals afbeeldingen, audio en video-bestanden, onbewerkte gegevens en bestanden.
 
-Net zoals bestanden in mappen staan, staan opslag-blobs in containers. Nadat u een opslagaccount hebt gemaakt, maakt u een of meer containers in de opslag. Bijvoorbeeld in een opslag met de naam 'Plakboek', kunt u containers maken in de opslag met de naam 'installatiekopieën' voor het opslaan van afbeeldingen en andere genaamd "audio" audio-bestanden wilt opslaan. Nadat u de containers hebt gemaakt, kunt u afzonderlijke blob-bestanden uploaden naar deze.
+Net zoals bestanden in mappen staan, staan opslag-blobs in containers. Nadat u een opslag hebt gemaakt, maakt u een of meer containers in de opslag ruimte. In een opslag met de naam ' Plakboek ' kunt u bijvoorbeeld containers maken in de opslag met de naam "installatie kopieën" om afbeeldingen op te slaan en een andere met de naam "audio" om audio bestanden op te slaan. Nadat u de containers hebt gemaakt, kunt u er afzonderlijke BLOB-bestanden naar uploaden.
 
-* Zie voor meer informatie over het bewerken van programmatisch blobs [aan de slag met Azure Blob storage met .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
-* Raadpleeg voor algemene informatie over Azure Storage [documentatie voor Storage](https://azure.microsoft.com/documentation/services/storage/).
-* Raadpleeg voor algemene informatie over Azure Cloud Services, [documentatie voor Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/).
-* Zie voor meer informatie over het programmeren van ASP.NET-toepassingen [ASP.NET](https://www.asp.net).
+* Zie [aan de slag met Azure Blob Storage met .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md)voor meer informatie over het programmatisch manipuleren van blobs.
+* Zie [opslag documentatie](https://azure.microsoft.com/documentation/services/storage/)voor algemene informatie over Azure Storage.
+* Zie [Cloud Services-documentatie](https://azure.microsoft.com/documentation/services/cloud-services/)voor algemene informatie over Azure Cloud Services.
+* Zie [ASP.net](https://www.asp.net)voor meer informatie over het Program meren van ASP.NET-toepassingen.
 
-## <a name="access-blob-containers-in-code"></a>Toegang tot blob-containers in code
-Om programmatisch toegang verkrijgen tot de blobs in de cloud service-projecten, moet u de volgende items toevoegen als ze nog niet aanwezig zijn.
+## <a name="access-blob-containers-in-code"></a>Toegang krijgen tot BLOB-containers in code
+Als u toegang wilt krijgen tot blobs in Cloud service projecten, moet u de volgende items toevoegen, als deze nog niet aanwezig zijn.
 
-1. De volgende code naamruimtedeclaraties toevoegen aan het begin van een C#-bestand waarin u wilt programmatisch toegang verkrijgen tot Azure Storage.
+1. Voeg de volgende code naam ruimte declaraties toe boven aan C# elk bestand waarin u programmatisch toegang wilt krijgen Azure Storage.
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
-2. Krijgen een **CloudStorageAccount** -object met gegevens van uw opslagaccount. Gebruik de volgende code om op te halen de uw verbindingsreeks voor opslag en gegevens over het opslagaccount van de configuratie van de Azure-service.
+2. Een **Cloud Storage account** -object ophalen dat de gegevens van uw opslag account vertegenwoordigt. Gebruik de volgende code om de gegevens van uw opslag connection string en het opslag account op te halen uit de Azure-service configuratie.
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
-3. Krijgen een **CloudBlobClient** object om te verwijzen naar een bestaande container in uw opslagaccount.
+3. Een **CloudBlobClient** -object ophalen om te verwijzen naar een bestaande container in uw opslag account.
    
         // Create a blob client.
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-4. Krijgen een **CloudBlobContainer** object om te verwijzen naar een specifieke blob-container.
+4. Een **CloudBlobContainer** -object ophalen om te verwijzen naar een specifieke BLOB-container.
    
         // Get a reference to a container named "mycontainer."
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
 > [!NOTE]
-> Alle van de code die wordt weergegeven in de vorige procedure voor de code die wordt weergegeven in de volgende secties gebruiken.
+> Gebruik alle code in de vorige procedure vóór de code die in de volgende secties wordt weer gegeven.
 > 
 > 
 
-## <a name="create-a-container-in-code"></a>Een container in code maken
+## <a name="create-a-container-in-code"></a>Een container maken in code
 > [!NOTE]
-> Aantal API's die het uitvoeren van aanroepen uit naar Azure Storage in ASP.NET zijn asynchroon. Zie [asynchrone programmering met Async en Await](https://msdn.microsoft.com/library/hh191443.aspx) voor meer informatie. De code in het volgende voorbeeld wordt ervan uitgegaan dat u van asynchrone programmering methoden gebruikmaakt.
+> Sommige Api's die aanroepen naar Azure Storage in ASP.NET, zijn asynchroon. Zie [asynchrone programmering met async en wacht](https://msdn.microsoft.com/library/hh191443.aspx) op voor meer informatie. In de code in het volgende voor beeld wordt ervan uitgegaan dat u asynchrone programmeer methoden gebruikt.
 > 
 > 
 
-Voor het maken van een container in uw opslagaccount, hoeft u alleen maar is Voeg een aanroep naar **CreateIfNotExistsAsync** zoals in de volgende code:
+Als u een container in uw opslag account wilt maken, hoeft u alleen maar een aanroep naar **CreateIfNotExistsAsync** toe te voegen, zoals in de volgende code:
 
     // If "mycontainer" doesn't exist, create it.
     await container.CreateIfNotExistsAsync();
 
 
-Als u wilt de bestanden in de container beschikbaar maken voor iedereen, kunt u de container openbaar zijn met behulp van de volgende code instellen.
+Als u de bestanden in de container beschikbaar wilt maken voor iedereen, kunt u de container instellen op openbaar door de volgende code te gebruiken.
 
     await container.SetPermissionsAsync(new BlobContainerPermissions
     {
@@ -82,7 +82,7 @@ Als u wilt de bestanden in de container beschikbaar maken voor iedereen, kunt u 
     });
 
 
-Iedereen op Internet kan blobs in een openbare container zien, maar u kunt wijzigen of ze alleen verwijderen als u de juiste toegangssleutel hebben.
+Iedereen op internet kan blobs in een open bare container zien, maar u kunt ze alleen wijzigen of verwijderen als u de juiste toegangs sleutel hebt.
 
 ## <a name="upload-a-blob-into-a-container"></a>Een blob uploaden naar een container
 Azure Storage ondersteunt blok-blobs en pagina-blobs. In de meeste gevallen is een blok-blob het aangewezen type om te gebruiken.
@@ -99,7 +99,7 @@ Om een bestand naar een blok-blob te uploaden, haalt u een containerverwijzing o
     }
 
 ## <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
-Als u een lijst van de blobs in een container wilt weergeven, moet u eerst een containerverwijzing ophalen. Vervolgens kunt u de methode **ListBlobs** van de container gebruiken voor het ophalen van de blobs en/of de mappen hierin. Voor toegang tot de uitgebreide set eigenschappen en methoden voor een geretourneerde **IListBlobItem**, u moet dit casten naar een **CloudBlockBlob**, **CloudPageBlob**, of  **CloudBlobDirectory** object. Als het type onbekend is, kunt u typecontrole gebruiken om te bepalen waarnaar het moet worden gecast. De volgende code toont hoe de URI van elk item in de **photos**-container wordt opgehaald en uitgevoerd:
+Als u een lijst van de blobs in een container wilt weergeven, moet u eerst een containerverwijzing ophalen. Vervolgens kunt u de methode **ListBlobs** van de container gebruiken voor het ophalen van de blobs en/of de mappen hierin. Om toegang te krijgen tot de uitgebreide set eigenschappen en methoden voor een geretourneerde **IListBlobItem**, moet u deze converteren naar een **CloudBlockBlob**-, **CloudPageBlob**-of **CloudBlobDirectory** -object. Als het type onbekend is, kunt u typecontrole gebruiken om te bepalen waarnaar het moet worden gecast. De volgende code toont hoe de URI van elk item in de **photos**-container wordt opgehaald en uitgevoerd:
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, false))
@@ -126,7 +126,7 @@ Als u een lijst van de blobs in een container wilt weergeven, moet u eerst een c
         }
     }
 
-Zoals weergegeven in het vorige codevoorbeeld, heeft de blob-service het concept van mappen binnen containers, evenals. Dit is zodat u de blobs in een map vergelijkbare structuur kunt indelen. Bekijk bijvoorbeeld de volgende set blok-blobs in een container met de naam **photos**:
+Zoals u in het vorige code voorbeeld ziet, heeft de BLOB-service ook het concept van mappen in containers. Dit betekent dat u uw blobs in een meer mappen structuur kunt indelen. Bekijk bijvoorbeeld de volgende set blok-blobs in een container met de naam **photos**:
 
     photo1.jpg
     2010/architecture/description.txt
@@ -137,14 +137,14 @@ Zoals weergegeven in het vorige codevoorbeeld, heeft de blob-service het concept
     2011/architecture/description.txt
     2011/photo7.jpg
 
-Als u aanroept **ListBlobs** op de container (zoals in het vorige voorbeeld), de verzameling geretourneerd bevat **CloudBlobDirectory** en **CloudBlockBlob** objecten die de mappen en blobs die zijn opgenomen op het hoogste niveau. Dit is de resulterende uitvoer:
+Wanneer u **ListBlobs** aanroept in de container (zoals in het voor gaande voor beeld), bevat de geretourneerde verzameling **CloudBlobDirectory** -en **CloudBlockBlob** -objecten die de mappen en blobs vertegenwoordigen die zich op het hoogste niveau bevinden. Dit is de resulterende uitvoer:
 
     Directory: https://<accountname>.blob.core.windows.net/photos/2010/
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-U kunt desgewenst de parameter **UseFlatBlobListing** van de methode **ListBlobs** instellen op **true**. Dit resulteert in elke blob die wordt geretourneerd als een **CloudBlockBlob**, onafhankelijk van de directory. Dit is de aanroep van **ListBlobs**:
+U kunt desgewenst de parameter **UseFlatBlobListing** van de methode **ListBlobs** instellen op **true**. Dit resulteert in elke blob die wordt geretourneerd als een **CloudBlockBlob**, ongeacht de Directory. Dit is de aanroep van **ListBlobs**:
 
     // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -152,7 +152,7 @@ U kunt desgewenst de parameter **UseFlatBlobListing** van de methode **ListBlobs
        ...
     }
 
-en hier vindt u de resultaten:
+en dit zijn de resultaten:
 
     Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
     Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
@@ -163,7 +163,7 @@ en hier vindt u de resultaten:
     Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Zie voor meer informatie, [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
+Zie [CloudBlobContainer. ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx)voor meer informatie.
 
 ## <a name="download-blobs"></a>Blobs downloaden
 Om blobs te downloaden, moet u eerst een blobverwijzing ophalen en vervolgens de methode **DownloadToStream** aanroepen. In het volgende voorbeeld wordt de methode **DownloadToStream** gebruikt om de blobinhoud over te dragen naar een stroomobject, dat u vervolgens persistent kunt maken in een lokaal bestand.
@@ -190,7 +190,7 @@ U kunt ook de methode **DownloadToStream** gebruiken om de inhoud van een blob t
     }
 
 ## <a name="delete-blobs"></a>Blobs verwijderen
-Als u wilt verwijderen van een blob, eerst een blobverwijzing ophalen en vervolgens roept de **verwijderen** methode.
+Als u een BLOB wilt verwijderen, moet u eerst een BLOB-verwijzing ophalen en vervolgens de **Delete** -methode aanroepen.
 
     // Get a reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");

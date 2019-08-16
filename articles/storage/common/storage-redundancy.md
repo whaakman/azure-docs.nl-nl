@@ -9,12 +9,12 @@ ms.date: 07/10/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a4c624cf06a0e56b30b71c80a6b4a5ad48cb31a9
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 17d1bd95067c15bd67f80f3713f0e497bff8a68d
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016398"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516122"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundantie
 
@@ -44,7 +44,7 @@ De volgende tabel geeft een beknopt overzicht van het bereik van duurzaamheid en
 | Een onderbreking in de gehele regio                                                                                     | Nee                              | Nee                               | Ja                                  | Ja                                  |
 | Lees toegang tot uw gegevens (in een externe, geo-gerepliceerde regio) in het geval van regionale niet-beschik baarheid | Nee                              | Nee                               | Ja (met RA-GRS)                                   | Ja (met RA-GZRS)                                 |
 | Ontworpen om duurzaamheid \_ van objecten over een bepaald jaar te bieden \_                                          | ten minste 99,999999999% (11 9) | ten minste 99,9999999999% (12 9) | ten minste 99.99999999999999% (16 9) | ten minste 99.99999999999999% (16 9) |
-| Ondersteunde typen opslag accounts                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
+| Ondersteunde typen opslag accounts                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
 | SLA voor Beschik baarheid voor lees aanvragen | Ten minste 99,9% (99% voor de laag van de cool-toegang) | Ten minste 99,9% (99% voor de laag van de cool-toegang) | Ten minste 99,9% (99% voor de laag van de cool-toegang) | Ten minste 99,99% (99,9% voor de laag van de cool-toegang) |
 | SLA voor Beschik baarheid voor schrijf aanvragen | Ten minste 99,9% (99% voor de laag van de cool-toegang) | Ten minste 99,9% (99% voor de laag van de cool-toegang) | Ten minste 99,9% (99% voor de laag van de cool-toegang) | Ten minste 99,9% (99% voor de laag van de cool-toegang) |
 

@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986172"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515813"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Problemen met de query prestaties voor Azure Cosmos DB oplossen
 In dit artikel wordt beschreven hoe u Azure Cosmos DB SQL-query problemen kunt identificeren, vaststellen en oplossen. Volg de onderstaande stappen voor probleem oplossing om de prestaties van Azure Cosmos DB query's optimaal te benutten. 
@@ -24,11 +24,12 @@ De laagst mogelijke latentie wordt bereikt door ervoor te zorgen dat de aanroepe
 ## <a name="check-consistency-level"></a>Consistentie niveau controleren
 Het [consistentie niveau](consistency-levels.md) kan invloed hebben op de prestaties en kosten. Zorg ervoor dat het consistentie niveau geschikt is voor het gegeven scenario. Zie [consistentie niveau kiezen](consistency-levels-choosing.md)voor meer informatie.
 
-## <a name="log-sql-query-in-storage-account"></a>SQL-query in het opslag account registreren
-[Met de SQL-API-query logboeken via Diagnostische logboeken](logging.md#turn-on-logging-in-the-azure-portal) kunt u de verborgen query in een opslag account van uw keuze registreren. Zo kunt u de diagnostische logboeken bekijken en query's zoeken met meer RUs en de activiteits-id gebruiken om te matchen in de QueryRuntimeStatistics. 
+## <a name="log-the-executed-sql-query"></a>De uitgevoerde SQL-query registreren 
 
+U kunt de uitgevoerde SQL-query in een opslag account of in de diagnostische logboek tabel registreren. [Met de SQL-query logboeken via Diagnostische logboeken](logging.md#turn-on-logging-in-the-azure-portal) kunt u de verborgen query in een opslag account van uw keuze registreren. Zo kunt u de logboeken bekijken en de query zoeken die gebruikmaakt van hoger RUs. Later kunt u de activiteits-id gebruiken om te voldoen aan de werkelijke query in de QueryRuntimeStatistics. De query is verborgen voor het beveiligings doel en de namen van de query parameters, en de waarden in de WHERE-componenten verschillen van werkelijke namen en waarden. U kunt logboek registratie gebruiken om het account op te slaan voor de lange termijn retentie van de uitgevoerde query's.  
 
 ## <a name="log-query-metrics"></a>Metrische gegevens van logboek query
+
 Gebruiken `QueryMetrics` voor het oplossen van problemen met trage of dure query's. 
 
   * `FeedOptions.PopulateQueryMetrics = true` Ingesteld`QueryMetrics` op in het antwoord.

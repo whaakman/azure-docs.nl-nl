@@ -181,10 +181,6 @@
           href: security-center-search.md
         - name: Planning en bewerkingen
           href: security-center-planning-and-operations-guide.md
-        - name: Inzicht in beveiligingswaarschuwingen
-          href: security-center-alerts-type.md
-        - name: UEBA voor Azure-resources en gebruikers
-          href: security-center-ueba-mcas.md
         - name: Beveiligingsconfiguraties aanpassen
           href: security-center-customize-os-security-config.md
 - name: Naslaginformatie

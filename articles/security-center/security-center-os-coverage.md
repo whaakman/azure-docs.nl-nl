@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9a11af7e2875c9af5cf4b08d459bc67b55dbdcf3
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883605"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515549"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platforms en functies die door Azure Security Center worden ondersteund
 
@@ -165,6 +165,6 @@ Zie [Endpoint Protection-evaluatie en aanbevelingen](security-center-endpoint-pr
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [het plannen en begrijpen van de ontwerp overwegingen bij het aannemen van Azure Security Center](security-center-planning-and-operations-guide.md).
-- Meer informatie over de [gedrags analyse van virtuele machines en analyse van crash dump geheugen in Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Meer informatie over het [detecteren van bedreigingen voor vm's & servers in azure Security Center](security-center-alerts-iaas.md).
 - Vind [Veelgestelde vragen over het gebruik van Azure Security Center](security-center-faq.md).
 - Vind [blog berichten over de beveiliging en naleving van Azure](https://blogs.msdn.com/b/azuresecurity/).

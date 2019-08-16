@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335807"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511015"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Veelgestelde vragen over Traffic Manager
 
@@ -322,9 +322,9 @@ Traffic Manager antwoordt met de DNS-naam of het IP-adres van het eind punt. Er 
 
 Normaal gesp roken wordt Traffic Manager gebruikt voor het omleiden van verkeer naar toepassingen die in verschillende regio's worden geïmplementeerd. Het kan echter ook worden gebruikt wanneer een toepassing meer dan één implementatie in dezelfde regio heeft. De Traffic Manager Azure-eind punten staan niet toe dat meer dan een web-app-eind punt uit dezelfde Azure-regio wordt toegevoegd aan hetzelfde Traffic Manager-profiel.
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Hoe kan ik de Azure-eind punten van mijn Traffic Manager-profiel naar een andere resource groep verplaatsen?
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription"></a>Hoe kan ik de Azure-eind punten van mijn Traffic Manager-profiel verplaatsen naar een andere resource groep of een ander abonnement?
 
-Azure-eind punten die zijn gekoppeld aan een Traffic Manager profiel, worden bijgehouden met hun resource-Id's. Wanneer een Azure-resource die wordt gebruikt als een eind punt (bijvoorbeeld een openbaar IP-adres, een klassieke Cloud service, WebApp of een ander Traffic Manager profiel dat op een geneste manier wordt gebruikt) wordt verplaatst naar een andere resource groep, wordt de resource-ID gewijzigd. In dit scenario moet u het Traffic Manager-profiel momenteel bijwerken door eerst de eind punten te verwijderen en vervolgens opnieuw aan het profiel toe te voegen.
+Azure-eind punten die zijn gekoppeld aan een Traffic Manager profiel, worden bijgehouden met hun resource-Id's. Wanneer een Azure-resource die wordt gebruikt als een eind punt (bijvoorbeeld een openbaar IP-adres, een klassieke Cloud service, WebApp of een ander Traffic Manager profiel dat op een geneste manier wordt gebruikt) wordt verplaatst naar een andere resource groep of een ander abonnement, wordt de resource-ID gewijzigd. In dit scenario moet u het Traffic Manager-profiel momenteel bijwerken door eerst de eind punten te verwijderen en vervolgens opnieuw aan het profiel toe te voegen.
 
 ## <a name="traffic-manager-endpoint-monitoring"></a>Eindpunt bewaking Traffic Manager
 
@@ -385,10 +385,10 @@ Voor profielen met een andere routerings methode dan meerdere waarden:
 |Binnenkomende query aanvraag|    Eindpunttype|  Antwoord gegeven|
 |--|--|--|
 |IEDERE |  A/AAAA/CNAME |  Doel eindpunt| 
-|A |    A / CNAME | Doel eindpunt|
-|A |    AAAA |  GEEN GEGEVENS |
+|G |    A / CNAME | Doel eindpunt|
+|G |    AAAA |  GEEN GEGEVENS |
 |AAAA | AAAA/CNAME |  Doel eindpunt|
-|AAAA | A | GEEN GEGEVENS |
+|AAAA | G | GEEN GEGEVENS |
 |CNAME |    CNAME | Doel eindpunt|
 |CNAME  |A/AAAA | GEEN GEGEVENS |
 |
@@ -398,7 +398,7 @@ Voor profielen waarvoor een routerings methode is ingesteld op meerdere waarden:
 |Binnenkomende query aanvraag|    Eindpunttype | Antwoord gegeven|
 |--|--|--|
 |IEDERE |  Combi natie van A en AAAA | Doel eindpunten|
-|A |    Combi natie van A en AAAA | Alleen doel eindpunten van het type A|
+|G |    Combi natie van A en AAAA | Alleen doel eindpunten van het type A|
 |AAAA   |Combi natie van A en AAAA|     Alleen doel eindpunten van het type AAAA|
 |CNAME |    Combi natie van A en AAAA | GEEN GEGEVENS |
 

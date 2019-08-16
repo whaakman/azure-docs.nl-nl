@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 535b96a2bb86f1996e6ff0aba19339b55a18ee50
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67147290"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515866"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Log Analytics-agent configureren voor Linux-computers in een hybride omgeving
 [Azure Log Analytics](../platform/agent-windows.md) kan gegevens rechtstreeks vanuit uw fysieke of virtuele Linux-computer in uw datacentrum of andere cloudomgeving verzamelen en onderbrengen in één opslagplaats voor uitvoerige analyse en correlatie. In deze Quick Start wordt beschreven hoe u met een paar eenvoudige stappen gegevens van uw Linux-computer configureert en verzamelt.  Zie het volgende onderwerp, [Gegevens over Azure Virtual Machines verzamelen](quick-collect-azurevm.md), voor informatie over virtuele Linux-machines in Azure.  
@@ -32,11 +32,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Een werkruimte maken
-1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+1. Selecteer in de Azure-portal de optie **Alle services**. Voer **log Analytics**in de lijst met resources in. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 
     ![Azure Portal](media/quick-collect-linux-computer/azure-portal-01.png) 
 
-2. Klik op **Maken** en geef uw keuze aan voor de volgende items:
+2. Selecteer **maken**en selecteer vervolgens opties voor de volgende items:
 
    * Geef een naam op voor de nieuwe **Log Analytics-werkruimte**, bijvoorbeeld *StandaardLAWerkruimte*. OMS-werkruimten worden nu aangeduid als Log Analytics-werkruimten.   
    * Selecteer een **abonnement** om te koppelen door een selectie in de vervolgkeuzelijst te maken als de geselecteerde standaardwaarde niet juist is.
@@ -46,7 +46,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
         ![Log Analytics resource-Blade maken](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
-3. Nadat u de vereiste gegevens hebt opgegeven in het deelvenster **Log Analytics-werkruimte**, klikt u op **OK**.  
+3. Nadat u de vereiste gegevens hebt opgegeven in het deel venster **log Analytics werkruimte** , selecteert u **OK**.  
 
 Terwijl de gegevens worden geverifieerd en de werkruimte wordt gemaakt, kunt u de voortgang bijhouden onder **Meldingen** in het menu. 
 
@@ -55,7 +55,7 @@ Voordat u de Log Analytics-agent voor Linux installeert, hebt u eerst de werkrui
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
-1. Klik in Azure Portal in de linkerbovenhoek op **Alle services**. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
+1. Selecteer in de Azure Portal **alle services** in de linkerbovenhoek. Voer **log Analytics**in de lijst met resources in. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 2. Selecteer in de lijst met Log Analytics-werkruimten de *StandaardLAWerkruimte* die u eerder hebt gemaakt.
 3. Selecteer **Geavanceerde instellingen**.
 
@@ -107,23 +107,23 @@ Bijvoorbeeld: `https://user01:password@proxy01.contoso.com:30443`
 Log Analytics kan gebeurtenissen uit de Linux Syslog en prestatiemeteritems verzamelen die u opgeeft voor langetermijnanalyses en -rapportages en kan actie ondernemen wanneer een bepaalde voorwaarde wordt gedetecteerd.  Volg deze stappen om eerst het verzamelen van gebeurtenissen uit de Linux Syslog en diverse algemene prestatiemeters te configureren.  
 
 1. Selecteer **Syslog**.  
-2. U kunt een gebeurtenislogboek toevoegen door de naam van het logboek te typen. Typ **Syslog** en klik op het plusteken **+** .  
+2. U kunt een gebeurtenislogboek toevoegen door de naam van het logboek te typen. Voer **syslog** in en selecteer vervolgens het plus **+** teken.  
 3. Schakel in de tabel de ernstcategorieën **Info**, **Kennisgeving** en **Fouten opsporen** uit. 
-4. Klik op **Opslaan** bovenaan de pagina om de configuratie op te slaan.
+4. Selecteer boven aan de pagina **Opslaan** om de configuratie op te slaan.
 5. Selecteer **Linux-prestatiegegevens** om het verzamelen van prestatiemeteritems op een Linux-computer in te schakelen. 
-6. Wanneer u Linux-prestatiemeteritems voor een nieuwe Log Analytics-werkruimte voor het eerst configureert, krijgt u de optie om snel verschillende algemene prestatiemeteritems te maken. Ze worden weergegeven met een selectievakje ernaast. 
+6. Wanneer u Linux-prestatiemeteritems voor een nieuwe Log Analytics-werkruimte voor het eerst configureert, krijgt u de optie om snel verschillende algemene prestatiemeteritems te maken. Deze worden weer gegeven met een selectie vakje naast elk. 
 
     ![Standaard Windows-prestatiemeteritems geselecteerd](media/quick-collect-linux-computer/linux-perfcounters-default.png)
     
-    Klik op **De geselecteerde prestatiemeteritems toevoegen**. Ze worden toegevoegd en vooraf ingesteld met een sample-interval van tien seconden.
+    Selecteer **de geselecteerde prestatie meter items toevoegen**. Ze worden toegevoegd en vooraf ingesteld met een sample-interval van tien seconden.
 
-7. Klik op **Opslaan** bovenaan de pagina om de configuratie op te slaan.
+7. Selecteer boven aan de pagina **Opslaan** om de configuratie op te slaan.
 
 ## <a name="view-data-collected"></a>Verzamelde gegevens weergeven
 Nu u gegevensverzameling hebt ingeschakeld, geven we een voorbeeld van een eenvoudige zoekopdracht in logboeken om enkele gegevens afkomstig van de doelcomputer weer te geven.  
 
-1. Navigeer in Azure Portal naar Log Analytics en selecteer de werkruimte die u eerder hebt gemaakt.
-2. Klik op de tegel **Zoeken in logboeken**. In het deelvenster Zoeken in logboeken typt u `Perf` in het queryveld en drukt u op Enter of klikt u op de zoekknop rechts van het queryveld.
+1. Ga in het Azure Portal naar Log Analytics en selecteer de werk ruimte die u eerder hebt gemaakt.
+2. Selecteer de tegel **zoeken** in Logboeken en klik in het deel venster zoeken in Logboeken op `Perf` het veld query en vervolgens op ENTER of selecteer de zoek knop rechts van het query veld.
 
     ![Voorbeeld van zoeken in logboeken in Log Analytics](media/quick-collect-linux-computer/log-analytics-portal-queryexample.png)
 
@@ -138,7 +138,7 @@ Voer de volgende opdracht op de Linux-computer uit om de agent te verwijderen. M
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-U verwijdert de werkruimte door de eerder gemaakte Log Analytics-werkruimte te selecteren en op de resourcepagina op **Verwijderen** te klikken.
+Als u de werk ruimte wilt verwijderen, selecteert u de Log Analytics werk ruimte die u eerder hebt gemaakt en selecteert u op de pagina resource de optie **verwijderen**.
 
 ![Log Analytics-resource verwijderen](media/quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
 

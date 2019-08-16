@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: f188f2c7bea511f1109d37ef49563e0f745a770e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "68385756"
 ---
 Met Azure Resource Manager kunt u para meters definiëren voor de waarden die moeten worden gebruikt bij het implementeren van de sjabloon. De sjabloon bevat een `parameters` sectie die alle parameter waarden bevat. Elke parameter waarde wordt door de sjabloon gebruikt voor het definiëren van de resources die u wilt implementeren.

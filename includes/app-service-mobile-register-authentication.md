@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: d5557ce1dda7bb36b8b0a6a44fcaca50e0667bb7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67176527"
 ---
-Eerst moet u uw app op de site een id-provider te registreren en u wordt vervolgens de provider gegenereerde referenties instellen in de back-end voor mobiele Apps.
+Eerst moet u uw app registreren op de site van een id-provider en vervolgens de door de provider gegenereerde Referenties instellen in de Mobile Apps back-end.
 
-1. Uw voorkeur id-provider configureren door de provider-specifieke instructies te volgen:
+1. Configureer uw voorkeurs identiteits provider door de providerspecifieke instructies te volgen:
 
    * [Azure Active Directory](../articles/app-service/configure-authentication-provider-aad.md)
    * [Facebook](../articles/app-service/configure-authentication-provider-facebook.md)

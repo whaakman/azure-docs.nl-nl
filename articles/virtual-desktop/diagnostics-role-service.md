@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f5869cbb51cf1c968ee8ca1e2286416fd263d647
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: d6cde04d122d20c4aad5920c29995d9d33165163
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224639"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515517"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Problemen met de diagnostische functie identificeren
 
@@ -153,7 +153,7 @@ De volgende tabel bevat algemene fouten die door uw beheerders kunnen worden uit
 |8000|InvalidAuthorizationRoleScope|De naam van de rol die u hebt ingevoerd, komt niet overeen met de namen van bestaande rollen. Controleer de rolnaam voor type fouten en probeer het opnieuw. |
 |8001|UserNotFound |De gebruikers naam die u hebt ingevoerd, komt niet overeen met bestaande gebruikers namen. Controleer de naam voor type fouten en probeer het opnieuw.|
 |8005|UserNotFoundInAAD |De gebruikers naam die u hebt ingevoerd, komt niet overeen met bestaande gebruikers namen. Controleer de naam voor type fouten en probeer het opnieuw.|
-|8008|TenantConsentRequired|Volg de instructies [hier](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) om toestemming te geven voor uw Tenant.|
+|8008|TenantConsentRequired|Volg de instructies [hier](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) om toestemming te geven voor uw Tenant.|
 
 ### <a name="external-connection-error-codes"></a>Fout codes voor externe verbindingen
 

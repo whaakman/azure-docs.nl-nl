@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019
-ms.openlocfilehash: 58356db2fbdf53bbd16e6fd20de54e022afb38b3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: cea53aefae2e559b7874b1235e4f952fe46ea642
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736668"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509615"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>Quickstart: een grafiekdatabase maken in Azure Cosmos DB met behulp van de Java SDK 
 
@@ -106,7 +106,7 @@ De volgende codefragmenten zijn allemaal afkomstig uit het bestand C:\git-sample
 
 Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in de app te kopiëren. Met behulp van deze instellingen kan de app communiceren met de gehoste database.
 
-1. Klik in [Azure Portal](https://portal.azure.com/) op **Sleutels**. 
+1. Selecteer in het [Azure Portal](https://portal.azure.com/) **sleutels**. 
 
     Kopieer het eerste gedeelte van de URI-waarde.
 
@@ -165,14 +165,14 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
     
     Als er time-outfouten optreden, controleert u of u de verbindingsgegevens correct hebt bijgewerkt in [Uw verbindingsgegevens bijwerken](#update-your-connection-information). Probeer ook de laatste opdracht opnieuw uit te voeren. 
     
-    Wanneer het programma is gestopt, drukt u op Enter en gaat u in uw internetbrowser terug naar Azure Portal. 
+    Zodra het programma is gestopt, selecteert u ENTER en gaat u terug naar de Azure Portal in uw Internet browser. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Voorbeeldgegevens bekijken en toevoegen
 
 U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegevoegd aan de grafiek. Ook kunt u extra hoekpunten toevoegen.
 
-1. Klik op **Data Explorer**, vouw **sample-graph** uit, en klik achtereenvolgens op **Grafiek** en op **Filter toepassen**. 
+1. Selecteer **Data Explorer**, vouw voor **beeld-Graph**uit, selecteer **diagram**en selecteer vervolgens **filter Toep assen**. 
 
    ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -180,13 +180,13 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
    ![Nieuwe hoekpunten in de grafiek in Data Explorer in Azure Portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Laten we nu enkele nieuwe gebruikers toevoegen. Klik op de knop **Nieuw hoekpunt** om gegevens toe te voegen aan uw grafiek.
+3. Laten we nu enkele nieuwe gebruikers toevoegen. Selecteer **Nieuw hoek punt** om gegevens aan uw grafiek toe te voegen.
 
    ![Nieuwe documenten maken in Data Explorer in de Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
 4. Typ *persoon* in het labelvak.
 
-5. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen. U kunt unieke eigenschappen maken voor elke persoon in de grafiek. Alleen de id-sleutel is vereist.
+5. Selecteer **eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen. U kunt unieke eigenschappen maken voor elke persoon in de grafiek. Alleen de id-sleutel is vereist.
 
     key|waarde|Opmerkingen
     ----|----|----
@@ -197,13 +197,13 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
     > [!NOTE]
     > In deze snelstart gaat u een niet-gepartitioneerde verzameling maken. Als u echter een gepartitioneerde verzameling maakt door een partitiesleutel op te geven tijdens het maken van de verzameling, moet u de partitiesleutel opnemen als sleutel bij elk nieuw hoekpunt. 
 
-6. Klik op **OK**. Mogelijk moet u het scherm groter maken om **OK** weer te geven onder aan het scherm.
+6. Selecteer **OK**. Mogelijk moet u het scherm groter maken om **OK** weer te geven onder aan het scherm.
 
-7. Klik op **Nieuw hoekpunt** en voeg nog een nieuwe gebruiker toe. 
+7. Selecteer **Nieuw hoek punt** en voeg een extra nieuwe gebruiker toe. 
 
 8. Geef het label *persoon* op.
 
-9. Klik op **Eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen:
+9. Selecteer **eigenschap toevoegen** om elk van de volgende eigenschappen toe te voegen:
 
     key|waarde|Opmerkingen
     ----|----|----
@@ -211,17 +211,17 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
     geslacht|man| 
     school|MIT| 
 
-10. Klik op **OK**. 
+10. Selecteer **OK**. 
 
-11. Klik op de knop **Filter toepassen** met het standaard-`g.V()`-filter om alle waarden in de grafiek weer te geven. Alle gebruikers worden nu weergegeven in de lijst met **resultaten**. 
+11. ClSelectck de knop **filter Toep assen** met het `g.V()` standaard filter om alle waarden in de grafiek weer te geven. Alle gebruikers worden nu weergegeven in de lijst met **resultaten**. 
 
-    Als u meer gegevens toevoegt, kunt u filters gebruiken om de resultaten te beperken. Data Explorer maakt standaard gebruik van `g.V()` voor het ophalen van alle hoekpunten van een grafiek. U kunt dit wijzigen in een andere [grafiekquery](tutorial-query-graph.md), bijvoorbeeld `g.V().count()`, om een telling van alle hoekpunten in de grafiek in JSON-indeling te retourneren. Nadat u het filter hebt gewijzigd, wijzigt u het weer in `g.V()` en klikt u op **Filter toepassen** om alle resultaten opnieuw weer te geven.
+    Als u meer gegevens toevoegt, kunt u filters gebruiken om de resultaten te beperken. Data Explorer maakt standaard gebruik van `g.V()` voor het ophalen van alle hoekpunten van een grafiek. U kunt dit wijzigen in een andere [grafiekquery](tutorial-query-graph.md), bijvoorbeeld `g.V().count()`, om een telling van alle hoekpunten in de grafiek in JSON-indeling te retourneren. Als u het filter hebt gewijzigd, wijzigt u het filter `g.V()` weer in en selecteert u **filter Toep assen** om alle resultaten weer te geven.
 
-12. Nu kunt u rakesh en ashley met elkaar verbinden. Zorg ervoor dat **ashley** in de lijst met **resultaten** is geselecteerd en klik vervolgens naast **Doelen** rechtsonder op ![Het doel van een hoekpunt in een grafiek wijzigen](./media/create-graph-java/edit-pencil-button.png). Mogelijk moet u het scherm verbreden om de knop te kunnen zien.
+12. Nu kunt u rakesh en ashley met elkaar verbinden. Zorg ervoor dat **Ashley** is geselecteerd in de lijst met resultaten ![en selecteer vervolgens het doel van een hoek punt](./media/create-graph-java/edit-pencil-button.png) in een grafiek wijzigen naast **doelen** aan de rechter kant. Mogelijk moet u het scherm verbreden om de knop te kunnen zien.
 
     ![Het doel van een hoekpunt in een grafiek wijzigen](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. Typ in het vak **Doel** de naam *rakesh* en in het vak **Randlabel** het woord *kent*. Klik vervolgens op het selectievakje.
+13. Voer in het vak doel *Rakesh*in en voer in het vak **rand label** de tekst *kent*in en schakel het selectie vakje in.
 
     ![Een verbinding tussen ashley en rakesh toevoegen in Data Explorer](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 

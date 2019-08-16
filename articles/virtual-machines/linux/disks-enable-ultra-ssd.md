@@ -1,17 +1,17 @@
 ---
 title: Ultra schijven voor Linux Vm's-Azure Managed disks | Microsoft Docs
-description: Meer informatie over Ultra Managed disks voor virtuele Azure-machines
+description: Meer informatie over Ultra schijven voor virtuele Azure-machines
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 9429964cda20a663662c2bfcd075d1448ed33264
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 681b73e34e5b207ac92d6233ade1b50acf006783
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695773"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516021"
 ---
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]
