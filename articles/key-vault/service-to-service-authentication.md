@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 30c99ae4150e0bd4645488b5bf75b8bbac0ee66f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934345"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562455"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Service-naar-service-verificatie voor het Azure Key Vault met behulp van .NET
 
@@ -132,7 +132,7 @@ Dit geldt alleen voor lokale ontwikkeling. Wanneer uw oplossing is geïmplemente
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>De toepassing uitvoeren met beheerde identiteit of door de gebruiker toegewezen identiteit 
 
-Wanneer u uw code uitvoert op een Azure App Service of een virtuele machine van Azure waarvoor een beheerde identiteit is ingeschakeld, gebruikt de bibliotheek automatisch de beheerde identiteit. 
+Wanneer u uw code uitvoert op een Azure App Service of een virtuele machine van Azure waarvoor een beheerde identiteit is ingeschakeld, gebruikt de bibliotheek automatisch de beheerde identiteit. Er zijn geen code wijzigingen vereist, maar de beheerde identiteit moet machtigingen voor de sleutel kluis *krijgen* . U kunt de beheerde identiteit *Get* -machtigingen geven via het *toegangs beleid*van de sleutel kluis.
 
 U kunt ook verifiëren met een door de gebruiker toegewezen identiteit. Zie [informatie over beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)voor meer informatie over door de gebruiker toegewezen identiteiten. Als u wilt verifiëren met een door de gebruiker toegewezen identiteit, moet u de client-ID van de door de gebruiker toegewezen identiteit opgeven in de connection string. De connection string is opgegeven in de sectie [ondersteuning voor verbindingsteken reeksen](#connection-string-support) hieronder.
 

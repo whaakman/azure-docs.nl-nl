@@ -9,20 +9,17 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a2b8a4e496094c6275710328e70a09376ce0e5fc
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297157"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563027"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Beheerde identiteiten gebruiken voor App Service en Azure Functions
-
-> [!NOTE] 
-> Ondersteuning voor beheerde identiteiten voor App Service in Linux en Web App for Containers is momenteel beschikbaar als preview-versie.
 
 > [!Important] 
 > Beheerde identiteiten voor App Service en Azure Functions werken niet zoals verwacht als uw app wordt gemigreerd tussen abonnementen/tenants. De app moet een nieuwe identiteit verkrijgen. Dit kan worden gedaan door de functie uit te scha kelen en opnieuw in te scha kelen. Zie hieronder [een identiteit verwijderen](#remove) . Downstream-resources moeten ook toegangs beleid hebben bijgewerkt voor het gebruik van de nieuwe identiteit.
@@ -30,8 +27,8 @@ ms.locfileid: "68297157"
 In dit onderwerp wordt beschreven hoe u een beheerde identiteit kunt maken voor App Service en Azure Functions toepassingen en hoe u deze kunt gebruiken om toegang te krijgen tot andere resources. Met een beheerde identiteit van Azure Active Directory kan uw app eenvoudig toegang krijgen tot andere met AAD beveiligde resources zoals Azure Key Vault. De identiteit wordt beheerd door het Azure-platform en u hoeft geen geheimen in te richten of te draaien. Zie [beheerde identiteiten voor Azure-resources](../active-directory/managed-identities-azure-resources/overview.md)voor meer informatie over beheerde identiteiten in Aad.
 
 Aan uw toepassing kunnen twee typen identiteiten worden verleend: 
-- Een door het **systeem toegewezen identiteit** is gekoppeld aan uw toepassing en wordt verwijderd als uw app wordt verwijderd. Een app kan slechts één door het systeem toegewezen identiteit hebben. Ondersteuning voor door het systeem toegewezen identiteiten is algemeen beschikbaar voor Windows-apps. 
-- Een door de **gebruiker toegewezen identiteit** is een zelfstandige Azure-resource die aan uw app kan worden toegewezen. Een app kan meerdere door de gebruiker toegewezen identiteiten hebben. Door de gebruiker toegewezen identiteits ondersteuning is in Preview voor alle app-typen.
+- Een door het **systeem toegewezen identiteit** is gekoppeld aan uw toepassing en wordt verwijderd als uw app wordt verwijderd. Een app kan slechts één door het systeem toegewezen identiteit hebben.
+- Een door de **gebruiker toegewezen identiteit** is een zelfstandige Azure-resource die aan uw app kan worden toegewezen. Een app kan meerdere door de gebruiker toegewezen identiteiten hebben.
 
 ## <a name="adding-a-system-assigned-identity"></a>Een door het systeem toegewezen identiteit toevoegen
 
@@ -158,17 +155,11 @@ Wanneer de site wordt gemaakt, heeft deze de volgende aanvullende eigenschappen:
 Waar `<TENANTID>` en`<PRINCIPALID>` vervangen door guid's. De eigenschap tenantId identificeert de AAD-Tenant waarvan de identiteit deel uitmaakt. De principalId is een unieke id voor de nieuwe identiteit van de toepassing. Binnen AAD heeft de service-principal dezelfde naam die u hebt gegeven aan uw App Service-of Azure Functions-exemplaar.
 
 
-## <a name="adding-a-user-assigned-identity-preview"></a>Een door de gebruiker toegewezen identiteit toevoegen (preview)
-
-> [!NOTE] 
-> Door de gebruiker toegewezen identiteiten zijn momenteel beschikbaar als preview-versie. Soevereine Clouds worden nog niet ondersteund.
+## <a name="adding-a-user-assigned-identity"></a>Een door de gebruiker toegewezen identiteit toevoegen
 
 Voor het maken van een app met een door de gebruiker toegewezen identiteit moet u de identiteit maken en vervolgens de resource-id toevoegen aan uw app-configuratie.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
-
-> [!NOTE] 
-> Deze portal-ervaring wordt geïmplementeerd en is mogelijk nog niet in alle regio's beschikbaar.
 
 Eerst moet u een door de gebruiker toegewezen id-resource maken.
 
@@ -180,7 +171,7 @@ Eerst moet u een door de gebruiker toegewezen id-resource maken.
 
 4. Selecteer **beheerde identiteit**.
 
-5. Klik op het tabblad door de **gebruiker toegewezen (preview)** op **toevoegen**.
+5. Klik op het tabblad **toegewezen door gebruiker** op **toevoegen**.
 
 6. Zoek de identiteit die u eerder hebt gemaakt en selecteer deze. Klik op **Toevoegen**.
 
@@ -388,6 +379,25 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+<a name="token-python"></a>In Python:
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
 ```
 
 <a name="token-powershell"></a>In Power shell:

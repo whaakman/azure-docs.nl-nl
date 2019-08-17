@@ -11,18 +11,18 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619605"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562931"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Een functie in Linux maken met behulp van een aangepaste installatie kopie
 
 Met Azure Functions kunt u uw functies voor Linux hosten in uw eigen aangepaste container. U kunt ze ook [hosten op een standaard-Azure App Service-container](functions-create-first-azure-function-azure-cli-linux.md). Deze functionaliteit vereist [de functies 2. x runtime](functions-versions.md).
 
-In deze zelfstudie leert u hoe u uw functies in Azure implementeert als een aangepaste Docker-installatiekopie. Dit patroon is handig wanneer u de ingebouwde container installatie kopie moet aanpassen. U kunt een aangepaste installatiekopie gebruiken wanneer uw functies een specifieke taalversie nodig hebben of een specifieke afhankelijkheid of configuratie vereisen die niet binnen de ingebouwde installatiekopie aanwezig is. Ondersteunde basis installatie kopieën voor Azure Functions vindt u in de [Azure functions basis installatie kopieën opslag plaats](https://hub.docker.com/_/microsoft-azure-functions-base). [Python-ondersteuning](functions-reference-python.md) is op dit moment in de preview-versie.
+In deze zelfstudie leert u hoe u uw functies in Azure implementeert als een aangepaste Docker-installatiekopie. Dit patroon is handig wanneer u de ingebouwde container installatie kopie moet aanpassen. U kunt een aangepaste installatiekopie gebruiken wanneer uw functies een specifieke taalversie nodig hebben of een specifieke afhankelijkheid of configuratie vereisen die niet binnen de ingebouwde installatiekopie aanwezig is. Ondersteunde basis installatie kopieën voor Azure Functions vindt u in de [Azure functions basis installatie kopieën opslag plaats](https://hub.docker.com/_/microsoft-azure-functions-base). 
 
 In deze zelfstudie leert u hoe u Azure Functions Core Tools gebruikt om een functie te maken in een aangepaste Linux-installatiekopie. U publiceert deze installatiekopie naar een functie-app in Azure, die is gemaakt met de Azure CLI. Later werkt u de functie bij om verbinding te maken met Azure Queue-opslag. U schakelt ook in.  
 
@@ -69,8 +69,6 @@ Wanneer u hierom wordt gevraagd, kiest u een runtime voor de werkrol uit de volg
 * `dotnet`: Hiermee maakt u een .NET core Class Library-project (. csproj).
 * `node`: hiermee maakt u een JavaScript-project.
 * `python`: hiermee maakt u een Python-project.
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 Wanneer de opdracht wordt uitgevoerd, ziet u ongeveer de volgende uitvoer:
 
@@ -252,7 +250,7 @@ az functionapp deployment container config --enable-cd \
 
 Met deze opdracht wordt de URL van de implementatie-webhook geretourneerd nadat de continue implementatie is ingeschakeld. U kunt ook de opdracht [AZ functionapp Deployment container show-cd-URL](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) gebruiken om deze URL te retour neren. 
 
-Kopieer de implementatie-URL en blader naar uw DockerHub opslag plaats, kies  het tabblad webhooks, typ de **naam** van de webhook voor de webhook, plak uw URL in de webhook- **URL**en kies vervolgens **+** het plus teken ().
+Kopieer de implementatie-URL en blader naar uw DockerHub opslag plaats, kies het tabblad webhooks, typ de **naam** van de webhook voor de webhook, plak uw URL in de webhook- **URL**en kies vervolgens **+** het plus teken ().
 
 ![De webhook in uw DockerHub opslag plaats toevoegen](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 

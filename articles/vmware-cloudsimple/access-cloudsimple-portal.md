@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5bb1a4dd9d652481dfe1a2727ee0e5fe7601e96a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 95d27bab243f6805436465f5027e519d33e20f6f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812772"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563240"
 ---
-# <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Toegang tot de VMware-oplossing via CloudSimple portal van Azure Portal
+# <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Open de VMware-oplossing via CloudSimple portal van de Azure Portal
 
 Eenmalige aanmelding wordt ondersteund voor toegang tot de CloudSimple-Portal. Nadat u zich hebt aangemeld bij de Azure Portal, kunt u toegang krijgen tot de CloudSimple-Portal zonder u opnieuw aan te melden. De eerste keer dat u de CloudSimple-Portal opent, wordt u gevraagd de [CloudSimple service-autorisatie](#consent-to-cloudsimple-service-authorization-application) toepassing te autoriseren.  Autorisatie is een eenmalige actie.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Gebruikers met rollen van de ingebouwde **eigenaar** en **Inzender** hebben toegang tot de CloudSimple-Portal.  De functies moeten worden geconfigureerd voor de resource groep waar de CloudSimple-service wordt geïmplementeerd.  De functies kunnen ook worden geconfigureerd op het CloudSimple-Service object.  Zie het artikel [roltoewijzingen weer geven](https://docs.microsoft.com/azure/role-based-access-control/check-access) voor meer informatie over het controleren van uw rol.
+Gebruikers met rollen van de ingebouwde **eigenaar** en **Inzender** hebben toegang tot de CloudSimple-Portal.  De functies moeten worden geconfigureerd voor de resource groep waar de CloudSimple-service wordt geïmplementeerd.  De functies kunnen ook worden geconfigureerd op het CloudSimple-Service object.  Zie het artikel [roltoewijzingen weer geven](https://docs.microsoft.com/azure/role-based-access-control/check-access) voor meer informatie over het controleren van uw rol. Alleen gebruikers met ingebouwde rollen **eigenaar** en **Inzender** hebben toegang tot de CloudSimple-Portal.  De rollen moeten worden geconfigureerd in het abonnement.  Zie het artikel [roltoewijzingen weer geven](https://docs.microsoft.com/azure/role-based-access-control/check-access) voor meer informatie over het controleren van uw rol.
 
-Als u aangepaste rollen gebruikt, moet de rol een van de volgende bewerkingen onder ```Actions```bevatten.  Zie [aangepaste rollen voor Azure-resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)voor meer informatie over aangepaste rollen.  Als een van de bewerkingen deel van ```NotActions```uitmaakt, heeft de gebruiker geen toegang tot de CloudSimple-Portal. 
+Als u aangepaste rollen gebruikt, moet de rol een van de volgende bewerkingen onder ```Actions```bevatten.  Zie [aangepaste rollen voor Azure-resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)voor meer informatie over aangepaste rollen.  Als een van de bewerkingen deel van ```NotActions```uitmaakt, heeft de gebruiker geen toegang tot de CloudSimple-Portal.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -48,7 +48,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
     ![CloudSimple-Portal starten](media/launch-cloudsimple-portal.png)
 
-> [!TIP]
+> [!NOTE]
 > Als u een privé-Cloud bewerking (zoals het maken of uitbreiden van een Privécloud) rechtstreeks vanuit het Azure Portal selecteert, wordt de CloudSimple-portal geopend op de aangegeven pagina.
 
 Selecteer in de CloudSimple-Portal **Home** in het menu aan de zijkant om samenvattende informatie over uw persoonlijke Clouds weer te geven. De resources en capaciteit van uw persoonlijke Clouds worden weer gegeven, samen met waarschuwingen en taken waarvoor aandacht is vereist. Voor algemene taken klikt u op de benoemde pictogrammen boven aan de pagina.
@@ -57,7 +57,7 @@ Selecteer in de CloudSimple-Portal **Home** in het menu aan de zijkant om samenv
 
 ## <a name="consent-to-cloudsimple-service-authorization-application"></a>Toestemming geven aan CloudSimple-service autorisatie toepassing
 
-Voor het starten van de CloudSimple-Portal vanuit de Azure Portal voor de eerste keer moet u toestemming hebben voor de CloudSimple service-autorisatie toepassing.  Selecteer **accepteren** om aangevraagde machtigingen te verlenen en toegang te krijgen tot de CloudSimple-Portal. 
+Voor het starten van de CloudSimple-Portal vanuit de Azure Portal voor de eerste keer moet u toestemming hebben voor de CloudSimple service-autorisatie toepassing.  Selecteer **accepteren** om aangevraagde machtigingen te verlenen en toegang te krijgen tot de CloudSimple-Portal.
 
 ![Toestemming geven voor CloudSimple-service autorisatie-beheerders](media/cloudsimple-azure-consent.png)
 

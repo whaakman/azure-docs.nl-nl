@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b242ff8ee3e635493cd501cf37ffc7c78a57d91
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383442"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563317"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 
@@ -270,6 +270,9 @@ Azure Stream Analytics activeert Azure Functions via HTTP-triggers. De Azure Fun
 | Maximum aantal batches  |Een eigenschap waarmee u het maximum aantal gebeurtenissen in elke batch kunt opgeven dat naar Azure Functions wordt verzonden. De standaardwaarde is 100. |
 
 Wanneer Azure Stream Analytics een uitzonde ring ontvangt van een 413 (' HTTP-aanvraag entiteit te groot ') van een Azure-functie, vermindert deze de grootte van de batches die worden verzonden naar Azure Functions. In de code van uw Azure-functie, gebruikt u deze uitzondering om ervoor te zorgen dat Azure Stream Analytics geen te grote batches niet verzenden. Zorg er ook voor dat het maximum aantal batch-en grootte waarden die worden gebruikt in de functie consistent zijn met de waarden die zijn ingevoerd in de Stream Analytics Portal.
+
+> [!NOTE]
+> Tijdens een test verbinding stuurt Stream Analytics een lege batch naar Azure Functions om te testen als de verbinding tussen de twee werken. Zorg ervoor dat uw functions-app lege batch-aanvragen verwerkt om ervoor te zorgen dat de test verbinding verloopt.
 
 In een situatie waarin er geen gebeurtenis overloop plaatsvindt in een tijd venster, wordt er ook geen uitvoer gegenereerd. Als gevolg hiervan wordt de functie **computeResult** niet aangeroepen. Dit gedrag is consistent met de ingebouwde statistische functies in vensters.
 

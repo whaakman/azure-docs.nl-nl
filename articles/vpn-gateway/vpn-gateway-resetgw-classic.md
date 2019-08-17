@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 359773dad53f333b2f052dd5b5481645c72746da
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533932"
+ms.locfileid: "69563045"
 ---
 # <a name="reset-a-vpn-gateway"></a>Een VPN-gateway opnieuw instellen
 
@@ -69,10 +69,12 @@ Wanneer u een retour resultaat ontvangt, kunt u aannemen dat de gateway opnieuw 
 
 ### <a name="resetclassic"></a>Klassiek implementatie model
 
-De cmdlet voor het opnieuw instellen van een gateway is **Reset-azurevnetgateway gebruikt**. De Azure PowerShell-cmdlets voor service management moeten lokaal op uw bureau blad zijn geïnstalleerd. U kunt Azure Cloud Shell niet gebruiken. Zorg ervoor dat u beschikt over de nieuwste versie van de [Power shell-cmdlets voor Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)voordat u de herstel bewerking uitvoert. In het volgende voor beeld wordt de gateway voor een virtueel netwerk met de naam ' ContosoVNet ' opnieuw ingesteld:
+De cmdlet voor het opnieuw instellen van een gateway is **Reset-azurevnetgateway gebruikt**. De Azure PowerShell-cmdlets voor service management moeten lokaal op uw bureau blad zijn geïnstalleerd. U kunt Azure Cloud Shell niet gebruiken. Zorg ervoor dat u beschikt over de nieuwste versie van de [Power shell-cmdlets voor Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)voordat u de herstel bewerking uitvoert. Wanneer u deze opdracht gebruikt, moet u ervoor zorgen dat u de volledige naam van het virtuele netwerk gebruikt. Klassieke VNets die zijn gemaakt met behulp van de portal hebben een lange naam die vereist is voor Power shell. U kunt de lange naam weer geven met behulp van Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml.
+
+In het volgende voor beeld wordt de gateway opnieuw ingesteld voor een virtueel netwerk met de naam ' Group TestRG1 TestVNet1 ' (die in de portal wordt weer gegeven als gewoon ' TestVNet1 '):
 
 ```powershell
-Reset-AzureVNetGateway –VnetName “ContosoVNet”
+Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
 Daardoor

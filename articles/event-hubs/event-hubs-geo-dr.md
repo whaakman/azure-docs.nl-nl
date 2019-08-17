@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 8dca94f0200f6bd41dfdc199b41bf69981a960da
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704380"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562711"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Eventhubs - Geo-noodherstel 
 
@@ -37,7 +37,7 @@ De functie voor het herstel bij Geo-gerelateerde noodgevallen van Azure Event Hu
 
 ## <a name="basic-concepts-and-terms"></a>Eenvoudige concepten en termen
 
-De functie van het herstel na noodgevallen noodherstel metagegevens geïmplementeerd, en is afhankelijk van de primaire en secundaire disaster recovery-naamruimten. Houd er rekening mee dat de Geo-disaster recovery-functie is beschikbaar voor de [standaard-SKU](https://azure.microsoft.com/pricing/details/event-hubs/) alleen. U hoeft niet te connection string wijzigen, omdat de verbinding is gemaakt via een alias.
+De functie van het herstel na noodgevallen noodherstel metagegevens geïmplementeerd, en is afhankelijk van de primaire en secundaire disaster recovery-naamruimten. De geo-nood herstel functie is alleen beschikbaar voor de [Standard-en speciale sku's](https://azure.microsoft.com/pricing/details/event-hubs/) . U hoeft niet te connection string wijzigen, omdat de verbinding is gemaakt via een alias.
 
 De volgende termen worden gebruikt in dit artikel:
 

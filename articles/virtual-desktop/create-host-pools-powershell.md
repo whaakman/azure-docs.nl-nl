@@ -1,109 +1,111 @@
 ---
-title: Een Windows Virtual Desktop Preview host-pool maken met PowerShell - Azure
-description: Het maken van een groep host in Windows Virtual Desktop Preview met PowerShell-cmdlets.
+title: Een hostgroep voor virtuele Windows-Bureau bladen maken met Power shell-Azure
+description: Een hostgroep maken in Windows virtueel bureau blad Preview met Power shell-cmdlets.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 374d5a8f51e28b8a10595842cfc301db503b6bed
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1c365790e1633a74be9f5baf41098e7511f99a7d
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613335"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563283"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Een hostpool maken met PowerShell
 
-Host-pools zijn een verzameling van een of meer identieke virtuele machines in Windows Virtual Desktop Preview tenant omgevingen. Elke groep host kan een app-groep die gebruikers werken kunnen met net zoals op een fysieke bureaublad bevatten.
+Hostgroepen zijn een verzameling van een of meer identieke virtuele machines in Windows Virtual Desktop-Preview-Tenant omgevingen. Elke hostgroep kan een app-groep bevatten waarmee gebruikers kunnen communiceren, op dezelfde manier als op een fysiek bureau blad.
 
-## <a name="use-your-powershell-client-to-create-a-host-pool"></a>De PowerShell-client gebruiken om te maken van een groep host
+## <a name="use-your-powershell-client-to-create-a-host-pool"></a>De Power shell-client gebruiken voor het maken van een hostgroep
 
-Eerste, [downloaden en importeren van de Windows virtuele bureaublad PowerShell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) te gebruiken in uw PowerShell-sessie als u dat nog niet gedaan hebt.
+[Down load en Importeer eerst de Windows Virtual Desktop Power shell-module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) voor gebruik in uw Power shell-sessie als u dat nog niet hebt gedaan.
 
-Voer de volgende cmdlet om aan te melden bij de virtuele Windows-bureaublad-omgeving
+Voer de volgende cmdlet uit om u aan te melden bij de virtuele Windows-bureaublad omgeving
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
 ```
 
-Voer vervolgens deze cmdlet voor het maken van een nieuwe groep van de host in uw tenant virtuele Windows-bureaublad:
+Voer vervolgens deze cmdlet uit om een nieuwe hostgroep te maken in uw Windows Virtual Desktop-Tenant:
 
 ```powershell
 New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
 ```
 
-Voer de volgende cmdlet voor het maken van een registratietoken voor het autoriseren van een sessiehost aan de host-pool worden toegevoegd en deze opslaan naar een nieuw bestand op uw lokale computer. U kunt opgeven hoe lang het registratietoken is geldig met behulp van de parameter - ExpirationHours.
+Voer de volgende cmdlet uit om een registratie token te maken om een sessie-host te autoriseren om lid te worden van de hostgroep en deze op te slaan in een nieuw bestand op uw lokale computer. U kunt opgeven hoe lang het registratie token geldig is door gebruik te maken van de para meter-ExpirationHours.
 
 ```powershell
 New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token > <PathToRegFile>
 ```
 
-Hierna kunt u deze cmdlet voor Azure Active Directory-gebruikers toevoegen aan de standaardgroep voor desktop-app voor de host-toepassingen uitvoeren.
+Daarna voert u deze cmdlet uit om Azure Active Directory gebruikers toe te voegen aan de standaard groep bureau blad-apps voor de hostgroep.
 
 ```powershell
 Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-De **toevoegen RdsAppGroupUser** cmdlet biedt geen ondersteuning voor toevoegen van beveiligingsgroepen en slechts één gebruiker tegelijk aan de app-groep wordt toegevoegd. Als u wilt dat meerdere gebruikers toevoegen aan de app-groep, voert u de cmdlet met de juiste gebruiker SPN-namen opnieuw uit.
+De cmdlet **add-RdsAppGroupUser** biedt geen ondersteuning voor het toevoegen van beveiligings groepen en voegt slechts één gebruiker tegelijk toe aan de app-groep. Als u meerdere gebruikers wilt toevoegen aan de app-groep, voert u de cmdlet opnieuw uit met de juiste UPN-namen.
 
-Voer de volgende cmdlet voor het exporteren van het registratietoken aan een variabele die u later zult gebruiken in [registreren van de virtuele machines aan de groep met virtuele Windows-bureaublad host](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
+Voer de volgende cmdlet uit om het registratie token te exporteren naar een variabele, die u later gaat gebruiken in [REGI Steren van de virtuele machines naar de hostgroep van het virtuele Windows-bureau blad](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
 ```
 
-## <a name="create-virtual-machines-for-the-host-pool"></a>Virtuele machines voor de host-pool maken
+## <a name="create-virtual-machines-for-the-host-pool"></a>Virtuele machines voor de hostgroep maken
 
-U kunt nu een virtuele machine van Azure die kan worden toegevoegd aan uw virtuele Windows-bureaublad host-pool maken.
+U kunt nu een virtuele Azure-machine maken die kan worden gekoppeld aan uw Windows Virtual Desktop-hostgroep.
 
-U kunt een virtuele machine maken op verschillende manieren:
+U kunt op verschillende manieren een virtuele machine maken:
 
-- [Een virtuele machine maken van de installatiekopie van een Azure-galerie](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
-- [Een virtuele machine van een beheerde installatiekopie maken](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
-- [Een virtuele machine uit een niet-beheerde installatiekopie maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Een virtuele machine maken op basis van een installatie kopie van Azure galerie](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
+- [Een virtuele machine maken op basis van een beheerde installatie kopie](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
+- [Een virtuele machine maken op basis van een onbeheerde installatie kopie](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>De virtuele machines voor Windows Virtual Desktop Preview agentinstallaties voorbereiden
+Nadat u de virtuele machines van de sessiehost hebt gemaakt, [past u een Windows-licentie toe op een host-VM](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) om uw Windows-of Windows Server-machines uit te voeren zonder dat u voor een andere licentie betaalt. 
 
-U moet de volgende dingen doen om uw virtuele machines voorbereiden voordat u kunt de virtuele bureaublad van Windows-agents installeren en registreren van de virtuele machines aan uw servergroep virtueel bureaublad van Windows-host:
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>De virtuele machines voorbereiden voor de Windows-preview-agent installaties voor virtuele Bureau bladen
 
-- U moet de machine domain-join. Dit kan binnenkomende virtuele Windows-bureaublad gebruikers uit hun Azure Active Directory-account worden toegewezen aan het Active Directory-account en toegang tot de virtuele machine is toegestaan.
-- Als de virtuele machine een Windows Server-besturingssysteem wordt uitgevoerd, moet u de Remote Desktop Session Host (RDSH)-rol installeren. De RDSH-functie kan de virtuele bureaublad van Windows-agents voor een juiste installatie.
+U moet de volgende stappen uitvoeren om uw virtuele machines voor te bereiden voordat u de virtuele bureau blad-agents van Windows kunt installeren en de virtuele machines aan uw Windows Virtual Desktop host-groep moet registreren:
 
-Is domain-join, doe dan het volgende op elke virtuele machine:
+- U moet een domein-lid worden van de computer. Hierdoor kunnen binnenkomende Windows-bureaublad gebruikers worden toegewezen vanuit hun Azure Active Directory-account aan hun Active Directory account en kunnen ze toegang krijgen tot de virtuele machine.
+- U moet de rol van de Extern bureaublad Session Host (RDSH) installeren als op de virtuele machine een Windows Server-besturings systeem wordt uitgevoerd. Met de rol van RDSH kunnen de virtuele bureau blad-agents van Windows correct worden geïnstalleerd.
 
-1. [Verbinding maken met de virtuele machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) met de referenties die u hebt opgegeven bij het maken van de virtuele machine.
-2. Op de virtuele machine, start u **Configuratiescherm** en selecteer **System**.
-3. Selecteer **computernaam**, selecteer **instellingen wijzigen**, en selecteer vervolgens **wijzigen...**
-4. Selecteer **domein** en voer de Active Directory-domein op het virtuele netwerk.
-5. Verifiëren met een domeinaccount met bevoegdheden voor domeindeelname computers.
+Ga als volgt te werk op elke virtuele machine voor een geslaagde domein koppeling:
+
+1. [Maak verbinding met de virtuele machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) met de referenties die u hebt ingevoerd tijdens het maken van de virtuele machine.
+2. Start **configuratie scherm** op de virtuele machine en selecteer **systeem**.
+3. Selecteer **computer naam**, selecteer **instellingen wijzigen**en selecteer vervolgens **wijzigen...**
+4. Selecteer **domein** en voer vervolgens het Active Directory domein in op het virtuele netwerk.
+5. Verifieer met een domein account dat bevoegdheden heeft voor computers die lid zijn van een domein.
 
     >[!NOTE]
-    > Als u bent lid wordt van uw virtuele machines naar een Azure AD Domain Services-omgeving, controleert u of uw lid worden van domeingebruiker ook lid is van de [groep AAD DC Administrators](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+    > Als u uw virtuele machines lid maakt van een Azure AD Domain Services omgeving, moet u ervoor zorgen dat uw domein deelname ook lid is van de [groep Aad DC](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)-Administrators.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registreren van de virtuele machines aan de groep van de host Windows Virtual Desktop Preview
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>De virtuele machines registreren bij de hostgroep voor Windows virtueel bureau blad-voor beeld
 
-Registreren van de virtuele machines naar een groep met virtuele Windows-bureaublad-host is net zo eenvoudig als het installeren van de virtuele bureaublad van Windows-agents.
+Het registreren van de virtuele machines in een Windows-hostgroep voor virtueel bureau blad is net zo eenvoudig als het installeren van de virtuele bureau blad-agents van Windows.
 
-Doe het volgende op elke virtuele machine voor het registreren van de virtuele bureaublad van Windows-agents:
+Ga als volgt te werk op elke virtuele machine om de virtuele bureau blad-agents van Windows te registreren:
 
-1. [Verbinding maken met de virtuele machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) met de referenties die u hebt opgegeven bij het maken van de virtuele machine.
-2. Download en installeer de Windows-Agent voor virtuele bureaublad.
-   - Download de [Windows-Agent voor virtuele bureaublad](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Met de rechtermuisknop op het gedownloade installatieprogramma, selecteert u **eigenschappen**, selecteer **opheffen van blokkeringen**en selecteer vervolgens **OK**. Hierdoor kunnen uw systeem te vertrouwen van het installatieprogramma.
-   - Voer het installatieprogramma. Wanneer u het installatieprogramma voor de token van de inschrijving wordt gevraagd, voert u de waarde die u hebt verkregen via de **Export-RdsRegistrationInfo** cmdlet.
-3. Download en installeer de Windows virtuele bureaublad Agent Bootloader.
-   - Download de [Windows Virtual PC-Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
-   - Met de rechtermuisknop op het gedownloade installatieprogramma, selecteert u **eigenschappen**, selecteer **opheffen van blokkeringen**en selecteer vervolgens **OK**. Hierdoor kunnen uw systeem te vertrouwen van het installatieprogramma.
-   - Voer het installatieprogramma.
+1. [Maak verbinding met de virtuele machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) met de referenties die u hebt ingevoerd tijdens het maken van de virtuele machine.
+2. Down load en installeer de virtuele bureau blad-agent van Windows.
+   - Down load de [Windows Virtual Desktop agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+   - Klik met de rechter muisknop op het gedownloade installatie programma, selecteer **Eigenschappen**, **blok kering opheffen**en selecteer **OK**. Hiermee kan het installatie programma worden vertrouwd door uw systeem.
+   - Voer het installatie programma uit. Wanneer het installatie programma u vraagt om het registratie token, voert u de waarde in die u hebt ontvangen van de cmdlet **export-RdsRegistrationInfo** .
+3. Down load en installeer de bootloader voor het virtuele bureau blad-agent van Windows.
+   - Down load de bootloader voor de [virtuele Windows-bureau blad-agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
+   - Klik met de rechter muisknop op het gedownloade installatie programma, selecteer **Eigenschappen**, **blok kering opheffen**en selecteer **OK**. Hiermee kan het installatie programma worden vertrouwd door uw systeem.
+   - Voer het installatie programma uit.
 
 >[!IMPORTANT]
->Als u wilt beveiligen uw virtuele Windows-bureaublad-omgeving in Azure, wordt aangeraden dat u binnenkomende poort 3389 op uw VM's niet openen. Virtuele Windows-bureaublad zijn vereist om een open binnenkomende poort 3389 voor gebruikers toegang krijgen tot virtuele machines van de host-pool. Als u poort 3389 voor het oplossen van problemen opent moet, raden wij aan u [just-in-time-VM-toegang](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Voor het beveiligen van uw virtuele bureau blad-omgeving in azure, raden we u aan om de binnenkomende poort 3389 niet te openen op uw virtuele machines. Voor het virtuele bureau blad van Windows is geen open bare poort 3389 voor gebruikers nodig om toegang te krijgen tot de virtuele machines van de hostgroep. Als u poort 3389 moet openen voor het oplossen van problemen, raden we u aan [just-in-time-VM-toegang](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)te gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u een host-groep hebt gemaakt, kunt u deze vullen met RemoteApps. Zie voor meer informatie over het beheren van apps in een virtuele Windows-bureaublad, de zelfstudie voor groepen beheren-Apps.
+Nu u een hostgroep hebt gemaakt, kunt u deze vullen met RemoteApps. Zie de zelf studie app-groepen beheren voor meer informatie over het beheren van apps in Windows virtueel bureau blad.
 
 > [!div class="nextstepaction"]
-> [Zelfstudie voor app-groepen beheren](./manage-app-groups.md)
+> [Zelf studie app-groepen beheren](./manage-app-groups.md)

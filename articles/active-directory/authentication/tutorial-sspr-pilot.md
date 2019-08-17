@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 685c928a20e9bfb47365b5ffa769f1a223d2c563
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413930"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561514"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Zelfstudie: Een pilot van een Azure AD-selfservice voor wachtwoordherstel uitrollen
 
 In deze zelfstudie rolt u in uw organisatie een pilot uit van de Azure AD-selfservice voor wachtwoordherstel (SSPR) en test u deze met behulp van een niet-beheerdersaccount.
 
-Het is belangrijk dat het testen van de selfservice voor wachtwoordherstel wordt uitgevoerd met niet-beheerdersaccounts. Microsoft beheert het wachtwoordherstelbeleid voor beheerdersaccounts en vereist het gebruik van sterkere verificatiemethoden. Dit beleid staat het gebruik van beveiligingsvragen en -antwoorden niet toe en vereist het gebruik van twee methoden voor het opnieuw instellen.
+Het is belang rijk dat testen van de selfservice voor wachtwoord herstel worden uitgevoerd met niet-beheerders accounts. Microsoft beheert het wachtwoordherstelbeleid voor beheerdersaccounts en vereist het gebruik van sterkere verificatiemethoden. Dit beleid staat het gebruik van beveiligingsvragen en -antwoorden niet toe en vereist het gebruik van twee methoden voor het opnieuw instellen.
 
 > [!div class="checklist"]
 > * Selfservice voor wachtwoordherstel inschakelen
@@ -37,30 +37,30 @@ Het is belangrijk dat het testen van de selfservice voor wachtwoordherstel wordt
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een globale-beheerdersaccount.
 1. Blader naar **Azure Active Directory** en selecteer **Wachtwoord opnieuw instellen**.
 1. Start een pilotgroep door de selfservice voor wachtwoordherstel in te schakelen voor een subset van gebruikers in uw organisatie.
-   * Op de pagina **Eigenschappen** kiest u **Geselecteerd** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld** en kiest u een pilotgroep.
+   * Kies op de pagina **Eigenschappen** onder de optie **self-service voor wacht woord opnieuw instellen is ingeschakeld**, selecteer **geselecteerd**en kies een test groep.
       * Alleen leden van de specifieke Azure Active Directory-groep die u kiest, kunnen de SSPR-functionaliteit gebruiken. Het is raadzaam om een groep gebruikers te definiëren en deze instelling te gebruiken wanneer u deze functionaliteit implementeert voor het testen van een concept. Het nesten van beveiligingsgroepen wordt hier ondersteund.
       * Zorg ervoor dat de gebruikers in de groep die u hebt gekozen de juiste licentie hebben.
-   * Klik op **Opslaan**.
+   * Klik op **Opslaan**
 1. Op de pagina **Verificatiemethoden**
-   * Stel de **aantal methoden dat is vereist om opnieuw in te** naar **1**
-   * Kies welke **Methoden voor gebruikers** uw organisatie wil toestaan. Schakel de selectievakjes om in te schakelen voor deze zelfstudie **e**, **mobiele telefoon**, **telefoon (werk)**, **mobiele app-meldingen (preview)** en  **Mobiele app-code (preview)**.
-   * Klik op **Opslaan**.
+   * Stel het **aantal methoden in dat moet worden ingesteld** op **1**
+   * Kies welke **Methoden voor gebruikers** uw organisatie wil toestaan. Voor deze zelf studie schakelt u de selectie vakjes in om **e-mail**, **mobiele telefoon**, **zakelijke telefoon**, **mobiele app-melding**en **code voor mobiele apps**in te scha kelen.
+   * Klik op **Opslaan**
 1. Op de pagina **Registratie**
    * Selecteer **Ja** bij **Vereisen dat gebruiker zich bij aanmelding registreren**.
    * Stel **Aantal dagen waarna gebruikers wordt gevraagd om de verificatiegegevens opnieuw te bevestigen** in op **180**.
-   * Klik op **Opslaan**.
+   * Klik op **Opslaan**
 1. Op de pagina **Meldingen**
    * Stel **Gebruikers een melding tonen over het opnieuw instellen van hun wachtwoord** in op **Ja**.
    * Stel **Alle beheerders waarschuwen wanneer andere beheerders hun wachtwoord opnieuw instellen** in op **Ja**.
 1. Op de pagina **Aanpassing**
    * Microsoft raadt aan **Helpdeskkoppeling aanpassen** in te stellen op **Ja** en in het veld **Aangepast e-mailadres of aangepaste URL van de helpdesk** een e-mailadres of webpagina-URL op te geven waar uw gebruikers meer hulp van uw organisatie kunnen krijgen.
-   * Voor deze zelfstudie laten we **Aangepast e-mailadres of aangepaste URL van de helpdesk** op **Nee** staan.
+   * Voor deze zelf studie gaan we de **koppeling naar de Help Desk aanpassen** ingesteld op **Nee**.
 
 Selfservice voor wachtwoordherstel is nu geconfigureerd voor cloudgebruikers in uw pilotgroep.
 
 ## <a name="test-sspr-as-a-user"></a>SSPR testen als een gebruiker
 
-Test de selfservice voor wachtwoordherstel met behulp van een testgebruiker die geen beheerder is en die lid is van uw pilotgroep. **Houd er rekening mee dat als u een account gebruikt waaraan beheerdersrollen zijn toegewezen, de verificatiemethoden en het aantal daarvan anders kunnen zijn dan wat u hebt geselecteerd, aangezien Microsoft het beheerdersbeleid beheert.**
+Test de selfservice voor wachtwoordherstel met behulp van een testgebruiker die geen beheerder is en die lid is van uw pilotgroep. **Als u een account gebruikt waaraan beheerders rollen zijn toegewezen, kunnen de verificatie methoden en het nummer afwijken van wat u hebt geselecteerd als micro soft het beheerders beleid beheert.**
 
 1. Open een nieuw browservenster om InPrivate- of incognitomodus.
 1. Gebruik een testgebruiker om u met behulp van de registratieportal op [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) te registreren voor het zelf opnieuw instellen van een wachtwoord.
@@ -74,7 +74,7 @@ Als u besluit dat u niet langer gebruik wilt maken van de functionaliteit die u 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Blader naar **Azure Active Directory** en selecteer **Wachtwoord opnieuw instellen**.
 1. Op de pagina **Eigenschappen** kiest u **Geen** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld**.
-1. Klik op **Opslaan**.
+1. Klik op **Opslaan**
 
 ## <a name="next-steps"></a>Volgende stappen
 

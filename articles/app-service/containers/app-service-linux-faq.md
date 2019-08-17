@@ -1,7 +1,7 @@
 ---
-title: App Service on Linux FAQ - Azure | Microsoft Docs
-description: Azure App Service on Linux Veelgestelde vragen over.
-keywords: Azure appservice, web-app, veelgestelde vragen over, linux, oss, web-app voor containers, meerdere containers, multicontainer
+title: Veelgestelde vragen over Linux App Service-Azure | Microsoft Docs
+description: Veelgestelde vragen over Linux Azure App Service.
+keywords: Azure app service, Web-app, veelgestelde vragen, Linux, OSS, Web-app voor containers, multi-container, meerdere containers
 services: app-service
 documentationCenter: ''
 author: msangapu-msft
@@ -16,90 +16,90 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ec571555415a912a31b094722bd47f67210a0372
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 10452590c9415291cb2a5913aeef5c8a00cdfe12
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617359"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562997"
 ---
-# <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
+# <a name="azure-app-service-on-linux-faq"></a>Veelgestelde vragen over Azure App Service in Linux
 
-Er wordt geprobeerd met het uitbrengen van App Service onder Linux, over het toevoegen van functies en verbeteringen aangebracht aan ons platform. In dit artikel vindt u antwoorden op vragen die onze klanten die is aangevraagd door ons onlangs.
+Met de release van App Service in Linux werken we aan het toevoegen van functies en het maken van verbeteringen aan ons platform. In dit artikel vindt u antwoorden op vragen die onze klanten onlangs hebben ingediend.
 
-Als u een vraag hebt, een reactie op in dit artikel.
+Als u een vraag hebt, moet u een opmerking over dit artikel toevoegen.
 
-## <a name="built-in-images"></a>Ingebouwde installatiekopieën
+## <a name="built-in-images"></a>Ingebouwde installatie kopieën
 
-**Ik wil een fork van de ingebouwde Docker-containers die het platform biedt. Waar kan ik deze bestanden vinden?**
+**Ik wil de ingebouwde docker-containers die het platform levert splitsen. Waar vind ik die bestanden?**
 
-U vindt alle Docker-bestanden op [GitHub](https://github.com/azure-app-service). U vindt alle Docker-containers op [Docker Hub](https://hub.docker.com/u/appsvc/).
+U kunt alle docker-bestanden vinden op [github](https://github.com/azure-app-service). U kunt alle docker-containers vinden op [docker hub](https://hub.docker.com/u/appsvc/).
 
 <a id="#startup-file"></a>
 
-**Wat zijn de verwachte waarden voor de sectie opstartbestand wanneer ik de runtimestack configureren?**
+**Wat zijn de verwachte waarden voor de sectie opstart bestand bij het configureren van de runtime stack?**
 
 | Stack           | Verwachte waarde                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | de opdracht om het JAR-app te starten (bijvoorbeeld `java -jar my-app.jar --server.port=80`) |
-| Gebruik van Tomcat, Wildfly | de locatie van een script om uit te voeren van een vereiste configuratie-instellingen (bijvoorbeeld `/home/site/deployments/tools/startup_script.sh`)          |
-| Node.js         | het PM2-configuratiebestand of het scriptbestand                                |
-| .NET core       | de naam van de gecompileerde dll-bestand als `dotnet <myapp>.dll`                                 |
-| Ruby            | de Ruby-script dat u wilt uw app met initialiseren                     |
+| Java SE         | de opdracht voor het starten van uw JAR-app ( `java -jar my-app.jar --server.port=80`bijvoorbeeld) |
+| Tomcat, Wildfly | de locatie van een script om de benodigde configuraties uit te voeren (bijvoorbeeld `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | het PM2-configuratie bestand of het script bestand                                |
+| .Net core       | de gecompileerde DLL-naam als`dotnet <myapp>.dll`                                 |
+| Ruby            | het ruby-script dat u uw app wilt initialiseren met                     |
 
-Deze opdrachten of scripts worden uitgevoerd nadat de ingebouwde Docker-container wordt gestart, maar voordat u uw toepassing code is gestart.
+Deze opdrachten of scripts worden uitgevoerd nadat de ingebouwde docker-container is gestart, maar voordat de code van de toepassing wordt gestart.
 
 ## <a name="management"></a>Beheer
 
-**Wat gebeurt er wanneer ik klik op de knop opnieuw opstarten in Azure portal?**
+**Wat gebeurt er wanneer ik op de knop opnieuw opstarten Klik in het Azure Portal?**
 
-Deze actie is hetzelfde als een Docker-opnieuw opstarten.
+Deze actie is hetzelfde als het opnieuw opstarten van een docker.
 
-**Kan ik Secure Shell (SSH) gebruiken voor het verbinding maken met de app-container virtuele machine (VM)?**
+**Kan ik een Secure Shell (SSH) gebruiken om verbinding te maken met de virtuele machine (VM) van de app-container?**
 
-Ja, kunt u dat doen via de site source control management (SCM).
+Ja, u kunt dat doen via de SCM-site (broncode Control Management).
 
 > [!NOTE]
-> U kunt ook rechtstreeks vanaf uw lokale ontwikkelcomputer verbinding maken met de app-container via SSH, SFTP of Visual Studio Code (voor live foutopsporing gebruikt u Node.js-apps). Zie [Foutopsporing op afstand en SSH in App Service in Linux](https://aka.ms/linux-debug) voor meer informatie.
+> U kunt ook rechtstreeks vanaf uw lokale ontwikkelcomputer verbinding maken met de app-container via SSH, SFTP of Visual Studio Code (voor live foutopsporing gebruikt u Node.js-apps). Zie [Foutopsporing op afstand en SSH in App Service in Linux](https://azure.github.io/AppService/2018/05/07/New-SSH-Experience-and-Remote-Debugging-for-Linux-Web-Apps.html) voor meer informatie.
 >
 
-**Hoe kan ik een Linux App Service-abonnement via een SDK of een Azure Resource Manager-sjabloon maken?**
+**Hoe kan ik een Linux-App Service plan maken via een SDK of een Azure Resource Manager sjabloon?**
 
-U moet instellen de **gereserveerde** veld van de appservice om *waar*.
+Stel het gereserveerde veld van de app-service in op *waar*.
 
 ## <a name="continuous-integration-and-deployment"></a>Continue integratie en implementatie
 
-**Mijn WebApp gebruikt nog steeds een oude Docker-containerinstallatiekopie nadat ik de afbeelding op Docker Hub hebt bijgewerkt. Ondersteunen u continue integratie en implementatie van aangepaste containers?**
+**Mijn web-app maakt nog steeds gebruik van een oude docker-container installatie kopie nadat ik de installatie kopie op docker hub heb bijgewerkt. Biedt ondersteuning voor continue integratie en implementatie van aangepaste containers?**
 
-Ja, instellen van continue integratie/implementatie voor Azure Container Registry of DockerHub, door volgende [doorlopende implementatie met Web App for Containers](./app-service-linux-ci-cd.md). U kunt de container voor persoonlijke registers vernieuwen door te stoppen en vervolgens uw web-app te starten. Of u kunt wijzigen of toevoegen van een dummy toepassingsinstelling om af te dwingen een vernieuwing van de container.
+Ja, om doorlopende integratie/implementatie in te stellen voor Azure Container Registry of DockerHub, door doorlopende [implementatie met Web App for containers](./app-service-linux-ci-cd.md). Voor persoonlijke registers kunt u de container vernieuwen door de web-app te stoppen en vervolgens te starten. U kunt ook een dummy-toepassings instelling wijzigen of toevoegen om het vernieuwen van de container af te dwingen.
 
-**Faseringsomgeving ondersteund?**
+**Biedt ondersteuning voor faserings omgevingen?**
 
 Ja.
 
-**Kan ik gebruiken *WebDeploy/MSDeploy* mijn web-app implementeren?**
+**Kan ik *webdeploy/MSDeploy* gebruiken om mijn web-app te implementeren?**
 
-Ja, moet u een app-instelling met de naam instellen `WEBSITE_WEBDEPLOY_USE_SCM` naar *false*.
+Ja, u moet een app-instelling met de `WEBSITE_WEBDEPLOY_USE_SCM` naam *False*instellen.
 
-**GIT-implementatie van mijn toepassing mislukt bij het gebruik van Linux-web-app. Hoe kan ik het probleem omzeilen?**
+**Git-implementatie van mijn toepassing mislukt wanneer Linux-web-app wordt gebruikt. Hoe kan ik het probleem omzeilen?**
 
-Als uw Linux-web-app niet Git-implementatie, kies een van de volgende opties om de toepassingscode van uw te implementeren:
+Als de Git-implementatie niet kan worden uitgevoerd in uw Linux-web-app, kiest u een van de volgende opties om de toepassings code te implementeren:
 
-- Gebruik de functie continue levering (Preview): U kunt de broncode van uw app opslaan in een Azure DevOps Git-repo of GitHub-opslagplaats naar Azure onafgebroken levering gebruikt. Zie voor meer informatie, [continue levering configureren voor Linux-web-app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Gebruik de functie continue levering (preview): U kunt de bron code van uw app in een Azure DevOps Git opslag plaats of GitHub opslag plaats opslaan om de continue levering van Azure te gebruiken. Zie [continue levering configureren voor Linux-web-apps](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)voor meer informatie.
 
-- Gebruik de [ZIP API implementeren](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Gebruik deze API [SSH in uw web-app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) en Ga naar de map waar u om uw code te implementeren. Voer de volgende code:
+- Gebruik de [API voor zip-implementatie](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Als u deze API wilt gebruiken, voert u [ssh in uw web-app uit](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) en gaat u naar de map waar u de code wilt implementeren. Voer de volgende code:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
-   Als u een foutmelding dat krijgt het `curl` opdracht is niet gevonden, zorg ervoor dat u curl installeren met behulp van `apt-get install curl` voordat u de vorige `curl` opdracht.
+   Als er een fout bericht wordt weer `curl` gegeven dat de opdracht niet wordt gevonden, moet u een krul `apt-get install curl` installeren door te gebruiken voordat `curl` u de vorige opdracht uitvoert.
 
 ## <a name="language-support"></a>Taalondersteuning
 
-**Ik wil websockets in mijn Node.js-toepassing, eventuele speciale instellingen of configuraties gebruiken om in te stellen?**
+**Ik wil Web Sockets gebruiken in mijn node. js-toepassing, alle speciale instellingen of configuraties die moeten worden ingesteld?**
 
-Ja, uitschakelen `perMessageDeflate` in uw Node.js-code op de server. Bijvoorbeeld, als u met behulp van socket.io, gebruik de volgende code:
+Ja, Schakel `perMessageDeflate` in uw node. js-code op de server in. Als u bijvoorbeeld socket.io gebruikt, gebruikt u de volgende code:
 
 ```nodejs
 const io = require('socket.io')(server,{
@@ -107,99 +107,99 @@ const io = require('socket.io')(server,{
 });
 ```
 
-**Niet-gecompileerde .NET Core-apps ondersteund?**
+**Worden niet-gecompileerde .NET Core-Apps ondersteund?**
 
 Ja.
 
-**Ondersteund Composer als een voor Afhankelijkheidsbeheer voor PHP-apps?**
+**Biedt u ondersteuning voor componist als afhankelijkheids Manager voor PHP-apps?**
 
-Tijdens een Git-implementatie moet Kudu Ja, detecteert dat u een PHP-toepassing (dankzij de aanwezigheid van een bestand composer.lock) implementeert en Kudu wordt vervolgens geactiveerd voor een composer-installatie.
+Ja, tijdens een Git-implementatie moet kudu detecteert dat u een PHP-toepassing implementeert (hartelijk dank voor de aanwezigheid van een Composer-bestand). vervolgens wordt door kudu een Composer installatie geactiveerd.
 
 ## <a name="custom-containers"></a>Aangepaste containers
 
-**Ik ben mijn eigen aangepaste container gebruiken. Ik wil het platform, een SMB-share koppelen voor de `/home/` directory.**
+**Ik gebruik mijn eigen aangepaste container. Ik wil dat het platform een SMB-share koppelt `/home/` aan de Directory.**
 
-Als `WEBSITES_ENABLE_APP_SERVICE_STORAGE` instelling is **niet nader omschreven** of is ingesteld op *waar*, wordt de `/home/` directory **wordt gedeeld** tussen exemplaren van de schaal, en bestanden die worden weggeschreven **blijven behouden** via opnieuw wordt opgestart. Expliciet `WEBSITES_ENABLE_APP_SERVICE_STORAGE` naar *false* het koppelen wordt uitgeschakeld.
+Als `WEBSITES_ENABLE_APP_SERVICE_STORAGE` de instelling niet is **opgegeven** of isingesteld op True `/home/` , **wordt** de map gedeeld door schaal instanties en worden de bestanden die zijn geschreven, **bewaard** tijdens het opnieuw opstarten. Als u `WEBSITES_ENABLE_APP_SERVICE_STORAGE` expliciet instelt op *False* , wordt de koppeling uitgeschakeld.
 
-**Mijn aangepaste container lang duurt om te starten en het platform de container opnieuw wordt opgestart voordat het is gestart.**
+**Het starten van mijn aangepaste container duurt lang en het platform start de container opnieuw op voordat deze is gestart.**
 
-U kunt de hoeveelheid tijd die het platform wordt gewacht voordat opnieuw wordt gestart van de container configureren. Om dit te doen, stel de `WEBSITES_CONTAINER_START_TIME_LIMIT` app-instelling op de gewenste waarde. De standaardwaarde is 230 seconden en de maximumwaarde is 1800 seconden.
+U kunt de hoeveelheid tijd configureren die het platform moet wachten voordat de container opnieuw wordt opgestart. Als u dit wilt doen, `WEBSITES_CONTAINER_START_TIME_LIMIT` stelt u de app-instelling in op de gewenste waarde. De standaard waarde is 230 seconden en de maximum waarde is 1800 seconden.
 
-**Wat is de indeling voor de URL van de persoonlijke register-server?**
+**Wat is de indeling voor de URL van de persoonlijke register server?**
 
-Geef de URL volledige register met inbegrip van `http://` of `https://`.
+Geef de volledige register-URL op `http://` , `https://`inclusief of.
 
-**Wat is de indeling voor de naam van de installatiekopie in de optie persoonlijk register?**
+**Wat is de indeling voor de naam van de installatie kopie in de optie persoonlijk REGI ster?**
 
-De naam van de volledige installatiekopie, met inbegrip van het persoonlijke register-URL (bijvoorbeeld myacr.azurecr.io/dotnet:latest) toevoegen. Afbeelding van namen die gebruikmaken van een aangepaste poort [kan niet worden ingevoerd via de portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Om in te stellen `docker-custom-image-name`, gebruikt u de [ `az` opdrachtregelprogramma](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Voeg de volledige naam van de installatie kopie toe, met inbegrip van de URL van het persoonlijke REGI ster (bijvoorbeeld myacr.azurecr.io/dotnet:latest). Namen van installatie kopieën die gebruikmaken van een aangepaste poort, [kunnen niet via de portal worden ingevoerd](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Gebruik het `docker-custom-image-name` [ opdrachtregelprogrammaomintestellen.`az` ](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)
 
-**Kan ik meer dan één poort weergeven op mijn aangepaste containerinstallatiekopie?**
+**Kan ik meer dan één poort op mijn aangepaste container installatie kopie beschikbaar maken?**
 
-We bieden geen ondersteuning meer dan één poort.
+Er wordt geen ondersteuning geboden voor het beschikbaar maken van meer dan één poort.
 
-**Kan ik mijn eigen opslag overbrengen?**
+**Kan ik mijn eigen opslag plaatsen?**
 
-Ja, [toevoegen van uw eigen opslag](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) is beschikbaar als preview.
+Ja, [uw eigen opslag ruimte](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage) maken is beschikbaar als preview-versie.
 
-**Waarom kan ik mijn aangepaste container bestand system of met processen van de SCM-site niet doorzoeken?**
+**Waarom kan ik niet bladeren in het bestands systeem van mijn aangepaste container of processen uitvoeren vanaf de SCM-site?**
 
-De SCM-site wordt uitgevoerd in een afzonderlijke container. De bestand system of met de processen van de app-container kan niet worden gecontroleerd.
+De SCM-site wordt uitgevoerd in een afzonderlijke container. U kunt het bestands systeem of het uitvoeren van processen van de app-container niet controleren.
 
-**Mijn aangepaste container luistert naar een andere poort dan poort 80. Hoe kan ik mijn app voor het routeren van aanvragen naar die poort configureren?**
+**Mijn aangepaste container luistert naar een andere poort dan poort 80. Hoe kan ik mijn app configureren voor het routeren van aanvragen naar die poort?**
 
-We hebben poort automatisch detecteren. U kunt ook een app-instelling met de naam opgeven *WEBSITES_PORT* en wijs hieraan de waarde van het verwachte poortnummer. Voorheen was het platform dat wordt gebruikt de *poort* app-instelling. Binnenkort wordt op termijn afschaffen van deze app-instelling en het gebruik van *WEBSITES_PORT* exclusief.
+Er is automatische poort detectie. U kunt ook een app-instelling met de naam *WEBSITES_PORT* opgeven en deze de waarde van het verwachte poort nummer geven. Voorheen heeft het platform de instelling van de *poort* -app gebruikt. We zijn van plan deze app-instelling af te nemen en alleen *WEBSITES_PORT* te gebruiken.
 
-**Heb ik nodig voor het implementeren van HTTPS in Mijn aangepaste container?**
+**Moet ik HTTPS implementeren in mijn aangepaste container?**
 
-Nee, het platform verwerkt voor HTTPS-beëindiging op de gedeelde front-ends.
+Nee, het platform verwerkt de HTTPS-beëindiging bij de gedeelde front-ends.
 
-## <a name="multi-container-with-docker-compose"></a>Meerdere containers met Docker Compose
+## <a name="multi-container-with-docker-compose"></a>Meerdere containers met docker opstellen
 
-**Hoe configureer ik Azure Container Registry (ACR) om met meerdere containers te gebruiken?**
+**Hoe kan ik Azure Container Registry (ACR) configureren voor gebruik met meerdere containers?**
 
-Als u wilt ACR gebruiken met meerdere containers **alle containerinstallatiekopieën** moet worden gehost op dezelfde server voor de ACR-register. Zodra ze zich op dezelfde Registerserver bevinden, moet u toepassingsinstellingen maken en vervolgens het configuratiebestand Docker Compose zodanig dat de naam van de ACR-installatiekopie bijwerken.
+Als u ACR met meerdere containers wilt gebruiken, moeten **alle container installatie kopieën** worden gehost op dezelfde ACR-register server. Zodra ze zich op dezelfde register server bevinden, moet u toepassings instellingen maken en vervolgens het configuratie bestand van docker opstellen bijwerken met de naam van de ACR-installatie kopie.
 
-Maak de volgende instellingen:
+Maak de volgende toepassings instellingen:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (volledige URL, bijvoorbeeld: `https://<server-name>.azurecr.io`)
-- DOCKER_REGISTRY_SERVER_PASSWORD (beheerderstoegang in de ACR-instellingen inschakelen)
+- DOCKER_REGISTRY_SERVER_URL (volledige URL, ex: `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_PASSWORD (beheerders toegang inschakelen in ACR-instellingen)
 
-In het configuratiebestand verwijzen naar uw ACR-installatiekopie, zoals in het volgende voorbeeld:
+In het configuratie bestand verwijzen we naar uw ACR-installatie kopie, zoals in het volgende voor beeld:
 
 ```yaml
 image: <server-name>.azurecr.io/<image-name>:<tag>
 ```
 
-**Hoe weet ik welke container is toegankelijk is via internet?**
+**Hoe kan ik weet welke container Internet toegankelijk is?**
 
-- Slechts één container kan worden geopend voor toegang
-- Alleen poort 80 en 8080 is toegankelijk (blootgestelde poorten)
+- Er kan slechts één container geopend zijn voor toegang
+- Alleen poort 80 en 8080 zijn toegankelijk (blootgestelde poorten)
 
-Hier volgen de regels om te bepalen waarop de container is toegankelijk - in volgorde van prioriteit:
+Dit zijn de regels voor het bepalen van de toegang tot de container, in volg orde van prioriteit:
 
-- Toepassingsinstelling `WEBSITES_WEB_CONTAINER_NAME` ingesteld op de containernaam van de
-- De eerste container voor het definiëren van poort 80 of 8080
-- Als geen van de bovenstaande true is, de eerste container gedefinieerd in het bestand is toegankelijk (beschikbaar)
+- Toepassings instelling `WEBSITES_WEB_CONTAINER_NAME` ingesteld op de container naam
+- De eerste container om poort 80 of 8080 te definiëren
+- Als geen van de bovenstaande voor waarden waar is, is de eerste container die in het bestand is gedefinieerd toegankelijk (beschikbaar)
 
 ## <a name="pricing-and-sla"></a>Prijzen en SLA
 
-**Wat zijn de prijzen, nu dat de service algemeen beschikbaar is?**
+**Wat zijn de prijzen, nu de service algemeen beschikbaar is?**
 
-De kosten worden berekend met de normale prijzen Azure App Service voor het aantal uren dat uw app wordt uitgevoerd.
+De normale Azure App Service prijzen worden in rekening gebracht voor het aantal uren dat uw app wordt uitgevoerd.
 
 ## <a name="other-questions"></a>Andere vragen
 
-**Wat zijn de ondersteunde tekens in namen van de instellingen van toepassing?**
+**Wat zijn de ondersteunde tekens in de namen van toepassings instellingen?**
 
-U kunt alleen letters (A-Z, a-z), cijfers (0-9) en het onderstrepingsteken (_) gebruiken voor toepassingsinstellingen.
+U kunt alleen letters (A-Z, a-z), cijfers (0-9) en het onderstrepings teken (_) voor toepassings instellingen gebruiken.
 
-**Waar kan ik vragen om nieuwe functies?**
+**Waar kan ik nieuwe functies aanvragen?**
 
-U kunt uw idee op indienen de [forum met feedback van Web-Apps](https://aka.ms/webapps-uservoice). '[Linux]' toevoegen aan de titel van uw idee.
+U kunt uw idee verzenden via het [Feedback forum van web apps](https://aka.ms/webapps-uservoice). Voeg ' [Linux] ' toe aan de titel van uw idee.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Wat is Azure App Service on Linux?](app-service-linux-intro.md)
+- [Wat is Azure App Service op Linux?](app-service-linux-intro.md)
 - [Faseringsomgevingen in Azure App Service instellen](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Doorlopende implementatie met WebApp for Containers](./app-service-linux-ci-cd.md)
+- [Doorlopende implementatie met Web App for Containers](./app-service-linux-ci-cd.md)

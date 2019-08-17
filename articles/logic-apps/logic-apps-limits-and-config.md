@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: dd4eef7998b83c7a527738762379d0d3e720d70f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e076d6fed8cb3baf6b62dc3ede6ddd34732ed7a2
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699821"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562077"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -205,7 +205,7 @@ Dit zijn de limieten voor het aantal artefacten voor elke laag van de integratie
 | Kaarten | 25 | 500 | 1000 |
 | Schema's | 25 | 500 | 1000 |
 | Assembly's | 10 | 25 | 1000 |
-| Certificaten | 25 | 2 | 500 |
+| Certificaten | 25 | 2 | 1000 |
 | Batchconfiguraties | 5 | 1 | 50 |
 ||||
 

@@ -1,206 +1,201 @@
 ---
-title: Self-service voor wachtwoord opnieuw instellen van deep dive - Azure Active Directory
-description: Hoe werkt selfservice wachtwoordherstel
+title: Selfservice voor wachtwoord herstel diep gaande-Azure Active Directory
+description: Hoe werkt self-service voor het opnieuw instellen van wacht woorden
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415606"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561330"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Hoe werkt het? Azure AD-selfservice voor wachtwoordherstel
 
-Hoe werkt selfservice wachtwoordherstel (SSPR)? Wat betekent dat optie in de interface? Lees voor meer informatie over Azure Active Directory (Azure AD) SSPR verder.
+Hoe werkt self-service voor wachtwoord herstel (SSPR)? Wat betekent die optie in de interface? Ga verder met lezen om meer te weten te komen over Azure Active Directory (Azure AD) SSPR.
 
-|     |
-| --- |
-| Mobiele app-meldingen en mobiele app-code als methoden voor het Azure AD Self-service voor wachtwoord opnieuw instellen van de openbare preview-functies van Azure Active Directory zijn. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+## <a name="how-does-the-password-reset-portal-work"></a>Hoe werkt de portal voor het opnieuw instellen van wacht woorden?
 
-## <a name="how-does-the-password-reset-portal-work"></a>Hoe werkt de wachtwoordherstel portal?
-
-Wanneer een gebruiker gaat u naar de portal voor wachtwoordherstel, een werkstroom wordt gestart om te bepalen:
+Wanneer een gebruiker naar de portal voor het opnieuw instellen van wacht woorden gaat, wordt een werk stroom gestart om het volgende te bepalen:
 
    * Hoe moet de pagina worden gelokaliseerd?
-   * Het gebruikersaccount dat geldig is?
-   * Welke organisatie behoort de gebruiker tot?
-   * Waar wordt het wachtwoord van de gebruiker beheerd?
-   * Is de gebruiker een licentie voor het gebruik van de functie?
+   * Is het gebruikers account geldig?
+   * Tot welke organisatie behoort de gebruiker?
+   * Waar wordt het wacht woord van de gebruiker beheerd?
+   * Is de gebruiker in licentie gegeven voor het gebruik van de functie?
 
-Lezen via de volgende stappen uit voor meer informatie over de logica achter het wachtwoord opnieuw instellen van pagina:
+Lees de volgende stappen voor meer informatie over de logica achter de pagina voor het opnieuw instellen van het wacht woord:
 
-1. De gebruiker selecteert de **geen toegang tot uw account** koppelen of rechtstreeks naar gaat [ https://aka.ms/sspr ](https://passwordreset.microsoftonline.com).
-   * Op basis van de landinstellingen van de browser, wordt de ervaring in de juiste taal weergegeven. De ervaring wachtwoordherstel is gelokaliseerd in dezelfde talen die ondersteuning biedt voor Office 365.
-   * Om weer te geven van het wachtwoord opnieuw instellen in een andere portal gelokaliseerde taal toevoegen '? mkt = "aan het einde van het wachtwoord opnieuw instellen URL met het volgende lokaliseren in Spaans voorbeeld [ https://passwordreset.microsoftonline.com/?mkt=es-us ](https://passwordreset.microsoftonline.com/?mkt=es-us).
-2. De gebruiker voert een gebruikers-ID en een captcha is geslaagd.
-3. Azure AD verifieert de gebruiker kan deze functie wilt gebruiken door de volgende controles uitvoeren:
-   * Controleert of de gebruiker deze functie is ingeschakeld en is een Azure AD-licentie is toegewezen.
-     * Als de gebruiker niet deze functie is ingeschakeld is of er een licentie is toegewezen, de gebruiker gevraagd contact op met de beheerder om hun wachtwoord opnieuw instellen.
-   * Controleert of de gebruiker de juiste verificatiemethoden gedefinieerd voor hun rekening in overeenstemming met de van beheerdersbeleid.
-     * Als het beleid is slechts één methode vereist, klikt u vervolgens het zorgt ervoor dat de gebruiker de juiste gegevens voor ten minste één van de verificatiemethoden ingeschakeld door het beheerdersbeleid voor de gedefinieerd heeft.
-       * Als u de verificatiemethoden die niet zijn geconfigureerd, wordt de gebruiker aanbevolen contact opnemen met de beheerder om hun wachtwoord opnieuw instellen.
-     * Als het beleid twee methoden vereist, klikt u vervolgens het zorgt ervoor dat de gebruiker de juiste gegevens voor ten minste twee van de verificatiemethoden ingeschakeld door het beheerdersbeleid voor de gedefinieerd heeft.
-       * Als u de verificatiemethoden die niet zijn geconfigureerd, wordt de gebruiker aanbevolen contact opnemen met de beheerder om hun wachtwoord opnieuw instellen.
-     * Als een Azure-beheerdersrol is toegewezen aan de gebruiker, wordt klikt u vervolgens het wachtwoord twee-gate-beleid afgedwongen. Meer informatie over dit beleid kan worden gevonden in de sectie [beheerder opnieuw instellen van beleid verschillen](concept-sspr-policy.md#administrator-reset-policy-differences).
-   * Controles om te controleren of het wachtwoord van de gebruiker wordt beheerd on-premises (federatieve, Pass through-verificatie of wachtwoord-hash gesynchroniseerd).
-     * Als u Write-back is geïmplementeerd en het wachtwoord van gebruikers is on-premises worden beheerd, is de gebruiker toegestaan om door te gaan om te verifiëren en hun wachtwoord opnieuw instellen.
-     * Als u Write-back is niet geïmplementeerd en het wachtwoord van gebruikers is on-premises worden beheerd, en vervolgens de gebruiker gevraagd contact op met de beheerder om hun wachtwoord opnieuw instellen.
-4. Als wordt vastgesteld dat de gebruiker kan het wachtwoord is opnieuw instelt, is door het opnieuw instellen van de gebruiker geleid.
+1. De gebruiker selecteert de koppeling **geen toegang tot uw account** of gaat rechtstreeks [https://aka.ms/sspr](https://passwordreset.microsoftonline.com)naar.
+   * Op basis van de land instelling van de browser wordt de ervaring weer gegeven in de juiste taal. De ervaring voor het opnieuw instellen van wacht woorden is gelokaliseerd in dezelfde talen die door Office 365 worden ondersteund.
+   * Als u de portal voor het opnieuw instellen van wacht woorden wilt weer geven in een andere gelokaliseerde taal, voegt u '? MKT = ' toe aan het einde van de [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)URL voor het opnieuw instellen van het wacht woord met het voor beeld dat volgt op Nederlands.
+2. De gebruiker voert een gebruikers-ID in en geeft een CAPTCHA door.
+3. Azure AD controleert of de gebruiker deze functie kan gebruiken door de volgende controles uit te voeren:
+   * Hiermee wordt gecontroleerd of de gebruiker deze functie heeft ingeschakeld en een Azure AD-licentie is toegewezen.
+     * Als deze functie niet is ingeschakeld of als er een licentie aan de gebruiker is toegewezen, wordt de gebruiker gevraagd contact op te nemen met de beheerder om hun wacht woord opnieuw in te stellen.
+   * Controleert of de gebruiker beschikt over de juiste verificatie methoden die zijn gedefinieerd op hun account in overeenstemming met het beheerders beleid.
+     * Als voor het beleid slechts één methode is vereist, zorgt u ervoor dat de gebruiker de juiste gegevens heeft gedefinieerd voor ten minste een van de verificatie methoden die zijn ingeschakeld door het beheerders beleid.
+       * Als de verificatie methoden niet zijn geconfigureerd, wordt de gebruiker geadviseerd contact op te nemen met de beheerder om hun wacht woord opnieuw in te stellen.
+     * Als het beleid twee methoden vereist, zorgt u ervoor dat de gebruiker de juiste gegevens heeft gedefinieerd voor ten minste twee van de verificatie methoden die zijn ingeschakeld door het beheerders beleid.
+       * Als de verificatie methoden niet zijn geconfigureerd, wordt de gebruiker geadviseerd contact op te nemen met de beheerder om hun wacht woord opnieuw in te stellen.
+     * Als een rol van Azure-beheerder aan de gebruiker is toegewezen, wordt het sterke wachtwoord beleid voor twee poorten afgedwongen. Meer informatie over dit beleid vindt u in de sectie voor het [opnieuw instellen van beleids verschillen](concept-sspr-policy.md#administrator-reset-policy-differences)van de beheerder.
+   * Hiermee wordt gecontroleerd of het wacht woord van de gebruiker on-premises (federatieve, Pass-Through-verificatie of wacht woord-hash gesynchroniseerd) wordt beheerd.
+     * Als write-back wordt geïmplementeerd en het wacht woord van de gebruiker on-premises wordt beheerd, mag de gebruiker door gaan met het verifiëren en opnieuw instellen van hun wacht woord.
+     * Als write-back niet wordt geïmplementeerd en het wacht woord van de gebruiker on-premises wordt beheerd, wordt de gebruiker gevraagd contact op te nemen met de beheerder om hun wacht woord opnieuw in te stellen.
+4. Als wordt vastgesteld dat de gebruiker het wacht woord opnieuw kan instellen, wordt de gebruiker begeleid door het reset proces.
 
 ## <a name="authentication-methods"></a>Verificatiemethoden
 
-Als self-service voor Wachtwoordherstel is ingeschakeld, moet u ten minste één van de volgende opties voor de verificatiemethoden. Soms hoort u deze opties aangeduid als "gates." Is het raadzaam dat u **twee of meer verificatiemethoden kiezen** zodat uw gebruikers meer flexibiliteit hebben wanneer ze niet voor toegang tot een wanneer ze deze nodig hebben. Meer informatie over de methoden hieronder vindt u in het artikel [wat verificatiemethoden zijn?](concept-authentication-methods.md).
+Als SSPR is ingeschakeld, moet u ten minste één van de volgende opties voor de verificatie methoden selecteren. Soms hoort u deze opties als ' Gates ' genoemd. We raden u ten zeerste aan **twee of meer authenticatie methoden te kiezen** zodat uw gebruikers meer flexibiliteit hebben wanneer ze er geen toegang toe hebben. Meer informatie over de hieronder vermelde methoden vindt u in het artikel [Wat zijn verificatie methoden?](concept-authentication-methods.md).
 
-* Mobiele app-meldingen (preview)
-* Mobiele app-code (preview)
+* Melding van een mobiele app
+* Mobiele app-code
 * Email
-* Mobiele telefoon
+* Telefoon (mobiel)
 * Telefoon (werk)
 * Beveiligingsvragen
 
-Gebruikers kunnen hun wachtwoord alleen opnieuw instellen als ze beschikken over gegevens aanwezig zijn in de verificatiemethoden die de beheerder heeft ingeschakeld.
+Gebruikers kunnen hun wacht woord alleen opnieuw instellen als ze gegevens bevatten in de verificatie methoden die de beheerder heeft ingeschakeld.
 
 > [!IMPORTANT]
-> Vanaf maart van 2019 de opties telefoongesprek zich niet beschikbaar voor gebruikers voor MFA en Self-service voor Wachtwoordherstel in vrij/proefversie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. Telefonische oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging geldt alleen voor gratis/proefversie van Azure AD-tenants.
+> Vanaf maart 2019 zijn de opties voor telefoon gesprekken niet beschikbaar voor MFA-en SSPR-gebruikers in gratis/proef versie van Azure AD-tenants. SMS-berichten worden niet beïnvloed door deze wijziging. De telefoon oproep blijft beschikbaar voor gebruikers in betaalde Azure AD-tenants. Deze wijziging is alleen van invloed op de Azure AD-tenants gratis en proef versie.
 
 > [!WARNING]
-> Accounts die zijn toegewezen Azure-beheerdersrollen is vereist voor het gebruik van methoden, zoals gedefinieerd in de sectie [beheerder opnieuw instellen van beleid verschillen](concept-sspr-policy.md#administrator-reset-policy-differences).
+> Accounts waaraan Azure-beheerders rollen zijn toegewezen, moeten gebruikmaken van methoden zoals gedefinieerd in de sectie [beleids verschillen van de beheerder opnieuw instellen](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Verificatie methoden selectie in de Azure portal][Authentication]
+![De selectie van verificatie methoden in de Azure Portal][Authentication]
 
-### <a name="number-of-authentication-methods-required"></a>Aantal verificatiemethoden dat is vereist
+### <a name="number-of-authentication-methods-required"></a>Aantal vereiste verificatie methoden
 
-Deze optie bepaalt u het minimale aantal van de beschikbare verificatiemethoden of de poorten die een gebruiker opnieuw instellen of ontgrendelen van het wachtwoord moet doorlopen. Het kan worden ingesteld op een of twee.
+Met deze optie bepaalt u het minimum aantal beschik bare verificatie methoden of poorten dat een gebruiker moet door lopen om het wacht woord opnieuw in te stellen of te ontgrendelen. De waarde kan worden ingesteld op een of twee.
 
-Gebruikers kunnen meer verificatiemethoden opgeven als de beheerder deze verificatiemethode schakelt kiezen.
+Gebruikers kunnen ervoor kiezen om meer verificatie methoden op te geven als de beheerder die verificatie methode inschakelt.
 
-Als een gebruiker beschikt niet over de minimale vereiste methoden die zijn geregistreerd, zien ze een foutpagina accountinschrijving om aan te vragen die hun wachtwoord opnieuw instellen door een beheerder.
+Als een gebruiker niet de mini maal vereiste methoden heeft geregistreerd, wordt er een fout pagina weer geven die hen omleidt om een beheerder te vragen of hun wacht woord opnieuw is ingesteld.
 
-#### <a name="mobile-app-and-sspr-preview"></a>Mobiele app en SSPR (Preview)
+#### <a name="mobile-app-and-sspr"></a>Mobiele app en SSPR
 
-Wanneer u een mobiele app, zoals de Microsoft Authenticator-app als een methode voor het wachtwoord opnieuw instellen, moet u rekening houden met het volgende voorbehoud:
+Wanneer u een mobiele app gebruikt, zoals de app Microsoft Authenticator, als methode voor het opnieuw instellen van wacht woorden, moet u rekening houden met het volgende voor behoud:
 
-* Wanneer beheerders vereisen een methode dat worden gebruikt om een wachtwoord opnieuw instellen, de verificatiecode is de enige beschikbare optie.
-* Wanneer beheerders vereisen twee methoden dat worden gebruikt om een wachtwoord opnieuw instellen, gebruikers mogen gebruiken **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
+* Wanneer beheerders een andere methode moeten gebruiken om een wacht woord opnieuw in te stellen, is verificatie code de enige optie die beschikbaar is.
+* Wanneer beheerders twee methoden moeten gebruiken om een wacht woord opnieuw in te stellen, kunnen gebruikers naast andere ingeschakelde methoden **ofwel** een melding **of** verificatie code gebruiken.
 
-| Aantal methoden dat is vereist voor het opnieuw instellen | Een | Twee |
+| Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen | Een' | Twee |
 | :---: | :---: | :---: |
-| Mam-functies die beschikbaar zijn | Code | Code- of -meldingen |
+| Functies voor mobiele apps beschikbaar | Code | Code of melding |
 
-Gebruikers hebben niet de optie voor het registreren van hun mobiele app bij het registreren voor self-service voor wachtwoord opnieuw van instellen [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup). Gebruikers kunnen hun mobiele app registreren [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), of in de nieuwe preview-info registratie beveiliging op [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+Gebruikers hebben geen optie om hun mobiele app te registreren wanneer ze zich registreren voor selfservice voor wachtwoord herstel van [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Gebruikers kunnen hun mobiele app registreren op [https://aka.ms/mfasetup](https://aka.ms/mfasetup)of in de nieuwe preview-versie van de registratie [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)van beveiligings gegevens op.
 
 > [!WARNING]
-> U moet inschakelen de [geconvergeerd registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication (openbare preview)](concept-registration-mfa-sspr-converged.md) voordat gebruikers toegang kunnen krijgen tot de nieuwe ervaring op [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+> U moet de [geconvergeerde registratie voor selfservice voor wachtwoord herstel en Azure multi-factor Authentication (open bare preview)](concept-registration-mfa-sspr-converged.md) inschakelen voordat gebruikers toegang kunnen krijgen tot de nieuwe ervaring op [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
-### <a name="change-authentication-methods"></a>Verificatiemethoden wijzigen
+### <a name="change-authentication-methods"></a>Verificatie methoden wijzigen
 
-Als u begint met een beleid dat slechts één vereist verificatiemethode voor opnieuw instellen of ontgrendelen is geregistreerd en u kunt wijzigen dat aan de twee methoden, wat gebeurt er?
+Wat gebeurt er als u begint met een beleid dat slechts één vereiste authenticatie methode heeft voor opnieuw instellen of ontgrendelen en u wijzigt dat op twee manieren?
 
-| Aantal methoden dat is geregistreerd | Aantal methoden dat is vereist | Resultaat |
+| Aantal geregistreerde methoden | Aantal methoden dat is vereist | Resultaat |
 | :---: | :---: | :---: |
 | 1 of meer | 1 | **Kan** opnieuw instellen of ontgrendelen |
-| 1 | 2 | **Kan geen** opnieuw instellen of ontgrendelen |
+| 1 | 2 | **Kan niet** opnieuw instellen of ontgrendelen |
 | 2 of meer | 2 | **Kan** opnieuw instellen of ontgrendelen |
 
-Als u de typen verificatiemethoden die gebruikmaken van een gebruiker kunt wijzigen, stopt u mogelijk per ongeluk gebruikers geen SSPR gebruiken als ze niet beschikken over de minimale hoeveelheid gegevens die beschikbaar zijn.
+Als u de typen verificatie methoden wijzigt die een gebruiker kan gebruiken, kunt u per ongeluk voor komen dat gebruikers SSPR kunnen gebruiken als ze niet beschikken over de minimale hoeveelheid gegevens die beschikbaar zijn.
 
 Voorbeeld:
-1. Het oorspronkelijke beleid is geconfigureerd met twee verificatiemethoden zijn vereist. Alleen de zakelijke telefoonnummer en de beveiligingsvragen worden gebruikt. 
-2. De beheerder het beleid voor het gebruik van de beveiligingsvragen niet meer wordt gewijzigd, maar Hiermee staat u het gebruik van een mobiele telefoon en een alternatief e-mailadres.
-3. Gebruikers zonder de mobiele telefoon of uw alternatieve e-mailadres velden ingevuld kunnen niet hun wachtwoord opnieuw instellen.
+1. Het oorspronkelijke beleid is geconfigureerd met twee vereiste verificatie methoden. Alleen het zakelijke telefoon nummer en de beveiligings vragen worden gebruikt. 
+2. De beheerder wijzigt het beleid zodat er geen beveiligings vragen meer worden gebruikt, maar maakt het gebruik van een mobiele telefoon en een alternatief e-mail adres mogelijk.
+3. Gebruikers zonder de velden mobiel telefoon of alternatief e-mail adres kunnen hun wacht woord niet opnieuw instellen.
 
 ## <a name="registration"></a>Registratie
 
-### <a name="require-users-to-register-when-they-sign-in"></a>Vereisen dat gebruikers te registreren wanneer ze zich aanmelden
+### <a name="require-users-to-register-when-they-sign-in"></a>Vereisen dat gebruikers zich registreren wanneer ze zich aanmelden
 
-Als u deze optie inschakelt, moet de gebruiker het wachtwoord opnieuw instellen om inschrijving te voltooien als ze zich aanmelden bij toepassingen die gebruikmaken van Azure AD. Deze werkstroom bevat de volgende toepassingen:
+Als u deze optie inschakelt, moet de gebruiker de registratie van het wacht woord opnieuw instellen volt ooien als deze zich aanmeldt bij alle toepassingen die gebruikmaken van Azure AD. Deze werk stroom omvat de volgende toepassingen:
 
 * Office 365
 * Azure Portal
 * Toegangsvenster
 * Federatieve toepassingen
-* Aangepaste toepassingen met behulp van Azure AD
+* Aangepaste toepassingen met Azure AD
 
-Wanneer registratie vereisen is uitgeschakeld, worden gebruikers kunnen handmatig registreren. Ze kunnen beide Bezoek [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup) of Selecteer de **registreren voor wachtwoordherstel** koppeling onder de **profiel** tabblad in het toegangsvenster.
+Wanneer registratie is uitgeschakeld, kunnen gebruikers zich hand matig registreren. Ze kunnen de koppeling [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) **registreren voor wacht woord opnieuw instellen** op het tabblad **profiel** in het toegangs venster bezoeken of selecteren.
 
 > [!NOTE]
-> Gebruikers de registratieportal voor wachtwoordherstel kunnen sluiten door te selecteren **annuleren** of door het venster te sluiten. Maar ze wordt gevraagd om u te registreren telkens wanneer ze zich aanmelden totdat ze hun inschrijving.
+> Gebruikers kunnen de registratie portal voor het opnieuw instellen van het wacht woord sluiten door **Annuleren** te selecteren of door het venster te sluiten. Maar ze moeten zich registreren elke keer dat ze zich aanmelden totdat ze hun registratie hebben voltooid.
 >
-> Deze interrupt verbroken niet van de gebruiker verbinding als ze al zijn aangemeld.
+> Met deze interrupt wordt de verbinding van de gebruiker niet verbroken als deze al zijn aangemeld.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Stel het aantal dagen waarna gebruikers wordt gevraagd naar de verificatiegegevens
+### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Het aantal dagen instellen waarna gebruikers wordt gevraagd om de verificatie gegevens opnieuw te bevestigen
 
-Deze optie bepaalt u de periode tussen instellen en de verificatiegegevens reconfirming en is alleen beschikbaar als u inschakelt de **vereisen dat gebruikers zich bij aanmelding registreren** optie.
+Met deze optie bepaalt u de tijds periode tussen het instellen en opnieuw bevestigen van verificatie gegevens en is alleen beschikbaar als u de optie **vereisen dat gebruikers zich registreren wanneer ze zich aanmelden** inschakelen.
 
-Geldige waarden zijn 0-730 dagen met '0', wat betekent dat gebruikers nooit wordt gevraagd om u te verificatiegegevens.
+Geldige waarden zijn 0 tot 730 dagen, met ' 0 ', wat betekent dat gebruikers nooit worden gevraagd om hun verificatie gegevens opnieuw te bevestigen.
 
 ## <a name="notifications"></a>Meldingen
 
 ### <a name="notify-users-on-password-resets"></a>Gebruikers een melding tonen over het opnieuw instellen van hun wachtwoord
 
-Als deze optie is ingesteld op **Ja**, gebruikers hun wachtwoord opnieuw instellen, ontvangen een e-mailbericht melding dat hun wachtwoord is gewijzigd. Het e-mailbericht wordt verzonden via de SSPR-portal naar de primaire en alternatieve e-mailadressen die zich in het bestand in Azure AD. Niemand anders wordt de hoogte gebracht van de gebeurtenis opnieuw instellen.
+Als deze optie is ingesteld op **Ja**, moeten gebruikers hun wacht woord opnieuw instellen een e-mail bericht ontvangen dat het wacht woord is gewijzigd. Het e-mail bericht wordt via de SSPR-portal verzonden naar de primaire en alternatieve e-mail adressen die zich in azure AD bevinden. Niemand anders wordt op de hoogte gesteld van de gebeurtenis opnieuw instellen.
 
-### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Alle beheerders waarschuwen wanneer andere beheerders hun wachtwoord opnieuw instellen
+### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Alle beheerders waarschuwen wanneer andere beheerders hun wacht woord opnieuw instellen
 
-Als deze optie is ingesteld op **Ja**, klikt u vervolgens *alle beheerders* ontvangt een e-mail naar het primaire e-mailadres in het bestand in Azure AD. Het e-mailbericht dat de melding verschijnt dat een andere beheerder het wachtwoord is gewijzigd met behulp van self-service voor Wachtwoordherstel.
+Als deze optie is ingesteld op **Ja**, worden *alle beheerders* een e-mail ontvangen op het primaire e-mail adres van het bestand in azure AD. Het e-mail bericht geeft aan dat een andere beheerder zijn of haar wacht woord heeft gewijzigd met behulp van SSPR.
 
-Voorbeeld: Er zijn vier beheerders in een omgeving. Hun wachtwoord opnieuw instellen via Self-service voor Wachtwoordherstel van een beheerder. Beheerders B, C en D ontvangen een e-mailbericht waarschuwingen van het wachtwoord opnieuw instellen.
+Voorbeeld: Er zijn vier beheerders in een omgeving. Beheerder een wacht woord opnieuw instellen met behulp van SSPR. Beheerders B, C en D ontvangen een e-mail bericht met een waarschuwing voor het opnieuw instellen van het wacht woord.
 
 ## <a name="on-premises-integration"></a>On-premises integratie
 
-Als u installeren, configureren en Azure AD Connect inschakelen, hebt u de volgende aanvullende opties voor on-premises integraties. Als deze opties lichter gekleurd weergegeven zijn, is klikt u vervolgens Write-back niet juist geconfigureerd. Zie voor meer informatie, [configuratie van wachtwoord terugschrijven](howto-sspr-writeback.md).
+Als u Azure AD Connect installeert, configureert en inschakelt, hebt u de volgende aanvullende opties voor on-premises integraties. Als deze opties grijs worden weer gegeven, is terugschrijven niet goed geconfigureerd. Zie [Configuring Password writeing](howto-sspr-writeback.md)(Engelstalig) voor meer informatie.
 
-![Valideren van het terugschrijven van wachtwoorden is ingeschakeld en werkt][Writeback]
+![Valideren van wacht woord terugschrijven is ingeschakeld en werkt][Writeback]
 
-Deze pagina vindt u een snel de status van de on-premises Write-backclient, een van de volgende berichten wordt weergegeven op basis van de huidige configuratie:
+Op deze pagina vindt u een snelle status van de on-premises terugschrijf client, een van de volgende berichten wordt weer gegeven op basis van de huidige configuratie:
 
-* Uw On-premises Write-backclient is actief en werkend.
-* Azure AD is online en is verbonden met uw on-premises Write-backclient. Echter, het lijkt erop dat de geïnstalleerde versie van Azure AD Connect verouderd is. Houd rekening met [een upgrade van Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) om ervoor te zorgen dat u de nieuwste connectiviteitsfuncties en belangrijke bugfixes beschikt hebt.
-* Helaas kan niet worden gecontroleerd de status van uw on-premises Write-back-client omdat de geïnstalleerde versie van Azure AD Connect verouderd is. [Azure AD Connect upgraden](../hybrid/how-to-upgrade-previous-version.md) kunnen om te controleren of de status van de verbinding.
-* Helaas, het lijkt erop dat we nu kan geen verbinding met uw on-premises Write-backclient. [Azure AD Connect oplossen](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) om de verbinding te herstellen.
-* Helaas geen verbinding maken met uw on-premises Write omdat wachtwoord terugschrijven niet juist is geconfigureerd. [Configureer wachtwoord terugschrijven](howto-sspr-writeback.md) om de verbinding te herstellen.
-* Helaas, het lijkt erop dat we nu kan geen verbinding met uw on-premises Write-backclient. Dit kan zijn veroorzaakt door tijdelijke problemen aan onze kant. Als het probleem zich blijft voordoen, [los problemen met Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) om de verbinding te herstellen.
+* Uw on-premises terugschrijf client is actief.
+* Azure AD is online en is verbonden met uw on-premises terugschrijf client. Het lijkt echter alsof de geïnstalleerde versie van Azure AD Connect verouderd is. Overweeg het [upgraden van Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) om ervoor te zorgen dat u beschikt over de nieuwste connectiviteits functies en belang rijke problemen met oplossingen.
+* Helaas kan de status van uw on-premises terugschrijf client niet worden gecontroleerd, omdat de geïnstalleerde versie van Azure AD Connect verouderd is. [Upgrade Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) zodat u de verbindings status kunt controleren.
+* Helaas lijkt het alsof er geen verbinding kan worden gemaakt met uw on-premises back-upclient. [Problemen met Azure AD Connect oplossen](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) om de verbinding te herstellen.
+* Er kan geen verbinding worden gemaakt met uw on-premises terugschrijf client omdat het terugschrijven van wacht woorden niet correct is geconfigureerd. [Configureer write-back van wacht woord](howto-sspr-writeback.md) om de verbinding te herstellen.
+* Helaas lijkt het alsof er geen verbinding kan worden gemaakt met uw on-premises back-upclient. Dit kan worden veroorzaakt door tijdelijke problemen aan onze kant. Als het probleem zich blijft voordoen, [lost u Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) op om de verbinding te herstellen.
 
-### <a name="write-back-passwords-to-your-on-premises-directory"></a>Wachtwoorden terugschrijven naar uw on-premises directory
+### <a name="write-back-passwords-to-your-on-premises-directory"></a>Wacht woorden terugschrijven naar uw on-premises Directory
 
-Dit besturingselement bepaalt of het terugschrijven van wachtwoorden is ingeschakeld voor deze map. Als u terugschrijven van wachtwoorden is ingeschakeld, betekent dit de status van de on-premises Write-back-service. Dit besturingselement is handig als u het terugschrijven van wachtwoorden tijdelijk uitschakelen wilt zonder Azure AD Connect opnieuw configureren.
+Dit besturings element bepaalt of het terugschrijven van wacht woorden is ingeschakeld voor deze map. Als write-back is ingeschakeld, wordt de status van de on-premises write-service weer gegeven. Dit besturings element is handig als u het terugschrijven van wacht woorden tijdelijk wilt uitschakelen zonder Azure AD Connect opnieuw te moeten configureren.
 
-* Als de switch is ingesteld op **Ja**, klikt u vervolgens het terugschrijven van wachtwoorden is ingeschakeld en federatieve, Pass through-verificatie of de wachtwoord-hash gesynchroniseerd gebruikers kunnen hun wachtwoord opnieuw instellen.
-* Als de switch is ingesteld op **Nee**, klikt u vervolgens Write-back is uitgeschakeld en federatieve, Pass through-verificatie of de wachtwoord-hash gesynchroniseerd gebruikers zijn niet in staat hun wachtwoord opnieuw instellen.
+* Als de schakel optie is ingesteld op **Ja**, dan write-back is ingeschakeld, en federatieve, Pass-Through-verificatie of met wacht woord-hash gesynchroniseerde gebruikers kunnen hun wacht woord opnieuw instellen.
+* Als de schakel optie is ingesteld op **Nee**, dan write-back is uitgeschakeld en federatieve, Pass-Through-verificatie of met wacht woord-hash gesynchroniseerde gebruikers kunnen hun wacht woorden niet opnieuw instellen.
 
-### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Toestaan dat gebruikers voor het ontgrendelen van accounts zonder hun wachtwoord opnieuw instellen
+### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Gebruikers toestaan om accounts te ontgrendelen zonder hun wacht woord opnieuw in te stellen
 
-Dit besturingselement Hiermee wordt aangegeven of gebruikers die gaat u naar de portal voor wachtwoord opnieuw instellen van moeten de optie voor het ontgrendelen van hun on-premises Active Directory-accounts zonder hun wachtwoord opnieuw in te krijgen. Azure AD ontgrendelt standaard accounts bij het uitvoeren van een wachtwoord opnieuw instellen. U kunt deze instelling gebruiken voor het scheiden van deze twee bewerkingen.
+Dit besturings element bepaalt of gebruikers die de portal voor het opnieuw instellen van wacht woorden bezoeken, de optie moeten krijgen om hun on-premises Active Directory accounts te ontgrendelen zonder hun wacht woord opnieuw in te stellen. Standaard worden accounts door Azure AD ontgrendeld wanneer het wacht woord opnieuw wordt ingesteld. U gebruikt deze instelling om deze twee bewerkingen van elkaar te scheiden.
 
-* Indien ingesteld op **Ja**, en vervolgens gebruikers de mogelijkheid hun wachtwoord opnieuw instellen en het account ontgrendelen of hun account ontgrendelen krijgen zonder dat het wachtwoord opnieuw instellen.
-* Indien ingesteld op **Nee**, klikt u vervolgens gebruikers zijn alleen kunnen worden gecombineerd voor wachtwoordherstel en bewerking ontgrendelen van het account.
+* Als deze optie is ingesteld op **Ja**, krijgen gebruikers de mogelijkheid om hun wacht woord opnieuw in te stellen en het account te ontgrendelen, of om hun account te ontgrendelen zonder het wacht woord opnieuw in te stellen.
+* Als deze instelling is ingesteld op **Nee**, kunnen gebruikers alleen een gecombineerde wachtwoord herstel-en account vergrendelings bewerking uitvoeren.
 
-### <a name="on-premises-active-directory-password-filters"></a>On-premises Active Directory-wachtwoordfilters
+### <a name="on-premises-active-directory-password-filters"></a>On-premises Active Directory wachtwoord filters
 
-Azure AD-selfservice wachtwoord opnieuw instellen, voert het equivalent van een wachtwoord door de beheerder opnieuw instellen in Active Directory. Als u een derde partij wachtwoordfilter gebruikt voor het afdwingen van regels voor aangepaste wachtwoorden, en u wilt dat dit wachtwoordfilter is ingeschakeld tijdens de Azure AD selfservice voor wachtwoordherstel, zorg ervoor dat de oplossing van derden wachtwoord-filter is geconfigureerd om toe te passen de beheerderswachtwoord opnieuw instellen van scenario. [Azure AD-wachtwoordbeveiliging voor Windows Server Active Directory](concept-password-ban-bad-on-premises.md) wordt standaard ondersteund.
+Azure AD self-service voor wachtwoord herstel voert het equivalent van een door de beheerder geïnitieerd wacht woord opnieuw instellen in Active Directory. Als u een wachtwoord filter van een derde partij gebruikt om aangepaste wachtwoord regels af te dwingen en u wilt dat dit wachtwoord filter wordt gecontroleerd tijdens de selfservice voor wachtwoord herstel van Azure AD, moet u ervoor zorgen dat de oplossing voor wachtwoord filter van derden is geconfigureerd om toe te passen in de het scenario voor het opnieuw instellen van het beheerders wachtwoord. [Azure AD-wachtwoord beveiliging voor Windows Server Active Directory](concept-password-ban-bad-on-premises.md) wordt standaard ondersteund.
 
-## <a name="password-reset-for-b2b-users"></a>Wachtwoord opnieuw instellen voor B2B-gebruikers
+## <a name="password-reset-for-b2b-users"></a>Wacht woord opnieuw instellen voor B2B-gebruikers
 
-Wachtwoord opnieuw instellen en wijzigen worden volledig ondersteund in alle configuraties met business-to-business (B2B). Wachtwoorden opnieuw instellen van B2B-gebruikers wordt ondersteund in de volgende drie gevallen:
+Wacht woord opnieuw instellen en wijzigen worden volledig ondersteund voor alle Business-to-Business (B2B)-configuraties. Het opnieuw instellen van B2B-gebruikers wachtwoorden wordt in de volgende drie gevallen ondersteund:
 
-* **Gebruikers van de partnerorganisatie van een met een bestaande Azure AD-tenant**: Als de organisatie die u zijn een partnerschap aangegaan met een bestaande Azure AD-tenant, we *respecteren ongeacht wachtwoord opnieuw instellen van beleidsregels zijn ingeschakeld op deze tenant*. Voor wachtwoord opnieuw instellen om te werken, moet de partnerorganisatie alleen om ervoor te zorgen dat Azure AD SSPR is ingeschakeld. Er zijn geen extra kosten voor Office 365-klanten en kan worden ingeschakeld met de volgende stappen in onze [aan de slag met wachtwoordbeheer](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) handleiding.
-* **Gebruikers die zich aanmelden via** self-service-aanmelding: Als de organisatie samenwerking met gebruikt de [self-service-aanmelding](../users-groups-roles/directory-self-service-signup.md) functie om op te halen in een tenant, laat Microsoft ze opnieuw instellen van het wachtwoord met het e-mailbericht ze geregistreerd.
-* **B2B-gebruikers**: Een nieuwe B2B-gebruikers die zijn gemaakt met behulp van de nieuwe [Azure AD B2B-mogelijkheden](../active-directory-b2b-what-is-azure-ad-b2b.md) worden ook opnieuw instellen van wachtwoorden met het e-mailbericht ze tijdens de uitnodiging hebt geregistreerd.
+* **Gebruikers van een partner organisatie met een bestaande Azure AD-Tenant**: Als de organisatie waarmee u een partner bent, een bestaande Azure AD-Tenant heeft, *respecteren we dat beleid voor het opnieuw instellen van het wacht woord is ingeschakeld voor die Tenant*. Om het wacht woord opnieuw in te stellen, moet de partner organisatie alleen ervoor zorgen dat Azure AD SSPR is ingeschakeld. Er worden geen extra kosten in rekening gebracht voor Office 365-klanten en dit kan worden ingeschakeld door de stappen in de hand leiding aan de slag [met wachtwoord beheer](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) te volgen.
+* **Gebruikers die zich aanmelden via** Self-Service-aanmelding: Als de organisatie waarmee u een partner bent, de [self-service registratie](../users-groups-roles/directory-self-service-signup.md) functie gebruikt om een Tenant op te halen, kunnen we het wacht woord opnieuw instellen met het e-mail bericht dat ze hebben geregistreerd.
+* **B2B-gebruikers**: Nieuwe B2B-gebruikers die zijn gemaakt met behulp van de nieuwe [mogelijkheden van Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) kunnen ook hun wacht woord opnieuw instellen met het e-mail adres dat is geregistreerd tijdens het INVITE-proces.
 
-Als u wilt testen in dit scenario, gaat u naar https://passwordreset.microsoftonline.com met een van deze gebruikers van partnerorganisaties. Als ze hebben een alternatief e-mailadres of verificatieadres die zijn gedefinieerd, heeft wachtwoord opnieuw instellen werkt zoals verwacht.
+Als u dit scenario wilt testen, https://passwordreset.microsoftonline.com gaat u naar met een van deze partner-gebruikers. Als er een alternatieve e-mail of verificatie-e-mail is gedefinieerd, werkt wacht woord opnieuw instellen zoals verwacht.
 
 > [!NOTE]
-> Microsoft-accounts die toegang voor gasten zijn verleend aan uw Azure AD-tenant, zoals die van Hotmail.com, Outlook.com of andere persoonlijke e-mailadressen zijn niet Azure AD SSPR kunnen gebruiken. Moeten ze hun wachtwoord opnieuw instellen met behulp van de informatie in de [wanneer u zich niet aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikel.
+> Micro soft-accounts waaraan gast toegang is verleend voor uw Azure AD-Tenant, zoals die van Hotmail.com, Outlook.com of andere persoonlijke e-mail adressen, kunnen Azure AD SSPR niet gebruiken. Ze moeten hun wacht woord opnieuw instellen met behulp van de informatie in de [Als u zich niet kunt aanmelden bij uw Microsoft-account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) -artikel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -220,4 +215,4 @@ De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met
 * [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "Azure Active Directory-verificatiemethoden die beschikbaar zijn en hoeveel er vereist zijn"
-[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "On-premises configuratie voor integratie van wachtwoord terugschrijven van wachtwoorden en informatie voor probleemoplossing"
+[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "Configuratie van on-premises integratie wacht woord terugschrijven en informatie over probleem oplossing"

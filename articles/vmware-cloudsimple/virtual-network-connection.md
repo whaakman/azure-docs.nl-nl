@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ba2d2fd9c943fe55e82956d022f6ba9840a550f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 00d49d763dedc5d86557dadd10f5d727e7893dbe
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536597"
+ms.locfileid: "69563058"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Virtueel Azure-netwerk verbinden met CloudSimple met behulp van ExpressRoute
 
@@ -24,7 +24,7 @@ U kunt uw particuliere cloud netwerk uitbreiden naar uw virtuele Azure-netwerk e
 Een autorisatie sleutel is vereist voor de ExpressRoute-verbinding tussen uw Privécloud en het virtuele Azure-netwerk. Als u een sleutel wilt verkrijgen, moet u een ticket indienen met <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">ondersteuning</a>.  Gebruik de volgende informatie in de aanvraag:
 
 * Type probleem: **Documentatie**
-* Abonnement: Selecteer het abonnement waarin de CloudSimple-service is geïmplementeerd * *
+* Abonnement: **Het abonnement selecteren waarop de CloudSimple-service is geïmplementeerd**
 * Service: **VMware-oplossing per CloudSimple**
 * Probleem type: **Service aanvraag**
 * Subtype van probleem: **Autorisatie sleutel voor Azure VNET-verbinding**

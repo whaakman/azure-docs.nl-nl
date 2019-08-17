@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 88b6fbbd68f1f98e50ec0f04336a022dc1580a73
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444024"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562912"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Implementatie technologieën in Azure Functions
 
@@ -31,13 +31,13 @@ Azure Functions ondersteunt lokale ontwikkeling en hosting in Windows en Linux o
 
 Elk plan heeft verschillende gedragingen. Niet alle implementatie technologieën zijn beschikbaar voor elk van de Azure Functions. In het volgende diagram ziet u welke implementatie technologieën worden ondersteund voor elke combi natie van besturings systeem en hosting plan:
 
-| Implementatie technologie | Windows-verbruik | Windows Premium (preview) | Windows toegewezen  | Linux-verbruik (preview-versie) | Speciaal voor Linux |
+| Implementatie technologie | Windows-verbruik | Windows Premium (preview) | Windows toegewezen  | Linux-verbruik | Speciaal voor Linux |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
 | Externe pakket-URL<sup>1</sup> |✔|✔|✔|✔|✔|
 | Zip-implementatie |✔|✔|✔| |✔|
 | Docker-container | | | | |✔|
 | Web implementeren |✔|✔|✔| | |
-| Broncode beheer |✔|✔|✔| |✔|
+| Broncodebeheer |✔|✔|✔| |✔|
 | Lokale Git<sup>1</sup> |✔|✔|✔| |✔|
 | Cloud synchronisatie<sup>1</sup> |✔|✔|✔| |✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|
@@ -70,7 +70,7 @@ U kunt een externe pakket-URL gebruiken om te verwijzen naar een extern pakket b
 >
 >Als u Azure Blob Storage gebruikt, gebruikt u een persoonlijke container met een [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) om functies toegang te geven tot het pakket. Telkens wanneer de toepassing opnieuw wordt gestart, wordt een kopie van de inhoud opgehaald. Uw verwijzing moet geldig zijn voor de levens duur van de toepassing.
 
->__Wanneer u deze gebruikt:__ De URL van het externe pakket is de enige ondersteunde implementatie methode voor Azure Functions die op Linux wordt uitgevoerd in het verbruiks abonnement (preview). Wanneer u het pakket bestand bijwerkt waarnaar wordt verwezen door een functie-app, moet u de [Triggers hand matig synchroniseren](#trigger-syncing) om Azure te laten weten dat uw toepassing is gewijzigd.
+>__Wanneer u deze gebruikt:__ De URL van het externe pakket is de enige ondersteunde implementatie methode voor Azure Functions die worden uitgevoerd op Linux in het verbruiks abonnement. Wanneer u het pakket bestand bijwerkt waarnaar wordt verwezen door een functie-app, moet u de [Triggers hand matig synchroniseren](#trigger-syncing) om Azure te laten weten dat uw toepassing is gewijzigd.
 
 ### <a name="zip-deploy"></a>Zip-implementatie
 
@@ -105,7 +105,7 @@ Web Deploy-pakketten en implementeert uw Windows-toepassingen op elke IIS-server
 
 >__Wanneer u deze gebruikt:__ Web Deploy wordt ondersteund en heeft geen problemen, maar het voorkeurs mechanisme is [zip implementeren met uitvoeren vanuit pakket ingeschakeld](#zip-deploy). Raadpleeg voor meer informatie de [Visual Studio Development Guide](functions-develop-vs.md#publish-to-azure).
 
-### <a name="source-control"></a>Broncode beheer
+### <a name="source-control"></a>Broncodebeheer
 
 Gebruik broncode beheer om uw functie-app te verbinden met een Git-opslag plaats. Een update van de code in die opslag plaats activeert de implementatie. Zie de [kudu-wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments)voor meer informatie.
 
@@ -151,7 +151,7 @@ In de portal-editor kunt u de bestanden in uw functie-app rechtstreeks bewerken 
 
 In de volgende tabel ziet u de besturings systemen en talen die ondersteuning bieden voor het bewerken van portals:
 
-| | Windows-verbruik | Windows Premium (preview) | Windows toegewezen | Linux-verbruik (preview-versie) | Linux Premium (preview-versie)| Speciaal voor Linux |
+| | Windows-verbruik | Windows Premium (preview) | Windows toegewezen | Linux-verbruik | Linux Premium (preview-versie)| Speciaal voor Linux |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|

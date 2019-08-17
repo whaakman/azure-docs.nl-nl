@@ -8,16 +8,16 @@ ms.service: search
 ms.topic: overview
 ms.date: 08/13/2019
 ms.author: heidist
-ms.openlocfilehash: 0a254716acbcd51263680d421045788e8365ae8b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
-ms.translationtype: HT
+ms.openlocfilehash: 1f3e4d69d3fdba8eba2e7d3cadc3c29703bffcaf
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533169"
+ms.locfileid: "69558607"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
 
-Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. Met uw aangepaste code wordt gegevens opname (indexering) aangeroepen, worden query aanvragen uitgevoerd en worden antwoorden verwerkt. De zoek ervaring wordt gedefinieerd in uw client code met behulp van de functionaliteit van Azure Search, waarbij de query wordt uitgevoerd via een persistente index die u maakt, eigenaar en opslaat op Azure Search.
+Azure Search is een Cloud oplossing op basis van een zoek opdracht als service die ontwikkel aars Api's en hulpprogram ma's biedt voor het toevoegen van een uitgebreide zoek ervaring via persoonlijke, heterogene inhoud in web-, mobiele en zakelijke toepassingen. Met uw aangepaste code wordt gegevens opname (indexering) aangeroepen, worden query aanvragen uitgevoerd en worden antwoorden verwerkt. De zoek ervaring wordt gedefinieerd in uw client code met behulp van de functionaliteit van Azure Search, waarbij de query wordt uitgevoerd via een persistente index die u maakt, eigenaar en opslaat op Azure Search.
 
 ![Azure Search architectuur](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search architectuur")
 

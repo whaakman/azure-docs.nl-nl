@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22c25c0a2b2f48baa3b57a8ad39ed4514c884826
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533134"
+ms.locfileid: "69561314"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatie methoden?
 
@@ -31,9 +31,9 @@ Micro soft raadt beheerders ten zeerste aan dat gebruikers meer dan het minimale
 | Wachtwoord | MFA en SSPR |
 | Beveiligingsvragen | Alleen SSPR |
 | E-mailadres | Alleen SSPR |
-| Microsoft Authenticator-app | MFA en open bare Preview voor SSPR |
+| Microsoft Authenticator-app | MFA en SSPR |
 | OATH-hardware-token | Open bare Preview voor MFA en SSPR |
-| Sms | MFA en SSPR |
+| SMS | MFA en SSPR |
 | Spraakoproep | MFA en SSPR |
 | App-wachtwoorden | Alleen in bepaalde gevallen MFA |
 
@@ -41,7 +41,7 @@ Micro soft raadt beheerders ten zeerste aan dat gebruikers meer dan het minimale
 
 |     |
 | --- |
-| OATH-hardware-tokens voor MFA-en SSPR en mobiele app-meldingen of mobiele app-code als methode voor Azure AD selfservice voor wachtwoord herstel zijn open bare preview-functies van Azure Active Directory. Zie [aanvullende gebruiks voorwaarden voor Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) -previews voor meer informatie over Previews|
+| OATH-hardware-tokens voor MFA en SSPR zijn open bare preview-functies van Azure Active Directory. Zie [aanvullende gebruiks voorwaarden voor Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) -previews voor meer informatie over Previews|
 |     |
 
 ## <a name="password"></a>Wachtwoord
@@ -182,7 +182,7 @@ Gebruikers kunnen een combi natie hebben van Maxi maal vijf OATH-hardware-tokens
 
 ## <a name="phone-options"></a>Telefoonopties
 
-### <a name="mobile-phone"></a>Mobiele telefoon
+### <a name="mobile-phone"></a>Telefoon (mobiel)
 
 Er zijn twee opties beschikbaar voor gebruikers met mobiele telefoons.
 

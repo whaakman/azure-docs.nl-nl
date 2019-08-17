@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812680"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563191"
 ---
 # <a name="account-management-overview"></a>Overzicht van account beheer
 
-Wanneer u uw CloudSimple-service maakt, maakt deze een account op CloudSimple.  Het account is gekoppeld aan uw Azure-abonnement waar de service zich bevindt.  Alle gebruikers met de rollen **eigenaar** en **Inzender** in het abonnement hebben toegang tot de CloudSimple-Portal.  De Azure-abonnements-ID en Tenant-ID die zijn gekoppeld aan de CloudSimple-service zijn te vinden op de [pagina accounts](https://docs.azure.cloudsimple.com/account/).
+Wanneer u uw CloudSimple-service maakt, maakt deze een account op CloudSimple.  Het account is gekoppeld aan uw Azure-abonnement waar de service zich bevindt.  Alle gebruikers met de rollen **eigenaar** en **Inzender** in het abonnement hebben toegang tot de CloudSimple-Portal.  De Azure-abonnements-ID en Tenant-ID die zijn gekoppeld aan de CloudSimple-service zijn te vinden op de [pagina accounts](account.md).
 
 ## <a name="additional-alert-emails"></a>Extra waarschuwings berichten
 
@@ -36,5 +36,5 @@ Alle gebruikers die de rol **eigenaar** en **Inzender** hebben in het abonnement
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Account overzicht weer geven](https://docs.azure.cloudsimple.com/account/)
-* [Gebruikers lijst weer geven](https://docs.azure.cloudsimple.com/users/)
+* [Account overzicht weer geven](account.md)
+* [Gebruikers lijst weer geven](users.md)
