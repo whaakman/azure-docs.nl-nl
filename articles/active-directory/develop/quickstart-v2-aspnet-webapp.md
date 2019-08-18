@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed57f581db593a288e62d25a2f0b8ee42c28114
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b6685783d7ade59796af8fbf466124353a897cb9
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852957"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562090"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snelstart: Aanmelding met Microsoft toevoegen aan een ASP.NET-web-app
 
@@ -55,8 +55,10 @@ In deze snelstart leert u hoe een ASP.NET-web-app persoonlijke accounts (hotmail
 > 1. Selecteer **nieuwe registratie**.
 > 1. Wanneer de pagina **Een toepassing registreren** verschijnt, voert u de registratiegegevens van de toepassing in:
 >      - Voer in de sectie **Naam** een beschrijvende toepassingsnaam. Deze wordt zichtbaar voor gebruikers van de app. Bijvoorbeeld: `ASPNET-Quickstart`.
->      - Voeg `https://localhost:44368/` de omleidings- **URI**toe en klik op **registreren**.
-Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning** en selecteer vervolgens **Opslaan**.
+>      - Voeg `http://localhost:44368/` de omleidings- **URI**toe en klik op **registreren**.
+>      - Selecteer in het navigatie deel venster links onder de sectie beheren de optie **verificatie**
+>          - Selecteer in de Subsectie **impliciete toekenning** **id-tokens**.
+>          - En selecteer vervolgens **Opslaan**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Stap 1: uw toepassing configureren in Azure Portal
@@ -96,7 +98,8 @@ Selecteer **Verificatie**, stel **ID-tokens** in onder **Impliciete toekenning**
 >   - Als uw toepassing **Alle Microsoft-accountgebruikers** ondersteunt, vervang deze waarde dan door `common`
 >
 > > [!TIP]
-> > Als u de waarden van *Toepassings-id*, *Map-id (tenant)* en *Ondersteunde accounttypen* wilt weten, gaat u naar de **Overzichtspagina**
+> > - Als u de waarden van *Toepassings-id*, *Map-id (tenant)* en *Ondersteunde accounttypen* wilt weten, gaat u naar de **Overzichtspagina**
+> > - Zorg ervoor dat de `redirectUri` waarde voor in **Web. config** overeenkomt met de omleidings- **URI** die is gedefinieerd voor de app-registratie in azure AD (als dat niet het geval is, gaat u naar het menu **verificatie** voor de app-registratie en werkt u de omleidings- **URI** om te zoeken)
 
 ## <a name="more-information"></a>Meer informatie
 

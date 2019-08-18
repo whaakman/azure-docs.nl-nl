@@ -101,11 +101,9 @@
         - name: CloudSimple-portalaccounts beheren
           items:
             - name: Accountsamenvatting weergeven
-              href: 'https://docs.azure.cloudsimple.com/account/'
+              href: account.md
             - name: De gebruikerslijst weergeven
-              href: 'https://docs.azure.cloudsimple.com/users/'
-            - name: Het gebruikslogboek weergeven
-              href: 'https://docs.azure.cloudsimple.com/usage/'
+              href: users.md
             - name: Een virtuele netwerkverbinding voor de privécloud instellen
               href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
             - name: Uw gebruikersprofiel bewerken
@@ -129,7 +127,7 @@
             - name: VPN-verbinding tussen on-premises en privécloud
               href: set-up-vpn.md
             - name: On-premises netwerkverbinding met ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: Azure-netwerkverbinding met ExpressRoute
               href: azure-expressroute-connection.md
         - name: VMware-platform

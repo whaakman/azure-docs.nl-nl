@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: f7170fbb4a258e9d8290ad9d207028087b22003a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a2420f98bb07686b548dc6641df77dd0fdf7028b
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322321"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562807"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Quickstart: Uw eerste Batch-taak uitvoeren met de Python-API
 
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Een Batch-taak maken
 
-Een Batch-taak is een logische groep met een of meer taken. Een Batch-taak omvat instellingen die gemeenschappelijk zijn voor de taken, zoals prioriteit en de pool waarop taken moeten worden uitgevoerd. De app gebruikt de [JobAddParameter](/python/api/azure.batch.models.jobaddparameter)-klasse om een taak te maken in de pool. Met de [job.add](/python/api/azure.batch.operations.joboperations)-methode wordt de pool naar de Batch-service verzonden. De Batch-taak heeft in eerste instantie geen taken.
+Een Batch-taak is een logische groep met een of meer taken. Een Batch-taak omvat instellingen die gemeenschappelijk zijn voor de taken, zoals prioriteit en de pool waarop taken moeten worden uitgevoerd. De app gebruikt de [JobAddParameter](/python/api/azure.batch.models.jobaddparameter)-klasse om een taak te maken in de pool. Met de methode [Job. add](/python/api/azure.batch.operations.joboperations) wordt een taak toegevoegd aan het opgegeven batch-account. De Batch-taak heeft in eerste instantie geen taken.
 
 ```python
 job = batch.models.JobAddParameter(

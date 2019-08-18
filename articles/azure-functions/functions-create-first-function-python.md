@@ -11,16 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 47de61db96b0f8f9b338f135d4f32eecc4a64efe
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722783"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562948"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Een door HTTP geactiveerde functie maken in azure
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 In dit artikel leest u hoe u opdracht regel Programma's kunt gebruiken om een python-project te maken dat wordt uitgevoerd in Azure Functions. De functie die u maakt, wordt geactiveerd door HTTP-aanvragen. Ten slotte publiceert u uw project om te worden uitgevoerd als een [serverloze functie](functions-scale.md#consumption-plan) in Azure.
 
@@ -40,9 +38,9 @@ Voordat u begint, moet u het volgende hebben:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-and-activate-a-virtual-environment"></a>Een virtuele omgeving maken en activeren
+## <a name="create-and-activate-a-virtual-environment-optional"></a>Een virtuele omgeving maken en activeren (optioneel)
 
-Als u python-functies lokaal wilt ontwikkelen en testen, moet u in een python 3,6-omgeving werken. Voer de volgende opdrachten uit om een virtuele omgeving met de naam `.venv` te maken.
+Als u python-functies lokaal wilt ontwikkelen en testen, is het raadzaam een python 3,6-omgeving te gebruiken. Voer de volgende opdrachten uit om een virtuele omgeving met de naam `.venv` te maken.
 
 ### <a name="bash"></a>Bash
 
@@ -165,15 +163,19 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
-
 > [!NOTE]
-> Azure Functions is het verbruiks abonnement voor Linux momenteel als preview-versie en alleen beschikbaar in de volgende regio's: VS-West, VS-Oost, Europa-west, Azië-oost. Bovendien kunnen Linux-en Windows-apps niet worden gehost in dezelfde resource groep. Als u een bestaande resource groep hebt met `myResourceGroup` de naam met een Windows-functie-app of web-app, moet u een andere resource groep gebruiken.
+> Linux-en Windows-apps kunnen niet worden gehost in dezelfde resource groep. Als u een bestaande resource groep hebt met `myResourceGroup` de naam met een Windows-functie-app of web-app, moet u een andere resource groep gebruiken.
+
+Met deze opdracht wordt ook een gekoppeld Azure-toepassing Insights-exemplaar in dezelfde resource groep ingericht dat kan worden gebruikt voor het bewaken en weer geven van Logboeken.
 
 U bent nu klaar om uw lokale functions-project te publiceren naar de functie-app in Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+> [!NOTE]
+> Als u bijna realtime logboeken wilt weer geven voor een gepubliceerde python-app, kunt u het beste het [Application Insights gebruiken Live Metrics stream](functions-monitoring.md#streaming-logs)
 
 ## <a name="next-steps"></a>Volgende stappen
 

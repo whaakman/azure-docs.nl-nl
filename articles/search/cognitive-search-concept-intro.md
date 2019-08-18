@@ -8,15 +8,15 @@ ms.service: search
 ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/28/2019
+ms.date: 08/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 524ab33fc1d6a88620077a28ec70f09d55b06106
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: c537e2671dcc266e28e5fa8a040088c83394f260
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015779"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563458"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Wat is ' cognitieve zoek functie ' in Azure Search?
 
@@ -36,7 +36,27 @@ De verwerking van natuurlijke taal en afbeelding wordt toegepast tijdens de fase
 > Als u het bereik uitbreidt door de verwerkings frequentie te verhogen, meer documenten toe te voegen of meer AI-algoritmen toe te voegen, moet u [een factureer bare Cognitive Services resource koppelen](cognitive-search-attach-cognitive-services.md). Er worden kosten in rekening gebracht bij het aanroepen van Api's in Cognitive Services en voor het ophalen van afbeeldingen als onderdeel van de fase voor het kraken van documenten in Azure Search. Er worden geen kosten in rekening gebracht voor het ophalen van tekst uit documenten.
 >
 > De uitvoering van ingebouwde vaardig heden wordt in rekening gebracht op basis van de bestaande [Cognitive Services betalen naar](https://azure.microsoft.com/pricing/details/cognitive-services/)gebruik-prijs. Prijzen voor Image extractie worden beschreven op de [pagina met Azure Search prijzen](https://go.microsoft.com/fwlink/?linkid=2042400).
-## <a name="components-of-cognitive-search"></a>Onderdelen van cognitieve zoek acties
+
+## <a name="when-to-use-cognitive-search"></a>Wanneer moet u cognitieve zoek functie gebruiken?
+
+Cognitieve Zoek opdrachten, met behulp van vooraf ontwikkelde vaardig heden, zijn goed geschikt voor de volgende toepassings scenario's:
+
++ Gescande documenten (JPEG) waarvoor u Zoek opdrachten in volledige tekst wilt uitvoeren. U kunt een OCR-vaardigheid (Optical Character Recognition) koppelen om tekst uit JPEG-bestanden te identificeren, uit te pakken en op te nemen.
+
++ Pdf's met gecombineerde afbeelding en tekst. Tekst in Pdf's kan worden geëxtraheerd tijdens het indexeren van Azure Search zonder het gebruik van cognitieve Zoek opdrachten, maar het toevoegen van afbeeldingen en natuurlijke taal verwerking levert vaak een beter resultaat op dan een standaard indexering.
+
++ Meertalige inhoud waartegen u taal detectie en mogelijk tekst omzetting wilt Toep assen.
+
++ Ongestructureerde of semi-gestructureerde documenten met inhoud met inherente betekenis of context die in het grotere document is verborgen. 
+
+  Blobs in het bijzonder bevatten vaak een grote inhoud die in één veld wordt verpakt. Door de vaardig heden van afbeeldingen en natuurlijke taal verwerking aan een Indexeer functie toe te voegen, kunt u nieuwe informatie maken die extant is in de onbewerkte inhoud, maar niet op andere wijze als DISTINCT-velden. Sommige kant-en-klare cognitieve vaardig heden die u kunnen helpen: sleutel woordgroepen extractie, sentiment analyse en entiteits herkenning (personen, organisaties en locaties).
+
+  Daarnaast kunnen vooraf ontwikkelde vaardig heden ook worden gebruikt om inhoud te herstructureren met behulp van tekst splitsen, samen voegen en vorm bewerkingen.
+
+Aangepaste vaardig heden kunnen complexere scenario's ondersteunen, zoals het herkennen van formulieren of het detecteren van aangepaste entiteiten met behulp van een model dat u opgeeft en inpakt in de [aangepaste vaardigheids webinterface](cognitive-search-custom-skill-interface.md). Enkele voor beelden van aangepaste vaardig heden zijn [formulieren Recognizer](), integratie van de [Bing entiteiten zoeken-API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)en [aangepaste entiteits herkenning](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+
+
+## <a name="component-pipeline-of-cognitive-search"></a>Onderdeel pijplijn van cognitieve zoek opdracht
 
 Een cognitieve Zoek pijplijn is gebaseerd op [Azure Search *Indexeer functies* ](search-indexer-overview.md) die gegevens bronnen verkennen en end-to-end index verwerking bieden. Vaardig heden zijn nu gekoppeld aan Indexeer functies, het onderscheppen en verrijken van documenten volgens de vaardig heden die u definieert. Zodra de index is geïndexeerd, hebt u toegang tot inhoud via Zoek opdrachten via alle [query typen die door Azure Search worden ondersteund](search-query-overview.md).  Als u geen ervaring hebt met Indexeer functies, begeleidt deze sectie u stapsgewijs door de stappen.
 
@@ -104,7 +124,7 @@ Indexen worden gegenereerd op basis van een index schema waarmee de velden, kenm
 + [Zelf studie (HTTP-aanvragen)](cognitive-search-tutorial-blob.md)
 + [Voorbeeld: Een aangepaste vaardigheid maken voor cognitieve Zoek opdrachtenC#()](cognitive-search-create-custom-skill-example.md)
 
-We raden u aan de gratis service voor Learning doeleinden uit te voeren, maar houd er rekening mee dat het aantal gratis trans acties beperkt is tot 20 documenten per dag. Als u zowel de Snelstartgids als zelf studie op één dag wilt uitvoeren, gebruikt u een kleinere set (10 documenten), zodat u in beide oefeningen kunt passen.
+We raden u aan de gratis service voor Learning doeleinden te maken, maar het aantal gratis trans acties is beperkt tot 20 documenten per dag. Als u zowel de Snelstartgids als zelf studie op één dag wilt uitvoeren, gebruikt u een kleinere set (10 documenten) zodat u in beide oefeningen kunt passen of verwijdert u de Indexeer functie die u in de Snelstartgids of zelf studie hebt gebruikt.
 
 **Stap 3: De API controleren**
 
@@ -115,9 +135,9 @@ In deze stap wordt gebruikgemaakt van de REST-Api's voor het bouwen van een cogn
 | REST-API | Description |
 |-----|-------------|
 | [Gegevensbron maken](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Een bron voor het identificeren van een externe gegevens bron die bron gegevens levert die worden gebruikt voor het maken van verrijkte documenten.  |
-| [Vaardig heden maken (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource coördineert het gebruik van [vooraf gedefinieerde vaardig](cognitive-search-predefined-skills.md) heden en [aangepaste cognitieve vaardig heden](cognitive-search-custom-skill-interface.md) die in een verrijkings pijplijn worden gebruikt tijdens het indexeren. |
+| [Vaardig heden maken (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Deze API is specifiek voor cognitieve Zoek opdrachten. Het is een resource die het gebruik van [vooraf gedefinieerde vaardig](cognitive-search-predefined-skills.md) heden en [aangepaste cognitieve vaardig heden](cognitive-search-custom-skill-interface.md) die in een verrijkings pijplijn worden gebruikt tijdens het indexeren coördineren. |
 | [Index maken](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Een schema waarmee een Azure Search index wordt uitgedrukt. Velden in de index toewijzing naar velden in bron gegevens of in velden die worden geproduceerd tijdens de verrijkings fase (bijvoorbeeld een veld voor organisatie namen die zijn gemaakt door entiteits herkenning). |
-| [Indexeer functie maken (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource waarmee onderdelen worden gedefinieerd die worden gebruikt tijdens de indexering: een gegevens bron, een vaardig heden, veld koppelingen van bron-en intermediair gegevens structuren naar doel index en de index zelf. Het uitvoeren van de Indexeer functie is de trigger voor gegevens opname en verrijking. De uitvoer is een zoek index op basis van het index schema, gevuld met bron gegevens, verrijkt via vaardig heden.  |
+| [Indexeer functie maken (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Een resource waarmee onderdelen worden gedefinieerd die worden gebruikt tijdens de indexering: een gegevens bron, een vaardig heden, veld koppelingen van bron-en intermediair gegevens structuren naar doel index en de index zelf. Het uitvoeren van de Indexeer functie is de trigger voor gegevens opname en verrijking. De uitvoer is een zoek index op basis van het index schema, gevuld met bron gegevens, verrijkt via vaardig heden. Deze bestaande API wordt uitgebreid voor cognitieve Zoek scenario's met het opnemen van een vakkennisset-eigenschap. |
 
 **Checklist: Een typische werk stroom**
 

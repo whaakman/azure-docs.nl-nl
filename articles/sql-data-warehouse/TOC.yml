@@ -22,20 +22,6 @@
       href: release-notes-10-0-10106-0.md
     - name: Upgrade-schema Gen2-regio's
       href: gen2-migration-schedule.md
-    - name: Gearchiveerde releaseopmerkingen
-      items:
-        - name: September 2018
-          href: release-notes-september-2018.md
-        - name: Augustus 2018
-          href: release-notes-august-2018.md
-        - name: Juli 2018
-          href: release-notes-july-2018.md
-        - name: Juni 2018
-          href: release-notes-june-2018.md
-        - name: Mei 2018
-          href: release-notes-may-2018.md
-        - name: April 2018
-          href: release-notes-april-2018.md
 - name: Snelstartgidsen
   expanded: true
   items:
