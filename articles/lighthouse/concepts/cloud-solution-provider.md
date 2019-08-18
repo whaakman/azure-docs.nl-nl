@@ -1,5 +1,5 @@
 ---
-title: Azure vuurtoren en het programma Cloud Solution Provider
+title: Azure Lighthouse en het programma Cloud Solution Provider
 description: Wanneer met behulp van Azure Resourcemanagement overgedragen, is het belangrijk dat beveiliging en toegangsbeheer.
 author: JnHs
 ms.service: lighthouse
@@ -14,7 +14,7 @@ ms.contentlocale: nl-NL
 ms.lasthandoff: 07/11/2019
 ms.locfileid: "67809958"
 ---
-# <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure vuurtoren en het programma Cloud Solution Provider
+# <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse en het programma Cloud Solution Provider
 
 Als u bent een [CSP (Cloud Solution Provider)](https://docs.microsoft.com/partner-center/csp-overview) partner, u hebt toegang tot de Azure-abonnementen voor uw klanten via het CSP-programma gemaakt met behulp van de [beheren namens (AOBO)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) functionaliteit. Deze toegang kunt u rechtstreeks ondersteuning, configureren en beheren van abonnementen voor uw klanten.
 
